@@ -18,7 +18,7 @@
 | # | File | Pages | Purpose |
 |---|---|---|---|
 | 1 | [`1_topic_proposal.pdf`](1_topic_proposal.pdf) | 35 | **DBA Topic Proposal (v2.1 Enhanced Structure)** --- committee-ready proposal with full table + flowchart presentation, 2-line introductions for every heading + table, and a 14-section skeleton mirroring the enhanced DBA dissertation outline. |
-| 2 | [`2_dissertation_proposal.pdf`](2_dissertation_proposal.pdf) | 191 | **DBA Dissertation Proposal** --- substantive proposal covering aim, objectives, hypotheses, methodology, evidence plan, contributions, and timeline. |
+| 2 | [`2_dissertation_proposal.pdf`](2_dissertation_proposal.pdf) | 22 | **DBA Dissertation v3 (GGU-Strict)** --- strictly mirrors the GGU Guidelines for Preparation of DBA Dissertation Thesis. Carries a coverage matrix mapping every GGU-required topic (47 items) to its addressing section, plus 5 enhanced front-matter / appendix items. Includes TOC, List of Tables, List of Figures, and a 15-reference selected bibliography aligned with the main thesis. |
 | 3 | [`3_main_dissertation_full_thesis.pdf`](3_main_dissertation_full_thesis.pdf) | 1126 | **Main Dissertation (Full Thesis)** --- the complete doctoral dissertation including 5 chapters + 14 appendices, with PLS-SEM evidence (n=131), qualitative expert panel (n=12), and retrospective EEG benchmarks (KAU + ABIDE-II). |
 
 ## Reading order for examiners
