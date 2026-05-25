@@ -15,7 +15,7 @@
 
 > *Integrating Generative AI, Retrieval-Augmented Generation, and Continuous Monitoring for Clinical and Consumer Healthcare Applications*
 
-## Five deliverables in this repository
+## Six deliverables in this repository
 
 | # | File | Pages | Purpose |
 |---|---|---|---|
@@ -24,6 +24,7 @@
 | 3 | [`3_main_dissertation_full_thesis.pdf`](3_main_dissertation_full_thesis.pdf) | 1127 | **Main Dissertation (Full Thesis)** --- 5 chapters + 14 appendices + 23-step ASD pipeline flowchart in Ch.3 + full Acknowledgements naming both supervisors + 424-entry `references.bib`. |
 | 4 | [`4_asd_literature_review.pdf`](4_asd_literature_review.pdf) | 10 | **Consolidated ASD Literature Review** --- standalone companion: PRISMA cascade (2,847 → 156 papers) + 6 themes (Classical ML / DL / Connectivity+Multimodal / Feature Opt / Early Detection / Governance+Trust) + 50 citations including the candidate's own 2025 ICSIT publication + 5 gaps G1–G5 with RGAIG closure. |
 | 5 | [`5_asd_questionnaire.pdf`](5_asd_questionnaire.pdf) | 6 | **RGAIG ASD Clinical Questionnaire (Primary Data Instrument)** --- B2C track (Sections A–F, 48 items: Demographics + Behavioural + Psychological + Social + Diagnostic + AI Acceptance) + B2B track (Sections G–I, 21 items: Governance Maturity + HITL Effectiveness + Operational Integration) + variable map (6 IVs + 6 DVs + 1 Mediator + 2 Moderators → H1–H5) + HIPAA/GDPR/DPDP consent. |
+| 6 | [`6_ch2_flow_document_asd.pdf`](6_ch2_flow_document_asd.pdf) | 7 | **Chapter 2 Flow Document --- ASD-Specific** --- standalone walkthrough of Chapter 2 with chapter claim + journey map + PRISMA cascade + 6 themes + 9 theoretical foundations (4 technical + 5 organisational) + 5 hypotheses (H1–H5 with falsifiability decision criteria) + SWOT + CMM maturity assessment of biomedical AI + RTAI ethics + critical contradictions in literature + chapter summary bridging to Ch.3 methodology. |
 
 ## Reading order for examiners
 
@@ -32,6 +33,7 @@
 3. **Then** [`3_main_dissertation_full_thesis.pdf`](3_main_dissertation_full_thesis.pdf) (1127 pp) for the complete dissertation with all evidence + analyses + appendices + contributions.
 4. **Supporting** [`4_asd_literature_review.pdf`](4_asd_literature_review.pdf) (10 pp) for the standalone ASD lit review with PRISMA cascade + 6 themes + 50 references.
 5. **Supporting** [`5_asd_questionnaire.pdf`](5_asd_questionnaire.pdf) (6 pp) for the primary-data instrument (B2C + B2B tracks, IV/DV/MeV/MoV mapping to H1–H5).
+6. **Supporting** [`6_ch2_flow_document_asd.pdf`](6_ch2_flow_document_asd.pdf) (7 pp) for the ASD-specific Chapter 2 walkthrough with PRISMA cascade, 9 theoretical foundations, SWOT, CMM maturity, and chapter claim.
 
 ## Cross-deliverable alignment
 
