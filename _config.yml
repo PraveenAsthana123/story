@@ -1,0 +1,11 @@
+# Jekyll configuration for GitHub Pages
+# Renders the repo as a styled landing page at https://praveenasthana123.github.io/story
+title: DBA Doctoral Submission — Praveen K Asthana
+description: >
+  A Governance Framework for Responsible Explainable AI-Assisted Retrospective
+  EEG-Based Neuropsychiatric Decision Support Under Human Clinical Oversight.
+  Six committee deliverables for Golden Gate University DBA (Generative AI),
+  submission target June 2026.
+author: Praveen K Asthana
+theme: jekyll-theme-cayman
+show_downloads: false
