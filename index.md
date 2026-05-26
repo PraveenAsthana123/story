@@ -73,9 +73,41 @@ ASD-specific Ch.2 walkthrough: chapter claim + journey map + PRISMA cascade + 6 
 
 ---
 
+## Framework Implementation — 6 Portals + 1 Mobile App
+
+The RGAIG framework is **implemented and operational**, not merely theoretical. The reference implementation spans six web portals and a cross-platform mobile companion, demonstrating practitioner relevance + technical feasibility (the dissertation's DBA-grade contribution). Source for these portals is maintained outside this repository for size reasons; the inventory below documents what exists.
+
+| # | Portal / App | Technology | Purpose | Hosting model |
+|---|---|---|---|---|
+| 1 | **RGAIG_PORTAL** | Vanilla HTML + CSS + JS | Framework dashboard: `index.html` + `admin.html` + `asd.html` + `architecture.html` + `survey.html` | Static (GitHub Pages capable) |
+| 2 | **rgaig-asd-app** | Python (Flask + FastAPI) + RAG engine + agentic backend | Live agentic ASD screening reference impl with planner / decomposer / policy / council patterns (per dissertation §E23) | Server (local / cloud) |
+| 3 | **rgaig-survey** | React + TypeScript SPA (Create React App) | Modern typed survey frontend for B2C + B2B questionnaire delivery | Static after build (Netlify / Vercel / Pages) |
+| 4 | **survey_app** | Python Flask + SQLite + Jinja templates | B2C / B2B / SUS survey deployment with persistence (`survey_b2c.html`, `survey_pro.html`, `survey_sus.html`, `dashboard.html`) | Server with DB |
+| 5 | **dc_aibf_app** | Flutter (Android + iOS + Web targets) | Cross-platform mobile RGAIG companion for caregiver-side capture | App stores / web build |
+| 6 | **Legacy HTML portals** (THESIS_PORTAL, THESIS_MAIN_PORTAL, DATA_CERTIFICATION_PORTAL) | Static HTML | Earlier thesis-navigation surfaces; retained for traceability | Static (legacy, in `OLD/` archive) |
+
+### Per-portal feature inventory
+
+- **RGAIG_PORTAL/** — `index.html`, `admin.html`, `asd.html`, `architecture.html` + `architecture.pdf`, `survey.html`, `css/`, `js/`
+- **rgaig-asd-app/** — `api_backend.py`, `app.py`, `asd_server.py`, `rag_engine.py`, `agents/`, `backend/`, `frontend/`, `frontend-asd/`, `data/`
+- **rgaig-survey/** — React `src/` (components), `public/`, `package.json`, `tsconfig.json`
+- **survey_app/** — `app.py`, `database.py`, `scoring.py`, `survey_data.db`, `templates/` (8 HTML pages), `static/`
+- **dc_aibf_app/** — Flutter `lib/`, `pubspec.yaml`, multi-platform build targets
+
+### What this means for examiners
+
+The dissertation's RGAIG framework (deliverable 2 §E1–E40) is grounded in a working reference implementation. The 6 portals + mobile app demonstrate:
+
+1. **Agentic AI in production** (rgaig-asd-app with planner + decomposer + policy + council per dissertation §E23)
+2. **B2C + B2B questionnaire delivery** (rgaig-survey + survey_app implementing the instrument from deliverable 5)
+3. **Multi-platform reach** (dc_aibf_app Flutter cross-platform for caregiver mobile capture)
+4. **Cross-deliverable consistency** — every portal embodies the same B2C-primary, B2B-supporting framing as the thesis
+
+---
+
 ## Source Materials
 
-LaTeX sources, markdown manuscripts, supplementary materials, drafts, version history, and the candidate's research-network publications are maintained in a separate working directory and are not published to this repository. Only the six committee-facing deliverables above are tracked here.
+LaTeX sources, markdown manuscripts, supplementary materials, drafts, version history, the 6 portals + mobile-app source code, and the candidate's research-network publications are maintained in a separate working directory and are not published to this repository. Only the six committee-facing deliverables above are tracked here.
 
 ---
 
