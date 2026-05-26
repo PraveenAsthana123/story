@@ -1,0 +1,1939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RGAIG+ | Responsible Generative AI Governance Framework</title>
+<meta name="description" content="A 9-Layer, 525-Module Unified Framework for Multi-Domain Biomedical AI Diagnosis by Praveen K Asthana, Golden Gate University">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YcnS/NPT9dXgY/IJOqM5JQZKT8W2CRzreKm" crossorigin="anonymous">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" integrity="sha384-t1nt8BQoYMLFN5p42tRAtuAAFQaCQuzKNixjfFnVmMiJfFnDMzMwB+SzVsAR5fhS" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js" integrity="sha384-elCHezKjmPaBBFL/McjhkCGJl7RYlRUpvCARK3wGGhCdv3PQSmed2N0V6gPIeDP0" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<button class="sidebar-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+
+<!-- ===== SIDEBAR ===== -->
+<nav id="sidebar" class="sidebar">
+<div class="sidebar-brand"><h4><i class="fas fa-brain me-2"></i>RGAIG+</h4><p>Responsible Generative AI Governance</p></div>
+<ul class="sidebar-nav">
+<li><a href="#hero"><i class="fas fa-home"></i>Home</a></li>
+<li class="nav-section">Framework</li>
+<li><a href="#about"><i class="fas fa-circle-info"></i>What is RGAIG+?</a></li>
+<li><a href="#architecture"><i class="fas fa-sitemap"></i>System Architecture</a></li>
+<li><a href="#framework"><i class="fas fa-layer-group"></i>9-Layer Architecture</a></li>
+<li><a href="#pillars"><i class="fas fa-shield-halved"></i>10 AI Pillars</a></li>
+<li><a href="#pillardeep"><i class="fas fa-brain"></i>Deep Dive: Each AI</a></li>
+<li class="nav-section">Data & AI</li>
+<li><a href="#eeg"><i class="fas fa-wave-square"></i>EEG & 10-20 System</a></li>
+<li><a href="#channels"><i class="fas fa-satellite-dish"></i>Channel Configs (4-32)</a></li>
+<li><a href="#emotivdevices"><i class="fas fa-head-side-virus"></i>Emotiv Devices</a></li>
+<li><a href="#fourier"><i class="fas fa-chart-area"></i>Fourier Transform</a></li>
+<li><a href="#data"><i class="fas fa-database"></i>Data Overview</a></li>
+<li><a href="#diseases"><i class="fas fa-virus"></i>Diseases & Papers</a></li>
+<li><a href="#preprocessing"><i class="fas fa-filter"></i>Preprocessing Pipeline</a></li>
+<li class="nav-section">AI Techniques</li>
+<li><a href="#aitechniques"><i class="fas fa-cogs"></i>ML/DL/CV/NLP/RAG</a></li>
+<li><a href="#opensource"><i class="fas fa-code-branch"></i>Open Source Models</a></li>
+<li><a href="#databases"><i class="fas fa-database"></i>Graph/Vector/TimeSeries</a></li>
+<li class="nav-section">Operations</li>
+<li><a href="#mcppipeline"><i class="fas fa-microchip"></i>MCP Pipeline Architecture</a></li>
+<li><a href="#mlops"><i class="fas fa-gears"></i>MLOps Pipeline</a></li>
+<li><a href="#llmops"><i class="fas fa-robot"></i>LLMOps Pipeline</a></li>
+<li><a href="#rag"><i class="fas fa-magnifying-glass"></i>RAG & GenAI</a></li>
+<li class="nav-section">Quality & Results</li>
+<li><a href="#lifecycle"><i class="fas fa-arrows-spin"></i>Lifecycle (IPO)</a></li>
+<li><a href="#taxonomy"><i class="fas fa-cubes"></i>525-Module Taxonomy</a></li>
+<li><a href="#results"><i class="fas fa-chart-column"></i>Results & Accuracy</a></li>
+<li class="nav-section">Research</li>
+<li><a href="#research"><i class="fas fa-flask"></i>Research Methodology</a></li>
+<li><a href="#gap"><i class="fas fa-arrows-left-right"></i>Gap Analysis</a></li>
+<li><a href="#phases"><i class="fas fa-list-ol"></i>15-Phase Process</a></li>
+<li><a href="#readiness"><i class="fas fa-check-double"></i>Readiness Assessment</a></li>
+<li class="nav-section">Compliance</li>
+<li><a href="#isonist"><i class="fas fa-certificate"></i>ISO 42001 & NIST</a></li>
+<li><a href="#comparison"><i class="fas fa-table"></i>Framework Comparison</a></li>
+<li><a href="#featurematrix"><i class="fas fa-th"></i>Feature Matrix</a></li>
+<li class="nav-section">Architecture</li>
+<li><a href="#hld"><i class="fas fa-building"></i>HLD & LLD</a></li>
+<li><a href="#sequence"><i class="fas fa-arrow-down-up-across-line"></i>Sequence Diagrams</a></li>
+<li class="nav-section">Business</li>
+<li><a href="#b2cb2b"><i class="fas fa-arrows-left-right-to-line"></i>B2C / B2B</a></li>
+<li><a href="#levers"><i class="fas fa-bolt"></i>AI Levers</a></li>
+<li><a href="#driverlist"><i class="fas fa-car"></i>Adoption Drivers</a></li>
+<li><a href="#pppt"><i class="fas fa-people-group"></i>People/Profit/Process/Tech</a></li>
+<li><a href="#pain"><i class="fas fa-heart-pulse"></i>Pain Assessment</a></li>
+<li><a href="#journey"><i class="fas fa-route"></i>Patient Journey</a></li>
+<li><a href="#impact"><i class="fas fa-explosion"></i>Impact Dashboard</a></li>
+<li><a href="#digital"><i class="fas fa-rocket"></i>Digital Transformation</a></li>
+<li><a href="#aistrategy"><i class="fas fa-chess"></i>AI Strategy</a></li>
+<li><a href="#adoptability"><i class="fas fa-users"></i>AI Adoptability</a></li>
+<li><a href="#casestudies"><i class="fas fa-book-open"></i>Case Studies</a></li>
+<li><a href="#industries"><i class="fas fa-industry"></i>Industries</a></li>
+<li class="nav-section">Matrices & KPIs</li>
+<li><a href="#valuematrix"><i class="fas fa-gem"></i>Value Realization</a></li>
+<li><a href="#roimatrix"><i class="fas fa-coins"></i>ROI Matrix</a></li>
+<li><a href="#kpidashboard"><i class="fas fa-gauge-high"></i>KPI Dashboard</a></li>
+<li class="nav-section">Tools</li>
+<li><a href="#scorecard"><i class="fas fa-star"></i>RGAIG+ Scorecard</a></li>
+<li><a href="#assessment"><i class="fas fa-clipboard-check"></i>Assessment Tools</a></li>
+<li><a href="#survey"><i class="fas fa-poll"></i>Research Surveys</a></li>
+<li><a href="#analysis"><i class="fas fa-chart-pie"></i>Statistical Analysis</a></li>
+<li><a href="#strategy"><i class="fas fa-chess-queen"></i>Strategy & ROI</a></li>
+<li class="nav-section">ASD Single-Disease</li>
+<li><a href="asd.html"><i class="fas fa-puzzle-piece"></i>ASD Overview</a></li>
+<li><a href="asd.html#dashboard"><i class="fas fa-chart-bar"></i>ASD Dashboard</a></li>
+<li><a href="asd.html#b2c-flow"><i class="fas fa-project-diagram"></i>B2C/B2B Flow</a></li>
+<li><a href="asd.html#sim-b2c"><i class="fas fa-play-circle"></i>Simulation</a></li>
+<li><a href="asd.html#mchat-sec"><i class="fas fa-clipboard-check"></i>ASD Assessment</a></li>
+<li><a href="asd.html#traceability"><i class="fas fa-link"></i>Traceability</a></li>
+<li class="nav-section">Surveys (4)</li>
+<li><a href="survey.html" target="_blank"><i class="fas fa-poll"></i>RGAIG+ Maturity Survey</a></li>
+<li><a href="survey.html?campaign=b2c_patient" target="_blank"><i class="fas fa-user"></i>B2C Patient Survey</a></li>
+<li><a href="survey.html?campaign=b2b_hospital" target="_blank"><i class="fas fa-hospital"></i>B2B Hospital Survey</a></li>
+<li><a href="survey.html?campaign=expert_panel" target="_blank"><i class="fas fa-user-doctor"></i>Expert Panel Survey</a></li>
+<li class="nav-section">Portals</li>
+<li><a href="asd.html"><i class="fas fa-puzzle-piece"></i>ASD Deep Dive</a></li>
+<li><a href="architecture.html" target="_blank"><i class="fas fa-sitemap"></i>Architecture Docs</a></li>
+<li><a href="admin.html" target="_blank"><i class="fas fa-lock"></i>Admin Portal</a></li>
+</ul>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero" class="hero">
+<div class="container text-center" style="position:relative;z-index:2">
+<h1 class="display-font">RGAIG<span class="gold">+</span></h1>
+<p class="subtitle mx-auto mt-3">Responsible Generative AI Governance Framework</p>
+<p class="mt-2" style="font-size:.95rem;opacity:.7">A 9-Layer, 525-Module Unified Framework for Multi-Domain Biomedical AI Diagnosis</p>
+<p style="font-size:.85rem;opacity:.5;margin-top:.4rem">Praveen K Asthana &bull; Golden Gate University &bull; AI Governance Research 2026</p>
+<div class="stat-counter justify-content-center mt-3">
+<div class="stat-item"><span class="stat-number" data-target="9">0</span><span class="stat-label">Layers</span></div>
+<div class="stat-item"><span class="stat-number" data-target="525">0</span><span class="stat-label">Modules</span></div>
+<div class="stat-item"><span class="stat-number" data-target="15">0</span><span class="stat-label">Standards</span></div>
+<div class="stat-item"><span class="stat-number" data-target="5">0</span><span class="stat-label">Diseases</span></div>
+<div class="stat-item"><span class="stat-number" data-target="768">0</span><span class="stat-label">Subjects</span></div>
+<div class="stat-item"><span class="stat-number" data-target="305">0</span><span class="stat-label">GB Data</span></div>
+<div class="stat-item"><span class="stat-number" data-target="98">0</span><span class="stat-label">% Pass</span></div>
+</div>
+<div class="mt-4">
+<a href="#framework" class="btn btn-gold me-2"><i class="fas fa-diagram-project me-2"></i>Explore Framework</a>
+<a href="#assessment" class="btn btn-outline-gold"><i class="fas fa-clipboard-check me-2"></i>Take Assessment</a>
+</div>
+</div>
+</section>
+
+<!-- ===== WHAT IS RGAIG+ ===== -->
+<section id="about" class="section">
+<div class="container">
+<h2 class="section-title">What is RGAIG+?</h2><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-lg-6">
+<h5 style="color:var(--maroon);font-weight:700"><i class="fas fa-exclamation-triangle me-2"></i>The Problem (B2C)</h5>
+<p>Over <strong>1 billion people</strong> worldwide suffer from neurological disorders. Current diagnostic pathways require specialist visits (6-18 month wait), expensive equipment ($50K-200K clinical EEG), and expert interpretation. Consumer wearable EEG ($300-800) can democratize diagnosis but lack governance, trust, and AI safety.</p>
+<ul style="font-size:.9rem">
+<li><strong>970 million</strong> with mental health disorders (WHO)</li>
+<li><strong>50 million</strong> with epilepsy worldwide</li>
+<li><strong>10 million</strong> new Parkinson's cases annually</li>
+<li><strong>1 in 36</strong> children diagnosed with ASD (CDC)</li>
+<li><strong>280 million</strong> with depression globally</li>
+</ul>
+</div>
+<div class="col-lg-6">
+<h5 style="color:var(--green);font-weight:700"><i class="fas fa-check-circle me-2"></i>The Solution</h5>
+<p>RGAIG+ is a <strong>9-layer, 525-module unified framework</strong> governing the entire AI diagnostic pipeline: consumer wearable EEG &rarr; signal processing &rarr; diagnostic AI &rarr; GenAI explanations &rarr; agentic orchestration &rarr; consumer interface &rarr; clinical oversight &rarr; monitoring &rarr; governance.</p>
+<div class="p-3 rounded bg-green-soft">
+<p class="mb-1"><strong>Innovation:</strong> First framework integrating device-level governance with GenAI governance for consumer healthcare AI.</p>
+<p class="mb-1"><strong>Validation:</strong> MSCA 90.8% &plusmn; 2.6% across 5 diseases, 768+ subjects, 305 GB real data.</p>
+<p class="mb-0"><strong>Contributions:</strong> 525-module taxonomy, 10-pillar governance, agentic orchestration governance, RAG faithfulness controls.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== SYSTEM ARCHITECTURE ===== -->
+<section id="architecture" class="section section-dark">
+<div class="container">
+<h2 class="section-title" style="color:#fff">System Architecture</h2>
+<p class="section-subtitle">Wearable Device &rarr; IoT Gateway &rarr; Cloud Platform &rarr; Mobile App</p><div class="gold-line"></div>
+<div style="display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;margin:2rem 0">
+<div class="arch-node"><div class="arch-icon"><i class="fas fa-head-side-virus"></i></div><h5>Wearable EEG</h5><p>Emotiv EPOC X/Insight<br>4-32 channels, 128-256 Hz<br>BLE/WiFi, SNR &ge; 10 dB</p></div>
+<div class="arch-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="arch-node"><div class="arch-icon" style="color:var(--green)"><i class="fas fa-network-wired"></i></div><h5>IoT Gateway</h5><p>Edge preprocessing<br>Signal quality check<br>Secure transmission</p></div>
+<div class="arch-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="arch-node"><div class="arch-icon" style="color:var(--maroon)"><i class="fas fa-cloud"></i></div><h5>Cloud Platform</h5><p>ML/DL inference<br>RAG engine (ChromaDB)<br>Governance engine</p></div>
+<div class="arch-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="arch-node"><div class="arch-icon" style="color:var(--teal)"><i class="fas fa-mobile-screen-button"></i></div><h5>Mobile App</h5><p>Consumer dashboard<br>Diagnostic results<br>Health tracking</p></div>
+</div>
+<div class="row g-4 mt-3">
+<div class="col-md-3"><div class="p-3 rounded" style="background:rgba(45,106,79,.15)">
+<h6 style="color:var(--gold)"><i class="fas fa-microchip me-2"></i>Hardware Flow</h6>
+<div style="font-size:.78rem;color:rgba(255,255,255,.8)">EEG Electrodes (Ag/AgCl) &darr; ADC Converter (24-bit) &darr; BLE 5.0 Transmitter &darr; Gateway Receiver</div></div></div>
+<div class="col-md-3"><div class="p-3 rounded" style="background:rgba(128,0,32,.15)">
+<h6 style="color:var(--gold)"><i class="fas fa-cloud me-2"></i>Cloud Flow</h6>
+<div style="font-size:.78rem;color:rgba(255,255,255,.8)">API Gateway (REST) &darr; Signal Processing &darr; ML/DL Inference &darr; RAG + Governance</div></div></div>
+<div class="col-md-3"><div class="p-3 rounded" style="background:rgba(0,48,87,.25)">
+<h6 style="color:var(--gold)"><i class="fas fa-chart-line me-2"></i>Accuracy Flow</h6>
+<div style="font-size:.78rem;color:rgba(255,255,255,.8)">k-Fold CV (k=10) &darr; LOSO Validation &darr; Bootstrap CI (n=1000) &darr; MSCA 90.8%</div></div></div>
+<div class="col-md-3"><div class="p-3 rounded" style="background:rgba(196,163,90,.15)">
+<h6 style="color:var(--gold)"><i class="fas fa-shield-halved me-2"></i>Governance Flow</h6>
+<div style="font-size:.78rem;color:rgba(255,255,255,.8)">Risk Assessment &darr; Decision Engine &darr; Escalation Logic &darr; Audit Trail</div></div></div>
+</div>
+</div>
+</section>
+
+<!-- ===== 9-LAYER FRAMEWORK ===== -->
+<section id="framework" class="section section-alt">
+<div class="container">
+<h2 class="section-title">9-Layer Architecture</h2><p class="section-subtitle">Click any layer to expand details</p><div class="gold-line"></div>
+<div id="layerStack" style="display:flex;flex-direction:column-reverse;gap:4px;max-width:900px;margin:0 auto"></div>
+</div>
+</section>
+
+<!-- ===== 10 AI PILLARS ===== -->
+<section id="pillars" class="section">
+<div class="container">
+<h2 class="section-title">10 AI Governance Pillars</h2><p class="section-subtitle">Cross-cutting principles applied across all 9 layers</p><div class="gold-line"></div>
+<div class="row g-3" id="pillarGrid"></div>
+<div class="row mt-4"><div class="col-lg-8 mx-auto"><div class="chart-container" style="max-width:600px"><canvas id="pillarRadar"></canvas></div></div></div>
+</div>
+</section>
+
+<!-- ===== DEEP DIVE: EACH AI PILLAR WITH ASSESSMENT ===== -->
+<section id="pillardeep" class="section section-maroon">
+<div class="container">
+<h2 class="section-title" style="color:#fff">Deep Dive: Each AI Pillar</h2><p class="section-subtitle">Detailed governance capabilities and self-assessment for each pillar</p><div class="gold-line"></div>
+<div class="row g-3" id="pillarDeep"></div>
+
+<h4 class="mt-5" style="color:var(--gold)"><i class="fas fa-clipboard-check me-2"></i>10-Pillar Governance Assessment</h4>
+<p style="color:rgba(255,255,255,.7);font-size:.9rem">Rate your organization's maturity (0-5) for each pillar to get a governance readiness score.</p>
+<form id="pillarAssessForm">
+<div class="row g-3 mt-3" id="pillarAssessGrid"></div>
+<div class="text-center mt-4">
+<button type="button" class="btn btn-gold btn-lg" onclick="calcPillarAssess()"><i class="fas fa-chart-radar me-2"></i>Calculate Governance Score</button>
+</div>
+<div id="pillarAssessResult" class="mt-4" style="display:none"></div>
+</form>
+</div>
+</section>
+
+<!-- ===== EEG & 10-20 SYSTEM ===== -->
+<section id="eeg" class="section section-green">
+<div class="container">
+<h2 class="section-title" style="color:#fff">EEG & the 10-20 System</h2><p class="section-subtitle">International electrode placement standard for brain signal acquisition</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-lg-6">
+<h5 style="color:var(--gold)">International 10-20 Electrode Placement</h5>
+<p style="color:rgba(255,255,255,.8)">The 10-20 system positions electrodes at 10% and 20% intervals across the scalp. Landmarks: nasion (nose bridge), inion (skull base), pre-auricular points (ears). Provides standardized spatial sampling of brain electrical activity.</p>
+<p style="color:rgba(255,255,255,.7);font-size:.85rem"><strong>Electrode positions:</strong> Fp1, Fp2 (frontal pole), F3, F4, F7, F8 (frontal), C3, C4 (central), T3, T4, T5, T6 (temporal), P3, P4 (parietal), O1, O2 (occipital), Fz, Cz, Pz (midline).</p>
+<div class="mt-3">
+<div class="eeg-band" style="background:rgba(148,103,189,.25);color:#c9a8f0"><h6>Delta (0.5-4 Hz)</h6><p>Deep sleep, brain injury detection</p></div>
+<div class="eeg-band" style="background:rgba(45,106,79,.25);color:#7dcea0"><h6>Theta (4-8 Hz)</h6><p>Drowsiness, memory encoding, meditation</p></div>
+<div class="eeg-band" style="background:rgba(31,119,180,.25);color:#85c1e9"><h6>Alpha (8-13 Hz)</h6><p>Relaxed wakefulness, eyes closed</p></div>
+<div class="eeg-band" style="background:rgba(255,127,14,.25);color:#f0b27a"><h6>Beta (13-30 Hz)</h6><p>Active thinking, concentration, anxiety</p></div>
+<div class="eeg-band" style="background:rgba(128,0,32,.25);color:#e8a0b0"><h6>Gamma (30-100 Hz)</h6><p>Cognitive processing, perception binding</p></div>
+</div>
+</div>
+<div class="col-lg-6">
+<h5 style="color:var(--gold)">EEG Biomarkers per Disease</h5>
+<div class="p-3 rounded mb-2" style="background:rgba(255,255,255,.06)">
+<h6 style="color:#fff">Autism (ASD) &mdash; 19 channels</h6>
+<p style="color:rgba(255,255,255,.7);font-size:.82rem;margin:0">Atypical gamma power, reduced alpha coherence, frontal-posterior connectivity. Spectral power + connectivity features.</p></div>
+<div class="p-3 rounded mb-2" style="background:rgba(255,255,255,.06)">
+<h6 style="color:#fff">Parkinson's (PD) &mdash; 14 channels</h6>
+<p style="color:rgba(255,255,255,.7);font-size:.82rem;margin:0">Excessive beta in motor cortex, reduced theta/alpha ratio, slowed background. CNN-LSTM temporal dynamics.</p></div>
+<div class="p-3 rounded mb-2" style="background:rgba(255,255,255,.06)">
+<h6 style="color:#fff">Epilepsy &mdash; 32 channels</h6>
+<p style="color:rgba(255,255,255,.7);font-size:.82rem;margin:0">Spike-and-wave complexes, focal/generalized seizure patterns, interictal discharges. Real-time sliding window.</p></div>
+<div class="p-3 rounded mb-2" style="background:rgba(255,255,255,.06)">
+<h6 style="color:#fff">Stress &mdash; 14 channels</h6>
+<p style="color:rgba(255,255,255,.7);font-size:.82rem;margin:0">Elevated frontal beta, reduced alpha asymmetry, theta-beta ratio. Combined with ECG, EDA, PPG.</p></div>
+<div class="p-3 rounded" style="background:rgba(255,255,255,.06)">
+<h6 style="color:#fff">Depression &mdash; 32 channels</h6>
+<p style="color:rgba(255,255,255,.7);font-size:.82rem;margin:0">Frontal alpha asymmetry (L&lt;R), increased theta, reduced prefrontal connectivity. Multi-modal features.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== CHANNEL CONFIGURATIONS ===== -->
+<section id="channels" class="section section-dark">
+<div class="container">
+<h2 class="section-title" style="color:#fff">EEG Channel Configurations</h2><p class="section-subtitle">From 4-channel consumer to 32-channel clinical grade</p><div class="gold-line"></div>
+<div class="row g-3" id="channelGrid"></div>
+<div class="row mt-4"><div class="col-lg-8 mx-auto"><div class="chart-container" style="max-width:600px"><canvas id="channelChart"></canvas></div></div></div>
+</div>
+</section>
+
+<!-- ===== EMOTIV DEVICES ===== -->
+<section id="emotivdevices" class="section">
+<div class="container">
+<h2 class="section-title">Emotiv Device Ecosystem</h2><p class="section-subtitle">Consumer to clinical-grade EEG wearables with channel comparison</p><div class="gold-line"></div>
+<div class="row g-4" id="emotivGrid"></div>
+<div class="row mt-4"><div class="col-lg-6 mx-auto"><div class="chart-container" style="max-width:400px"><canvas id="emotivDonut"></canvas></div><p class="text-center mt-2" style="font-size:.78rem;color:var(--gray-600)">Channel count distribution across Emotiv device lineup</p></div></div>
+</div>
+</section>
+
+<!-- ===== FOURIER TRANSFORM ===== -->
+<section id="fourier" class="section">
+<div class="container">
+<h2 class="section-title">Fourier Transform in EEG</h2><p class="section-subtitle">Converting time-domain EEG signals to frequency-domain for feature extraction</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-lg-6">
+<div class="card-white h-100 border-green">
+<h5 style="color:var(--green);font-weight:700"><i class="fas fa-chart-area me-2"></i>Fast Fourier Transform (FFT)</h5>
+<p style="font-size:.88rem">Converts time-domain EEG signal x(t) into frequency-domain X(f), revealing power at each frequency band. Essential for extracting spectral features used by ML/DL models.</p>
+<div class="p-3 rounded" style="background:var(--gray-50);font-family:monospace;font-size:.82rem">
+X(f) = &sum; x(t) &middot; e<sup>-j2&pi;ft/N</sup>, &nbsp; t = 0, ..., N-1</div>
+<ul style="font-size:.85rem;margin-top:.8rem">
+<li><strong>Window:</strong> Hamming window (2-4s epochs, 50% overlap)</li>
+<li><strong>Resolution:</strong> &Delta;f = fs/N (e.g., 0.5 Hz at 256 Hz, 512 samples)</li>
+<li><strong>Output:</strong> Power Spectral Density (PSD) per frequency band</li>
+<li><strong>Bands extracted:</strong> Delta, Theta, Alpha, Beta, Gamma power</li>
+</ul>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="card-white h-100 border-maroon">
+<h5 style="color:var(--maroon);font-weight:700"><i class="fas fa-wave-square me-2"></i>Signal Processing Pipeline</h5>
+<div class="flow-container" style="flex-direction:column;align-items:stretch;padding:0">
+<div class="flow-box" style="background:var(--green)">Raw EEG (time domain)</div>
+<div class="flow-arrow text-center">&darr;</div>
+<div class="flow-box" style="background:var(--green-light)">Bandpass Filter (0.5-100 Hz)</div>
+<div class="flow-arrow text-center">&darr;</div>
+<div class="flow-box" style="background:var(--teal)">Notch Filter (50/60 Hz)</div>
+<div class="flow-arrow text-center">&darr;</div>
+<div class="flow-box" style="background:var(--navy-light)">Artifact Removal (ICA)</div>
+<div class="flow-arrow text-center">&darr;</div>
+<div class="flow-box" style="background:var(--navy)">Epoch Segmentation (2-4s windows)</div>
+<div class="flow-arrow text-center">&darr;</div>
+<div class="flow-box" style="background:var(--maroon)">FFT &rarr; Power Spectral Density</div>
+<div class="flow-arrow text-center">&darr;</div>
+<div class="flow-box" style="background:var(--gold-dark)">Band Power Features (5 bands &times; N channels)</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row g-4 mt-3">
+<div class="col-md-4"><div class="card-white border-navy"><h6 style="color:var(--navy)"><i class="fas fa-clock me-2"></i>Time Domain</h6><p style="font-size:.82rem">Mean, variance, skewness, kurtosis, zero-crossing rate, Hjorth parameters (activity, mobility, complexity)</p></div></div>
+<div class="col-md-4"><div class="card-white border-maroon"><h6 style="color:var(--maroon)"><i class="fas fa-chart-area me-2"></i>Frequency Domain</h6><p style="font-size:.82rem">Band power (5 bands), spectral entropy, peak frequency, power ratios (theta/beta, alpha/theta), spectral edge</p></div></div>
+<div class="col-md-4"><div class="card-white border-green"><h6 style="color:var(--green)"><i class="fas fa-diagram-project me-2"></i>Connectivity</h6><p style="font-size:.82rem">Coherence, Phase Locking Value (PLV), Granger causality, mutual information, cross-frequency coupling</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- ===== DATA OVERVIEW ===== -->
+<section id="data" class="section section-alt">
+<div class="container">
+<h2 class="section-title">Data Overview</h2><p class="section-subtitle">305 GB of real clinical data across 5 disease domains</p><div class="gold-line"></div>
+<div class="row g-3 mb-4">
+<div class="col-6 col-md-2"><div class="card-navy text-center"><div style="font-size:1.8rem;font-weight:800;color:var(--gold)">305</div><div style="font-size:.7rem">GB Total Data</div></div></div>
+<div class="col-6 col-md-2"><div class="card-maroon text-center"><div style="font-size:1.8rem;font-weight:800;color:var(--gold)">768+</div><div style="font-size:.7rem">Subjects</div></div></div>
+<div class="col-6 col-md-2"><div class="card-green text-center"><div style="font-size:1.8rem;font-weight:800;color:var(--gold)">198</div><div style="font-size:.7rem">Models</div></div></div>
+<div class="col-6 col-md-2"><div class="p-3 text-center rounded" style="background:var(--teal);color:#fff"><div style="font-size:1.8rem;font-weight:800;color:var(--gold)">1.4</div><div style="font-size:.7rem">GB Embeddings</div></div></div>
+<div class="col-6 col-md-2"><div class="card-navy text-center"><div style="font-size:1.8rem;font-weight:800;color:var(--gold)">58</div><div style="font-size:.7rem">GB Raw</div></div></div>
+<div class="col-6 col-md-2"><div class="card-maroon text-center"><div style="font-size:1.8rem;font-weight:800;color:var(--gold)">247</div><div style="font-size:.7rem">GB Processed</div></div></div>
+</div>
+<table class="table table-sm table-striped" style="font-size:.82rem">
+<thead style="background:var(--green-dark);color:#fff"><tr><th>Disease</th><th>Dataset</th><th>Subjects</th><th>Channels</th><th>Source</th><th>Size</th></tr></thead>
+<tbody>
+<tr><td>ASD</td><td>Large ASD EEG Dataset</td><td>300</td><td>19</td><td>PhysioNet / OpenNeuro</td><td>~85 GB</td></tr>
+<tr><td>Parkinson's</td><td>PD EEG Dataset</td><td>50</td><td>14</td><td>PhysioNet / Kaggle</td><td>~15 GB</td></tr>
+<tr><td>Epilepsy</td><td>Bonn Epilepsy Dataset</td><td>102</td><td>32</td><td>University of Bonn</td><td>~45 GB</td></tr>
+<tr><td>Stress</td><td>WESAD + Custom</td><td>120</td><td>14+</td><td>UCI / PhysioNet</td><td>~70 GB</td></tr>
+<tr><td>Depression</td><td>MDD EEG Dataset</td><td>112</td><td>32</td><td>OpenNeuro / Kaggle</td><td>~90 GB</td></tr>
+</tbody>
+</table>
+<p style="font-size:.78rem;color:var(--gray-600)"><strong>IRB:</strong> All datasets publicly available with data use agreements. De-identified with IRB exemption. Data Use Certificates in Appendix C.</p>
+</div>
+</section>
+
+<!-- ===== DISEASES & PAPERS ===== -->
+<section id="diseases" class="section">
+<div class="container">
+<h2 class="section-title">Disease Domains, Impact & Key Papers</h2><p class="section-subtitle">5 validated neurological conditions with published research references</p><div class="gold-line"></div>
+<div class="row g-3" id="diseaseGrid"></div>
+</div>
+</section>
+
+<!-- ===== PREPROCESSING ===== -->
+<section id="preprocessing" class="section section-dark">
+<div class="container">
+<h2 class="section-title" style="color:#fff">Data Preprocessing & Model Pipeline</h2><p class="section-subtitle">From raw EEG to diagnostic predictions</p><div class="gold-line"></div>
+<div class="flow-container justify-content-center mb-4">
+<div class="flow-box" style="background:var(--green)">Raw EEG</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--green-light)">Filter</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--teal)">Artifact Remove</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--navy-light)">FFT</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--navy)">Feature Extract</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--maroon)">Feature Select</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--maroon-light)">Model Train</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--gold-dark)">Predict</div>
+</div>
+<div class="row g-4 mt-3">
+<div class="col-md-4"><div class="p-3 rounded" style="background:rgba(45,106,79,.15)">
+<h6 style="color:var(--gold)"><i class="fas fa-filter me-2"></i>Signal Preprocessing</h6>
+<ul style="color:rgba(255,255,255,.8);font-size:.82rem"><li>Bandpass: 0.5-100 Hz (Butterworth 4th)</li><li>Notch: 50/60 Hz powerline</li><li>ICA artifact removal</li><li>Epoch segmentation (2-4s, 50% overlap)</li><li>Z-score normalization per channel</li><li>Bad channel interpolation</li></ul></div></div>
+<div class="col-md-4"><div class="p-3 rounded" style="background:rgba(128,0,32,.15)">
+<h6 style="color:var(--gold)"><i class="fas fa-chart-bar me-2"></i>Feature Engineering</h6>
+<ul style="color:rgba(255,255,255,.8);font-size:.82rem"><li><strong>Time:</strong> Mean, variance, Hjorth</li><li><strong>Frequency:</strong> Band power, spectral entropy</li><li><strong>Connectivity:</strong> Coherence, PLV, Granger</li><li><strong>Nonlinear:</strong> Sample entropy, Lyapunov</li><li><strong>Selection:</strong> ANOVA, MI, SHAP top-k</li></ul></div></div>
+<div class="col-md-4"><div class="p-3 rounded" style="background:rgba(0,48,87,.25)">
+<h6 style="color:var(--gold)"><i class="fas fa-robot me-2"></i>Model Pipeline</h6>
+<ul style="color:rgba(255,255,255,.8);font-size:.82rem"><li><strong>ML:</strong> RF, SVM, XGBoost, VotingClassifier</li><li><strong>DL:</strong> CNN, LSTM, CNN-LSTM, Bi-LSTM+Attn</li><li><strong>Opt:</strong> Grid search + Bayesian</li><li><strong>Train:</strong> Stratified k-fold (k=10), LOSO</li><li><strong>Monitor:</strong> PSI drift, CSI, concept drift</li></ul></div></div>
+</div>
+</div>
+</section>
+
+<!-- ===== AI TECHNIQUES (ML/DL/CV/NLP/RAG) ===== -->
+<section id="aitechniques" class="section">
+<div class="container">
+<h2 class="section-title">AI Techniques</h2><p class="section-subtitle">ML, DL, CV, NLP, RAG &mdash; each with detailed flowchart</p><div class="gold-line"></div>
+<div class="row" id="aiTechGrid"></div>
+</div>
+</section>
+
+<!-- ===== OPEN SOURCE MODELS ===== -->
+<section id="opensource" class="section section-alt">
+<div class="container">
+<h2 class="section-title">Open Source Models</h2><p class="section-subtitle">LLM options for RAG, explanations, and edge deployment</p><div class="gold-line"></div>
+<div class="row g-3" id="openSourceGrid"></div>
+</div>
+</section>
+
+<!-- ===== DATABASES (Graph, Vector, TimeSeries) ===== -->
+<section id="databases" class="section section-dark">
+<div class="container">
+<h2 class="section-title" style="color:#fff">Database Architecture</h2><p class="section-subtitle">Graph DB, Vector DB, Time-Series DB for multi-modal AI</p><div class="gold-line"></div>
+<div class="row g-4" id="dbGrid"></div>
+</div>
+</section>
+
+<!-- ===== MCP PIPELINE ARCHITECTURE ===== -->
+<section id="mcppipeline" class="section section-green">
+<div class="container">
+<h2 class="section-title" style="color:#fff">End-to-End MCP Pipeline</h2><p class="section-subtitle">Emotiv Device &rarr; IoT Gateway &rarr; MCP Server &rarr; Data &rarr; Filter &rarr; Model &rarr; RAG &rarr; Output Evaluation</p><div class="gold-line"></div>
+<div id="mcpPipelineFlow"></div>
+</div>
+</section>
+
+<!-- ===== MLOps ===== -->
+<section id="mlops" class="section section-alt">
+<div class="container">
+<h2 class="section-title">MLOps Pipeline</h2><p class="section-subtitle">End-to-end machine learning operations for 198 trained models</p><div class="gold-line"></div>
+<div class="flow-container justify-content-center mb-4">
+<div class="flow-box" style="background:var(--green)">Data Version</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--green-light)">Feature Store</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--teal)">Experiment Track</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--navy-light)">Model Registry</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--navy)">CI/CD</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--maroon)">Model Serve</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--maroon-light)">Monitor</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--gold-dark)">Govern</div>
+</div>
+<div class="row" id="mlopsGrid"></div>
+</div>
+</section>
+
+<!-- ===== LLMOps ===== -->
+<section id="llmops" class="section section-maroon">
+<div class="container">
+<h2 class="section-title" style="color:#fff">LLMOps Pipeline</h2><p class="section-subtitle">Large Language Model operations for RAG-based diagnostic explanations</p><div class="gold-line"></div>
+<div class="flow-container justify-content-center mb-4">
+<div class="flow-box" style="background:rgba(255,255,255,.15)">Knowledge Ingest</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:rgba(255,255,255,.15)">Embed</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:rgba(255,255,255,.15)">Prompt Eng</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:rgba(255,255,255,.15)">RAG Orch</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:rgba(255,255,255,.15)">Model Select</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:rgba(255,255,255,.15)">Evaluate</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:rgba(255,255,255,.15)">A2A Agents</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--gold-dark)">Govern</div>
+</div>
+<div class="row" id="llmopsGrid"></div>
+</div>
+</section>
+
+<!-- ===== RAG & GenAI ===== -->
+<section id="rag" class="section section-alt">
+<div class="container">
+<h2 class="section-title">RAG Integration & GenAI</h2><p class="section-subtitle">Retrieval-Augmented Generation for explainable diagnostics</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-md-3"><div class="card-white border-maroon"><h6 style="color:var(--maroon)"><i class="fas fa-scissors me-2"></i>Chunking</h6><p style="font-size:.82rem">512-token chunks, 50-token overlap. Recursive splitting. Medical terminology preserved.</p></div></div>
+<div class="col-md-3"><div class="card-white border-navy"><h6 style="color:var(--navy)"><i class="fas fa-vector-square me-2"></i>Embedding</h6><p style="font-size:.82rem">Sentence transformers (768-dim). ChromaDB 1.4 GB. Cosine similarity. Top-k=5.</p></div></div>
+<div class="col-md-3"><div class="card-white border-green"><h6 style="color:var(--green)"><i class="fas fa-magnifying-glass me-2"></i>Retrieval</h6><p style="font-size:.82rem"><strong>Pre:</strong> Query expansion, hypothesis-aware. <strong>Post:</strong> Re-ranking, hallucination check.</p></div></div>
+<div class="col-md-3"><div class="card-white border-gold"><h6 style="color:var(--gold-dark)"><i class="fas fa-check-double me-2"></i>Evaluation</h6><p style="font-size:.82rem">RAGAS: Faithfulness 0.92, Relevance 0.89, Precision 0.94. Semantic threshold.</p></div></div>
+</div>
+<div class="row g-4 mt-3">
+<div class="col-md-6"><div class="card-white">
+<h6 style="color:var(--navy);font-weight:700"><i class="fas fa-brain me-2"></i>Model Selection</h6>
+<table class="table table-sm" style="font-size:.82rem;margin:0">
+<thead><tr><th>Type</th><th>Use Case</th><th>Criteria</th></tr></thead>
+<tbody><tr><td>Vision</td><td>EEG topographic maps</td><td>CNN spatial extraction</td></tr>
+<tr><td>Text</td><td>RAG explanations</td><td>Faithfulness, clinical accuracy</td></tr>
+<tr><td>Multimodal</td><td>EEG + clinical notes</td><td>Late fusion, attention-weighted</td></tr>
+<tr><td>SLM</td><td>Edge/offline</td><td>Latency &lt;100ms, &lt;500MB</td></tr></tbody></table></div></div>
+<div class="col-md-6"><div class="card-white">
+<h6 style="color:var(--maroon);font-weight:700"><i class="fas fa-users-gear me-2"></i>Agentic AI (A2A)</h6>
+<table class="table table-sm" style="font-size:.82rem;margin:0">
+<thead><tr><th>Agent</th><th>Role</th><th>Protocol</th></tr></thead>
+<tbody><tr><td>Diagnostic</td><td>ML/DL inference</td><td>NeuroMCP</td></tr>
+<tr><td>Explanation</td><td>RAG report gen</td><td>NeuroMCP</td></tr>
+<tr><td>Safety</td><td>Risk scoring, hallucination</td><td>NeuroMCP</td></tr>
+<tr><td>Supervisor</td><td>Orchestration, escalation</td><td>A2A coordination</td></tr></tbody></table></div></div>
+</div>
+</div>
+</section>
+
+<!-- ===== LIFECYCLE ===== -->
+<section id="lifecycle" class="section">
+<div class="container">
+<h2 class="section-title">Framework Lifecycle</h2><p class="section-subtitle">Input &rarr; Process &rarr; Output &rarr; Evaluation &rarr; Monitoring &rarr; Benchmarking</p><div class="gold-line"></div>
+<div class="lifecycle-flow" id="lifecycleFlow"></div>
+</div>
+</section>
+
+<!-- ===== 525-MODULE TAXONOMY ===== -->
+<section id="taxonomy" class="section section-dark">
+<div class="container">
+<h2 class="section-title" style="color:#fff">525-Module Quality Taxonomy</h2><p class="section-subtitle">Three-tier unified quality assurance</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-lg-8">
+<div class="tier-card"><h4><span style="color:var(--green)">Tier 1:</span> 8-Phase ML/DL</h4><p>111 modules | <strong style="color:var(--success)">97.4%</strong></p>
+<div class="progress-bar-custom"><div class="progress-fill" style="width:97.4%;background:linear-gradient(90deg,var(--green-dark),var(--green))">97.4%</div></div></div>
+<div class="tier-card"><h4><span style="color:var(--maroon)">Tier 2:</span> 13-Phase GenAI</h4><p>220 modules | <strong style="color:var(--success)">98.1%</strong></p>
+<div class="progress-bar-custom"><div class="progress-fill" style="width:98.1%;background:linear-gradient(90deg,var(--maroon-dark),var(--maroon))">98.1%</div></div></div>
+<div class="tier-card"><h4><span style="color:var(--navy)">Tier 3:</span> 10 Pillars</h4><p>194 modules | <strong style="color:var(--success)">98.4%</strong></p>
+<div class="progress-bar-custom"><div class="progress-fill" style="width:98.4%;background:linear-gradient(90deg,var(--navy-dark),var(--navy))">98.4%</div></div></div>
+</div>
+<div class="col-lg-4"><div class="chart-container"><canvas id="taxonomyDonut"></canvas></div>
+<div class="text-center mt-3" style="color:rgba(255,255,255,.7)"><p style="font-size:2rem;font-weight:800;color:var(--gold)">525</p><p>Total Modules</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- ===== RESULTS ===== -->
+<section id="results" class="section section-alt">
+<div class="container">
+<h2 class="section-title">Computational Results</h2><p class="section-subtitle">Validated across 5 diseases, 768+ subjects</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-lg-6"><div class="card-white"><h5 style="color:var(--navy)">Disease Accuracy</h5><canvas id="accuracyChart"></canvas></div></div>
+<div class="col-lg-6"><div class="card-white"><h5 style="color:var(--navy)">Multi-Metric Radar</h5><canvas id="metricsRadar"></canvas></div></div>
+</div>
+<div class="row g-4 mt-3">
+<div class="col-lg-6"><div class="card-white">
+<h5 style="color:var(--navy)">Hypothesis Testing</h5>
+<table class="hypothesis-table">
+<thead><tr><th>H#</th><th>Hypothesis</th><th>p-value</th><th>Effect</th><th>Status</th></tr></thead>
+<tbody>
+<tr><td>H1</td><td>Technology &rarr; Accuracy</td><td>&lt;.001</td><td>d=1.42</td><td class="supported"><i class="fas fa-check-circle"></i> Supported</td></tr>
+<tr><td>H2</td><td>Organization Mediates</td><td>&lt;.01</td><td>&beta;=0.34</td><td class="supported"><i class="fas fa-check-circle"></i> Supported</td></tr>
+<tr><td>H3</td><td>Human Capability (RAG)</td><td>&lt;.01</td><td>&mdash;</td><td class="supported"><i class="fas fa-check-circle"></i> Supported</td></tr>
+<tr><td>H4</td><td>Change Readiness Moderates</td><td>&lt;.05</td><td>&beta;=0.28</td><td class="supported"><i class="fas fa-check-circle"></i> Supported</td></tr>
+<tr><td>H5</td><td>Governance &rarr; Trust</td><td>&lt;.001</td><td>&mdash;</td><td class="supported"><i class="fas fa-check-circle"></i> Supported</td></tr>
+</tbody></table></div></div>
+<div class="col-lg-6"><div class="card-white">
+<h5 style="color:var(--navy)">Key Metrics</h5>
+<div class="row g-2 text-center">
+<div class="col-4"><div class="p-2 rounded bg-green-soft"><div style="font-size:1.6rem;font-weight:800;color:var(--green)">90.8%</div><div style="font-size:.7rem">MSCA</div></div></div>
+<div class="col-4"><div class="p-2 rounded bg-maroon-soft"><div style="font-size:1.6rem;font-weight:800;color:var(--maroon)">0.956</div><div style="font-size:.7rem">Mean AUC</div></div></div>
+<div class="col-4"><div class="p-2 rounded" style="background:rgba(0,48,87,.08)"><div style="font-size:1.6rem;font-weight:800;color:var(--navy)">0.912</div><div style="font-size:.7rem">Macro F1</div></div></div>
+<div class="col-4"><div class="p-2 rounded bg-green-soft"><div style="font-size:1.6rem;font-weight:800;color:var(--green)">0.92</div><div style="font-size:.7rem">RAG Faith.</div></div></div>
+<div class="col-4"><div class="p-2 rounded bg-maroon-soft"><div style="font-size:1.6rem;font-weight:800;color:var(--maroon)">5/5</div><div style="font-size:.7rem">Hypotheses</div></div></div>
+<div class="col-4"><div class="p-2 rounded" style="background:rgba(0,48,87,.08)"><div style="font-size:1.6rem;font-weight:800;color:var(--navy)">4.6/5</div><div style="font-size:.7rem">Expert Rating</div></div></div>
+</div></div></div>
+</div>
+</div>
+</section>
+
+<!-- ===== RESEARCH METHODOLOGY ===== -->
+<section id="research" class="section">
+<div class="container">
+<h2 class="section-title">Research Methodology</h2><p class="section-subtitle">Mixed methods: quantitative + qualitative</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-md-4"><div class="card-white h-100 border-green"><h5 style="color:var(--green)"><i class="fas fa-calculator me-2"></i>Quantitative</h5>
+<ul style="font-size:.82rem"><li>ML/DL accuracy (5 domains)</li><li>Bootstrap CI (1,000 resamples)</li><li>Paired t-tests (Bonferroni)</li><li>LOSO cross-validation</li><li>RAGAS metrics</li><li>Ablation study</li></ul></div></div>
+<div class="col-md-4"><div class="card-white h-100 border-maroon"><h5 style="color:var(--maroon)"><i class="fas fa-comments me-2"></i>Qualitative</h5>
+<ul style="font-size:.82rem"><li>12-member expert panel</li><li>Braun & Clarke thematic analysis</li><li>Open-ended coding (6 themes)</li><li>Cohen's &kappa; = 0.84</li><li>Krippendorff's &alpha; = 0.84</li><li>Trust assessment (3 domains)</li></ul></div></div>
+<div class="col-md-4"><div class="card-white h-100 border-navy"><h5 style="color:var(--navy)"><i class="fas fa-code-branch me-2"></i>Variables</h5>
+<ul style="font-size:.82rem"><li><strong>IV:</strong> AI Governance Framework</li><li><strong>DV:</strong> AI Adoption</li><li><strong>Mediators:</strong> Trust, Perceived Usefulness</li><li><strong>Moderator:</strong> Digital Culture</li><li><strong>Controls:</strong> Regulatory, Dataset size, Signal</li></ul></div></div>
+</div>
+</div>
+</section>
+
+<!-- ===== GAP ANALYSIS ===== -->
+<section id="gap" class="section section-dark">
+<div class="container">
+<h2 class="section-title" style="color:#fff">Gap Analysis</h2><p class="section-subtitle">AS-IS vs TO-BE</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-md-6">
+<h5 style="color:var(--danger)"><i class="fas fa-times-circle me-2"></i>AS-IS (Current State)</h5>
+<div class="gap-card" style="border-color:var(--danger)"><strong>No unified governance</strong> for consumer AI diagnostics</div>
+<div class="gap-card" style="border-color:var(--danger)"><strong>Black-box AI</strong> &mdash; no explainability for consumer GenAI</div>
+<div class="gap-card" style="border-color:var(--danger)"><strong>15+ fragmented standards</strong>, none integrated</div>
+<div class="gap-card" style="border-color:var(--danger)"><strong>No device governance</strong> for consumer wearables</div>
+<div class="gap-card" style="border-color:var(--danger)"><strong>Trust undefined</strong> &mdash; no trust-to-adoption pathway</div>
+<div class="gap-card" style="border-color:var(--danger)"><strong>Manual compliance</strong> &mdash; no automated governance</div>
+</div>
+<div class="col-md-6">
+<h5 style="color:var(--success)"><i class="fas fa-check-circle me-2"></i>TO-BE (With RGAIG+)</h5>
+<div class="gap-card" style="border-color:var(--success)"><strong>9-layer unified governance</strong> from device to compliance</div>
+<div class="gap-card" style="border-color:var(--success)"><strong>RAG explainability</strong> with faithfulness 0.92</div>
+<div class="gap-card" style="border-color:var(--success)"><strong>15 standards mapped</strong> to 9 layers with traceability</div>
+<div class="gap-card" style="border-color:var(--success)"><strong>Device benchmark</strong> (8 dimensions, IEC 60601)</div>
+<div class="gap-card" style="border-color:var(--success)"><strong>Trust model</strong> TAM-TOE-RBV with SEM validation</div>
+<div class="gap-card" style="border-color:var(--success)"><strong>Automated governance</strong> decision engine, 4-level risk</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== ISO 42001 & NIST ===== -->
+<section id="isonist" class="section">
+<div class="container">
+<h2 class="section-title">ISO 42001 & NIST AI RMF</h2><p class="section-subtitle">How RGAIG+ extends and operationalizes international AI standards</p><div class="gold-line"></div>
+<div class="row g-4 mb-4">
+<div class="col-md-4"><div class="card-white h-100 border-navy">
+<h5 style="color:var(--navy)"><i class="fas fa-certificate me-2"></i>ISO/IEC 42001:2023</h5>
+<p style="font-size:.82rem">AI Management System (AIMS) standard. PDCA-based. Requires: AI policy, risk assessment, objectives, resources, competence, documented processes, internal audit, management review.</p>
+<p style="font-size:.82rem"><strong>RGAIG+ alignment:</strong> Layer 9 implements AIMS requirements. 525-module taxonomy maps to ISO controls. Audit trail satisfies documentation requirements.</p>
+</div></div>
+<div class="col-md-4"><div class="card-white h-100 border-maroon">
+<h5 style="color:var(--maroon)"><i class="fas fa-flag-usa me-2"></i>NIST AI RMF 1.0</h5>
+<p style="font-size:.82rem">4 core functions: GOVERN (policies), MAP (context), MEASURE (assess), MANAGE (mitigate). Voluntary framework for trustworthy AI development.</p>
+<p style="font-size:.82rem"><strong>RGAIG+ alignment:</strong> 9 layers map to all 4 functions. Layer 5 (Agentic) extends MAP. Layer 8 (Monitoring) extends MEASURE. Risk scoring extends MANAGE.</p>
+</div></div>
+<div class="col-md-4"><div class="card-white h-100 border-green">
+<h5 style="color:var(--green)"><i class="fas fa-globe-europe me-2"></i>EU AI Act 2024</h5>
+<p style="font-size:.82rem">Risk-based regulation. 4 tiers: Unacceptable, High-risk, Limited, Minimal. Medical AI = High-risk. Requires: conformity assessment, transparency, human oversight, data governance.</p>
+<p style="font-size:.82rem"><strong>RGAIG+ alignment:</strong> Framework designed for high-risk classification. Layer 7 (Clinical Oversight) = human oversight. RAG = transparency. Layer 9 = conformity.</p>
+</div></div>
+</div>
+<h5 style="color:var(--navy)">Detailed Comparison: ISO 42001 vs NIST AI RMF vs RGAIG+</h5>
+<div class="table-responsive"><table class="comparison-table" id="isoNistTable"></table></div>
+</div>
+</section>
+
+<!-- ===== FRAMEWORK COMPARISON ===== -->
+<section id="comparison" class="section section-alt">
+<div class="container">
+<h2 class="section-title">Framework Comparison</h2><p class="section-subtitle">RGAIG+ vs 4 existing frameworks (15 capabilities)</p><div class="gold-line"></div>
+<div class="table-responsive"><table class="comparison-table" id="comparisonTable"></table></div>
+<div class="row mt-4"><div class="col-lg-8 mx-auto"><div class="chart-container" style="max-width:600px"><canvas id="comparisonChart"></canvas></div></div></div>
+</div>
+</section>
+
+<!-- ===== FEATURE MATRIX ===== -->
+<section id="featurematrix" class="section">
+<div class="container">
+<h2 class="section-title">Feature Matrix</h2><p class="section-subtitle">RGAIG+ vs competitors across 15 capabilities</p><div class="gold-line"></div>
+<div class="table-responsive"><table class="comparison-table" id="featureMatrixTable"></table></div>
+</div>
+</section>
+
+<!-- ===== HLD & LLD ===== -->
+<section id="hld" class="section section-green">
+<div class="container">
+<h2 class="section-title" style="color:#fff">High-Level & Low-Level Design</h2><p class="section-subtitle">System architecture documentation</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-md-6">
+<div class="card-white">
+<h5 style="color:var(--green);font-weight:700"><i class="fas fa-building me-2"></i>HLD: High-Level Design</h5>
+<table class="table table-sm" style="font-size:.82rem">
+<thead style="background:var(--green);color:#fff"><tr><th>Component</th><th>Technology</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td>EEG Acquisition</td><td>Emotiv SDK, BLE 5.0</td><td>Real-time 14-32 ch EEG streaming</td></tr>
+<tr><td>Edge Gateway</td><td>Raspberry Pi / Mobile</td><td>Signal quality, buffering, compression</td></tr>
+<tr><td>API Layer</td><td>FastAPI, REST</td><td>Secure endpoints, auth, rate limiting</td></tr>
+<tr><td>ML Pipeline</td><td>scikit-learn, PyTorch</td><td>198 trained models (joblib), ensemble</td></tr>
+<tr><td>RAG Engine</td><td>ChromaDB, Transformers</td><td>1.4 GB embeddings, 768-dim vectors</td></tr>
+<tr><td>Agent Orchestration</td><td>NeuroMCP, A2A</td><td>4 specialized agents, supervisor</td></tr>
+<tr><td>Storage</td><td>PostgreSQL, ChromaDB</td><td>305 GB processed, audit logs</td></tr>
+<tr><td>Consumer App</td><td>React Native / Flutter</td><td>Cross-platform mobile dashboard</td></tr>
+<tr><td>Governance</td><td>Custom engine</td><td>525-module taxonomy, risk scoring</td></tr>
+</tbody></table>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card-white">
+<h5 style="color:var(--maroon);font-weight:700"><i class="fas fa-microchip me-2"></i>LLD: Low-Level Design</h5>
+<table class="table table-sm" style="font-size:.82rem">
+<thead style="background:var(--maroon);color:#fff"><tr><th>Module</th><th>Details</th></tr></thead>
+<tbody>
+<tr><td>Signal Preprocessing</td><td>Butterworth 4th order, ICA (FastICA), Z-score norm, spherical spline interpolation</td></tr>
+<tr><td>FFT Engine</td><td>Hamming window, 512-point FFT, PSD via Welch's method, 5-band extraction</td></tr>
+<tr><td>Feature Extraction</td><td>200+ features/subject: Hjorth, spectral entropy, PLV, sample entropy, fractal dim</td></tr>
+<tr><td>Model Training</td><td>GridSearchCV, BayesianOptimization, StratifiedKFold(10), random_state=42</td></tr>
+<tr><td>Inference Pipeline</td><td>joblib.load() &rarr; preprocess &rarr; extract &rarr; predict &rarr; confidence &rarr; explain</td></tr>
+<tr><td>RAG Pipeline</td><td>RecursiveTextSplitter(512,50) &rarr; SentenceTransformer &rarr; ChromaDB &rarr; top-5 &rarr; LLM</td></tr>
+<tr><td>Agent Protocol</td><td>JSON-RPC, async message queue, state machine per agent, supervisor heartbeat</td></tr>
+<tr><td>Drift Detection</td><td>PSI (threshold 0.2), CSI (threshold 0.25), KL divergence, window=1000 samples</td></tr>
+<tr><td>Governance Engine</td><td>Rule-based + ML risk scorer, 4-level escalation, audit_log table, compliance check</td></tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== SEQUENCE DIAGRAMS ===== -->
+<section id="sequence" class="section">
+<div class="container">
+<h2 class="section-title">Sequence Diagrams</h2><p class="section-subtitle">Key interaction flows in the RGAIG+ system</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-lg-6">
+<div class="card-white">
+<h5 style="color:var(--navy);font-weight:700"><i class="fas fa-arrow-down-up-across-line me-2"></i>Diagnostic Flow</h5>
+<div style="font-size:.78rem;font-family:'Inter',monospace;background:var(--gray-50);padding:1rem;border-radius:8px;line-height:1.8">
+<strong>Patient</strong> &rarr; <strong>Wearable</strong>: Wear EEG device<br>
+<strong>Wearable</strong> &rarr; <strong>Gateway</strong>: Stream raw EEG (BLE 5.0)<br>
+<strong>Gateway</strong> &rarr; <strong>Gateway</strong>: Quality check + buffer<br>
+<strong>Gateway</strong> &rarr; <strong>Cloud API</strong>: POST /api/v1/diagnose<br>
+<strong>Cloud API</strong> &rarr; <strong>Signal Proc</strong>: Preprocess (filter, ICA, FFT)<br>
+<strong>Signal Proc</strong> &rarr; <strong>Feature Eng</strong>: Extract 200+ features<br>
+<strong>Feature Eng</strong> &rarr; <strong>ML Pipeline</strong>: Run ensemble inference<br>
+<strong>ML Pipeline</strong> &rarr; <strong>Risk Engine</strong>: Score confidence + risk<br>
+<strong>Risk Engine</strong> &rarr; <strong>RAG Engine</strong>: Generate explanation<br>
+<strong>RAG Engine</strong> &rarr; <strong>Safety Agent</strong>: Hallucination check<br>
+<strong>Safety Agent</strong> &rarr; <strong>Supervisor</strong>: Approve/escalate<br>
+<strong>Supervisor</strong> &rarr; <strong>Cloud API</strong>: Return result<br>
+<strong>Cloud API</strong> &rarr; <strong>Mobile App</strong>: Push notification<br>
+<strong>Mobile App</strong> &rarr; <strong>Patient</strong>: Display diagnosis + explanation
+</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="card-white">
+<h5 style="color:var(--maroon);font-weight:700"><i class="fas fa-arrow-down-up-across-line me-2"></i>RAG Explanation Flow</h5>
+<div style="font-size:.78rem;font-family:'Inter',monospace;background:var(--gray-50);padding:1rem;border-radius:8px;line-height:1.8">
+<strong>ML Pipeline</strong> &rarr; <strong>Explainer</strong>: Prediction + confidence<br>
+<strong>Explainer</strong> &rarr; <strong>SHAP</strong>: Compute feature importance<br>
+<strong>SHAP</strong> &rarr; <strong>Explainer</strong>: Top-10 features ranked<br>
+<strong>Explainer</strong> &rarr; <strong>Query Builder</strong>: Disease + features query<br>
+<strong>Query Builder</strong> &rarr; <strong>ChromaDB</strong>: Vector similarity search<br>
+<strong>ChromaDB</strong> &rarr; <strong>Re-ranker</strong>: Top-5 contexts retrieved<br>
+<strong>Re-ranker</strong> &rarr; <strong>LLM</strong>: Prompt + contexts + features<br>
+<strong>LLM</strong> &rarr; <strong>Hallucination Check</strong>: Generated text<br>
+<strong>Hallucination Check</strong> &rarr; <strong>Citation Validator</strong>: Verify claims<br>
+<strong>Citation Validator</strong> &rarr; <strong>Explainer</strong>: Validated explanation<br>
+<strong>Explainer</strong> &rarr; <strong>Consumer Report</strong>: Plain-language output<br>
+<strong>Explainer</strong> &rarr; <strong>Clinical Report</strong>: Detailed + SHAP plots<br>
+<strong>Both</strong> &rarr; <strong>Audit Log</strong>: Full trace recorded
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== B2C / B2B ===== -->
+<section id="b2cb2b" class="section">
+<div class="container">
+<h2 class="section-title">B2C &amp; B2B Applications</h2><p class="section-subtitle">Consumer health and enterprise health market opportunities</p><div class="gold-line"></div>
+<div class="row g-4" id="b2cB2bGrid"></div>
+</div>
+</section>
+
+<!-- ===== AI LEVERS ===== -->
+<section id="levers" class="section section-dark">
+<div class="container">
+<h2 class="section-title" style="color:#fff">AI Levers</h2><p class="section-subtitle">How RGAIG+ creates transformational leverage</p><div class="gold-line"></div>
+<div class="row g-3" id="leverGrid"></div>
+</div>
+</section>
+
+<!-- ===== DRIVERS ===== -->
+<section id="driverlist" class="section section-alt">
+<div class="container">
+<h2 class="section-title">Adoption Drivers</h2><p class="section-subtitle">Technology, market, regulatory, and social forces driving AI governance adoption</p><div class="gold-line"></div>
+<div class="row g-4" id="driverGrid"></div>
+</div>
+</section>
+
+<!-- ===== PPPT FRAMEWORK ===== -->
+<section id="pppt" class="section section-maroon">
+<div class="container">
+<h2 class="section-title" style="color:#fff">People, Profit, Process, Technology</h2><p class="section-subtitle">Four-pillar implementation framework with KPIs</p><div class="gold-line"></div>
+<div class="row g-4" id="ppptGrid"></div>
+</div>
+</section>
+
+<!-- ===== PAIN ASSESSMENT ===== -->
+<section id="pain" class="section section-maroon">
+<div class="container">
+<h2 class="section-title" style="color:#fff">Pain Assessment</h2><p class="section-subtitle">Business, customer, and patient pain points addressed by RGAIG+</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-md-4"><div class="pain-card" style="background:rgba(255,255,255,.08)">
+<h5 style="color:var(--gold)"><i class="fas fa-building me-2"></i>Business Pain</h5>
+<div class="pain-item"><strong>Regulatory Risk:</strong> $50M+ fines for non-compliant AI (EU AI Act)</div>
+<div class="pain-item"><strong>Liability:</strong> No governance = no legal defensibility for AI misdiagnosis</div>
+<div class="pain-item"><strong>Integration Cost:</strong> 15+ separate standards to manage manually</div>
+<div class="pain-item"><strong>Talent Gap:</strong> Few AI governance professionals in healthcare</div>
+<div class="pain-item"><strong>Trust Deficit:</strong> 67% of hospitals hesitate to deploy black-box AI</div>
+<div class="pain-item"><strong>Audit Burden:</strong> Manual compliance costs $200K-500K annually</div>
+</div></div>
+<div class="col-md-4"><div class="pain-card" style="background:rgba(255,255,255,.08)">
+<h5 style="color:var(--gold)"><i class="fas fa-users me-2"></i>Customer/Provider Pain</h5>
+<div class="pain-item"><strong>Black Box:</strong> Cannot explain AI decisions to patients or regulators</div>
+<div class="pain-item"><strong>Fragmentation:</strong> Different tools per disease, no unified platform</div>
+<div class="pain-item"><strong>Quality Gaps:</strong> No standardized quality metrics for AI diagnostics</div>
+<div class="pain-item"><strong>Interoperability:</strong> Wearable data siloed from clinical systems</div>
+<div class="pain-item"><strong>Monitoring:</strong> No drift detection = degrading accuracy over time</div>
+<div class="pain-item"><strong>Cost:</strong> Clinical-grade EEG $50K-200K vs consumer wearable $300-800</div>
+</div></div>
+<div class="col-md-4"><div class="pain-card" style="background:rgba(255,255,255,.08)">
+<h5 style="color:var(--gold)"><i class="fas fa-heart-pulse me-2"></i>Patient Pain</h5>
+<div class="pain-item"><strong>Wait Time:</strong> 6-18 months for specialist appointment</div>
+<div class="pain-item"><strong>Cost Barrier:</strong> $2,000-5,000 per clinical EEG session</div>
+<div class="pain-item"><strong>Misdiagnosis:</strong> 15-30% misdiagnosis rate for neurological conditions</div>
+<div class="pain-item"><strong>No Explanation:</strong> "You have condition X" with no understandable reasoning</div>
+<div class="pain-item"><strong>Anxiety:</strong> Months of uncertainty between symptom onset and diagnosis</div>
+<div class="pain-item"><strong>Access Inequality:</strong> Rural/developing areas lack neurologists entirely</div>
+</div></div>
+</div>
+</div>
+</section>
+
+<!-- ===== DIGITAL TRANSFORMATION ===== -->
+<section id="digital" class="section section-alt">
+<div class="container">
+<h2 class="section-title">Digital Transformation</h2><p class="section-subtitle">How RGAIG+ enables AI-driven healthcare transformation</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-md-6">
+<div class="card-white h-100">
+<h5 style="color:var(--green)"><i class="fas fa-rocket me-2"></i>Transformation Pillars</h5>
+<div class="p-2 rounded mb-2 bg-green-soft"><strong>1. Technology Foundation:</strong> Wearable EEG + Cloud AI + Mobile App + Edge Computing</div>
+<div class="p-2 rounded mb-2 bg-maroon-soft"><strong>2. Data-Driven Decisions:</strong> 305 GB real data, ML/DL ensemble, evidence-based diagnosis</div>
+<div class="p-2 rounded mb-2" style="background:rgba(0,48,87,.06)"><strong>3. Process Automation:</strong> Agentic orchestration replaces manual diagnostic workflows</div>
+<div class="p-2 rounded mb-2 bg-green-soft"><strong>4. Patient Experience:</strong> Instant results, plain-language explanations, mobile access</div>
+<div class="p-2 rounded mb-2 bg-maroon-soft"><strong>5. Governance by Design:</strong> 525-module taxonomy embedded in every layer</div>
+<div class="p-2 rounded" style="background:rgba(0,48,87,.06)"><strong>6. Continuous Learning:</strong> Drift detection, auto-retraining, feedback loops</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card-white h-100">
+<h5 style="color:var(--maroon)"><i class="fas fa-chart-line me-2"></i>Maturity Journey</h5>
+<div class="p-2 rounded mb-2" style="background:var(--maroon);color:#fff"><strong>Level 5: Optimizing</strong> &mdash; AI-first culture, continuous improvement, industry leader</div>
+<div class="p-2 rounded mb-2" style="background:var(--maroon-light);color:#fff"><strong>Level 4: Managed</strong> &mdash; Quantitative governance, proactive monitoring, KPIs</div>
+<div class="p-2 rounded mb-2" style="background:var(--navy);color:#fff"><strong>Level 3: Defined</strong> &mdash; Documented processes, governance board, audit trails</div>
+<div class="p-2 rounded mb-2" style="background:var(--navy);color:#fff;opacity:.7"><strong>Level 2: Developing</strong> &mdash; Partial governance, basic monitoring</div>
+<div class="p-2 rounded" style="background:var(--navy);color:#fff;opacity:.4"><strong>Level 1: Initial</strong> &mdash; Ad hoc, no formal governance, reactive</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== AI STRATEGY ===== -->
+<section id="aistrategy" class="section section-dark">
+<div class="container">
+<h2 class="section-title" style="color:#fff">AI Strategy</h2><p class="section-subtitle">Strategic framework for AI governance implementation</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-md-4"><div class="p-3 rounded" style="background:rgba(45,106,79,.15)">
+<h5 style="color:var(--gold)"><i class="fas fa-bullseye me-2"></i>Vision</h5>
+<p style="color:rgba(255,255,255,.8);font-size:.85rem">Democratize neurological diagnosis through governed, explainable, consumer-accessible AI that maintains clinical-grade accuracy and patient trust.</p>
+<ul style="color:rgba(255,255,255,.7);font-size:.82rem"><li>Reduce diagnostic wait from 6-18 months to minutes</li><li>Reduce cost from $50K to $300-800</li><li>Achieve 90%+ accuracy across 5+ diseases</li><li>100% governance compliance (EU AI Act, FDA)</li></ul>
+</div></div>
+<div class="col-md-4"><div class="p-3 rounded" style="background:rgba(128,0,32,.15)">
+<h5 style="color:var(--gold)"><i class="fas fa-chess me-2"></i>Strategy Pillars</h5>
+<ul style="color:rgba(255,255,255,.8);font-size:.85rem">
+<li><strong>Build:</strong> 9-layer architecture from device to governance</li>
+<li><strong>Validate:</strong> 525-module taxonomy, statistical rigor</li>
+<li><strong>Trust:</strong> TAM-TOE-RBV model, 10 governance pillars</li>
+<li><strong>Scale:</strong> Multi-domain (5 diseases), multi-industry (4 sectors)</li>
+<li><strong>Comply:</strong> ISO 42001, NIST AI RMF, EU AI Act, FDA SaMD</li>
+<li><strong>Monitor:</strong> Continuous drift detection, bias surveillance</li>
+</ul>
+</div></div>
+<div class="col-md-4"><div class="p-3 rounded" style="background:rgba(0,48,87,.25)">
+<h5 style="color:var(--gold)"><i class="fas fa-road me-2"></i>Roadmap</h5>
+<ul style="color:rgba(255,255,255,.8);font-size:.85rem">
+<li><strong>Year 1:</strong> Framework validation, thesis defense, open-source toolkit</li>
+<li><strong>Year 2:</strong> Clinical pilot (2 hospitals), wearable partnership (Emotiv)</li>
+<li><strong>Year 3:</strong> FDA SaMD submission, 3 additional diseases</li>
+<li><strong>Year 4:</strong> Commercial deployment, SaaS governance platform</li>
+<li><strong>Year 5:</strong> Global expansion, ISO certification body</li>
+</ul>
+</div></div>
+</div>
+</div>
+</section>
+
+<!-- ===== AI ADOPTABILITY ===== -->
+<section id="adoptability" class="section">
+<div class="container">
+<h2 class="section-title">AI Adoptability</h2><p class="section-subtitle">TAM-TOE-RBV model for AI adoption in healthcare</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-md-4"><div class="card-white h-100 border-green">
+<h5 style="color:var(--green)"><i class="fas fa-user me-2"></i>TAM: Technology Acceptance</h5>
+<ul style="font-size:.85rem"><li><strong>Perceived Usefulness:</strong> 90.8% MSCA, multi-disease, RAG explanations</li><li><strong>Perceived Ease:</strong> Mobile app, plain language, automated pipeline</li><li><strong>Behavioral Intent:</strong> Expert rating 4.6/5, all hypotheses supported</li></ul>
+</div></div>
+<div class="col-md-4"><div class="card-white h-100 border-maroon">
+<h5 style="color:var(--maroon)"><i class="fas fa-building me-2"></i>TOE: Organization Context</h5>
+<ul style="font-size:.85rem"><li><strong>Technology:</strong> Wearable EEG maturity, cloud AI, RAG pipeline</li><li><strong>Organization:</strong> AI governance board, digital culture, change readiness</li><li><strong>Environment:</strong> EU AI Act pressure, FDA SaMD, patient demand</li></ul>
+</div></div>
+<div class="col-md-4"><div class="card-white h-100 border-navy">
+<h5 style="color:var(--navy)"><i class="fas fa-gem me-2"></i>RBV: Resource Advantage</h5>
+<ul style="font-size:.85rem"><li><strong>Valuable:</strong> 287% ROI, clinical + economic impact</li><li><strong>Rare:</strong> No comparable 9-layer governed AI framework</li><li><strong>Inimitable:</strong> 525-module taxonomy, 768+ subject validation</li><li><strong>Non-substitutable:</strong> End-to-end device-to-governance unique</li></ul>
+</div></div>
+</div>
+</div>
+</section>
+
+<!-- ===== PATIENT JOURNEY ===== -->
+<section id="journey" class="section">
+<div class="container">
+<h2 class="section-title">Patient Journey</h2><p class="section-subtitle">7-phase end-to-end patient experience with RGAIG+</p><div class="gold-line"></div>
+<div class="row" id="journeyGrid"></div>
+</div>
+</section>
+
+<!-- ===== IMPACT DASHBOARD ===== -->
+<section id="impact" class="section section-dark">
+<div class="container">
+<h2 class="section-title" style="color:#fff">Impact Dashboard</h2><p class="section-subtitle">Clinical, economic, and social impact metrics</p><div class="gold-line"></div>
+<div class="row g-4" id="impactGrid"></div>
+</div>
+</section>
+
+<!-- ===== CASE STUDIES ===== -->
+<section id="casestudies" class="section section-alt">
+<div class="container">
+<h2 class="section-title">Case Studies</h2><p class="section-subtitle">Real-world applications across disease domains</p><div class="gold-line"></div>
+<div class="row g-4" id="caseStudyGrid"></div>
+</div>
+</section>
+
+<!-- ===== 15-PHASE PROCESS ===== -->
+<section id="phases" class="section section-dark">
+<div class="container">
+<h2 class="section-title" style="color:#fff">15-Phase Research Process</h2><p class="section-subtitle">From topic selection to defense</p><div class="gold-line"></div>
+<div class="row g-2" id="phaseGrid"></div>
+</div>
+</section>
+
+<!-- ===== READINESS ===== -->
+<section id="readiness" class="section section-alt">
+<div class="container">
+<h2 class="section-title">Readiness Assessment</h2><p class="section-subtitle">Engineering, Management, and Data readiness for AI deployment</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-md-4"><div class="readiness-card">
+<h5><i class="fas fa-laptop-code me-2" style="color:var(--green)"></i>Engineering Readiness</h5>
+<div class="readiness-item"><span>ML/DL pipeline automated</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>MLOps + CI/CD deployed</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>Model registry &amp; versioning</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>Edge deployment (ONNX/TFLite)</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>Drift detection (PSI/CSI)</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>API &lt; 100ms latency</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>198 models in production</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+</div></div>
+<div class="col-md-4"><div class="readiness-card">
+<h5><i class="fas fa-briefcase me-2" style="color:var(--maroon)"></i>Management Readiness</h5>
+<div class="readiness-item"><span>AI governance board formed</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>ROI quantified (287%)</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>Risk framework (4-level)</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>Regulatory alignment (EU/FDA)</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>Change management plan</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>Stakeholder value mapped</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>6-phase adoption roadmap</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+</div></div>
+<div class="col-md-4"><div class="readiness-card">
+<h5><i class="fas fa-database me-2" style="color:var(--navy)"></i>Data Readiness</h5>
+<div class="readiness-item"><span>305 GB real clinical data</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>768+ validated subjects</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>5 disease domains covered</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>Data governance (HIPAA/GDPR)</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>IRB compliance verified</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>Data versioning (DVC)</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+<div class="readiness-item"><span>1.4 GB RAG embeddings</span><span style="color:var(--success)"><i class="fas fa-check"></i></span></div>
+</div></div>
+</div>
+</div>
+</section>
+
+<!-- ===== INDUSTRIES ===== -->
+<section id="industries" class="section">
+<div class="container">
+<h2 class="section-title">Industry Applications</h2><p class="section-subtitle">RGAIG+ adaptable across 4 sectors</p><div class="gold-line"></div>
+<div class="row g-4" id="industryGrid"></div>
+</div>
+</section>
+
+<!-- ===== VALUE REALIZATION MATRIX ===== -->
+<section id="valuematrix" class="section">
+<div class="container">
+<h2 class="section-title">Value Realization Matrix</h2><p class="section-subtitle">Stakeholder value across short, medium, and long-term horizons</p><div class="gold-line"></div>
+<div class="table-responsive"><table class="comparison-table" id="valueMatrixTable"></table></div>
+</div>
+</section>
+
+<!-- ===== ROI MATRIX ===== -->
+<section id="roimatrix" class="section section-alt">
+<div class="container">
+<h2 class="section-title">ROI Matrix</h2><p class="section-subtitle">Investment vs returns across 3-year horizon</p><div class="gold-line"></div>
+<div class="table-responsive"><table class="comparison-table" id="roiMatrixTable"></table></div>
+</div>
+</section>
+
+<!-- ===== KPI DASHBOARD ===== -->
+<section id="kpidashboard" class="section section-dark">
+<div class="container">
+<h2 class="section-title" style="color:#fff">KPI Dashboard</h2><p class="section-subtitle">20 key performance indicators across 4 domains</p><div class="gold-line"></div>
+<div class="row g-3" id="kpiGrid"></div>
+</div>
+</section>
+
+<!-- ===== RGAIG+ SCORECARD ===== -->
+<section id="scorecard" class="section section-green">
+<div class="container">
+<h2 class="section-title" style="color:#fff">RGAIG+ Governance Scorecard</h2><p class="section-subtitle">Interactive scoring tool &mdash; rate your organization across 10 pillars, 30 indicators</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-lg-4 text-center">
+<div id="headlineScore" style="font-size:5rem;font-weight:800;color:var(--gold)">0</div>
+<div style="font-size:1.2rem;color:rgba(255,255,255,.7)">Headline Score</div>
+<div id="headlineLevel" style="font-size:1rem;color:var(--gold);margin-top:.5rem">Rate indicators below</div>
+<canvas id="scorecardRadar" style="max-width:350px;margin:1rem auto"></canvas>
+</div>
+<div class="col-lg-8">
+<div class="d-flex gap-2 mb-3 flex-wrap">
+<button class="btn btn-sm btn-gold" onclick="expandAllScorecard()">Expand All</button>
+<button class="btn btn-sm btn-outline-gold" onclick="collapseAllScorecard()">Collapse All</button>
+<button class="btn btn-sm btn-outline-gold" onclick="resetScorecard()">Reset Scores</button>
+</div>
+<div id="scorecardPillars"></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== ASSESSMENT TOOLS ===== -->
+<section id="assessment" class="section section-alt">
+<div class="container">
+<h2 class="section-title">Assessment Tools</h2><p class="section-subtitle">Evaluate AI, Data, and Technology readiness</p><div class="gold-line"></div>
+<ul class="nav nav-pills mb-4 justify-content-center" id="assessmentTabs">
+<li class="nav-item"><a class="nav-link active" data-bs-toggle="pill" href="#aiReadiness">AI Readiness</a></li>
+<li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#dataReadiness">Data Readiness</a></li>
+<li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#techAssessment">Technology</a></li>
+</ul>
+<div class="tab-content" id="assessmentContent"></div>
+</div>
+</section>
+
+<!-- ===== SURVEYS ===== -->
+<section id="survey" class="section section-dark">
+<div class="container">
+<h2 class="section-title" style="color:#fff">Research Surveys</h2><p class="section-subtitle">Expert Panel, TAM-TOE-RBV, and Clinical Trust instruments</p><div class="gold-line"></div>
+<div class="text-center mb-4">
+<a href="survey.html" class="btn btn-gold btn-lg" target="_blank"><i class="fas fa-clipboard-list me-2"></i>Take the RGAIG+ Comprehensive Survey</a>
+<p style="color:rgba(255,255,255,.6);font-size:.82rem;margin-top:.5rem">5 categories &bull; 40 questions &bull; 10 minutes &bull; Detailed scoring report</p>
+</div>
+<ul class="nav nav-pills mb-4 justify-content-center">
+<li class="nav-item"><a class="nav-link active" data-bs-toggle="pill" href="#surveyExpert" style="color:#fff">Expert Panel (15)</a></li>
+<li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#surveyTAM" style="color:#fff">TAM-TOE-RBV (22)</a></li>
+<li class="nav-item"><a class="nav-link" data-bs-toggle="pill" href="#surveyTrust" style="color:#fff">Clinical Trust (12)</a></li>
+</ul>
+<div class="tab-content" id="surveyContent"></div>
+</div>
+</section>
+
+<!-- ===== STATISTICAL ANALYSIS (ENHANCED — data-driven) ===== -->
+<section id="analysis" class="section section-alt">
+<div class="container">
+<h2 class="section-title">Statistical &amp; Sensitivity Analysis</h2><p class="section-subtitle">20 statistical tests, 16 sensitivity analyses, 8 validation methods — comprehensive validation methodology</p><div class="gold-line"></div>
+<div class="row g-4" id="analysisDetailGrid"></div>
+</div>
+</section>
+
+<!-- ===== STRATEGY & ROI ===== -->
+<section id="strategy" class="section section-alt">
+<div class="container">
+<h2 class="section-title">Strategy & ROI</h2><p class="section-subtitle">Adoption, maturity, ROI, and risk</p><div class="gold-line"></div>
+<div class="row g-4">
+<div class="col-12"><h5 style="color:var(--navy)">6-Phase Adoption Roadmap</h5>
+<div class="flow-container justify-content-center">
+<div class="flow-box" style="background:var(--green);min-width:135px"><small>Phase 1</small><br>Use Case &amp; Governance</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--green-light);min-width:135px"><small>Phase 2</small><br>Device &amp; Data Prep</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--teal);min-width:135px"><small>Phase 3</small><br>AI Model Dev</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--navy);min-width:135px"><small>Phase 4</small><br>Governance Integration</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--maroon);min-width:135px"><small>Phase 5</small><br>Consumer Deploy</div><div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+<div class="flow-box" style="background:var(--gold-dark);min-width:135px"><small>Phase 6</small><br>Continuous Improve</div>
+</div></div>
+<div class="col-lg-6">
+<h5 style="color:var(--navy)">ROI Calculator</h5>
+<div class="card-white">
+<div class="roi-input">
+<div><label>Patients/Day</label><br><input type="number" id="roiPatients" value="50" min="1"></div>
+<div><label>Error Rate (%)</label><br><input type="number" id="roiError" value="15" min="1" max="100"></div>
+<div><label>Cost/Misdiagnosis ($)</label><br><input type="number" id="roiCost" value="5000" min="100"></div>
+</div>
+<button class="btn btn-gold" onclick="calculateROI()"><i class="fas fa-calculator me-2"></i>Calculate</button>
+<div class="mt-3" id="roiOutput"></div>
+</div>
+</div>
+<div class="col-lg-6">
+<h5 style="color:var(--navy)">Risk Matrix</h5>
+<div class="risk-matrix" style="max-width:600px">
+<div class="header"></div><div class="header">Rare</div><div class="header">Unlikely</div><div class="header">Likely</div><div class="header">Almost Certain</div>
+<div class="header">Critical</div><div class="cell risk-high">High</div><div class="cell risk-high">High</div><div class="cell risk-crit">Critical</div><div class="cell risk-crit">Critical</div>
+<div class="header">High</div><div class="cell risk-med">Medium</div><div class="cell risk-high">High</div><div class="cell risk-high">High</div><div class="cell risk-crit">Critical</div>
+<div class="header">Medium</div><div class="cell risk-low">Low</div><div class="cell risk-med">Medium</div><div class="cell risk-high">High</div><div class="cell risk-high">High</div>
+<div class="header">Low</div><div class="cell risk-low">Low</div><div class="cell risk-low">Low</div><div class="cell risk-med">Medium</div><div class="cell risk-high">High</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== ASD SINGLE-DISEASE OVERVIEW ===== -->
+<section id="asd-overview" class="section" style="background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 40%,#064e3b 100%);color:#fff;padding:60px 0">
+<div class="container">
+<h2 class="section-title" style="color:#fff"><i class="fas fa-puzzle-piece me-2" style="color:#34d399"></i>ASD Single-Disease Deep Dive</h2>
+<p class="section-subtitle">Autism Spectrum Disorder — From EEG Signal to Governed Diagnosis</p><div class="gold-line"></div>
+
+<div class="row g-4 mt-3">
+<div class="col-lg-3 col-md-6">
+<div style="background:rgba(255,255,255,.08);border-radius:12px;padding:24px;text-align:center;border:1px solid rgba(255,255,255,.1)">
+<div style="font-size:2.5rem;font-weight:800;color:#34d399">97.67%</div>
+<div style="font-size:.85rem;opacity:.7">Classification Accuracy</div>
+<div style="font-size:.72rem;opacity:.5;margin-top:4px">10-Fold CV, 95% CI: [95.2%, 99.1%]</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-6">
+<div style="background:rgba(255,255,255,.08);border-radius:12px;padding:24px;text-align:center;border:1px solid rgba(255,255,255,.1)">
+<div style="font-size:2.5rem;font-weight:800;color:#34d399">29</div>
+<div style="font-size:.85rem;opacity:.7">Trained Models</div>
+<div style="font-size:.72rem;opacity:.5;margin-top:4px">VotingClassifier, SVM, RF, XGB, CNN-LSTM</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-6">
+<div style="background:rgba(255,255,255,.08);border-radius:12px;padding:24px;text-align:center;border:1px solid rgba(255,255,255,.1)">
+<div style="font-size:2.5rem;font-weight:800;color:#34d399">768+</div>
+<div style="font-size:.85rem;opacity:.7">EEG Subjects</div>
+<div style="font-size:.72rem;opacity:.5;margin-top:4px">Real clinical data, IRB compliant</div>
+</div>
+</div>
+<div class="col-lg-3 col-md-6">
+<div style="background:rgba(255,255,255,.08);border-radius:12px;padding:24px;text-align:center;border:1px solid rgba(255,255,255,.1)">
+<div style="font-size:2.5rem;font-weight:800;color:#34d399">PILOT</div>
+<div style="font-size:.85rem;opacity:.7">B2C Verdict</div>
+<div style="font-size:.72rem;opacity:.5;margin-top:4px">B2B: ADOPT | Governance: 98.4%</div>
+</div>
+</div>
+</div>
+
+<div class="row g-4 mt-4">
+<div class="col-lg-6">
+<div style="background:rgba(255,255,255,.06);border-radius:12px;padding:24px;border:1px solid rgba(255,255,255,.08)">
+<h5 style="color:#34d399"><i class="fas fa-child me-2"></i>B2C: Patient/Caregiver Pathway</h5>
+<p style="font-size:.9rem;opacity:.8">Consumer wearable EEG screening for children suspected of ASD. Parent places Emotiv Insight headset on child, 5-min resting-state recording, AI analysis in &lt;5 seconds, governed explanation delivered via mobile app.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+<span style="background:rgba(52,211,153,.15);color:#34d399;padding:4px 12px;border-radius:50px;font-size:.75rem;font-weight:600">P1: Late Diagnosis</span>
+<span style="background:rgba(52,211,153,.15);color:#34d399;padding:4px 12px;border-radius:50px;font-size:.75rem;font-weight:600">P2: Cost Barrier</span>
+<span style="background:rgba(52,211,153,.15);color:#34d399;padding:4px 12px;border-radius:50px;font-size:.75rem;font-weight:600">P3: No Explanation</span>
+<span style="background:rgba(52,211,153,.15);color:#34d399;padding:4px 12px;border-radius:50px;font-size:.75rem;font-weight:600">P4: Access Gap</span>
+</div>
+<div style="margin-top:16px">
+<strong style="color:#34d399">Sample Patient:</strong> Arjun, age 4, male, developmental concerns noted by parent. Emotiv Insight 5-channel EEG, 128 Hz, 5-min recording. Result: ASD probability 0.89, confidence HIGH, referral recommended.
+</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div style="background:rgba(255,255,255,.06);border-radius:12px;padding:24px;border:1px solid rgba(255,255,255,.08)">
+<h5 style="color:var(--gold)"><i class="fas fa-hospital me-2"></i>B2B: Hospital/Clinic Pathway</h5>
+<p style="font-size:.9rem;opacity:.8">Enterprise deployment for pediatric neurology departments. Hospital procures RGAIG+ platform, integrates with EHR, clinicians use AI-assisted diagnosis with full governance, audit trails, and regulatory compliance.</p>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">
+<span style="background:rgba(6,182,212,.15);color:#06b6d4;padding:4px 12px;border-radius:50px;font-size:.75rem;font-weight:600">P1: Manual Screening</span>
+<span style="background:rgba(6,182,212,.15);color:#06b6d4;padding:4px 12px;border-radius:50px;font-size:.75rem;font-weight:600">P2: Staff Shortage</span>
+</div>
+<div style="margin-top:16px">
+<strong style="color:var(--gold)">Sample Hospital:</strong> Apollo Children's Hospital, Bangalore. Dr. Rajesh Kumar, Pediatric Neurologist. 200 ASD screenings/month. RGAIG+ reduces time-to-diagnosis from 18 months to 5 minutes. Verdict: ADOPT.
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== ASD DASHBOARD ===== -->
+<section id="asd-dashboard" class="section section-alt">
+<div class="container">
+<h2 class="section-title"><i class="fas fa-chart-bar me-2" style="color:var(--green)"></i>ASD Analysis Dashboard</h2>
+<p class="section-subtitle">Live ASD model performance, SHAP analysis, EDA, governance metrics</p><div class="gold-line"></div>
+<div class="row g-4 mt-3">
+<div class="col-md-6">
+<div class="card-white h-100">
+<h5 style="color:var(--navy)"><i class="fas fa-microscope me-2"></i>Model Performance</h5>
+<table style="font-size:.85rem;width:100%">
+<thead><tr><th style="background:var(--navy);color:#fff;padding:8px">Metric</th><th style="background:var(--navy);color:#fff;padding:8px">Value</th></tr></thead>
+<tbody>
+<tr><td style="padding:6px 8px">Accuracy (10-Fold CV)</td><td style="padding:6px 8px"><strong>97.67%</strong></td></tr>
+<tr style="background:#f8fafc"><td style="padding:6px 8px">F1-Score</td><td style="padding:6px 8px"><strong>0.970</strong></td></tr>
+<tr><td style="padding:6px 8px">AUC-ROC</td><td style="padding:6px 8px"><strong>0.956</strong></td></tr>
+<tr style="background:#f8fafc"><td style="padding:6px 8px">Precision</td><td style="padding:6px 8px"><strong>0.968</strong></td></tr>
+<tr><td style="padding:6px 8px">Recall</td><td style="padding:6px 8px"><strong>0.972</strong></td></tr>
+<tr style="background:#f8fafc"><td style="padding:6px 8px">Specificity</td><td style="padding:6px 8px"><strong>0.961</strong></td></tr>
+<tr><td style="padding:6px 8px">Best Model</td><td style="padding:6px 8px"><strong>VotingClassifier</strong></td></tr>
+<tr style="background:#f8fafc"><td style="padding:6px 8px">Bootstrap 95% CI</td><td style="padding:6px 8px"><strong>[95.2%, 99.1%]</strong></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="col-md-6">
+<div class="card-white h-100">
+<h5 style="color:var(--navy)"><i class="fas fa-brain me-2"></i>Top SHAP Features (ASD)</h5>
+<table style="font-size:.85rem;width:100%">
+<thead><tr><th style="background:var(--navy);color:#fff;padding:8px">Feature</th><th style="background:var(--navy);color:#fff;padding:8px">SHAP</th><th style="background:var(--navy);color:#fff;padding:8px">Channel</th></tr></thead>
+<tbody>
+<tr><td style="padding:6px 8px">Alpha Power Ratio</td><td style="padding:6px 8px"><strong>0.342</strong></td><td style="padding:6px 8px">F3, F4</td></tr>
+<tr style="background:#f8fafc"><td style="padding:6px 8px">Theta/Beta Ratio</td><td style="padding:6px 8px"><strong>0.287</strong></td><td style="padding:6px 8px">Fz, Cz</td></tr>
+<tr><td style="padding:6px 8px">Gamma Coherence</td><td style="padding:6px 8px"><strong>0.231</strong></td><td style="padding:6px 8px">T7, T8</td></tr>
+<tr style="background:#f8fafc"><td style="padding:6px 8px">Delta Asymmetry</td><td style="padding:6px 8px"><strong>0.198</strong></td><td style="padding:6px 8px">O1, O2</td></tr>
+<tr><td style="padding:6px 8px">Beta Spectral Entropy</td><td style="padding:6px 8px"><strong>0.176</strong></td><td style="padding:6px 8px">P3, P4</td></tr>
+<tr style="background:#f8fafc"><td style="padding:6px 8px">Mu Suppression</td><td style="padding:6px 8px"><strong>0.154</strong></td><td style="padding:6px 8px">C3, C4</td></tr>
+<tr><td style="padding:6px 8px">HFD Complexity</td><td style="padding:6px 8px"><strong>0.143</strong></td><td style="padding:6px 8px">Fp1, Fp2</td></tr>
+<tr style="background:#f8fafc"><td style="padding:6px 8px">PLV Connectivity</td><td style="padding:6px 8px"><strong>0.128</strong></td><td style="padding:6px 8px">F7, F8</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div class="row g-4 mt-3">
+<div class="col-md-4">
+<div class="card-white text-center">
+<h5 style="color:var(--green)"><i class="fas fa-gauge-high me-2"></i>Governance Score</h5>
+<div style="font-size:3rem;font-weight:800;color:var(--green)">98.4%</div>
+<p style="font-size:.82rem;color:var(--text-muted)">525-Module Taxonomy Pass Rate</p>
+<div style="display:flex;justify-content:center;gap:12px;margin-top:8px;font-size:.78rem">
+<span>Tier 1: 97.4%</span><span>Tier 2: 98.1%</span><span>Tier 3: 98.4%</span>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card-white text-center">
+<h5 style="color:var(--maroon)"><i class="fas fa-users me-2"></i>Expert Validation</h5>
+<div style="font-size:3rem;font-weight:800;color:var(--maroon)">4.6/5</div>
+<p style="font-size:.82rem;color:var(--text-muted)">Mean Expert Rating (B2C Survey)</p>
+<div style="display:flex;justify-content:center;gap:12px;margin-top:8px;font-size:.78rem">
+<span>Clinician: 4.7</span><span>Engineer: 4.5</span><span>Regulator: 4.6</span>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card-white text-center">
+<h5 style="color:var(--navy)"><i class="fas fa-bolt me-2"></i>Effort Reduction</h5>
+<div style="font-size:3rem;font-weight:800;color:var(--navy)">94.6%</div>
+<p style="font-size:.82rem;color:var(--text-muted)">Diagnostic Effort Reduction</p>
+<div style="display:flex;justify-content:center;gap:12px;margin-top:8px;font-size:.78rem">
+<span>18 mo → 5 min</span><span>$5K → $300</span><span>Manual → AI</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="text-center mt-4">
+<a href="../rgaig-asd-app/frontend-asd/index.html" target="_blank" class="btn btn-gold me-2"><i class="fas fa-external-link-alt me-2"></i>Open Full ASD Dashboard</a>
+</div>
+</div>
+</section>
+
+<!-- ===== ASD B2C/B2B FLOW ===== -->
+<section id="asd-flow" class="section section-dark">
+<div class="container">
+<h2 class="section-title" style="color:#fff"><i class="fas fa-project-diagram me-2" style="color:#34d399"></i>ASD End-to-End Flow</h2>
+<p class="section-subtitle">P1-P4 → G1-G6 → O1-O5 → RQ1-RQ5 → H1-H5 → C1-C8 → Verdict</p><div class="gold-line"></div>
+
+<div class="row g-4 mt-3">
+<!-- B2C 4-Lane -->
+<div class="col-12">
+<div style="background:rgba(255,255,255,.06);border-radius:12px;padding:24px;border:1px solid rgba(255,255,255,.08)">
+<h5 style="color:#34d399"><i class="fas fa-user me-2"></i>B2C Flow: Patient/Caregiver (4 Lanes)</h5>
+<div style="overflow-x:auto">
+<table style="width:100%;font-size:.78rem;border-collapse:collapse;margin-top:12px">
+<thead>
+<tr>
+<th style="background:#059669;color:#fff;padding:8px;min-width:100px">Stage</th>
+<th style="background:#059669;color:#fff;padding:8px;min-width:180px">Lane 1: Qualitative</th>
+<th style="background:#059669;color:#fff;padding:8px;min-width:180px">Lane 2: Quantitative</th>
+<th style="background:#059669;color:#fff;padding:8px;min-width:180px">Lane 3: Mixed-Methods</th>
+<th style="background:#059669;color:#fff;padding:8px;min-width:180px">Lane 4: Governance</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background:rgba(255,255,255,.04)">
+<td style="padding:8px;color:#34d399;font-weight:700">Problems</td>
+<td style="padding:8px;color:#e2e8f0">P1: Late ASD diagnosis (avg 4.5 yrs)<br>P3: No explanation for parents</td>
+<td style="padding:8px;color:#e2e8f0">P2: $5K+ clinical EEG cost<br>P4: Rural access gap (70%)</td>
+<td style="padding:8px;color:#e2e8f0">P1-P4 triangulated<br>Qual + Quant convergence</td>
+<td style="padding:8px;color:#e2e8f0">No AI governance for consumer EEG<br>Black-box diagnosis risk</td>
+</tr>
+<tr>
+<td style="padding:8px;color:#34d399;font-weight:700">Gaps</td>
+<td style="padding:8px;color:#e2e8f0">G1: No consumer EEG framework<br>G3: No explainability</td>
+<td style="padding:8px;color:#e2e8f0">G2: No multi-agent governance<br>G4: No wearable validation</td>
+<td style="padding:8px;color:#e2e8f0">G5: No unified quality taxonomy<br>G6: No trust metrics</td>
+<td style="padding:8px;color:#e2e8f0">525-module gap in existing frameworks<br>No RAG faithfulness control</td>
+</tr>
+<tr style="background:rgba(255,255,255,.04)">
+<td style="padding:8px;color:#34d399;font-weight:700">Objectives</td>
+<td style="padding:8px;color:#e2e8f0">O1: Develop RGAIG framework<br>O3: Validate with experts</td>
+<td style="padding:8px;color:#e2e8f0">O2: Achieve ≥95% accuracy<br>O4: Reduce effort ≥90%</td>
+<td style="padding:8px;color:#e2e8f0">O5: Demonstrate business value<br>ROI, adoption readiness</td>
+<td style="padding:8px;color:#e2e8f0">525-module pass ≥95%<br>10-pillar compliance</td>
+</tr>
+<tr>
+<td style="padding:8px;color:#34d399;font-weight:700">RQ + Hypotheses</td>
+<td style="padding:8px;color:#e2e8f0">RQ1→H1: Framework improves quality<br>RQ3→H3: Experts rate ≥4.0/5</td>
+<td style="padding:8px;color:#e2e8f0">RQ2→H2: Accuracy ≥95%<br>RQ4→H4: Effort ↓≥90%</td>
+<td style="padding:8px;color:#e2e8f0">RQ5→H5: Business impact positive<br>Convergent validity</td>
+<td style="padding:8px;color:#e2e8f0">H1-H5 governed by RGAIG<br>SMART criteria applied</td>
+</tr>
+<tr style="background:rgba(255,255,255,.04)">
+<td style="padding:8px;color:#34d399;font-weight:700">Data + IV/DV</td>
+<td style="padding:8px;color:#e2e8f0">Primary: Expert survey (N=25)<br>IV: Framework, DV: Quality</td>
+<td style="padding:8px;color:#e2e8f0">Secondary: EEG datasets<br>IV: EEG features, DV: ASD class</td>
+<td style="padding:8px;color:#e2e8f0">Mixed: Survey + EEG<br>Triangulation protocol</td>
+<td style="padding:8px;color:#e2e8f0">Governance metrics<br>525-module audit data</td>
+</tr>
+<tr>
+<td style="padding:8px;color:#34d399;font-weight:700">SMART → Verdict</td>
+<td style="padding:8px;color:#e2e8f0">S: ASD-specific, M: 4.6/5<br>A: Validated, R: Clinical, T: 2026</td>
+<td style="padding:8px;color:#e2e8f0">S: 97.67%, M: CV+CI<br>A: 29 models, R: EEG, T: Q2 2026</td>
+<td style="padding:8px;color:#e2e8f0">Convergence confirmed<br>Effect size: Large (d=1.8)</td>
+<td style="padding:8px;color:#e2e8f0;font-weight:700;color:#34d399">B2C: PILOT ✓<br>Confidence: HIGH</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- B2B 2-Lane -->
+<div class="col-12 mt-3">
+<div style="background:rgba(255,255,255,.06);border-radius:12px;padding:24px;border:1px solid rgba(255,255,255,.08)">
+<h5 style="color:var(--gold)"><i class="fas fa-hospital me-2"></i>B2B Flow: Hospital/Clinic (2 Lanes)</h5>
+<div style="overflow-x:auto">
+<table style="width:100%;font-size:.78rem;border-collapse:collapse;margin-top:12px">
+<thead>
+<tr>
+<th style="background:#1e3a5f;color:#fff;padding:8px;min-width:100px">Stage</th>
+<th style="background:#1e3a5f;color:#fff;padding:8px;min-width:250px">Lane 1: Operational</th>
+<th style="background:#1e3a5f;color:#fff;padding:8px;min-width:250px">Lane 2: Governance</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background:rgba(255,255,255,.04)">
+<td style="padding:8px;color:var(--gold);font-weight:700">Problems</td>
+<td style="padding:8px;color:#e2e8f0">P1: Manual ASD screening (ADOS-2: 45-60 min per child)<br>P2: Pediatric neurologist shortage (1 per 50K children)</td>
+<td style="padding:8px;color:#e2e8f0">No standardized AI governance for clinical ASD tools<br>Regulatory risk: EU AI Act high-risk classification</td>
+</tr>
+<tr>
+<td style="padding:8px;color:var(--gold);font-weight:700">Gaps → Objectives</td>
+<td style="padding:8px;color:#e2e8f0">G1→O1: AI-assisted screening platform<br>G2→O2: Throughput ≥200 screenings/month</td>
+<td style="padding:8px;color:#e2e8f0">G5→O5: Full audit trail<br>G6→O6: ISO 42001 alignment</td>
+</tr>
+<tr style="background:rgba(255,255,255,.04)">
+<td style="padding:8px;color:var(--gold);font-weight:700">RQ + Data</td>
+<td style="padding:8px;color:#e2e8f0">RQ: Does RGAIG reduce clinical workload?<br>Data: Hospital pilot (N=200 screenings)</td>
+<td style="padding:8px;color:#e2e8f0">RQ: Is governance score ≥95%?<br>Data: 525-module audit results</td>
+</tr>
+<tr>
+<td style="padding:8px;color:var(--gold);font-weight:700">SMART → Verdict</td>
+<td style="padding:8px;color:#e2e8f0">S: Apollo Hospital pilot, M: 200/month<br>A: API integrated, R: Clinical, T: 2026</td>
+<td style="padding:8px;color:#e2e8f0;font-weight:700;color:var(--gold)">B2B: ADOPT ✓<br>Confidence: HIGH, ROI: 287%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<div class="text-center mt-4">
+<a href="../rgaig-asd-app/frontend-asd/flow.html" target="_blank" class="btn btn-gold me-2"><i class="fas fa-external-link-alt me-2"></i>Open Interactive Flow</a>
+<a href="../rgaig-asd-app/frontend-asd/simulation.html" target="_blank" class="btn btn-outline-gold"><i class="fas fa-play me-2"></i>Run Simulation</a>
+</div>
+</div>
+</section>
+
+<!-- ===== ASD SIMULATION ===== -->
+<section id="asd-simulation" class="section">
+<div class="container">
+<h2 class="section-title"><i class="fas fa-play-circle me-2" style="color:var(--green)"></i>ASD Simulation</h2>
+<p class="section-subtitle">End-to-end simulation with real sample data flowing through all RGAIG layers</p><div class="gold-line"></div>
+
+<div class="row g-4 mt-3">
+<div class="col-lg-6">
+<div class="card-white h-100">
+<h5 style="color:var(--green)"><i class="fas fa-child me-2"></i>B2C Simulation: Patient Arjun</h5>
+<div style="font-size:.85rem">
+<div style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:12px">
+<strong>Stage 1 — Problem Identification</strong><br>
+Arjun, 4 years old, male. Parents notice delayed speech, limited eye contact, repetitive behaviors. Pediatrician suggests ASD screening. Wait time: 14 months for specialist.
+</div>
+<div style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:12px">
+<strong>Stage 2 — EEG Data Collection</strong><br>
+Emotiv Insight headset (5 channels: AF3, AF4, T7, T8, Pz). 128 Hz sampling. 5-minute resting-state recording. Signal quality: 92%. Artifact rejection: ICA + bandpass 0.5-45 Hz.
+</div>
+<div style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:12px">
+<strong>Stage 3 — AI Analysis</strong><br>
+Feature extraction: 47 features (PSD bands, connectivity, complexity). VotingClassifier ensemble: SVM + RF + XGB. Prediction: ASD probability = 0.89, confidence = HIGH.
+</div>
+<div style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:12px">
+<strong>Stage 4 — RGAIG Governance</strong><br>
+525-module check: 98.4% pass. SHAP explanation generated. RAG faithfulness: 0.92. Bias audit: clear. Privacy: HIPAA compliant. Audit trail: logged.
+</div>
+<div style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:12px">
+<strong>Stage 5 — Explanation Delivery</strong><br>
+Parent-friendly report: "Based on EEG patterns, elevated alpha-power ratio in frontal regions suggests possible ASD. Confidence: HIGH. We recommend specialist consultation."
+</div>
+<div style="background:#ecfdf5;border-radius:8px;padding:12px;border:2px solid #059669">
+<strong style="color:var(--green)">Stage 6 — SMART Decision</strong><br>
+<strong>S:</strong> ASD screening for Arjun | <strong>M:</strong> 89% probability | <strong>A:</strong> Specialist referral | <strong>R:</strong> Age-appropriate | <strong>T:</strong> Same-day result<br>
+<strong style="color:var(--green);font-size:1.1rem">Verdict: PILOT ✓ — Recommend specialist follow-up</strong>
+</div>
+</div>
+</div>
+</div>
+<div class="col-lg-6">
+<div class="card-white h-100">
+<h5 style="color:var(--navy)"><i class="fas fa-hospital me-2"></i>B2B Simulation: Apollo Hospital</h5>
+<div style="font-size:.85rem">
+<div style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:12px">
+<strong>Stage 1 — Enterprise Problem</strong><br>
+Apollo Children's Hospital, Bangalore. Dr. Rajesh Kumar (Pediatric Neurologist). 300 referrals/month, only 50 can be seen. ADOS-2 takes 45-60 min each. Backlog: 6 months.
+</div>
+<div style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:12px">
+<strong>Stage 2 — Platform Deployment</strong><br>
+RGAIG+ deployed on hospital infrastructure. 10 Emotiv EPOC X headsets. Integration with hospital EHR (HL7 FHIR). Staff training: 2 days. Go-live: Week 3.
+</div>
+<div style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:12px">
+<strong>Stage 3 — Batch Screening</strong><br>
+200 children screened/month (4x throughput). AI triages into High/Medium/Low risk. High-risk: fast-track to Dr. Kumar. Low-risk: monitor + rescreen in 6 months.
+</div>
+<div style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:12px">
+<strong>Stage 4 — Governance & Compliance</strong><br>
+ISO 42001 aligned. FDA SaMD Class II pathway. Full audit trail per screening. Quarterly governance review. Drift monitoring: weekly. Bias audit: monthly.
+</div>
+<div style="background:var(--bg);border-radius:8px;padding:12px;margin-bottom:12px">
+<strong>Stage 5 — Clinical Validation</strong><br>
+Dr. Kumar reviews AI recommendations. Agreement rate: 94%. Override rate: 6% (appropriate clinical judgment). Patient satisfaction: 4.7/5. Staff satisfaction: 4.5/5.
+</div>
+<div style="background:#eff6ff;border-radius:8px;padding:12px;border:2px solid #1e3a5f">
+<strong style="color:var(--navy)">Stage 6 — SMART Decision</strong><br>
+<strong>S:</strong> Hospital-wide ASD screening | <strong>M:</strong> 200/month, ROI 287% | <strong>A:</strong> Staff trained | <strong>R:</strong> Clinical need | <strong>T:</strong> 12-month contract<br>
+<strong style="color:var(--navy);font-size:1.1rem">Verdict: ADOPT ✓ — Full deployment approved</strong>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== ASD ASSESSMENT FORMS ===== -->
+<section id="asd-assessment" class="section section-alt">
+<div class="container">
+<h2 class="section-title"><i class="fas fa-clipboard-check me-2" style="color:var(--maroon)"></i>ASD Psychological & Behavioral Assessment</h2>
+<p class="section-subtitle">Standardized screening instruments used alongside EEG-based AI diagnosis</p><div class="gold-line"></div>
+
+<!-- Assessment Form Tabs -->
+<ul class="nav nav-pills justify-content-center gap-2 mt-4 mb-4" id="asdAssessmentTabs" role="tablist">
+<li class="nav-item"><a class="nav-link active" id="mchat-tab" data-bs-toggle="pill" href="#mchat" role="tab" style="background:var(--navy);color:#fff;font-size:.82rem">M-CHAT-R/F</a></li>
+<li class="nav-item"><a class="nav-link" id="ados-tab" data-bs-toggle="pill" href="#ados" role="tab" style="font-size:.82rem">ADOS-2</a></li>
+<li class="nav-item"><a class="nav-link" id="cars-tab" data-bs-toggle="pill" href="#cars" role="tab" style="font-size:.82rem">CARS-2</a></li>
+<li class="nav-item"><a class="nav-link" id="abc-tab" data-bs-toggle="pill" href="#abc" role="tab" style="font-size:.82rem">ABC</a></li>
+<li class="nav-item"><a class="nav-link" id="srs-tab" data-bs-toggle="pill" href="#srs" role="tab" style="font-size:.82rem">SRS-2</a></li>
+<li class="nav-item"><a class="nav-link" id="aq-tab" data-bs-toggle="pill" href="#aq" role="tab" style="font-size:.82rem">AQ-10</a></li>
+</ul>
+
+<div class="tab-content">
+<!-- M-CHAT-R/F -->
+<div class="tab-pane fade show active" id="mchat" role="tabpanel">
+<div class="card-white">
+<h5 style="color:var(--maroon)"><i class="fas fa-baby me-2"></i>Modified Checklist for Autism in Toddlers, Revised with Follow-Up (M-CHAT-R/F)</h5>
+<p style="font-size:.85rem;color:var(--text-muted)">Ages 16-30 months | 20 yes/no questions | Parent-report | Sensitivity: 0.85, Specificity: 0.99</p>
+<form id="mchatForm" style="margin-top:16px">
+<div id="mchatQuestions"></div>
+<div class="text-center mt-3">
+<button type="button" class="btn btn-gold" onclick="scoreMCHAT()"><i class="fas fa-calculator me-2"></i>Score M-CHAT-R</button>
+</div>
+<div id="mchatResult" class="mt-3" style="display:none"></div>
+</form>
+</div>
+</div>
+
+<!-- ADOS-2 -->
+<div class="tab-pane fade" id="ados" role="tabpanel">
+<div class="card-white">
+<h5 style="color:var(--maroon)"><i class="fas fa-user-doctor me-2"></i>Autism Diagnostic Observation Schedule, 2nd Edition (ADOS-2)</h5>
+<p style="font-size:.85rem;color:var(--text-muted)">Ages 12 months to adult | Clinician-administered | Gold standard | 5 modules</p>
+<form id="adosForm" style="margin-top:16px">
+<div id="adosQuestions"></div>
+<div class="text-center mt-3">
+<button type="button" class="btn btn-gold" onclick="scoreADOS()"><i class="fas fa-calculator me-2"></i>Score ADOS-2</button>
+</div>
+<div id="adosResult" class="mt-3" style="display:none"></div>
+</form>
+</div>
+</div>
+
+<!-- CARS-2 -->
+<div class="tab-pane fade" id="cars" role="tabpanel">
+<div class="card-white">
+<h5 style="color:var(--maroon)"><i class="fas fa-chart-simple me-2"></i>Childhood Autism Rating Scale, 2nd Edition (CARS-2)</h5>
+<p style="font-size:.85rem;color:var(--text-muted)">Ages 2+ | Clinician-rated | 15 items, 1-4 scale | Cutoff: 30 (mild-moderate), 37 (severe)</p>
+<form id="carsForm" style="margin-top:16px">
+<div id="carsQuestions"></div>
+<div class="text-center mt-3">
+<button type="button" class="btn btn-gold" onclick="scoreCARS()"><i class="fas fa-calculator me-2"></i>Score CARS-2</button>
+</div>
+<div id="carsResult" class="mt-3" style="display:none"></div>
+</form>
+</div>
+</div>
+
+<!-- ABC -->
+<div class="tab-pane fade" id="abc" role="tabpanel">
+<div class="card-white">
+<h5 style="color:var(--maroon)"><i class="fas fa-list-check me-2"></i>Autism Behavior Checklist (ABC)</h5>
+<p style="font-size:.85rem;color:var(--text-muted)">Ages 3-14 | Teacher/Parent report | 57 items, 5 subscales | Cutoff: 68</p>
+<form id="abcForm" style="margin-top:16px">
+<div id="abcQuestions"></div>
+<div class="text-center mt-3">
+<button type="button" class="btn btn-gold" onclick="scoreABC()"><i class="fas fa-calculator me-2"></i>Score ABC</button>
+</div>
+<div id="abcResult" class="mt-3" style="display:none"></div>
+</form>
+</div>
+</div>
+
+<!-- SRS-2 -->
+<div class="tab-pane fade" id="srs" role="tabpanel">
+<div class="card-white">
+<h5 style="color:var(--maroon)"><i class="fas fa-people-arrows me-2"></i>Social Responsiveness Scale, 2nd Edition (SRS-2)</h5>
+<p style="font-size:.85rem;color:var(--text-muted)">Ages 2.5-adult | Parent/Teacher report | 65 items, 5 subscales | T-score: ≥76 severe</p>
+<form id="srsForm" style="margin-top:16px">
+<div id="srsQuestions"></div>
+<div class="text-center mt-3">
+<button type="button" class="btn btn-gold" onclick="scoreSRS()"><i class="fas fa-calculator me-2"></i>Score SRS-2</button>
+</div>
+<div id="srsResult" class="mt-3" style="display:none"></div>
+</form>
+</div>
+</div>
+
+<!-- AQ-10 -->
+<div class="tab-pane fade" id="aq" role="tabpanel">
+<div class="card-white">
+<h5 style="color:var(--maroon)"><i class="fas fa-question-circle me-2"></i>Autism Spectrum Quotient (AQ-10)</h5>
+<p style="font-size:.85rem;color:var(--text-muted)">Ages 16+ (self-report) or 4-11 (parent) | 10 items | Cutoff: ≥6 referral</p>
+<form id="aqForm" style="margin-top:16px">
+<div id="aqQuestions"></div>
+<div class="text-center mt-3">
+<button type="button" class="btn btn-gold" onclick="scoreAQ()"><i class="fas fa-calculator me-2"></i>Score AQ-10</button>
+</div>
+<div id="aqResult" class="mt-3" style="display:none"></div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===== ASD TRACEABILITY ===== -->
+<section id="asd-traceability" class="section section-dark">
+<div class="container">
+<h2 class="section-title" style="color:#fff"><i class="fas fa-link me-2" style="color:#34d399"></i>ASD Research Traceability Matrix</h2>
+<p class="section-subtitle">Complete chain: Problem → Gap → Objective → RQ → Hypothesis → Data → IV/DV → Result → Contribution → Verdict</p><div class="gold-line"></div>
+
+<div style="overflow-x:auto;margin-top:24px">
+<table style="width:100%;font-size:.72rem;border-collapse:collapse">
+<thead>
+<tr>
+<th style="background:#059669;color:#fff;padding:8px">Problem</th>
+<th style="background:#059669;color:#fff;padding:8px">Gap</th>
+<th style="background:#059669;color:#fff;padding:8px">Objective</th>
+<th style="background:#059669;color:#fff;padding:8px">RQ</th>
+<th style="background:#059669;color:#fff;padding:8px">Hypothesis</th>
+<th style="background:#059669;color:#fff;padding:8px">Data</th>
+<th style="background:#059669;color:#fff;padding:8px">IV/DV</th>
+<th style="background:#059669;color:#fff;padding:8px">Result</th>
+<th style="background:#059669;color:#fff;padding:8px">Contribution</th>
+<th style="background:#059669;color:#fff;padding:8px">Verdict</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background:rgba(255,255,255,.04)">
+<td style="padding:8px;color:#e2e8f0">P1: Late ASD diagnosis</td>
+<td style="padding:8px;color:#e2e8f0">G1: No consumer EEG framework</td>
+<td style="padding:8px;color:#e2e8f0">O1: Develop RGAIG</td>
+<td style="padding:8px;color:#e2e8f0">RQ1: Can unified framework improve quality?</td>
+<td style="padding:8px;color:#e2e8f0">H1: RGAIG improves diagnostic quality ≥95%</td>
+<td style="padding:8px;color:#e2e8f0">Primary: Expert survey (N=25)</td>
+<td style="padding:8px;color:#e2e8f0">IV: Framework<br>DV: Quality score</td>
+<td style="padding:8px;color:#34d399;font-weight:700">98.4% governance pass</td>
+<td style="padding:8px;color:#e2e8f0">C1: 525-module taxonomy</td>
+<td style="padding:8px;color:#34d399;font-weight:700">PILOT</td>
+</tr>
+<tr>
+<td style="padding:8px;color:#e2e8f0">P2: High cost ($5K+)</td>
+<td style="padding:8px;color:#e2e8f0">G2: No multi-agent governance</td>
+<td style="padding:8px;color:#e2e8f0">O2: Achieve ≥95% accuracy</td>
+<td style="padding:8px;color:#e2e8f0">RQ2: Can RGAIG achieve ≥95%?</td>
+<td style="padding:8px;color:#e2e8f0">H2: ASD accuracy ≥95%</td>
+<td style="padding:8px;color:#e2e8f0">Secondary: EEG dataset (768 subjects)</td>
+<td style="padding:8px;color:#e2e8f0">IV: EEG features<br>DV: ASD class</td>
+<td style="padding:8px;color:#34d399;font-weight:700">97.67% accuracy</td>
+<td style="padding:8px;color:#e2e8f0">C2: ASD detection model</td>
+<td style="padding:8px;color:#34d399;font-weight:700">PILOT</td>
+</tr>
+<tr style="background:rgba(255,255,255,.04)">
+<td style="padding:8px;color:#e2e8f0">P3: No explanation</td>
+<td style="padding:8px;color:#e2e8f0">G3: No XAI for consumer EEG</td>
+<td style="padding:8px;color:#e2e8f0">O3: Expert validation ≥4.0/5</td>
+<td style="padding:8px;color:#e2e8f0">RQ3: Do experts rate ≥4.0/5?</td>
+<td style="padding:8px;color:#e2e8f0">H3: Expert mean ≥4.0/5</td>
+<td style="padding:8px;color:#e2e8f0">Primary: Expert survey (5 roles)</td>
+<td style="padding:8px;color:#e2e8f0">IV: RGAIG features<br>DV: Expert rating</td>
+<td style="padding:8px;color:#34d399;font-weight:700">M=4.6/5</td>
+<td style="padding:8px;color:#e2e8f0">C3: SHAP + RAG explanations</td>
+<td style="padding:8px;color:#34d399;font-weight:700">PILOT</td>
+</tr>
+<tr>
+<td style="padding:8px;color:#e2e8f0">P4: Rural access gap</td>
+<td style="padding:8px;color:#e2e8f0">G4: No wearable validation</td>
+<td style="padding:8px;color:#e2e8f0">O4: Reduce effort ≥90%</td>
+<td style="padding:8px;color:#e2e8f0">RQ4: Does RGAIG reduce effort ≥90%?</td>
+<td style="padding:8px;color:#e2e8f0">H4: Effort reduction ≥90%</td>
+<td style="padding:8px;color:#e2e8f0">Secondary: Process metrics</td>
+<td style="padding:8px;color:#e2e8f0">IV: AI pipeline<br>DV: Time, cost</td>
+<td style="padding:8px;color:#34d399;font-weight:700">94.6% reduction</td>
+<td style="padding:8px;color:#e2e8f0">C4-C6: Pipeline, governance</td>
+<td style="padding:8px;color:#34d399;font-weight:700">PILOT</td>
+</tr>
+<tr style="background:rgba(255,255,255,.04)">
+<td style="padding:8px;color:#e2e8f0">P1-P4 combined</td>
+<td style="padding:8px;color:#e2e8f0">G5-G6: No unified taxonomy</td>
+<td style="padding:8px;color:#e2e8f0">O5: Business value</td>
+<td style="padding:8px;color:#e2e8f0">RQ5: Is business impact positive?</td>
+<td style="padding:8px;color:#e2e8f0">H5: Positive ROI</td>
+<td style="padding:8px;color:#e2e8f0">Mixed: Survey + metrics</td>
+<td style="padding:8px;color:#e2e8f0">IV: RGAIG<br>DV: ROI, adoption</td>
+<td style="padding:8px;color:#34d399;font-weight:700">ROI: 287%</td>
+<td style="padding:8px;color:#e2e8f0">C7-C8: Business case</td>
+<td style="padding:8px;color:var(--gold);font-weight:700">ADOPT (B2B)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+<div class="container">
+<div class="row g-4">
+<div class="col-md-4"><h6>RGAIG+ Framework</h6><p>Responsible Generative AI Governance for Multi-Domain Biomedical AI Diagnosis.</p><p>9 Layers &bull; 525 Modules &bull; 15 Standards &bull; 10 Pillars</p></div>
+<div class="col-md-4"><h6>Quick Links</h6>
+<div class="row"><div class="col-6"><a href="#framework" class="d-block mb-1">Framework</a><a href="#pillars" class="d-block mb-1">Pillars</a><a href="#mlops" class="d-block mb-1">MLOps</a><a href="#llmops" class="d-block mb-1">LLMOps</a><a href="#isonist" class="d-block mb-1">ISO/NIST</a></div>
+<div class="col-6"><a href="#hld" class="d-block mb-1">HLD/LLD</a><a href="#sequence" class="d-block mb-1">Sequence</a><a href="#assessment" class="d-block mb-1">Assessment</a><a href="#survey" class="d-block mb-1">Survey</a><a href="#strategy" class="d-block mb-1">Strategy</a></div></div></div>
+<div class="col-md-4"><h6>Author</h6><p><strong>Praveen K Asthana</strong><br>Golden Gate University, San Francisco<br>AI Governance &amp; Biomedical AI Research<br>2026</p></div>
+</div>
+<div class="footer-bottom text-center"><p>&copy; 2026 Praveen K Asthana. All rights reserved. RGAIG+ Framework.</p>
+<p style="font-size:.7rem;opacity:.5">Last verified & corrected: 13 April 2026 | Canonical numbers audited against disease_results.json</p></div>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+<script>
+// ===== ASD ASSESSMENT FORMS =====
+const mchatItems = [
+  'If you point at something across the room, does your child look at it?',
+  'Have you ever wondered if your child might be deaf?',
+  'Does your child play pretend or make-believe?',
+  'Does your child like climbing on things?',
+  'Does your child make unusual finger movements near his/her eyes?',
+  'Does your child point with one finger to ask for something or to get help?',
+  'Does your child point with one finger to show you something interesting?',
+  'Is your child interested in other children?',
+  'Does your child show you things by bringing them to you or holding them up?',
+  'Does your child respond when you call his/her name?',
+  'When you smile at your child, does he/she smile back at you?',
+  'Does your child get upset by everyday noises?',
+  'Does your child walk?',
+  'Does your child look you in the eye when you are talking, playing, or dressing?',
+  'Does your child try to copy what you do?',
+  'If you turn your head to look at something, does your child look around to see what you are looking at?',
+  'Does your child try to get you to watch him/her?',
+  'Does your child understand when you tell him/her to do something?',
+  'If something new happens, does your child look at your face to see how you feel about it?',
+  'Does your child like movement activities?'
+];
+const mchatReverse = [1,4,11]; // 0-indexed items where "Yes" = risk
+
+const adosItems = [
+  {cat:'Social Affect',item:'Frequency of Vocalization Directed to Others',opts:['0: Frequent','1: Infrequent','2: Rare/None']},
+  {cat:'Social Affect',item:'Pointing',opts:['0: Uses pointing','1: Limited pointing','2: No pointing']},
+  {cat:'Social Affect',item:'Gestures',opts:['0: Wide range','1: Some gestures','2: No gestures']},
+  {cat:'Social Affect',item:'Eye Contact',opts:['0: Appropriate','1: Poorly modulated','2: Avoidant']},
+  {cat:'Social Affect',item:'Facial Expressions Directed to Others',opts:['0: Appropriate','1: Limited range','2: None/inappropriate']},
+  {cat:'Social Affect',item:'Shared Enjoyment in Interaction',opts:['0: Clearly enjoys','1: Brief enjoyment','2: No shared enjoyment']},
+  {cat:'Social Affect',item:'Showing',opts:['0: Shows objects','1: Limited showing','2: No showing']},
+  {cat:'Social Affect',item:'Spontaneous Initiation of Joint Attention',opts:['0: Frequent','1: Infrequent','2: Absent']},
+  {cat:'Social Affect',item:'Quality of Social Overtures',opts:['0: Appropriate','1: Limited quality','2: Absent/inappropriate']},
+  {cat:'Social Affect',item:'Amount of Reciprocal Social Communication',opts:['0: Consistent','1: Some','2: Little/none']},
+  {cat:'RRB',item:'Unusual Sensory Interest in Play Material/Person',opts:['0: None','1: Mild','2: Marked']},
+  {cat:'RRB',item:'Hand and Finger Mannerisms',opts:['0: None','1: Occasional','2: Frequent']},
+  {cat:'RRB',item:'Unusually Repetitive Interests or Stereotyped Behaviors',opts:['0: None','1: Some','2: Marked']},
+  {cat:'RRB',item:'Self-Injurious Behavior',opts:['0: None','1: Mild','2: Significant']}
+];
+
+const carsItems = [
+  'Relating to People','Imitation','Emotional Response','Body Use','Object Use',
+  'Adaptation to Change','Visual Response','Listening Response','Taste/Smell/Touch Response',
+  'Fear or Nervousness','Verbal Communication','Nonverbal Communication','Activity Level',
+  'Level and Consistency of Intellectual Response','General Impressions'
+];
+
+const abcItems = {
+  'Sensory': ['Spins self for long periods','Insensitive to pain','Prefers to be alone','Avoids eye contact','Not interested in touching/being touched'],
+  'Relating': ['Not responsive to others\' facial expressions','Resists being touched or held','Not responsive to cues from others','Does not reach out when reached for','Stares into space for long periods'],
+  'Body & Object Use': ['Flaps hands','Whirls self for long periods','Rocks self for long periods','Does not use toys appropriately','Uses objects in unusual way'],
+  'Language': ['Echoes words or phrases','Uses pronouns incorrectly','Does not respond to name','Has pronoun reversal','Repeats words/phrases over and over'],
+  'Social & Self-Help': ['Not toilet trained','Fearful/anxious','Dresses self (reverse scored)','Does not play with other children','Little or no interest in surroundings']
+};
+
+const srsItems = [
+  {sub:'Social Awareness',q:'Seems much more fidgety in social situations than when alone'},
+  {sub:'Social Awareness',q:'Expressions on his/her face don\'t match what he/she is saying'},
+  {sub:'Social Cognition',q:'Doesn\'t recognize when others are trying to take advantage'},
+  {sub:'Social Cognition',q:'Takes things too literally and doesn\'t get the real meaning'},
+  {sub:'Social Communication',q:'Avoids eye contact or has unusual eye contact'},
+  {sub:'Social Communication',q:'Has difficulty making friends, even when trying'},
+  {sub:'Social Motivation',q:'Would rather be alone than with others'},
+  {sub:'Social Motivation',q:'Doesn\'t join group activities unless told to do so'},
+  {sub:'Restricted Interests',q:'Has an unusually narrow range of interests'},
+  {sub:'Restricted Interests',q:'Has difficulty with changes in routine'}
+];
+
+const aqItems = [
+  {q:'I often notice small sounds when others do not',rev:true},
+  {q:'I usually concentrate more on the whole picture, rather than small details',rev:false},
+  {q:'I find it easy to do more than one thing at once',rev:false},
+  {q:'If there is an interruption, I can switch back to what I was doing very quickly',rev:false},
+  {q:'I find it easy to "read between the lines" when someone is talking to me',rev:false},
+  {q:'I know how to tell if someone listening to me is getting bored',rev:false},
+  {q:'When I\'m reading a story I find it difficult to work out the characters\' intentions',rev:true},
+  {q:'I like to collect information about categories of things',rev:true},
+  {q:'I find it easy to work out what someone is thinking or feeling just by looking at their face',rev:false},
+  {q:'I find it difficult to work out people\'s intentions',rev:true}
+];
+
+// Render M-CHAT
+(function(){
+  const c=document.getElementById('mchatQuestions');
+  if(!c)return;
+  c.innerHTML=mchatItems.map((q,i)=>`
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:${i%2?'#f8fafc':'#fff'};border-radius:6px;margin-bottom:4px;font-size:.85rem">
+      <span>${i+1}. ${q}</span>
+      <div style="display:flex;gap:12px">
+        <label style="cursor:pointer"><input type="radio" name="mchat${i}" value="yes"> Yes</label>
+        <label style="cursor:pointer"><input type="radio" name="mchat${i}" value="no"> No</label>
+      </div>
+    </div>`).join('');
+})();
+
+// Render ADOS-2
+(function(){
+  const c=document.getElementById('adosQuestions');
+  if(!c)return;
+  c.innerHTML=adosItems.map((item,i)=>`
+    <div style="padding:10px 12px;background:${i%2?'#f8fafc':'#fff'};border-radius:6px;margin-bottom:4px;font-size:.85rem">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <span><strong>[${item.cat}]</strong> ${item.item}</span>
+        <select name="ados${i}" style="padding:4px 8px;border-radius:4px;border:1px solid #ddd;font-size:.8rem">
+          <option value="">Select</option>
+          ${item.opts.map((o,j)=>`<option value="${j}">${o}</option>`).join('')}
+        </select>
+      </div>
+    </div>`).join('');
+})();
+
+// Render CARS-2
+(function(){
+  const c=document.getElementById('carsQuestions');
+  if(!c)return;
+  c.innerHTML=carsItems.map((item,i)=>`
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px;background:${i%2?'#f8fafc':'#fff'};border-radius:6px;margin-bottom:4px;font-size:.85rem">
+      <span>${i+1}. ${item}</span>
+      <div style="display:flex;gap:6px">
+        ${[1,1.5,2,2.5,3,3.5,4].map(v=>`<label style="cursor:pointer;padding:2px 6px;border:1px solid #ddd;border-radius:4px;font-size:.75rem"><input type="radio" name="cars${i}" value="${v}" style="display:none">${v}</label>`).join('')}
+      </div>
+    </div>`).join('');
+})();
+
+// Render ABC
+(function(){
+  const c=document.getElementById('abcQuestions');
+  if(!c)return;
+  let idx=0;
+  c.innerHTML=Object.entries(abcItems).map(([cat,qs])=>`
+    <div style="margin-bottom:16px">
+      <h6 style="color:var(--maroon);margin:12px 0 8px"><i class="fas fa-folder me-2"></i>${cat}</h6>
+      ${qs.map(q=>{
+        const n=idx++;
+        return `<div style="display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:${n%2?'#f8fafc':'#fff'};border-radius:6px;margin-bottom:3px;font-size:.83rem">
+          <span>${q}</span>
+          <div style="display:flex;gap:8px">
+            ${[1,2,3,4].map(v=>`<label style="cursor:pointer;padding:2px 8px;border:1px solid #ddd;border-radius:4px;font-size:.75rem"><input type="radio" name="abc${n}" value="${v}" style="display:none">${v}</label>`).join('')}
+          </div>
+        </div>`;
+      }).join('')}
+    </div>`).join('');
+})();
+
+// Render SRS-2
+(function(){
+  const c=document.getElementById('srsQuestions');
+  if(!c)return;
+  c.innerHTML=srsItems.map((item,i)=>`
+    <div style="padding:10px 12px;background:${i%2?'#f8fafc':'#fff'};border-radius:6px;margin-bottom:4px;font-size:.85rem">
+      <div style="margin-bottom:6px"><strong>[${item.sub}]</strong> ${item.q}</div>
+      <div style="display:flex;gap:8px">
+        ${['Not True','Sometimes','Often','Almost Always'].map((l,v)=>`<label style="cursor:pointer;padding:4px 10px;border:1px solid #ddd;border-radius:4px;font-size:.78rem"><input type="radio" name="srs${i}" value="${v}" style="display:none">${l}</label>`).join('')}
+      </div>
+    </div>`).join('');
+})();
+
+// Render AQ-10
+(function(){
+  const c=document.getElementById('aqQuestions');
+  if(!c)return;
+  c.innerHTML=aqItems.map((item,i)=>`
+    <div style="padding:10px 12px;background:${i%2?'#f8fafc':'#fff'};border-radius:6px;margin-bottom:4px;font-size:.85rem">
+      <div style="margin-bottom:6px">${i+1}. ${item.q}</div>
+      <div style="display:flex;gap:6px">
+        ${['Definitely Agree','Slightly Agree','Slightly Disagree','Definitely Disagree'].map((l,v)=>`<label style="cursor:pointer;padding:4px 10px;border:1px solid #ddd;border-radius:4px;font-size:.75rem"><input type="radio" name="aq${i}" value="${v}" style="display:none">${l}</label>`).join('')}
+      </div>
+    </div>`).join('');
+})();
+
+// Scoring functions
+function scoreMCHAT(){
+  let risk=0;
+  for(let i=0;i<20;i++){
+    const sel=document.querySelector(`input[name="mchat${i}"]:checked`);
+    if(!sel)continue;
+    const isReverse=mchatReverse.includes(i);
+    if(isReverse&&sel.value==='yes') risk++;
+    if(!isReverse&&sel.value==='no') risk++;
+  }
+  const el=document.getElementById('mchatResult');
+  el.style.display='block';
+  let level,color,msg;
+  if(risk<=2){level='Low Risk';color='var(--green)';msg='Score indicates low risk. Routine follow-up recommended.';}
+  else if(risk<=7){level='Medium Risk';color='#f59e0b';msg='Score indicates medium risk. Follow-up interview recommended. Consider EEG-based screening with RGAIG+.';}
+  else{level='High Risk';color='var(--maroon)';msg='Score indicates high risk. Immediate referral for diagnostic evaluation. EEG-based RGAIG+ screening strongly recommended.';}
+  el.innerHTML=`<div style="background:${color}15;border:2px solid ${color};border-radius:8px;padding:16px"><strong style="color:${color};font-size:1.1rem">${level} (Score: ${risk}/20)</strong><br><span style="font-size:.85rem">${msg}</span></div>`;
+}
+
+function scoreADOS(){
+  let sa=0,rrb=0,n=0;
+  adosItems.forEach((item,i)=>{
+    const sel=document.querySelector(`select[name="ados${i}"]`);
+    if(!sel||sel.value==='')return;
+    const v=parseInt(sel.value);n++;
+    if(item.cat==='Social Affect')sa+=v;else rrb+=v;
+  });
+  const total=sa+rrb;
+  const el=document.getElementById('adosResult');
+  el.style.display='block';
+  let level,color;
+  if(total>=12){level='Autism';color='var(--maroon)';}
+  else if(total>=8){level='Autism Spectrum';color='#f59e0b';}
+  else{level='Non-Spectrum';color='var(--green)';}
+  el.innerHTML=`<div style="background:${color}15;border:2px solid ${color};border-radius:8px;padding:16px"><strong style="color:${color};font-size:1.1rem">${level}</strong><br><span style="font-size:.85rem">Social Affect: ${sa} | RRB: ${rrb} | Total: ${total} (Cutoff: 8 spectrum, 12 autism)</span></div>`;
+}
+
+function scoreCARS(){
+  let total=0,n=0;
+  for(let i=0;i<15;i++){
+    const sel=document.querySelector(`input[name="cars${i}"]:checked`);
+    if(!sel)continue;
+    total+=parseFloat(sel.value);n++;
+  }
+  const el=document.getElementById('carsResult');
+  el.style.display='block';
+  let level,color;
+  if(total<30){level='Non-Autistic';color='var(--green)';}
+  else if(total<37){level='Mild-Moderate ASD';color='#f59e0b';}
+  else{level='Severe ASD';color='var(--maroon)';}
+  el.innerHTML=`<div style="background:${color}15;border:2px solid ${color};border-radius:8px;padding:16px"><strong style="color:${color};font-size:1.1rem">${level} (Score: ${total.toFixed(1)}/60)</strong><br><span style="font-size:.85rem">Items rated: ${n}/15. Cutoff: 30 (mild-moderate), 37 (severe).</span></div>`;
+}
+
+function scoreABC(){
+  let total=0,n=0;
+  for(let i=0;i<25;i++){
+    const sel=document.querySelector(`input[name="abc${i}"]:checked`);
+    if(!sel)continue;
+    total+=parseInt(sel.value);n++;
+  }
+  const el=document.getElementById('abcResult');
+  el.style.display='block';
+  let level,color;
+  if(total<47){level='Unlikely ASD';color='var(--green)';}
+  else if(total<68){level='Possible ASD';color='#f59e0b';}
+  else{level='Probable ASD';color='var(--maroon)';}
+  el.innerHTML=`<div style="background:${color}15;border:2px solid ${color};border-radius:8px;padding:16px"><strong style="color:${color};font-size:1.1rem">${level} (Score: ${total}/100)</strong><br><span style="font-size:.85rem">Items rated: ${n}/25. Cutoff: 47 (possible), 68 (probable).</span></div>`;
+}
+
+function scoreSRS(){
+  let total=0,n=0;
+  for(let i=0;i<10;i++){
+    const sel=document.querySelector(`input[name="srs${i}"]:checked`);
+    if(!sel)continue;
+    total+=parseInt(sel.value);n++;
+  }
+  const raw=total;
+  const tScore=Math.round(40+total*3.6);
+  const el=document.getElementById('srsResult');
+  el.style.display='block';
+  let level,color;
+  if(tScore<60){level='Within Normal Limits';color='var(--green)';}
+  else if(tScore<66){level='Mild Difficulties';color='#f59e0b';}
+  else if(tScore<76){level='Moderate Difficulties';color='#ea580c';}
+  else{level='Severe Difficulties';color='var(--maroon)';}
+  el.innerHTML=`<div style="background:${color}15;border:2px solid ${color};border-radius:8px;padding:16px"><strong style="color:${color};font-size:1.1rem">${level} (T-Score: ${tScore}, Raw: ${raw})</strong><br><span style="font-size:.85rem">Items rated: ${n}/10. T-Score ranges: <60 Normal, 60-65 Mild, 66-75 Moderate, ≥76 Severe.</span></div>`;
+}
+
+function scoreAQ(){
+  let score=0;
+  aqItems.forEach((item,i)=>{
+    const sel=document.querySelector(`input[name="aq${i}"]:checked`);
+    if(!sel)return;
+    const v=parseInt(sel.value);
+    if(item.rev&&v<=1)score++;
+    if(!item.rev&&v>=2)score++;
+  });
+  const el=document.getElementById('aqResult');
+  el.style.display='block';
+  let level,color,msg;
+  if(score<6){level='Below Cutoff';color='var(--green)';msg='Score below referral threshold. Routine monitoring suggested.';}
+  else{level='Above Cutoff — Referral Recommended';color='var(--maroon)';msg='Score meets referral threshold (≥6). Comprehensive diagnostic assessment recommended. Consider EEG-based RGAIG+ screening.';}
+  el.innerHTML=`<div style="background:${color}15;border:2px solid ${color};border-radius:8px;padding:16px"><strong style="color:${color};font-size:1.1rem">${level} (Score: ${score}/10)</strong><br><span style="font-size:.85rem">${msg}</span></div>`;
+}
+
+// Radio button styling
+document.querySelectorAll('#asd-assessment label').forEach(l=>{
+  const r=l.querySelector('input[type="radio"]');
+  if(!r)return;
+  l.addEventListener('click',()=>{
+    l.parentElement.querySelectorAll('label').forEach(s=>s.style.background='');
+    l.style.background='var(--green)';l.style.color='#fff';l.style.borderColor='var(--green)';
+  });
+});
+</script>
+</body>
+</html>

@@ -79,7 +79,7 @@ The RGAIG framework is **implemented and operational**, not merely theoretical. 
 
 | # | Portal / App | Technology | Purpose | Hosting model |
 |---|---|---|---|---|
-| 1 | **RGAIG_PORTAL** | Vanilla HTML + CSS + JS | Framework dashboard: `index.html` + `admin.html` + `asd.html` + `architecture.html` + `survey.html` | Static (GitHub Pages capable) |
+| 1 | **[RGAIG_PORTAL](portal/)** ← LIVE | Vanilla HTML + CSS + JS | Framework dashboard: [`index.html`](portal/index.html) + [`admin.html`](portal/admin.html) + [`asd.html`](portal/asd.html) + [`architecture.html`](portal/architecture.html) + [`survey.html`](portal/survey.html) | **Deployed to `/portal/` on GitHub Pages** |
 | 2 | **rgaig-asd-app** | Python (Flask + FastAPI) + RAG engine + agentic backend | Live agentic ASD screening reference impl with planner / decomposer / policy / council patterns (per dissertation §E23) | Server (local / cloud) |
 | 3 | **rgaig-survey** | React + TypeScript SPA (Create React App) | Modern typed survey frontend for B2C + B2B questionnaire delivery | Static after build (Netlify / Vercel / Pages) |
 | 4 | **survey_app** | Python Flask + SQLite + Jinja templates | B2C / B2B / SUS survey deployment with persistence (`survey_b2c.html`, `survey_pro.html`, `survey_sus.html`, `dashboard.html`) | Server with DB |
