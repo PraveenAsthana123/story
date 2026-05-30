@@ -13,7 +13,7 @@
 
 
 \clearpage
-\paragraph[Pipeline Types]{Pipeline Types --- Training / Inference / Fallback / Vector DB / Output Eval.}
+\paragraph[Pipeline Types]{Pipeline Types --- Training /.}
 
 
 \noindent This table lists each \textit{pipeline} across trigger, latency target, slo, and 1 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
@@ -46,7 +46,7 @@ Report generation pipeline & HITL-approved decision & $<$ 30 s per report & Per-
 
 
 \clearpage
-\paragraph[Vector DB Qdrant]{Vector DB (Qdrant) --- Configuration + Schema.}
+\paragraph[Vector DB Qdrant]{Vector DB (Qdrant) --- Configuration.}
 
 
 \noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
@@ -81,7 +81,7 @@ PII handling & No PII embedded in vectors; per-payload PII scan before insertion
 
 
 \clearpage
-\paragraph[Graph DB]{Graph DB Design --- Neo4j Schema for Knowledge Graph.}
+\paragraph[Graph DB]{Graph DB Design --- Neo4j.}
 
 
 \noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
@@ -119,7 +119,7 @@ Backup & Daily Neo4j-admin dump to S3 / MinIO \\
 
 
 \clearpage
-\paragraph[Cron LLM Cache]{Cron Jobs + LLM Model Registry + Cache DB.}
+\paragraph[Cron LLM Cache]{Cron Jobs + LLM Model.}
 
 
 \noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
@@ -154,7 +154,7 @@ Per-cache monitor & Per-cache hit-rate / miss-rate / eviction-rate logged hourly
 
 
 \clearpage
-\paragraph[PII Index Retrieval Chunking]{PII + Index + Pre-Retrieval + Post-Retrieval + Chunking Deep Dive.}
+\paragraph[PII Index Retrieval Chunking]{PII + Index + Pre-Retrieval.}
 
 
 \noindent This table lists each \textit{technique} across purpose, implementation, and validation, so examiners can trace what was assessed and what evidence supports each row.
@@ -189,7 +189,7 @@ Post-retrieval (relevance filter) & Drop chunks below relevance threshold & Scor
 
 
 \clearpage
-\paragraph[Output Evaluation Ragas]{Output Evaluation --- Ragas Metrics + Custom Checks.}
+\paragraph[Output Evaluation Ragas]{Output Evaluation --- Ragas Metrics.}
 
 
 \noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
@@ -225,7 +225,7 @@ Eval-set composition & 100 held-out clinical questions per quarter; per-question
 
 
 \clearpage
-\paragraph[Accuracy Benchmarking Business Value]{Accuracy + Benchmarking + Business Value --- Consolidated Reference.}
+\paragraph[Accuracy Benchmarking Business Value]{Accuracy + Benchmarking + Business.}
 
 
 \noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
@@ -264,7 +264,7 @@ Novelty differentiator & Governance + explainability + cross-cohort + B2C-primar
 
 
 \clearpage
-\paragraph[RGAIG Per Phase]{RGAIG Framework Mapping Per Pipeline Phase.}
+\paragraph[RGAIG Per Phase]{RGAIG Framework Mapping.}
 
 
 \noindent This table lists each \textit{phase} across l1 capture, l2 cloud, l3 xai, and 4 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
@@ -305,7 +305,7 @@ Novelty differentiator & Governance + explainability + cross-cohort + B2C-primar
 
 
 \clearpage
-\paragraph[SMART Per Phase]{SMART(-E) Framework Per Pipeline Phase.}
+\paragraph[SMART Per Phase]{SMART(-E) Framework Per.}
 
 
 \noindent This table lists each \textit{phase} across specific, measurable, achievable, and 2 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
@@ -346,7 +346,7 @@ Novelty differentiator & Governance + explainability + cross-cohort + B2C-primar
 
 
 \clearpage
-\paragraph[Per-Phase Quality Summary]{Per-Phase Quality Summary --- Input / Process / Output / KPI / XAI / RAI / Secure AI / HITL.}
+\paragraph[Per-Phase Quality Summary]{Per-Phase Quality Summary --- Input.}
 
 
 \noindent This table lists each \textit{phase} across input, process, output, and 2 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
@@ -375,7 +375,7 @@ Novelty differentiator & Governance + explainability + cross-cohort + B2C-primar
 
 
 \clearpage
-\paragraph[Master DB Schema]{Master DB Schema --- Master / Transaction / Org / Condition / Service / Product / Usage / Consumption.}
+\paragraph[Master DB Schema]{Master DB Schema --- Master.}
 
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} L L L @{}}
@@ -403,7 +403,7 @@ Reference data & \texttt{instrument\_\allowbreak ranges}, \texttt{normative\_\al
 
 
 \clearpage
-\paragraph[Survey + Report Save Schema]{Survey + Report Save Schema --- Per-Survey + Per-Report Persistence.}
+\paragraph[Survey + Report Save Schema]{Survey + Report Save Schema.}
 
 
 \noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
@@ -439,7 +439,7 @@ Backup & Daily PostgreSQL pg\_\allowbreak dump $ -> $ S3 / MinIO; per-backup int
 
 
 \clearpage
-\paragraph[Data Flow + Reporting Flow]{Data Flow + Reporting Flow --- End-to-End Schema.}
+\paragraph[Data Flow + Reporting Flow]{Data Flow + Reporting Flow.}
 
 
 \noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
