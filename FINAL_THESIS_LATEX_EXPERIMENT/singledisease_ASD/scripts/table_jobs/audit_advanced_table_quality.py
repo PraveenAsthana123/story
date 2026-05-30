@@ -280,6 +280,15 @@ def analyse_table(file, line_no, env_type, width_arg, colspec, body):
     # Issue #5b VERY-MULTI-PAGE: > 50 rows (likely 3+ pages, should split)
     very_multi_page = len(rows) > 50
 
+    # Issue #11 UNDER-WIDTH-ALLOCATED: sum of explicit p{} widths << textwidth (~15cm)
+    # → table doesn't fill the page width, leaving margin on right
+    explicit_widths = [w for w in [c["width_cm"] for c in cols] if w is not None]
+    sum_explicit = sum(explicit_widths)
+    n_explicit = len(explicit_widths)
+    n_auto = n_cols - n_explicit
+    # If only explicit p{} columns AND sum < 13.5cm (textwidth ~15 - 1cm padding), under-allocated
+    under_width_allocated = (n_auto == 0 and sum_explicit > 0 and sum_explicit < 13.5)
+
     # Issue #9 UNDERUSED-COLUMN: column allocated > 4cm but avg < 25 chars
     # → that width could be redistributed to squeezed columns
     underused_column = False
@@ -341,6 +350,7 @@ def analyse_table(file, line_no, env_type, width_arg, colspec, body):
             "width_imbalanced": width_imbalanced,
             "underused_column": underused_column,
             "squeezed_column": squeezed_column,
+            "under_width_allocated": under_width_allocated,
             "multi_page": multi_page,
             "very_multi_page": very_multi_page,
             "sparse_table": sparse_table,
