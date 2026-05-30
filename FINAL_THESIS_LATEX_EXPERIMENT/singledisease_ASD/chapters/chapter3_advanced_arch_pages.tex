@@ -83,7 +83,7 @@ Backup & Daily snapshot to S3 / MinIO; per-collection restore tested \\
 Monitoring & Per-collection: vector count, index size, query-latency p95, memory \\
 PII handling & No PII embedded in vectors; per-payload PII scan before insertion \\
 \end{xltabular}}
-\vspace{0.3em}\noindent\textit{Note.} Qdrant chosen for production scale (Rust performance + persistent index); ChromaDB for local development. Per-collection drill verifies recall$@5$ on held-out QA set before promotion.
+\vspace{0.3em}\noindent\textit{Note.} Qdrant chosen for production scale (Rust performance + persistent index); ChromaDB for local development. Per-collection test verifies recall$@5$ on held-out QA set before promotion.
 
 
 \clearpage
@@ -200,7 +200,7 @@ Post-retrieval (reranking) & Re-score top-k with cross-encoder & cross-encoder/m
 Post-retrieval (deduplication) & Remove near-duplicate chunks & MinHash LSH; threshold 0.9 Jaccard & Diversity score per result set \\
 Post-retrieval (relevance filter) & Drop chunks below relevance threshold & Score $< 0.5$ filtered; ensures quality $>$ recall & Per-query precision check \\
 \end{xltabular}}
-\vspace{0.3em}\noindent\textit{Note.} Per-technique drill verifies implementation invariant; chunking strategy + embedding model + reranker pinned in MLflow registry for reproducibility.
+\vspace{0.3em}\noindent\textit{Note.} Per-technique test verifies implementation invariant; chunking strategy + embedding model + reranker pinned in MLflow registry for reproducibility.
 
 
 \clearpage
@@ -468,7 +468,7 @@ Encryption & Per-column encryption (AES-256) for PII; per-cell access logged \\
 Indexes & Per-timestamp + per-respondent + per-type indexes for fast retrieval \\
 Backup & Daily PostgreSQL pg\_\allowbreak dump $ -> $ S3 / MinIO; per-backup integrity check; per-quarter restore test \\
 \end{xltabular}}
-\vspace{0.3em}\noindent\textit{Note.} Per-survey + per-report save policy enforced via DB trigger; per-write audit row written. Daily backup verified; quarterly restore drill.
+\vspace{0.3em}\noindent\textit{Note.} Per-survey + per-report save policy enforced via DB trigger; per-write audit row written. Daily backup verified; quarterly restore test.
 
 
 \clearpage
@@ -507,4 +507,4 @@ Stage 13: Audit log write & Source: every prior stage event; Sink: \texttt{audit
 Stage 14: Drift monitor & Source: per-feature production distribution; Sink: \texttt{drift\_\allowbreak alert}; Latency: hourly batch \\
 Stage 15: Quarterly review & Source: aggregated audit + drift; Sink: governance meeting + \texttt{governance\_\allowbreak review\_\allowbreak minutes}; Latency: quarterly \\
 \end{xltabular}}
-\vspace{0.3em}\noindent\textit{Note.} End-to-end data flow + reporting flow with per-stage latency SLO. Per-stage drill verifies latency target. Aggregate latency dashboard reported per week.
+\vspace{0.3em}\noindent\textit{Note.} End-to-end data flow + reporting flow with per-stage latency SLO. Per-stage test verifies latency target. Aggregate latency dashboard reported per week.

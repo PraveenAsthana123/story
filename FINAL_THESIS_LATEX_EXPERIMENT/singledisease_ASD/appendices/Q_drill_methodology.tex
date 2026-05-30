@@ -1,6 +1,6 @@
 %% ============================================================================
 %% APPENDIX Q --- Drill Methodology for Pipeline Verification
-%% Auto-generated 2026-05-27. Per global §43 drill-testing pattern.
+%% Auto-generated 2026-05-27. per §43 drill-testing pattern.
 %% ============================================================================
 
 \chapter*{Appendix Q --- Drill Methodology for Pipeline Verification}
@@ -78,26 +78,26 @@ A drill IS NOT & A test that depends on production data (drills generate their o
 5 & Assert NEGATIVE invariants ($\geq 3$ per drill) & Check that bad inputs are REJECTED: wrong format, missing field, unauthorised access, oversized payload, malicious input \\
 & Cleanup + report & Reset any state changes; print PASS / FAIL per step; exit code 0 / 1 \\
 \end{xltabular}}
-\vspace{0.3em}\noindent\textit{Note.} The negative-assertion requirement is the key differentiator from a pytest unit test; a drill that only verifies the happy path can pass on a system that quietly accepts garbage. Per dissertation §\ref{sec:advanced_arch_pages} per-phase drill commitment, each pipeline phase has a paired drill verifying its threshold.
+\vspace{0.3em}\noindent\textit{Note.} The negative-assertion requirement is the key differentiator from a pytest unit test; a drill that only verifies the happy path can pass on a system that quietly accepts garbage. Per dissertation §\ref{sec:advanced_arch_pages} per-phase test commitment, each pipeline phase has a paired drill verifying its threshold.
 
 \clearpage
 \addcontentsline{toc}{section}{Q.3 Per-Pipeline-Phase Drill Inventory} % [TOC-appendix-section-insertion]
 \section*{Q.3 Per-Pipeline-Phase Drill Inventory}
 \addcontentsline{toc}{section}{Q.3 Per-Pipeline-Phase Drill Inventory}
 
-\paragraph{Q.3 Per-Phase Drill Inventory.}
+\paragraph{Q.3 per-Phase test Inventory.}
 
 
 \noindent This table lists each \textit{phase} across drill script, positive assertions, and negative assertions ($\geq 3$), so examiners can trace what was assessed and what evidence supports each row.
 
 
 
-\noindent Table~\ref{tab:app_q_drill_inventory} presents per-phase drill inventory, covering Phase, Drill script, Positive assertions and Negative assertions ($\geq 3$).
+\noindent Table~\ref{tab:app_q_drill_inventory} presents per-phase test inventory, covering Phase, Drill script, Positive assertions and Negative assertions ($\geq 3$).
 
 {\tablestripes\tablefontsize
 \needspace{20\baselineskip}
 \begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{4.6cm} p{6.0cm} @{}}
-\caption[Per-Phase Drill Inventory]{Per-Phase Drill Inventory --- Drill Script per Pipeline Phase.}\label{tab:app_q_drill_inventory} \\
+\caption[per-Phase test Inventory]{per-Phase test Inventory --- Drill Script per Pipeline Phase.}\label{tab:app_q_drill_inventory} \\
 \toprule
 \thead{Phase} & \thead{Drill script} & \thead{Positive assertions} & \thead{Negative assertions ($\geq 3$)} \\
 \midrule

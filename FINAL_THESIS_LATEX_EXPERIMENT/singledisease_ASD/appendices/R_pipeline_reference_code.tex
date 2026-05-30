@@ -141,7 +141,7 @@ Sub-step 5.10 Audit log & \texttt{audit.write(\{request\_\allowbreak id, phase=5
 Output validation & \texttt{assert cleaned\_\allowbreak eeg.epoch\_\allowbreak retention $\geq$ 0.70} \\
 Return & \texttt{CleanedEEG(epochs, metadata)} \\
 \end{xltabular}}
-\vspace{0.3em}\noindent\textit{Note.} The stub illustrates the implementation pattern; production code adds error handling, retry, rate limiting, and observability. Each sub-step writes its before / after PSD comparison to disk per the global Before/After Preprocessing Visualization policy. Drill at \texttt{tests/\allowbreak drills/\allowbreak drill\_\allowbreak preprocess.py} verifies the pattern with $\geq 3$ negative assertions.
+\vspace{0.3em}\noindent\textit{Note.} The stub illustrates the implementation pattern; production code adds error handling, retry, rate limiting, and observability. Each sub-step writes its before / after PSD comparison to disk per Before/After Preprocessing Visualization policy. Drill at \texttt{tests/\allowbreak drills/\allowbreak drill\_\allowbreak preprocess.py} verifies the pattern with $\geq 3$ negative assertions.
 
 \clearpage
 \addcontentsline{toc}{section}{R.4 Pipeline Orchestrator Stub} % [TOC-appendix-section-insertion]

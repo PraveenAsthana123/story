@@ -9,7 +9,7 @@
 \subsection{Primary Data --- Brutal Feedback Gap Closure}
 \label{sec:primary_data_brutal_gap_closure}
 
-\noindent\emph{Dedicated pages closing the residual gaps identified in an internal brutal-feedback review: analysis flow, To-Do list, database design + schema, IV / DV / hypothesis matrix, preprocess deep-dive, EDA, feature engineering, normalisation, bias inventory, balanced / unbalanced data handling, semi-structured data, 1D / 2D conversion per phase. Each topic is a single-page dedicated reference per the global formatting policy.}
+\noindent\emph{Dedicated pages closing the residual gaps identified in an internal brutal-feedback review: analysis flow, To-Do list, database design + schema, IV / DV / hypothesis matrix, preprocess deep-dive, EDA, feature engineering, normalisation, bias inventory, balanced / unbalanced data handling, semi-structured data, 1D / 2D conversion per phase. Each topic is a single-page dedicated reference per formatting policy.}
 
 
 \clearpage
@@ -161,7 +161,7 @@ Indexes + foreign keys & Per-FK index; per-timestamp index for time-series queri
 Provenance lineage & DAG: Dataset $ -> $ Subject $ -> $ Recording $ -> $ Quality + Preproc $ -> $ Feature Matrix $ -> $ Experiment Result; per-edge audit row \\
 Storage & Metadata in PostgreSQL; large binary (EEG files, feature matrices) in object store (MinIO / S3); per-file SHA-256 verified at read \\
 \end{xltabular}}
-\vspace{0.3em}\noindent\textit{Note.} Engine: PostgreSQL 16 + MinIO / S3 for blob; alternative SQLite + local disk for development. Migrations via Alembic; per-migration drill verifies schema integrity.
+\vspace{0.3em}\noindent\textit{Note.} Engine: PostgreSQL 16 + MinIO / S3 for blob; alternative SQLite + local disk for development. Migrations via Alembic; per-migration test verifies schema integrity.
 
 
 \clearpage
@@ -307,7 +307,7 @@ Per-construct missingness flag & Binary flag per construct: was any item imputed
 Validation checks & Range check post-engineering: all derived in expected ranges; sanity-bound enforcement \\
 Per-feature literature anchor & Per derived feature: cite source paper for the operationalisation \\
 \end{xltabular}}
-\vspace{0.3em}\noindent\textit{Note.} All derived features fully documented in \texttt{features/\allowbreak primary\_\allowbreak feature\_\allowbreak catalog.md}. Per-feature formula reproducible; per-feature drill verifies formula consistency.
+\vspace{0.3em}\noindent\textit{Note.} All derived features fully documented in \texttt{features/\allowbreak primary\_\allowbreak feature\_\allowbreak catalog.md}. Per-feature formula reproducible; per-feature test verifies formula consistency.
 
 
 \clearpage
@@ -341,7 +341,7 @@ Categorical encoding & One-hot encoding for nominal (role, specialty); ordinal e
 Train-fold-only fit & Critical: scaler.fit on training fold; scaler.transform on test fold; no leakage \\
 Per-scaler artefact & Per-scaler: parameters saved (\texttt{scaler\_\allowbreak <name>.json}); reloaded for inference \\
 Inverse-transform support & Per-scaler inverse-transform tested; supports prediction $ -> $ original-scale conversion \\
-Per-normalisation drill & Drill: scaler-fit on train fold; verify mean $\approx 0$, SD $\approx 1$ on train; verify no fit on test \\
+per-normalisation test & Drill: scaler-fit on train fold; verify mean $\approx 0$, SD $\approx 1$ on train; verify no fit on test \\
 Documentation per choice & Per-feature: documented choice of normalisation + rationale \\
 \end{xltabular}}
 \vspace{0.3em}\noindent\textit{Note.} Normalisation choices pre-registered before model fitting. Train-fold-only fit enforced via sklearn ColumnTransformer + Pipeline pattern.
@@ -504,4 +504,4 @@ DL training tensor (image) & Per-epoch 2D image & Stack epochs & 4D tensor (B $\
 SD-B (assessments) & 1D vector (score per instrument) & Concatenate & 2D matrix (n\_subj $\times$ n\_instr) & Behavioural feature matrix \\
 SD-C (literature corpus) & 1D string per paper & Tokenize $ -> $ embed & 1D vector (768-dim) & RAG vector store entry \\
 \end{xltabular}}
-\vspace{0.3em}\noindent\textit{Note.} Per-phase conversion explicit; per-conversion drill verifies dimension transformation correctness. Conversion choices align with downstream model input shape requirements.
+\vspace{0.3em}\noindent\textit{Note.} Per-phase conversion explicit; per-conversion test verifies dimension transformation correctness. Conversion choices align with downstream model input shape requirements.
