@@ -159,42 +159,38 @@ def fix_table_colspec(spec, col_widths, col_avgs, col_maxes, issues, n_cols):
     if not fix_needed:
         return None
 
-    # Identify column roles
-    weights = list(col_avgs)  # use avg text as weight basis
-    # Bump heavy cols (max > 100)
-    for i, m in enumerate(col_maxes):
-        if m > 100:
-            weights[i] = max(weights[i] * 1.5, 50)
+    # Target rendering density: ~6 chars/cm at \footnotesize works well for single-line,
+    # ~10-12 chars/cm acceptable for 2-line wrap. We aim for ~8 chars/cm baseline.
+    # Per column: ideal_width_cm = avg_chars / 8 (rounded to 0.5cm), clamped
+    import math
+    weights = []
+    for i, a in enumerate(col_avgs):
+        # Use sqrt scaling so middle-sized cols get proportionally more than tiny ones,
+        # and giant cols don't dominate
+        weights.append(math.sqrt(max(a, 1)))
 
-    # Cap empty trailing column to minimum
     new_widths = [None] * n
-    if issues.get("right_side_empty") and weights[-1] < 10:
-        new_widths[-1] = MIN_L_CM
-        available -= MIN_L_CM
-        weights[-1] = 0  # exclude from proportional allocation
-
-    # Cap any column with avg < 5 chars to MIN
-    for i, w in enumerate(weights):
-        if w < 5 and new_widths[i] is None:
-            new_widths[i] = MIN_L_CM
-            available -= MIN_L_CM
+    # Step 1: clamp very-small label columns (avg < 5 chars) to compact width
+    for i, a in enumerate(col_avgs):
+        if a < 5:
+            new_widths[i] = 1.0  # short label column
+            available -= 1.0
             weights[i] = 0
 
-    # Distribute remaining width proportionally to remaining columns by weight
+    # Step 2: clamp right-side-empty trailing column if it slipped through
+    if issues.get("right_side_empty") and weights[-1] > 0 and col_avgs[-1] < 10:
+        new_widths[-1] = MIN_L_CM
+        available -= MIN_L_CM
+        weights[-1] = 0
+
+    # Step 3: distribute remaining proportionally via sqrt-weighted allocation
     total_weight = sum(weights)
     if total_weight > 0 and available > 0:
         for i, w in enumerate(weights):
             if new_widths[i] is None and w > 0:
                 share = (w / total_weight) * available
-                new_widths[i] = max(MIN_L_CM, min(WIDE_CAP_CM, share))
-    elif available > 0:
-        # Equal share for all unassigned
-        n_unassigned = sum(1 for w in new_widths if w is None)
-        if n_unassigned > 0:
-            equal_share = available / n_unassigned
-            for i in range(n):
-                if new_widths[i] is None:
-                    new_widths[i] = max(MIN_L_CM, equal_share)
+                # Ensure minimum legible width per content column
+                new_widths[i] = max(2.0, min(WIDE_CAP_CM, share))
 
     # Annotate col tokens with new widths
     for i, col in enumerate(cols):

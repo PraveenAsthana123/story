@@ -184,16 +184,27 @@ def split_cells(row):
 
 
 def strip_latex_for_count(text):
-    """Return approximate visible text length."""
+    """Return approximate visible text length.
+    Treats \\ref{...}, \\cite{...}, \\Cref{...} etc. as 4-char render (e.g. "3.89").
+    """
+    # Unwrap text-formatting commands
     text = re.sub(r"\\textbf\{([^}]+)\}", r"\1", text)
     text = re.sub(r"\\emph\{([^}]+)\}", r"\1", text)
     text = re.sub(r"\\textit\{([^}]+)\}", r"\1", text)
     text = re.sub(r"\\thead\{([^}]+)\}", r"\1", text)
+    # Cross-references render as numbers — substitute with "X.XX" placeholder
+    text = re.sub(r"\\(?:ref|Cref|cref|autoref|pageref|nameref)\{[^}]+\}", "X.XX", text)
+    text = re.sub(r"\\cite[tp]?\*?\{[^}]+\}", "[N]", text)
+    # \newline / \\\\ inside cells force vertical line breaks → count as extra-line cost
+    n_newlines = len(re.findall(r"\\(?:newline|\\\\)", text))
+    text = re.sub(r"\\(?:newline|\\\\)", " ", text)
+    # Strip remaining commands
     text = re.sub(r"\\[a-zA-Z]+\*?(\[[^\]]*\])?(\{[^{}]*\})?", " ", text)
     text = re.sub(r"\$[^$]*\$", "X", text)
     text = re.sub(r"[{}~]", "", text)
     text = re.sub(r"\s+", " ", text).strip()
-    return text
+    # Pad length for each forced newline (each \\\\ adds ~40 chars equivalent of layout cost)
+    return text + (" " * (n_newlines * 40))
 
 
 def analyse_table(file, line_no, env_type, width_arg, colspec, body):
@@ -215,24 +226,59 @@ def analyse_table(file, line_no, env_type, width_arg, colspec, body):
     col_min = [min(L) if L else 0 for L in col_lengths]
 
     # Issue #3 RIGHT-SIDE-EMPTY: last column avg < 40% of largest AND last < 20 chars
+    # EXEMPTION: if last column already has explicit width <= 2.0cm, the issue is already addressed
     largest_avg = max(col_avg) if col_avg else 1
     last_avg = col_avg[-1] if col_avg else 0
-    right_side_empty = (largest_avg > 30 and last_avg < 0.4 * largest_avg and last_avg < 20)
+    last_width = cols[-1]["width_cm"] if cols and cols[-1]["width_cm"] else None
+    right_side_empty = (
+        largest_avg > 30 and last_avg < 0.4 * largest_avg and last_avg < 20
+        and (last_width is None or last_width > 2.0)  # only flag if last col is L (None) or wide
+    )
 
     # Issue #4 TALL-COLUMN: one column max > 100 chars (3+ wrapped lines in narrow col)
     #   while another column avg < 40 chars (short label)
+    # EXEMPTION: if the tall-content column has explicit width >= 5.0cm, it's already wide enough
     has_tall_col = any(m > 100 for m in col_max)
     has_narrow_col = sum(1 for c in col_avg if c < 40) >= 1
-    tall_column = has_tall_col and has_narrow_col and n_cols >= 3
+    if has_tall_col:
+        tall_idx = col_max.index(max(col_max))
+        tall_col_width = cols[tall_idx]["width_cm"] if tall_idx < len(cols) and cols[tall_idx]["width_cm"] else None
+        tall_col_type = cols[tall_idx]["type"] if tall_idx < len(cols) else None
+        # Exempt if: (a) tall col >= 4cm explicit, OR (b) tall col is L/X (tabularx auto-balances)
+        tall_col_fixed = (
+            (tall_col_width is not None and tall_col_width >= 4.0)
+            or tall_col_type in ("L", "X")
+        )
+        tall_column = (not tall_col_fixed) and has_narrow_col and n_cols >= 3
+    else:
+        tall_column = False
 
     # Issue #7 COL-WIDTH-IMBAL: explicit widths vary > 4x
+    # EXEMPTION: if the small column is < 2cm AND large column < 7cm (deliberate equal-space narrow + wide)
     widths = [c["width_cm"] for c in cols if c["width_cm"]]
-    width_imbalanced = (len(widths) >= 2 and max(widths) > 4 * min(widths))
+    if len(widths) >= 2:
+        wmax, wmin = max(widths), min(widths)
+        # Skip if min < 2cm (intentional narrow) and max < 7cm (intentional bounded)
+        intentional_narrow_wide = (wmin < 2.0 and wmax < 7.0)
+        width_imbalanced = (wmax > 4 * wmin) and not intentional_narrow_wide
+    else:
+        width_imbalanced = False
 
     # Issue #5 MULTI-PAGE: > 25 rows (likely spans 2+ pages)
     multi_page = len(rows) > 25
     # Issue #5b VERY-MULTI-PAGE: > 50 rows (likely 3+ pages, should split)
     very_multi_page = len(rows) > 50
+
+    # Issue #8 TABLE-VS-TEXT-DENSITY-MISMATCH:
+    # Table has many rows but each row has very little text → page is mostly empty
+    # Suggests merging rows, converting to bullets, or reducing row count
+    total_text_chars = sum(sum(L) for L in col_lengths)
+    if len(rows) >= 8 and total_text_chars > 0:
+        chars_per_row = total_text_chars / len(rows)
+        # If avg < 30 chars/row across all columns AND many rows, table is sparse
+        sparse_table = chars_per_row < 30 and len(rows) >= 12
+    else:
+        sparse_table = False
 
     # Issue #6 TEXT-QUALITY checks per cell
     empty_cells = sum(1 for row in rows for cell in split_cells(row) if not strip_latex_for_count(cell))
@@ -269,6 +315,7 @@ def analyse_table(file, line_no, env_type, width_arg, colspec, body):
             "width_imbalanced": width_imbalanced,
             "multi_page": multi_page,
             "very_multi_page": very_multi_page,
+            "sparse_table": sparse_table,
             "empty_cells": empty_cells,
             "placeholders": placeholders,
         },
