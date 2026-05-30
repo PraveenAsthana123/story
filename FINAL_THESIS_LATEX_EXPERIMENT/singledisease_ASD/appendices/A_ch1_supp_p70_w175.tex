@@ -1,0 +1,196 @@
+%%============================================================================
+% APPENDIX A: Chapter 1 --- Introduction Supplementary Material
+%%============================================================================
+\setchaptercolor{1}
+
+\chapter*{Appendix: Chapter 1 --- Introduction Supplementary Material}
+\label{chap:appendix_ch1}
+\normalsize\normalfont\color{black}
+
+\noindent\textbf{Appendix A Scope Contract --- Conceptual Introduction Supplement Only.}
+\label{para:appa_scope_contract}
+This appendix supplements Chapter~1 with conceptual reference material. \textbf{It is NOT}: a deployed-system specification; a clinical-implementation guide; or a regulatory-submission artefact. Where the appendix references B2C / B2B pathways, deployment context, or operational architecture, these are \emph{conceptual reference frameworks supporting the Chapter~1 problem-statement narrative} --- not validated implementations or commitments to clinical deployment.
+
+This appendix provides supplementary detail for Chapter~1. Each item traces to a specific chapter objective or problem statement.
+
+% Stub labels for suppressed items (prevent undefined reference warnings)
+\phantomsection\label{fig:appendix_ch1_taskflow}
+\phantomsection\label{fig:b2c_flow_main}
+\phantomsection\label{tab:b2c_pain_main}
+\phantomsection\label{tab:cagr_market}
+\phantomsection\label{fig:pain_points}
+\phantomsection\label{tab:key_terms_appx}
+\phantomsection\label{fig:contribution_map}
+\phantomsection\label{tab:app_domain_theories}
+\phantomsection\label{sec:appendix_ch1_s2}
+\phantomsection\label{sec:pain_points}
+\phantomsection\label{sec:key_terms_appx}
+\phantomsection\label{sec:appendix_ch1_s5}
+\phantomsection\label{sec:appendix_ch1_s7}
+\phantomsection\label{sec:appendix_ch1_s8}
+\phantomsection\label{sec:appendix_ch1_s9}
+\phantomsection\label{tab:app_ch1_publications}
+\phantomsection\label{fig:app_framework_components}
+\phantomsection\label{tab:app_backend_tables}
+
+%%============================================================================
+% A.1: Limitations of the Introductory Framing
+%%============================================================================
+\section{Limitations of the Introductory Framing}
+\label{sec:intro_limitations}
+
+Table~\ref{tab:ch1_limitations} documents eight limitations of the Chapter~1 framing, each mapped to a mitigation strategy. These constraints are revisited in Chapter~\ref{chap:discussion} where empirical evidence either confirms or narrows them.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.2cm} >{\raggedright\arraybackslash}p{3.0cm} L L @{}}
+\caption[Limitations of the Introductory Framing]{Limitations of the Introductory Framing. Each limitation traces to a specific scope boundary established in Section~1.8 and is revisited in Chapter~5.}\label{tab:ch1_limitations} \\
+\toprule
+\thead{\#} & \thead{Limitation} & \thead{Scope} & \thead{Mitigation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Domain scope & ASD only; excludes cardiovascular, dermatology, genomics & Selected for EEG suitability and data availability \\
+\addlinespace
+2 & Literature window & 2014--2025; pre-2014 cited selectively & RAG pipeline partially addresses recency \\
+\addlinespace
+3 & No prospective data & Retrospective public datasets only & Prospective validation prioritised for future work \\
+\addlinespace
+4 & Cost benchmarks & Published benchmarks, not hospital audits & 3-scenario sensitivity analysis applied \\
+\addlinespace
+5 & Regulatory scope & FDA + EU AI Act + HIPAA only & Per-jurisdiction mapping needed for deployment \\
+\addlinespace
+6 & Prevalence estimates & WHO aggregates; regional variation not captured & Underdiagnosis acknowledged; best-available data used \\
+\addlinespace
+7 & Market projections & Industry analyst forecasts; inherent uncertainty & Regulatory environment may accelerate or constrain \\
+\addlinespace
+8 & Causal claims & Cross-sectional design limits causal inference & Mediation model tested empirically (Ch.~\ref{chap:analysis}) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Limitations 1--3 constrain external validity; 4--7 constrain scope claims; 8 constrains causal interpretation. Each is acknowledged proactively rather than discovered by the examiner.
+
+%%============================================================================
+% A.2: Chapter 1 Objective Traceability
+%%============================================================================
+\section{Chapter 1 Objective Traceability}
+
+
+\noindent This table lists each \textit{sec.} across section title, objective, and how it contributes, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.2cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{2.0cm} L @{}}
+\caption[Chapter 1 Section-to-Objective Traceability]{Chapter 1 Section-to-Objective Traceability. Each section maps to at least one thesis objective (O1--O5), ensuring no section is orphaned from the research argument.}\label{tab:ch1_objective_trace} \\
+\toprule
+\thead{Sec.} & \thead{Section Title} & \thead{Objective} & \thead{How It Contributes} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1.1 & Background of the Study & O1, O2 & Establishes ASD context and diagnostic gap \\
+\addlinespace
+1.2 & Problem Statement & O1--O5 & Defines P1--P4 that motivate all objectives \\
+\addlinespace
+1.3 & Research Objectives & O1--O5 & States the five main objectives \\
+\addlinespace
+1.4 & Operationalisation (A--D) & O1--O5 & Maps A1--D3 sub-objectives to Parts \\
+\addlinespace
+1.5 & Research Questions & O1--O5 & RQ1--RQ5 operationalise objectives \\
+\addlinespace
+1.6 & Research Structure & O1--O5 & A--D framework organises evaluation \\
+\addlinespace
+1.7 & Significance & O4, O5 & Academic, clinical, policy impact \\
+\addlinespace
+1.8 & Scope & O1--O3 & Boundaries: ASD-only, public data \\
+\addlinespace
+1.9 & Dissertation Structure & All & Chapter-by-chapter handoff chain \\
+\addlinespace
+1.10 & Output Card & All & Deliverables to Chapter~2 \\
+\addlinespace
+1.11 & Limitations & O1--O5 & Known constraints stated upfront \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} ASD = Autism Spectrum Disorder. See chapter prose for full context.
+
+%%============================================================================
+% A.3: Problem-to-Gap-to-Objective Chain
+%%============================================================================
+\section{Problem-to-Gap-to-Objective Chain}
+
+\begin{itemize}[leftmargin=*, itemsep=3pt]
+\item \textbf{P1} (Workflow fragmentation) $\to$ G1 (No unified pipeline) $\to$ O2 (Technical validation) $\to$ H1 (ASD accuracy $\geq$ 85\%)
+\item \textbf{P2} (Black-box opacity) $\to$ G3 (No operationalised explainability) $\to$ O2 (Technical validation) $\to$ H3 (SHAP features clinically valid)
+\item \textbf{P3} (Screening bottleneck) $\to$ G5 (AI not embedded in workflows) $\to$ O3 (Clinical adoption) $\to$ H4 (Workflow $-$94.6\% manual)
+\item \textbf{P4} (Governance gap) $\to$ G4, G7 (No governance scoring) $\to$ O4 (Governance) $\to$ H5 (RAG expert $\alpha \geq 0.75$)
+\end{itemize}
+
+\noindent This chain ensures every problem identified in Chapter~1 is addressed by a specific hypothesis tested in Chapter~4 and interpreted in Chapter~5.
+
+%% ======================================================================
+%% A-S5. AS-IS Hospital Assessment — Full Per-Area Breakdown
+%% Condensation companion to Chapter 1 tab:asis_hospital (4 group-summary
+%% rows). Full 16-row per-area enumeration migrated 2026-05-13 per main-
+%% chapter table-row reduction discipline.
+%% ======================================================================
+\addcontentsline{toc}{section}{A-S5. AS-IS Hospital Assessment --- Full Per-Area Breakdown} % [TOC-appendix-section-insertion]
+\section*{A-S5. AS-IS Hospital Assessment --- Full Per-Area Breakdown}
+\addcontentsline{toc}{section}{A-S5. AS-IS Hospital Assessment}
+\label{sec:appa_asis_hospital_full}
+
+\noindent This section provides the full 16-row per-area breakdown summarised in Chapter~1, Table~\ref{tab:asis_hospital}. The four chapter-level pain-area groups (Clinical Assessment \& Diagnostic Workflow; Data \& Technology Infrastructure; Monitoring \& Decision Support; Governance, Scalability \& Trust) decompose into the original 16 assessment-area rows.
+
+\noindent Table~\ref{tab:appa_asis_hospital_full} summarises as-is patient assessment in hospital settings for appendix review.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appa_asis_hospital_full} below presents AS-IS Hospital Assessment: Full Per-Area Breakdown, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{As-Is Hospital Assessment Full Per-Area.} % [auto-heading inserted]
+\noindent Table~\ref{tab:appa_asis_hospital_full} below presents AS-IS Hospital Assessment: Full Per-Area Breakdown, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.8cm} L @{}}
+\caption[AS-IS Hospital Assessment: Full Per-Area Breakdown]{AS-IS Patient Assessment in Hospital Settings: full per-area breakdown. Supporting evidence behind the 4-row decision-level summary in Table~\ref{tab:asis_hospital}.}\label{tab:appa_asis_hospital_full} \\
+\toprule
+\thead{Assessment Area} & \thead{Current State} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Clinical Assessment & Manual, clinician-driven; experience-based; limited consultation time per patient \\
+\addlinespace
+EEG Interpretation & Expert-dependent; inconsistent detection of subtle or early-stage patterns \\
+\addlinespace
+Diagnostic Workflow & Offline or semi-manual analysis; delayed reports; weak MRI/CT linkage \\
+\addlinespace
+Continuous Monitoring & ICU-restricted; intermittent elsewhere; clinically significant events missed \\
+\addlinespace
+Behavioural Assessment & Separate from EEG analysis; fragmented understanding of patient state \\
+\addlinespace
+Risk Assessment & Reactive rather than predictive; relies on historical data only \\
+\addlinespace
+Decision-Making & Clinician-centric; minimal decision support; high cognitive load \\
+\addlinespace
+Explainability & Clinician-specific; no standardised explainability framework \\
+\addlinespace
+Data Quality & Noise and motion artefacts; manual, inconsistent preprocessing \\
+\addlinespace
+Privacy \& Consent & Static one-time consent; no dynamic consent management \\
+\addlinespace
+EHR Integration & Siloed systems; limited interoperability across departments \\
+\addlinespace
+Technology Usage & Rule-based or assistive only; no predictive or generative AI \\
+\addlinespace
+Workflow Efficiency & Specialist-bottlenecked; reporting delays of hours to days \\
+\addlinespace
+Alerting & Manual threshold-based; alarm fatigue reduces response quality \\
+\addlinespace
+Accountability & Clinician-only responsibility; no AI governance or audit layer \\
+\addlinespace
+Scalability & Volume pressure on limited neurology expertise; no capacity scaling \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Sixteen rows aggregated into four chapter-level pain-area groups in Table~\ref{tab:asis_hospital}. Group mapping: Clinical Assessment + EEG Interpretation + Diagnostic Workflow + Behavioural Assessment $\to$ Clinical Assessment \& Diagnostic Workflow group; Data Quality + EHR Integration + Technology Usage + Explainability $\to$ Data \& Technology Infrastructure group; Continuous Monitoring + Risk Assessment + Decision-Making + Alerting $\to$ Monitoring \& Decision Support group; Privacy \& Consent + Workflow Efficiency + Accountability + Scalability $\to$ Governance, Scalability \& Trust group. The RGAIG TO-BE design (Table~\ref{tab:b2b_tobe}) is engineered to resolve every area.

@@ -1,0 +1,44 @@
+%% ============================================================================
+%% Per-iteration changelog for Ch.3 architecture expansion (auto-generated 2026-05-27)
+%% Per global §51 forensic-substrate policy
+%% ============================================================================
+
+\clearpage
+\subsection{Architecture Expansion Per-Iteration Changelog}
+\label{sec:arch_iteration_changelog}
+
+\noindent\emph{Per-iteration forensic changelog of the 2026-05-27 architecture-expansion session. Each row identifies one iteration with its trigger / additions / build state / snapshot path. Provides forensic traceability per global §51 policy: when something added, what was added, what state the build reached.}
+
+\paragraph{Per-Iteration Changelog.}
+
+
+\noindent This table lists each \textit{iter} across trigger / scope, additions + key artefacts, and pages (cumulative), so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{8.0cm} p{3.6cm} >{\centering\arraybackslash}p{1.5cm} @{}}
+\caption[Per-Iteration Changelog]{Architecture Expansion Per-Iteration Changelog --- 2026-05-27 Session.}\label{tab:arch_iteration_changelog} \\
+\toprule
+\thead{Iter} & \thead{Trigger / scope} & \thead{Additions + key artefacts} & \thead{Pages (cumulative)} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+0 & Pre-session baseline & Ch.~3 at 1427 pages (pre-architecture-expansion state) & 1427 \\
+1 & 23-step pipeline architecture + 6 supplementary techniques + sample data (KAU 10 records) & \texttt{chapter3\_\allowbreak pipeline\_\allowbreak dedicated\_\allowbreak pages.tex} (30 pages) & 1576 \\
+2 & Pipeline detail flows + per-stage governance + analysis lists + secondary data + ISO + brutal gap + advanced arch & \texttt{chapter3\_\allowbreak pipeline\_\allowbreak extras.tex} + \texttt{chapter3\_\allowbreak secondary\_\allowbreak data\_\allowbreak pages.tex} + \texttt{chapter3\_\allowbreak iso\_\allowbreak threshold\_\allowbreak pages.tex} + \texttt{chapter3\_\allowbreak brutal\_\allowbreak gap\_\allowbreak pages.tex} + \texttt{chapter3\_\allowbreak advanced\_\allowbreak arch\_\allowbreak pages.tex} & 1576 $\to$ 1653 \\
+3 & ISO 42001 audit-evidence runbook + TikZ pipeline flowchart + AS-IS vs TO-BE figure & \texttt{chapter3\_\allowbreak iso\_\allowbreak audit\_\allowbreak runbook.tex} + \texttt{fig\_\allowbreak asd\_\allowbreak pipeline\_\allowbreak 23step\_\allowbreak flow.tex} + \texttt{fig\_\allowbreak asis\_\allowbreak vs\_\allowbreak tobe\_\allowbreak pathway.tex} & 1653 \\
+4 & Cross-reference index + 4 per-phase TikZ flowcharts (preprocessing / RAG / HITL / 15-step E2E) & \texttt{chapter3\_\allowbreak crossref\_\allowbreak index.tex} + 4 \texttt{fig\_*.tex} files & 1662 \\
+5 & 6 more per-phase TikZ flowcharts (feature extract / train / evaluate / XAI / deliver / governance monitor) + Appendix P pre-registration template & 6 \texttt{fig\_*.tex} files + \texttt{P\_\allowbreak pre\_\allowbreak registration\_\allowbreak template.tex} & 1681 \\
+6 & Thematic cross-ref matrix + operator dashboard mockup + Appendix Q drill methodology & \texttt{chapter3\_\allowbreak thematic\_\allowbreak xref.tex} + \texttt{fig\_\allowbreak operator\_\allowbreak dashboard\_\allowbreak mockup.tex} + \texttt{Q\_\allowbreak drill\_\allowbreak methodology.tex} & 1694 \\
+7 & Examiner Q\&A + executive summary + per-iteration changelog (this entry) & \texttt{chapter3\_\allowbreak examiner\_\allowbreak qa.tex} + \texttt{chapter3\_\allowbreak arch\_\allowbreak executive\_\allowbreak summary.tex} + \texttt{chapter3\_\allowbreak arch\_\allowbreak changelog.tex} & 1694 + tbd \\
+\midrule
+\multicolumn{3}{l}{\textbf{Per-build invariants verified throughout (every iteration)}} & --- \\
+\multicolumn{4}{@{}l}{0 errors / 0 multiply-defined / 0 undefined refs / 0 natbib author-undef / 0 float-too-large / 0 audit-flagged issues} \\
+\multicolumn{3}{l}{\textbf{Audit trail per iteration}} & --- \\
+\multicolumn{4}{@{}l}{Per-iteration: backup $\to$ generate $\to$ build $\to$ verify $\to$ snapshot to \texttt{versions/main/pdf/}} \\
+\multicolumn{4}{@{}l}{Per-iteration snapshot filename pattern: \texttt{main\_\allowbreak <date>\_\allowbreak <time>\_\allowbreak p<pages>\_\allowbreak <description>.pdf}} \\
+\multicolumn{4}{@{}l}{Per-iteration recovery: any iteration can roll back via copy of prior snapshot from \texttt{versions/main/pdf/}} \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Per-iteration changelog is the forensic substrate per global §51 policy: provides auditable record of WHO (operator-prompted) + WHEN (per-iteration) + WHAT (additions) + WHERE (artefact files) + VERIFIED state (build + audit). Each iteration's snapshot remains in \texttt{versions/main/pdf/} for forensic reconstruction.

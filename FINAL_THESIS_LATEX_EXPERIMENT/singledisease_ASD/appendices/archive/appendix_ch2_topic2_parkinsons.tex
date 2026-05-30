@@ -1,0 +1,53 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CHAPTER 2 SECTION: DETAILED LITERATURE REVIEW: PARKINSON'S DISEASE ASD ensemble FRAMEWORKS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Detailed Literature Review: Parkinson's Disease ASD ensemble Frameworks}
+\label{app:ch2_pd}
+\label{sec:topic2_pd}
+
+This section provides the detailed literature review for EEG-based Parkinson's Disease  diagnostics and Multi-Scale Channel Attention (ASD ensemble) frameworks supporting the thematic synthesis in Chapter~2. The review spans classical feature engineering, deep learning architectures, and recent attention-based and transformer models. All citations are referenced in the consolidated bibliography.
+
+The literature on EEG-based PD diagnostics spans classical feature engineering, deep learning architectures, and recent attention-based and transformer models.
+
+\subsection{Classical Baseline Frameworks}
+
+Classical PD--EEG studies converge on spectral power and connectivity as discriminative features (Vanegas et al.~\cite{vanegas2018pd}; Sahota et al.~\cite{sahota2024pd}), but diverge on optimal classification strategy. Emad-Ud-Din et al.~\cite{emaduddin2025pd} report >95\% accuracy with CWT+SVM, yet rely on a single university dataset without medication-state controls---a critical confound given that PD medications alter EEG spectral profiles. Wu et al.~\cite{wu2023pdeeg} and Van Huynh~\cite{vanhuynh2023ensemble} address robustness and generalisation respectively, but neither tests cross-site. Khare and Bajaj~\cite{khare2021cacdss} is the only classical study to address explainability through visual feature mapping (95\% accuracy), though the interpretability claim is not validated by clinician evaluation.
+
+\subsection{DL-Based Frameworks}
+
+DL approaches follow three architectural strategies, each with distinct trade-offs. Multi-band decomposition (Khare et al.~\cite{khare2021pdcnnet}, PDCNNet, >94\%) and Gabor filtering (Loh et al.~\cite{loh2021gaborpd}, GaborPDNet) both convert EEG to time-frequency representations but use different frequency resolution, yet no head-to-head comparison exists on the same dataset. Lee et al.~\cite{lee2021pd} provide the most rigorous within-study comparison: a 10-percentage-point improvement from hybrid CNN-RNN over single-stage models, though restricted to one cohort. Suuronen et al.~\cite{suuronen2023budget} address clinical practicality through budget-based electrode reduction---a concern absent from the other studies---while Zhang et al.~\cite{zhang2024channel} preserve spatial information that budget reduction discards. The field lacks a benchmark that would resolve which strategy generalises best.
+
+\subsection{Attention and Transformer Frameworks}
+
+Graph-based and attention-based architectures represent competing paradigms. Lyu and Guo~\cite{lyu2023bgcn} (BGCN) and Chang et al.~\cite{chang2023asgcnn} (sparse graph CNN) both model electrode connectivity as a graph, but only Chang et al.'s saliency maps provide interpretable output---a critical distinction for clinical deployment. Bunterngchit et al.~\cite{bunterngchit2025ctesm} integrate three architectures (CNN, transformer, GRU), raising overfitting concerns on small PD datasets. Sar et al.~\cite{sar2025multimodal} combine EEG and movement data---the most clinically realistic approach---but introduce hardware dependencies limiting deployment outside specialist centres. Pei et al.~\cite{pei2025spatiotemporal} reveal fronto-central attentional dysfunction, the sole neurophysiological insight in this group. None uses LOSO-CV, making accuracy claims incomparable to subject-independent benchmarks.
+
+\subsection{Comparative Analysis}
+
+Table~\ref{tab:pd_comparison} compares existing PD frameworks against the proposed Multi-Scale Channel Attention design.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{3cm} p{3cm} p{2.5cm} L L @{}}
+\caption[Comparative Analysis of PD EEG Frameworks vs.\ Proposed]{Comparative Analysis of PD EEG Frameworks vs.\ Proposed ASD ensemble Design}\label{tab:pd_comparison} \\
+\toprule
+\thead{Study} & \thead{Method} & \thead{Result} & \thead{Gap} & \thead{ASD Advantage} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:pd_comparison} continued from previous page\,)}} \\
+\toprule
+\thead{Study} & \thead{Method} & \thead{Result} & \thead{Gap} & \thead{ASD Advantage} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Khare et al.~\cite{khare2021pdcnnet} & PDCNNet multi-band + CNN & $>$94\% accuracy & Implicit attention; fixed filterbanks & Explicit multi-scale channel attention with learnable weights \\
+\addlinespace
+Suuronen et al.~\cite{suuronen2023budget} & Budget-based channel reduction & Good performance with minimal channels & No multi-scale feature modeling & Soft attention-based channel weighting preserving full features \\
+\addlinespace
+Chang et al.~\cite{chang2023asgcnn} & Attention sparse graph CNN & High accuracy with saliency maps & Graph attention only; limited frequency-scale & Combines channel attention with multi-scale spectral modules \\
+\addlinespace
+Bunterngchit et al.~\cite{bunterngchit2025ctesm} & CNN + Transformer + GRU & Strong EEG classification & Generic; not PD-specific & PD-specific framework with biomarker-aligned attention \\
+\addlinespace
+Sar et al.~\cite{sar2025multimodal} & Multimodal EEG + movement & Improved early PD detection & Task-specific; not reusable & Reusable multi-scale attention backbone \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} ASD ensemble = multi-scale channel attention; CNN = convolutional neural network; GRU = gated recurrent unit; PSD = power spectral density.

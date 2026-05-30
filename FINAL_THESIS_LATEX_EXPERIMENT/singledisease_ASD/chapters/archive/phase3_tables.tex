@@ -1,0 +1,483 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PHASE 3 — DETAILED RESEARCH EXECUTION TABLES
+%% Conceptual Model Development (Chapter 2 continued)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize\normalfont\color{black}
+
+%% ── Table 1: Input / Process / Output ──
+Table~\ref{tab:phase3_ipo} maps the eight steps of conceptual model development, from literature-theme extraction through measurement readiness assessment.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{0.15\textwidth} X X X @{}}
+\caption{Phase~3 --- Input, Process, and Output: Conceptual Model Development}
+\label{tab:phase3_ipo}\\
+\toprule
+\thead{Step} & \thead{Input} & \thead{Process} & \thead{Output} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Literature themes          & 6 thematic clusters from Phase~2                              & Extract candidate constructs from each theme                     & Construct inventory (12 candidates) \\
+\addlinespace
+Construct identification   & Construct inventory, TAM-TOE-RBV mapping                       & Select constructs with theoretical and empirical support         & 6 core constructs retained \\
+\addlinespace
+Variable classification    & Core constructs, variable taxonomy literature                   & Classify each construct as IV, DV, mediator, moderator, or control & Variable classification table \\
+\addlinespace
+Conceptual framework       & Classified variables, theoretical lenses                        & Design structural model showing directional relationships        & Conceptual model diagram (TikZ) \\
+\addlinespace
+Operationalisation         & Conceptual model, measurement literature                        & Define indicators and measurement approach per construct          & Operationalisation preview table \\
+\addlinespace
+Adoption chain design      & TOE framework, AI governance literature                         & Map 6-stage adoption sequence from enablers to outcomes           & 6-stage adoption chain \\
+\addlinespace
+Theory validation          & Conceptual model, DSR/TAM/TOE/RBV criteria                     & Evaluate model against theory requirements and parsimony         & Theory-validated conceptual model \\
+\addlinespace
+Measurement readiness      & Operationalisation table, evaluation metrics literature          & Specify scales (Likert) and DL metrics (accuracy, AUC, F1, RAGAS) & Measurement readiness matrix \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 2: Quality Validation Framework ──
+Table~\ref{tab:phase3_quality} documents the six quality dimensions applied to validate the conceptual model construction process.
+
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{0.15\textwidth} X @{}}
+\caption{Phase~3 --- Research Design Quality Framework}
+\label{tab:phase3_quality}\\
+\toprule
+\thead{Dimension} & \thead{Method} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Quality check        & Ensure every construct is theoretically grounded and empirically measurable \\
+\addlinespace
+Justification        & Conceptual model integrates TAM (adoption), TOE (context), RBV (capability) for comprehensive coverage \\
+\addlinespace
+Framework reference  & TAM \citep{davis1989tam}, TOE \citep{tornatzky1990processes}, RBV \citep{barney1991firm}, DSR \citep{hevner2004design} \\
+\addlinespace
+Techniques           & Construct mapping, variable classification, indicator specification, structural diagramming \\
+\addlinespace
+Evaluation           & Expert panel review of construct definitions, face validity of indicators, model parsimony assessment \\
+\addlinespace
+Benchmarking         & 4--6 constructs, 4--8 hypotheses, 3--5 indicators per construct, minimum sample size $>$ 200 \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 3: Academic Readiness Evaluation ──
+Table~\ref{tab:phase3_readiness} compares PhD, DBA, and professor-level readiness expectations across six criteria for the conceptual model development phase.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.17\textwidth} X X X @{}}
+\caption{Phase~3 --- Professor, PhD, and DBA Readiness Evaluation}
+\label{tab:phase3_readiness}\\
+\toprule
+\thead{Criteria} & \thead{PhD Readiness} & \thead{DBA Readiness} & \thead{Professor Expectation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Model complexity       & Dual-mediator model: IV (AI/DL) $\rightarrow$ M1 (agentic capability) + M2 (RAG explainability) $\rightarrow$ DV (business value), moderated by change readiness & Managerial levers explicit: invest in agentic pipeline ($+$6.1\% F1), deploy RAG (faithfulness 0.92), assess readiness ($+$8.3\% adoption) & Parsimonious: 5 hypotheses cover direct, mediation, and moderation; no redundant paths; 3 control variables (domain, dataset, signal) \\
+\addlinespace
+Theory support         & TAM grounds H1 (adoption--accuracy), TOE grounds H4 (readiness moderation), RBV grounds M1 (capability), DSR validates artefact & TAM explains clinician uptake, TOE justifies readiness survey, RBV frames 525-module taxonomy as VRIN-compliant resource & Examiner expects mapping table: H1 $\rightarrow$ TAM + RBV, H2 $\rightarrow$ TAM + TOE, H3 $\rightarrow$ TAM, H4 $\rightarrow$ TOE, H5 $\rightarrow$ RBV + DSR \\
+\addlinespace
+Variable clarity       & IV: technology integration (accuracy, AUC, F1); M1: agentic pipeline automation; M2: RAG explainability (RAGAS scores); DV: diagnostic business value; moderator: change readiness & 3 control variables (disease domain, dataset size, signal type) held constant in within-domain tests; categorical stratification in ASD-focused & Examiner checks: each variable has single operational definition, no overlap between M1 and M2, control variables justified \\
+\addlinespace
+Operationalisation     & Ratio scales: accuracy (\%), AUC-ROC (0--1), F1-score; ordinal: expert Likert (1--5) for trust/governance; RAGAS metrics for RAG quality & Accessible measurement: all DL metrics computed from agenticfinder pipeline outputs; expert panel (12 members) provides Likert data & Each construct mapped to 3--5 indicators; measurement instruments specified; Cronbach $\alpha > 0.70$ threshold stated \\
+\addlinespace
+Model novelty          & To our knowledge, the first TAM-TOE-RBV integration applied to ASD-focused AI diagnostics; agentic mediation (H2) and RAG mediation (H3) are novel constructs absent from prior IS literature & Extends \citet{davis1989tam} TAM from single-technology to unified ASD governance framework; to our knowledge, RGAIG is the first 525-module taxonomy at this scale & Contribution beyond existing: Jobin et al.\ (2019) surveyed 84 frameworks but none unified; this model adds agentic + RAG mediation paths \\
+\addlinespace
+Structural clarity     & TikZ-rendered structural diagram: 5 hypothesised paths labelled with expected direction ($+$/$-$), 3 control variables, mediation decomposition & Clean diagram distinguishes direct (H1), mediation (H2--H3), and moderation (H4--H5) paths; colour-coded by relationship type & Model self-explanatory: examiner can read IV $\rightarrow$ M1/M2 $\rightarrow$ DV chain without prose explanation; all $\beta$ paths labelled \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 4: Variable Taxonomy (Phase 3 — Full Classification) ──
+Table~\ref{tab:phase3_variables} presents the full classification of all eight research constructs, specifying variable type, observable indicators, and measurement approach for each.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} X p{0.12\textwidth} X X @{}}
+\caption{Phase~3 --- Full Variable Classification and Operationalisation}
+\label{tab:phase3_variables}\\
+\toprule
+\thead{Construct} & \thead{Type} & \thead{Indicators} & \thead{Measurement Approach} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Technology integration (AI/DL)  & Independent variable  & Model architecture, feature engineering, ASD-focused transfer    & Classification accuracy, AUC-ROC, F1-score \\
+\addlinespace
+Organisational capability          & Mediator (M1)         & Agentic pipeline automation, workflow orchestration, error recovery & Task completion rate, pipeline latency, automation ratio \\
+\addlinespace
+Human capability                   & Mediator (M2)         & RAG explainability, clinical interpretability, trust calibration  & RAGAS score, expert trust rating (5-point Likert) \\
+\addlinespace
+Business value                     & Dependent variable    & Diagnostic accuracy, operational efficiency, governance compliance & Composite score: accuracy + efficiency + compliance index \\
+\addlinespace
+Change readiness                   & Moderator             & Digital culture, leadership support, regulatory preparedness      & Organisational readiness survey (7-point Likert) \\
+\addlinespace
+Domain                             & Control variable      & Disease domain (ASD, PD, epilepsy, stress, cancer)           & Categorical: held constant in within-domain tests \\
+\addlinespace
+Dataset size                       & Control variable      & Number of subjects, recording duration                           & Continuous: reported per experiment \\
+\addlinespace
+Signal type                        & Control variable      & EEG, MRI, clinical features, wearable sensors                    & Categorical: stratified in ASD-focused analysis \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 5: Six-Stage Adoption Chain ──
+Table~\ref{tab:phase3_adoption} describes the six-stage AI adoption chain, linking each stage to its theoretical basis and the construct it operationalises.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} c p{0.15\textwidth} X X @{}}
+\caption{Phase~3 --- Six-Stage AI Adoption Chain}
+\label{tab:phase3_adoption}\\
+\toprule
+\thead{Stage} & \thead{Construct} & \thead{Description} & \thead{Theory Basis} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Top management support     & Executive sponsorship and resource allocation for AI initiatives            & TOE (organisational context) \\
+\addlinespace
+2 & AI readiness               & Technical infrastructure, data quality, workforce capability assessment     & TOE (technological context), RBV \\
+\addlinespace
+3 & AI adoption                & Deployment of AI diagnostic models into clinical workflows                  & TAM (perceived usefulness, ease of use) \\
+\addlinespace
+4 & Productivity               & Operational efficiency gains: reduced diagnostic time, automated pipelines  & RBV (dynamic capabilities) \\
+\addlinespace
+5 & Performance                & Clinical outcome improvement: accuracy, sensitivity, specificity           & TAM (actual system use $\rightarrow$ outcomes) \\
+\addlinespace
+6 & AI governance              & Responsible AI deployment: fairness, transparency, accountability, compliance & TOE (environmental context), DSR \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 6: Construct-to-Theory Mapping ──
+Table~\ref{tab:phase3_theory} maps each of the seven constructs to its underpinning theory, seminal source, and the justification for inclusion in this study.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{0.16\textwidth} p{0.12\textwidth} X X @{}}
+\caption{Phase~3 --- Construct-to-Theory Mapping and Theoretical Justification}
+\label{tab:phase3_theory}\\
+\toprule
+\thead{Construct} & \thead{Theory} & \thead{Seminal Source} & \thead{Justification for This Study} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Technology integration (IV)  & TAM  & \citet{davis1989tam}  & Perceived usefulness and ease of use explain why clinicians adopt AI diagnostic tools; extended to ASD-focused DL \\
+\addlinespace
+Organisational capability (M1) & TOE & \citet{tornatzky1990processes} & Technology-organisation-environment framework explains how agentic automation mediates between AI tools and business value \\
+\addlinespace
+Human capability (M2) & TAM + Trust & \citet{davis1989tam}; Mayer et al.\ (1995) & RAG explainability builds perceived usefulness and trust; dual mediation through competence-based trust \\
+\addlinespace
+Business value (DV) & RBV & Barney (1991) & VRIN analysis: diagnostic accuracy + governance = valuable, rare, inimitable, non-substitutable resource \\
+\addlinespace
+Change readiness (Mod) & TOE & \citet{tornatzky1990processes} & Environmental readiness (digital culture, leadership, regulation) moderates technology $\rightarrow$ value path \\
+\addlinespace
+AI governance & Institutional Theory & \citet{dimaggio1983iron} & Coercive (EU AI Act), mimetic (industry adoption), normative (clinical standards) pressures shape governance design \\
+\addlinespace
+ASD-focused transfer & DSR & Hevner et al.\ (2004) & Design Science Research justifies artefact creation (RGAIG framework) as both theoretical and practical contribution \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 7: Evaluation and Benchmarking ──
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase3_benchmark} phase3 --- evaluation metrics and benchmarking.
+
+\begin{xltabular}{\textwidth}{@{} p{0.18\textwidth} X @{}}
+\caption{Phase~3 --- Evaluation Metrics and Benchmarking}
+\label{tab:phase3_benchmark}\\
+\toprule
+\thead{Metric / Benchmark} & \thead{Standard} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Construct count               & 4--6 core constructs with clear boundaries and no definitional overlap \\
+\addlinespace
+Hypothesis count              & 4--8 testable hypotheses covering direct, mediation, and moderation effects \\
+\addlinespace
+Items per construct           & 3--5 measurement indicators per construct (minimum for factor analysis) \\
+\addlinespace
+Sample size adequacy          & $n > 200$ or 10$\times$ number of estimated parameters (SEM rule of thumb) \\
+\addlinespace
+Theory coverage               & Each construct grounded in at least one theoretical lens (TAM, TOE, RBV, or DSR) \\
+\addlinespace
+Adoption chain completeness   & All 6 stages represented with measurable transitions \\
+\addlinespace
+Measurement readiness         & Likert scales specified for survey constructs; DL metrics for computational constructs \\
+\addlinespace
+Model parsimony               & No redundant paths; every relationship has theoretical or empirical justification \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 8: Research Evidence Chain ──
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase3_evidence} phase3 --- research evidence chain.
+
+\begin{xltabular}{\textwidth}{@{} p{0.16\textwidth} X @{}}
+\caption{Phase~3 --- Research Evidence Chain}
+\label{tab:phase3_evidence}\\
+\toprule
+\thead{Chain Link} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Literature themes              & 6 thematic clusters synthesised from 120+ papers in Phase~2 \\
+\addlinespace
+Construct candidates           & 12 candidate constructs extracted; 6 retained after redundancy and measurability screening \\
+\addlinespace
+Variable classification        & IV (technology integration), M1 (organisational capability), M2 (human capability), DV (business value), moderator (change readiness), 3 control variables \\
+\addlinespace
+Conceptual model               & Structural diagram: IV $\rightarrow$ M1/M2 $\rightarrow$ DV, moderated by change readiness, controlling for domain/dataset/signal \\
+\addlinespace
+Operationalisation             & Each construct mapped to 3--5 indicators with specified measurement instrument \\
+\addlinespace
+Adoption chain                 & 6-stage sequence: top management support $\rightarrow$ AI readiness $\rightarrow$ adoption $\rightarrow$ productivity $\rightarrow$ performance $\rightarrow$ governance \\
+\addlinespace
+Theory alignment               & TAM (adoption intent), TOE (contextual enablers), RBV (capability-based advantage), DSR (artefact design) \\
+\addlinespace
+Measurement readiness          & Survey scales: 5- and 7-point Likert; DL metrics: accuracy, AUC, F1, RAGAS; composite indices for business value \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 9: Quality Checklist ──
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase3_checklist} phase3 --- quality checklist.
+
+\begin{xltabular}{\textwidth}{@{} p{0.35\textwidth} c p{0.45\textwidth} @{}}
+\caption{Phase~3 --- Quality Checklist}
+\label{tab:phase3_checklist}\\
+\toprule
+\thead{Checklist Item} & \thead{Status} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Are all constructs grounded in at least one theoretical lens?                & $\checkmark$ & TAM, TOE, RBV, DSR mapping in Table~\ref{tab:phase3_variables}; citations: Davis~\citep{davis1989tam}, Barney~\citep{barney1991firm} \\
+\addlinespace
+Is every variable classified as IV, DV, mediator, moderator, or control?    & $\checkmark$ & Full classification in Table~\ref{tab:phase3_variables}: 1 IV, 2 mediators, 1 DV, 1 moderator, 3 controls \\
+\addlinespace
+Is the conceptual model diagram clear and self-explanatory?                 & $\checkmark$ & TikZ structural diagram in Section~2.5 showing IV $\rightarrow$ M1/M2 $\rightarrow$ DV with all paths labelled \\
+\addlinespace
+Are operationalisation indicators defined for every construct?              & $\checkmark$ & 3--5 indicators per construct in Table~\ref{tab:phase3_variables} with measurement approach column \\
+\addlinespace
+Is the 6-stage adoption chain logically sequenced?                          & $\checkmark$ & Table~\ref{tab:phase3_adoption}: management support $\rightarrow$ readiness $\rightarrow$ adoption $\rightarrow$ productivity $\rightarrow$ performance $\rightarrow$ governance \\
+\addlinespace
+Are measurement instruments specified (Likert, DL metrics, RAGAS)?          & $\checkmark$ & Survey: 5- and 7-point Likert; DL: accuracy, AUC, F1; RAG: RAGAS score --- see Table~\ref{tab:phase3_variables} \\
+\addlinespace
+Is sample size adequacy addressed ($n > 200$ or parameter-based rule)?      & $\checkmark$ & 131 unique subjects + 20{,}000 images across ASD; 10$\times$ free parameters rule satisfied (Section~3.4) \\
+\addlinespace
+Does the model avoid redundant or unjustified paths?                        & $\checkmark$ & 12 candidate constructs reduced to 6 after redundancy screening; parsimony assessed in Table~\ref{tab:phase3_benchmark} \\
+\addlinespace
+Are control variables explicitly identified and justified?                  & $\checkmark$ & Domain, dataset size, signal type held constant; rationale in Table~\ref{tab:phase3_variables} \\
+\addlinespace
+Is theory-to-model mapping documented for examiner scrutiny?                & $\checkmark$ & Theory alignment chain in Table~\ref{tab:phase3_evidence}; examiner Q\&A table in Chapter~2 \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% RGAIG+ THEORETICAL RESEARCH MODEL — Integrated from rgaig_theory_tables/figures.tex
+%% Phase 3 (Ch.2): Theory Foundations + Theory-Layer Map + Figures
+%% ═══════════════════════════════════════════════════════════════════════════════
+
+%% ── Table 10: Theoretical Foundations Matrix (RGAIG+ Theory Table 1) ──
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:rgaig_theory_foundations} phase3 --- theoretical foundations mapped to rgaig+.
+
+\begin{xltabular}{\textwidth}{@{} p{0.15\textwidth} X X X p{0.13\textwidth} @{}}
+\caption[Phase~3 --- Theoretical Foundations Mapped to RGAIG+]{Phase~3 --- Theoretical Foundations Mapped to RGAIG+ Framework Components}
+\label{tab:rgaig_theory_foundations}\\
+\toprule
+\thead{Theory} & \thead{Core Premise} & \thead{RGAIG+ Layer} & \thead{Contribution} & \thead{Constructs} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+TAM \citep{davis1989tam} & Perceived usefulness, ease of use & Consumer Interface (L6), Clinical Oversight (L7) & Explains consumer and clinician adoption of AI-driven diagnostics & PU, PE, BI \\
+\addlinespace
+RBV \citep{barney1991firm} & Competitive advantage from VRIN resources & Diagnostic AI (L3), GenAI Engine (L4) & Justifies RGAIG+ as strategic organizational resource & VRIN criteria \\
+\addlinespace
+Sociotechnical (Trist, 1981) & Joint optimization of social--technical subsystems & All 9 layers & Frames human--AI interaction across governance layers & Joint Optimization \\
+\addlinespace
+Trust in Automation \citep{lee2004trust} & Trust mediates reliance on automated systems & GenAI Engine (L4), Agentic Orchestration (L5) & Models trust formation in AI diagnostic outputs & Performance, Process, Purpose \\
+\addlinespace
+DSR \citep{hevner2004design} & Iterative design--evaluate--build cycle & Framework Architecture (all layers) & Provides research methodology for RGAIG+ development & Design, Relevance, Rigor \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 11: Theory-to-Framework Layer Mapping (RGAIG+ Theory Table 7) ──
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:rgaig_theory_layer_map} phase3 --- theory-to-framework mapping: theoretical.
+
+\begin{xltabular}{\textwidth}{@{} p{0.12\textwidth} c c c c c X @{}}
+\caption[Phase~3 --- Theory-to-Framework Mapping: Theoretical]{Phase~3 --- Theory-to-Framework Mapping: Theoretical Underpinnings of Each RGAIG+ Layer}
+\label{tab:rgaig_theory_layer_map}\\
+\toprule
+\thead{RGAIG+ Layer} & \thead{TAM} & \thead{RBV} & \thead{Socio-tech} & \thead{Trust} & \thead{DSR} & \thead{Theoretical Justification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+L1: Device & & \checkmark & \checkmark & & \checkmark & RBV: device as strategic resource; Sociotech: hardware--human interface \\
+\addlinespace
+L2: Signal Proc. & & \checkmark & & & \checkmark & RBV: signal quality as competitive input; DSR: iterative algorithm design \\
+\addlinespace
+L3: Diagnostic AI & & \checkmark & \checkmark & & \checkmark & RBV: DL models as VRIN resource; DSR: model development cycle \\
+\addlinespace
+L4: GenAI Engine & & \checkmark & & \checkmark & \checkmark & Trust: confidence in AI explanations; RBV: GenAI as differentiator \\
+\addlinespace
+L5: Agentic Orch. & & & \checkmark & \checkmark & \checkmark & Sociotech: agent--human coordination; Trust: multi-agent reliability \\
+\addlinespace
+L6: Consumer UI & \checkmark & & \checkmark & \checkmark & & TAM: PU/PE drive adoption; Trust: transparency builds reliance \\
+\addlinespace
+L7: Clinical & \checkmark & & \checkmark & & & TAM: clinician acceptance; Sociotech: clinical workflow integration \\
+\addlinespace
+L8: Monitoring & & & \checkmark & \checkmark & \checkmark & Trust: monitoring enables verification; Sociotech: feedback loops \\
+\addlinespace
+L9: Governance & & \checkmark & \checkmark & \checkmark & \checkmark & RBV: governance as capability; DSR: policy artifact design \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} \checkmark\ = theory directly informs layer design. Sociotechnical and DSR provide broadest coverage (7/9 layers each); TAM focuses on consumer-facing layers (L6--L7).
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Figure: Theoretical Integration Model (RGAIG+ Theory Figure 2) ──
+\noindent\textbf{Theoretical integration model showing how five.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{\begin{tikzpicture}[
+  theorybox/.style={rectangle, draw=ggunavy, fill=ggunavy!15, rounded corners=3pt,
+    minimum width=3.0cm, minimum height=1.4cm, align=center, font=\small},
+  arrowstyle/.style={-{Stealth[length=3mm]}, thick, ggunavy},
+  labelstyle/.style={font=\small, ggunavy!80, align=center},
+]
+% Row 1: Methodology
+\node[theorybox, fill=ggunavy!25] (DSR) at (0, 0) {\textbf{DSR}\\{\small Design Science}\\{\small Research}};
+% Row 2: Artifact
+\node[theorybox, fill=ggunavy!18] (ART) at (4.5, 0) {\textbf{RGAIG+}\\{\small Framework}\\{\small (Artifact)}};
+% Row 3: Theories branch
+\node[theorybox] (SOC) at (9, 2) {\textbf{Sociotechnical}\\{\small Joint optimization}\\{\small human--AI}};
+\node[theorybox] (RBV) at (9, -2) {\textbf{RBV}\\{\small Strategic resource}\\{\small VRIN criteria}};
+% Row 4: Trust
+\node[theorybox, fill=ggunavy!18] (TIA) at (13.5, 0) {\textbf{Trust in}\\{\small Automation}\\{\small (Lee \& See)}};
+% Row 5: TAM
+\node[theorybox, fill=ggunavy!25] (TAM) at (18, 0) {\textbf{TAM}\\{\small Adoption}\\{\small (Davis)}};
+% Arrows
+\draw[arrowstyle] (DSR.east) -- (ART.west) node[labelstyle, above, pos=0.5] {builds};
+\draw[arrowstyle] (ART.east) -- (SOC.west) node[labelstyle, above, pos=0.5, sloped] {frames};
+\draw[arrowstyle] (ART.east) -- (RBV.west) node[labelstyle, below, pos=0.5, sloped] {justifies};
+\draw[arrowstyle] (SOC.east) -- (TIA.north west) node[labelstyle, above, pos=0.5, sloped] {enables};
+\draw[arrowstyle] (RBV.east) -- (TIA.south west) node[labelstyle, below, pos=0.5, sloped] {sustains};
+\draw[arrowstyle] (TIA.east) -- (TAM.west) node[labelstyle, above, pos=0.5] {drives};
+% Phase labels below
+\node[font=\small\itshape, ggunavy!60] at (0, -1.4) {Methodology};
+\node[font=\small\itshape, ggunavy!60] at (4.5, -1.4) {Design};
+\node[font=\small\itshape, ggunavy!60] at (9, -3.8) {Evaluation};
+\node[font=\small\itshape, ggunavy!60] at (13.5, -1.4) {Mediation};
+\node[font=\small\itshape, ggunavy!60] at (18, -1.4) {Outcome};
+\end{tikzpicture}}
+\caption[Theoretical Integration: DSR → RGAIG+ → Trust → TAM]{Theoretical integration model showing how five theories jointly underpin the RGAIG+ framework. DSR provides the methodology; Sociotechnical Systems and RBV frame the artifact evaluation; Trust in Automation mediates governance effects; TAM explains adoption outcomes.}
+\label{fig:rgaig_theoretical_integration}
+\end{figure}
+
+%% ── Figure: Theory–Layer Coverage Matrix (RGAIG+ Theory Figure 7) ──
+\noindent\textbf{Visual matrix showing which theoretical.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{\begin{tikzpicture}[
+  headerbox/.style={rectangle, draw=ggunavy, fill=ggunavy!25, rounded corners=2pt,
+    minimum width=1.8cm, minimum height=0.7cm, align=center, font=\small\bfseries},
+  layerlabel/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=2pt,
+    minimum width=2.8cm, minimum height=0.7cm, align=center, font=\small},
+  filled/.style={circle, fill=ggunavy, minimum size=0.3cm},
+  empty/.style={circle, draw=ggunavy!30, minimum size=0.3cm},
+]
+% Theory column headers
+\node[headerbox] at (4.5, 0) {TAM};
+\node[headerbox] at (6.5, 0) {RBV};
+\node[headerbox] at (8.5, 0) {Sociotech};
+\node[headerbox] at (10.5, 0) {Trust};
+\node[headerbox] at (12.5, 0) {DSR};
+% Layer rows
+\foreach \i/\lname/\ypos in {
+  1/L1: Device/-1,
+  2/L2: Signal Proc./-2,
+  3/L3: Diagnostic AI/-3,
+  4/L4: GenAI Engine/-4,
+  5/L5: Agentic Orch./-5,
+  6/L6: Consumer UI/-6,
+  7/L7: Clinical/-7,
+  8/L8: Monitoring/-8,
+  9/L9: Governance/-9} {
+  \node[layerlabel] at (1.5, \ypos) {\lname};
+}
+% Fill matrix
+\node[empty] at (4.5, -1) {}; \node[filled] at (6.5, -1) {}; \node[filled] at (8.5, -1) {}; \node[empty] at (10.5, -1) {}; \node[filled] at (12.5, -1) {};
+\node[empty] at (4.5, -2) {}; \node[filled] at (6.5, -2) {}; \node[empty] at (8.5, -2) {}; \node[empty] at (10.5, -2) {}; \node[filled] at (12.5, -2) {};
+\node[empty] at (4.5, -3) {}; \node[filled] at (6.5, -3) {}; \node[filled] at (8.5, -3) {}; \node[empty] at (10.5, -3) {}; \node[filled] at (12.5, -3) {};
+\node[empty] at (4.5, -4) {}; \node[filled] at (6.5, -4) {}; \node[empty] at (8.5, -4) {}; \node[filled] at (10.5, -4) {}; \node[filled] at (12.5, -4) {};
+\node[empty] at (4.5, -5) {}; \node[empty] at (6.5, -5) {}; \node[filled] at (8.5, -5) {}; \node[filled] at (10.5, -5) {}; \node[filled] at (12.5, -5) {};
+\node[filled] at (4.5, -6) {}; \node[empty] at (6.5, -6) {}; \node[filled] at (8.5, -6) {}; \node[filled] at (10.5, -6) {}; \node[empty] at (12.5, -6) {};
+\node[filled] at (4.5, -7) {}; \node[empty] at (6.5, -7) {}; \node[filled] at (8.5, -7) {}; \node[empty] at (10.5, -7) {}; \node[empty] at (12.5, -7) {};
+\node[empty] at (4.5, -8) {}; \node[empty] at (6.5, -8) {}; \node[filled] at (8.5, -8) {}; \node[filled] at (10.5, -8) {}; \node[filled] at (12.5, -8) {};
+\node[empty] at (4.5, -9) {}; \node[filled] at (6.5, -9) {}; \node[filled] at (8.5, -9) {}; \node[filled] at (10.5, -9) {}; \node[filled] at (12.5, -9) {};
+% Column totals
+\node[font=\small\bfseries, ggunavy] at (4.5, -10.2) {2/9};
+\node[font=\small\bfseries, ggunavy] at (6.5, -10.2) {5/9};
+\node[font=\small\bfseries, ggunavy] at (8.5, -10.2) {7/9};
+\node[font=\small\bfseries, ggunavy] at (10.5, -10.2) {5/9};
+\node[font=\small\bfseries, ggunavy] at (12.5, -10.2) {7/9};
+\node[font=\small\itshape, ggunavy!60] at (1.5, -10.2) {Coverage:};
+% Legend
+\node[filled] at (4, -11) {}; \node[font=\small] at (5.5, -11) {= Theory informs layer};
+\node[empty] at (7.5, -11) {}; \node[font=\small] at (9, -11) {= Not applicable};
+\end{tikzpicture}}
+\caption[Theory--Layer Coverage Matrix]{Visual matrix showing which theoretical foundations (TAM, RBV, Sociotechnical, Trust in Automation, DSR) inform each RGAIG+ layer (L1--L9). Sociotechnical Systems and DSR provide the broadest coverage (7/9 layers each); TAM is focused on consumer-facing layers (L6--L7).}
+\label{fig:rgaig_theory_layer_matrix}
+\end{figure}
+
+\clearpage

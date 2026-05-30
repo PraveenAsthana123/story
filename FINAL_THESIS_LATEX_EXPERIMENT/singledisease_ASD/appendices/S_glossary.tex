@@ -1,0 +1,101 @@
+%% Appendix S — Glossary of Acronyms and Key Terms
+\chapter{Glossary of Acronyms and Key Terms}
+\label{chap:appendix_s_glossary}
+
+\noindent Alphabetic reference for every acronym and key term used in this dissertation. First-use expansions in chapter bodies cross-reference this appendix.
+
+\noindent Table~\ref{tab:glossary_full} below lists every acronym + key term used in this dissertation, alphabetised, with one-line definition.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.6cm} L @{}}
+\caption[Glossary of Acronyms and Key Terms]{Glossary of Acronyms and Key Terms. Alphabetic; first-use in chapter body cross-references this entry.}\label{tab:glossary_full} \\
+\toprule
+\thead{Term / Acronym} & \thead{Definition} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+ABIDE-II & Autism Brain Imaging Data Exchange (second release) --- public multi-site neuroimaging + behavioural dataset for ASD research. \\
+ACC & Classification accuracy --- fraction of correct predictions on a held-out test set. \\
+ADOS-2 & Autism Diagnostic Observation Schedule (second edition) --- standardised behavioural assessment for ASD diagnosis. \\
+AES-256 & Advanced Encryption Standard with 256-bit key --- symmetric block cipher for data-at-rest encryption. \\
+AI & Artificial Intelligence. \\
+AI Act & European Union Artificial Intelligence Act (Regulation 2024/1689) governing high-risk AI systems. \\
+ASD & Autism Spectrum Disorder. \\
+AUC & Area Under the Receiver Operating Characteristic Curve. \\
+B2B & Business-to-Business --- in this thesis, the clinician-facing institutional channel (hospital, clinic). \\
+B2C & Business-to-Consumer --- in this thesis, the caregiver-facing at-home channel. \\
+BCI & Brain--Computer Interface. \\
+BDF & BioSemi Data Format --- 24-bit raw EEG file format. \\
+BIDS & Brain Imaging Data Structure --- community standard for organising neuroimaging datasets. \\
+CARS-2 & Childhood Autism Rating Scale (second edition) --- clinician-administered ASD severity rating. \\
+CI & Confidence Interval. \\
+CNN & Convolutional Neural Network. \\
+DBA & Doctor of Business Administration. \\
+DI & Disparate Impact --- fairness metric; ratio of favourable outcomes between protected and reference group; target $\geq$ 0.80 per US EEOC 4/5ths rule. \\
+DPDP & Digital Personal Data Protection (India Act 2023). \\
+EDF & European Data Format --- 16-bit raw EEG / polysomnography file format. \\
+EEG & Electroencephalography. \\
+Emotiv & Brand name for consumer-grade wearable EEG headsets (Insight, EPOC X, EPOC Flex) used in this thesis. \\
+EU AI Act & See AI Act. \\
+F1 & F1-score --- harmonic mean of precision and recall. \\
+FIF & Functional Image Format --- MNE-Python native EEG / MEG file format. \\
+GDPR & General Data Protection Regulation (EU Regulation 2016/679). \\
+HIPAA & Health Insurance Portability and Accountability Act (US, 1996). \\
+HITL & Human-in-the-Loop --- design pattern where a human reviewer must approve / reject AI-generated outputs before they reach the end user. \\
+HTMT & Heterotrait-Monotrait ratio --- SEM discriminant validity metric; target $<$ 0.85. \\
+ICA & Independent Component Analysis --- blind-source-separation algorithm used to remove EEG artifacts. \\
+IEC 62304 & International Electrotechnical Commission standard for medical-device software life-cycle processes. \\
+IRB / IEC & Institutional Review Board / Institutional Ethics Committee --- research ethics approval body. \\
+ISO 13485 & International standard for medical-device quality-management systems. \\
+ISO 14971 & International standard for medical-device risk management. \\
+ISO 42001 & International standard for AI management systems (published 2023). \\
+ISO/IEC 27001 & International standard for information-security management systems. \\
+JSON-LD & JavaScript Object Notation for Linked Data --- semantic-web data interchange format. \\
+KAU & King Abdulaziz University (Saudi Arabia) --- primary clinical-data partner for this thesis. \\
+KPI & Key Performance Indicator. \\
+KS & Kolmogorov--Smirnov test --- non-parametric distribution-comparison statistic. \\
+LIME & Local Interpretable Model-agnostic Explanations --- per-prediction XAI method. \\
+LOSO & Leave-One-Subject-Out cross-validation. \\
+MAE & Mean Absolute Error. \\
+MAPE & Mean Absolute Percentage Error. \\
+MCP & Model Context Protocol --- emerging open standard for tool-call audit in agentic AI systems. \\
+MNE-Python & Open-source Python library for processing M/EEG data. \\
+MRR & Mean Reciprocal Rank --- ranking-evaluation metric (RAG retrieval). \\
+nDCG & Normalised Discounted Cumulative Gain --- ranking-evaluation metric. \\
+NIST RMF & National Institute of Standards and Technology (US) AI Risk Management Framework. \\
+OSF & Open Science Framework --- public registry for study pre-registrations. \\
+PD-1 & Primary Data --- caregiver SEM survey (Phase 1). \\
+PD-2 & Primary Data --- clinician Delphi panel (Phase 1). \\
+PD-3 & Primary Data --- caregiver usability focus group (Phase 2). \\
+PD-4 & Primary Data --- clinician interviews (Phase 2). \\
+PD-5 & Primary Data --- regulator stakeholder interviews (Phase 2). \\
+PII & Personally Identifiable Information. \\
+PLS-SEM & Partial Least Squares Structural Equation Modeling. \\
+PRISMA & Preferred Reporting Items for Systematic Reviews and Meta-Analyses (2020 update). \\
+PSI & Population Stability Index --- distribution-drift metric; target $<$ 0.20. \\
+RAG & Retrieval-Augmented Generation --- LLM design pattern that grounds responses in retrieved source chunks. \\
+Ragas & Open-source RAG-quality evaluation framework; key metric is Faithfulness (target $\geq$ 0.85). \\
+RAI & Responsible AI. \\
+RGAIG & Responsible Generative AI Governance --- the 7-layer governance framework introduced in this thesis. \\
+RMSE & Root Mean Square Error. \\
+ROC & Receiver Operating Characteristic. \\
+RQ & Research Question. \\
+SD-A through SD-E & Secondary Data --- 5 sources: KAU clinical EEG, ABIDE-II ASD imaging, OASIS-3 control, KAU behavioural records, hospital EHR extracts. \\
+SEM & Structural Equation Modeling. \\
+SHAP & SHapley Additive exPlanations --- per-prediction XAI method based on cooperative game theory. \\
+SIEM & Security Information and Event Management --- enterprise log aggregation + alert platform. \\
+SOC2 & Service Organization Control 2 (AICPA) --- audit framework for service-organisation security + availability + confidentiality. \\
+SQI & Signal Quality Index --- per-EEG-record quality score; minimum-acceptable threshold 0.70 in this thesis. \\
+SUS & System Usability Scale --- standard 10-item usability questionnaire; industry-baseline mean 68. \\
+SWT & Stationary Wavelet Transform. \\
+TAM & Technology Acceptance Model. \\
+TikZ & LaTeX vector-graphics package used for all flowcharts and diagrams in this dissertation. \\
+UTAUT & Unified Theory of Acceptance and Use of Technology. \\
+ViT & Vision Transformer --- deep-learning architecture applied to image-converted EEG spectrograms. \\
+WHO & World Health Organization. \\
+XAI & Explainable AI. \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Glossary covers every acronym used $\geq$ 3 times across the dissertation. Each entry contains $\leq$ 2 sentences (definition + key threshold or example). For deeper background see the appendix or chapter cited.

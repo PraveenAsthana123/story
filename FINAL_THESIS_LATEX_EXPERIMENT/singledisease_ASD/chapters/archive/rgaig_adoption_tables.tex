@@ -1,0 +1,495 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% RGAIG+ ADOPTION ROADMAP, CONTRIBUTION MATRIX, VALIDATION STRATEGY,
+%% GOVERNANCE STACK, AND GENAI GOVERNANCE DECISION ENGINE TABLES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize\normalfont\color{black}
+
+%% ── Table 1: Framework Adoption Roadmap (6 Phases) ──
+Table~\ref{tab:rgaig_adoption_roadmap} presents the six-phase RGAIG+ framework adoption roadmap, mapping each phase to its key activities and deliverables.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} c p{0.17\textwidth} X X @{}}
+\caption{RGAIG+ Framework Adoption Roadmap}
+\label{tab:rgaig_adoption_roadmap}\\
+\toprule
+\thead{Phase} & \thead{Objective} & \thead{Key Activities} & \thead{Deliverables} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Use case and governance setup & Identify clinical objective (e.g., seizure screening); define stakeholders (clinicians, developers, regulators); establish governance board; define risk policies and safety thresholds & Governance charter; stakeholder RACI matrix; risk policy document; clinical use case specification \\
+\addlinespace
+2 & Device and data preparation & Select wearable EEG device (channel configuration); establish data governance (privacy, consent); ensure signal quality (device calibration); prepare labelled training dataset & Approved device specification; data governance plan; calibrated device; curated training dataset \\
+\addlinespace
+3 & AI model development & Develop diagnostic models (EEG pattern detection); train GenAI explanation models; evaluate performance (accuracy, fairness); document models (model cards, audit trail) & Trained diagnostic models; GenAI explanation engine; model evaluation report; model cards \\
+\addlinespace
+4 & Governance integration & Implement governance decision engine (risk evaluation); deploy monitoring system (drift detection); define safety thresholds and KPI escalation; establish audit logging & Operational decision engine; monitoring dashboard; KPI escalation protocol; audit trail system \\
+\addlinespace
+5 & Consumer deployment & Launch consumer application (wearable EEG monitoring); provide user interface (dashboard, alerts); implement clinician oversight (escalation pathway); consumer education & Live consumer application; clinical escalation pathway; user training materials; help documentation \\
+\addlinespace
+6 & Continuous improvement & Monitor system performance (detect drift); update models (retraining pipeline); evaluate trust metrics (user satisfaction); refine governance policies (risk management) & Performance reports; retrained models; trust metric trends; updated governance policies \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textit{Adoption phases align with RGAIG+ maturity model (Table~\ref{tab:rgaig_maturity}): Phase~1--2 = Level~1 (Experimental), Phase~3 = Level~2 (Pilot), Phase~4--5 = Level~3 (Operational), Phase~6 = Level~4 (Governed). Level~5 (Trusted) requires external certification and industry adoption beyond single organisation.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 2: Adoption Phase Activities (Detailed) ──
+Table~\ref{tab:rgaig_adoption_activities} documents the detailed activities and responsibilities assigned to each adoption phase.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} c p{0.17\textwidth} X p{0.16\textwidth} @{}}
+\caption{RGAIG+ Adoption Phase Activities and Responsibilities}
+\label{tab:rgaig_adoption_activities}\\
+\toprule
+\thead{Phase} & \thead{Activity} & \thead{Description} & \thead{Responsible} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textbf{\color{ggunavy}Phase 1: Use Case and Governance Setup}} \\
+\midrule
+1 & Identify clinical objective     & Define target condition (e.g., seizure detection, ASD screening); specify clinical pathway and population & Clinical lead \\
+\addlinespace
+1 & Define stakeholders             & Map all roles: clinicians, AI engineers, governance board, data officers, consumers, regulators & Governance board \\
+\addlinespace
+1 & Establish governance board      & Appoint members with medical, technical, ethical, and regulatory expertise; define meeting cadence & Organisation CTO \\
+\addlinespace
+1 & Define risk policies            & Set risk appetite; define acceptable false positive/negative rates; establish safety and privacy requirements & Governance board \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textbf{\color{ggunavy}Phase 2: Device and Data Preparation}} \\
+\midrule
+2 & Select wearable EEG device      & Choose channel configuration (4--32); evaluate against benchmark framework (Table~\ref{tab:rgaig_device_benchmark}) & Device engineer \\
+\addlinespace
+2 & Establish data governance       & Define consent mechanism; implement de-identification; establish data lineage tracking & Data officer \\
+\addlinespace
+2 & Ensure signal quality           & Calibrate device; validate SNR $\geq$ 10~dB; test electrode impedance; verify transmission reliability & Device engineer \\
+\addlinespace
+2 & Prepare training dataset        & Curate labelled EEG datasets; apply inclusion/exclusion criteria; document data provenance & Data engineer \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textbf{\color{ggunavy}Phase 3: AI Model Development}} \\
+\midrule
+3 & Develop diagnostic models       & Train DL classifiers on EEG data; implement feature extraction pipeline; optimise hyperparameters & AI engineer \\
+\addlinespace
+3 & Train GenAI models              & Configure RAG engine with medical knowledge base; implement explanation generation; test faithfulness & AI engineer \\
+\addlinespace
+3 & Evaluate performance            & Run cross-validation, LOSO, bootstrap CI; test fairness across subgroups; conduct ablation study & AI engineer \\
+\addlinespace
+3 & Document models                 & Create model cards (architecture, training data, performance, limitations); version all artefacts & AI engineer \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textbf{\color{ggunavy}Phase 4--6: Governance, Deployment, and Improvement}} \\
+\midrule
+4 & Implement decision engine       & Deploy risk evaluation module; configure confidence thresholds; implement escalation logic & AI engineer \\
+\addlinespace
+4 & Deploy monitoring               & Set up drift detection, bias monitoring, performance dashboards; configure alert thresholds & DevOps \\
+\addlinespace
+5 & Launch consumer app             & Deploy consumer-facing interface; integrate wearable device pairing; implement clinician escalation & Product team \\
+\addlinespace
+6 & Continuous monitoring           & Track KPIs; retrain models on schedule; collect user feedback; update governance policies & Monitoring team \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textit{Total adoption timeline: 12--18 months for Phase~1--5; Phase~6 is ongoing. Timeline depends on regulatory requirements, organisational maturity, and available data. Pilot deployment at Phase~3.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 3: Research Contribution Matrix (Detailed Comparison) ──
+Table~\ref{tab:rgaig_contribution_matrix} compares RGAIG+ against four established AI governance frameworks across fifteen capability dimensions.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} X >{\centering\arraybackslash}p{1.3cm} >{\centering\arraybackslash}p{1.3cm} >{\centering\arraybackslash}p{1.3cm} >{\centering\arraybackslash}p{1.3cm} >{\centering\arraybackslash}p{1.3cm} @{}}
+\caption{RGAIG+ Research Contribution Matrix --- Detailed Framework Comparison}
+\label{tab:rgaig_contribution_matrix}\\
+\toprule
+\thead{Capability} & \thead{NIST} & \thead{ISO} & \thead{EU Act} & \thead{RAISEF} & \thead{RGAIG+} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Responsible AI governance principles          & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\addlinespace
+Risk management framework                     & $\checkmark$ & $\checkmark$ & $\checkmark$ & Partial      & $\checkmark$ \\
+\addlinespace
+Operational monitoring architecture            & Limited      & Limited      & ---          & Conceptual   & $\checkmark$ \\
+\addlinespace
+Generative AI governance                       & ---          & ---          & Partial      & ---          & $\checkmark$ \\
+\addlinespace
+Wearable healthcare device integration         & ---          & ---          & ---          & ---          & $\checkmark$ \\
+\addlinespace
+Consumer trust and adoption model              & ---          & ---          & ---          & Partial      & $\checkmark$ \\
+\addlinespace
+GenAI governance decision engine               & ---          & ---          & ---          & ---          & $\checkmark$ \\
+\addlinespace
+Continuous AI monitoring with drift detection  & Limited      & Limited      & ---          & Conceptual   & $\checkmark$ \\
+\addlinespace
+Structured evaluation methodology              & ---          & ---          & ---          & ---          & $\checkmark$ \\
+\addlinespace
+Maturity model with progression pathway        & ---          & ---          & ---          & ---          & $\checkmark$ \\
+\addlinespace
+ASD-focused biomedical AI validation          & ---          & ---          & ---          & ---          & $\checkmark$ \\
+\addlinespace
+525-module quality taxonomy                    & ---          & ---          & ---          & ---          & $\checkmark$ \\
+\addlinespace
+Agentic AI orchestration governance            & ---          & ---          & ---          & ---          & $\checkmark$ \\
+\addlinespace
+RAG explainability and faithfulness controls   & ---          & ---          & ---          & ---          & $\checkmark$ \\
+\addlinespace
+Device-to-diagnosis end-to-end governance      & ---          & ---          & ---          & ---          & $\checkmark$ \\
+\addlinespace
+\midrule
+\textbf{Capabilities addressed (out of 15)}   & \textbf{3}   & \textbf{3}   & \textbf{3}   & \textbf{3}   & \textbf{15} \\
+\addlinespace
+\midrule
+\multicolumn{6}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textit{$\checkmark$ = fully addressed; Partial = partially addressed; Limited = mentioned but not operationalised; --- = not addressed. NIST, ISO, EU AI Act provide foundational governance. RGAIG+ extends with domain-specific, operational, and consumer-facing capabilities. RGAIG+ is complementary to (not replacing) existing standards.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 4: Research Gap-to-Solution Mapping ──
+Table~\ref{tab:rgaig_gap_solution} maps each identified research gap to its corresponding RGAIG+ solution component.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{0.16\textwidth} X X @{}}
+\caption{RGAIG+ Research Gap-to-Solution Mapping}
+\label{tab:rgaig_gap_solution}\\
+\toprule
+\thead{Research Gap} & \thead{Gap Description} & \thead{RGAIG+ Solution} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+No GenAI governance      & Existing frameworks (NIST, ISO) predate generative AI; no guidance on hallucination control, explanation faithfulness, or synthetic data governance & GenAI governance decision engine with 8 risk-specific controls (Table~\ref{tab:rgaig_genai_controls}); hallucination detection; faithfulness scoring \\
+\addlinespace
+No consumer focus        & Current AI governance targets enterprise/clinical settings; consumer wearable healthcare AI is unaddressed & Consumer trust model (TAM-TOE-RBV); wearable device layer with 8 benchmarks; consumer interface governance \\
+\addlinespace
+No operational monitoring & Existing frameworks describe policies but not runtime enforcement; no drift detection or automated escalation & 9-layer monitoring architecture; real-time KPI tracking; 4-level governance escalation ladder \\
+\addlinespace
+No evaluation methodology & Frameworks lack structured tools for assessing AI governance maturity or readiness & 10-step evaluation methodology (Table~\ref{tab:rgaig_evaluation_workflow}); 7-dimension scorecard; maturity model \\
+\addlinespace
+No ASD-focused validation & Prior work validates AI governance for single disease/modality; no ASD-focused generalisability evidence & ASD validation (ASD, PD, epilepsy, stress, depression); ASD ensemble metric; LOSO ASD-focused testing \\
+\addlinespace
+No device-level governance & AI governance stops at software; no standards mapping for consumer hardware in AI diagnostic pipeline & Device benchmark framework (8 dimensions); safety evaluation; standards-to-layer mapping (15 standards) \\
+\addlinespace
+\midrule
+\multicolumn{3}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textit{Gaps identified through systematic literature review (Chapter~2); 12 research gaps (G1--G12) categorised as theoretical (G1--G6), methodological (G7--G9), and practical (G10--G12). All mapped to RGAIG+ components.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 5: Framework Validation Strategy ──
+Table~\ref{tab:rgaig_validation_strategy} summarises the six-method validation strategy employed to evaluate the RGAIG+ framework.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{0.15\textwidth} X X p{0.11\textwidth} @{}}
+\caption{RGAIG+ Framework Validation Strategy}
+\label{tab:rgaig_validation_strategy}\\
+\toprule
+\thead{Validation Method} & \thead{Description} & \thead{Evidence Produced} & \thead{Status} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Computational experiments  & DL classification across ASD; 131 unique subjects + 20{,}000 images; 198 trained models; bootstrap 95\% CI & ASD ensemble 97.67\%, AUC 0.956, domain-specific accuracies (ASD 97.67\%), ablation results & Completed \\
+\addlinespace
+Expert panel evaluation    & 12-member panel (4 clinicians, 4 AI researchers, 4 governance specialists); structured Likert assessment + open-ended feedback & Panel consensus 4.2/5; thematic analysis (6 themes); inter-rater $\kappa = 0.84$ & Completed \\
+\addlinespace
+Case study validation      & Applied RGAIG+ to consumer EEG seizure detection scenario; demonstrated all 9 layers operational & End-to-end pipeline execution; governance decision audit; monitoring dashboard metrics & Completed \\
+\addlinespace
+Comparative analysis       & Systematic comparison against NIST AI RMF, ISO 42001, EU AI Act, RAISEF across 15 capabilities & Contribution matrix (Table~\ref{tab:rgaig_contribution_matrix}); RGAIG+ addresses 15/15 vs others 3/15 & Completed \\
+\addlinespace
+Survey validation          & TAM-TOE-RBV survey (25 items) + clinical trust survey (12 items); construct reliability and validity testing & Cronbach $\alpha \geq 0.80$; AVE $> 0.50$; composite trust score $\geq 3.5$ & Planned \\
+\addlinespace
+Simulation testing         & Inject model drift, bias, and hallucination scenarios into governance decision engine; test escalation logic & Correct escalation rate; false alarm rate; response time; audit trail completeness & Planned \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textit{Multi-method validation follows DSR Guideline~3 \citep{hevner2004design}: Design Evaluation. Completed validations provide primary evidence; planned validations identified as future work (FS-1, FS-2).}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 6: Validation Metrics ──
+Table~\ref{tab:rgaig_validation_metrics} reports the eight validation metrics with pre-specified acceptance thresholds used to evaluate the RGAIG+ framework.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} l p{0.14\textwidth} X p{0.11\textwidth} @{}}
+\caption{RGAIG+ Framework Validation Metrics}
+\label{tab:rgaig_validation_metrics}\\
+\toprule
+\thead{Dimension} & \thead{Metric} & \thead{What It Measures} & \thead{Target} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Safety             & False negative rate    & Missed pathological cases that should have been flagged for clinical review & $<$ 5\% \\
+\addlinespace
+Reliability        & Model accuracy (ASD ensemble)  & ASD-focused classification performance across ASD & $\geq$ 85\% \\
+\addlinespace
+Fairness           & Subgroup disparity     & Performance difference between demographic subgroups (age, sex) & $\Delta <$ 5\% \\
+\addlinespace
+Trust              & Expert panel score     & Structured assessment of framework utility, completeness, and clinical applicability & $\geq$ 4.0/5 \\
+\addlinespace
+Governance         & Compliance score       & Percentage of 525-module taxonomy modules achieving pass status & $\geq$ 95\% \\
+\addlinespace
+Explainability     & RAGAS faithfulness     & Faithfulness of RAG-generated explanations to underlying model predictions & $\geq$ 0.85 \\
+\addlinespace
+Usability          & SUS score              & Consumer interface usability assessment & $\geq$ 70/100 \\
+\addlinespace
+Adoption           & Behavioural intention  & Expert-assessed likelihood of framework adoption in clinical settings & $\geq$ 4.0/5 \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textit{Metrics mapped to DSR evaluation criteria: utility (trust, adoption), quality (reliability, safety, fairness), and efficacy (governance, explainability, usability). All metrics have pre-specified acceptance thresholds.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 7: Validation Comparison (With vs Without Framework) ──
+Table~\ref{tab:rgaig_validation_comparison} contrasts AI diagnostic system governance with and without the RGAIG+ framework across seven key aspects.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{0.14\textwidth} X X @{}}
+\caption{RGAIG+ Validation: AI Diagnostic System With vs Without Framework}
+\label{tab:rgaig_validation_comparison}\\
+\toprule
+\thead{Aspect} & \thead{Without RGAIG+} & \thead{With RGAIG+} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Governance            & Ad-hoc controls; no systematic risk management; compliance gaps identified reactively & Structured 9-layer governance; 525-module taxonomy; 10-pillar responsible AI controls; proactive risk management \\
+\addlinespace
+Monitoring            & Limited or no runtime monitoring; drift detected only through complaints or periodic audits & Continuous monitoring (Layer~8); real-time drift detection; automated KPI escalation; governance feedback loop \\
+\addlinespace
+Consumer trust        & Uncertain; no structured trust assessment; user confidence unmeasured & Measured via 3-dimension trust instrument (technical, clinical, organisational); composite score $\geq 3.5$ threshold \\
+\addlinespace
+Safety                & Reactive safety checks; no confidence thresholds; no systematic escalation pathway & Proactive: confidence $\geq$ 0.85 threshold; mandatory clinician escalation for positive screens; hallucination blocking \\
+\addlinespace
+Explainability        & Black-box outputs; no patient-facing explanations; clinician interpretation required & RAG-generated plain-language explanations; SHAP feature importance; faithfulness-validated outputs \\
+\addlinespace
+Regulatory readiness  & Manual compliance documentation; gaps discovered during audit & 15 standards mapped to framework layers; automated audit trail; pre-mapped to EU AI Act, FDA SaMD, HIPAA \\
+\addlinespace
+Fairness              & No subgroup analysis; bias discovered post-deployment & Demographic fairness testing pre-deployment; continuous bias monitoring; escalation on disparity $>$ 5\% \\
+\addlinespace
+\midrule
+\multicolumn{3}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textit{Comparison demonstrates practical value of RGAIG+ governance. ``Without'' scenario represents typical AI diagnostic deployment without structured governance framework. ``With'' demonstrates RGAIG+ controls.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 8: Multi-Layer Governance Stack ──
+Table~\ref{tab:rgaig_governance_stack} presents the seven-layer RGAIG+ governance stack, detailing the function and governance control at each layer.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} c p{0.16\textwidth} X X @{}}
+\caption{RGAIG+ Multi-Layer Governance Stack}
+\label{tab:rgaig_governance_stack}\\
+\toprule
+\thead{Layer} & \thead{Name} & \thead{Function} & \thead{Governance Control} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+7 & Governance and compliance  & Policy enforcement, regulatory alignment, audit trail, risk reporting & ISO/IEC 42001 management system; EU AI Act classification; annual governance review \\
+\addlinespace
+6 & Monitoring and evaluation  & Runtime performance tracking, drift detection, safety checks, KPI dashboards & Real-time accuracy monitoring; PSI/CSI drift metrics; automated alert thresholds \\
+\addlinespace
+5 & Governance decision engine & Risk-based output evaluation; policy enforcement before consumer delivery & Confidence thresholds; hallucination detection; escalation routing; output blocking \\
+\addlinespace
+4 & Application layer          & Consumer interface, dashboards, alerts, clinician portal & IEC 62366-1 usability; ISO 9241 human-centred design; accessibility compliance \\
+\addlinespace
+3 & AI model layer             & Diagnostic classification (DL) and generative AI (RAG explanation) & Model versioning; fairness testing; performance benchmarks; model cards \\
+\addlinespace
+2 & Data governance layer      & Privacy, consent, lineage, de-identification, storage security & HIPAA/GDPR compliance; data minimisation; encryption at rest and in transit \\
+\addlinespace
+1 & Device layer               & Wearable EEG signal acquisition, calibration, quality assurance & IEC 60601 safety; ISO 13485 quality; signal quality validation (SNR $\geq$ 10~dB) \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textit{Stack operates bottom-up: data flows from device (Layer~1) through processing to governance (Layer~7). Controls operate top-down: policies from Layer~7 enforce constraints at each lower layer. Cross-cutting: Responsible AI principles (10 pillars) apply across all layers simultaneously.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 9: GenAI Governance Decision Matrix ──
+Table~\ref{tab:rgaig_decision_matrix} reports the four-level GenAI governance decision matrix, specifying trigger conditions and actions for each risk level.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} l p{0.13\textwidth} X X @{}}
+\caption{RGAIG+ GenAI Governance Decision Matrix}
+\label{tab:rgaig_decision_matrix}\\
+\toprule
+\thead{Risk Level} & \thead{Decision} & \thead{Trigger Conditions} & \thead{Action Taken} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Low         & Allow output       & Confidence $\geq$ 0.85; no hallucination detected; signal quality validated; no bias alert; explanation faithfulness $\geq$ 0.85 & Deliver AI explanation to consumer with standard disclaimer; log decision in audit trail \\
+\addlinespace
+Medium      & Allow with caveat  & Confidence 0.70--0.85; minor signal quality concern; explanation partially supported & Deliver with enhanced disclaimer; recommend clinical follow-up; flag for monitoring review \\
+\addlinespace
+High        & Escalate           & Confidence $<$ 0.70; positive screen for serious condition; hallucination detected; bias alert triggered & Suppress consumer-facing output; route to clinician review queue; generate clinical summary; alert governance \\
+\addlinespace
+Critical    & Block output       & Signal quality below threshold (SNR $<$ 5~dB); model drift detected; multiple hallucinations; system fault & Block all outputs; display ``service temporarily unavailable''; trigger incident response; notify governance board \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textit{Decision engine evaluates all risk dimensions simultaneously per output. Multiple risk factors escalate to highest applicable risk level. All decisions logged with full audit trail. Clinician escalation target: $<$ 15 min response for High risk; $<$ 1 hour for Medium risk.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 10: Governance Decision Engine Risk Factors ──
+Table~\ref{tab:rgaig_decision_risk_factors} documents the six risk factors evaluated by the governance decision engine, including their thresholds and relative weights.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{0.14\textwidth} X p{0.18\textwidth} p{0.08\textwidth} @{}}
+\caption{RGAIG+ Governance Decision Engine --- Risk Factor Evaluation}
+\label{tab:rgaig_decision_risk_factors}\\
+\toprule
+\thead{Risk Factor} & \thead{What Is Evaluated} & \thead{Threshold} & \thead{Weight} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Prediction confidence    & Softmax probability or ensemble agreement for diagnostic classification; lower confidence indicates uncertainty & $\geq$ 0.85 (Low); 0.70--0.85 (Med); $<$ 0.70 (High) & 0.25 \\
+\addlinespace
+Signal quality           & Input EEG signal-to-noise ratio; electrode impedance; artefact contamination level & SNR $\geq$ 10~dB (Low); 5--10~dB (Med); $<$ 5~dB (Critical) & 0.20 \\
+\addlinespace
+Model reliability        & Drift detection score (PSI/CSI); performance deviation from baseline; recency of last retraining & PSI $<$ 0.10 (Low); 0.10--0.25 (Med); $>$ 0.25 (High) & 0.15 \\
+\addlinespace
+GenAI hallucination      & Semantic similarity between RAG output and retrieved evidence; factual consistency check & Faithfulness $\geq$ 0.85 (Low); 0.70--0.85 (Med); $<$ 0.70 (High) & 0.20 \\
+\addlinespace
+Consumer risk severity   & Clinical severity of predicted condition; potential harm from incorrect recommendation & Benign (Low); moderate clinical significance (Med); life-threatening (High) & 0.15 \\
+\addlinespace
+Fairness alert           & Subgroup performance disparity detected in real-time monitoring; demographic bias flag & Disparity $<$ 3\% (Low); 3--5\% (Med); $>$ 5\% (High) & 0.05 \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textit{Composite risk score = weighted sum of individual factor scores. Overall risk level determined by maximum individual factor level (any single Critical factor $\rightarrow$ overall Critical). Weights configurable per deployment context; default weights shown above derived from expert panel consensus.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 11: Governance Lifecycle Stages ──
+Table~\ref{tab:rgaig_governance_lifecycle} maps the seven AI governance lifecycle stages to their corresponding RGAIG+ controls.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} l X X @{}}
+\caption{RGAIG+ AI Governance Lifecycle Stages}
+\label{tab:rgaig_governance_lifecycle}\\
+\toprule
+\thead{Lifecycle Stage} & \thead{Governance Activities} & \thead{RGAIG+ Controls} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Design          & Risk assessment; ethical review; use case classification (EU AI Act risk level); stakeholder identification & Governance charter; risk policy; ethical review checklist; 10-pillar principle mapping \\
+\addlinespace
+Development     & Model training governance; data lineage; bias testing; code review; security assessment & Model cards; training audit trail; fairness metrics; peer review protocol; vulnerability scan \\
+\addlinespace
+Validation      & Performance evaluation; clinical validation; expert review; regulatory submission preparation & Bootstrap CI; LOSO validation; expert panel assessment; regulatory compliance checklist \\
+\addlinespace
+Deployment      & Consumer release; monitoring activation; governance decision engine operational; incident response ready & Deployment approval workflow; monitoring dashboard live; escalation protocols active \\
+\addlinespace
+Monitoring      & Drift detection; bias surveillance; performance tracking; user feedback collection; safety incident logging & KPI dashboards; PSI/CSI monitoring; trust metric tracking; incident log; governance reports \\
+\addlinespace
+Improvement     & Model retraining; governance policy updates; framework maturity advancement; lessons learned & Retrained models; updated policies; maturity self-assessment; continuous improvement log \\
+\addlinespace
+Retirement      & Model deprecation; data archival; user notification; regulatory decommission reporting & Retirement plan; data retention policy; user migration; regulatory notification; audit closure \\
+\addlinespace
+\midrule
+\multicolumn{3}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textit{Lifecycle aligns with NIST AI RMF (Map, Measure, Manage, Govern) and ISO/IEC 42001 PDCA cycle. RGAIG+ extends with GenAI-specific controls, consumer trust monitoring, and device-level governance.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 12: Complete Framework Component Inventory ──
+Table~\ref{tab:rgaig_component_inventory} summarises the complete eighteen-component RGAIG+ framework inventory with cross-references to relevant tables and figures.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} c p{0.18\textwidth} X p{0.14\textwidth} @{}}
+\caption{RGAIG+ Complete Framework Component Inventory}
+\label{tab:rgaig_component_inventory}\\
+\toprule
+\thead{\#} & \thead{Component} & \thead{Description} & \thead{Reference} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1  & System architecture                   & 9-layer architecture from device through governance; cross-cutting responsible AI controls & Fig.~\ref{fig:rgaig_architecture} \\
+\addlinespace
+2  & Wearable EEG integration              & Consumer device capability matrix (4--32 channels); benchmark framework (8 dimensions) & Table~\ref{tab:rgaig_device_benchmark} \\
+\addlinespace
+3  & Signal processing pipeline            & EEG acquisition $\rightarrow$ artefact removal $\rightarrow$ feature extraction; quality monitoring & Fig.~\ref{fig:rgaig_pipeline} \\
+\addlinespace
+4  & Diagnostic AI layer                   & DL classifiers (CNN-LSTM, VotingClassifier); ASD-focused ASD ensemble metric & Table~\ref{tab:rgaig_scorecard} \\
+\addlinespace
+5  & Generative AI governance              & RAG explanation engine; GenAI-specific risk controls (8 risks, 8 mitigations) & Table~\ref{tab:rgaig_genai_controls} \\
+\addlinespace
+6  & Governance decision engine            & Risk-based output evaluation; 4-level decision matrix (allow/caveat/escalate/block) & Table~\ref{tab:rgaig_decision_matrix} \\
+\addlinespace
+7  & Monitoring architecture               & Continuous drift detection, bias surveillance, KPI dashboards, safety incident logging & Table~\ref{tab:rgaig_governance_stack} \\
+\addlinespace
+8  & Consumer trust model                  & 3-dimension trust instrument; TAM-TOE-RBV adoption model; trust metrics & Table~\ref{tab:rgaig_trust_adoption} \\
+\addlinespace
+9  & Maturity model                        & 5-level progression (Experimental $\rightarrow$ Trusted); 7 governance dimensions & Table~\ref{tab:rgaig_maturity} \\
+\addlinespace
+10 & Evaluation methodology                & 10-step evaluation workflow; 7-dimension scorecard & Table~\ref{tab:rgaig_evaluation_workflow} \\
+\addlinespace
+11 & Responsible AI control matrix         & 8 principles $\times$ controls $\times$ metrics $\times$ evidence & Table~\ref{tab:rgaig_control_matrix} \\
+\addlinespace
+12 & Value and impact model                & 6-stakeholder impact analysis; ROI projection; value chain & Table~\ref{tab:rgaig_value_impact} \\
+\addlinespace
+13 & Research contribution matrix          & 15-capability comparison vs NIST, ISO 42001, EU AI Act, RAISEF & Table~\ref{tab:rgaig_contribution_matrix} \\
+\addlinespace
+14 & Validation strategy                   & 6-method validation (computational, expert, case, comparative, survey, simulation) & Table~\ref{tab:rgaig_validation_strategy} \\
+\addlinespace
+15 & Multi-layer governance stack          & 7-layer stack from device through governance with cross-cutting controls & Table~\ref{tab:rgaig_governance_stack} \\
+\addlinespace
+16 & Regulatory standards alignment        & 15 global standards mapped to 9 framework layers & Table~\ref{tab:rgaig_standards_alignment} \\
+\addlinespace
+17 & Adoption roadmap                      & 6-phase implementation pathway with activities and responsibilities & Table~\ref{tab:rgaig_adoption_roadmap} \\
+\addlinespace
+18 & AI governance lifecycle               & 7-stage lifecycle (design through retirement) with controls at each stage & Table~\ref{tab:rgaig_governance_lifecycle} \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textit{18 components form the complete RGAIG+ framework. Components 1--12 from initial framework design; components 13--18 added through framework refinement. All components cross-referenced within thesis.}} \\
+\end{xltabular}
+\endgroup
+
+\clearpage

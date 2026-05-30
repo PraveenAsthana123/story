@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CHAPTER 2 SECTION: DETAILED LITERATURE REVIEW: AGENTIC AI DISEASE FINDER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Detailed Literature Review: Agentic AI Disease Finder}
+\label{app:ch2_agentic}
+\label{sec:topic5_agentic}
+
+This section provides the detailed literature review for multi-modal medical AI and the Agentic Disease Finder (NeuroMCP-Agent) supporting the thematic synthesis in Chapter~2. The review covers the evolution from single-modality deep learning through multi-modal fusion strategies to foundation models and agentic architectures with intelligent model selection. All citations are referenced in the consolidated bibliography.
+
+The literature on multi-modal medical AI has evolved from single-modality deep learning (2018--2020), through multi-modal fusion strategies (2020--2022), to foundation models (2022--2024) and agentic architectures with intelligent model selection (2024--2025).
+
+\subsection{Agentic and Multi-Modal Systems}
+
+Four multi-agent architectures define the current landscape, but each exhibits a fundamental limitation for biomedical deployment. Zhou et al.~\cite{zhou2025mam} rely entirely on LLM-based agents without domain-specific trained models, risking hallucinated medical reasoning. Jin et al.~\cite{jin2025medagent} add evidence-based case reasoning (MedAgent-Pro) but cannot route EEG or MRI data to specialised classifiers. Wang et al.~\cite{wang2025llmagent} combine LLM reasoning with medical imaging but lack real-time signal processing capability. Chen et al.~\cite{chen2025adacomed} employ an always-fuse strategy that cannot selectively engage the appropriate expert, imposing unnecessary computational overhead. The absence of EEG-specific routing in all four systems leaves a gap for ASD-focused diagnostic orchestration.
+
+\subsection{Motor Imagery BCI}
+
+Wang et al.~\cite{wang2024misurvey} comprehensively reviewed CNNs, RNNs, transformers, and hybrid models on BCI Competition IV-2a, where best models reach 80--85\% accuracy. Gu et al.~\cite{gu2025cltnet} achieved $\sim$83\% accuracy with a CNN + LSTM + transformer hybrid.
+
+\subsection{PD Detection}
+
+Jibon et al.~\cite{jibon2024hybrid} improved PD detection accuracy using a hybrid autoencoder-CNN model. Rabie et al.~\cite{rabie2025pd} surveyed DL methods from speech, gait, and EEG modalities for PD detection and monitoring.
+
+\subsection{MRI Tumor Classification}
+
+Zahoor et al.~\cite{zahoor2024resbrnet} achieved $>$95\% accuracy with a deep residual region-based CNN (Res-BRNet) combining global and local features. Srinivasan et al.~\cite{srinivasan2024cnn} compared three fully automatic CNN models for multi-class tumor classification.
+
+\subsection{Agentic Innovation}
+
+The proposed NeuroMCP-Agent uniquely combines concrete specialized expert models (BCI2A, PD EEG, MRI Tumor) with intelligent agentic routing based on input characteristics. The system achieves: PD detection at 100\% accuracy (5-fold CV), epilepsy detection at 99.02\%, ASD detection at 97.67\%, and an overall mean accuracy of 96.14\% across seven diseases. The system deploys 15 base classifiers with an MLP meta-learner, incorporates 46 Responsible AI modules, and achieves regulatory compliance scores of EU AI Act 95\%, FDA SaMD 94\%, and HIPAA 94.2\%.
+
+\subsection{Comparative Analysis}
+
+Table~\ref{tab:agentic_comparison} compares existing multi-modal medical AI systems against the proposed Agentic Disease Finder.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{3cm} p{3cm} p{2.5cm} L L @{}}
+\caption[Comparative Analysis of Multi-Modal Medical AI vs.\]{Comparative Analysis of Multi-Modal Medical AI vs.\ Agentic Disease Finder}\label{tab:agentic_comparison} \\
+\toprule
+\thead{Study} & \thead{Method} & \thead{Result} & \thead{Gap} & \thead{Agentic Advantage} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:agentic_comparison} continued from previous page\,)}} \\
+\toprule
+\thead{Study} & \thead{Method} & \thead{Result} & \thead{Gap} & \thead{Agentic Advantage} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Zhou et al.~\cite{zhou2025mam} & MAM modular multi-agent & Outperforms baselines & LLM-centric; no EEG/MRI experts & Concrete EEG/MRI expert models + routing \\
+\addlinespace
+Jin et al.~\cite{jin2025medagent} & MedAgent-Pro evidence-based & Superior reliability & Imaging/text only; no EEG & Three-domain coverage with EEG + MRI \\
+\addlinespace
+Chen et al.~\cite{chen2025adacomed} & AdaCoMed fusion & Strong collaborative fusion & Always fuses; no expert selection & Input-aware model selection via agent \\
+\addlinespace
+Jibon et al.~\cite{jibon2024hybrid} & Hybrid AE + CNN for PD & Improved PD detection & Single disease, single modality & Multi-disease with agentic routing \\
+\addlinespace
+Zahoor et al.~\cite{zahoor2024resbrnet} & Res-BRNet for brain tumor MRI & $>$95\% accuracy & Tumor imaging only; no EEG & Unified architecture spanning EEG + MRI \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} MAM = modular multi-agent; LLM = large language model; AE = autoencoder; CNN = convolutional neural network; MRI = magnetic resonance imaging.

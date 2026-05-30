@@ -1,0 +1,131 @@
+
+%% ============================================================================
+%% ISO 42001 + healthcare ISO + library + threshold per-phase pages
+%% Auto-generated 2026-05-27
+%% ============================================================================
+
+\clearpage
+\subsection{ISO 42001 + Healthcare ISO + Library + Threshold --- Per-Phase Deep Dive}
+\label{sec:iso_threshold_per_phase}
+
+\noindent\emph{Three-table consolidated reference for the per-phase technical contract: (a) per-phase library + tool + how-to-achieve KPI; (b) per-phase input + process + output + benchmark + threshold; (c) per-phase ISO 42001 + healthcare-ISO mapping. Together the three tables specify the implementation contract per phase such that an engineer can pick up any phase and know what library to use, what threshold to hit, and what ISO clause governs it.}
+
+
+\clearpage
+\paragraph[Per-Phase Library + How-to-Achieve]{Per-Phase Library + Tool + How-to-Achieve KPI (XAI + RAI + Quality).}
+
+
+\noindent This table lists each \textit{phase} across primary library, xai achieve, rai achieve, and 1 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{3.7cm} >{\raggedright\arraybackslash}p{2.7cm} >{\raggedright\arraybackslash}p{3.1cm} p{2.9cm} @{}}
+\caption[Per-Phase Library + How-to-Achieve]{Per-Phase Library + Tool + How-to-Achieve KPI (XAI + RAI + Quality).}\label{tab:per_phase_library_kpi} \\
+\toprule
+\thead{Phase} & \thead{Primary library} & \thead{XAI achieve} & \thead{RAI achieve} & \thead{Quality achieve} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1 Capture & mne-python; Emotiv Cortex API & Per-record provenance log & Consent-gate at API; minimum-necessary & SQI $\geq$ 0.70 per file; per-record audit hash \\
+2 Standardise & mne-python; pybids; bids-validator & Conversion log per record & Reproducible converter; pinned version & Roundtrip read/write check; BIDS-validator pass \\
+3 QC & Custom SQI; mne.preprocessing.find\_bad\_channels & Per-file SQI + rejection rationale & Honest rejection log (no silent inclusion) & SQI threshold + bad-channel $<$ 25\% \\
+4 Preprocess & mne.filter; mne.preprocessing.ICA; ICLabel & Per-sub-step before/after PSD + topomap & Audit log; non-destructive (orig preserved) & Epoch retention $\geq$ 70\%; per-IC documented \\
+5 Epoch & mne.Epochs; sklearn.model\_selection.GroupKFold & Per-epoch dropout reason & Subject-level split enforced (no leakage) & Per-fold class balance $\geq$ 40--60 \\
+6 Time-freq & scipy.signal.stft; pywt (CWT/SWT); custom Wigner & Method-explanation log per epoch & Fixed parameters; library version pinned & Parseval check pass \\
+7 Feature extract & antropy; mne-connectivity; scipy.stats; custom Hjorth & Per-feature definition + formula & Reproducible compute; no proprietary feature & Feature-ranges within sanity bounds \\
+8 Feature select & sklearn.feature\_selection; boruta-py; sklearn.linear\_model.LassoCV & Selected-feature rationale per fold & Stability across folds; no single-fold cherry-pick & Top-K stable $\geq$ 80\% across folds \\
+9 Train & sklearn (SVM/RF); xgboost; pytorch (EEGNet/CNN-LSTM/Transformer/ViT/EfficientNet); torchvision & Hyperparameter + learning-curve log & Fixed seed; per-run experiment tracking & Test accuracy $\geq$ baseline + 5 pp \\
+10 Validate & sklearn.model\_selection.GroupKFold; sklearn.model\_selection.cross\_validate & Per-fold result table & Subject-level split verified; external test from independent source & Per-fold variance $<$ 5 pp; external test pass \\
+11 Evaluate & sklearn.metrics; statsmodels (bootstrap CI); pingouin (effect sizes) & Per-metric explanation table & Multi-metric reported (no cherry-pick) & Per-metric 95\% CI bound \\
+12 XAI & shap; captum (DL interpretability); lime; pytorch-grad-cam & Per-prediction SHAP / saliency / attention & Explanation usefulness rated $\geq$ 4/5 & Per-prediction explanation under 500 ms \\
+13 RAG-index & sentence-transformers; chromadb; faiss; langchain.text\_splitter & Chunk-level provenance + metadata & Source-credibility check pre-ingestion & Per-chunk metadata completeness 100\% \\
+14 Retrieve & chromadb hybrid retriever; rank-bm25; cohere-reranker & Top-k score rationale per query & No retrieval-injection; rate-limit per user & MRR $\geq$ 0.70; nDCG@5 $\geq$ 0.75 \\
+15 RAG-report & Ollama (Llama-3-8B); langchain.chains; ragas & Citation per claim trace & Faithfulness $\geq$ 0.85; no hallucination & Ragas faithfulness + answer-relevance $\geq$ 0.80 \\
+16 HITL & Web portal (Streamlit / Gradio); Celery / Temporal; audit DB & Decision rationale per case & Non-bypassable for patient-facing output & Time-to-decision p95 $<$ 30 min \\
+17 Deliver & WeasyPrint / Pandoc; jinja2 templates; mobile app (React Native / Flutter) & Reading-grade analysis per report & No-diagnosis disclaimer in patient report & Reading-grade $\leq$ 8 (patient); delivery $\geq$ 99\% \\
+18 Audit & OpenTelemetry; PostgreSQL audit DB; SIEM (Splunk / Elastic) & Per-decision row complete & request\_id end-to-end; SIEM integration & Audit-row completeness $\geq$ 99\% \\
+19 Monitor & Prometheus + Grafana; Evidently (drift); Presidio (PII); Fairlearn (fairness) & Drift / bias / PII alert dashboard & Quarterly governance review & Drift PSI $<$ 0.20; DI $\geq$ 0.80 \\
+20 Improve & MLflow (registry); GitHub Actions CI/CD; Argo Rollouts (canary) & Per-update changelog + model card & Canary deploy + roll-back ready & Improvement-rate $\geq$ 1 metric per quarter \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Each phase has a concrete library + KPI-achievement pattern documented. The drill suite verifies the achievement criterion per phase before downstream phases consume.
+
+
+\clearpage
+\paragraph[Per-Phase Input Process Output Benchmark Threshold]{Per-Phase Input + Process + Output + Benchmark + Threshold.}
+
+
+\noindent This table lists each \textit{phase} across input, process, output, and 2 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{2.3cm} >{\raggedright\arraybackslash}p{2.5cm} p{2.8cm} @{}}
+\caption[Per-Phase Input Process Output Benchmark Threshold]{Per-Phase Input + Process + Output + Benchmark + Threshold.}\label{tab:per_phase_ipo_benchmark} \\
+\toprule
+\thead{Phase} & \thead{Input} & \thead{Process} & \thead{Output} & \thead{Benchmark} & \thead{Threshold} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1 Capture & EEG headset signal & Acquire at 256 Hz / 128 Hz & EDF file + metadata sidecar & SQI distribution per cohort & SQI $\geq$ 0.70 per file \\
+2 Standardise & EDF / BDF / MAT & Convert to FIF / BIDS & BIDS tree per subject & Roundtrip-fidelity test & Max abs diff $<$ 1e-6 \\
+3 QC & Cleaned file & SQI + bad-channel + noise check & Quality report + bad-channel mask & Cohort SQI distribution & SQI median $\geq$ 0.75; bad-ch rate $<$ 25\% \\
+4 Preprocess & Quality-graded file & Bandpass + notch + re-ref + ICA & Cleaned epochs & Per-step PSD comparison & Epoch retention $\geq$ 70\%; IC removed reasonable \\
+5 Epoch & Cleaned EEG & Sliding-window 2/4/8s + subject split & Epoch tensor + split manifest & Per-fold class balance & No within-subject leakage; $\geq$ 40\% per class per fold \\
+6 Time-freq & 1D signal tensor & STFT / CWT / SWT & Spectrogram tensor & Parseval energy check & Sum-of-squares time = sum-of-squares freq (tolerance 1\%) \\
+7 Feature extract & Spectrogram tensor & 50-feature engineering & Feature matrix & Feature-distribution sanity & All features within literature ranges \\
+8 Feature select & Feature matrix & LASSO / RFE / Boruta & Reduced 10--15 features & Stability across CV folds & Top-K stable in $\geq$ 80\% of folds \\
+9 Train & Feature matrix + labels & Model fit + hyperparameter tune & Trained checkpoint & Learning-curve diagnostic & Test accuracy $\geq$ baseline + 5 pp \\
+10 Validate & Trained model + test set & GroupKFold + external test & Per-fold metrics + 95\% CI & Cross-cohort consistency & External test accuracy $\geq$ 80\% of internal \\
+11 Evaluate & Validated model + predictions & Multi-metric scoring + bootstrap CI & Metric panel report & Per-subgroup fairness & DI $\geq$ 0.80; equal-opportunity gap $<$ 5\% \\
+12 XAI & Trained model + input & SHAP / saliency / attention compute & Per-prediction explanation & Clinician usefulness rating & Mean rating $\geq$ 4/5 (PD-2 panel) \\
+13 RAG-index & Document corpus & Chunk + embed + index & Vector store & Retrieval recall on held-out QA & Recall@5 $\geq$ 0.80 \\
+14 Retrieve & Query + context & Hybrid vector + keyword + metadata & Top-k chunks & MRR + nDCG eval & MRR $\geq$ 0.70; nDCG@5 $\geq$ 0.75 \\
+15 RAG-report & Prediction + XAI + chunks & LLM synthesis with citations & Markdown / PDF report & Ragas faithfulness + relevance & Faithfulness $\geq$ 0.85; relevance $\geq$ 0.80 \\
+16 HITL & Draft report & Clinician review + decision & Signed action + audit row & Time-to-decision per case & p95 $<$ 30 min \\
+17 Deliver & Signed report & Format + distribution & Doctor PDF + patient PDF & Reading-grade (patient PDF) & Reading-grade $\leq$ 8 \\
+18 Audit & Every-step audit row & Aggregate + persist & Audit log & Per-decision row completeness & $\geq$ 99\% per decision \\
+19 Monitor & Production traffic & Drift / bias / PII scan & Alert events + dashboard & Per-week alert volume & False-positive rate $<$ 10\% \\
+20 Improve & Drift signal + audit + feedback & Retrain + canary deploy & Updated model in registry & Per-release effect size & Improvement $\geq$ 1 metric per quarter \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Each phase has IPO + benchmark + threshold contract documented; the threshold is the GATE condition that must pass before downstream phase consumes.
+
+
+\clearpage
+\paragraph[Per-Phase ISO 42001 + Healthcare ISO Mapping]{Per-Phase ISO 42001 + Healthcare ISO Clause Mapping.}
+
+
+\noindent This table lists each \textit{phase} across iso 42001 clause, healthcare iso, risk class, and 1 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.8cm} >{\raggedright\arraybackslash}p{2.0cm} p{3.5cm} @{}}
+\caption[Per-Phase ISO 42001 + Healthcare ISO Mapping]{Per-Phase ISO 42001 + Healthcare ISO Clause Mapping.}\label{tab:per_phase_iso_42001} \\
+\toprule
+\thead{Phase} & \thead{ISO 42001 clause} & \thead{Healthcare ISO} & \thead{Risk class} & \thead{Verification evidence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1 Capture & 6.1.2 Risk assessment; 8.2 AI system impact assessment & ISO 13485 §7.5.2 production; ISO 14971 §5.3 hazard identification & Low--Medium & Source DUA; checksum; SQI report \\
+2 Standardise & 8.3 Data management & IEC 62304 §5.3 software requirements analysis & Low & BIDS-validator pass; roundtrip log \\
+3 QC & 8.4 Process management; 9.1 Performance evaluation & ISO 13485 §7.5.6 process validation & Medium & Per-file SQI; cohort QC report \\
+4 Preprocess & 8.4 Process management & IEC 62304 §5.4 software architectural design & Medium & Per-sub-step audit log; before/after PSD \\
+5 Epoch & 8.3 Data management; 6.1.2 Risk assessment & ISO 14971 §6.3 risk evaluation & Medium & Split manifest signed; no-leakage check \\
+6 Time-freq & 8.4 Process management & IEC 62304 §5.5 detailed design & Low & Parseval check log; per-method validation \\
+7 Feature extract & 8.4 Process management & IEC 62304 §5.5 detailed design & Low & Per-feature formula + sanity bound check \\
+8 Feature select & 8.4 Process management; 9.1 Performance evaluation & IEC 62304 §5.5 detailed design & Medium & Stability cross-fold report \\
+9 Train & 8.4 Process management; 9.1 Performance evaluation & IEC 62304 §5.6 software integration & Medium--High & Training log; checkpoint manifest; hyperparameter log \\
+10 Validate & 9.1 Performance evaluation; 9.2 Internal audit & IEC 62304 §5.7 software system testing; ISO 13485 §7.3.7 design verification & High & Per-fold + external-test result; statistician sign-off \\
+11 Evaluate & 9.1 Performance evaluation & ISO/IEC 25010 §4 quality model (functional suitability, reliability) & High & Multi-metric panel; subgroup-fairness report \\
+12 XAI & 8.2 AI system impact assessment; 9.1 Performance evaluation & EU AI Act Art. 86 right to explanation; ISO 24028 (AI trustworthiness) & High & Per-prediction explanation; clinician usefulness rating \\
+13 RAG-index & 8.3 Data management; 8.4 Process management & ISO/IEC 25012 (data quality); ISO 27001 (information security) & Medium & Corpus catalogue; per-chunk provenance \\
+14 Retrieve & 8.4 Process management & ISO/IEC 25010 §4 (efficiency, reliability) & Medium & MRR + nDCG eval log \\
+15 RAG-report & 8.4 Process management; 8.2 AI system impact assessment & EU AI Act Art. 13 (transparency); ISO 24028 & High & Ragas faithfulness; citation-accuracy log \\
+16 HITL & 8.4 Process management; 7.5 Documented information & ISO 13485 §7.3 design + development; ISO 14971 §6.4 risk control & High (Critical) & Per-decision signed action + clinician audit row \\
+17 Deliver & 8.4 Process management; 7.5 Documented information & ISO 13485 §7.5.3 customer property (patient information) & High & Per-format template signed; reading-grade pass \\
+18 Audit & 7.5 Documented information; 9.2 Internal audit; 9.3 Management review & ISO 13485 §4.2.5 control of records; ISO 27001 A.12.4 logging & Critical & Per-decision audit row $\geq$ 99\%; SIEM integration \\
+19 Monitor & 9.1 Performance evaluation; 10.1 Continual improvement & ISO 13485 §8.4 analysis of data; ISO 14971 §10 post-production review & Critical & Drift PSI report; bias dashboard; per-alert RCA \\
+20 Improve & 10.1 Continual improvement; 10.2 Nonconformity + corrective action & ISO 13485 §8.5 improvement; ISO 14971 §11 risk management report & Critical & Per-release changelog + model card; CAPA log \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} ISO 42001 (AI Management System, 2023) is the canonical AI-governance standard for organisations using AI. Mapping to healthcare ISO standards (ISO 13485, ISO 14971, IEC 62304, ISO/IEC 25010, ISO 27001) provides medical-device-grade discipline. Each phase has a defined ISO clause + verification evidence; the dissertation drill suite checks evidence per phase. EU AI Act Article 86 right-to-explanation satisfied at phase 12; ISO 14971 §10 post-production review at phase 19.

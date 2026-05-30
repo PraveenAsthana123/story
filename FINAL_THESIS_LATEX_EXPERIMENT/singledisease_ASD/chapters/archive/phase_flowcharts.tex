@@ -1,0 +1,1231 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 15-PHASE DOCTORAL RESEARCH FLOWCHARTS
+%% Each phase has: Input → Process → Output (IPO) TikZ diagram
+%% Aligned to thesis chapters as per doctoral research methodology
+%%
+%% Phase–Chapter Alignment:
+%%   Phase 1:  Topic Selection & Problem Definition     → Chapter 1
+%%   Phase 2:  Literature Review & Gap Structuring       → Chapter 2
+%%   Phase 3:  Conceptual Model Development              → Chapter 2
+%%   Phase 4:  Hypothesis Development                    → Chapter 2
+%%   Phase 5:  Research Design                           → Chapter 3
+%%   Phase 6:  Measurement Design                        → Chapter 3
+%%   Phase 7:  Sampling Strategy                         → Chapter 3
+%%   Phase 8:  Data Collection                           → Chapter 3
+%%   Phase 9:  Data Preparation & Cleaning               → Chapter 4
+%%   Phase 10: Statistical Analysis                      → Chapter 4
+%%   Phase 11: Results Interpretation                    → Chapter 5
+%%   Phase 12: Contributions & Implications              → Chapter 5
+%%   Phase 13: Thesis Writing & Document Integration     → Cross-Chapter
+%%   Phase 14: Quality Validation & Review               → Cross-Chapter
+%%   Phase 15: Defense Preparation & Dissemination       → Post-Submission
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% REUSABLE IPO STYLE (shared across all 15 phases)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\tikzset{
+    ipobox/.style={rectangle, draw=ggunavy, text width=6.4cm,
+                minimum height=4.2cm, align=left, font=\small, rounded corners=3pt,
+                line width=0.8pt},
+    ipoinput/.style={ipobox, fill=lightblue!40},
+    ipoprocess/.style={ipobox, fill=lightorange!40},
+    ipooutput/.style={ipobox, fill=lightgreen!40},
+    ipoheader/.style={font=\small\bfseries\color{white}, fill=ggunavy,
+                   text width=6.4cm, align=center, minimum height=0.8cm,
+                   rounded corners=3pt},
+    ipoheaderinput/.style={ipoheader, fill=ch1header},
+    ipoheaderprocess/.style={ipoheader, fill=ch3header},
+    ipoheaderoutput/.style={ipoheader, fill=ch4header},
+    ipoarrow/.style={-{Stealth[length=4mm]}, line width=1.2pt, ggunavy},
+    ipofeed/.style={font=\small\color{ggunavy!70}, align=center}
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% MASTER OVERVIEW: 15-Phase Research Flow with Chapter Alignment
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\masterPhaseFlowchart}{%
+\clearpage
+\normalsize\normalfont\color{black}
+\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Fifteen-Phase Doctoral Research Workflow}\\[0.3em]
+{\normalsize\color{ggunavy} Phase--Chapter Alignment Overview}
+\end{center}
+\vspace{0.8em}
+
+\noindent This thesis follows a fifteen-phase doctoral research workflow. Phases~1--12 cover the core research cycle from problem identification through empirical analysis to contribution. Phases~13--15 address thesis compilation, quality validation, and defense preparation. Each phase produces specific deliverables that feed into the next phase.
+
+\vspace{1em}
+
+%% ── Master alignment table ──
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{tabularx}{\textwidth}{@{} c p{0.26\textwidth} p{0.20\textwidth} X @{}}
+\toprule
+\thead{Phase} & \thead{Name} & \thead{Chapter} & \thead{Key Output} \\
+\midrule
+1  & Topic Selection \& Problem Definition    & Ch.~1 Introduction      & Research problem, RQs, objectives \\
+2  & Literature Review \& Gap Structuring      & Ch.~2 Literature Review & Theoretical foundation, 12 gaps \\
+3  & Conceptual Model Development              & Ch.~2 Literature Review & Research model (IV$\to$DV), variables \\
+4  & Hypothesis Development                    & Ch.~2 Literature Review & 5 hypotheses (H1--H5) \\
+\addlinespace
+5  & Research Design                           & Ch.~3 Methodology       & DSR philosophy, mixed methods \\
+6  & Measurement Design                        & Ch.~3 Methodology       & Operationalised constructs, scales \\
+7  & Sampling Strategy                         & Ch.~3 Methodology       & 131 subjects + 20K images, 5 datasets \\
+8  & Data Collection                           & Ch.~3 Methodology       & 305 GB, sensor/EEG/imaging data \\
+\addlinespace
+9  & Data Preparation \& Cleaning              & Ch.~4 Analysis          & Clean dataset, feature engineering \\
+10 & Statistical Analysis                      & Ch.~4 Analysis          & H1--H5 tested, ASD ensemble 97.67\% \\
+\addlinespace
+11 & Results Interpretation                    & Ch.~5 Discussion        & Findings, model validation \\
+12 & Contributions \& Implications             & Ch.~5 Discussion        & C1--C8 academic + managerial + practical, ROI 135--2{,}717\% \\
+\addlinespace
+13 & Thesis Writing \& Document Integration    & Cross-Chapter           & Cohesive 5-chapter manuscript \\
+14 & Quality Validation \& Review              & Cross-Chapter           & Zero errors, validated consistency \\
+15 & Defense Preparation \& Dissemination      & Post-Submission         & Defense materials, publication plan \\
+\bottomrule
+\end{tabularx}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Professor's 10-Stage Research Process Alignment ──
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{tabularx}{\textwidth}{@{} c p{0.24\textwidth} c X @{}}
+\toprule
+\thead{Stage} & \thead{Professor's Research Stage} & \thead{Phase(s)} & \thead{How Addressed in This Framework} \\
+\midrule
+1  & Domain Selection                & 1       & Research domain justified in Table~\ref{tab:phase1_domain}; AI governance + IS + digital transformation \\
+\addlinespace
+2  & Topic Refinement                & 1       & Topic narrowing formula [Construct + Outcome + Context] applied in Phase~1 IPO \\
+\addlinespace
+3  & Problem Identification          & 1       & 4 problem statements (P1--P4) grounded in \$4.5T health burden \\
+\addlinespace
+4  & Research Questions              & 1       & 8 research questions (RQ1--RQ8) aligned to P1--P4 \\
+\addlinespace
+5  & Research Objectives             & 1       & 8 SMART-validated objectives (O1--O8) in Table~\ref{tab:phase1_smart} \\
+\addlinespace
+6  & Hypotheses / Propositions       & 4       & 5 hypotheses (H1--H5) with null alternatives; alignment matrix in Table~\ref{tab:phase4_alignment} \\
+\addlinespace
+7  & Literature Review               & 2       & Systematic search (6 strings, 2,400 results); thematic clustering in Table~\ref{tab:phase2_themes} \\
+\addlinespace
+8  & Literature Synthesis            & 2, 3    & 12 gaps (G1--G12); construct-to-theory mapping in Table~\ref{tab:phase3_theory} \\
+\addlinespace
+9  & Research Gaps                   & 2       & 3 gap types: theoretical (G1--G6), methodological (G7--G9), practical (G10--G12) \\
+\addlinespace
+10 & Full Research Proposal          & 3--5    & Conceptual model, hypothesis spec, Research Onion alignment in Table~\ref{tab:phase5_onion} \\
+\bottomrule
+\end{tabularx}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Master flow diagram ──
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+    phase/.style={rectangle, draw=ggunavy, fill=ggunavy!8, text width=1.5cm,
+                  minimum height=1.4cm, align=center, font=\small,
+                  rounded corners=3pt, line width=0.8pt},
+    metaph/.style={rectangle, draw=ggunavy, fill=ggunavy!15, text width=1.5cm,
+                  minimum height=1.4cm, align=center, font=\small,
+                  rounded corners=3pt, line width=0.8pt},
+    chgroup/.style={rectangle, draw=ggunavy, dashed, rounded corners=6pt,
+                    inner sep=6pt, line width=0.6pt},
+    chlabel/.style={font=\small\bfseries\color{ggunavy}, anchor=south},
+    pnum/.style={circle, fill=ggunavy, text=white, font=\bfseries\tiny,
+                 minimum size=0.5cm, inner sep=0pt},
+    arr/.style={-{Stealth[length=4mm,width=3mm]}, line width=1pt, ggunavy},
+    feedback/.style={-{Stealth[length=4mm,width=3mm]}, line width=0.8pt, ggunavy!50, dashed}
+]
+
+%% Row 1: Phases 1-6 (core research)
+\node[phase] (p1) at (0,0) {Topic\\Selection};
+\node[phase] (p2) at (2.2,0) {Literature\\Review};
+\node[phase] (p3) at (4.4,0) {Conceptual\\Model};
+\node[phase] (p4) at (6.6,0) {Hypothesis\\Development};
+\node[phase] (p5) at (8.8,0) {Research\\Design};
+\node[phase] (p6) at (11,0) {Measurement\\Design};
+
+%% Row 2: Phases 7-12 (core research, right to left)
+\node[phase] (p7) at (11,-3) {Sampling\\Strategy};
+\node[phase] (p8) at (8.8,-3) {Data\\Collection};
+\node[phase] (p9) at (6.6,-3) {Data\\Preparation};
+\node[phase] (p10) at (4.4,-3) {Statistical\\Analysis};
+\node[phase] (p11) at (2.2,-3) {Results\\Interpretation};
+\node[phase] (p12) at (0,-3) {Contributions\\Implications};
+
+%% Row 3: Phases 13-15 (meta-phases, left to right)
+\node[metaph] (p13) at (2.2,-6) {Thesis\\Writing};
+\node[metaph] (p14) at (5.5,-6) {Quality\\Validation};
+\node[metaph] (p15) at (8.8,-6) {Defense\\Preparation};
+
+%% Phase numbers
+\node[pnum, above=0.15cm of p1] {1};
+\node[pnum, above=0.15cm of p2] {2};
+\node[pnum, above=0.15cm of p3] {3};
+\node[pnum, above=0.15cm of p4] {4};
+\node[pnum, above=0.15cm of p5] {5};
+\node[pnum, above=0.15cm of p6] {6};
+\node[pnum, below=0.15cm of p7] {7};
+\node[pnum, below=0.15cm of p8] {8};
+\node[pnum, below=0.15cm of p9] {9};
+\node[pnum, below=0.15cm of p10] {10};
+\node[pnum, below=0.15cm of p11] {11};
+\node[pnum, below=0.15cm of p12] {12};
+\node[pnum, below=0.15cm of p13] {13};
+\node[pnum, below=0.15cm of p14] {14};
+\node[pnum, below=0.15cm of p15] {15};
+
+%% Chapter grouping boxes
+\node[chgroup, fit=(p1)] (g1) {};
+\node[chlabel, above=0.5cm of p1] {Ch.~1};
+
+\node[chgroup, fit=(p2)(p3)(p4)] (g2) {};
+\node[chlabel] at ($(p2)!0.5!(p4) + (0,1.15)$) {Ch.~2};
+
+\node[chgroup, fit=(p5)(p6)(p7)(p8)] (g3) {};
+\node[chlabel] at ($(p5)!0.5!(p6) + (0,1.15)$) {Ch.~3};
+
+\node[chgroup, fit=(p9)(p10)] (g4) {};
+\node[chlabel] at ($(p9)!0.5!(p10) + (0,-1.6)$) {Ch.~4};
+
+\node[chgroup, fit=(p11)(p12)] (g5) {};
+\node[chlabel] at ($(p11)!0.5!(p12) + (0,-1.6)$) {Ch.~5};
+
+\node[chgroup, fit=(p13)(p14)(p15)] (g6) {};
+\node[chlabel] at ($(p13)!0.5!(p15) + (0,-1.6)$) {Cross-Chapter \& Post-Submission};
+
+%% Arrows: Row 1
+\draw[arr] (p1) -- (p2);
+\draw[arr] (p2) -- (p3);
+\draw[arr] (p3) -- (p4);
+\draw[arr] (p4) -- (p5);
+\draw[arr] (p5) -- (p6);
+
+%% Turn from row 1 to row 2
+\draw[arr] (p6) -- (p7);
+
+%% Arrows: Row 2 (right to left)
+\draw[arr] (p7) -- (p8);
+\draw[arr] (p8) -- (p9);
+\draw[arr] (p9) -- (p10);
+\draw[arr] (p10) -- (p11);
+\draw[arr] (p11) -- (p12);
+
+%% Turn from row 2 to row 3
+\draw[arr] (p12.south) -- ++(0,-0.8) -| (p13.north);
+
+%% Arrows: Row 3 (left to right)
+\draw[arr] (p13) -- (p14);
+\draw[arr] (p14) -- (p15);
+
+%% Feedback loop
+\draw[feedback] (p15.south) -- ++(0,-0.8) -| node[font=\small\color{ggunavy!60}, pos=0.25, below] {Governance feedback} (p1.south |- 0,-6.8) -- ++(0,6.8) -- (p1.south);
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 1: Topic Selection & Problem Definition (Chapter 1)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseOneFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~1: Topic Selection and Problem Definition}\\[0.3em]
+{\normalsize\color{ggunavy} Chapter~1 --- Introduction}
+\end{center}
+\vspace{0.8em}
+
+\noindent This phase moves from a broad interest area to a focused doctoral research problem. It establishes the research domain, narrows the topic, identifies both practical and academic gaps, formulates research questions, and specifies measurable objectives. If this phase is weak, the entire thesis becomes structurally unsound.
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+%% INPUT
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Broad interest area (Responsible AI)\\[2pt]
+\textbullet~Industry context (\$4.5T health burden)\\[2pt]
+\textbullet~ASD-focused diagnostic fragmentation\\[2pt]
+\textbullet~Clinical trust deficit in AI systems\\[2pt]
+\textbullet~Regulatory compliance landscape\\[2pt]
+\textbullet~Academic database access (Scopus,\\
+\quad WoS, IEEE, PubMed)\\[2pt]
+\textbullet~Prior domain knowledge
+\end{minipage}};
+
+%% PROCESS
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Select research domain (AI governance)\\[2pt]
+\textbullet~Narrow topic using formula:\\
+\quad [Construct + Outcome + Context]\\[2pt]
+\textbullet~Identify practical business problem\\[2pt]
+\textbullet~Identify academic literature gap\\[2pt]
+\textbullet~Write problem statement (P1--P4)\\[2pt]
+\textbullet~Formulate research questions (RQ1--RQ8)\\[2pt]
+\textbullet~Specify objectives (O1--O8)
+\end{minipage}};
+
+%% OUTPUT
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Research domain: AI governance\\[2pt]
+\textbullet~Focused topic statement\\[2pt]
+\textbullet~4 problem statements (P1--P4)\\[2pt]
+\textbullet~8 research questions (RQ1--RQ8)\\[2pt]
+\textbullet~8 SMART-validated objectives (O1--O8)\\[2pt]
+\textbullet~Research significance statement\\[2pt]
+\textbullet~Thesis structure and roadmap
+\end{minipage}};
+
+%% ARROWS
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~1 output feeds into Phase~2 (Literature Review)};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 2: Literature Review & Gap Structuring (Chapter 2)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseTwoFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~2: Literature Review and Gap Structuring}\\[0.3em]
+{\normalsize\color{ggunavy} Chapter~2 --- Review of Literature}
+\end{center}
+\vspace{0.8em}
+
+\noindent This phase systematically analyses existing research to build a theoretical foundation, identify research themes, and establish the academic gap. The PRISMA protocol ensures transparent, reproducible literature screening.
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Research questions (RQ1--RQ8)\\[2pt]
+\textbullet~Research keywords and search strings\\[2pt]
+\textbullet~Academic databases (Scopus, WoS,\\
+\quad IEEE, PubMed, Google Scholar)\\[2pt]
+\textbullet~PRISMA screening protocol\\[2pt]
+\textbullet~Domain-specific AI/DL literature\\[2pt]
+\textbullet~Regulatory and ethical standards\\[2pt]
+\textbullet~200+ candidate sources
+\end{minipage}};
+
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Develop keyword search strings\\[2pt]
+\textbullet~PRISMA: title $\to$ abstract $\to$ full text\\[2pt]
+\textbullet~Categorise studies by 6 themes\\[2pt]
+\textbullet~Identify theories used (TAM, TOE, RBV)\\[2pt]
+\textbullet~SWOT and Blue Ocean analysis\\[2pt]
+\textbullet~CMM maturity assessment\\[2pt]
+\textbullet~Gap identification and mapping
+\end{minipage}};
+
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Theoretical foundation (3 theories)\\[2pt]
+\textbullet~12 critical research gaps identified\\[2pt]
+\textbullet~6 thematic literature clusters\\[2pt]
+\textbullet~PRISMA screening record\\[2pt]
+\textbullet~H0 null hypothesis baseline\\[2pt]
+\textbullet~Evidence connection sequence\\[2pt]
+\textbullet~KPI gap mapping
+\end{minipage}};
+
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~2 output feeds into Phase~3 (Conceptual Model)};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 3: Conceptual Model Development (Chapter 2)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseThreeFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~3: Conceptual Model Development}\\[0.3em]
+{\normalsize\color{ggunavy} Chapter~2 --- Review of Literature (continued)}
+\end{center}
+\vspace{0.8em}
+
+\noindent This phase converts literature themes into a formal research model by extracting constructs, defining variables (independent, dependent, mediator, moderator, control), establishing relationships, and validating the model against theory.
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Literature themes from Phase~2\\[2pt]
+\textbullet~Research gaps (12 identified)\\[2pt]
+\textbullet~Theoretical frameworks\\
+\quad (TAM, TOE, RBV)\\[2pt]
+\textbullet~Variable taxonomy knowledge\\[2pt]
+\textbullet~Prior conceptual models in field\\[2pt]
+\textbullet~Research questions (RQ1--RQ8)\\[2pt]
+\textbullet~Domain construct definitions
+\end{minipage}};
+
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Extract constructs from themes\\[2pt]
+\textbullet~Define IV: Technology Integration\\[2pt]
+\textbullet~Define DV: Business Value\\[2pt]
+\textbullet~Define mediators (M1, M2)\\[2pt]
+\textbullet~Define moderator (Change Readiness)\\[2pt]
+\textbullet~Identify control variables\\[2pt]
+\textbullet~Validate model with TAM--TOE--RBV
+\end{minipage}};
+
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Conceptual model diagram\\[2pt]
+\textbullet~Variable definitions table\\[2pt]
+\textbullet~IV $\to$ M1 $\to$ M2 $\to$ DV paths\\[2pt]
+\textbullet~6-stage adoption chain\\[2pt]
+\textbullet~Relationship justifications\\[2pt]
+\textbullet~Construct operationalisation plan\\[2pt]
+\textbullet~Theory--model alignment
+\end{minipage}};
+
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~3 output feeds into Phase~4 (Hypothesis Development)};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 4: Hypothesis Development (Chapter 2)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseFourFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~4: Hypothesis Development}\\[0.3em]
+{\normalsize\color{ggunavy} Chapter~2 --- Review of Literature (concluded)}
+\end{center}
+\vspace{0.8em}
+
+\noindent This phase converts each path in the conceptual model into a testable hypothesis with specified direction (positive/negative), theoretical support, and literature justification. Without hypotheses, no quantitative statistical testing is possible in Chapter~4.
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Conceptual model from Phase~3\\[2pt]
+\textbullet~Variable relationships (IV$\to$DV)\\[2pt]
+\textbullet~Mediator paths (M1, M2)\\[2pt]
+\textbullet~Moderator interactions\\[2pt]
+\textbullet~Theoretical support (TAM--TOE--RBV)\\[2pt]
+\textbullet~Literature evidence for each link\\[2pt]
+\textbullet~H0 null hypothesis baseline
+\end{minipage}};
+
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Extract each model path\\[2pt]
+\textbullet~Define direction (positive/negative)\\[2pt]
+\textbullet~Write formal hypothesis statements\\[2pt]
+\textbullet~Add mediation hypotheses\\[2pt]
+\textbullet~Add moderation hypotheses\\[2pt]
+\textbullet~Cite theoretical justification\\[2pt]
+\textbullet~Build hypothesis summary table
+\end{minipage}};
+
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~H1: ASD-focused classification\\[2pt]
+\textbullet~H2: DL superiority over baselines\\[2pt]
+\textbullet~H3: Feature discriminative power\\[2pt]
+\textbullet~H4: Agentic automation\\[2pt]
+\textbullet~H5: RAG explainability and trust\\[2pt]
+\textbullet~Hypothesis summary table\\[2pt]
+\textbullet~Research model diagram
+\end{minipage}};
+
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~4 output feeds into Phase~5 (Research Design)};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 5: Research Design (Chapter 3)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseFiveFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~5: Research Design}\\[0.3em]
+{\normalsize\color{ggunavy} Chapter~3 --- Research Methods}
+\end{center}
+\vspace{0.8em}
+
+\noindent This phase selects the research philosophy, approach, and strategy. It establishes the Design Science Research (DSR) methodology, defines the mixed-methods integration, and creates the methodological framework that governs data collection and analysis.
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Research questions (RQ1--RQ8)\\[2pt]
+\textbullet~Conceptual model and hypotheses\\[2pt]
+\textbullet~Theoretical framework (TAM--TOE--RBV)\\[2pt]
+\textbullet~Research philosophy options\\
+\quad (positivist, pragmatist, DSR)\\[2pt]
+\textbullet~Study design alternatives\\[2pt]
+\textbullet~Ethical requirements\\[2pt]
+\textbullet~Resource constraints
+\end{minipage}};
+
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Select pragmatist philosophy\\[2pt]
+\textbullet~Adopt DSR methodology\\[2pt]
+\textbullet~Define mixed-methods integration\\[2pt]
+\textbullet~Design classification (quasi-experimental)\\[2pt]
+\textbullet~Specify research variables\\[2pt]
+\textbullet~Define research process timeline\\[2pt]
+\textbullet~Document methodological trade-offs
+\end{minipage}};
+
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~DSR methodology justified\\[2pt]
+\textbullet~Mixed-methods design rationale\\[2pt]
+\textbullet~Research process flowchart\\[2pt]
+\textbullet~Design classification table\\[2pt]
+\textbullet~Research timeline\\[2pt]
+\textbullet~Ethical compliance plan\\[2pt]
+\textbullet~Methodological comparison table
+\end{minipage}};
+
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~5 output feeds into Phase~6 (Measurement Design)};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 6: Measurement Design (Chapter 3)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseSixFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~6: Measurement Design}\\[0.3em]
+{\normalsize\color{ggunavy} Chapter~3 --- Research Methods (continued)}
+\end{center}
+\vspace{0.8em}
+
+\noindent This phase operationalises abstract constructs into measurable variables. It defines measurement scales, establishes instrumentation protocols, designs the 525-module quality taxonomy, and ensures reliability and validity thresholds are specified before data collection begins.
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Research variables from Phase~5\\[2pt]
+\textbullet~Construct definitions\\[2pt]
+\textbullet~Theoretical operationalisation\\[2pt]
+\textbullet~Measurement scale types\\
+\quad (nominal, ordinal, interval, ratio)\\[2pt]
+\textbullet~Reliability standards\\
+\quad (Cronbach $\alpha$, test-retest, inter-rater)\\[2pt]
+\textbullet~Validity requirements\\
+\quad (content, construct, criterion)
+\end{minipage}};
+
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Operationalise constructs $\to$ variables\\[2pt]
+\textbullet~Define measurement instruments\\[2pt]
+\textbullet~Design 525-module quality taxonomy:\\
+\quad 8-phase DL (111 modules)\\
+\quad 13-phase GenAI QA (220 modules)\\
+\quad 10-pillar governance (194 modules)\\[2pt]
+\textbullet~Specify evaluation metrics\\[2pt]
+\textbullet~Define reliability thresholds
+\end{minipage}};
+
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Operationalised variable table\\[2pt]
+\textbullet~525-module quality taxonomy\\[2pt]
+\textbullet~Measurement scales specified\\[2pt]
+\textbullet~Evaluation metrics defined\\
+\quad (accuracy, AUC, F1, RAGAS)\\[2pt]
+\textbullet~Reliability assessment plan\\[2pt]
+\textbullet~Validity assessment plan\\[2pt]
+\textbullet~Hypothesis-test alignment matrix
+\end{minipage}};
+
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~6 output feeds into Phase~7 (Sampling Strategy)};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 7: Sampling Strategy (Chapter 3)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseSevenFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~7: Sampling Strategy}\\[0.3em]
+{\normalsize\color{ggunavy} Chapter~3 --- Research Methods (continued)}
+\end{center}
+\vspace{0.8em}
+
+\noindent This phase defines the target population, establishes the sampling frame, selects the sampling method, and calculates sample size requirements. For biomedical AI research, this includes both human subject datasets and computational sample adequacy.
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Research design from Phase~5\\[2pt]
+\textbullet~ASD identified\\[2pt]
+\textbullet~Statistical power requirements\\[2pt]
+\textbullet~Public dataset repositories\\
+\quad (PhysioNet, Kaggle, OASIS)\\[2pt]
+\textbullet~Target population criteria\\[2pt]
+\textbullet~Ethical constraints\\[2pt]
+\textbullet~Wearable sensor participant pool
+\end{minipage}};
+
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Define target population per domain\\[2pt]
+\textbullet~Establish sampling frame\\
+\quad (dataset repositories + sensors)\\[2pt]
+\textbullet~Select purposive sampling method\\[2pt]
+\textbullet~Calculate minimum sample sizes\\[2pt]
+\textbullet~Statistical power analysis\\[2pt]
+\textbullet~Define inclusion/exclusion criteria\\[2pt]
+\textbullet~Document sampling limitations
+\end{minipage}};
+
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~131 unique subjects + 20K images\\[2pt]
+\textbullet~ASD: 160 subjects\\[2pt]
+\textbullet~PD: 252 subjects\\[2pt]
+\textbullet~Stress: 35 subjects\\[2pt]
+\textbullet~Cancer: 305 PBS images\\[2pt]
+\textbullet~Epilepsy: 500 subjects\\[2pt]
+\textbullet~Sampling design documentation
+\end{minipage}};
+
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~7 output feeds into Phase~8 (Data Collection)};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 8: Data Collection (Chapter 3)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseEightFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~8: Data Collection}\\[0.3em]
+{\normalsize\color{ggunavy} Chapter~3 --- Research Methods (concluded)}
+\end{center}
+\vspace{0.8em}
+
+\noindent This phase executes the data collection plan: acquiring public biomedical datasets, recording wearable sensor data, building RAG knowledge bases, and establishing secure data storage. Pilot testing ensures instrument validity before full-scale collection.
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Sampling design from Phase~7\\[2pt]
+\textbullet~Dataset sources (PhysioNet,\\
+\quad Kaggle, OASIS, OpenNeuro)\\[2pt]
+\textbullet~Wearable sensors (Emotiv EPOC X,\\
+\quad Insight; ECG, PPG, EDA, IMU)\\[2pt]
+\textbullet~Ethical approvals\\[2pt]
+\textbullet~Data use agreements\\[2pt]
+\textbullet~Storage infrastructure
+\end{minipage}};
+
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Download public datasets\\[2pt]
+\textbullet~Record EEG via Emotiv devices\\[2pt]
+\textbullet~Collect physiological signals\\
+\quad (ECG, PPG, EDA, IMU, temp)\\[2pt]
+\textbullet~Build RAG knowledge base\\
+\quad (ChromaDB: 1.4 GB embeddings)\\[2pt]
+\textbullet~Pilot test instruments\\[2pt]
+\textbullet~Secure data storage (encrypted)
+\end{minipage}};
+
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~58 GB raw datasets collected\\[2pt]
+\textbullet~5 domain-specific datasets:\\
+\quad EEG, MRI, PBS, wearable, text\\[2pt]
+\textbullet~RAG knowledge base (1.4 GB)\\[2pt]
+\textbullet~Data use certificates signed\\[2pt]
+\textbullet~Pilot test results documented\\[2pt]
+\textbullet~Data inventory and codebook\\[2pt]
+\textbullet~Ethical compliance evidence
+\end{minipage}};
+
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~8 output feeds into Phase~9 (Data Preparation)};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 9: Data Preparation & Cleaning (Chapter 4)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseNineFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~9: Data Preparation and Cleaning}\\[0.3em]
+{\normalsize\color{ggunavy} Chapter~4 --- Data Analysis and Findings}
+\end{center}
+\vspace{0.8em}
+
+\noindent This phase transforms raw collected data into analysis-ready datasets through screening, missing value treatment, outlier detection, signal preprocessing, feature engineering, and dataset harmonisation across all Autism Spectrum Disorder (ASD).
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~58 GB raw data from Phase~8\\[2pt]
+\textbullet~Data codebook and inventory\\[2pt]
+\textbullet~Preprocessing pipeline designs\\[2pt]
+\textbullet~Signal quality standards\\[2pt]
+\textbullet~Feature engineering plan\\[2pt]
+\textbullet~Domain-specific biomarkers\\[2pt]
+\textbullet~Data quality thresholds
+\end{minipage}};
+
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Data screening (completeness check)\\[2pt]
+\textbullet~Missing value treatment\\[2pt]
+\textbullet~Outlier detection (Z-score, IQR)\\[2pt]
+\textbullet~EEG signal standardisation\\
+\quad (bandpass, ICA, re-referencing)\\[2pt]
+\textbullet~PBS image preprocessing\\[2pt]
+\textbullet~Feature extraction (120+ features)\\[2pt]
+\textbullet~Dataset harmonisation
+\end{minipage}};
+
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~247 GB processed data\\[2pt]
+\textbullet~305 GB total (raw + processed)\\[2pt]
+\textbullet~Clean, harmonised datasets\\[2pt]
+\textbullet~120+ engineered features\\[2pt]
+\textbullet~Descriptive statistics tables\\[2pt]
+\textbullet~Data screening documentation\\[2pt]
+\textbullet~Dataset demographics
+\end{minipage}};
+
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~9 output feeds into Phase~10 (Statistical Analysis)};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 10: Statistical Analysis (Chapter 4)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseTenFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~10: Statistical Analysis and Hypothesis Testing}\\[0.3em]
+{\normalsize\color{ggunavy} Chapter~4 --- Data Analysis and Findings (continued)}
+\end{center}
+\vspace{0.8em}
+
+\noindent This phase executes the full analytical plan: training DL models, testing all five hypotheses with statistical rigour, conducting ablation studies, performing bootstrap resampling, evaluating GenAI quality, and reporting robustness results.
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Clean datasets from Phase~9\\[2pt]
+\textbullet~Hypothesis-test alignment matrix\\[2pt]
+\textbullet~Baseline classifiers (RF, SVM, XGBoost,\\
+\quad VotingClassifier)\\[2pt]
+\textbullet~DL architectures (CNN, LSTM,\\
+\quad CNN-LSTM hybrid)\\[2pt]
+\textbullet~525-module quality taxonomy\\[2pt]
+\textbullet~RAG knowledge base (1.4 GB)
+\end{minipage}};
+
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Train 198 model variants\\[2pt]
+\textbullet~Test H1--H5 with $p < .05$\\[2pt]
+\textbullet~k-fold and LOSO cross-validation\\[2pt]
+\textbullet~Bootstrap resampling (1,000$\times$, 95\% CI)\\[2pt]
+\textbullet~Ablation study (component removal)\\[2pt]
+\textbullet~RAGAS evaluation (4 metrics)\\[2pt]
+\textbullet~525-module quality execution
+\end{minipage}};
+
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~H1--H5 all supported ($p < .05$)\\[2pt]
+\textbullet~ASD: 97.67\% $\pm$ 2.6\%\\[2pt]
+\textbullet~ASD 97.67\%\\[2pt]
+\textbullet~AUC 0.956, Stress 94.17\%\\[2pt]
+\textbullet~525 modules: 97.9\% pass rate\\[2pt]
+\textbullet~Ablation: all components contribute\\[2pt]
+\textbullet~Statistical significance tables
+\end{minipage}};
+
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~10 output feeds into Phase~11 (Results Interpretation)};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 11: Results Interpretation (Chapter 5)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseElevenFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~11: Results Interpretation}\\[0.3em]
+{\normalsize\color{ggunavy} Chapter~5 --- Discussion, Recommendations and Areas of Further Research}
+\end{center}
+\vspace{0.8em}
+
+\noindent This phase interprets the empirical findings from Phase~10, compares results against the literature baseline, validates each path in the conceptual model, assesses the trust framework, and identifies unexpected findings and limitations.
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Hypothesis test results (Phase~10)\\[2pt]
+\textbullet~ASD classification accuracy\\[2pt]
+\textbullet~Quality taxonomy scores\\[2pt]
+\textbullet~Ablation and robustness evidence\\[2pt]
+\textbullet~Literature comparison baselines\\[2pt]
+\textbullet~Conceptual model paths\\[2pt]
+\textbullet~Expert panel feedback
+\end{minipage}};
+
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Interpret findings per hypothesis\\[2pt]
+\textbullet~Compare with literature baselines\\[2pt]
+\textbullet~Validate conceptual model paths\\[2pt]
+\textbullet~Assess mediation evidence\\[2pt]
+\textbullet~Evaluate trust framework\\
+\quad (technical, clinical, organisational)\\[2pt]
+\textbullet~Document unexpected findings\\[2pt]
+\textbullet~Identify scope boundaries (H6, H7)
+\end{minipage}};
+
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Per-hypothesis interpretation\\[2pt]
+\textbullet~Literature comparison table\\[2pt]
+\textbullet~Conceptual model: validated\\[2pt]
+\textbullet~Trust framework (3-layer)\\[2pt]
+\textbullet~Theoretical contributions\\[2pt]
+\textbullet~Limitations catalogue\\[2pt]
+\textbullet~Unexpected findings documented
+\end{minipage}};
+
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~11 output feeds into Phase~12 (Contributions)};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 12: Contributions & Implications (Chapter 5)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseTwelveFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~12: Contributions, Implications and Governance}\\[0.3em]
+{\normalsize\color{ggunavy} Chapter~5 --- Discussion (concluded)}
+\end{center}
+\vspace{0.8em}
+
+\noindent This phase classifies all contributions (academic, managerial, practical), conducts ROI and sensitivity analysis, designs the governance and escalation frameworks, identifies future research directions, and synthesises the overall doctoral contribution.
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Interpreted findings (Phase~11)\\[2pt]
+\textbullet~Validated conceptual model\\[2pt]
+\textbullet~Trust framework results\\[2pt]
+\textbullet~Business context and financials\\[2pt]
+\textbullet~Regulatory landscape\\
+\quad (EU AI Act, FDA SaMD, HIPAA)\\[2pt]
+\textbullet~Expert panel consensus\\[2pt]
+\textbullet~Limitation catalogue
+\end{minipage}};
+
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Classify contributions:\\
+\quad C1--C8 academic, managerial, practical\\[2pt]
+\textbullet~ROI and sensitivity analysis\\
+\quad (3-scenario + tornado)\\[2pt]
+\textbullet~VRIN competitive assessment\\[2pt]
+\textbullet~KPI escalation protocol (8 KPIs)\\[2pt]
+\textbullet~Governance escalation ladder\\[2pt]
+\textbullet~Identify 7 future research areas
+\end{minipage}};
+
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~8 academic contributions (C1--C8)\\[2pt]
+\textbullet~5 managerial contributions (C9--C13)\\[2pt]
+\textbullet~5 practical contributions (C14--C18)\\[2pt]
+\textbullet~ROI: 135--2{,}717\% over 5 years\\[2pt]
+\textbullet~RGAIG governance framework\\[2pt]
+\textbullet~4-level escalation ladder\\[2pt]
+\textbullet~7 future research studies
+\end{minipage}};
+
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~12 completes the core research cycle --- output feeds into Phase~13 (Thesis Writing)};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 13: Thesis Writing & Document Integration (Cross-Chapter)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseThirteenFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~13: Thesis Writing and Document Integration}\\[0.3em]
+{\normalsize\color{ggunavy} Cross-Chapter --- Manuscript Compilation}
+\end{center}
+\vspace{0.8em}
+
+\noindent This phase integrates all research outputs from Phases~1--12 into a cohesive doctoral manuscript. It covers chapter drafting, cross-referencing, formatting compliance, citation management, and appendix organisation. The output is a complete, internally consistent thesis document ready for quality validation.
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Phase~1--12 deliverables and outputs\\[2pt]
+\textbullet~University formatting guidelines\\
+\quad (GGU DBA thesis requirements)\\[2pt]
+\textbullet~LaTeX template (report class,\\
+\quad mathptmx, natbib+ieeetr)\\[2pt]
+\textbullet~All tables, figures, and TikZ code\\[2pt]
+\textbullet~Complete reference database (.bib)\\[2pt]
+\textbullet~Abbreviation and acronym list\\[2pt]
+\textbullet~Appendix content (A--E)
+\end{minipage}};
+
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Draft 5 chapters sequentially:\\
+\quad Ch.1 Introduction through\\
+\quad Ch.5 Discussion\\[2pt]
+\textbullet~Integrate 120+ tables (booktabs)\\[2pt]
+\textbullet~Create TikZ figures (zero PNG)\\[2pt]
+\textbullet~Cross-reference all elements\\
+\quad (labels, citations, abbreviations)\\[2pt]
+\textbullet~Organise 5 appendices (A--E)\\[2pt]
+\textbullet~Apply formatting: Times 12pt,\\
+\quad double-spaced, 1-inch margins
+\end{minipage}};
+
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Complete 5-chapter thesis draft\\[2pt]
+\textbullet~Integrated front matter (TOC,\\
+\quad LOT, LOF, abbreviations)\\[2pt]
+\textbullet~5 appendices with supplementary\\
+\quad material (A--E)\\[2pt]
+\textbullet~Consistent cross-references\\[2pt]
+\textbullet~Complete .bib with all citations\\[2pt]
+\textbullet~Compilable document (pdflatex)\\[2pt]
+\textbullet~Draft manuscript (500+ pages)
+\end{minipage}};
+
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~13 output feeds into Phase~14 (Quality Validation)};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 14: Quality Validation & Review (Cross-Chapter)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseFourteenFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~14: Quality Validation and Review}\\[0.3em]
+{\normalsize\color{ggunavy} Cross-Chapter --- Pre-Submission Verification}
+\end{center}
+\vspace{0.8em}
+
+\noindent This phase validates the thesis against the 12-dimension assessment framework, audits data consistency across chapters, verifies all cross-references and citations, confirms formatting compliance, and incorporates supervisor and peer feedback. The output is a submission-ready manuscript with zero compilation errors and verified internal consistency.
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Complete thesis draft (Phase~13)\\[2pt]
+\textbullet~12-dimension assessment framework\\[2pt]
+\textbullet~University submission checklist\\[2pt]
+\textbullet~font\_monitor.py tool\\[2pt]
+\textbullet~LaTeX compilation log\\[2pt]
+\textbullet~Real data reference values\\
+\quad (ASD 97.67\%, AUC 0.956)\\[2pt]
+\textbullet~Supervisor feedback notes
+\end{minipage}};
+
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Audit data consistency across\\
+\quad Ch.3--Ch.5 (accuracy, CIs, p-values)\\[2pt]
+\textbullet~Verify 0 undefined refs/citations\\[2pt]
+\textbullet~Run font\_monitor.py (font compliance)\\[2pt]
+\textbullet~Validate 12-dimension assessment\\[2pt]
+\textbullet~Verify all 5 examiner Q\&A tables\\[2pt]
+\textbullet~Cross-chapter traceability audit\\
+\quad (H1--H5, RQ1--RQ8, O1--O8)\\[2pt]
+\textbullet~Incorporate supervisor revisions
+\end{minipage}};
+
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Validated thesis: 0 errors,\\
+\quad 0 undefined refs, 0 warnings\\[2pt]
+\textbullet~Consistent data across all chapters\\[2pt]
+\textbullet~Font compliance verified\\[2pt]
+\textbullet~12-dimension assessment complete\\[2pt]
+\textbullet~Supervisor approval obtained\\[2pt]
+\textbullet~Submission-ready PDF\\[2pt]
+\textbullet~Quality audit report
+\end{minipage}};
+
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~14 output feeds into Phase~15 (Defense Preparation)};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% PHASE 15: Defense Preparation & Dissemination (Post-Submission)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\newcommand{\phaseFifteenFlowchart}{%
+\clearpage\normalsize\normalfont\color{black}\thispagestyle{plain}
+\vspace*{0.3cm}
+\begin{center}
+{\Large\bfseries\color{ggunavy} Phase~15: Defense Preparation and Dissemination}\\[0.3em]
+{\normalsize\color{ggunavy} Post-Submission --- Viva and Publication}
+\end{center}
+\vspace{0.8em}
+
+\noindent This final phase prepares the candidate for the doctoral defense (viva voce), develops presentation materials, anticipates examiner questions (60 prepared across 5 chapters), plans research dissemination through journals and conferences, and establishes the post-defense revision and publication strategy.
+
+\vspace{1em}
+\begin{center}
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[node distance=0.8cm and 1.2cm]
+
+\node[ipoheaderinput] (ih) {INPUT};
+\node[ipoinput, below=0.1cm of ih] (input) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Submission-ready thesis (Phase~14)\\[2pt]
+\textbullet~60 examiner Q\&A items\\
+\quad (12 per chapter $\times$ 5 chapters)\\[2pt]
+\textbullet~C1--C8 academic contributions\\
+\quad + managerial and practical contributions\\[2pt]
+\textbullet~Key findings and statistics\\[2pt]
+\textbullet~Target journal requirements\\
+\quad (IEEE, ACM, JAMIA, MIS Quarterly)\\[2pt]
+\textbullet~Conference submission deadlines\\[2pt]
+\textbullet~University defense guidelines
+\end{minipage}};
+
+\node[ipoheaderprocess, right=1.8cm of ih] (ph) {PROCESS};
+\node[ipoprocess, below=0.1cm of ph] (process) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Prepare defense presentation\\
+\quad ($\leq$30 slides, 30 min)\\[2pt]
+\textbullet~Rehearse with mock defense\\[2pt]
+\textbullet~Prepare answers for 60 examiner\\
+\quad questions (8 categories)\\[2pt]
+\textbullet~Extract 5 publication manuscripts\\
+\quad from thesis chapters\\[2pt]
+\textbullet~Plan industry dissemination\\
+\quad (whitepaper, open-source)\\[2pt]
+\textbullet~Prepare post-defense revision plan
+\end{minipage}};
+
+\node[ipoheaderoutput, right=1.8cm of ph] (oh) {OUTPUT};
+\node[ipooutput, below=0.1cm of oh] (output) {%
+\begin{minipage}{6.2cm}\raggedright\normalsize
+\textbullet~Defense presentation (30 slides)\\[2pt]
+\textbullet~Mock defense completed\\[2pt]
+\textbullet~60 prepared examiner responses\\[2pt]
+\textbullet~5 journal manuscript outlines\\[2pt]
+\textbullet~Dissemination timeline (2026--2027)\\[2pt]
+\textbullet~Open-source release plan\\[2pt]
+\textbullet~Successful doctoral defense
+\end{minipage}};
+
+\draw[ipoarrow] (input.east |- ih.east) -- (process.west |- ph.west);
+\draw[ipoarrow] (process.east |- ph.east) -- (output.west |- oh.west);
+\node[ipofeed, below=0.5cm of process] {Phase~15 completes the 15-phase doctoral research workflow --- governance feeds back to Phase~1};
+
+\end{tikzpicture}}
+\end{center}
+\clearpage
+}

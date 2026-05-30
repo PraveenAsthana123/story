@@ -1,0 +1,36 @@
+%% ============================================================================
+%% Companion deliverables registry (auto-generated 2026-05-27)
+%% Lists the 3 separate-compilation-target artefacts that accompany the
+%% main dissertation but are not embedded in main.pdf.
+%% ============================================================================
+
+\clearpage
+\subsection{Companion Deliverables --- Separate-Compilation Artefacts}
+\label{sec:companion_deliverables}
+
+\noindent\emph{Three companion artefacts accompany the main thesis as separate compilation targets: defence presentation deck (Beamer), Python pipeline reference (scripts/), and 2-page PMR (Preliminary Manuscript for Review). Each is referenced + documented here so the examiner / reviewer can locate the full artefact set.}
+
+\paragraph{Companion Deliverables Registry.}
+
+
+\noindent This table lists each \textit{deliverable} across purpose + audience, and file + compilation, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} p{8.0cm} >{\raggedright\arraybackslash}p{3.2cm} @{}}
+\caption[Companion Deliverables]{Companion Deliverables --- 3 Separate-Compilation-Target Artefacts.}\label{tab:companion_deliverables} \\
+\toprule
+\thead{Deliverable} & \thead{Purpose + audience} & \thead{File + compilation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Defence Presentation Deck (Beamer) & 16-slide presentation for the DBA defence; covers research question $\to$ methodology $\to$ results $\to$ governance $\to$ limitations $\to$ Q\&A pointers. Audience: examiners during live defence. & \texttt{deliverables/\allowbreak defence\_\allowbreak deck.tex} ; compile via \texttt{pdflatex defence\_\allowbreak deck.tex} (twice for refs); output \texttt{defence\_\allowbreak deck.pdf} (16:9 aspect; 16 pages) \\
+Python Pipeline Reference & Runnable Python skeleton implementing all 23 pipeline phases per Appendix~\ref{app:pipeline_reference_code} reference architecture. Demonstrates the architecture is concretely implementable. Audience: technical reviewer + Phase 2 implementing team. & \texttt{scripts/\allowbreak asd\_\allowbreak pipeline\_\allowbreak reference.py} ; verify via \texttt{python3 -c "import ast; ast.parse(open('asd\_\allowbreak pipeline\_\allowbreak reference.py').read())"} ; execute stub via \texttt{python3 asd\_\allowbreak pipeline\_\allowbreak reference.py} \\
+2-page PMR Summary (journal format) & Preliminary Manuscript for Review formatted for JMIR / JAMA Network Open submission. 2-column layout with abstract + introduction + framework + pipeline + evidence + results + compliance + limitations + conclusion. Audience: journal editor + peer reviewer. & \texttt{deliverables/\allowbreak pmr\_\allowbreak summary.tex} ; compile via \texttt{pdflatex pmr\_\allowbreak summary.tex} ; output \texttt{pmr\_\allowbreak summary.pdf} (2 pages, A4) \\
+\midrule
+\textit{Companion artefact verification} & All 3 artefacts compile / parse without errors as of 2026-05-27 build verification; pinned in dissertation repository alongside main.pdf. & --- \\
+\textit{Forensic substrate} & Per dissertation §51 policy: companion artefacts time-stamped + version-controlled alongside main thesis; per-iteration changelog records their addition (Table~\ref{tab:arch_iteration_changelog}). & --- \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Companion artefacts are separate-compilation-target deliverables that complement but do not duplicate main thesis content. Defence deck = presentation form; Python reference = implementable code; PMR = journal-submission form. Each serves a distinct audience and use case. Reproducibility commitment: all 3 artefacts source-files included in the dissertation submission archive.

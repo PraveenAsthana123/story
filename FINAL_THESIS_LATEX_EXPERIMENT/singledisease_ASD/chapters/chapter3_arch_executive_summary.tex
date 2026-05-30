@@ -1,0 +1,48 @@
+%% ============================================================================
+%% Executive summary of the Ch.3 architecture expansion (auto-generated 2026-05-27)
+%% ============================================================================
+
+\clearpage
+\subsection{Architecture Expansion Executive Summary}
+\label{sec:arch_executive_summary}
+
+\noindent\emph{One-page executive summary of the Ch.~3 architectural expansion. Read this section FIRST to engage the 100+ dedicated-page tables that follow with the right mental model.}
+
+\paragraph{What this Architecture Expansion Adds.}
+
+
+\noindent This table lists each \textit{addition} across purpose + scope, and detail location, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.8cm} p{7.8cm} >{\raggedright\arraybackslash}p{2.7cm} @{}}
+\caption[Architecture Expansion Executive Summary]{Architecture Expansion Executive Summary --- One-Page Overview of the Ch.~3 Additions.}\label{tab:arch_exec_summary} \\
+\toprule
+\thead{Addition} & \thead{Purpose + scope} & \thead{Detail location} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+23-step pipeline architecture & End-to-end ASD-EEG pipeline from research-objective through governance + monitoring; 23 dedicated pages + master flowchart figure & §\ref{sec:asd_pipeline_dedicated_pages}, Fig~\ref{fig:asd_pipeline_23step_flow} \\
+6 supplementary techniques & Chunking / tokenisation / embedding / MCP / CV / time-series detail pages & §\ref{sec:asd_pipeline_dedicated_pages} (last 6 pages) \\
+Pipeline detail flow pages & Preprocessing sub-steps / conversion flow / Fourier / SWT / EDA / graph projection / image conversion --- per-phase detail & §\ref{sec:asd_pipeline_extras_pages} \\
+Per-stage governance pages & Tool / XAI / RAI / secure-AI / governance per pipeline stage --- 5 dedicated matrix pages & §\ref{sec:asd_pipeline_extras_pages} \\
+Model + accuracy + benchmark & Per-model architecture detail + per-cohort accuracy + benchmarking vs SOTA & §\ref{sec:asd_pipeline_extras_pages}, Tables \ref{tab:model_architecture_detail}, \ref{tab:accuracy_per_model}, \ref{tab:benchmarking_comparison} \\
+Analysis list pages & Statistical / sensitivity / subjective analysis inventory + Monte-Carlo-vs-bootstrap note & §\ref{sec:asd_pipeline_extras_pages} \\
+Secondary data architecture & AS-IS / challenges / sample / phase-conversion / journey-lifecycle / models / accuracy / RGAIG / SMART / TO-BE Emotiv+Cloud+Mobile pages & §\ref{sec:secondary_data_dedicated_pages} \\
+EEG specs + brain regions & 10--20 channel system / brain regions / wavelength-frequency healthy-vs-ASD / severity tiers / impact per domain & §\ref{sec:secondary_data_dedicated_pages} \\
+Per-phase deep dive (8 dims) & Per-phase input/process/output/tool/quality/security/benchmark/monitor matrix & Table \ref{tab:sec_data_per_phase_deepdive} \\
+AI dimensions per phase & Per-phase XAI/RAI/Ethical/Governance/Trust/Bias/Interpretable/Debug AI matrix & Table \ref{tab:sec_data_ai_dimensions_per_phase} \\
+KPI per phase & Per-phase Monitoring/Score/Quality/Trust AI KPI matrix & Table \ref{tab:sec_data_kpi_per_phase} \\
+ISO 42001 mapping & Per-phase ISO 42001 + healthcare ISO + library + threshold + audit-evidence runbook & §\ref{sec:iso_threshold_per_phase}, §\ref{sec:iso_audit_runbook} \\
+Brutal-feedback gap pages & Primary data analysis flow / todo / DB design / IV-DV-H / preprocess / EDA / feature-eng / normalisation / bias / balance / semi-structured / 1D-2D & §\ref{sec:primary_data_brutal_gap_closure} \\
+Advanced architecture pages & Pipeline types / Qdrant / graph DB / cron+LLM+cache / chunking / Ragas / RGAIG-per-phase / SMART-per-phase / master DB / survey-save / data-flow & §\ref{sec:advanced_arch_pages} \\
+Cross-reference + thematic index & 105-table label index + 18-theme thematic grouping for navigation & Tables \ref{tab:crossref_index_new}, \ref{tab:thematic_xref_matrix} \\
+12 TikZ flowchart figures & Master 23-step + AS-IS-vs-TO-BE + preprocess detail + RAG + HITL + 15-step data flow + 6 per-phase (feature/train/eval/XAI/deliver/gov) + dashboard mockup & Figures \ref{fig:asd_pipeline_23step_flow}--\ref{fig:operator_dashboard_mockup} \\
+Examiner Q\&A & 12 anticipated examiner questions with evidence pointers for defence rehearsal & §\ref{sec:examiner_qa_architecture} \\
+Appendix P pre-registration & Phase 2 SAP pre-registration template (OSF submission); 6 sections + 23-item checklist & App~\ref{app:pre_registration_template} \\
+Appendix Q drill methodology & Drill-testing pattern + 20-drill per-phase inventory + drill-discipline rules & App~\ref{app:drill_methodology} \\
+Total scale & 100+ dedicated tables + 12 TikZ figures + 2 appendices + 1 cross-reference index + 1 thematic matrix + 1 Q\&A page + this summary & 19 pages beyond Ch.~3 baseline \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} The executive-summary table is the recommended entry point for first-time readers; use the cross-reference index (Table~\ref{tab:crossref_index_new}) for label-driven lookup and the thematic matrix (Table~\ref{tab:thematic_xref_matrix}) for topic-driven navigation across the 100+ dedicated tables.

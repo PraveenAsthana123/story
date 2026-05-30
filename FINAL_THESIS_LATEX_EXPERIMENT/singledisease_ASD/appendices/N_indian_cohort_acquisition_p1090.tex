@@ -1,0 +1,359 @@
+% Appendix N: Prospective Indian Pediatric Cohort Data-Acquisition Protocol
+% Short appendix (~3-5 pp) documenting the methodology, regulatory pathway,
+% and Co-PI role for the prospective Indian-cohort data acquisition.
+% Indian data is FUTURE-SCOPE — not validated in this submission.
+% Full operational outreach pack lives in dissertation/outreach/ (not embedded).
+% Focus: WHAT data (quantitative + qualitative) and WHY (rationale), not WHERE (institution names omitted by author preference).
+\normalsize\normalfont\color{black}
+
+\addcontentsline{toc}{section}{Appendix N --- Prospective Indian Pediatric Cohort Data-Acquisition Protocol} % [TOC-appendix-section-insertion]
+\section*{Appendix N --- Prospective Indian Pediatric Cohort Data-Acquisition Protocol}
+\label{sec:appendix_n_indian_cohort}
+\label{chap:appendix_indian_cohort_acquisition}
+
+\noindent\textbf{Appendix N Scope Contract --- Prospective Future-Scope Documentation Only.}
+\label{para:appendix_n_scope_contract}
+
+\noindent This appendix documents the methodology, regulatory pathway, and Co-Principal-Investigator role for a \emph{prospective} multi-institutional Indian pediatric cohort data-acquisition effort initiated in 2026. The acquisition is in active outreach phase at the time of this submission; \textbf{no Indian-cohort data has been collected, analysed, or used as evidence in this dissertation}. All H1--H5 findings reported in Chapter~\ref{chap:analysis} are based on existing reference datasets (KAU Saudi + ABIDE-II Western + 131-clinician PLS-SEM cohort + 12-expert qualitative panel) per Chapter~\ref{chap:methodology} Section~\ref{subsec:data_strategy_existing_vs_new}. The Indian-cohort acquisition is reported here as \emph{Phase 2 future work}, not as current evidence.
+
+\paragraph{Appendix focus and what is intentionally omitted.}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item This appendix focuses on \textbf{WHAT data} will be collected (quantitative + qualitative streams) and \textbf{WHY} each stream matters for the research questions.
+    \item Specific participating-institution names are \emph{intentionally omitted} from this thesis-embedded appendix. Institution-level outreach is operational and confidential until institutional acceptance and Institutional Ethics Committee (IEC) approval are secured. Targeting framework is documented generically (institutional categories and selection criteria) so the methodological substance is auditable without disclosing pre-acceptance outreach details.
+    \item The full operational outreach pack (cover communication, executive brief, IEC application template, supervisor letter, researcher CV, outreach tracker) is maintained outside this thesis at \texttt{dissertation/outreach/} and is referenced only at a high level in this appendix.
+\end{itemize}
+
+\subsection*{N.1 Why --- Rationale for Prospective Indian-Cohort Data Acquisition}
+\label{sec:appendix_n_rationale}
+
+\noindent The current evidence base (KAU Saudi + ABIDE-II Western + 131-clinician PLS-SEM + 12-expert qualitative panel) has documented strengths but seven specific gaps that Indian-cohort data is intended to address. Each gap row identifies (a) the gap in current evidence and (b) what Indian-cohort acquisition is designed to add in Phase 2.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appendix_n_rationale} presents the indian-cohort acquisition --- why rationale.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{5.4cm} p{8.4cm} @{}}
+\caption[Indian-Cohort Acquisition --- WHY Rationale]{WHY Rationale --- Gaps in Current Evidence Addressed by Prospective Indian-Cohort Acquisition. Each row identifies a specific gap in the current submission's evidence base (KAU + ABIDE-II + 131-clinician PLS-SEM + 12-expert panel) that Indian-cohort data is designed to address in Phase 2. The acquisition is targeted, not exploratory.}\label{tab:appendix_n_rationale} \\
+\toprule
+\thead{Gap in Current Evidence} & \thead{What Indian-Cohort Acquisition Addresses} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Geographic representativeness (KAU = Saudi Arabia; ABIDE-II = Western multi-site) & Indian pediatric population data covering metropolitan and tier-2 city presentations \\
+Sex-skew calibration (global M:F $\sim 3:1$ vs Indian datasets $\sim 4:1$) & Indian-specific subgroup-fairness analysis with disparate-impact reporting on observed M:F ratio \\
+Regional-language assessment validity & Validated regional-language administration of M-CHAT-R/F, SCQ, SRS-2, CBCL across Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati \\
+Indian clinical-workflow context & Indian pediatric neurology / developmental pediatrics / child psychiatry workflow patterns; HITL override patterns specific to Indian institutional structures \\
+Indian regulatory-context evidence & Real-world DPDP Act 2023 + ICMR 2017 + ABDM-aware data-handling evidence \\
+Indian early-presentation pattern & Age range 2--12 years (vs Western 3--12) reflecting Indian extended-family early-observation surfacing of ASD concerns \\
+Multi-site reliability evidence & Cross-institutional generalisability evidence beyond single-site retrospective benchmarks \\
+\end{xltabular}}
+
+\subsection*{N.2 WHAT Data --- Quantitative Streams}
+\label{sec:appendix_n_what_quantitative}
+
+\noindent\textbf{Three quantitative data streams.} The acquisition seeks three retrospective de-identified quantitative data streams from the SAME patient record where possible. Linked records (EEG + assessment + diagnosis from the same patient) are essential for the EEG-to-behavioural correlation analysis that anchors H1--H3.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appendix_n_what_quantitative} presents the quantitative data streams.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.8cm} p{6.3cm} p{3.2cm} @{}}
+\caption[Quantitative Data Streams]{WHAT --- Quantitative Data Streams. Three retrospective de-identified streams collected per patient record (linkage at the patient-record level). Each stream is annotated with minimum-viable specification, preferred specification, and the research question (RQ) / hypothesis (H) it informs.}\label{tab:appendix_n_what_quantitative} \\
+\toprule
+\thead{Stream} & \thead{Source} & \thead{Minimum / Preferred Specification} & \thead{Informs} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+\textbf{EEG Recording} & Institutional clinical EEG records (retrospective, de-identified) & Min: $\geq 8$ channels, $\geq 128$~Hz, $\geq 5$~min resting-state. Preferred: $\geq 16$ channels, $\geq 256$~Hz, $\geq 15$~min. Formats accepted: EDF / BDF / FIF / MAT / EEGLAB-set. Channel-count, sampling-rate, and device variability reported as analysis covariates (not exclusion criteria). & H1 (classification accuracy) · H2 (DL vs classical comparison) · H3 (feature-importance / explainability) \\
+\textbf{Standardized Assessment Scores} & Clinician-administered, institution-recorded & Any subset of: ADOS-2 · ADI-R · CARS-2 · M-CHAT-R/F · SRS-2 · Vineland-3 · CBCL · ABC · BRIEF · CGI. Language of administration acceptable in English OR validated regional-language versions (Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada, Malayalam). Framework consumes scores, not language-specific item text. & H1 · H3 · H5 (stakeholder explainability acceptance) \\
+\textbf{Diagnosis Label} & Clinician-confirmed institutional record & Acceptable coding: DSM-5 ASD Level (1/2/3) OR ICD-10 F84.x OR ICD-11 6A02. ICD-coded records explicitly accepted as fallback (many Indian institutional records use ICD-10 only). & H1 · H2 · H4 (HITL governance evidence) \\
+\end{xltabular}}
+
+\noindent\textbf{Per-patient required record fields.}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Anonymous Patient ID; age (year only, not full DOB); EEG session data; assessment scores; diagnosis label; assessment-language code (for fairness analysis).
+    \item Optional fields: gender, clinical notes (de-identified), medication history, comorbidity information.
+    \item Identifiers excluded per ICMR 2017 + DPDP Act 2023: patient name, full DOB, address, phone, MRN, Aadhaar, ABHA ID, PAN, identifiable demographic markers, hospital admission dates (month/year only), facial photos, voice recordings.
+\end{itemize}
+
+\subsection*{N.3 WHAT Data --- Qualitative Streams}
+\label{sec:appendix_n_what_qualitative}
+
+\noindent\textbf{Two qualitative data streams (clinician-perspective only).} Qualitative work is intentionally bounded to clinician-perspective data only --- no patient-narrative qualitative data is requested. This bound preserves the dissertation's commitment to no patient interaction and minimal-risk classification per ICMR 2017 Category~I.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appendix_n_what_qualitative} presents the qualitative data streams.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}p{3.6cm} p{4.6cm} p{3.6cm} @{}}
+\caption[Qualitative Data Streams]{WHAT --- Qualitative Data Streams. Two clinician-perspective qualitative streams, separately consented from the participating clinician (not patient). Each stream is annotated with collection method, what it captures, and the research question / hypothesis it informs.}\label{tab:appendix_n_what_qualitative} \\
+\toprule
+\thead{Stream} & \thead{Collection Method} & \thead{What It Captures} & \thead{Informs} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+\textbf{Clinician-Perspective Survey} (separately consented) & Anonymised structured + semi-structured questions; participating clinician completes; researcher analyses & Workflow understanding · explainability expectations · adoption barriers · governance concerns · clinician-trust dimensions · Indian-context constraints · regional-language considerations · HITL escalation preferences & H4 (governance evidence) · H5 (stakeholder explainability acceptance) · SRQ2 (which explainability methods improve interpretability) · SRQ4 (operational + workflow challenges) \\
+\textbf{HITL Override Rationale Capture} (separately consented, optional) & Anonymised structured form filled by participating clinician when overriding framework output in observational workflow context; no patient interaction & Override frequency · rationale code (clinical judgement / context insufficient / explanation unclear / confidence mismatch) · escalation path used · time-to-decision · subgroup-fairness drift signals observed in practice & H4 (HITL governance evidence) · SRQ3 (governance controls for responsible AI adoption) \\
+\end{xltabular}}
+
+\subsection*{N.4 WHY This Data --- Stream-to-Research-Question Rationale Matrix}
+\label{sec:appendix_n_why_matrix}
+
+\noindent The rationale matrix below makes the WHY explicit per stream --- which specific research question or hypothesis each data stream evidences, and what claim it makes possible that the current evidence base cannot.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appendix_n_why_matrix} presents the why rationale matrix.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}p{3.0cm} p{2.9cm} p{5.8cm} @{}}
+\caption[WHY Rationale Matrix]{WHY Rationale Matrix --- Stream to Research-Question to Claim. Each stream is mapped to the specific research question it evidences and the claim it makes possible that the current evidence base (KAU + ABIDE-II + 131-clinician PLS-SEM + 12-expert) cannot make.}\label{tab:appendix_n_why_matrix} \\
+\toprule
+\thead{Data Stream} & \thead{Type} & \thead{Research Question Evidenced} & \thead{New Claim Enabled (that current evidence cannot make)} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+EEG Recording & Quantitative · Secondary & SRQ1 (which EEG signal characteristics correlate with standardized ASD assessment outcomes) · H1 · H2 & EEG-feature replication evidence in Indian pediatric population; multi-device generalisability (institutional EEG-device diversity) \\
+Standardized Assessment Scores & Quantitative · Secondary & SRQ1 · H1 · H3 · H5 & EEG-to-assessment correlation calibrated against Indian-validated regional-language assessment administration \\
+Diagnosis Label & Quantitative · Secondary & H1 · H2 & ICD-10 + ICD-11 fallback evidence (most Indian institutional records use ICD-10 only); not previously tested at scale in published AI literature \\
+Clinician-Perspective Survey & Qualitative · Primary (clinician, separately consented) & SRQ2 · SRQ3 · SRQ4 · H5 & Indian clinician-trust + adoption-barrier evidence; Indian-context workflow constraints; complementary perspective to 12-expert global qualitative panel \\
+HITL Override Rationale Capture & Qualitative · Primary (clinician, separately consented, optional) & SRQ3 · H4 & Real-world HITL override patterns under deployed governance; closes intention-behaviour gap identified as Limitation in Chapter~\ref{chap:discussion} \\
+\end{xltabular}}
+
+\subsection*{N.5 Acquisition Methodology Framework (Institution-Type, Not Institution-Specific)}
+\label{sec:appendix_n_methodology_framework}
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appendix_n_methodology_framework} presents the acquisition methodology framework.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Acquisition Methodology Framework]{Acquisition Methodology Framework --- Institution-Type Targeting (Not Institution-Specific). The framework documents categories of Indian pediatric institutions targeted for outreach; specific institution names are confidential until institutional acceptance and IEC approval. The framework is reproducible: any researcher with the same selection criteria would target the same institutional categories.}\label{tab:appendix_n_methodology_framework} \\
+\toprule
+\thead{Targeting Dimension} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Outreach population & Approximately 15 Indian pediatric specialty centres across two tiers (Tier-1 public + private flagship institutions and Tier-2 specialty hospital institutions) \\
+Required department types & Pediatric Neurology · Developmental Pediatrics · Child Psychiatry · or affiliated Child Development / Autism specialty centres \\
+Required institutional infrastructure & CDSCO-registered Institutional Ethics Committee (IEC); pediatric EEG capability; standardized ASD assessment administration capability \\
+Geographic distribution & Tier-1 metropolitan + Tier-2 city coverage; multi-region (North · South · East · West India) for sex-skew + regional-language diversity \\
+Selection criteria & (a) Active pediatric ASD evaluation programme; (b) retrospective records covering $\geq 3$ years; (c) institutional research culture (published research output or IEC research mandate); (d) ICMR-aligned ethics infrastructure; (e) DPDP Act 2023 compliance readiness \\
+Expected response rate & 10--20\% from first-contact outreach; expected acceptances 2--4 from approximately 15 sends \\
+Outreach cadence & Day 0 send · Day 7 follow-up \#1 · Day 21 follow-up \#2 · Day 45 archive (no response = move on) \\
+\end{xltabular}}
+\vspace{2pt}
+\noindent\textit{Note.} Institution-specific names, contact details, and outreach status are maintained operationally in the outreach tracker outside this thesis (\texttt{scripts/india\_\allowbreak outreach\_\allowbreak tracker.py} + \texttt{data/india\_\allowbreak outreach.db}). Operational confidentiality is preserved until institutional acceptance and IEC approval; this thesis-embedded appendix documents only the methodological framework.
+
+\subsection*{N.6 Regulatory and Compliance Pathway (India-First)}
+\label{sec:appendix_n_compliance}
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appendix_n_compliance} presents the indian-cohort acquisition --- compliance framework.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}p{2.5cm} p{7.7cm} @{}}
+\caption[Indian-Cohort Acquisition --- Compliance Framework]{Regulatory and Compliance Framework for Prospective Indian Pediatric Cohort Data Acquisition. Indian frameworks are primary; international frameworks are secondary comparative reference. The CTRI-exemption row addresses the most-asked Indian-IEC question.}\label{tab:appendix_n_compliance} \\
+\toprule
+\thead{Framework} & \thead{Jurisdiction} & \thead{Applicability to Phase 2 Acquisition} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+\textbf{ICMR National Ethical Guidelines (2017, updated)} & India & \textbf{Primary governing framework}; study qualifies as Minimal Risk Research per Category~I \\
+\textbf{DPDP Act 2023} & India & \textbf{Primary data-protection framework}; governs de-identification, storage, cross-border transfer \\
+\textbf{Institutional Ethics Committee (IEC), CDSCO-registered} & Institution-specific & \textbf{Authoritative for site-level approval}; each participating institution conducts its own IEC review \\
+\textbf{CDSCO / DCGI / CTRI registration} & India & \textbf{Confirmed exemption} --- non-interventional retrospective research does not require CTRI registration per ICMR 2017 + DCGI guidance \\
+\textbf{ABDM / NDHM} & India & Awareness and alignment for any data-exchange touchpoint \\
+\textbf{MEITY data-localisation guidance} & India & On-premise analysis option preserves compliance (data does not leave institutional premises by default) \\
+Pediatric assent and consent (ICMR + DPDP) & India & Child assent obtained for ages $\geq 7$ where retrospective consent waiver not granted; parental consent for all $<18$ \\
+HIPAA & USA & International privacy awareness (secondary, comparative reference) \\
+GDPR & EU & International privacy awareness (secondary reference) \\
+NIST AI RMF & USA & Responsible AI governance reference framework \\
+ISO 42001 & International & AI management-system reference framework \\
+OECD AI Principles & International & Responsible AI alignment reference \\
+\end{xltabular}}
+
+\subsection*{N.7 Co-Principal-Investigator Role}
+\label{sec:appendix_n_copi_role}
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appendix_n_copi_role} presents the indian co-principal-investigator role specification.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.6cm} L @{}}
+\caption[Indian Co-Principal-Investigator Role Specification]{Indian Co-Principal-Investigator Role Specification. The Co-PI role is offered to a registered medical professional (MD / DM / DNB) with experience in pediatric neurology, developmental pediatrics, or child psychiatry at the participating institution. The role preserves IEC independence by explicitly excluding financial compensation; value flows through co-authorship, institutional acknowledgement, and aggregate-findings return.}\label{tab:appendix_n_copi_role} \\
+\toprule
+\thead{Field} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Role title & Co-Principal Investigator (Indian side) \\
+Eligibility & Registered medical professional (MD / DM / DNB) in pediatric neurology, developmental pediatrics, or child psychiatry; affiliated with the participating institution \\
+IEC responsibilities & Submission of IEC application on the Indian side; ongoing IEC liaison; institutional ethics oversight \\
+Data responsibilities & Clinical validation of de-identification protocol; authority over institutional data-access decisions; final review of any data leaving the institution (if any) \\
+Publication responsibilities & Co-authorship on all resulting publications; author position negotiable (senior / second / acknowledgement-only) per Co-PI preference; final review of clinically-framed claims; institutional acknowledgement in all outputs \\
+Authority & Veto power over framing that could overclaim clinical performance or risk patient safety; veto power over publications lacking institutional acknowledgement \\
+Time commitment & Approximately 2--4 hours per month over a 6--12 month study duration \\
+Compensation & Co-authorship + institutional acknowledgement + aggregate-findings report returned to institution. \textbf{No financial compensation} (preserves IEC independence and ICMR conflict-of-interest standards) \\
+Contract instrument & Memorandum of Understanding (MoU) between researcher (with Golden Gate University supervisor co-sign) and institution; signed by institution head, IEC chair, and Co-PI \\
+Exit clause & Either party may terminate collaboration at any time with 30-day notice; institutional data returned or destroyed per institutional policy \\
+\end{xltabular}}
+
+\subsection*{N.8 Data-Acquisition Flow and Timeline}
+\label{sec:appendix_n_timeline}
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appendix_n_timeline} presents the indian-cohort acquisition --- phase 2 timeline.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{3.4cm} p{7.0cm} >{\raggedright\arraybackslash}p{2.8cm} @{}}
+\caption[Indian-Cohort Acquisition --- Phase 2 Timeline]{Indian-Cohort Acquisition Phase 2 Timeline. The timeline is contingent on first-acceptance date; institutional IEC review windows in India typically range from 4--12 weeks depending on whether the institution applies expedited review for minimal-risk research.}\label{tab:appendix_n_timeline} \\
+\toprule
+\thead{Step} & \thead{Activity} & \thead{Description} & \thead{Indicative Window} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1 & Institutional outreach & Send proposal pack to institutional cohort in two batches; supervisor cc on all sends & Weeks 1--4 \\
+2 & Response triage & 20-minute video calls with responding institutions; assess Co-PI fit & Weeks 3--6 \\
+3 & MoU drafting & Memorandum of Understanding drafted with first-acceptance institution(s) & Weeks 5--8 \\
+4 & IEC submission & Co-PI submits IEC application using template in operational pack & Weeks 7--10 \\
+5 & IEC review & Institutional IEC review (expedited for minimal-risk; full if institution prefers) & Weeks 9--20 \\
+6 & Data de-identification & At institution, before researcher access; per ICMR + DPDP norms & Weeks 18--24 \\
+7 & On-premise analysis & Researcher travels to institution for on-premise analysis (preferred) OR institution-approved encrypted transfer if institutional policy permits & Weeks 22--32 \\
+8 & Aggregate findings return & Anonymised aggregate findings report returned to institution for internal QI use & Weeks 32--36 \\
+9 & Manuscript preparation & Co-PI review and approval cycle prior to journal submission & Weeks 36--44 \\
+\end{xltabular}}
+
+\subsection*{N.9 Connection to Thesis Evidence Base}
+\label{sec:appendix_n_evidence_connection}
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appendix_n_evidence_connection} presents the indian-cohort acquisition --- connection to thesis evidence base.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.6cm} L L @{}}
+\caption[Indian-Cohort Acquisition --- Connection to Thesis Evidence Base]{Connection between Phase 2 Indian-Cohort Acquisition and Current Thesis Evidence Base. The current dissertation (Chapter~\ref{chap:analysis}) is supported entirely by existing reference datasets; Indian-cohort data is the explicit subject of Phase 2 future work and is not embedded as current evidence.}\label{tab:appendix_n_evidence_connection} \\
+\toprule
+\thead{Evidence Stream} & \thead{Current Dissertation (June 2026)} & \thead{Phase 2 Indian-Cohort Acquisition} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+ASD-EEG classification accuracy (H1) & KAU Saudi reference dataset (retrospective benchmark) & Indian pediatric multi-site replication \\
+Deep-learning vs classical comparison (H2) & ABIDE-II Western reference dataset (technical comparison) & Indian-cohort cross-validation \\
+Explainability + feature importance (H3) & SHAP / RAG on existing datasets (analytical evidence) & Clinician-validated explainability on Indian-cohort outputs \\
+HITL governance evidence (H4) & 131-clinician PLS-SEM survey + 12-expert qualitative panel & Indian HITL override pattern capture; Indian institutional governance KPI \\
+Stakeholder explainability acceptance (H5) & 12-expert qualitative panel (directional evidence) & Indian-clinician explainability acceptance survey \\
+Subgroup fairness & Sex-stratified analysis on KAU + ABIDE-II & Indian sex-skew calibration (M:F $\sim 4:1$); regional-language fairness analysis \\
+Generalisability evidence & Limited to KAU + ABIDE-II contexts (Saudi + Western) & Multi-site Indian pediatric population evidence \\
+\end{xltabular}}
+
+\subsection*{N.10 Outreach Target --- Individual Researcher Discovery Framework}
+\label{sec:appendix_n_individual_researcher_targeting}
+
+\noindent\textbf{Outreach target is individual researchers, not institutions.} The Phase 2 acquisition is initiated through outreach to \emph{individual clinical researchers} actively publishing in ASD-EEG, pediatric neurodevelopmental AI, explainable healthcare AI, or AI governance topics --- not through cold outreach to institutions. The individual researcher (typically a pediatric neurologist, developmental pediatrician, child psychiatrist, or AI-in-medicine researcher) becomes the Co-Principal Investigator (per §N.7) and submits the IEC application at their own institution. This individual-first framing has three operational advantages over institution-first cold outreach: response rate is higher (researcher self-interest aligns with topic); ethical alignment is pre-validated (publication track record signals research ethics); and Co-PI fit is verified before institutional MoU is drafted.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appendix_n_individual_researcher_targeting} presents the individual researcher discovery framework.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Individual Researcher Discovery Framework]{Individual Researcher Discovery Framework. Outreach target is individual clinical researchers active in topic-aligned publications, not institutions. Discovery uses topic-aligned search across academic databases and professional networks; first-contact route is researcher-direct, not institution-administrative.}\label{tab:appendix_n_individual_researcher_targeting} \\
+\toprule
+\thead{Discovery Dimension} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Discovery sources & PubMed · Scopus · Google Scholar (author search) · ResearchGate · LinkedIn · institutional faculty pages · conference proceedings (e.g.\ INDC, Indian Academy of Pediatrics) \\
+Topic-alignment search terms & ``ASD EEG India'' · ``autism explainable AI'' · ``pediatric neurodevelopmental AI'' · ``healthcare AI governance India'' · ``DPDP pediatric research'' · ``M-CHAT validation Hindi/Tamil/Telugu'' \\
+Target researcher profile & Indian-affiliated clinical researcher (pediatric neurology / developmental pediatrics / child psychiatry); $\geq 3$ relevant publications in last 5 years; institutional affiliation that supports IEC review; English-language professional communication \\
+Outreach channel & Direct researcher email (institutional address); LinkedIn message as warm-intro complement; supervisor cc on all first-contact emails \\
+Target outreach volume & Approximately 15--20 individual researchers across India; institutional diversity emerges naturally from researcher distribution rather than being imposed \\
+First-contact ask & 20-minute video call to discuss possible Co-PI collaboration; no commitment beyond the call \\
+Pre-contact verification & Verify researcher is currently active at named institution; verify publication track record; verify professional email; verify no obvious conflict of interest \\
+\end{xltabular}}
+
+\subsection*{N.11 Compensation and Reward Model for Co-PI Collaborator}
+\label{sec:appendix_n_compensation_reward}
+
+\needspace{24\baselineskip}
+\noindent\textbf{Compensation principle.} The Co-PI collaboration is offered as a \emph{collaborative academic research partnership}, not a paid consulting engagement. Reward is structured to preserve IEC independence (per ICMR 2017 conflict-of-interest standards) while providing meaningful academic and professional value to the Co-PI collaborator. \textbf{No direct financial compensation} for data access or Co-PI participation is offered, because financial compensation for data-sharing roles can compromise institutional ethics-review independence and raise ICMR conflict-of-interest concerns.
+
+\paragraph{What IS offered (academic + professional value).}
+
+\clearpage
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appendix_n_compensation_reward} presents the co-pi compensation and reward --- academic + professional value.
+
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} p{6.7cm} p{4.6cm} @{}}
+\caption[Co-PI Compensation and Reward --- Academic + Professional Value]{Co-PI Compensation and Reward Model. Academic + professional value is offered in lieu of direct financial compensation for the Co-PI role. Each row identifies the reward type, what it provides to the Co-PI collaborator, and the rationale for preserving IEC independence + ICMR conflict-of-interest standards.}\label{tab:appendix_n_compensation_reward} \\
+\toprule
+\thead{Reward Type} & \thead{What It Provides to Co-PI} & \thead{Rationale / Boundary} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+\textbf{Co-authorship on publications} & Co-author position on all resulting peer-reviewed publications and conference presentations; author position negotiable (senior author / second author / acknowledgement-only) per Co-PI preference & Standard academic-collaboration convention; preserves Co-PI's H-index contribution; aligns with ICMR-acceptable academic value \\
+\textbf{Dissertation acknowledgement} & Named acknowledgement in the doctoral dissertation; institutional logo + acknowledgement on conference posters (with institutional consent) & Recognises substantive intellectual contribution without financial exchange \\
+\textbf{Aggregate findings return} & Anonymised aggregate findings report returned to participating institution for internal quality-improvement use & Provides direct institutional value; supports Co-PI's internal QI mandate \\
+\textbf{Joint research collaboration option} & Optional joint authorship on derivative research outputs (e.g.\ follow-on grant applications, conference talks, methodology papers) & Builds longer-term collaborative relationship; standard in academic partnerships \\
+\textbf{Reference letter (mutual)} & Co-PI may request reference letter from doctoral researcher and supervisor; equally, Co-PI may write reference letter for doctoral researcher's future academic career & Mutual professional value; non-monetary \\
+\textbf{Modest honorarium for advisory time (OPTIONAL, IEC-permitting)} & If institutional policy permits and IEC approves: \textbf{modest honorarium for advisory time only} (NOT for data access or Co-PI participation per se). Indicative range: USD 200--500 per substantive video discussion / advisory session; subject to institutional IEC approval; declared as research expense; paid from researcher's personal funds & \emph{Optional and IEC-gated}; only for clearly-bounded advisory time, never for data access; many institutions decline honoraria entirely to preserve independence \\
+\textbf{Conference travel grant (OPTIONAL)} & If joint paper accepted at international conference, researcher contributes to Co-PI's travel grant within researcher's personal-funding capacity & Optional; activated only on conference acceptance \\
+\textbf{Software / methodology access} & Open-access to all research code, analysis scripts, and methodology documentation produced during collaboration; permanent license for institutional use & Knowledge transfer beyond the immediate publication \\
+\end{xltabular}}
+
+\paragraph{What is NOT offered (and why).}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{No payment for data access.} Payment for data-sharing roles compromises IEC independence under ICMR 2017 conflict-of-interest standards. The Co-PI receives co-authorship and acknowledgement, not data-access fees.
+    \item \textbf{No retainer or consulting fee.} The collaboration is academic research, not paid consulting. Time commitment is intentionally bounded ($\sim 2$--$4$ hours/month) to preserve the academic-collaboration character.
+    \item \textbf{No equity in derivative products.} The research output is academic; there is no commercial derivative to assign equity in.
+    \item \textbf{No payment in lieu of authorship.} Authorship and acknowledgement are the value exchange; financial substitution is explicitly declined to preserve academic integrity.
+    \item \textbf{No payment to influence findings.} Any compensation is independent of study outcomes; the Co-PI's veto authority over clinically-framed claims is preserved regardless of compensation.
+\end{itemize}
+
+\paragraph{IEC declaration of all compensation.}
+Any honorarium, travel grant, or in-kind value (per the OPTIONAL rows in Table~\ref{tab:appendix_n_compensation_reward}) is \textbf{declared in full to the participating institution's IEC} as part of the IEC application. The IEC has authority to accept, modify, or decline the proposed compensation arrangement. The default position is \emph{no financial compensation}; optional honoraria are activated only if the institutional IEC approves and the Co-PI requests them.
+
+\paragraph{Disclosure in publications.}
+All resulting publications include a Conflict-of-Interest declaration disclosing any honorarium or in-kind value provided to the Co-PI. Co-authorship and institutional acknowledgement are standard academic practice and do not require additional COI disclosure beyond standard authorship-criteria reporting.
+
+\subsection*{N.12 Operational Outreach Pack (Reference Only)}
+\label{sec:appendix_n_outreach_pack}
+
+\noindent The operational outreach pack supporting this Phase 2 acquisition lives outside the thesis at \texttt{dissertation/outreach/} and consists of: full proposal · executive brief · cover communication template · IEC application template · supervisor letter template · researcher CV template · individual-researcher outreach tracker (SQLite + Markdown dual-write with audit log and follow-up cadence). Operational pack contents are confidential pre-acceptance and reference-only post-acceptance. Individual researcher identities are not enumerated in this thesis-embedded appendix; the operational tracker maintains researcher contact details, outreach status, and personalisation hooks for the doctoral researcher's operational use only.
+
+\paragraph{Appendix N close.}
+The acquisition methodology, regulatory pathway, Co-PI role specification, and stream-level WHAT + WHY rationale documented here establish that the dissertation's Phase 2 Indian-cohort acquisition is a \emph{concrete, ethically-bounded, regulatory-aware future-work plan with explicit research-question linkage} --- not an unbounded aspiration. The current submission's evidence base remains KAU + ABIDE-II + 131-clinician PLS-SEM cohort + 12-expert qualitative panel; Indian-cohort evidence is the explicit subject of Phase 2 and is not claimed as current evidence anywhere in the dissertation.
+
+\normalsize\normalfont\color{black}

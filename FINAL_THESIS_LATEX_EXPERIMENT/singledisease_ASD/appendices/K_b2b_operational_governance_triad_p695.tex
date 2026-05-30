@@ -1,0 +1,493 @@
+%% =============================================================================
+%% Appendix K — B2B Operational Governance Triad
+%% Transformation Readiness + Risk Governance + Caregiver Trust Protection
+%%
+%% Consolidates supervisor's Topics 3 (Digital Transformation & Change
+%% Readiness), 22 (AI Risk Governance & Operational Safety), and 24
+%% (Caregiver Trust & Emotional Reassurance) into a single B2B-operational
+%% defensibility appendix.
+%%
+%% Positioning rule (user-locked, 2026-05-13):
+%%   Dissertation balance = B2C primary value proposition + B2B clinical and
+%%   governance support.
+%%   Appendix J (B2C ecosystem) defines the primary caregiver/patient value
+%%   pathway. Appendix K (this) defines the B2B safety, escalation, audit, and
+%%   governance layer that makes the B2C pathway defensible.
+%%
+%% Triad logic: a B2B governance system is defensible only if it holds under
+%%   (i) transformation stress (Topic 3),
+%%   (ii) operational-risk stress (Topic 22), and
+%%   (iii) trust-protection stress on caregivers and clinicians (Topic 24).
+%% Each section adopts the same eight-dimension structure for cross-comparability.
+%% =============================================================================
+
+\addcontentsline{toc}{section}{Appendix K Framing: The B2B Operational Governance Triad} % [TOC-appendix-section-insertion]
+\section*{Appendix K Framing: The B2B Operational Governance Triad}
+\addcontentsline{toc}{section}{Appendix K Framing}
+\label{sec:appk_framing}
+
+\noindent\textbf{Appendix K Scope Contract --- Conceptual B2B Governance Specification Only.}
+\label{para:appk_scope_contract}
+This appendix specifies a \emph{conceptual B2B governance design} for transformation readiness, risk governance, and trust protection. \textbf{It is NOT}: a deployed B2B service; a validated change-management implementation; a cybersecurity-engineering specification; a regulatory submission artefact; or an operational deployment commitment. Where the appendix references transformation readiness, operational risk, incident response, or institutional deployment patterns, these are \emph{conceptual governance reference frameworks} positioned at the B2B governance layer --- not validated operational implementations. Any B2B operational realisation would require separate IRB review, prospective validation, institutional ethics oversight, and regulatory assessment --- explicitly out of scope. The current dissertation's contribution is the governance-and-explainability layer; any operational B2B implementation pathway is Phase 2+ future work.
+
+\noindent\textbf{What this appendix is.} A B2B-dominant operational defensibility pack covering three stress dimensions on which a governance-enabled clinical AI system must remain stable: transformation readiness (will the organisation absorb change?), risk governance (will the system stay safe under operational pressure?), and trust protection (will clinician + caregiver trust survive the operational journey?). Each topic is operationalised as eight dimensions with constructs, indicators, and a maturity flow.
+
+\noindent\textbf{What this appendix is not.} It is not a generic change-management framework. It is not a cybersecurity engineering specification. It is not a consumer-app emotional-wellness study. The triad is positioned at the B2B operational layer where the dissertation's contribution lives: governance-enabled clinician trust and adoption.
+
+\noindent\textbf{Triad rule.} A B2B governance system is operationally defensible only if it holds under all three triad stresses simultaneously. A system strong on transformation but weak on risk governance is fragile under incident. A system strong on risk governance but weak on trust protection is rejected by users. A system strong on both but weak on transformation readiness fails at deploy. The triad is the joint defensibility surface.
+
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  ax/.style={draw=ggunavy, fill=ggunavy!10, rounded corners=4pt, very thick,
+             minimum width=3.6cm, minimum height=1.1cm, align=center, font=\small\bfseries},
+  centre/.style={draw=ggunavy, fill=ggunavy!28, rounded corners=4pt, very thick,
+             minimum width=3.6cm, minimum height=1.1cm, align=center, font=\small\bfseries},
+  arr/.style={-{Stealth[length=3mm]}, very thick, ggunavy}]
+\node[centre] (core) at (0,0)        {Governance-Enabled\\Clinician Trust\\\& Adoption};
+\node[ax]     (tr)   at (-4.6,1.6)   {K1. Transformation\\Readiness};
+\node[ax]     (rg)   at ( 4.6,1.6)   {K2. Risk\\Governance};
+\node[ax]     (tp)   at ( 0,-2.4)    {K3. Trust\\Protection};
+\draw[arr] (tr) -- (core);
+\draw[arr] (rg) -- (core);
+\draw[arr] (tp) -- (core);
+\draw[arr, dashed, gray] (tr) -- (rg);
+\draw[arr, dashed, gray] (rg) -- (tp);
+\draw[arr, dashed, gray] (tp) -- (tr);
+\end{tikzpicture}
+\caption[The B2B Operational Governance Triad]{The B2B Operational Governance Triad. Each axis (transformation readiness, risk governance, trust protection) independently strengthens the central governance-enabled trust-and-adoption contribution. The dashed edges represent triad interaction: weakness on any axis degrades the other two.}
+\label{fig:appk_triad}
+\end{figure}
+
+%% =========================================================================
+%% K1. CAREGIVER TRUST & EMOTIONAL REASSURANCE (Topic 24)
+%% =========================================================================
+\subsection*{K1. Caregiver Trust \& Emotional Reassurance}
+\addcontentsline{toc}{subsection}{K1. Caregiver Trust \& Emotional Reassurance}
+\label{sec:appk_caregiver_trust}
+
+\noindent\textbf{Framing.} The dissertation's trust construct is operationalised primarily at the clinician (Ch.~4 H2--H3). This subsection extends trust to the caregiver layer --- not as consumer-app emotional research, but as a B2B governance question: \emph{does the operational governance pipeline produce caregiver-perceptible emotional reassurance, and does that reassurance survive the screening lifecycle?} The answer determines whether the B2B governance investment translates to B2C-perceptible trust.
+
+\noindent\textbf{Positioning rule.} \emph{Governance-enabled emotional reassurance mechanisms strengthen sustainable autism-focused healthcare AI adoption by improving caregiver trust, explainability confidence, and human-centered operational assurance.}
+
+\noindent\textbf{Governance-to-trust translation.} The mechanism by which B2B governance controls translate into caregiver-perceptible trust is shown in Figure~\ref{fig:governance_to_trust_map}: five operational controls (consent, privacy, audit, clinician override, SOS routing) each produce one caregiver-perceptible benefit. The diagram is the antidote to the common misreading that "governance is hospital compliance" --- it shows governance is the engine that produces caregiver trust, not an administrative burden.
+
+\input{figures/fig_governance_to_trust_map}
+
+\noindent Table~\ref{tab:appk_caregiver_trust_dims} summarises caregiver trust \& emotional reassurance for appendix review.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appk_caregiver_trust_dims} below presents Caregiver Trust \& Emotional Reassurance --- Eight Dimensions, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Caregiver Trust Emotional Reassurance Eight.} % [auto-heading inserted]
+\noindent Table~\ref{tab:appk_caregiver_trust_dims} below presents Caregiver Trust \& Emotional Reassurance --- Eight Dimensions, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} p{5.5cm} >{\raggedright\arraybackslash}p{5.4cm} @{}}
+\caption[Caregiver Trust \& Emotional Reassurance --- Eight Dimensions]{Caregiver Trust \& Emotional Reassurance: eight operationalised dimensions with construct definitions and observable indicators.}\label{tab:appk_caregiver_trust_dims} \\
+\toprule
+\thead{Dimension} & \thead{Construct meaning} & \thead{Observable indicator} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Caregiver Confidence}        & Do caregivers trust AI-assisted recommendations conveyed by the clinician? & Recommendation confidence rating; clinician-mediated trust score \\
+\textbf{Emotional Reassurance}        & Does the system reduce caregiver anxiety and uncertainty?                   & Caregiver-reported anxiety differential; reassurance perception \\
+\textbf{Explainability Trust}         & Do caregivers understand \emph{why} a recommendation was generated?         & Clarity rating of family-language explanation; comprehension check \\
+\textbf{Recommendation Confidence}    & Do caregivers trust the operational reliability of the recommendation?     & Trust-in-output; follow-through intention \\
+\textbf{Emotional Safety}             & Do caregivers feel emotionally safe using the system?                       & Felt-safety rating; absence of fear signal \\
+\textbf{Human-Centered Usability}     & Is the system emotionally comfortable to use?                                & Usability frictionless rating; UI emotional friction signal \\
+\textbf{Trust Continuity}             & Can caregiver trust remain stable across the lifecycle?                     & Longitudinal trust score across phases (J6 lifecycle) \\
+\textbf{Sustainable Caregiver Adoption} & Can caregivers continue engaging long-term?                                  & Active-caregiver rate; consent-retention rate \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Indicators are deliberately governance-observable, not psychological inventories. Each dimension is measurable by a system the provider organisation already operates (audit log, dashboard, follow-up survey) --- the dissertation does not propose new emotional-psychology instruments.
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appk_caregiver_survey} summarises caregiver trust survey item examples for appendix review.
+
+\paragraph{Caregiver Trust Survey Item.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.6cm} L @{}}
+\caption[Caregiver Trust Survey Item Examples]{Caregiver Trust Survey Item Examples. Items are anchored to the eight dimensions and use plain language at $\leq$ Grade 8 reading level (per the accessibility specification in J3).}\label{tab:appk_caregiver_survey} \\
+\toprule
+\thead{Dimension} & \thead{Sample item} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Caregiver Confidence       & ``I trust the AI-assisted recommendations my clinician shared with me.'' \\
+Emotional Reassurance      & ``The system reduced my uncertainty about my child's screening.'' \\
+Explainability Trust       & ``I understood why the AI flagged what it flagged.'' \\
+Recommendation Confidence  & ``I would follow the recommendation in the report.'' \\
+Emotional Safety           & ``I felt my child was safe in this process.'' \\
+Human-Centered Usability   & ``The materials were easy to read and use.'' \\
+Trust Continuity           & ``I would use this system again if my child needed re-screening.'' \\
+Sustainable Adoption       & ``I would recommend this to another caregiver in my position.'' \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Items are pre-pilot examples; psychometric validation (Cronbach $\alpha$, CFA factor structure) is required before deployment in the next study wave.
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appk_caregiver_heatmap} summarises caregiver trust heatmap for appendix review.
+
+\paragraph{Caregiver Trust Heatmap.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.6cm} L L @{}}
+\caption[Caregiver Trust Heatmap]{Caregiver Trust Heatmap. State of each trust dimension under weak vs.\ strong governance. The shift is the governance-trust hypothesis operationalised at the caregiver level.}\label{tab:appk_caregiver_heatmap} \\
+\toprule
+\thead{Trust area} & \thead{Weak governance} & \thead{Strong governance} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Emotional reassurance       & Fragmented; clinician-dependent narrative & Operational; governance-backed family-language explanation \\
+Explainability confidence    & Weak; raw probability shown to caregivers & Understandable; top-3 family-language factors \\
+Caregiver trust              & Unstable; resets each visit                & Sustainable; longitudinal touchpoints \\
+Recommendation confidence    & Inconsistent; varies by clinician          & Trusted; governance-version-stamped \\
+Emotional safety             & Anxiety-prone; uncertainty unaddressed     & Comfort-prone; navigator + dashboard \\
+Workflow continuity          & Tense; high abandonment risk               & Calm; family-facing surfaces working \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} The heatmap functions as a defensibility checklist for the family-facing surface. If any cell remains in the ``weak'' column post-deploy, the governance has not yet propagated to the caregiver layer.
+
+\noindent\textbf{Limitation.} The eight dimensions are normative; only Caregiver Confidence and Recommendation Confidence have direct precedent in this dissertation's empirical pilot ($n=131$ clinicians). Caregiver-side measurement is future work.
+
+%% =========================================================================
+%% K2. DIGITAL TRANSFORMATION & CHANGE READINESS (Topic 3)
+%% =========================================================================
+\subsection*{K2. Digital Transformation \& Organizational Change Readiness}
+\addcontentsline{toc}{subsection}{K2. Digital Transformation \& Change Readiness}
+\label{sec:appk_transformation}
+
+\noindent\textbf{Framing.} A governance-enabled AI screening system is only as defensible as the organisation's ability to absorb it. This subsection operationalises organisational change readiness as a B2B governance question --- not as a generic digital-transformation framework. The eight dimensions identify whether the provider organisation can hold the governance contracts in Appendix~H and the caregiver-ecosystem contracts in Appendix~J across a multi-year deployment.
+
+\noindent\textbf{Positioning rule.} \emph{Governance-enabled organisational change readiness strengthens sustainable healthcare AI adoption by improving clinician trust continuity, operational transformation alignment, and long-term governance sustainability.}
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appk_transformation_dims} summarises transformation readiness for appendix review.
+
+\paragraph{Transformation Readiness.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.6cm} p{5.7cm} >{\raggedright\arraybackslash}p{5.0cm} @{}}
+\caption[Transformation Readiness --- Eight Dimensions]{Transformation Readiness: eight operationalised dimensions with construct definitions and observable indicators.}\label{tab:appk_transformation_dims} \\
+\toprule
+\thead{Dimension} & \thead{Construct meaning} & \thead{Observable indicator} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Organizational Readiness}        & Is the provider operationally prepared for AI adoption?               & Readiness self-assessment score; governance prerequisites met \\
+\textbf{Governance-Enabled Transformation} & Does governance sustain the transformation across phases?            & Governance change-control count; rollback-success rate \\
+\textbf{Clinician-Centered Change}        & Do clinicians adapt sustainably to AI-assisted workflows?            & Clinician override + concurrence rate (J8 audit) \\
+\textbf{Operational Sustainability}      & Does transformation hold over time, not just at go-live?              & Active-use rate at $T+30 / +90 / +180$ days \\
+\textbf{Governance Alignment}             & Are governance + strategy + operations aligned on the same outcomes? & Documented goal alignment; quarterly review minutes \\
+\textbf{Leadership Support}               & Does leadership actively sponsor the transformation?                  & Executive-sponsor presence; resourcing decisions \\
+\textbf{Trust Continuity}                 & Does trust survive transformation events (release, rollback, drift)?  & Trust score before vs.\ after each event \\
+\textbf{Sustainable AI Operationalisation} & Does the AI capability stay operationally healthy beyond the project? & Steady-state SLA adherence; incident rate trend \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Each indicator is observable from the provider organisation's existing operational data; no new instrumentation is required.
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appk_transformation_survey} summarises transformation readiness survey item examples for appendix review.
+
+\paragraph{Transformation Readiness Survey Item.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.6cm} L @{}}
+\caption[Transformation Readiness Survey Item Examples]{Transformation Readiness Survey Item Examples. Items target the organisation-side respondent (operational leader, governance owner, or clinical lead), separate from the clinician trust instrument.}\label{tab:appk_transformation_survey} \\
+\toprule
+\thead{Dimension} & \thead{Sample item} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Organizational Readiness    & ``Our organisation is operationally prepared for healthcare AI adoption.'' \\
+Governance-Enabled Transformation & ``Governance mechanisms have sustained this transformation.'' \\
+Clinician-Centered Change   & ``Clinicians in this site have adapted sustainably to AI-assisted workflows.'' \\
+Operational Sustainability  & ``Active AI-assisted use has held steady through the past 90 days.'' \\
+Governance Alignment        & ``Governance, strategy, and operations are aligned on the same outcomes.'' \\
+Leadership Support          & ``Executive leadership actively sponsors this initiative.'' \\
+Trust Continuity            & ``Clinician trust held through our last model release / rollback / drift event.'' \\
+Sustainable AI Operationalisation & ``Healthcare AI operationalisation remains stable over time.'' \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appk_transformation_heatmap} summarises transformation readiness heatmap for appendix review.
+
+\paragraph{Transformation Readiness Heatmap.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.6cm} L L @{}}
+\caption[Transformation Readiness Heatmap]{Transformation Readiness Heatmap. State of each transformation dimension under weak vs.\ strong governance.}\label{tab:appk_transformation_heatmap} \\
+\toprule
+\thead{Transformation area} & \thead{Weak governance} & \thead{Strong governance} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Organizational readiness    & Fragmented; siloed pilots & Operational; cross-functional alignment \\
+Governance alignment        & Weak; reactive control     & Coordinated; proactive change-control \\
+Clinician adoption          & Unstable; high churn       & Sustainable; supported workflow \\
+Transformation continuity   & Inconsistent; project-shaped & Resilient; operationalised programme \\
+Leadership support          & Episodic                    & Sustained executive sponsorship \\
+Trust continuity            & Drops at each release      & Holds through release + rollback events \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  mstep/.style={draw=ggunavy, fill=ggunavy!10, rounded corners=3pt, very thick,
+               minimum width=3.4cm, minimum height=0.8cm, align=center, font=\scriptsize},
+  arr/.style={-{Stealth[length=4mm,width=3mm]}, very thick, ggunavy}]
+\node[mstep] (s1) at (0,0)        {Reactive AI adoption};
+\node[mstep] (s2) at (0,-1.0)     {Managed organisational readiness};
+\node[mstep] (s3) at (0,-2.0)     {Governed operational transformation};
+\node[mstep] (s4) at (0,-3.0)     {Trusted healthcare AI adoption};
+\node[mstep] (s5) at (0,-4.0)     {Sustainable governance-enabled AI};
+\draw[arr] (s1) -- (s2);
+\draw[arr] (s2) -- (s3);
+\draw[arr] (s3) -- (s4);
+\draw[arr] (s4) -- (s5);
+\end{tikzpicture}
+\caption[Transformation Readiness Maturity Ladder]{Transformation Readiness Maturity Ladder. The five-state path maps directly onto the RGAIG levels (Ch.~1, Table~\ref{tab:rgaig_maturity_artifact}) at the organisational-change axis.}
+\label{fig:appk_transformation_ladder}
+\end{figure}
+
+\noindent\textbf{Limitation.} The maturity ladder is normative; longitudinal validation requires multi-site, multi-quarter deployment data not collected in the pilot.
+
+%% =========================================================================
+%% K3. AI RISK GOVERNANCE & OPERATIONAL SAFETY (Topic 22)
+%% =========================================================================
+\subsection*{K3. AI Risk Governance \& Operational Safety}
+\addcontentsline{toc}{subsection}{K3. AI Risk Governance \& Operational Safety}
+\label{sec:appk_risk}
+
+\noindent\textbf{Framing.} The dissertation already operates risk-relevant controls (audit, drift, registry, rollback). This subsection consolidates them under an operational-safety frame: \emph{can the governance system protect clinician trust + patient safety + accountability continuity under incident conditions?} It is positioned as B2B operational governance, not as cybersecurity engineering.
+
+\noindent\textbf{Positioning rule.} \emph{Governance-enabled operational safeguard mechanisms strengthen sustainable healthcare AI adoption by improving clinician trust protection, accountability continuity, and operational safety assurance.}
+
+\noindent\textbf{Operational pathway.} The SOS hospital-escalation flowchart (Figure~\ref{fig:sos_escalation_flow}) shows how the B2B safety layer operates against a B2C monitoring stream: continuous monitoring $\to$ anomaly detection $\to$ severity check $\to$ branched routing (caregiver alert for low/moderate; hospital + clinician alert for high) $\to$ audit log. The high-severity branch is the one that converts consumer monitoring into safe clinical action; the dissertation's contribution is the explicit governance of that branch, not the AI accuracy of step~2.
+
+\input{figures/fig_sos_escalation_flow}
+
+
+\noindent Table~\ref{tab:appk_risk_dims} summarises ai risk governance \& operational safety for appendix review.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appk_risk_dims} below presents AI Risk Governance --- Eight Dimensions, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Ai Risk Governance Eight Dimensions.} % [auto-heading inserted]
+\noindent Table~\ref{tab:appk_risk_dims} below presents AI Risk Governance --- Eight Dimensions, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{4.0cm} p{5.3cm} >{\raggedright\arraybackslash}p{5.0cm} @{}}
+\caption[AI Risk Governance --- Eight Dimensions]{AI Risk Governance \& Operational Safety: eight operationalised dimensions with construct definitions and observable indicators.}\label{tab:appk_risk_dims} \\
+\toprule
+\thead{Dimension} & \thead{Construct meaning} & \thead{Observable indicator} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Operational Safety Assurance}     & Do AI-assisted workflows remain operationally safe?              & Workflow incident rate; near-miss count \\
+\textbf{Governance-Based Risk Mitigation} & Does governance reduce operational AI risk?                       & Risk-register burn-down; mitigation closure rate \\
+\textbf{Clinician Trust Protection}        & Is clinician trust preserved during incident conditions?         & Pre/post-incident trust differential \\
+\textbf{Accountability Continuity}         & Is accountability traceable across AI-assisted decisions?         & Decision-audit completeness rate (\S~48 explainability) \\
+\textbf{Workflow Safety Confidence}        & Do clinicians trust workflow safety in AI-assisted operations?    & Self-reported workflow safety; override pattern \\
+\textbf{Governance Resilience}             & Does governance hold under operational disruption?                 & Time-to-rollback; rollback-success rate \\
+\textbf{Operational Safeguard Effectiveness} & Do safeguards actually intervene when they should?               & Guardrail trigger rate; true-positive intervention rate \\
+\textbf{Sustainable Risk Operationalisation} & Are risks managed sustainably over time?                          & Risk-register closure trend; SLA adherence \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appk_risk_survey} summarises risk governance survey item examples for appendix review.
+
+\paragraph[Risk Governance Survey]{Risk Governance Survey Item.}
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.6cm} L @{}}
+\caption[Risk Governance Survey Item Examples]{Risk Governance Survey Item Examples. Items target the operational risk owner or compliance lead.}\label{tab:appk_risk_survey} \\
+\toprule
+\thead{Dimension} & \thead{Sample item} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Operational Safety           & ``AI-assisted workflows maintain operational safety standards.'' \\
+Risk Mitigation              & ``Governance mechanisms effectively mitigate operational AI risks.'' \\
+Trust Protection             & ``Clinician trust is protected during incident conditions.'' \\
+Accountability               & ``Operational accountability is traceable in AI-assisted decisions.'' \\
+Workflow Safety              & ``Governance safeguards support workflow safety effectively.'' \\
+Governance Resilience        & ``Governance held effective during our last operational disruption.'' \\
+Safeguard Effectiveness      & ``Operational safeguards work as designed when needed.'' \\
+Sustainable Risk Ops         & ``Risk management remains operationally sustainable over time.'' \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appk_risk_heatmap} summarises operational safety heatmap for appendix review.
+
+\paragraph{Operational Safety Heatmap.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.6cm} L L @{}}
+\caption[Operational Safety Heatmap]{Operational Safety Heatmap. State of each safeguard dimension under weak vs.\ strong governance.}\label{tab:appk_risk_heatmap} \\
+\toprule
+\thead{Safety area} & \thead{Weak governance} & \thead{Strong governance} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Workflow safety              & Fragmented; ad-hoc & Operational; standardised \\
+Trust protection             & Unstable; collapses post-incident & Resilient; survives incident \\
+Accountability continuity    & Weak; gaps in audit trail & Sustainable; complete trail \\
+Safeguard effectiveness      & Inconsistent; mixed triggers & Trusted; reliable intervention \\
+Governance resilience        & Fragile; recovery slow & Robust; recovery within SLA \\
+Risk operationalisation      & Reactive; firefighting & Sustainable; risk-register-driven \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  mstep/.style={draw=ggunavy, fill=ggunavy!10, rounded corners=3pt, very thick,
+               minimum width=3.8cm, minimum height=0.8cm, align=center, font=\scriptsize},
+  arr/.style={-{Stealth[length=4mm,width=3mm]}, very thick, ggunavy}]
+\node[mstep] (s1) at (0,0)        {Reactive AI risk management};
+\node[mstep] (s2) at (0,-1.0)     {Managed governance safeguards};
+\node[mstep] (s3) at (0,-2.0)     {Operational safety governance};
+\node[mstep] (s4) at (0,-3.0)     {Trusted healthcare AI protection};
+\node[mstep] (s5) at (0,-4.0)     {Sustainable governance-enabled safety};
+\draw[arr] (s1) -- (s2);
+\draw[arr] (s2) -- (s3);
+\draw[arr] (s3) -- (s4);
+\draw[arr] (s4) -- (s5);
+\end{tikzpicture}
+\caption[Risk Governance Maturity Ladder]{Risk Governance Maturity Ladder. The five-state path complements the transformation ladder (Figure~\ref{fig:appk_transformation_ladder}); a defensible system advances both ladders in mstep.}
+\label{fig:appk_risk_ladder}
+\end{figure}
+
+\noindent\textbf{Limitation.} Incident-condition trust measurement requires longitudinal data not collected in the pilot. The dimensions are operationalised as a defensibility specification, not as a tested empirical model.
+
+%% =========================================================================
+%% K4. TRIAD INTEGRATION
+%% =========================================================================
+\subsection*{K4. Triad Integration: How the Three Axes Compose}
+\addcontentsline{toc}{subsection}{K4. Triad Integration}
+\label{sec:appk_integration}
+
+\noindent\textbf{The integration premise.} A governance system is operationally defensible only when all three triad axes hold simultaneously. The integration table below identifies the joint failure modes when any single axis is weak.
+
+\noindent Table~\ref{tab:appk_triad_failure_modes} summarises triad joint failure modes for appendix review.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} p{2.4cm} p{2.0cm} p{6.4cm} @{}}
+\caption[Triad Joint Failure Modes]{Triad Joint Failure Modes. Each row identifies the failure that emerges when one axis is weak while the other two are strong --- demonstrating that the triad cannot be reduced to its strongest axis.}\label{tab:appk_triad_failure_modes} \\
+\toprule
+\thead{Weak axis} & \thead{T-readiness state} & \thead{Risk gov state} & \thead{Failure that emerges} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{K1 weak} (Trust Protection) & Strong & Strong & Caregivers + clinicians distrust the system despite well-run ops; adoption collapses at the surface \\
+\textbf{K2 weak} (Transformation Readiness) & Weak & Strong & Governance and safety hold, but the org cannot absorb the change; deployment stalls or rolls back to manual \\
+\textbf{K3 weak} (Risk Governance) & Strong & Strong & Adoption proceeds, then an incident destroys all accumulated trust capital \\
+\midrule
+\textbf{Two weak} & Either combination & --- & System fails before reaching steady state; governance investment is wasted \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} The failure modes are first-principle derivatives of the triad logic --- not empirical findings of the pilot. They establish the defensibility argument: \emph{the three axes must be jointly governed; the triad cannot be decomposed.}
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appk_j_composition} summarises triad composition with appendix j ecosystem for appendix review.
+
+\paragraph{Triad Composition with Appendix.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.3cm} p{4.5cm} p{6.6cm} @{}}
+\caption[Triad Composition with Appendix J Ecosystem]{Triad Composition with Appendix J Ecosystem. Each Appendix K axis is paired with the Appendix J ecosystem subsection it most directly composes with --- making the B2B + B2C symmetry visible.}\label{tab:appk_j_composition} \\
+\toprule
+\thead{Appendix K (B2B support) axis} & \thead{Composes with Appendix J} & \thead{Joint contract} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+K1 Caregiver Trust Protection      & J3 Accessibility; J4 Cultural Sensitivity; J5 Consent; J6 Longitudinal Trust & The caregiver-trust signal is visible \emph{because} the J-side surfaces are accessible, culturally sensitive, consent-respecting, and lifecycle-aware \\
+K2 Transformation Readiness        & J7 Ecosystem Maturity                                                                              & The maturity ladder is two-axis: provider RGAIG + caregiver-ecosystem; transformation readiness advances both in step \\
+K3 Risk Governance                  & J2 Child Dignity; J8 Role Boundaries; J9 Fairness                                                  & Safety + dignity + boundaries + fairness compose to a defensible safeguard surface \\
+\midrule
+\textbf{Triad}                      & \textbf{J10 Value Realization}                                                                      & \textbf{The triad's joint output is the value-realization dashboard.} \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Appendix J and Appendix K are intentionally complementary, not duplicative. K provides the B2B governance surface; J provides the B2C-perceptible signals. Without both, the governance investment is invisible at the family ecosystem layer.
+
+\noindent\textbf{Closing positioning.} The triad operationalises the B2B support layer required by a B2C-primary dissertation: transformation readiness, risk governance, and trust protection make caregiver/patient-facing ASD screening defensible. Appendix J operationalises the primary B2C ecosystem layer. Together, they answer the revised positioning: \emph{consumer-facing ASD screening and monitoring becomes adoption-ready only when clinician review, hospital escalation, auditability, and governance are visible to the family and operationally enforceable by the provider.} The triad is the defensibility surface; the ecosystem is the visibility surface; the dissertation's empirical pilot ($n=131$) measures clinician trust and adoption as the support evidence for the B2C pathway.
+
+%% =========================================================================
+%% K. APPENDIX CLOSING
+%% =========================================================================
+\subsection*{Appendix K Closing}
+\addcontentsline{toc}{subsection}{Appendix K Closing}
+
+\noindent\textbf{What Appendix K adds.} Three operational-governance axes specified at the same depth as the empirical core, with eight dimensions per axis, sample survey items, weak-vs-strong governance heatmaps, and maturity ladders. The triad reinforces the B2B dominance of the dissertation while leaving the B2C ecosystem appendix (J) intact as supporting context.
+
+\noindent\textbf{What Appendix K does not do.} It does not expand the empirical pilot. It does not add new hypotheses. It does not propose new instruments without psychometric validation. It is a defensibility extension, not an empirical extension.
+
+\noindent\textbf{Reviewer position.} If a reviewer asks ``does this dissertation defend governance under transformation, risk, and trust stress simultaneously?'' the candidate answers: ``yes --- Appendix K, three operational axes plus integration, each pinned to eight measurable dimensions, jointly required by the triad-failure-mode analysis.''

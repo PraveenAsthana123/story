@@ -1,0 +1,57 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CHAPTER 2 SECTION: DETAILED LITERATURE REVIEW: ASD EEG-BASED DIAGNOSTICS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Detailed Literature Review: ASD EEG-Based Diagnostics}
+\label{app:ch2_asd}
+\label{sec:topic1_asd}
+
+ASD--EEG classification has progressed from 65--75\% with handcrafted features to 97--99\% with deep learning, but this apparent improvement conceals fundamental methodological weaknesses: inflated accuracy from small single-site evaluations, absent cross-dataset validation, and no integration with clinical explainability systems.
+
+The literature on EEG-based ASD diagnostics has evolved through three methodological phases: classical approaches with handcrafted features (2012--2018), deep learning with automatic feature extraction (2019--2023), and connectivity-based and multimodal integration (2023--2025).
+
+\subsection{Classical Baseline Frameworks}
+
+Duffy and Als~\cite{duffy2012coherence} established early evidence with 87--89\% accuracy on 1,304 children using spectral coherence---the largest ASD--EEG cohort at the time---identifying the local over-connectivity/long-range under-connectivity pattern. Subsequent DWT-based studies (Ibrahim et al.~\cite{ibrahim2018epilepsy}, 94.6\%; Sinha et al.~\cite{sinha2022asd}, 92.8\%; Djemal et al.~\cite{djemal2017asd}, >90\%) report higher accuracies on substantially smaller cohorts, yet none replicates on Duffy's dataset, making direct comparison unreliable. Boutros et al.~\cite{boutros2015eeg} confirmed the connectivity pattern but did not evaluate classification accuracy. Haputhanthri et al.~\cite{haputhanthri2019channel} addressed dimensionality through channel selection (93\%), though the single-dataset evaluation leaves generalisability undemonstrated.
+
+\subsection{Deep Learning Frameworks}
+
+The DL phase produced a 25-percentage-point accuracy spread (74.55--99.15\%) that demands scrutiny rather than acceptance. Te et al.~\cite{te2021spectrogram} (99.15\%) and Pham et al.~\cite{pham2020bispectrum} (98.7\%) were achieved on small single-site hold-out evaluations, raising the probability of overfitting; neither study reported cross-dataset results. At the lower end, Zhu et al.~\cite{zhu2024cnnlstm} (74.55\%) and Omar et al.~\cite{omar2024multicnn} (77--79\%) used larger, more heterogeneous datasets, suggesting that the accuracy ranking reflects data curation quality rather than model superiority. Chen et al.~\cite{chen2021bilstm} added attention-based interpretability, while Lalawat et al.~\cite{lalawat2024tfd} and Singh et al.~\cite{singh2023csto} occupied the mid-range (88--97\%). No study in this phase addressed ASD-focused transferability or clinical explainability.
+
+\subsection{Connectivity and Multimodal Integration}
+
+Barttfeld et al.~\cite{barttfeld2010bigworld} and Duffy and Als~\cite{duffy2012coherence} converge on reduced long-range and increased short-range connectivity in ASD, providing replicated support for the under-connectivity hypothesis. Graph-theoretic approaches (Wadhera et al.~\cite{wadhera2023graph}, 92.34\%) and retrospective analyses (Ke et al.~\cite{ke2024retrospective}, $n$=288) build on this foundation but test on different datasets with different preprocessing, preventing direct comparison. Multimodal integration---eye-tracking (Tan et al.~\cite{tan2023eyetrack}), fMRI/DTI (Cociu et al.~\cite{cociu2018multimodal})---addresses EEG's spatial resolution limitation, yet no multimodal study demonstrates accuracy gains sufficient to justify the added clinical cost. Xu et al.~\cite{xu2024connectivity} provides the most methodologically rigorous connectivity quantification but lacks classification validation.
+
+\subsection{Early Detection}
+
+Bosl et al.~\cite{bosl2018eeg} demonstrated that nonlinear EEG complexity metrics can identify ASD risk in infants before behavioural symptoms emerge---a clinically valuable finding if replicated at scale. Peck et al.~\cite{peck2021infant} reported 100\% accuracy, but this extraordinary claim merits caution: the study tested on a small cohort with a binary outcome, and the result has not been independently replicated. Santarone et al.~\cite{santarone2023eeg} found abnormal EEG features in 78\% of preschool ASD children, implying a 22\% false-negative rate that limits EEG's utility as a standalone screening tool for young children.
+
+\subsection{Comparative Analysis}
+
+Table~\ref{tab:asd_comparison} provides a comparative analysis of recent ASD studies, identifying specific research gaps and how the proposed unified framework addresses them.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{3cm} p{3cm} p{2.5cm} L L @{}}
+\caption{Comparative Analysis of Recent ASD EEG Studies (2023--2025)}\label{tab:asd_comparison} \\
+\toprule
+\thead{Study} & \thead{Method} & \thead{Result} & \thead{Research Gap} & \thead{Framework Response} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:asd_comparison} continued from previous page\,)}} \\
+\toprule
+\thead{Study} & \thead{Method} & \thead{Result} & \thead{Research Gap} & \thead{Framework Response} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Barnes et al.~\cite{barnes2025theta} & Theta--alpha connectivity analysis & Atypical synchronization identified & Small sample ($n < 50$); no DL integration & ASD-focused CWT pipeline with standardized features \\
+\addlinespace
+Hatim et al.~\cite{hatim2025review} & Review of 200+ DL models & CNN $\sim$95\%; ResNet50 $\sim$99\% & Review only; no standardized benchmark & Unified evaluation harness across domains \\
+\addlinespace
+Tang et al.~\cite{tang2024gnn} & Hybrid GNN for EEG connectivity & $>$92\% accuracy & Computationally expensive; no ASD-focused & Shared attention module across pipelines \\
+\addlinespace
+Xu et al.~\cite{xu2024connectivity} & CNN-LSTM for EEG connectivity & ROC-AUC $\sim$0.65 ($n$~=~288) & Class imbalance; no multimodal fusion & GAN-based augmentation + RAG explainability \\
+\addlinespace
+Wadhera et al.~\cite{wadhera2023graph} & EEG graph-theoretic + SVM & 92.34\% accuracy & Limited electrode setup; restricted generalization & Multi-scale attention with domain adaptation \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} GNN = graph neural network; CNN = convolutional neural network; LSTM = long short-term memory; CWT = continuous wavelet transform; DL = deep learning; SVM = support vector machine; RAG = retrieval-augmented generation; GAN = generative adversarial network.

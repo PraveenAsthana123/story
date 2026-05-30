@@ -1,0 +1,357 @@
+%% Appendix: Behavioral Tracking in Social Settings
+%% How EEG + IoT captures behavioral data, helps B2B and B2C,
+%% and meets doctor expectations
+
+\normalsize\normalfont\color{black}
+
+%===============================================================================
+\section{Behavioral Tracking in Social Settings}
+\label{sec:behavioral_tracking}
+%===============================================================================
+
+This section documents how RGAIG captures behavioral data in real-world social settings using consumer-grade EEG (Emotiv) combined with contextual questionnaire data. Unlike clinical assessments that require controlled laboratory environments, RGAIG enables passive brain monitoring during everyday activities --- at home, school, workplace, and clinic.
+
+%===============================================================================
+\subsection{Social Setting Behavioral Capture Framework}
+%===============================================================================
+
+Figure~\ref{fig:social_capture} illustrates the multi-setting behavioral capture framework. Brain signals are recorded during natural activities, correlated with contextual data from questionnaires and environmental sensors, and delivered as actionable insights to both patients/caregivers (B2C) and clinicians/hospitals (B2B).
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}[
+  setting/.style={rectangle, draw=ggunavy, fill=#1, text width=3.2cm, minimum height=2.2cm, align=center, font=\small, rounded corners=4pt, very thick},
+  capture/.style={rectangle, draw=ggunavy, fill=ggunavy!8, text width=2.8cm, minimum height=1.6cm, align=center, font=\small, rounded corners=3pt},
+  output/.style={rectangle, draw=ggunavy, fill=ggunavy!15, text width=3.5cm, minimum height=1.6cm, align=center, font=\small, rounded corners=3pt},
+  arr/.style={-{Stealth[length=3mm]}, thick, ggunavy},
+  darr/.style={-{Stealth[length=3mm]}, thick, ggunavy!50, dashed},
+  lbl/.style={font=\small\bfseries\color{ggunavy}},
+]
+
+% Row labels
+\node[lbl] at (-2, 0) {SOCIAL};
+\node[lbl] at (-2, -0.4) {SETTINGS};
+\node[lbl] at (-2, -3) {EEG};
+\node[lbl] at (-2, -3.4) {CAPTURES};
+\node[lbl] at (-2, -6) {ACTIONABLE};
+\node[lbl] at (-2, -6.4) {OUTPUT};
+
+% Social Settings (Row 1)
+\node[setting=ch1light] (home) at (1.5, 0) {\textbf{Home}\\[3pt]Morning routine\\Mealtime\\Bedtime\\Play/TV};
+\node[setting=ch2light] (school) at (5.5, 0) {\textbf{School}\\[3pt]Classroom\\Playground\\Group activity\\Solo work};
+\node[setting=ch3light] (clinic) at (9.5, 0) {\textbf{Clinic}\\[3pt]Waiting room\\Assessment\\Therapy session\\Follow-up};
+\node[setting=ch4light] (work) at (13.5, 0) {\textbf{Workplace}\\[3pt]Meeting\\Deadline\\Social interaction\\Break time};
+
+% EEG Captures (Row 2)
+\node[capture] (eeg1) at (1.5, -3) {Theta/beta ratio\\Alpha asymmetry\\Sleep architecture};
+\node[capture] (eeg2) at (5.5, -3) {Attention markers\\Social engagement\\Stress response};
+\node[capture] (eeg3) at (9.5, -3) {Clinical baseline\\Treatment response\\Comorbidity screen};
+\node[capture] (eeg4) at (13.5, -3) {Cognitive load\\Burnout markers\\Stress triggers};
+
+% Outputs (Row 3)
+\node[output] (out1) at (1.5, -6) {\textbf{B2C: Parent}\\Therapy progress\\Sleep quality\\Daily report};
+\node[output] (out2) at (5.5, -6) {\textbf{B2C: Teacher}\\Attention patterns\\Social readiness\\IEP support data};
+\node[output] (out3) at (9.5, -6) {\textbf{B2B: Doctor}\\Objective assessment\\Treatment efficacy\\Clinical decision};
+\node[output] (out4) at (13.5, -6) {\textbf{B2B: Employer}\\Wellness program\\Burnout prevention\\Productivity data};
+
+% Arrows
+\foreach \i in {1,2,3,4} {
+  \draw[arr] (home.south -| eeg\i.north) -- (eeg\i.north);
+  \draw[arr] (eeg\i.south) -- (out\i.north);
+}
+\draw[darr] (home.south) -- (eeg1.north);
+\draw[darr] (school.south) -- (eeg2.north);
+\draw[darr] (clinic.south) -- (eeg3.north);
+\draw[darr] (work.south) -- (eeg4.north);
+
+\end{tikzpicture}}
+\caption[Multi-Setting Behavioral Capture Framework: Social]{Multi-Setting Behavioral Capture Framework: Social settings (top), EEG biomarkers captured (middle), and actionable output for B2B and B2C stakeholders (bottom).}
+\label{fig:social_capture}
+\end{figure}
+
+%===============================================================================
+\subsection{Behavioral Tracking Hierarchy: What Gets Captured}
+%===============================================================================
+
+Figure~\ref{fig:behavioral_hierarchy} presents the hierarchical taxonomy of behavioral signals captured through EEG monitoring in social settings. Level~1 represents broad behavioural domains, Level~2 the specific constructs measured, and Level~3 the EEG biomarkers that operationalise each construct.
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}[
+  level 1/.style={rectangle, draw=ggunavy, fill=ggunavy!15, text width=2.8cm, minimum height=1cm, align=center, font=\small\bfseries, rounded corners=3pt},
+  level 2/.style={rectangle, draw=ggunavy, fill=ch1light, text width=2.5cm, minimum height=0.9cm, align=center, font=\small, rounded corners=2pt},
+  level 3/.style={rectangle, draw=ggunavy, fill=white, text width=2.2cm, minimum height=1.0cm, align=center, font=\small, rounded corners=2pt},
+  arr/.style={-, ggunavy, line width=0.5pt},
+]
+
+% Root
+\node[rectangle, draw=ggunavy, fill=ggunavy, text=white, text width=4cm, minimum height=1.2cm, align=center, font=\small\bfseries, rounded corners=4pt] (root) at (7.5, 0) {BEHAVIORAL\\TRACKING};
+
+% Level 1
+\node[level 1] (l1a) at (0, -2) {Social\\Interaction};
+\node[level 1] (l1b) at (3.5, -2) {Emotional\\Regulation};
+\node[level 1] (l1c) at (7, -2) {Cognitive\\Function};
+\node[level 1] (l1d) at (10.5, -2) {Motor\\Control};
+\node[level 1] (l1e) at (14, -2) {Sensory\\Processing};
+
+\draw[arr] (root) -- (l1a);
+\draw[arr] (root) -- (l1b);
+\draw[arr] (root) -- (l1c);
+\draw[arr] (root) -- (l1d);
+\draw[arr] (root) -- (l1e);
+
+% Level 2 under Social Interaction
+\node[level 2] (l2a1) at (-1, -4) {Eye contact\\engagement};
+\node[level 2] (l2a2) at (1.5, -4) {Joint attention\\sharing};
+\draw[arr] (l1a) -- (l2a1);
+\draw[arr] (l1a) -- (l2a2);
+
+% Level 2 under Emotional Regulation
+\node[level 2] (l2b1) at (2.5, -4) {Stress\\response};
+\node[level 2] (l2b2) at (4.8, -4) {Anxiety\\level};
+\draw[arr] (l1b) -- (l2b1);
+\draw[arr] (l1b) -- (l2b2);
+
+% Level 2 under Cognitive Function
+\node[level 2] (l2c1) at (6, -4) {Attention\\span};
+\node[level 2] (l2c2) at (8.3, -4) {Working\\memory};
+\draw[arr] (l1c) -- (l2c1);
+\draw[arr] (l1c) -- (l2c2);
+
+% Level 2 under Motor Control
+\node[level 2] (l2d1) at (9.5, -4) {Tremor\\detection};
+\node[level 2] (l2d2) at (11.8, -4) {Movement\\planning};
+\draw[arr] (l1d) -- (l2d1);
+\draw[arr] (l1d) -- (l2d2);
+
+% Level 2 under Sensory
+\node[level 2] (l2e1) at (13, -4) {Auditory\\response};
+\node[level 2] (l2e2) at (15.3, -4) {Visual\\attention};
+\draw[arr] (l1e) -- (l2e1);
+\draw[arr] (l1e) -- (l2e2);
+
+% Level 3 (EEG Biomarkers) under selected Level 2 nodes
+\node[level 3] (l3a) at (-1, -5.8) {Mu suppression\\(8--13 Hz)};
+\node[level 3] (l3b) at (1.5, -5.8) {Frontal PLV\\connectivity};
+\node[level 3] (l3c) at (2.5, -5.8) {Alpha\\asymmetry};
+\node[level 3] (l3d) at (4.8, -5.8) {Beta/alpha\\ratio};
+\node[level 3] (l3e) at (6, -5.8) {Theta power\\(4--8 Hz)};
+\node[level 3] (l3f) at (8.3, -5.8) {Gamma\\(30--45 Hz)};
+\node[level 3] (l3g) at (9.5, -5.8) {Beta power\\(13--30 Hz)};
+\node[level 3] (l3h) at (11.8, -5.8) {Motor cortex\\readiness};
+\node[level 3] (l3i) at (13, -5.8) {Auditory P300\\ERP};
+\node[level 3] (l3j) at (15.3, -5.8) {Visual N170\\ERP};
+
+\foreach \i/\j in {l2a1/l3a, l2a2/l3b, l2b1/l3c, l2b2/l3d, l2c1/l3e, l2c2/l3f, l2d1/l3g, l2d2/l3h, l2e1/l3i, l2e2/l3j} {
+  \draw[arr] (\i) -- (\j);
+}
+
+\end{tikzpicture}}
+\caption[Behavioral Tracking Hierarchy: From behavioral domains]{Behavioral Tracking Hierarchy: From behavioral domains (Level~1) through measurable constructs (Level~2) to EEG biomarkers (Level~3).}
+\label{fig:behavioral_hierarchy}
+\end{figure}
+
+%===============================================================================
+\subsection{Behavioral Tracking Benefits}
+%===============================================================================
+
+Table~\ref{tab:behavioral_b2b_b2c} maps each behavioral tracking capability to its value for hospital (B2B) and patient (B2C) stakeholders.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.2cm} L L L @{}}
+\caption{Behavioral Tracking Value: B2B Hospital and B2C Patient Impact}\label{tab:behavioral_b2b_b2c} \\
+\toprule
+\thead{Behavioral Domain} & \thead{What EEG Captures} & \thead{B2B Hospital Value} & \thead{B2C Patient/Caregiver Value} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:behavioral_b2b_b2c} continued from previous page\,)}} \\
+\toprule
+\thead{Behavioral Domain} & \thead{What EEG Captures} & \thead{B2B Hospital Value} & \thead{B2C Patient/Caregiver Value} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Social interaction & Mu suppression during eye contact; frontal connectivity during joint attention & Objective measure for ASD screening at well-child visits; therapy outcome tracking & "Is my child improving socially?" --- weekly progress report with brain data \\
+\addlinespace
+Emotional regulation & Alpha asymmetry during stress triggers; beta/alpha ratio during emotional events & Real-time distress detection in non-verbal patients; reduce restraint/sedation use & Meltdown prediction: "Your child's stress is rising --- try a quiet room" \\
+\addlinespace
+Cognitive function & Theta power during attention tasks; gamma during working memory & ADHD/ASD comorbidity screening; cognitive side-effect monitoring from medication & "Your child's attention improved 23\% this month" --- data for IEP meetings \\
+\addlinespace
+Motor control & Beta power suppression in motor cortex; tremor frequency detection & Pre-clinical PD detection; medication ON/OFF monitoring; fall risk assessment & "Your tremor pattern changed --- medication may need adjustment" \\
+\addlinespace
+Sensory processing & Auditory P300 amplitude; visual N170 for face processing & Sensory processing disorder screening; hearing/vision pathway integrity & "Your child processes sounds differently --- sensory therapy recommended" \\
+\addlinespace
+Sleep quality & Sleep stage architecture; epileptiform discharges during sleep & Nocturnal seizure detection; sleep apnea screening; medication sleep effects & "3 seizures detected during sleep last night --- neurologist alerted" \\
+\addlinespace
+Stress and burnout & Frontal alpha asymmetry; HRV correlation; EDA response & Employee wellness programme data; burnout prevention; return-to-work assessment & "Your stress has been above 7/10 for 5 days --- consider professional support" \\
+\addlinespace
+Treatment response & Trend analysis: biomarker change over weeks/months of therapy & Evidence-based treatment adjustment; clinical trial outcome measurement & "Therapy is working --- theta/beta ratio improved from 1.85 to 1.58 in 3 months" \\
+\end{xltabular}}
+
+%===============================================================================
+\subsection{Doctor's Expectations from the Device}
+%===============================================================================
+
+Table~\ref{tab:doctor_expectations} documents what clinicians expect from a consumer-grade EEG AI system, based on the expert panel evaluation (n=12) and published clinical requirements.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{0.5cm} p{2.8cm} L L p{1.2cm} @{}}
+\caption{Doctor's Expectations from RGAIG and How Each Is Met}\label{tab:doctor_expectations} \\
+\toprule
+\thead{\#} & \thead{Doctor's Expectation} & \thead{Why It Matters} & \thead{How RGAIG Meets It} & \thead{Status} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:doctor_expectations} continued from previous page\,)}} \\
+\toprule
+\thead{\#} & \thead{Doctor's Expectation} & \thead{Why It Matters} & \thead{How RGAIG Meets It} & \thead{Status} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+E1 & Accuracy comparable to clinical EEG & "If consumer device is less accurate, I won't use it" & ASD ensemble 97.67\% across ASD; AUC 0.956; validated against clinical datasets & Met \\
+\addlinespace
+E2 & Explanation, not just a score & "Tell me WHY, not just positive/negative" & SHAP attribution + RAG literature-grounded report; cites published research & Met \\
+\addlinespace
+E3 & Human override capability & "I must be able to disagree with AI" & Accept/Override/Request re-recording; every override logged for audit & Met \\
+\addlinespace
+E4 & Integration with existing EHR & "I won't use a separate system" & HL7 FHIR R4 integration (Epic, Cerner); AI report appears in patient chart & Met \\
+\addlinespace
+E5 & No additional training burden & "I don't have time for a 3-day course" & 2-hour training; intuitive interface; AI does the analysis, doctor reads the report & Met \\
+\addlinespace
+E6 & Regulatory compliance proof & "Legal must approve before I can use it" & 525-module taxonomy; HIPAA, GDPR, FDA SaMD documentation; audit trail & Met \\
+\addlinespace
+E7 & Signal quality assurance & "How do I know the EEG data is good?" & Automated SNR check ($\geq$10 dB); impedance verification; bad channels flagged & Met \\
+\addlinespace
+E8 & Reproducibility & "Same patient, same result each time" & Test-retest reliability validated; 5-fold CV with $\leq$3.1\% fold variance & Met \\
+\addlinespace
+E9 & Works with uncooperative patients & "My ASD patient won't sit still" & Passive recording during normal activity (TV, play); no cooperation needed & Met \\
+\addlinespace
+E10 & Continuous monitoring, not just one-shot & "I need to track treatment response over months" & Daily home recording; weekly/monthly trend reports; drift detection & Met \\
+\addlinespace
+E11 & Multi-disease screening & "Don't make me use 5 different tools" & One EEG session screens ASD + PD + Epilepsy + Stress + Cancer & Met \\
+\addlinespace
+E12 & Affordable for my patients & "My patients can't afford \$5,000 hospital EEG" & Emotiv Insight \$299 + \$79/month subscription vs.\ \$5,000 per hospital session & Met \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Expectations derived from expert panel interviews (n=12, Section~F of expert questionnaire) and published clinician requirements for AI in healthcare (Kelly et al., 2019; Tonekaboni et al., 2019).
+
+%===============================================================================
+\subsection{Behavioral Tracking Workflow}
+%===============================================================================
+
+Figure~\ref{fig:behavioral_workflow} illustrates the end-to-end workflow from behavioural observation in a social setting through EEG capture, AI analysis, and delivery to both B2B and B2C stakeholders.
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}[
+  step/.style={rectangle, draw=ggunavy, fill=#1, text width=2.6cm, minimum height=2cm, align=center, font=\small, rounded corners=3pt, very thick},
+  arr/.style={-{Stealth[length=3mm]}, line width=1pt, ggunavy},
+  lbl/.style={font=\small\bfseries\color{ggunavy}, align=center},
+  note/.style={font=\small\color{ggunavy!70}, align=center},
+]
+
+% Steps
+\node[step=ch1light] (s1) at (0,0) {\textbf{1. Social Setting}\\[3pt]Child plays\\at home\\Parent observes};
+\node[step=ch2light] (s2) at (3.5,0) {\textbf{2. EEG Capture}\\[3pt]Emotiv headset\\5--10 min\\Passive recording};
+\node[step=ch3light] (s3) at (7,0) {\textbf{3. Context Data}\\[3pt]Questionnaire\\Activity log\\Environment};
+\node[step=ch4light] (s4) at (10.5,0) {\textbf{4. AI Analysis}\\[3pt]120+ features\\ASD screen\\SHAP + RAG};
+
+% Output split
+\node[step=lightgreen!50] (s5a) at (14,1.2) {\textbf{5a. B2C Report}\\[3pt]Parent app\\Weekly progress\\Therapy tracking};
+\node[step=lightblue!50] (s5b) at (14,-1.2) {\textbf{5b. B2B Report}\\[3pt]Doctor portal\\Clinical decision\\EHR integration};
+
+% Arrows
+\draw[arr] (s1) -- (s2);
+\draw[arr] (s2) -- (s3);
+\draw[arr] (s3) -- (s4);
+\draw[arr] (s4.east) -- ++(0.5,0) |- (s5a.west);
+\draw[arr] (s4.east) -- ++(0.5,0) |- (s5b.west);
+
+% Time labels
+\node[note, below=0.3cm of s1] {Always};
+\node[note, below=0.3cm of s2] {5--10 min};
+\node[note, below=0.3cm of s3] {5 min};
+\node[note, below=0.3cm of s4] {$<$ 2 min};
+
+\end{tikzpicture}}
+\caption[Behavioral Tracking Workflow: From social setting]{Behavioral Tracking Workflow: From social setting observation through EEG capture and AI analysis to B2B (doctor) and B2C (patient/caregiver) reports.}
+\label{fig:behavioral_workflow}
+\end{figure}
+
+%===============================================================================
+\subsection{Non-Verbal Case}
+%===============================================================================
+
+Table~\ref{tab:nonverbal} documents how EEG-based behavioural tracking enables diagnosis for patients who cannot communicate verbally --- the population with the greatest unmet need.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.2cm} p{2cm} p{2cm} L L @{}}
+\caption{Non-Verbal Case Detection: EEG Captures What Words Cannot}\label{tab:nonverbal} \\
+\toprule
+\thead{Patient Type} & \thead{Can Speak?} & \thead{Can Do Tests?} & \thead{What EEG Reveals} & \thead{Clinical Action Enabled} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:nonverbal} continued from previous page\,)}} \\
+\toprule
+\thead{Patient Type} & \thead{Can Speak?} & \thead{Can Do Tests?} & \thead{What EEG Reveals} & \thead{Clinical Action Enabled} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Infant (0--12 mo) & No & No & Sleep EEG: seizure patterns, auditory processing (P300) & Neonatal seizure detection; early ASD risk flag \\
+\addlinespace
+Toddler (12--24 mo) & Minimal & No & Theta/beta ratio during passive viewing; connectivity patterns & ASD screening at well-child visit; early intervention referral \\
+\addlinespace
+Pre-verbal child (2--4 yr) & Variable & Partially & All frequency bands + connectivity during play/TV & Comprehensive neurodevelopmental screening \\
+\addlinespace
+Non-verbal ASD (any age) & No & Cannot follow instructions & Social engagement markers (mu suppression); sensory response & Therapy response tracking; communication strategy planning \\
+\addlinespace
+Severe & Impaired & Difficulty with motor tests & Beta suppression trend; medication ON/OFF cycles & Medication timing optimisation; quality of life monitoring \\
+\addlinespace
+Post-stroke aphasia & No & Cannot self-report & Cognitive recovery markers; emotional state from alpha asymmetry & Recovery progress tracking; rehab programme adjustment \\
+\addlinespace
+Dementia (advanced) & Impaired & Cannot consent to tests & Sleep architecture; seizure risk; agitation biomarkers & Behavioral management; reduce unnecessary sedation \\
+\addlinespace
+ICU patient (sedated) & No & No & Seizure detection; depth of sedation; pain indicators & Prevent secondary brain injury; optimise sedation \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} EEG is the only neurological assessment tool that works regardless of patient cooperation, verbal ability, or consciousness level. This makes it uniquely suited for the populations with the greatest diagnostic unmet need.
+
+%===============================================================================
+\subsection{Continuous Monitoring Impact}
+%===============================================================================
+
+\noindent\textbf{Continuous Monitoring Value: B2B Hospital and B2C....} Table~\ref{tab:continuous_monitoring_appx} below presents the detailed analysis.
+
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.5cm} L L @{}}
+\caption{Continuous Monitoring Value: B2B Hospital and B2C Patient Comparison}\label{tab:continuous_monitoring_appx} \\
+\toprule
+\thead{Metric} & \thead{B2B Hospital Value} & \thead{B2C Patient/Caregiver Value} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:continuous_monitoring_appx} continued from previous page\,)}} \\
+\toprule
+\thead{Metric} & \thead{B2B Hospital Value} & \thead{B2C Patient/Caregiver Value} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Data points per year & 365 daily recordings vs.\ 2 clinic visits = 183$\times$ more data & Daily insight instead of waiting 6 months for next appointment \\
+\addlinespace
+Early detection & Catch decline at Day~25 instead of Month~6 & "The AI caught my child's seizure pattern before we noticed any symptoms" \\
+\addlinespace
+Treatment response & Objective measure: "Medication reduced theta/beta by 12\% in 4 weeks" & "We can SEE therapy working --- theta/beta went from 1.85 to 1.58" \\
+\addlinespace
+Revenue model & \$79/patient/month $\times$ 500 patients = \$474K/year recurring & \$948/year vs.\ \$5,000+ episodic (81\% savings for continuous care) \\
+\addlinespace
+Readmission prevention & AI alerts at PSI $>$ 0.10; 55\% fewer unnecessary ER visits & "Seizure alert told me to lie down safely --- avoided ER trip" \\
+\addlinespace
+Research value & Longitudinal dataset: 365 data points $\times$ 500 patients $\times$ 5 years & "My data helps other families --- I'm contributing to science" \\
+\addlinespace
+Staff efficiency & Neurologist reviews weekly AI summary, not 365 raw EEGs & "I only see the doctor when AI says something changed" \\
+\addlinespace
+Liability protection & "We monitored continuously and acted on Day~25 alert" & "The hospital was watching my condition every day" (trust) \\
+\end{xltabular}}

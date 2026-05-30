@@ -1,0 +1,1882 @@
+%%============================================================================
+% APPENDIX: Chapter 5 --- Discussion and Recommendations Supplementary Material
+%%============================================================================
+\setchaptercolor{5}
+
+\chapter*{Appendix: Chapter 5 --- Discussion and Recommendations Supplementary Material}
+%% TOC entry is in main.tex (Appendix E label)
+\label{chap:appendix_ch5}
+\normalsize\normalfont\color{black}
+\phantomsection\label{fig:clinical_workflow}
+
+
+\noindent\textbf{Appendix E Scope Contract --- Conceptual Discussion Supplement Only.}
+\label{para:appe_scope_contract}
+This appendix supplements Chapter~5 with conceptual reference dashboards, workflow visualisations, illustrative financial-scenario models, and conceptual implementation reference material. \textbf{It is NOT}: a deployed product specification; a product-marketing dashboard showcase; a validated business case; a regulatory submission artefact; or an implementation commitment. Where the appendix references future-validation pathways, illustrative ROI / TCO scenarios, future-operational dashboards, or conceptual regulatory alignment with FDA SaMD / EU AI Act, these are \emph{scenario-modelling artefacts and conceptual reference frameworks supporting the Chapter~5 narrative} --- not measured operational outcomes, regulatory certifications, or implementation commitments. Future commercial, clinical, or operational realisation would require separate IRB review, prospective validation, and regulatory assessment --- explicitly out of scope. \textbf{Prior IRB approval references} for the $n{=}131$ PLS-SEM and $n{=}12$ expert-panel data streams informing the Chapter~5 discussion are consolidated in Chapter~\ref{chap:methodology} Section~\ref{para:prior_irb_approval_trail} (Prior IRB Approval Trail); illustrative ROI / TCO scenarios in this appendix are scenario-modelling artefacts and do not constitute regulatory or operational claims.
+
+This appendix contains supplementary tables, figures, and detailed analyses that support Chapter~5 but were moved from the main text to maintain narrative focus. Each item is cross-referenced from the main chapter.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DASHBOARDS / UI / WORKFLOW DEFENSIBILITY PACK
+%% Reframes operational visualization as evidence supporting governance
+%% transparency, clinician trust, and workflow adoption - NOT as
+%% product-marketing or engineering-dashboard showcase.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{section}{Dashboards \& Workflow Visualization Defensibility Pack} % [TOC-appendix-section-insertion]
+\section*{Dashboards \& Workflow Visualization Defensibility Pack}
+\addcontentsline{toc}{section}{Dashboards \& Workflow Visualization Defensibility Pack}
+\label{sec:dash_defensibility_pack}
+
+\noindent\textbf{Critical positioning (read first).} Operational visualization in this dissertation supports \emph{governance transparency} and \emph{clinician trust} during AI-assisted workflow interaction. The dashboards, workflow views, and UI elements documented here are conceptual representations of a governance-enabled decision-support environment --- not a polished product, not a deployed clinical system, and not a marketing showcase. Every visual element is justified by its role in operationalising the Governance $\to$ Explainability $\to$ Trust $\to$ Adoption pathway.
+
+\noindent\textbf{Decision-support framing throughout.} The interfaces represent conceptual governance-enabled decision-support workflows; they are \textbf{not} clinically deployed autonomous diagnostic systems. The clinician retains decision authority at every stage.
+
+%% =========================================================================
+%% TABLE 1: RESEARCH-CONSTRUCT → UI MAPPING
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:dash_research_ui_map} summarises the research construct-to-UI representation for appendix review.
+
+\paragraph{Research Construct-to-UI Representation.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{4.3cm} p{8.5cm} >{\centering\arraybackslash}p{1.5cm} @{}}
+\caption[Research-to-UI Mapping]{Research Construct $\to$ UI Representation. Every interface element in this dissertation's visualization layer is justified by the research construct it operationalizes.}\label{tab:dash_research_ui_map} \\
+\toprule
+\thead{Research construct} & \thead{UI representation} & \thead{Supports H\#} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{RAI Governance (IV)}            & Audit-trail viewer; bias-monitoring dashboard; lineage map; rollback status; access-control banner; HITL queue              & H1 \\
+\textbf{Perceived Explainability (M1)}  & Rationale panel showing SHAP attributions + RAG citation cards in clinical language; per-feature contribution explained     & H1, H2 \\
+\textbf{Clinician Trust (M2)}           & Confidence indicator; calibrated probability with CI; override button with rationale-capture form; per-clinician feedback loop & H2, H3 \\
+\textbf{Adoption Intention / Workflow (DV)} & EHR-embedded display; turnaround-time indicator; in-workflow placement; training tooltip overlay                                & H3, H5 \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Engineering / admin dashboards (telemetry, infrastructure monitoring, DevOps observability) are explicitly out of scope for the dissertation contribution. They exist in the deployed system but do not appear in this dissertation's visual evidence.
+
+%% =========================================================================
+%% FIGURE 1: CLINICIAN INTERACTION FLOW
+%% =========================================================================
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[every node/.style={font=\fignodefont},
+    bx/.style={draw=ggunavy, fill=ggunavy!10, rounded corners=4pt, thick, minimum width=4.4cm, minimum height=1.0cm, align=center, font=\fignodefont},
+    decbx/.style={draw=ggunavy, fill=ggunavy!22, rounded corners=4pt, very thick, minimum width=4.4cm, minimum height=1.0cm, align=center, font=\fignodefont\bfseries},
+    arr/.style={-{Stealth[length=3mm, width=2mm]}, thick, ggunavy}]
+\node[bx]    (s1) at (0,0)     {\textbf{AI Output}\\\scriptsize ASD screening probability with CI};
+\node[bx]    (s2) at (0,-1.7)  {\textbf{Explanation Display}\\\scriptsize SHAP + RAG narrative in clinical language};
+\node[bx]    (s3) at (0,-3.4)  {\textbf{Clinician Review}\\\scriptsize Inspect rationale; query citations};
+\node[bx]    (s4) at (0,-5.1)  {\textbf{Governance Validation}\\\scriptsize Audit log; bias check; lineage visible};
+\node[decbx] (s5) at (0,-6.8)  {\textbf{Decision Support}\\\scriptsize Clinician records decision; override captured};
+\foreach \a/\b in {s1/s2, s2/s3, s3/s4, s4/s5} { \draw[arr] (\a) -- (\b); }
+\end{tikzpicture}
+\caption[Clinician Interaction Flow]{Clinician Interaction Flow. Every screen visible to the clinician supports one stage of this flow. The clinician retains decision authority at Stage~5 (highlighted); AI is decision-support throughout.}
+\label{fig:dash_clinician_flow}
+\end{figure}
+
+%% =========================================================================
+%% TABLE 2: OPERATIONAL WORKFLOW STAGE → VISUAL PURPOSE
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:dash_workflow_visual_purpose} summarises operational workflow stage vs for appendix review.
+
+\paragraph{Operational Workflow Stage vs.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.7cm} p{6.9cm} p{3.7cm} @{}}
+\caption[Operational Workflow Stage vs.\ Visual Purpose]{Operational Workflow Stage vs.\ Visual Purpose. Each clinical workflow stage has a defined visual purpose that connects to the dissertation's research model.}\label{tab:dash_workflow_visual_purpose} \\
+\toprule
+\thead{Workflow stage} & \thead{Visual purpose} & \thead{Supports construct} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+EEG review                & Clinician interaction with raw + processed signal; lineage tag visible                              & Explainability, Governance \\
+Explanation review        & Trust formation: clinician sees rationale before committing to a decision                            & Trust, Explainability \\
+Governance check          & Oversight assurance: audit trail + bias status visible on demand                                     & Governance, Trust \\
+HITL override (when used) & Trust calibration: clinician rejects/modifies AI with captured rationale                              & Trust, Governance \\
+Recommendation review     & Adoption readiness: clinician confirms decision in EHR-integrated workflow                            & Adoption \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} HITL = Human-in-the-loop; EEG = Electroencephalography. See chapter prose for full context.
+
+%% =========================================================================
+%% TABLE 3: TRUST-SUPPORTING UI FEATURES
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:dash_trust_features} summarises trust-supporting ui features (inclusion criteria for the visualization layer) for appendix review.
+
+\paragraph{Trust-Supporting UI Features.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Trust-Supporting UI Features]{Trust-Supporting UI Features (Inclusion Criteria for the Visualization Layer). What earns a place in the clinician-facing UI.}\label{tab:dash_trust_features} \\
+\toprule
+\thead{UI feature} & \thead{Why it supports trust / adoption} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Explanation visibility}    & Clinician understands \emph{why} the AI predicted; rationale visible inline rather than buried in logs \\
+\textbf{Override option}           & Clinician retains authority; AI is decision support, not authority \\
+\textbf{Rationale display}         & RAG citations visible with peer-reviewed source links; verifiable evidence rather than ``the model says so'' \\
+\textbf{Governance alerts}         & Bias-monitoring, drift, fairness alerts visible at point of decision (not hidden in admin) \\
+\textbf{Confidence transparency}   & Calibrated probability + CI displayed; uncertainty is communicated, not hidden \\
+\textbf{Citation traceability}     & Each RAG-grounded explanation traceable to its source publication; supports verifiability \\
+\textbf{Override audit}            & Clinician overrides are logged and visible to governance team; feedback loop closes \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RAG = Retrieval-Augmented Generation. See chapter prose for full context.
+
+%% =========================================================================
+%% TABLE 4: WHAT IS EXPLICITLY EXCLUDED
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:dash_excluded} summarises what is explicitly excluded from the dissertation's visualization layer for appendix review.
+
+\paragraph{Excluded from the Visualization.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Excluded from the Visualization Layer]{What is Explicitly Excluded from the Dissertation's Visualization Layer. Engineering and operational tooling that exists in the deployed system but is not dissertation-relevant.}\label{tab:dash_excluded} \\
+\toprule
+\thead{Excluded category} & \thead{Why excluded} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+DevOps dashboards         & Engineering operations; not relevant to clinician trust or adoption \\
+Infrastructure monitoring & Service-mesh metrics, container health; relevant to platform engineering, not research \\
+Engineering telemetry     & Tracing spans, latency distributions; relevant to SRE, not DBA \\
+Admin / debug tools       & Configuration screens, internal-only views; relevant to platform admin \\
+Deployment screenshots    & CI/CD pipeline views; relevant to release engineering \\
+Database / vector-DB admin & Index management, embedding management; relevant to data engineering \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} These tools exist in the implementing platform but appear nowhere in this dissertation's evidence. Their absence is deliberate, not an oversight.
+
+%% =========================================================================
+%% USABILITY + ACCESSIBILITY
+%% =========================================================================
+\subsection*{Usability and Accessibility Considerations}
+\label{sec:dash_usability}
+
+\noindent\textbf{Clinician-centered design principles applied:}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Clinical-language explanations.} SHAP attributions are translated into clinical terms (e.g., ``alpha-band asymmetry contributing to ASD probability''), not raw feature names.
+    \item \textbf{Cognitive load minimisation.} Single primary action per screen; no clinician should need more than three clicks from EEG ingestion to decision recording.
+    \item \textbf{Adoption usability.} Tooltips and contextual help available without obstructing workflow; training-overlay mode for new clinicians.
+    \item \textbf{Readability.} High contrast; medical-imaging-appropriate colour palette; sans-serif font; minimum 14pt for clinical content.
+    \item \textbf{Workflow simplicity.} EHR integration via HL7-FHIR avoids context-switching; the AI decision-support appears within the existing clinical record interface, not as a separate application.
+\end{itemize}
+
+\noindent\textbf{Limitations of the visualization framework:}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Designs are conceptual; field-validation with deployed clinicians is future work.
+    \item Accessibility compliance (WCAG 2.1 AA) is targeted at design time but requires audit before future clinical-validation pathway.
+    \item Multi-language localisation is not implemented; evaluation in non-English contexts requires additional UI work.
+\end{itemize}
+
+\noindent\textbf{End of Dashboards \& Workflow Visualization Defensibility Pack.}
+
+%% --- Task Flow Diagram ---
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}[
+    node distance=0.8cm,
+    item/.style={rectangle, draw=ggunavy, fill=ggunavy!5, rounded corners=2pt,
+        text width=13.5cm, minimum height=0.65cm, font=\small, align=left, inner sep=5pt},
+    arrow/.style={-{Stealth[length=4mm,width=3mm]}, ggunavy, thick}
+]
+\node[item, fill=lightblue] (s1) {\textbf{S1.} Six governance stub subsections consolidated into paragraph above};
+\node[item, fill=lightorange, below=of s1] (s2) {\textbf{S2.} Nine-Pillar Implementation Mapping table (tab:nine\_\allowbreak pillars\_\allowbreak mapping) — \textit{MOVED TO CH.5 MAIN TEXT}};
+\node[item, fill=lightteal, below=of s2] (s3) {\textbf{S3.} Executive Value Propositions table (tab:executive\_\allowbreak implications) — redundant with manag...};
+\node[item, fill=lightpurple, below=of s3] (s4) {\textbf{S4.} TAM/SAM/SOM table (tab:tam\_\allowbreak sam\_\allowbreak som) and Revenue Projection table (tab:revenue\_\allowbreak projec...};
+\node[item, fill=lightgreen, below=of s4] (s5) {\textbf{S5.} Governance CMM table (tab:governance\_\allowbreak maturity) — prescriptive tool, not empirical finding};
+\node[item, fill=lightyellow, below=of s5] (s6) {\textbf{S6.} LLMOps Pipeline figure (fig:llmops\_\allowbreak pipeline) — \textit{MOVED TO CH.5 MAIN TEXT}};
+\node[item, fill=lightpink, below=of s6] (s7) {\textbf{S7.} KPI Escalation table (tab:kpi\_\allowbreak escalation) and Escalation Ladder figure (fig:escalation...};
+\node[item, fill=lightcoral, below=of s7] (s8) {\textbf{S8.} Detailed 7-Study Future Research table (tab:future\_\allowbreak studies) — supplementary detail bey...};
+\node[item, fill=lightsky, below=of s8] (s9) {\textbf{S9.} Implementation Roadmap figure (fig:implementation\_\allowbreak roadmap) — aspirational evaluation t...};
+\node[item, fill=lightmint, below=of s9] (s10) {\textbf{S10.} Five-Layer RGAIG Architecture recap figure (fig:healthcare\_\allowbreak ai\_\allowbreak implementation) — dupli...};
+\draw[arrow] (s1) -- (s2);
+\draw[arrow] (s2) -- (s3);
+\draw[arrow] (s3) -- (s4);
+\draw[arrow] (s4) -- (s5);
+\draw[arrow] (s5) -- (s6);
+\draw[arrow] (s6) -- (s7);
+\draw[arrow] (s7) -- (s8);
+\draw[arrow] (s8) -- (s9);
+\draw[arrow] (s9) -- (s10);
+\end{tikzpicture}%
+}
+\caption[Appendix Task Flow: Chapter~5 Supplementary]{Appendix Task Flow: Supplementary Material for Chapter~5 (Discussion and Recommendations)}
+\label{fig:appendix_ch5_taskflow}
+\end{figure}
+
+%%----------------------------------------------------------------------------
+% S1: Six governance stub subsections consolidated into paragraph above
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+
+
+
+\noindent\textbf{Appendix E Objective.} Provide detailed compliance mappings, illustrative financial-scenario sensitivity analysis, examiner Q and A, and extended discussion tables that support Chapter~5.
+
+\needspace{24\baselineskip}
+\noindent The table below presents the appendix E Roadmap: Contents and Purpose.
+
+\begin{table}[H]
+\centering
+\caption{Appendix E Roadmap: Contents and Purpose.}
+\tablestripes\tablefontsize
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\toprule
+\thead{Content} & \thead{What It Contains} \\
+\midrule
+Compliance & NIST/ISO detailed alignment matrices \\\\\addlinespace
+Financial & illustrative financial-scenario sensitivity, NPV projections \\\\\addlinespace
+Governance & Extended RGAIG assessment \\\\\addlinespace
+Examiner prep & Anticipated Q and A with responses \\\\\addlinespace
+Commercialisation & Market sizing, evaluation pathway \\\\\addlinespace
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+\subsection{Responsible AI: Five-Pillar Implementation Framework}
+\label{sec:rai_five_pillars}
+
+%% MOVED TO SUPPLEMENTARY VOLUME — Five-Pillar Responsible AI Framework
+%% (detailed pillar descriptions, Table~\ref{tab:rai_five_pillars}, and interdependence analysis)
+
+The five-pillar responsible AI framework (transparency, fairness, privacy, accountability, beneficence) operationalises ethical AI principles through enforceable technical controls. Implementation details, including pillar-level goals, enforced controls, and audit evidence requirements, are in the Supplementary Volume.
+
+%-------------------------------------------------------------------------------
+
+\subsection{Data Protection Controls}
+\label{sec:data_protection_controls}
+
+%% MOVED TO SUPPLEMENTARY VOLUME — Data Protection Controls: Zero-PHI Model Access
+%% (four-layer control architecture, Table~\ref{tab:data_protection_controls})
+
+RGAIG enforces a strict zero-PHI policy through four layers of technical controls, ensuring no raw identifiers reach external model endpoints:
+
+\begin{itemize}[leftmargin=*, itemsep=3pt]
+    \item \textbf{Data-path hard controls:} Automated de-identification pipelines strip PHI before data enters any processing stage; allowlist-only field forwarding.
+    \item \textbf{Model usage mode restrictions:} External models operate in inference-only mode with no data retention; API calls transmit only de-identified feature vectors.
+    \item \textbf{Bring-model-to-data patterns:} Where feasible, models are deployed on-premises so that raw data never leaves the institutional boundary.
+    \item \textbf{Audit verification:} Post-processing scans confirm zero PHI leakage; every data movement is logged with immutable audit events.
+\end{itemize}
+
+\noindent The detailed control specifications and audit evidence requirements are documented in the Supplementary Volume.
+
+%-------------------------------------------------------------------------------
+
+\subsection{User Notification and Operation Accountability}
+\label{sec:user_notification}
+
+%% MOVED TO SUPPLEMENTARY VOLUME — User Notification and Operation Accountability
+%% (operation-type notification mapping, Table~\ref{tab:user_notification})
+
+Every AI operation in RGAIG generates a visible notification and an immutable audit event, following a ``notify first, act second'' design principle. The notification mapping covers six operation types:
+
+\begin{itemize}[leftmargin=*, itemsep=3pt]
+    \item \textbf{Data collection:} User notified before any patient data is accessed or processed; consent verification logged.
+    \item \textbf{RAG retrieval:} Notification when the system queries the medical literature corpus; retrieved sources displayed.
+    \item \textbf{Model inference:} Alert when an ASD screening model runs; confidence score and model version shown.
+    \item \textbf{Tool execution:} Notification when agentic tools (e.g., SHAP explainer, bias auditor) are invoked.
+    \item \textbf{Result sharing:} User informed before any screening output is transmitted to another system or clinician.
+    \item \textbf{Output storage:} Notification when results are persisted to the audit trail or patient record.
+\end{itemize}
+
+\noindent The complete operation-type notification mapping is documented in the Supplementary Volume.
+
+%-------------------------------------------------------------------------------
+
+\subsection{Fairness Metrics and Bias Handling}
+\label{sec:fairness_bias}
+
+%% MOVED TO SUPPLEMENTARY VOLUME — Fairness Metrics and Bias Handling
+%% (three-level fairness framework, Table~\ref{tab:fairness_bias})
+
+RGAIG measures fairness continuously across three levels using ten metrics monitored across the full system lifecycle:
+
+\begin{itemize}[leftmargin=*, itemsep=3pt]
+    \item \textbf{Data level:}
+    \begin{itemize}[leftmargin=*, itemsep=2pt]
+        \item Representation balance across demographic subgroups
+        \item Label balance ensuring no systematic class skew by protected attribute
+    \end{itemize}
+    \item \textbf{Model level:}
+    \begin{itemize}[leftmargin=*, itemsep=2pt]
+        \item Demographic parity (equal positive prediction rates)
+        \item Equal opportunity (equal true positive rates)
+        \item Equalised odds (equal true positive and false positive rates)
+    \end{itemize}
+    \item \textbf{Outcome level:}
+    \begin{itemize}[leftmargin=*, itemsep=2pt]
+        \item Decision parity across clinical pathways
+        \item Error impact assessment per subgroup
+        \item Fairness drift monitoring over 30-day rolling windows
+    \end{itemize}
+\end{itemize}
+
+\noindent The complete fairness metrics framework and bias handling procedures are documented in the Supplementary Volume.
+
+%-------------------------------------------------------------------------------
+
+\subsection{Responsible AI Validation Techniques}
+\label{sec:rai_validation}
+
+%% MOVED TO SUPPLEMENTARY VOLUME — Responsible AI Validation Techniques
+%% (validation matrix by pillar and layer, Table~\ref{tab:rai_validation})
+
+Each responsible AI pillar is validated through defined technical tests, governance processes, and measurable quality checks aligned with NIST AI RMF, ISO 42001, and GDPR. The validation matrix covers the following six pillars across data, model, runtime, and governance layers:
+
+\begin{itemize}[leftmargin=*, itemsep=3pt]
+    \item \textbf{Fairness:} Demographic parity, equal opportunity, and equalised odds tested per subgroup; Fairlearn audit with $\leq$2\% variance threshold.
+    \item \textbf{Privacy:} De-identification verification, PII leakage scans, differential privacy budget tracking, and HIPAA compliance checks.
+    \item \textbf{Transparency:} SHAP feature importance, RAG citation grounding, confidence calibration, and audit trail completeness.
+    \item \textbf{Robustness:} Adversarial input testing, out-of-distribution detection, PSI drift monitoring, and cross-validation stability analysis.
+    \item \textbf{Safety:} Hallucination gate enforcement, human-in-the-loop escalation, clinical plausibility checks, and override rate monitoring.
+    \item \textbf{Accountability:} RACI role mapping, governance committee review, regulatory submission documentation, and incident response protocols.
+\end{itemize}
+
+\noindent The complete validation techniques specification is documented in the Supplementary Volume.
+
+%-------------------------------------------------------------------------------
+
+\subsection{Hallucination Control and Verification Framework}
+\label{sec:hallucination_control}
+
+%% MOVED TO SUPPLEMENTARY VOLUME — Hallucination Control and Verification Framework
+%% (six-layer validation pipeline, Table~\ref{tab:hallucination_control})
+
+RGAIG implements hallucination controls at six pipeline layers. Any output failing the grounding gate or confidence gate is blocked from patient-facing display until human review.
+
+\begin{enumerate}[leftmargin=*, itemsep=3pt]
+    \item \textbf{Input scoping:} Constrain queries to the clinical domain ontology, rejecting out-of-scope or adversarial prompts before they reach the model.
+    \item \textbf{Knowledge grounding:} Anchor every generated statement to retrieved evidence from the curated medical literature corpus (ChromaDB, 1.17~GB).
+    \item \textbf{Model-time calibration:} Apply temperature scaling and nucleus sampling to reduce confident but unsupported assertions during generation.
+    \item \textbf{Post-generation verification:} Cross-check generated claims against source documents; flag any assertion lacking a retrievable citation.
+    \item \textbf{Runtime gates:} Enforce confidence thresholds ($\geq$0.85 faithfulness) and block outputs that fail grounding or clinical plausibility checks.
+    \item \textbf{Continuous monitoring:} Track hallucination rates over 30-day rolling windows; trigger model review when rates exceed 2\%.
+\end{enumerate}
+
+\noindent The complete hallucination control specification is documented in the Supplementary Volume.
+
+%-------------------------------------------------------------------------------
+
+\subsection{Five-Pillar Clinical AI Deep Audit Framework}
+\label{sec:deep_audit}
+
+%% MOVED TO SUPPLEMENTARY VOLUME — Five-Pillar Clinical AI Deep Audit Framework
+%% (Pillars 1--5: Tables~\ref{tab:audit_pillar1}--\ref{tab:audit_pillar5}, ~318 lines)
+
+The clinical AI deep audit framework evaluates 97 dimensions across five pillars. Table~\ref{tab:app_ch5_audit_pillars} summarises each pillar's scope and dimension count. Each pillar contains 18--20 audit dimensions assessed by scope, method, risk level, and remediation strategy. The framework supports regulatory submissions (EU AI Act, FDA SaMD, HIPAA), periodic self-assessment, and third-party audits. The complete 97-dimension audit matrix is documented in the Supplementary Volume.
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:app_ch5_audit_pillars} five-pillar clinical ai deep audit framework.
+
+\paragraph{Five-Pillar Clinical AI Deep Audit Framework.}
+
+
+
+
+{\tablestripes\tablefontsize
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{}c L c L@{}}
+\caption[Five-Pillar Clinical AI Deep Audit Framework]{Five-Pillar Clinical AI Deep Audit Framework --- Dimension Summary}\label{tab:app_ch5_audit_pillars} \\
+\toprule
+\thead{Pillar} & \thead{Name} & \thead{Dimensions} & \thead{Scope} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Data Responsibility and PHI Governance & 20 & Data lineage, de-identification, consent, quality gates, access controls \\
+\addlinespace
+2 & Model Responsibility & 19 & Training rigour, validation protocols, bias testing, version control, reproducibility \\
+\addlinespace
+3 & Output Responsibility and Clinical Safety & 20 & Prediction accuracy, confidence calibration, hallucination prevention, human-in-the-loop gates \\
+\addlinespace
+4 & Monitoring and Drift & 18 & PSI drift detection, fairness drift, performance dashboards, retraining triggers \\
+\addlinespace
+5 & Governance and Compliance & 20 & Regulatory alignment (FDA, EU AI Act, HIPAA), audit trails, RACI accountability \\
+\midrule
+ & \textbf{Total} & \textbf{97} & \textbf{5 governance dimensions} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} PHI = protected health information; PSI = Population Stability Index; RACI = responsible, accountable, consulted, informed. Dimension counts are approximate; the complete audit matrix is in the Supplementary Volume.
+
+%%----------------------------------------------------------------------------
+% S2: Nine-Pillar Implementation Mapping table (tab:nine_pillars_mapping) — reference detail redundant with figure and Ch.3
+%%----------------------------------------------------------------------------
+% MOVED TO CHAPTER 5 MAIN TEXT (Mar 2026)
+\iffalse
+\clearpage
+\section{Nine-Pillar Implementation Mapping table}
+\label{sec:appendix_ch5_s2}
+
+% ── Nine-Pillar Implementation Mapping Table ──
+\noindent Table~\ref{tab:app_nine_pillars_mapping} maps nine-Pillar GenAI Framework --- RGAIG Implementation Mapping.
+
+\noindent Each pillar is paired with the chapter section that operationalises it and the artefact that demonstrates compliance.
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{1.0cm} p{2.5cm} p{6.8cm} p{3.9cm} @{}}
+\caption[Nine-Pillar GenAI Framework --- RGAIG Implementation Mapping]{Nine-Pillar GenAI Framework --- RGAIG Implementation Mapping}\label{tab:app_nine_pillars_mapping} \\
+\toprule
+\thead{Pillar} & \thead{Function} & \thead{RGAIG Implementation} & \thead{Regulatory Alignment} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+P1 & Data Pipeline & MNE-Python preprocessing, 127-feature extraction, CWT scalograms (224$\times$224), 6 datasets, 131 unique subjects + 20{,}000 images & HIPAA \S164.312 (data integrity) \\
+\addlinespace
+P2 & DL Classification & VotingClassifier (ExtraTrees+RF) ensemble; ultra stacking with MLP meta-learner; ASD accuracy 97.67\% & FDA SaMD (analytical validation) \\
+\addlinespace
+P3 & Computer Vision & GAN + ResNet-18 for PBS microscopy classification; deep feature extraction; data augmentation & EU AI Act Art.~10 (data quality) \\
+\addlinespace
+P4 & Agentic RAG & Sentence-BERT (384-dim), FAISS + ChromaDB (1.17~GB), Ollama Llama-3.2:3b, top-K=5, faithfulness 0.89 & EU AI Act Art.~13 (transparency) \\
+\addlinespace
+P5 & Guardrail AI & 5 input + 5 output rules; 6-gate safety pipeline; screening/prescription blocking; human-in-the-loop escalation & EU AI Act Art.~14 (human oversight) \\
+\addlinespace
+P6 & MCP Governance & Model registry, version control, RBAC, evaluation gates, audit logging, rollback; cross-cutting over P1--P9 & ISO 42001 (AI management) \\
+\addlinespace
+P7 & Responsible AI & SHAP explainability, Fairlearn bias audit ($\leq$2\% variance), 5-pillar clinical audit (97 dimensions) & EU AI Act Art.~9 (risk management) \\
+\addlinespace
+P8 & Security AI & PII detection (regex + NER), AES-256 encryption, RBAC, zero PII leakage, 15 governance layers (A1--A15) & HIPAA \S164.312, GDPR Art.~25/32 \\
+\addlinespace
+P9 & Patient Output & 3-tier explanations (classification $\rightarrow$ SHAP features $\rightarrow$ RAG citations), clinical reports, confidence intervals & FDA SaMD (future clinical-validation pathway) \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} MCP (P6) operates as cross-cutting governance: every pillar's model version, access control, and evaluation state passes through MCP gates before production release.
+\fi
+
+%%----------------------------------------------------------------------------
+% S3: Executive Value Propositions table (tab:executive_implications) — redundant with managerial implications table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Executive Value Propositions table}
+\label{sec:appendix_ch5_s3}
+
+
+\noindent This table lists each \textit{role} across current pain point, rgaig solution, and measurable impact, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{1.0cm} p{4.2cm} p{4.6cm} p{4.3cm} @{}}
+\caption[Executive Value Propositions by C-Suite Role]{Executive Value Propositions by C-Suite Role}\label{tab:executive_implications} \\
+\toprule
+\thead{Role} & \thead{Current Pain Point} & \thead{RGAIG Solution} & \thead{Measurable Impact} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+CIO & 5--8 vendor contracts per hospital for siloed ASD screening tools & Single ASD screening platform replaces fragmented ASD specialist tools & 65--69\% illustrative cost-modelling reduction scenario; single ASD integration point \\
+\addlinespace
+COO & ASD specialist bottleneck limits ASD screening throughput & Automated ASD pipeline (94.6\% time reduction) & 500$\to$26.8 min per ASD case~\cite{rajkomar2019healthcare} \\
+\addlinespace
+CMO & Clinician trust deficit slows ASD screening adoption & RAG explainability + SHAP feature maps & 12--18 pp inter-rater improvement; $M$=4.6/5 trust \\
+\addlinespace
+CFO & Unclear AI investment return & Three-scenario illustrative financial-scenario model with sensitivity analysis & Projected 135--185\% 3-year return \\
+\addlinespace
+CISO/DPO & Privacy and compliance risk & HIPAA/GDPR alignment; de-identification; audit trails & $<$10\% false positive rate; full traceability \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} CIO = Chief Information Officer; COO = Chief Operating Officer; CMO = Chief Medical Officer; CFO = Chief Financial Officer; CISO = Chief Information Security Officer; DPO = Data Protection Officer; pp = percentage points; TCO = total cost of ownership.
+
+%%----------------------------------------------------------------------------
+% S4: TAM/SAM/SOM table (tab:tam_sam_som) and Revenue Projection table (tab:revenue_projection)
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{TAM/SAM/SOM table and Revenue Projection table}
+\label{sec:appendix_ch5_s4}
+
+% ── CAGR Market Analysis and TAM/SAM/SOM ──
+\needspace{24\baselineskip}
+\label{tab:tam_sam_som_extended}
+\label{tab:future_studies}
+\iffalse % AUTO-SUPPRESS non-ASD
+\noindent Table~\ref{tab:tam_sam_som_extended} market opportunity analysis --- tam/sam/som with cagr projections.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{}L r r r L@{}}
+\caption[Market Opportunity Analysis --- TAM/SAM/SOM with CAGR]{Market Opportunity Analysis --- TAM/SAM/SOM with CAGR Projections}\label{tab:tam_sam_som_extended} \\
+\toprule
+\thead{Market Layer} & \thead{2024 Size} & \thead{2030 Projected} & \thead{CAGR} & \thead{Rationale} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{5}{l}{\textbf{Total Addressable Market (TAM)}} \\
+\addlinespace
+AI in Healthcare & \$14.9B & \$110--188B & 38.5\% & All healthcare AI spending globally~\cite{grandview2024aihealthcare, marketsandmarkets2024aihealthcare} \\
+\addlinespace
+\multicolumn{5}{l}{\textbf{Serviceable Addressable Market (SAM)}} \\
+\addlinespace
+GenAI in Healthcare & \$1.8B & \$17--98B & 34.8\% & RAG, LLM, explainable AI in clinical settings~\cite{grandview2024genai, precedence2024genaihealthcare} \\
+\addlinespace
+EEG Device Market & \$4.15B & \$8.2B & 12.4\% & EEG devices and adjacent neurotech hardware~\cite{grandview2024eeg, precedence2024bci} \\
+\addlinespace
+\multicolumn{5}{l}{\textbf{Serviceable Obtainable Market (SOM)}} \\
+\addlinespace
+Wearable EEG Devices & \$286M & \$670M & 12.9\% & Consumer EEG wearables and adjacent EEG neurotech (Emotiv, Muse, OpenBCI)~\cite{grandview2024wearablebrain} \\
+\addlinespace
+Non-invasive EEG Neurotech & \$369M & \$690M & 9.4\% & Non-invasive EEG and related neurotech applications~\cite{grandview2024bci} \\
+\midrule
+\multicolumn{5}{l}{\textbf{RGAIG Target (B2C Entry)}} \\
+\addlinespace
+Home neuro-monitoring & --- & \$50--100M & --- & \$999 device + \$29.99/mo; 5K--10K subscribers by Year~3 \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} TAM = total addressable market; SAM = serviceable addressable market; SOM = serviceable obtainable market; CAGR = compound annual growth rate. Sources: Grand View Research, MarketsandMarkets, Precedence Research (2024). RGAIG's B2C entry targets the SOM intersection of consumer EEG and GenAI explainability. The 38.5\% healthcare AI CAGR reflects accelerating adoption driven by regulatory clarity (EU AI Act, FDA SaMD pathways) and clinician demand for explainable, governed ASD screening tools.
+\fi % AUTO-SUPPRESS non-ASD
+
+Table~\ref{tab:revenue_projection} reports the three-year revenue projection for the RGAIG B2C market entry across device sales, subscription revenue, and cumulative ROI.
+
+\paragraph{Three-Year Revenue Projection.}
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{}L r r r@{}}
+\caption[Three-Year Revenue Projection --- RGAIG B2C Market Entry]{Three-Year Revenue Projection --- RGAIG B2C Market Entry}\label{tab:revenue_projection} \\
+\toprule
+\thead{Metric} & \thead{Year 1} & \thead{Year 2} & \thead{Year 3} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+B2B hospital pilots & 5 & 15 & 50 \\
+B2C subscribers & 500 & 2,500 & 10,000 \\
+Device revenue (\$999/unit) & \$500K & \$2.5M & \$10.0M \\
+Subscription revenue (\$29.99/mo) & \$180K & \$900K & \$3.6M \\
+Total revenue & \$680K & \$3.4M & \$13.6M \\
+Cumulative investment & \$2.0M & \$3.5M & \$5.0M \\
+Projected illustrative financial scenario & $-$66\% & $-$3\% & 172\% \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Revenue projections are illustrative estimates based on published market benchmarks and comparable B2C health-tech pricing (e.g., Oura Ring, Whoop). Projected Illustrative financial scenario (modelled only) at Year~3 aligns with three-scenario sensitivity analysis (pessimistic: 85\%; base: 172\%; optimistic: 240\%). Actual results will depend on regulatory approvals, market adoption rates, and reimbursement pathways.
+
+%%----------------------------------------------------------------------------
+% S5: Governance CMM table (tab:governance_maturity) — prescriptive tool, not empirical finding
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Governance CMM table}
+\label{sec:appendix_ch5_s5}
+
+Table~\ref{tab:governance_maturity} presents the Governance Capability Maturity Model.
+\noindent Table~\ref{tab:governance_maturityE} presents clinical AI Governance Capability Maturity Model (Appendix).
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{1.0cm} p{2.6cm} p{5.7cm} p{4.8cm} @{}}
+\caption[Clinical AI Governance Capability Maturity Model (Appendix)]{Clinical AI Governance Capability Maturity Model (Appendix)}\label{tab:governance_maturityE} \\
+\toprule
+\thead{Level} & \thead{Description} & \thead{Governance Characteristics} & \thead{Framework Alignment} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Ad-hoc ASD screening AI use & No formal governance; individual clinician experiments with ASD screening tools; no audit trails & Pre-adoption: organizational readiness assessment required \\
+\addlinespace
+2 & Emerging controls & Basic AI usage policy; informal oversight; no systematic bias monitoring or explainability & Layer 1 (Business Decision) partially implemented; governance committee formed \\
+\addlinespace
+3 & Structured governance & Formal AI governance committee; RACI roles defined; bias audits quarterly; RAG explainability deployed & Layers 1--3 (Business, Process, Data/Intelligence) operational; SHAP + RAG active \\
+\addlinespace
+4 & Integrated capability & Enterprise-wide AI management; continuous monitoring dashboards; automated drift detection; regulatory submissions & All 5 layers operational; FDA/EU compliance documented; KPI dashboards live \\
+\addlinespace
+5 & Optimized ecosystem & Continuous improvement loop; federated learning across institutions; automated retraining; real-time fairness monitoring & Full framework maturity; multi-institutional deployment; research-to-practice pipeline \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} RACI = responsible, accountable, consulted, informed; RAG = retrieval-augmented generation; SHAP = Shapley additive explanations; FDA = U.S.\ Food and Drug Administration; EU = European Union; KPI = key performance indicator. Levels adapted from CMMI Institute's capability maturity model for ASD screening contexts.
+
+%%----------------------------------------------------------------------------
+% S6: LLMOps Pipeline figure (fig:llmops_pipeline)
+%%----------------------------------------------------------------------------
+% MOVED TO CHAPTER 5 MAIN TEXT (Mar 2026)
+\iffalse
+\clearpage
+\section{LLMOps Pipeline figure}
+\label{sec:appendix_ch5_s6}
+
+The RGAIG operationalises model lifecycle management through MLflow-based tracking and LLMOps practices. Figure~\ref{fig:llmops_pipeline} illustrates the end-to-end pipeline from data ingestion through model evaluation with continuous monitoring.
+
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}[
+  box/.style={draw=ggunavy, fill=ggunavy!10, rounded corners=4pt, text width=2.2cm, minimum height=1.4cm, font=\small, align=center},
+  mlbox/.style={draw=ggunavy, fill=ggunavy!20, rounded corners=4pt, text width=2.2cm, minimum height=1.4cm, font=\small, align=center},
+  arrow/.style={-{Stealth[length=4mm, width=3mm]}, very thick, ggunavy},
+  feedback/.style={-{Stealth[length=4mm, width=3mm]}, very thick, ggunavy, dashed},
+  node distance=0.8cm
+]
+% Row 1: Data Pipeline
+\node[box, fill=lightblue] (d1) {\textbf{Data}\\Ingestion\\{\small ASD}};
+\node[box, fill=lightorange, right=of d1] (d2) {\textbf{Preprocess}\\8-step\\{\small standardisation}};
+\node[box, fill=lightteal, right=of d2] (d3) {\textbf{Feature}\\Engineering\\{\small CWT + spatial}};
+\node[mlbox, fill=lightpurple, right=of d3] (d4) {\textbf{MLflow}\\Experiment\\{\small track params}};
+\node[box, fill=lightgreen, right=of d4] (d5) {\textbf{Train}\\DL Models\\{\small CNN, LSTM}};
+
+% Row 2: Evaluation Pipeline
+\node[mlbox, fill=lightyellow, below=0.8cm of d1] (e1) {\textbf{MLflow}\\Registry\\{\small version, stage}};
+\node[box, fill=lightpink, right=of e1] (e2) {\textbf{Validate}\\10-fold CV\\{\small bootstrap CI}};
+\node[box, fill=lightcoral, right=of e2] (e3) {\textbf{RAG}\\Explain\\{\small literature}};
+\node[box, fill=lightsky, right=of e3] (e4) {\textbf{Deploy}\\Serve\\{\small API endpoint}};
+\node[mlbox, fill=lightmint, right=of e4] (e5) {\textbf{Monitor}\\PSI + KPI\\{\small drift detect}};
+
+% Arrows Row 1
+\draw[arrow] (d1) -- (d2);
+\draw[arrow] (d2) -- (d3);
+\draw[arrow] (d3) -- (d4);
+\draw[arrow] (d4) -- (d5);
+
+% Arrows connecting rows
+\draw[arrow] (d5.south) -- ++(0,-0.2) -| (e1.north);
+
+% Arrows Row 2
+\draw[arrow] (e1) -- (e2);
+\draw[arrow] (e2) -- (e3);
+\draw[arrow] (e3) -- (e4);
+\draw[arrow] (e4) -- (e5);
+
+% Feedback loop
+\draw[feedback] (e5.south) -- ++(0,-0.5) -| node[below, font=\small, pos=0.5] {retrain trigger} (d4.south);
+\end{tikzpicture}%
+}
+\caption[LLMOps/MLflow Integration Pipeline (Appendix)]{LLMOps/MLflow Integration Pipeline: From Data to Continuous Monitoring}
+\label{fig:llmops_pipeline}
+\vspace{0.3em}\noindent\textit{Note.} Shaded boxes indicate MLflow-managed stages. The dashed feedback loop triggers automated retraining when PSI drift exceeds 0.25 or domain accuracy drops below the amber threshold (80--85\%). LLMOps = Large Language Model Operations (applied to RAG explainability module); MLflow tracks all experiments, model versions, and evaluation stages. CWT = continuous wavelet transform; PSI = Population Stability Index; KPI = key performance indicator.
+\end{figure}
+
+The detailed LLMOps/MLflow pipeline KPI mapping covers six stages:
+
+\begin{enumerate}[leftmargin=*, itemsep=3pt]
+    \item \textbf{Experiment tracking:} MLflow logs hyperparameters, metrics, and artefacts for every training run across all the ASD domain.
+    \item \textbf{Model registry:} Trained models are versioned, staged (development, staging, production), and tagged with dataset hashes.
+    \item \textbf{Automated validation:} 10-fold cross-validation with bootstrap confidence intervals runs automatically before any model promotion.
+    \item \textbf{RAG LLMOps:} The retrieval-augmented generation module is monitored for faithfulness, latency, and citation accuracy.
+    \item \textbf{PSI drift monitoring:} Population Stability Index is computed on 30-day rolling windows; breaches above 0.25 trigger retraining.
+    \item \textbf{KPI dashboard:} Real-time traffic-light indicators surface domain accuracy, fairness variance, and system uptime to governance stakeholders.
+\end{enumerate}
+
+\noindent Full stage-level specifications are provided in the Supplementary Volume.
+\fi
+
+%%----------------------------------------------------------------------------
+% S7: KPI Escalation table (tab:kpi_escalation) and Escalation Ladder figure (fig:escalation_ladder)
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{KPI Escalation table and Escalation Ladder figure}
+\label{sec:appendix_ch5_s7}
+
+
+\noindent This table lists each \textit{kpi} across green, amber, red, and 2 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L c c c L c @{}}
+\caption[KPI Threshold-to-Action Escalation Protocol (Appendix)]{KPI Threshold-to-Action Escalation Protocol (Appendix)}\label{tab:kpi_escalation_app} \\
+\toprule
+\thead{KPI} & \thead{Green} & \thead{Amber} & \thead{Red} & \thead{Escalation Path} & \thead{Response} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Domain accuracy & $\geq$85\% & 80--85\% & $<$80\% & AI Committee $\to$ Board & 24h \\
+\addlinespace
+Demographic fairness & $\leq$2\% var. & 2--5\% var. & $>$5\% var. & Compliance $\to$ Board & Immediate \\
+\addlinespace
+Model drift (PSI) & $<$0.10 & 0.10--0.25 & $>$0.25 & Data Science $\to$ Committee & 48h \\
+\addlinespace
+Audit trail coverage & 100\% & 95--99\% & $<$95\% & IT Ops $\to$ Compliance & 24h \\
+\addlinespace
+RAG coherence & $\geq$0.85 & 0.75--0.85 & $<$0.75 & Data Science $\to$ Clinical & 48h \\
+\addlinespace
+Override rate & $<$15\% & 15--25\% & $>$25\% & Clinical Lead $\to$ Committee & Weekly \\
+\addlinespace
+System uptime & $\geq$99.5\% & 98--99.5\% & $<$98\% & IT Ops $\to$ CIO & 4h \\
+\addlinespace
+Training completion & $\geq$90\% & 70--90\% & $<$70\% & HR $\to$ COO & Monthly \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} PSI = Population Stability Index (model drift metric). Var.\ = variance across demographic subgroups. Green = normal operations; Amber = monitoring alert with corrective action; Red = mandatory escalation to designated authority. Thresholds derived from regulatory standards (FDA SaMD, EU AI Act) and expert panel consensus.
+
+Figure~\ref{fig:escalation_ladder} visualizes the four-level governance escalation architecture, from operational monitoring (Level~1) through Board intervention for patient safety incidents (Level~4).
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}[
+    level/.style={rectangle, draw=ggunavy, fill=ggunavy!10, text width=13cm, minimum height=1.6cm, align=left, font=\fignodefont, rounded corners=3pt},
+    arrow/.style={-{Stealth[length=4mm, width=3mm]}, very thick, ggunavy},
+    lbl/.style={font=\figtitlefont, ggunavy}
+]
+% Level 4 (top) — short single-line Triggers/Actions keep boxes ~1.6cm; spacing 3.2cm gives 1.6cm gap for Escalate label
+\node[level, fill=lightcoral] (l4) at (0,0) {
+    \textbf{Level 4 --- Board of Directors}\\
+    \textbf{Triggers:} safety incident, regulatory breach, fairness $>$5\%\\
+    \textbf{Actions:} suspend deployment, audit, regulator notice
+};
+% Level 3
+\node[level, fill=lightorange] (l3) at (0,-3.2) {
+    \textbf{Level 3 --- AI Governance Committee}\\
+    \textbf{Triggers:} sustained amber $>$30 days, red alert, override $>$25\%\\
+    \textbf{Actions:} mandate retraining, revise thresholds, contingency
+};
+% Level 2
+\node[level, fill=lightyellow] (l2) at (0,-6.4) {
+    \textbf{Level 2 --- Departmental Leadership}\\
+    \textbf{Triggers:} red alert, accuracy 80--85\% for $>$7 days\\
+    \textbf{Actions:} ASD review, increased monitoring, override mode
+};
+% Level 1
+\node[level, fill=lightgreen] (l1) at (0,-9.6) {
+    \textbf{Level 1 --- Operational (Data Science + IT)}\\
+    \textbf{Triggers:} monitoring alerts, amber threshold breach\\
+    \textbf{Actions:} log, root-cause, corrective action within SLA
+};
+% Arrows — halo on labels so they don't get visually swallowed
+\draw[arrow] (l1.north) -- (l2.south)
+  node[midway, lbl, fill=white, inner sep=3pt, rounded corners=2pt, draw=ggunavy!25] {Escalate};
+\draw[arrow] (l2.north) -- (l3.south)
+  node[midway, lbl, fill=white, inner sep=3pt, rounded corners=2pt, draw=ggunavy!25] {Escalate};
+\draw[arrow] (l3.north) -- (l4.south)
+  node[midway, lbl, fill=white, inner sep=3pt, rounded corners=2pt, draw=ggunavy!25] {Escalate};
+\end{tikzpicture}%
+}
+\caption[Four-Level Governance Escalation Ladder for Clinical AI Deployment]{Four-Level Governance Escalation Ladder for Clinical AI Evaluation (Appendix)}
+\label{fig:escalation_ladder_app}
+\vspace{0.5em}\noindent\textit{Note.} Escalation triggers are cumulative: a Level~2 response may trigger Level~3 if the condition persists beyond the specified timeframe. SLA = service-level agreement. The escalation protocol operationalizes the governance maturity model at Level~3 (Defined) and above; the five-level maturity framework is detailed in the Supplementary Volume.
+\end{figure}
+
+%%----------------------------------------------------------------------------
+% S8: Detailed 7-Study Future Research table (tab:future_studies) — supplementary detail beyond the 5-bullet future directions
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Detailed 7-Study Future Research table}
+\label{sec:appendix_ch5_s8}
+
+\noindent Table~\ref{tab:future_studies} operationalises these into seven specific studies with defined research questions, methods, and expected outcomes.
+
+\iffalse % AUTO-SUPPRESS non-ASD
+\needspace{24\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{1.0cm} p{4.4cm} p{4.3cm} p{4.4cm} @{}}
+\caption[Specific Future Study Designs Addressing Dissertation]{Specific Future Study Designs Addressing Dissertation Limitations}\label{tab:future_studies} \\
+\toprule
+\thead{\#} & \thead{Research Question} & \thead{Method and Sample} & \thead{Expected Outcome} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Does RGAIG accuracy generalise to prospectively collected clinical data from diverse populations? & Multi-centre prospective cohort; $N \geq 500$/domain; 3 continents; pre-registered analysis plan & External validation of accuracy estimates; quantified distribution shift impact; generalisability confidence intervals \\
+\addlinespace
+2 & Does federated learning maintain ASD screening accuracy comparable to centralised training while preserving patient privacy? & 10-hospital consortium; federated averaging with differential privacy ($\epsilon = 8$); 12-month evaluation & Federated vs.\ centralised ASD screening accuracy gap $<$ 2\%; privacy-utility trade-off quantified; scalability demonstrated \\
+\addlinespace
+3 & Do RAG explanations improve clinician screening accuracy and decision confidence compared to SHAP-only explanations? & Randomised controlled trial; $N = 100$ clinicians; blinded RAG vs.\ SHAP-only vs.\ no-AI conditions & Causal evidence for RAG's incremental contribution; effect size on screening concordance and confidence \\
+\addlinespace
+4 & What organisational factors moderate the relationship between AI capability and ASD screening adoption? & Cross-sectional survey + PLS-SEM; $N \geq 200$ clinicians across 30+ institutions; UTAUT constructs & H6 and H7 tested with latent variable models; moderators identified; adoption prediction model validated \\
+\addlinespace
+5 & Can ASD-focused preprocessing modules improve EEG classification accuracy above 85\% without violating architectural coherence? & Ablation study with Riemannian geometry, session-adaptive normalisation, and subject-specific fine-tuning; ASD EEG datasets & EEG accuracy improvement quantified; trade-off between generality and ASD performance characterised \\
+\addlinespace
+6 & What is the long-term cost-effectiveness of RGAIG evaluation over a 10-year horizon? & Markov model; sensitivity analysis on discount rates (3--5\%), prevalence, and ASD screening adoption rates; 3 evaluation scenarios & ICER (incremental cost-effectiveness ratio) per QALY gained; HTA-ready economic evidence \\
+\addlinespace
+7 & How do patients perceive and respond to AI-generated ASD screening explanations? & Mixed-methods; $N = 200$ patients; REALM-SF literacy + STAI anxiety instruments; pre/post explanation exposure & Patient comprehension rates; anxiety impact; ASD screening trust formation mechanisms; demographic moderators identified \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} PLS-SEM = partial least squares structural equation modelling; UTAUT = ASD-focused Theory of Acceptance and Use of Technology; ICER = incremental cost-effectiveness ratio; QALY = quality-adjusted life year; HTA = health technology assessment; REALM-SF = Rapid Estimate of Adult Literacy in Medicine---Short Form; STAI = State-Trait Anxiety Inventory. Studies 1--3 are highest priority; studies 4--7 can be conducted in parallel.
+\fi % AUTO-SUPPRESS non-ASD
+
+%%----------------------------------------------------------------------------
+% S9: Implementation Roadmap figure (fig:implementation_roadmap) — aspirational evaluation timeline
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Implementation Roadmap figure}
+\label{sec:appendix_ch5_s9}
+
+Figure~\ref{fig:implementation_roadmap} presents the phased implementation roadmap from research completion through future clinical-validation pathway and market launch, with key milestones spanning 2026--2028.
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}[
+    node distance=0.8cm,
+    phase/.style={rectangle, draw=ggunavy, fill=ggunavy!10, text width=14cm, minimum height=1.0cm, font=\small, align=left, rounded corners=2pt},
+    gate/.style={diamond, draw=ggunavy, fill=ggunavy!25, minimum width=1cm, minimum height=1.0cm, font=\small, align=center, inner sep=1pt},
+    arrow/.style={-{Stealth[length=4mm,width=3mm]}, ggunavy, thick},
+    year/.style={font=\small\bfseries\color{ggunavy}, anchor=east}
+]
+\node[year] at (-0.2,0) {2026};
+\node[phase, fill=lightblue] (p1) at (7.2,0) {\textbf{Phase 1: ASD Validation} --- Prospective ASD data at $\geq$3 clinical sites; $n \geq 500$ total; HIGH priority};
+\node[phase, fill=lightorange, below=of p1] (p2) {\textbf{Phase 2: Real-Time Prototyping} --- Inference latency $<$100~ms; Emotiv EPOC~X integration; cloud pipeline (AWS/Azure); FPGA edge prototype (offline B2C handheld)};
+\node[year] at (-0.2,-1.78) {2027};
+\node[phase, fill=lightteal, below=of p2] (p3) {\textbf{Phase 3: Regulatory Submission} --- FDA 510(k) pre-submission; CE marking; EU AI Act conformity assessment};
+\node[phase, fill=lightpurple, below=of p3] (p4) {\textbf{Phase 4: ASD Pilot Deployment} --- 2--3 hospital sites; clinician adoption target $\geq$60\%; federated learning R\&D};
+\node[year] at (-0.2,-3.93) {2028};
+\node[phase, fill=lightgreen, below=of p4] (p5) {\textbf{Phase 5: Commercial Scale-Up} --- Market launch; SaaS licensing model; multi-site replication; continuous monitoring};
+\draw[arrow] (p1) -- (p2);
+\draw[arrow] (p2) -- (p3);
+\draw[arrow] (p3) -- (p4);
+\draw[arrow] (p4) -- (p5);
+\end{tikzpicture}%
+}
+\caption[Implementation Roadmap (2026--2028)]{Implementation Roadmap: From Research to Clinical Evaluation (2026--2028, Appendix)}
+\label{fig:implementation_roadmap}
+\vspace{0.3em}\noindent\textit{Note.} Five phases progress from ASD-focused validation (high priority) through real-time prototyping, regulatory submission (FDA 510(k)/CE marking), ASD pilot deployment, and operational scale-up. Priority levels reflect resource allocation and risk staging.
+\end{figure}
+
+%%----------------------------------------------------------------------------
+% S10: Five-Layer RGAIG Architecture recap figure (fig:healthcare_ai_implementation) — duplicate of earlier chapters
+%%----------------------------------------------------------------------------
+\section{Five-Layer RGAIG Architecture recap figure}
+\label{sec:appendix_ch5_s10}
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}[
+    node distance=0.8cm,
+    layer/.style={rectangle, rounded corners=4pt, draw=ggunavy, fill=ggunavy!8,
+        text width=13.5cm, minimum height=1.1cm, font=\small, align=center},
+    arrow/.style={-{Stealth[length=4pt]}, thick, ggunavy}
+]
+\node[layer, fill=lightblue] (l1) {\textbf{Layer 1: Data Foundation} --- EHR/PACS integration, de-identification, quality gates, audit trail};
+\node[layer, fill=lightorange, below=of l1] (l2) {\textbf{Layer 2: AI Engine} --- ASD classification (97.67\%), feature extraction (SHAP), model registry};
+\node[layer, fill=lightteal, below=of l2] (l3) {\textbf{Layer 3: RAG Explainability} --- Sentence-BERT retrieval, Llama-3.2 generation, citation grounding};
+\node[layer, fill=lightpurple, below=of l3] (l4) {\textbf{Layer 4: Governance} --- 525-module taxonomy, guardrails, PII protection, MCP control};
+\node[layer, fill=lightgreen, below=of l4] (l5) {\textbf{Layer 5: Clinical Interface} --- Clinician dashboard, patient reports, decision support (not replacement)};
+
+\draw[arrow] (l1) -- (l2);
+\draw[arrow] (l2) -- (l3);
+\draw[arrow] (l3) -- (l4);
+\draw[arrow] (l4) -- (l5);
+
+\draw[decorate, decoration={brace, amplitude=8pt, mirror}, thick, ggunavy!60]
+    ([xshift=-0.4cm]l1.north west) -- ([xshift=-0.4cm]l5.south west)
+    node[midway, left=10pt, font=\small\itshape, text=ggunavy, align=center, rotate=90]
+    {RGAIG Architecture};
+\end{tikzpicture}%
+}
+\caption[Five-Layer RGAIG Architecture]{Healthcare AI Implementation Model: Five-Layer RGAIG Architecture for Clinical Deployment}
+\label{fig:healthcare_ai_implementation}
+\vspace{0.3em}\noindent\textit{Note.} RGAIG = Responsible Generative AI Governance Framework; EHR = electronic health record; PACS = picture archiving and communication system; SHAP = SHapley Additive exPlanations; RAG = retrieval-augmented generation; PII = personally identifiable information; MCP = model control protocol. Information flows upward from data through ASD classification, explanation generation, governance checks, to ASD screening support. Governance constraints propagate downward.
+\end{figure}
+
+
+%%----------------------------------------------------------------------------
+% S11: Phase 7 — AI Governance Decision Flow
+%%----------------------------------------------------------------------------
+\section{AI Governance Decision Flow}
+\label{sec:appendix_ch5_governance_flow}
+
+\noindent\textbf{Four-gate governance validation pipeline (Figure~\ref{fig:governance_flow}).}
+\begin{enumerate}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Bias detection.} Disparate Impact $\geq$\,0.80.
+    \item \textbf{Fairness validation.} Equal opportunity across demographic groups.
+    \item \textbf{Confidence thresholding.} $\geq$\,85\,\%.
+    \item \textbf{Compliance verification.} 525-module taxonomy.
+\end{enumerate}
+\noindent Failed gates trigger remediation: Level~1 (automated re-evaluation) $\to$ Level~4 (regulatory reporting). Pipeline achieves \textbf{98.4\,\% pass rate} across the ASD screening taxonomy. Responsible AI is operationalised at inference time, not retrospectively.
+
+\input{figures/fig_governance_flow}
+
+%%----------------------------------------------------------------------------
+% S12: Phase 7 — Continuous Monitoring and Retraining Pipeline
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Continuous Monitoring and Retraining Pipeline}
+\label{sec:appendix_ch5_monitoring}
+
+\noindent\textbf{Five-stage MLOps lifecycle (Figure~\ref{fig:continuous_monitoring}).}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Monitoring.} Live EEG ingestion, ensemble inference, performance metrics (rolling accuracy, FPR, uptime), three drift types (data, concept, feature).
+    \item \textbf{Retrain triggers.} PSI $>$\,0.25 for 7 consecutive days OR rolling accuracy drops $>$\,3\,pp.
+    \item \textbf{Validation gate.} Required before re-deployment.
+    \item \textbf{Scheduled retraining.} Quarterly safety net independent of drift detection.
+\end{itemize}
+\noindent This addresses a literature-review gap: most ASD screening systems lack post-deployment performance assurance.
+
+\input{figures/fig_continuous_monitoring}
+
+%%----------------------------------------------------------------------------
+% S13: Phase 7 — User Interaction Flow (B2C Impact)
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{User Interaction Flow: Parent and Clinician Journeys}
+\label{sec:appendix_ch5_user_flow}
+
+\noindent\textbf{Dual-persona user-interaction flow (Figure~\ref{fig:user_interaction_flow}).}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Parent journey (accessibility).} 5-min EEG $\to$ plain-language RAG screening report with risk score + recommended actions.
+    \item \textbf{Clinician journey (analytical depth).} SHAP feature attribution, EEG topographic maps, confidence intervals; HITL override authority preserved.
+    \item \textbf{Cross-link.} Parent shares AI screening report with ASD specialist $\to$ B2C-to-B2B referral pathway.
+    \item \textbf{Impact metrics.} Screening time 45~min $\to$ 5~min/patient; RAG faithfulness 0.92; modelled illustrative financial scenario 135--2{,}717\,\%.
+\end{itemize}
+
+\input{figures/fig_user_interaction_flow}
+
+
+%%============================================================================
+%% Migrated from Chapter 5 main text (narrative overload reduction)
+%%============================================================================
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Lean Waste Elimination Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Lean Waste Elimination Table} % [TOC-appendix-section-insertion]
+\section*{Lean Waste Elimination Table}
+\phantomsection\label{sec:app_ch5_tab_lean_waste}
+\needspace{24\baselineskip}
+\noindent The table below presents the lean Waste Elimination: Manual vs.\ RGAIG-Automated Diagnostic Pipeline.
+
+\begin{table}[H]
+\tablestripes
+% [FONT-FIX] \scriptsize
+\caption[Lean Waste Elimination in Diagnostic Pipeline]{Lean Waste Elimination: Manual vs.\ RGAIG-Automated Diagnostic Pipeline}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} L L >{\raggedright\arraybackslash}p{1.0cm} @{}}
+\toprule
+\thead{Lean Waste} & \thead{Manual Pipeline (Before)} & \thead{RGAIG Pipeline (After)} & \thead{Redn.} \\
+\midrule
+Waiting & 3--6\,mth ASD specialist wait; ASD screening results delayed 2--4\,wk & ASD screening 4.2\,min; same-day ASD screening results & 85--95\% \\
+\addlinespace
+Transport & EEG shipped between recording, reading, referring & Single-platform; digital delivery & 100\% \\
+\addlinespace
+Over-proc. & Repeated ASD specialist review and redundant intake & Single ASD pipeline streamlines screening & 80\% \\
+\addlinespace
+Defects & Inter-rater variability 60--70\%; missed dx & ASD accuracy 97.67\%; calibrated confidence & 40--50\% \\
+\addlinespace
+Motion & 3--5 tools per patient; manual data entry & Unified interface; agentic orchestration & 90\% \\
+\addlinespace
+Inventory & Unread EEG backlog during ASD specialist shortages & Real-time processing; ASD screening queue & 95\% \\
+\addlinespace
+Over-prod. & Unnecessary ASD specialist referrals from primary care & ASD screening triage reduces inappropriate referrals & 30--40\% \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}{\small\noindent\textit{Note.} Lean waste categories from Womack and Jones~\cite{womack1996lean}. Reductions are modelled estimates based on Chapter~\ref{chap:analysis} results and published benchmarks, not future clinical-validation pathway.}
+\end{table}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Workforce Transformation Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Workforce Transformation Table} % [TOC-appendix-section-insertion]
+\section*{Workforce Transformation Table}
+\phantomsection\label{sec:app_ch5_tab_workforce_transformation}
+\needspace{24\baselineskip}
+\noindent The table below presents the workforce Transformation: Tasks Eliminated, Augmented, and Created by RGAIG.
+
+\begin{table}[H]
+\tablestripes
+\tablefontsize
+\caption[Workforce Transformation by Role]{Workforce Transformation: Tasks Eliminated, Augmented, and Created by RGAIG}
+\begin{tabularx}{\textwidth}{@{} p{1.5cm} L L L @{}}
+\toprule
+\thead{Role} & \thead{Tasks Eliminated} & \thead{Tasks Augmented} & \thead{Tasks Created} \\
+\midrule
+Neurologist & Routine EEG visual screening for common patterns; manual report writing for straightforward ASD cases & Complex ASD screening case interpretation supported by AI confidence scores and SHAP feature maps; literature-grounded review with RAG context & ASD screening output review and sign-off; override documentation with clinical rationale; quarterly model performance audit participation \\
+\addlinespace
+EEG Technician & Manual artefact annotation; paper-based recording logs; physical handling and transfer of EEG media & Electrode placement guided by impedance monitoring; real-time signal quality feedback from preprocessing pipeline & ASD screening system operation and troubleshooting; data quality gate monitoring; patient-facing explanation of the ASD screening process \\
+\addlinespace
+Clinical Administrator & Manual scheduling across multiple ASD specialist queues; redundant data entry across departmental systems & Triage prioritisation informed by AI confidence scores; resource allocation guided by ASD screening throughput dashboards & Governance dashboard monitoring; KPI reporting to hospital leadership; vendor relationship management for ASD screening platform \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}\noindent\textit{Note.} This analysis is prospective, based on the RGAIG architecture design and published healthcare workforce transformation literature~\cite{topol2019deep}, not on observed evaluation outcomes. The net effect is role enhancement rather than displacement: ASD specialist time is redirected from routine screening to complex ASD cases requiring expert judgement.
+\end{table}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Capacity Planning Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Capacity Planning Table} % [TOC-appendix-section-insertion]
+\section*{Capacity Planning Table}
+\phantomsection\label{sec:app_ch5_tab_capacity_planning}
+\needspace{24\baselineskip}
+\noindent The table below presents the capacity Planning: RGAIG Throughput Under Three Evaluation Scenarios.
+
+\begin{table}[H]
+\tablestripes
+\tablefontsize
+\caption[Capacity Planning Scenarios]{Capacity Planning: RGAIG Throughput Under Three Evaluation Scenarios}
+\begin{tabularx}{\textwidth}{@{} p{2.0cm} L L L @{}}
+\toprule
+\thead{Parameter} & \thead{Small Clinic} & \thead{Mid-Size Hospital} & \thead{Academic Medical Centre} \\
+\midrule
+Daily EEG volume & 10--20 & 40--80 & 150--300 \\
+GPU requirement & 1$\times$ A100 (shared) & 1$\times$ A100 (dedicated) & 2--3$\times$ A100 (dedicated) \\
+Processing capacity & 340/day & 340/day per GPU & 680--1,020/day \\
+Utilisation rate & 3--6\% & 12--24\% & 44--88\% \\
+Clinician review time & 2--3 min/ASD case & 2--3 min/ASD case & 2--3 min/ASD case \\
+Bottleneck & Clinician availability & Clinician availability & GPU at peak; clinician at steady-state \\
+Annual cost (GPU) & \$3,600 (cloud) & \$14,400 (on-premise lease) & \$43,200 (3-GPU cluster) \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}\noindent\textit{Note.} Processing capacity assumes 4.2 minutes per patient end-to-end. GPU costs based on 2024 cloud pricing (\$1.50/hr A100 spot instance) or on-premise lease equivalents. Clinician review time (2--3 min) is the operational bottleneck in all scenarios, not compute capacity. Utilisation rate = daily volume $\div$ processing capacity.
+\end{table}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Clinical Workflow Integration Figure
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Clinical Workflow Integration Figure} % [TOC-appendix-section-insertion]
+\section*{Clinical Workflow Integration Figure}
+\phantomsection\label{sec:app_ch5_fig_clinical_workflow}
+\clearpage
+\needspace{32\baselineskip} % [nosplit-protection added]
+\begin{figure}[!htbp]
+    \centering
+    \resizebox{0.97\textwidth}{0.75\textheight}{%
+    \begin{tikzpicture}[
+        every node/.style={font=\small},
+        actor/.style={rectangle, draw=ggunavy, thick, fill=ggunavy!15,
+            text=ggunavy, minimum width=2.2cm, minimum height=1.0cm,
+            align=center, font=\small\bfseries},
+        actorline/.style={dashed, ggunavy!50, thick},
+        msg/.style={-{Stealth[length=4mm, width=3mm]}, very thick, ggunavy},
+        selfmsg/.style={thick, ggunavy},
+        activation/.style={fill=ggunavy!15, draw=ggunavy, thick},
+        timelbl/.style={font=\small\itshape, text=ggunavy!70},
+        msglbl/.style={font=\small, text=ggunavy, fill=white, inner sep=1pt},
+        notebox/.style={rectangle, draw=ggunavy, thick, fill=ggunavy!8,
+            text=ggunavy, align=left, font=\small, inner sep=4pt},
+        bottombox/.style={rectangle, rounded corners=4pt, draw=ggunavy, thick,
+            fill=ggunavy!15, text=ggunavy, align=center, font=\small\bfseries,
+            minimum width=10cm, minimum height=1.0cm},
+    ]
+        % === Actor positions (x-coordinates) ===
+        \def\xClin{0}
+        \def\xEEG{3}
+        \def\xPrep{6}
+        \def\xASD{9}
+        \def\xReport{12}
+
+        % === Actor boxes ===
+        \node[actor] (clinician) at (\xClin, 0) {Clinician};
+        \node[actor] (eeg) at (\xEEG, 0) {EEG\\System};
+        \node[actor] (prep) at (\xPrep, 0) {Preprocessing\\Module};
+        \node[actor] (asdmodel) at (\xASD, 0) {ASD\\Model};
+        \node[actor] (report) at (\xReport, 0) {Report\\Generator};
+
+        % === Lifelines ===
+        \draw[actorline] (\xClin, -0.4) -- (\xClin, -16.5);
+        \draw[actorline] (\xEEG, -0.4) -- (\xEEG, -16.5);
+        \draw[actorline] (\xPrep, -0.4) -- (\xPrep, -16.5);
+        \draw[actorline] (\xASD, -0.4) -- (\xASD, -16.5);
+        \draw[actorline] (\xReport, -0.4) -- (\xReport, -16.5);
+
+        % === Activation boxes ===
+        % Clinician activation (initiation)
+        \fill[activation] (\xClin-0.12, -1.2) rectangle (\xClin+0.12, -2.4);
+        % EEG activation
+        \fill[activation] (\xEEG-0.12, -1.6) rectangle (\xEEG+0.12, -3.6);
+        % Preprocessing activation
+        \fill[activation] (\xPrep-0.12, -3.3) rectangle (\xPrep+0.12, -6.8);
+        % ASD model activation
+        \fill[activation] (\xASD-0.12, -6.5) rectangle (\xASD+0.12, -10.0);
+        % Report Generator activation
+        \fill[activation] (\xReport-0.12, -9.7) rectangle (\xReport+0.12, -13.0);
+        % Clinician activation (review)
+        \fill[activation] (\xClin-0.12, -12.7) rectangle (\xClin+0.12, -15.0);
+
+        % === Messages ===
+        % 1. Clinician -> EEG: Record EEG (20 min)
+        \draw[msg] (\xClin+0.12, -1.6) -- node[msglbl, above] {1. Record EEG (20 min)} (\xEEG-0.12, -1.6);
+
+        % 2. EEG -> Preprocessing: Export EDF file [t=0]
+        \draw[msg] (\xEEG+0.12, -3.3) -- node[msglbl, above] {2. Export EDF file} (\xPrep-0.12, -3.3);
+        \node[timelbl] at (\xEEG+1.5, -3.8) {$t = 0$};
+
+        % 3. Preprocessing self-call: Resample, Filter, ICA [t=2.3 min]
+        \draw[selfmsg] (\xPrep+0.12, -4.4) -- ++(1.0,0) -- ++(0,-0.8) -- ++(-1.0,0);
+        \node[msglbl, anchor=west] at (\xPrep+0.3, -4.4) {3. Resample, Filter, ICA};
+        \node[timelbl] at (\xPrep+1.5, -5.6) {$t = 2.3$ min};
+
+        % 4. Preprocessing -> ASD model: Send epochs
+        \draw[msg] (\xPrep+0.12, -6.5) -- node[msglbl, above] {4. Send epochs} (\xASD-0.12, -6.5);
+
+        % 5. ASD model self-call: Classify (forward pass) [t=2.4 min]
+        \draw[selfmsg] (\xASD+0.12, -7.4) -- ++(1.0,0) -- ++(0,-0.8) -- ++(-1.0,0);
+        \node[msglbl, anchor=west] at (\xASD+0.3, -7.4) {5. Classify (forward pass)};
+        \node[timelbl] at (\xASD+1.5, -8.6) {$t = 2.4$ min};
+
+        % 6. ASD model -> Report Generator: Prediction + Attention maps
+        \draw[msg] (\xASD+0.12, -9.7) -- node[msglbl, above, text width=2.5cm, align=center] {6. Prediction +\\Attention maps} (\xReport-0.12, -9.7);
+
+        % 7. Report Generator self-call: Generate PDF with visualization
+        \draw[selfmsg] (\xReport+0.12, -10.6) -- ++(1.2,0) -- ++(0,-0.8) -- ++(-1.2,0);
+        \node[msglbl, anchor=west, text width=2.5cm] at (\xReport+0.3, -10.5) {7. Generate PDF with\\visualization};
+
+        % 8. Report Generator -> Clinician: Return report [t=4.2 min]
+        \draw[msg] (\xReport-0.12, -12.7) -- node[msglbl, above] {8. Return report} (\xClin+0.12, -12.7);
+        \node[timelbl] at (\xPrep+1.5, -13.2) {$t = 4.2$ min};
+
+        % 9. Clinician self-call: Review & Interpret
+        \draw[selfmsg] (\xClin+0.12, -13.6) -- ++(1.0,0) -- ++(0,-0.8) -- ++(-1.0,0);
+        \node[msglbl, anchor=west] at (\xClin+0.3, -13.6) {9. Review \& Interpret};
+
+        % === Bottom box: Total Time ===
+        \node[bottombox] (totaltime) at (6, -15.8) {Total Time: 4.2 minutes (after EEG recording)};
+
+        % === Note box ===
+        \node[notebox, text width=11cm] at (6, -17.2) {Clinician oversight required at steps 1 and 9. System operates as decision \textsc{support} only.};
+
+    \end{tikzpicture}%
+    }
+    \caption[Clinical Workflow Integration]{Clinical Workflow Integration: End-to-End Diagnostic Sequence}
+    \phantomsection\label{fig:clinical_workflow_appx}
+    \vspace{0.5em}\noindent\textit{Note.} EDF = European Data Format; ICA = independent component analysis; PDF = portable document format. The workflow demonstrates that ASD screening adds only 4.2 minutes of automated processing after the standard 20-minute EEG recording, with clinician oversight at initiation and interpretation.
+\end{figure}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Clinical Journey Mapping Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Clinical Journey Mapping Table} % [TOC-appendix-section-insertion]
+\section*{Clinical Journey Mapping Table}
+\phantomsection\label{sec:app_ch5_tab_clinical_journey_mapping}
+\needspace{24\baselineskip}
+\noindent The table below presents the clinical Journey Mapping: Patient-to-Outcome Touchpoints Across the RGAIG Screening Pathway.
+
+\begin{table}[!htbp]
+\tablestripes
+\tablefontsize
+\caption[Clinical Journey Mapping]{Clinical Journey Mapping: Patient-to-Outcome Touchpoints Across the RGAIG Screening Pathway}
+% [FONT-FIX] \scriptsize
+\begin{tabularx}{\textwidth}{@{} p{0.3cm} >{\raggedright\arraybackslash}p{1.5cm} L >{\raggedright\arraybackslash}p{1.0cm} L >{\raggedright\arraybackslash}p{1.3cm} @{}}
+\toprule
+\thead{\#} & \thead{Touchpoint} & \thead{What Happens} & \thead{Actor} & \thead{AI Role} & \thead{Patient Exp.} \\
+\midrule
+1 & Symptom onset & Patient/family notices cognitive, motor, or behavioural change & Patient & None (pre-system) & Anxiety; 2.5-yr delay \\
+\addlinespace
+2 & Primary care & GP assesses symptoms; refers for EEG evaluation & GP/PCP & Risk score (opt.) & 4--12\,wk wait \\
+\addlinespace
+3 & EEG recording & Wearable placed; 20-min resting-state EEG & Tech/self & Calibration; SQI gate & Non-invasive; 20\,min \\
+\addlinespace
+4 & AI screening & Preprocess$\to$classify$\to$XAI$\to$RAG & RGAIG & Classify + explain & $<$5\,min \\
+\addlinespace
+5 & Clinician review & Reviews screening result, confidence, SHAP, RAG & Neuro. & Decision support & Pending sign-off \\
+\addlinespace
+6 & Result comms & Discusses findings; dual-persona RAG report & Clinician & Patient summary & Cited explanation \\
+\addlinespace
+7 & Follow-up & Treat, re-scan 3\,mth, or annual monitor & MDT/GP & Drift alerts & Clear next steps \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}{\small\noindent\textit{Note.} Touchpoints 1--2 = existing pathway (no AI); 3--6 = RGAIG-augmented; 7 = post-screening. Primary value at touchpoint 4: objective AI screening replacing subjective judgement while preserving clinician authority. GP = general practitioner; PCP = primary care physician; MDT = multidisciplinary team.}
+\end{table}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Doctor Review Protocol Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Doctor Review Protocol Table} % [TOC-appendix-section-insertion]
+\section*{Doctor Review Protocol Table}
+\phantomsection\label{sec:app_ch5_tab_doctor_review_app}
+\clearpage
+
+\noindent The table below presents the doctor Review and Report Validation: Six-Step Clinical Oversight Protocol.
+
+\needspace{24\baselineskip} % [nosplit-protection added]
+\begin{table}[!htbp]
+\tablestripes
+\tablefontsize
+\caption[Doctor Review and Report Validation Protocol]{Doctor Review and Report Validation: Six-Step Clinical Oversight Protocol}
+\tablefontsize
+% [FONT-FIX] \scriptsize
+\begin{tabularx}{\textwidth}{@{} p{0.3cm} L >{\raggedright\arraybackslash}p{1.2cm} L L L @{}}
+\toprule
+\thead{\#} & \thead{Review Action} & \thead{Reviewer} & \thead{Checks} & \thead{Outcome} & \thead{Escalation} \\
+\midrule
+1 & AI generates prediction + SHAP + RAG & System & Conf.$\geq$85\%; audit log & Report queued & $<$85\%$\to$flag \\
+\addlinespace
+2 & Clinician opens report dashboard & Neuro. & Screening result, confidence, XAI & Accept/Override/Defer & Senior clinician \\
+\addlinespace
+3 & Cross-check patient history & Neuro. & EHR; meds; comorbidities & Confirm or re-scan & MDT review \\
+\addlinespace
+4 & Sign-off and release & Attending & Final screening assessment documented & Released; EHR logged & Second opinion \\
+\addlinespace
+5 & Quarterly accuracy audit & Dept head & AI vs.\ final (100 cases) & Concordance$\geq$92\% & $<$92\%$\to$retrain \\
+\addlinespace
+6 & Annual governance review & Ethics bd & Fairness; consent; adverse & Gov.\ pass/fail & Fail$\to$suspend \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}{\small\noindent\textit{Note.} No report reaches the patient without clinician sign-off (Step~4). All actions timestamped in immutable audit trail. Steps 1--4 per-patient; 5--6 periodic QA. MDT = multidisciplinary team; EHR = electronic health record.}
+\end{table}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Doctor vs Patient Recommendation KPI Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Doctor vs Patient Recommendation KPI Table} % [TOC-appendix-section-insertion]
+\section*{Doctor vs Patient Recommendation KPI Table}
+\phantomsection\label{sec:app_ch5_tab_doctor_patient_recommendation_kpi}
+
+
+\noindent\textbf{Doctor Versus Patient Recommendation KPI Framework.} Table~\ref{tab:doctor_patient_recommendation_kpi} below presents the detailed analysis.
+
+\clearpage
+\noindent Each KPI is paired with its accept threshold, observed value, and the stakeholder it primarily serves.
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:doctor_patient_recommendation_kpi} presents the doctor versus patient recommendation kpi framework.
+
+
+\noindent Table~\ref{tab:doctor_patient_recommendation_kpi} below presents Doctor Versus Patient Recommendation KPI Framework, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Doctor Patient Recommendation Kpi.} % [starred-section fix]
+\noindent Table~\ref{tab:doctor_patient_recommendation_kpi} below presents Doctor Versus Patient Recommendation KPI Framework, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} L L @{}}
+\caption[Doctor Versus Patient Recommendation KPI Framework]{Doctor Versus Patient Recommendation KPI Framework}\label{tab:doctor_patient_recommendation_kpi} \\
+\toprule
+\textbf{Dimension} & \textbf{Doctor Recommendation Criteria} & \textbf{Patient / Parent Recommendation Criteria} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Clinical usefulness & Improves decision support, adds clinically relevant insight, supports interpretation & Helps understand screening status, next steps, and follow-up pathway \\
+\addlinespace
+Accuracy confidence & Output appears technically and clinically credible & Result feels believable and not arbitrary \\
+\addlinespace
+Explainability & Rationale is interpretable, evidence-linked, and clinically usable & Explanation is simple, understandable, and meaningful \\
+\addlinespace
+Workflow fit & Does not disrupt clinic flow or add cognitive burden & Does not create excessive onboarding burden or confusion \\
+\addlinespace
+Time value & Saves consultation or assessment time & Reduces repeated paperwork, repetition, or uncertainty \\
+\addlinespace
+Safety confidence & Human oversight remains, output is bounded and non-overclaiming & System feels safe and not misleading or risky \\
+\addlinespace
+Reliability & Output appears consistent across cases and use situations & Experience feels stable and dependable \\
+\addlinespace
+Privacy confidence & Data handling appears compliant and auditable & Personal data feels protected and respectfully handled \\
+\addlinespace
+Adoption readiness & Suitable for pilot or controlled clinical use & Worth using again in future assessments \\
+\addlinespace
+Recommendation intention & Would recommend to colleagues or for formal pilot use & Would recommend to other patients / parents or reuse personally \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} KPI = Key Performance Indicator. See chapter prose for full context.
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Medical-Legal Liability Framework Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Medical-Legal Liability Framework Table} % [TOC-appendix-section-insertion]
+\section*{Medical-Legal Liability Framework Table}
+\phantomsection\label{sec:app_ch5_tab_liability_framework_app}
+\needspace{24\baselineskip}
+\noindent The table below presents the medical-Legal Liability Allocation for AI-Assisted Diagnosis.
+
+\begin{table}[H]
+\tablestripes
+% [FONT-FIX] \scriptsize
+\caption[Medical-Legal Liability Framework]{Medical-Legal Liability Allocation for AI-Assisted Diagnosis}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.6cm} >{\raggedright\arraybackslash}p{2.4cm} L L @{}}
+\toprule
+\thead{Scenario} & \thead{Liable Party} & \thead{Legal Doctrine} & \thead{RGAIG Mitigation} \\
+\midrule
+AI flags abnormality; clinician overrides; harm & Clinician & Malpractice; override shifts liability to physician & Audit trail records override + rationale; RAG basis \\
+\addlinespace
+AI misses abnormality; clinician relies on AI; harm & Shared (mfr + clinician) & Product liability (mfr); negligence (over-reliance) & ECE$<$0.05 quantifies uncertainty; governance requires judgement \\
+\addlinespace
+AI correct; clinician misinterprets & Clinician & Malpractice; failure of judgement & RAG plain-language explanations; training required \\
+\addlinespace
+System failure (downtime) & Inst.\,/\,vendor & Contract law; SLA breach; duty of care & Failover to manual workflow; heartbeat; SLA \\
+\addlinespace
+Bias causes disparate outcomes & Mfr + inst. & Anti-discrimination; disparate impact; EU AI Act & DI$\geq$0.80 monitoring; quarterly bias audits \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}{\small\noindent\textit{Note.} Reflects 2024--2026 legal frameworks; no case law adjudicating AI-assisted ASD screening error exists. Liability allocation draws on radiology AI precedents (FDA SaMD), ASD screening support, and product liability doctrine. DI = disparate impact ratio; ECE = expected calibration error; SLA = service-level agreement.}
+\end{table}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Governance CMM Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Governance CMM Table} % [TOC-appendix-section-insertion]
+\section*{Governance CMM Table}
+\phantomsection\label{sec:app_ch5_tab_governance_maturity_app}
+
+
+\noindent\textbf{Clinical AI Governance Capability Maturity Model.} The following table presents the detailed analysis.
+
+\needspace{24\baselineskip}
+\noindent The table below presents the clinical AI Governance Capability Maturity Model.
+
+\begin{table}[H]
+\tablestripes
+\tablefontsize
+\caption{Clinical AI Governance Capability Maturity Model}
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.7cm} L L L @{}}
+\toprule
+\thead{Level} & \thead{Description} & \thead{Governance Characteristics} & \thead{Framework Alignment} \\
+\midrule
+1 & Ad-hoc ASD screening AI use & No formal governance; individual clinician ASD screening experiments; no audit trails & Pre-adoption readiness assessment \\
+\addlinespace
+2 & Emerging controls & Basic usage policy; informal oversight; no bias monitoring or explainability & Layer 1 partial; governance committee formed \\
+\addlinespace
+3 & Structured governance & Formal committee; RACI defined; quarterly bias audits; RAG deployed & Layers 1--3 operational; SHAP + RAG active \\
+\addlinespace
+4 & Integrated capability & Enterprise-wide management; dashboards; drift detection; regulatory submissions & All 5 layers; FDA/EU compliance; KPI dashboards \\
+\addlinespace
+5 & Optimised ecosystem & Continuous improvement; federated learning; auto-retrain; real-time fairness & Full maturity; multi-institutional evaluation \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}{\small\noindent\textit{Note.} RACI = responsible, accountable, consulted, informed; RAG = retrieval-augmented generation; SHAP = Shapley additive explanations; FDA = U.S.\ Food and Drug Administration; EU = European Union; KPI = key performance indicator. Levels adapted from CMMI Institute's capability maturity model for ASD screening contexts.}
+\end{table}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: AI Governance Risk Assessment Matrix
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{AI Governance Risk Assessment Matrix} % [TOC-appendix-section-insertion]
+\section*{AI Governance Risk Assessment Matrix}
+\phantomsection\label{sec:app_ch5_tab_ai_governance_risk_matrix_app}
+\needspace{24\baselineskip}
+\noindent The table below presents the aI Governance Risk Assessment Matrix: Risk Analysis, Severity, Mitigation, and Decision Triggers ....
+
+\begin{table}[!htbp]
+\tablestripes
+\tablefontsize
+\caption[AI Governance Risk Assessment Matrix]{AI Governance Risk Assessment Matrix: Risk Analysis, Severity, Mitigation, and Decision Triggers Across 15 Governance Dimensions}
+% [FONT-FIX] \scriptsize % scriptsize needed: 6 dense columns
+\begin{tabularx}{\textwidth}{@{} p{0.3cm} >{\raggedright\arraybackslash}p{1.5cm} L >{\raggedright\arraybackslash}p{1.1cm} L L @{}}
+\toprule
+\thead{\#} & \thead{Category} & \thead{Risk Scenario} & \thead{Sev.} & \thead{Mitigation} & \thead{Decision} \\
+\midrule
+1 & Explain. & No interpretable rationale & Hi/Med & RAG + SHAP top-$k$ & Reject if coh.$<$0.75 \\
+\addlinespace
+2 & Trust & Override$>$25\% & Hi/Med & Trust scorecard; calibration & Suspend$>$30\%/14\,d \\
+\addlinespace
+3 & Resp.\ AI & No ethics review & Crit/Lo & Ethics gate; RACI & Block until approved \\
+\addlinespace
+4 & Fairness & Var.$>$5\% subgroups & Crit/Med & Quarterly subgroup; retrain & Halt; retrain 30\,d \\
+\addlinespace
+5 & Privacy & Re-id from EEG & Crit/Lo & $k$-anon; encrypt.; audit & Quarantine; IRB \\
+\addlinespace
+6 & Gov. & No incident authority & Hi/Med & RACI; 4-level escalation & Committee; 24\,h \\
+\addlinespace
+7 & Perform. & Acc.\ drops$<$85\% & Hi/Med & PSI; bootstrap CI; alerts & Retrain; override \\
+\addlinespace
+8 & Hum--AI & Automation bias & Hi/Med & Conf.\ thresholds; logging & Training \\
+\addlinespace
+9 & Data & Artefacts/label noise & Hi/Med & 12-step defence; CV & Quarantine; retrain \\
+\addlinespace
+10 & Decision & AI vs.\ guidelines & Med/Med & RAG cross-ref; flag & Specialist review \\
+\addlinespace
+11 & Monitor & Dashboard failure & Hi/Lo & Redundant; weekly audit & Backup; 4\,h \\
+\addlinespace
+12 & Portab. & Fails new institution & Hi/Med & Transfer val.; calibrate & Block until$\geq$80\% \\
+\addlinespace
+13 & Safety & Wrong hi-conf.\ dx & Crit/Lo & Calibration; human review & Case review; notify \\
+\addlinespace
+14 & Consens. & Misalign.$>$12\,mth & Med/Hi & Delphi; roadmap & Escalate; 60\,d \\
+\addlinespace
+15 & Context & Wrong pipeline & Hi/Lo & Domain detect.; schema & Block; manual route \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}{\small\noindent\textit{Note.} Severity: Critical = patient harm or regulatory violation; High = significant operational impact; Medium = degraded performance. Likelihood: High $>$30\%, Medium 10--30\%, Low $<$10\%. IRB = Institutional Review Board; SLA = service-level agreement; PSI = Population Stability Index; RAG = retrieval-augmented generation; RACI = responsible, accountable, consulted, informed.}
+\end{table}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Adoption KPI Framework Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Adoption KPI Framework Table} % [TOC-appendix-section-insertion]
+\section*{Adoption KPI Framework Table}
+\phantomsection\label{sec:app_ch5_tab_adoption_kpi_framework}
+
+
+\noindent\textbf{Key Performance Indicators for Framework Adoption....} Table~\ref{tab:adoption_kpi_framework} below presents the detailed analysis.
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:adoption_kpi_framework} below presents Key Performance Indicators for Framework Adoption Readiness, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Adoption Kpi Framework.} % [starred-section fix]
+\noindent Table~\ref{tab:adoption_kpi_framework} below presents Key Performance Indicators for Framework Adoption Readiness, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.5cm} X >{\raggedright\arraybackslash}p{2.1cm} X @{}}
+\caption[Key Performance Indicators for Framework Adoption Readiness]{Key Performance Indicators for Framework Adoption Readiness}\label{tab:adoption_kpi_framework} \\
+\toprule
+\thead{KPI Cat.} & \thead{Indicator} & \thead{Target Thresh.} & \thead{Decision Rule} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\multirow{3}{*}{Technical} & ASD classification accuracy & $\geq$85\% & Pilot if met; defer if not \\
+ & Balanced accuracy & $\geq$85\% & Framework-level viability \\
+ & AUC (ASD screening) & $\geq$0.85 & Discrimination adequacy \\
+\midrule
+\multirow{3}{*}{Human} & Trust score (Likert, expert/patient) & $\geq$3.5/5 & Explanation acceptable \\
+ & Usability score (onboarding) & $\geq$3.5/5 & Workflow viable \\
+ & Adoption willingness & $\geq$70\% positive & Stakeholder readiness \\
+\midrule
+\multirow{3}{*}{Operational} & Onboarding completion rate & $\geq$85\% & Intake design effective \\
+ & Processing time reduction & $\geq$30\% reduction & Automation justified \\
+ & Decision consistency (inter-rater) & $\kappa\geq$0.60 & Standardisation achieved \\
+\midrule
+\multirow{2}{*}{Governance} & Privacy compliance score & Pass/Fail & Regulatory readiness \\
+ & Audit trail completeness & $\geq$90\% & Accountability demonstrated \\
+\end{xltabular}}
+\vspace{2pt}
+\noindent\textit{Note.} KPI = Key Performance Indicator. Thresholds are derived from literature benchmarks and expert panel consensus. The ASD pipeline qualifies for pilot evaluation only if all critical thresholds are met; otherwise further validation is required.
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Hidden Risk Categories Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Hidden Risk Categories Table} % [TOC-appendix-section-insertion]
+\section*{Hidden Risk Categories Table}
+\phantomsection\label{sec:app_ch5_tab_hidden_risks_app}
+\needspace{24\baselineskip}
+\noindent The table below presents the hidden Risk Categories: Eight Threats That Evade Traditional Risk Assessment.
+
+\begin{table}[H]
+\tablestripes
+\caption[Hidden Risk Categories: Eight Threats That Evade]{Hidden Risk Categories: Eight Threats That Evade Traditional Risk Assessment}
+\centering
+% [FONT-FIX] \footnotesize
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.9cm} X X X @{}}
+\toprule
+\thead{Hidden Risk} & \thead{Why It Is Missed} & \thead{How It Manifests} & \thead{RGAIG Detection} \\
+\midrule
+Automation complacency & Clinicians over-trust the ASD screening system after prolonged high accuracy & Override rate drops below 2\%; errors unchallenged & Monitor override rate; alert if $<$5\% \\
+\addlinespace
+Label leakage & Training labels encode historical screening bias & Model replicates and amplifies disparities & Bias audit per retrain; DI$\geq$0.80 \\
+\addlinespace
+Silent distribution shift & Patient demographics change without triggering alerts & Accuracy degrades gradually over months & Weekly KS-test on prediction distributions \\
+\addlinespace
+Explanation gaming & Users selectively read only confirming SHAP/RAG & Confirmation bias amplified; contradictory evidence ignored & Track override vs.\ accept correlation \\
+\addlinespace
+Governance fatigue & Quarterly audits become routine; scrutiny declines & Audit scores remain high but genuine oversight weakens & Rotate auditors; inject synthetic anomalies \\
+\addlinespace
+Cascading agent failure & One agent's error propagates through dependency chain & Multiple pipeline outputs fail simultaneously & Dependency graph monitoring; circuit breaker \\
+\addlinespace
+Consent decay & Original consent stale as AI capabilities expand & Patients unaware of new model uses or sharing & Re-consent trigger at major version updates \\
+\addlinespace
+Regulatory lag & Regulations change; system built for previous rules & Non-compliance discovered at next audit & Regulatory watch service; quarterly gap scan \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}
+{\small\noindent\textit{Note.} Hidden risks differ from operational risks (Table~\ref{tab:risk_matrix}) in that they arise from human--AI interaction dynamics rather than technical malfunction. Each risk has a detection mechanism embedded in the RGAIG governance layer. DI = disparate impact ratio; KS = Kolmogorov--Smirnov.}
+\end{table}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Hidden Risk Measurement Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Hidden Risk Measurement Table} % [TOC-appendix-section-insertion]
+\section*{Hidden Risk Measurement Table}
+\phantomsection\label{sec:app_ch5_tab_hidden_risk_measurement_app}
+\needspace{24\baselineskip}
+\begin{table}[H]
+
+\tablestripes
+\caption[Hidden Risk Measurement: Proxy Metrics, Thresholds, and]{Hidden Risk Measurement: Proxy Metrics, Thresholds, and Monitoring Cadence}
+\tablefontsize
+\centering
+% [FONT-FIX] \footnotesize
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.5cm} X X >{\raggedright\arraybackslash}p{1.0cm} X @{}}
+\toprule
+\thead{Hidden Risk} & \thead{Proxy Metric} & \thead{Alert Thresh.} & \thead{Freq.} & \thead{Measurement} \\
+\midrule
+Auto.\ compl. & Clinician override rate & $<$5\% overrides/30\,d & Wkly & Log: accept/reject/defer \\
+\addlinespace
+Label leakage & Subgroup acc.\ var. & Var.$>$5\% across demogr. & Per retrain & Stratified eval by age, sex \\
+\addlinespace
+Silent drift & KS stat.\ on predictions & $p<0.05$ (dist.\ shift) & Wkly & KS test on softmax outputs \\
+\addlinespace
+Expl.\ gaming & Override--expl.\ corr. & Pearson $r>0.70$ & Mthly & Override vs.\ SHAP polarity \\
+\addlinespace
+Gov.\ fatigue & Audit novelty rate & $<$2 new findings/qtr & Qtrly & Compare audit cycles \\
+\addlinespace
+Cascading fail. & Agent co-failure rate & $>$1 co-failure/24\,h & Real-time & Dep.\ graph + breaker \\
+\addlinespace
+Consent decay & Time since re-consent & $>$12\,mth since renewal & Mthly & Consent DB age check \\
+\addlinespace
+Reg.\ lag & Days since reg.\ scan & $>$90\,d without scan & Qtrly & Watch service log \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}
+\noindent\textit{Note.} Each proxy metric is designed to surface the hidden risk \textit{before} it causes patient harm. The measurement cadence ranges from real-time (cascading failure) to quarterly (governance fatigue, regulatory lag), reflecting the speed at which each risk can materialise. KS = Kolmogorov--Smirnov.
+\end{table}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Operational Risk Matrix Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Operational Risk Matrix Table} % [TOC-appendix-section-insertion]
+\section*{Operational Risk Matrix Table}
+\phantomsection\label{sec:app_ch5_tab_operational_risk_matrix_app}
+\needspace{24\baselineskip}
+\noindent The table below presents the operational Risk Matrix: Eight Production Failure Modes and Mitigations.
+
+\begin{table}[H]
+\tablestripes
+\caption[Operational Risk Matrix: Eight Production Failure Modes]{Operational Risk Matrix: Eight Production Failure Modes and Mitigations}
+\tablefontsize
+\centering
+% [FONT-FIX] \footnotesize
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.2cm} >{\centering\arraybackslash}p{0.9cm} >{\centering\arraybackslash}p{0.9cm} X X >{\raggedright\arraybackslash}p{1.2cm} @{}}
+\toprule
+\thead{Risk} & \thead{Lk.} & \thead{Im.} & \thead{Detection} & \thead{Mitigation} & \thead{Owner} \\
+\midrule
+Data drift & High & High & PSI$>$0.20 weekly & Recalibrate; retrain & Data Eng \\
+\addlinespace
+Model stale. & Med & High & AUC drop$>$3\% monthly & Champion--challenger; A/B test & ML Ops \\
+\addlinespace
+Latency spike & Med & Med & P95$>$500\,ms & Auto-scale; queue mgmt & Platform \\
+\addlinespace
+Adversarial input & Low & High & Anomaly$>$3$\sigma$ from train & Validate; reject and flag & ML Eng \\
+\addlinespace
+SHAP timeout & Med & Med & Explanation$>$30\,s & Fallback to LIME; cache & XAI Lead \\
+\addlinespace
+Pipeline break & Med & Low & CI/CD regression failure & Pin versions; rollback & DevOps \\
+\addlinespace
+Consent w/d & Low & High & Consent DB flag & Purge 72\,h; retrain & Ethics \\
+\addlinespace
+GPU SPOF & Low & High & Heartbeat fails & CPU failover; degraded & Infra \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}
+{\small\noindent\textit{Note.} Each failure mode has a named owner accountable for detection and response. Operational risks can occur today in a running system, while emerging risks (Table~\ref{tab:emerging_risks}) represent future threats. PSI = Population Stability Index; P95 = 95th percentile; CI/CD = continuous integration/continuous deployment; SPOF = single point of failure.}
+\end{table}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Enterprise Risk Register Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Enterprise Risk Register Table} % [TOC-appendix-section-insertion]
+\section*{Enterprise Risk Register Table}
+\phantomsection\label{sec:app_ch5_tab_enterprise_risk_register_app}
+\needspace{24\baselineskip}
+\begin{table}[H]
+
+\tablestripes
+\tablefontsize
+\caption[Enterprise Risk Register]{Consolidated Enterprise Risk Register: Top-10 Risks with Mitigation and Residual Assessment}
+% [FONT-FIX] \scriptsize
+\begin{tabularx}{\textwidth}{@{} L L L L L L L L @{}}
+\toprule
+\thead{ID} & \thead{Risk} & \thead{L} & \thead{I} & \thead{Sc.} & \thead{Mitigation Strategy} & \thead{Owner} & \thead{Res.} \\
+\midrule
+R1 & Accuracy degrad. & 3 & 5 & 15 & PSI$<$0.10 monitoring; auto-retrain; quarterly validation & ML Ops & 6 \\
+\addlinespace
+R2 & Adoption resistance & 4 & 4 & 16 & ADKAR programme; champions; training; feedback & CMO & 8 \\
+\addlinespace
+R3 & Regulatory non-compl. & 3 & 5 & 15 & Compliance gates; pre-deploy checklist; counsel & Compliance & 5 \\
+\addlinespace
+R4 & Data privacy breach & 2 & 5 & 10 & De-id ($k\geq5$); access controls; encryption & CISO & 4 \\
+\addlinespace
+R5 & Algorithmic bias & 3 & 4 & 12 & DI$\geq$0.80; quarterly audits; retrain protocol & Ethics Bd & 6 \\
+\addlinespace
+R6 & Explanation fidelity & 3 & 3 & 9 & RAG$\geq$0.50; XAI triangulation$\geq$0.70 & AI Lead & 4 \\
+\addlinespace
+R7 & Infra downtime & 2 & 4 & 8 & CPU failover; heartbeat; 99.5\% SLA & IT Dir. & 3 \\
+\addlinespace
+R8 & Vendor lock-in & 2 & 3 & 6 & Open-source; containers; standard APIs & CIO & 3 \\
+\addlinespace
+R9 & Medical-legal & 2 & 5 & 10 & Audit trails; sign-off; liability framework & Legal & 5 \\
+\addlinespace
+R10 & Financial underperf. & 3 & 3 & 9 & Sensitivity analysis; phased invest; KPI escalation & CFO & 4 \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}\noindent\textit{Note.} L = Likelihood (1--5); I = Impact (1--5); Score = L$\times$I; Res.\ = residual risk after mitigation. Owners are role-based. CISO = Chief Information Security Officer; CMO = Chief Medical Officer; CIO = Chief Information Officer; CFO = Chief Financial Officer; DI = disparate impact ratio.
+\end{table}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Conceptual Risk-Benefit Interpretation Matrix Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Conceptual Risk-Benefit Interpretation Matrix Table} % [TOC-appendix-section-insertion]
+\section*{Conceptual Risk-Benefit Interpretation Matrix Table}
+\phantomsection\label{sec:app_ch5_tab_risk_benefit}
+\noindent Table~\ref{tab:risk_benefit} documents risk-Benefit Decision Matrix: Gains vs Risks by Evaluation Area.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:risk_benefit} below presents Conceptual Risk-Benefit Interpretation Matrix, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Risk Benefit.} % [starred-section fix]
+\noindent Table~\ref{tab:risk_benefit} below presents Conceptual Risk-Benefit Interpretation Matrix, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} l L L l @{}}
+\caption[Conceptual Risk-Benefit Interpretation Matrix]{Conceptual Risk-Benefit Interpretation Matrix: Gains vs Risks by Evaluation Area}\label{tab:risk_benefit} \\
+\toprule
+\thead{Area} & \thead{Expected Benefit} & \thead{Key Risk} & \thead{Balance} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Technical accuracy & ASD screening $\geq$ 85\% & No prospective validation yet & Favourable (ASD) \\
+Explainability & RAG-grounded clinician/patient output & Explanation quality not patient-tested & Favourable (expert-validated) \\
+Workflow efficiency & 30--40\% effort reduction estimated & Simulation-based, not field-measured & Moderate \\
+Trust/adoption & Expert trust $M = 4.2/5$ & Expert panel only, no patient data & Moderate \\
+Governance/safety & Audit, consent, human-in-the-loop designed & No field audit or regulatory approval & Conditional \\
+B2C continuity & Hospital-to-home pathway conceptualised & No mobile evaluation evidence & Weak (future scope) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RAG = Retrieval-Augmented Generation; ASD = Autism Spectrum Disorder. See chapter prose for full context.
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Three-Level Evidence Framework Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Three-Level Evidence Framework Table} % [TOC-appendix-section-insertion]
+\section*{Three-Level Evidence Framework Table}
+\phantomsection\label{sec:app_ch5_tab_evidence_framework}
+
+
+\noindent\textbf{Three-Level Evidence Framework for Evaluation Readiness.} Table~\ref{tab:evidence_framework} below presents the detailed analysis.
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:evidence_framework} below presents Three-Level Evidence Framework for Evaluation Readiness, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Evidence Framework.} % [starred-section fix]
+\noindent Table~\ref{tab:evidence_framework} below presents Three-Level Evidence Framework for Evaluation Readiness, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L L L L @{}}
+\caption[Three-Level Evidence Framework for Evaluation Readiness]{Three-Level Evidence Framework for Evaluation Readiness}\label{tab:evidence_framework} \\
+\toprule
+\thead{Evidence Type} & \thead{Source} & \thead{What It Proves} & \thead{Measurable?} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Technical & EEG/IoT/imaging, model outputs & The framework performs accurately for ASD screening & Yes: accuracy, AUC, F1, CI \\
+Human & Patient, parent, doctor, expert ratings & The framework is understandable, usable, and trustworthy & Yes: trust, usability, clarity scores \\
+Operational & Workflow logs, onboarding data, process metrics & The framework improves efficiency and reduces manual burden & Yes: time, completion, effort \\
+\end{xltabular}}
+\vspace{2pt}
+\noindent\textit{Note.} All three evidence levels must converge for a evaluation recommendation. Technical evidence alone is insufficient without human acceptance and operational viability.
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: North America Evaluation Viability Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{North America Evaluation Viability Table} % [TOC-appendix-section-insertion]
+\section*{North America Evaluation Viability Table}
+\phantomsection\label{sec:app_ch5_tab_na_deployment_viability}
+
+
+\noindent\textbf{North America Evaluation Viability by Use Case.} Table~\ref{tab:na_deployment_viability} below presents the detailed analysis.
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:na_deployment_viability} below presents North America Evaluation Viability by Use Case, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Na Deployment Viability.} % [starred-section fix]
+\noindent Table~\ref{tab:na_deployment_viability} below presents North America Evaluation Viability by Use Case, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L l L @{}}
+\caption[North America Evaluation Viability by Use Case]{North America Evaluation Viability by Use Case}\label{tab:na_deployment_viability} \\
+\toprule
+\thead{Use Case} & \thead{Viability} & \thead{Rationale} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Clinician decision support with human review & \textbf{Strong} & Strongest regulatory and workflow fit \\
+Hospital pilot for triage/assessment support & \textbf{Strong} & Easier to justify than autonomous ASD screening \\
+Patient-facing monitoring/app with escalation & \textbf{Possible} & Needs stronger privacy, usability, and boundary controls \\
+Autonomous ASD screening from consumer EEG alone & \textbf{Weak} & High regulatory and safety risk \\
+\end{xltabular}}
+\vspace{2pt}
+\noindent\textit{Note.} Based on FDA Clinical Decision Support Software guidance, Health Canada SaMD guidance, and HIPAA/provincial privacy requirements. The strongest North America evaluation position is B2B hospital pilot with clinician review and auditability.
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: 7-Study Future Research Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{7-Study Future Research Table} % [TOC-appendix-section-insertion]
+\section*{7-Study Future Research Table}
+\phantomsection\label{sec:app_ch5_tab_future_studies}
+
+
+\noindent\textbf{Areas of Further Research: Seven Priority Directions.} The following table presents the detailed analysis.
+
+\needspace{24\baselineskip}
+\noindent The table below presents the areas of Further Research: Seven Priority Directions.
+
+\begin{table}[H]
+\tablestripes
+\tablefontsize
+\caption{Areas of Further Research: Seven Priority Directions}
+\begin{tabularx}{\textwidth}{@{} p{0.4cm} p{2.8cm} L p{1.8cm} @{}}
+\toprule
+\thead{\#} & \thead{Direction} & \thead{Rationale and Scope} & \thead{Priority} \\
+\midrule
+1 & Federated learning & Multi-site training without centralising EEG data; addresses privacy regulations and non-IID data heterogeneity~\cite{rieke2020federated} & High \\
+\addlinespace
+\addlinespace
+3 & Longitudinal ASD monitoring & Extend the cross-sectional framework to track developmental change and follow-up risk patterns; repurpose PSI drift detection & High \\
+\addlinespace
+4 & Multi-modal fusion (EEG+MRI) & Combine EEG with structural/functional MRI for overlapping EEG signatures (epilepsy vs.\ non-epileptic seizures) & Medium \\
+\addlinespace
+5 & LLM clinical report generation & Replace RAG with fine-tuned medical LLMs (Med-PaLM, BioGPT); leverage existing guardrail infrastructure (P5) & Medium \\
+\addlinespace
+6 & Regulatory sandbox pilot & Partner with FDA Digital Health Center; real-world 510(k) evidence; validate governance modules empirically & Medium \\
+\addlinespace
+7 & Health economic modelling & Validate illustrative financial-scenario projections (Table~\ref{tab:roi_financial_summary}) with clinical pilot data; enable institution-specific illustrative financial scenario calculators & Low \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}\noindent\textit{Note.} Priorities based on impact on clinical evidence-maturity interpretation. PSI = Population Stability Index; MCI = mild cognitive impairment; LLM = large language model.
+\end{table}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Implementation Roadmap Figure
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section*{Implementation Roadmap Figure}
+\phantomsection\label{sec:app_ch5_fig_implementation_roadmap}
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+    \centering
+    \resizebox{0.97\textwidth}{!}{%
+    \begin{tikzpicture}[
+        phase/.style={rectangle, rounded corners=4pt, draw=ggunavy, thick,
+            fill=ggunavy!8, text width=2.6cm, minimum height=2.4cm,
+            align=center, font=\small, inner sep=5pt},
+        phaselbl/.style={font=\small\bfseries, ggunavy},
+        timeline/.style={-{Stealth[length=4mm, width=3mm]}, very thick, ggunavy},
+        milestone/.style={font=\small, text=ggunavy!80, align=center},
+        prioH/.style={font=\small\bfseries, red!70!black},
+        prioM/.style={font=\small\bfseries, orange!80!black},
+        prioL/.style={font=\small, ggunavy!60},
+    ]
+    % Timeline arrow (pushed further down to clear priority labels and EEG text)
+    \draw[timeline] (-0.5,-3.6) -- (15.5,-3.6);
+    % Year markers
+    \node[milestone] at (1.5,-4.1) {2026};
+    \node[milestone] at (5.5,-4.1) {2026--2027};
+    \node[milestone] at (9.5,-4.1) {2027};
+    \node[milestone] at (13.5,-4.1) {2027--2028};
+    % Phase boxes
+    \node[phase, fill=lightblue] (p1) at (1.5,0) {\textbf{\color{ggunavy}Phase 1}\\[2pt]ASD\\Validation\\[4pt]{\small 500+ subjects}\\{\small total}};
+    \node[phase, fill=lightorange] (p2) at (5.0,0) {\textbf{\color{ggunavy}Phase 2}\\[2pt]Real-Time\\Prototyping\\[4pt]{\small $<$100ms latency}\\{\small streaming EEG}};
+    \node[phase, fill=lightteal] (p3) at (8.5,0) {\textbf{\color{ggunavy}Phase 3}\\[2pt]Regulatory\\Submission\\[4pt]{\small FDA 510(k)}\\{\small CE marking}};
+    \node[phase, fill=lightpurple] (p4) at (12.0,0) {\textbf{\color{ggunavy}Phase 4}\\[2pt]Clinical Pilot\\Deployment\\[4pt]{\small 3--5 hospitals}\\{\small 6-month trial}};
+    % Arrows between phases
+    \draw[-{Stealth[length=4mm, width=3mm]}, very thick, ggunavy] (p1) -- (p2);
+    \draw[-{Stealth[length=4mm, width=3mm]}, very thick, ggunavy] (p2) -- (p3);
+    \draw[-{Stealth[length=4mm, width=3mm]}, very thick, ggunavy] (p3) -- (p4);
+    % Priority labels (moved down to clear box text "EEG" / "marking" / "trial")
+    \node[prioH] at (1.5,-2.7) {HIGH};
+    \node[prioH] at (5.0,-2.7) {HIGH};
+    \node[prioM] at (8.5,-2.7) {MEDIUM};
+    \node[prioM] at (12.0,-2.7) {MEDIUM};
+    \end{tikzpicture}%
+    }
+    \caption[Implementation Roadmap (2026--2028)]{Implementation Roadmap: From Research to Clinical Evaluation (2026--2028)}
+    \label{fig:implementation_roadmap_app2}
+    \vspace{0.5em}\noindent\textit{Note.} Five phases progress from ASD-focused validation (high priority) through real-time prototyping, regulatory submission (FDA 510(k)/CE marking), ASD pilot deployment, and operational scale-up. Priority levels (high, medium, low) reflect resource allocation and risk staging. FDA = U.S. Food and Drug Administration; CE = Conformit\'{e} Europ\'{e}enne.
+\end{figure}
+
+
+%%----------------------------------------------------------------------------
+%% Migrated from Chapter 5: Master Decision-Making Table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\addcontentsline{toc}{section}{Master Decision-Making Table} % [TOC-appendix-section-insertion]
+\section*{Master Decision-Making Table}
+\phantomsection\label{sec:app_ch5_tab_ch5_master_decision}
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:ch5_master_decision} below presents Chapter~5 Master Decision-Making Table, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Ch5 Master Decision.} % [starred-section fix]
+\noindent Table~\ref{tab:ch5_master_decision} below presents Chapter~5 Master Decision-Making Table, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L L L L L @{}}
+\caption[Chapter~5 Master Decision-Making Table]{Chapter~5 Master Decision-Making Table}\label{tab:ch5_master_decision} \\
+\toprule
+\thead{Area} & \thead{Main Evidence} & \thead{Key Question} & \thead{KPI} & \thead{Output} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Hyp.\ interp. & Ch.4 hypothesis verdicts & What do supported hypotheses mean? & Support level & Refined claims \\
+\addlinespace
+Domain ready. & Domain performance, trust, robustness & Which domain is ready? & Acc., AUC, trust & Adopt/pilot/defer \\
+\addlinespace
+B2B adoption & Clinician usefulness, workflow, illustrative financial scenario & Should hospital adopt? & Trust, effort & B2B decision \\
+\addlinespace
+B2C cont. & Patient usability, privacy, app & Is patient ext.\ ready? & Usability, privacy & B2C scope \\
+\addlinespace
+Expl.\ \& trust & Clinician/patient ratings, RAG, XAI & Is output acceptable? & Trust, clarity & Accept.\ readiness \\
+\addlinespace
+Workflow & Timing, automation, integration & Does it reduce burden? & Time, ASD screening throughput & Ops.\ readiness \\
+\addlinespace
+Illustrative financial scenario \& value & Reuse, labour reduction, scalability & Is adoption worth cost? & Labour, reuse & ASD business case \\
+\addlinespace
+Gov.\ \& safety & Consent, audit, escalation, oversight & Is it safe and governable? & Gov.\ score & Safe-use readiness \\
+\addlinespace
+Risk--benefit & All technical and ops.\ evidence & Do benefits outweigh risks? & Risk matrix & Deploy.\ boundary \\
+\addlinespace
+Final readiness & All prior decision areas & Adopt, pilot, or defer? & Combined & Recommendation \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RAG = Retrieval-Augmented Generation; XAI = Explainable AI; ASD = Autism Spectrum Disorder; AUC = Area Under (ROC) Curve. See chapter prose for full context.

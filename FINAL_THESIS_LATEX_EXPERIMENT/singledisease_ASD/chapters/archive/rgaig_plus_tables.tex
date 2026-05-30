@@ -1,0 +1,600 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% RGAIG+ FRAMEWORK — COMPREHENSIVE TABLES AND FIGURES
+%% Responsible Generative AI Governance for Consumer Wearable EEG Diagnostic Systems
+%% The RGAIG+ Framework
+%%
+%% Contents:
+%%   1.  Title-to-Framework Alignment Mapping
+%%   2.  RGAIG+ vs Competing Frameworks Comparison
+%%   3.  9-Layer Architecture (TikZ figure)
+%%   4.  Evaluation Methodology Workflow (10 steps)
+%%   5.  Evaluation Scorecard
+%%   6.  Responsible AI Control Matrix
+%%   7.  Maturity Model (5 levels × 7 dimensions)
+%%   8.  Consumer Trust & Adoption Factors
+%%   9.  Wearable EEG Device Capability Matrix
+%%  10.  Device-Driven Risk Assessment
+%%  11.  Value & Impact Stakeholder Analysis
+%%  12.  Conceptual Model Relationships
+%%  13.  GenAI-Specific Governance Controls
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize\normalfont\color{black}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% TABLE 1: Title-to-Framework Alignment Mapping
+%% ═══════════════════════════════════════════════════════════════════════════════
+Table~\ref{tab:rgaig_title_alignment} maps each element of the dissertation title to its corresponding RGAIG+ framework component and empirical evidence.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} l l X X @{}}
+\caption{RGAIG+ --- Title Element to Framework Component Alignment}
+\label{tab:rgaig_title_alignment}\\
+\toprule
+\thead{Title Element} & \thead{Priority} & \thead{Framework Component} & \thead{Evidence in Thesis} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Responsible         & 1 & 10-pillar AI governance taxonomy (194 modules, 98.4\% pass); Responsible AI control matrix; fairness, transparency, accountability & Section~3.6, Table~\ref{tab:rgaig_control_matrix} \\
+\addlinespace
+Generative AI       & 1 & RAG explanation engine (ChromaDB 1.4~GB); RAGAS evaluation (faithfulness, relevance, correctness); hallucination prevention controls; synthetic data governance & Section~4.5, Table~\ref{tab:rgaig_genai_controls} \\
+\addlinespace
+Governance          & 1 & 525-module unified quality taxonomy; 4-level escalation ladder; KPI threshold-to-action protocol; CMM maturity model & Section~3.8, Table~\ref{tab:rgaig_maturity} \\
+\addlinespace
+Consumer            & 2 & Consumer trust and adoption model (TAM-TOE-RBV); consumer interface design; medical disclaimers; consultation prompts; usability metrics & Table~\ref{tab:rgaig_trust_adoption} \\
+\addlinespace
+Wearable            & 2 & Device capability matrix (4--32 channels); signal quality monitoring; electrode contact validation; battery/connectivity reliability & Table~\ref{tab:rgaig_device_capability} \\
+\addlinespace
+EEG                 & 2 & EEG signal processing pipeline: artifact removal, bandpass filtering (0.5--45~Hz), epoch segmentation, feature extraction (PSD, connectivity, time-domain) & Section~3.4, Table~\ref{tab:phase8_ipo} \\
+\addlinespace
+Diagnostic Systems  & 2 & ASD diagnostic classification: ASD (97.67\%), PD (100\%), epilepsy (99.02\%), stress (94.17\%), depression (91.07\%); ASD ensemble 97.67\% aggregate & Section~4.4, Table~\ref{tab:phase10_ipo} \\
+\addlinespace
+Framework           & 3 & RGAIG+ 9-layer architecture; 15-phase research methodology; DSR artefact validated via 3 build--evaluate cycles; 198 trained models & Figure~\ref{fig:rgaig_architecture}, Table~\ref{tab:rgaig_evaluation_workflow} \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Every title element maps to specific framework components with empirical evidence.}} \\
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Priority 1: must be prominently demonstrated. Priority 2: clearly present. Priority 3: structural contribution.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% TABLE 2: RGAIG+ vs Competing Frameworks Comparison
+%% ═══════════════════════════════════════════════════════════════════════════════
+Table~\ref{tab:rgaig_comparison} compares RGAIG+ with four existing AI governance frameworks across twelve capability dimensions.
+
+\needspace{16\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} X >{\centering\arraybackslash}p{1.6cm} >{\centering\arraybackslash}p{1.5cm} >{\centering\arraybackslash}p{1.5cm} >{\centering\arraybackslash}p{1.5cm} >{\centering\arraybackslash}p{1.7cm} @{}}
+\caption{RGAIG+ --- Comparison with Existing AI Governance Frameworks}
+\label{tab:rgaig_comparison}\\
+\toprule
+\thead{Capability} & \thead{NIST AI RMF} & \thead{ISO 42001} & \thead{EU AI Act} & \thead{RAISEF} & \thead{RGAIG+} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Generic AI risk governance                    & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\addlinespace
+Healthcare-domain-specific controls           & $\circ$      & $\circ$      & Partial      & $\circ$      & $\checkmark$ \\
+\addlinespace
+Consumer (B2C) wearable device layer          & $\circ$      & $\circ$      & $\circ$      & $\circ$      & $\checkmark$ \\
+\addlinespace
+EEG signal processing pipeline                & $\circ$      & $\circ$      & $\circ$      & $\circ$      & $\checkmark$ \\
+\addlinespace
+Generative AI governance (hallucination, RAG) & $\circ$      & $\circ$      & Partial      & Partial      & $\checkmark$ \\
+\addlinespace
+ASD-focused diagnostic validation            & $\circ$      & $\circ$      & $\circ$      & $\circ$      & $\checkmark$ \\
+\addlinespace
+Agentic AI orchestration controls             & $\circ$      & $\circ$      & $\circ$      & $\circ$      & $\checkmark$ \\
+\addlinespace
+Maturity model (5 levels)                     & Partial      & Partial      & $\circ$      & $\circ$      & $\checkmark$ \\
+\addlinespace
+Quantitative evaluation scorecard             & $\circ$      & Partial      & $\circ$      & Partial      & $\checkmark$ \\
+\addlinespace
+Consumer trust and adoption model             & $\circ$      & $\circ$      & $\circ$      & Partial      & $\checkmark$ \\
+\addlinespace
+Empirical validation (real datasets, 131 subjects + 20K images) & $\circ$ & $\circ$     & $\circ$      & $\circ$      & $\checkmark$ \\
+\addlinespace
+Continuous monitoring architecture            & Partial      & Partial      & $\circ$      & Partial      & $\checkmark$ \\
+\addlinespace
+\midrule
+\multicolumn{6}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{$\checkmark$ = fully addressed; Partial = partially addressed; $\circ$ = not addressed.}} \\
+\multicolumn{6}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{NIST AI RMF (2023): generic AI risk; ISO 42001 (2023): AI management system; EU AI Act (2024): regulatory; RAISEF (Liao et al., 2024): responsible AI socio-ethical. RGAIG+ uniquely integrates all 12 capabilities.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% FIGURE: RGAIG+ 9-Layer Architecture (TikZ)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\noindent\textbf{RGAIG+ Nine-Layer Framework Architecture for.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+    layer/.style={rectangle, draw=ggunavy, fill=ggunavy!8, text width=12cm,
+                  minimum height=1.1cm, align=center, font=\small,
+                  rounded corners=3pt, line width=0.8pt},
+    layernum/.style={circle, fill=ggunavy, text=white, font=\bfseries\scriptsize,
+                     minimum size=0.6cm, inner sep=0pt},
+    arr/.style={-{Stealth[length=4mm,width=3mm]}, line width=1pt, ggunavy},
+    crosscut/.style={rectangle, draw=ggunavy, fill=ggunavy!3, dashed,
+                     text width=3cm, minimum height=14cm, align=center,
+                     font=\small\color{ggunavy}, rounded corners=4pt}
+]
+
+%% 9 layers stacked vertically
+\node[layer] (L1) at (0,0)    {\textbf{Layer 1: Consumer Wearable EEG Device} --- 4--32 channel acquisition, electrode contact, signal quality};
+\node[layer] (L2) at (0,-1.5) {\textbf{Layer 2: Signal Processing Pipeline} --- Artifact removal, bandpass filtering, epoch segmentation, feature extraction};
+\node[layer] (L3) at (0,-3.0) {\textbf{Layer 3: Diagnostic AI Models} --- CNN-LSTM, VotingClassifier, ensemble; ASD ensemble 97.67\%, 198 trained models};
+\node[layer] (L4) at (0,-4.5) {\textbf{Layer 4: Generative AI Engine} --- RAG explanation, report generation, ChromaDB 1.4~GB, hallucination control};
+\node[layer] (L5) at (0,-6.0) {\textbf{Layer 5: Agentic Orchestration} --- NeuroMCP pipeline, multi-agent coordination, workflow automation};
+\node[layer] (L6) at (0,-7.5) {\textbf{Layer 6: Consumer Interface} --- Dashboard, alerts, consultation prompts, medical disclaimers, confidence scores};
+\node[layer] (L7) at (0,-9.0) {\textbf{Layer 7: Clinical Oversight} --- Clinician validation, escalation pathway, expert consultation, human-in-the-loop};
+\node[layer] (L8) at (0,-10.5) {\textbf{Layer 8: Continuous Monitoring} --- Drift detection, safety alerts, fairness tracking, trust metrics, device health};
+\node[layer] (L9) at (0,-12.0) {\textbf{Layer 9: Governance \& Compliance} --- 525-module taxonomy, audit trail, regulatory alignment (EU AI Act, FDA SaMD)};
+
+%% Layer numbers
+\foreach \i in {1,...,9} {
+    \node[layernum] at (-7, -1.5*\i + 1.5) {\i};
+}
+
+%% Arrows between layers
+\foreach \i [evaluate=\i as \j using int(\i+1)] in {1,...,8} {
+    \draw[arr] (L\i.south) -- (L\j.north);
+}
+
+%% Cross-cutting concerns (right side)
+\node[crosscut, right=1.2cm of L5, minimum height=18.5cm, yshift=0.75cm] (CC) {%
+    \textbf{Cross-Cutting}\\[4pt]
+    \textbf{Responsible AI}\\[4pt]
+    \textbf{Controls}\\[8pt]
+    Fairness\\[2pt]
+    Transparency\\[2pt]
+    Privacy\\[2pt]
+    Safety\\[2pt]
+    Security\\[2pt]
+    Accountability\\[2pt]
+    Explainability\\[2pt]
+    Trustworthiness
+};
+
+%% Feedback arrow from L9 back to L1
+\draw[-{Stealth[length=4mm,width=3mm]}, line width=0.8pt, ggunavy!50, dashed]
+    (L9.west) -- ++(-1.5,0) |- node[font=\small\color{ggunavy!60}, pos=0.25, left] {Governance feedback} (L1.west);
+
+\end{tikzpicture}}
+\caption[RGAIG+ Nine-Layer Framework Architecture]{RGAIG+ Nine-Layer Framework Architecture for Consumer Wearable EEG Diagnostic Systems}
+\label{fig:rgaig_architecture}
+\end{figure}
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% TABLE 4: RGAIG+ Evaluation Methodology Workflow
+%% ═══════════════════════════════════════════════════════════════════════════════
+Table~\ref{tab:rgaig_evaluation_workflow} presents the ten-step RGAIG+ evaluation methodology, specifying the activity, input, and output for each step.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} c X X X @{}}
+\caption{RGAIG+ --- Ten-Step Evaluation Methodology Workflow}
+\label{tab:rgaig_evaluation_workflow}\\
+\toprule
+\thead{Step} & \thead{Activity} & \thead{Input} & \thead{Output} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1  & Define AI use case           & Clinical scenario, target disease domain, consumer context & Use case specification document \\
+\addlinespace
+2  & Evaluate device capability   & Wearable EEG device specs (channels, SNR, electrode type) & Device capability score (Table~\ref{tab:rgaig_device_capability}) \\
+\addlinespace
+3  & Assess data governance       & Data sources, consent records, de-identification status & Data governance compliance score \\
+\addlinespace
+4  & Evaluate AI model reliability & Classification metrics (accuracy, AUC, F1), cross-validation results & Model performance scorecard \\
+\addlinespace
+5  & Assess GenAI safeguards      & RAG evaluation (RAGAS), hallucination rate, explanation quality & GenAI safety score (Table~\ref{tab:rgaig_genai_controls}) \\
+\addlinespace
+6  & Evaluate consumer trust      & Trust survey results (TT, CT, OT), adoption metrics & Consumer trust composite score \\
+\addlinespace
+7  & Assess monitoring capability & Drift detection, safety alerts, device health metrics & Monitoring maturity score \\
+\addlinespace
+8  & Review governance compliance & 525-module taxonomy pass rate, regulatory alignment & Governance compliance score \\
+\addlinespace
+9  & Calculate maturity score     & All dimension scores aggregated (Steps 2--8) & RGAIG+ maturity level (1--5) \\
+\addlinespace
+10 & Recommend improvements       & Gap analysis between current and target maturity & Improvement roadmap with priorities \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Workflow transforms RGAIG+ from conceptual framework into actionable assessment tool.}} \\
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Each step produces documented evidence for audit and regulatory review.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% TABLE 5: RGAIG+ Evaluation Scorecard
+%% ═══════════════════════════════════════════════════════════════════════════════
+Table~\ref{tab:rgaig_scorecard} reports the seven-dimension evaluation scorecard, illustrated with the consumer EEG seizure detection use case.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{3.2cm} c X X @{}}
+\caption[RGAIG+ --- Evaluation Scorecard (Example: Consumer EEG]{RGAIG+ --- Evaluation Scorecard (Example: Consumer EEG Seizure Detection)}
+\label{tab:rgaig_scorecard}\\
+\toprule
+\thead{Dimension} & \thead{Score (1--5)} & \thead{Evidence} & \thead{Improvement Target} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Device reliability         & 4 & Emotiv EPOC X: 14 channels, SNR $> 20$~dB, wireless BLE, 12-hour battery & Upgrade to 32-channel for full spatial coverage \\
+\addlinespace
+Data governance            & 4 & PhysioNet credentialed access; de-identified; data-use certificates signed & Add real-time consent management for primary collection \\
+\addlinespace
+AI model performance       & 4 & Epilepsy accuracy 99.02\%, AUC 0.98, LOSO $\kappa = 0.91$ & Validate on prospective clinical data (FS-2) \\
+\addlinespace
+GenAI safety               & 3 & RAGAS faithfulness 0.89; hallucination rate $< 3\%$; clinician review required & Implement automated hallucination detection layer \\
+\addlinespace
+Consumer trust             & 4 & Expert panel 4.2/5; trust survey composite $\geq 3.5$ threshold met & Longitudinal trust measurement (FS-4) \\
+\addlinespace
+Monitoring capability      & 3 & Drift detection implemented; safety alerts active; no predictive monitoring & Add predictive performance degradation alerts \\
+\addlinespace
+Governance compliance      & 4 & 525-module taxonomy: 97.9\% weighted pass rate; audit trail complete & Align with EU AI Act high-risk classification (FS-6) \\
+\addlinespace
+\midrule
+\textbf{Aggregate}         & \textbf{3.7} & \textbf{Maturity Level 4: Governed AI} (threshold: $\geq 3.5$ for Level 4) & \\
+\addlinespace
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Scoring: 1 = Experimental, 2 = Pilot, 3 = Operational, 4 = Governed, 5 = Trusted Ecosystem.}} \\
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Aggregate = mean of 7 dimension scores. Level determined by nearest threshold.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% TABLE 6: Responsible AI Control Matrix
+%% ═══════════════════════════════════════════════════════════════════════════════
+Table~\ref{tab:rgaig_control_matrix} documents the eight responsible AI principles, their control mechanisms, metrics, and evidence artefacts within the RGAIG+ framework.
+
+\needspace{16\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{2.8cm} X p{3.8cm} X @{}}
+\caption{RGAIG+ --- Responsible AI Control Matrix}
+\label{tab:rgaig_control_matrix}\\
+\toprule
+\thead{Principle} & \thead{Control Mechanism} & \thead{Metric} & \thead{Evidence Artefact} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Fairness          & Subgroup performance evaluation per demographic; SMOTE class balancing; bias audit across 6 domains & Error rate difference $< 5\%$ across subgroups & Fairness audit report (per domain) \\
+\addlinespace
+Privacy           & De-identification; encryption at rest and in transit; k-anonymity verification; no patient re-identification & Data access violations $= 0$; k-anonymity $\geq 5$ & Privacy compliance log; data-use certificates \\
+\addlinespace
+Safety            & Confidence thresholds ($\geq 0.85$); clinician review for all high-risk predictions; emergency escalation protocol & False negative rate $< 5\%$; incident count $= 0$ & Incident report; safety monitoring dashboard \\
+\addlinespace
+Security          & Adversarial robustness testing; input validation; prompt injection filtering for RAG; encrypted model artefacts & Intrusion detection alerts; adversarial accuracy drop $< 3\%$ & Security audit report; penetration test results \\
+\addlinespace
+Explainability    & SHAP feature attribution; RAG natural language explanations; consumer-friendly confidence scores & RAGAS faithfulness $\geq 0.85$; explanation usability $\geq 4.0/5$ & Explanation validation report \\
+\addlinespace
+Accountability    & Governance review board; decision provenance logging; model versioning (198 joblib artefacts); author attribution & 100\% decisions with audit trail & Decision log; model registry \\
+\addlinespace
+Transparency      & Open methodology documentation; published evaluation metrics; consumer-facing clarity ratings & Clarity rating $\geq 4.0/5$; methodology publicly documented & User interface review; published thesis \\
+\addlinespace
+Trustworthiness   & Continuous monitoring (drift, safety, fairness); bootstrap CI stability; test--retest ICC $= 0.97$ & System uptime $\geq 99\%$; ICC $> 0.90$ & Monitoring dashboard; reliability report \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Control matrix operationalises 8 responsible AI principles across all 9 RGAIG+ layers.}} \\
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Aligned with NIST AI RMF functions (Map, Measure, Manage) and ISO 42001 control objectives.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% TABLE 7: RGAIG+ Maturity Model (5 Levels × 7 Dimensions)
+%% ═══════════════════════════════════════════════════════════════════════════════
+Table~\ref{tab:rgaig_maturity} presents the five-level responsible AI maturity model across seven governance dimensions for consumer EEG diagnostic systems.
+
+\needspace{18\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{2.5cm} X X X X X @{}}
+\caption[RGAIG+ --- Responsible AI Maturity Model for Consumer]{RGAIG+ --- Responsible AI Maturity Model for Consumer EEG Diagnostic Systems}
+\label{tab:rgaig_maturity}\\
+\toprule
+\thead{Dimension} & \thead{Level 1: Experimental} & \thead{Level 2: Pilot} & \thead{Level 3: Operational} & \thead{Level 4: Governed} & \thead{Level 5: Trusted} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Data governance     & Raw EEG data; no quality checks & Basic quality filters; manual review & Structured datasets; automated QC & Full lineage and consent tracking & Lifecycle governance; real-time provenance \\
+\addlinespace
+Model management    & Experimental models; no versioning & Basic validation; manual training & Version control; automated retraining & Formal model approval process & Automated lifecycle; A/B deployment \\
+\addlinespace
+Consumer safety     & Minimal safeguards; research-only & Medical disclaimers added & Clinician review pathway active & Safety monitoring; confidence thresholds & Proactive risk detection; adaptive safety \\
+\addlinespace
+Monitoring          & None; manual inspection & Manual monitoring; periodic checks & Automated alerts; drift detection & Predictive monitoring; root cause analysis & Self-healing; autonomous remediation \\
+\addlinespace
+Explainability      & Opaque model outputs & Basic feature importance & Consumer-friendly RAG explanations & Explanation quality evaluation (RAGAS) & Adaptive explanation; personalised reports \\
+\addlinespace
+Governance          & Ad-hoc decisions; no documentation & Documented procedures; basic audit & Governance board active; 525-module taxonomy & Audit-ready; regulatory mapping complete & Certified compliance; continuous audit \\
+\addlinespace
+Trust and adoption  & Limited test users; no trust measurement & Early adopters; initial trust survey & Growing adoption; trust $\geq 3.5/5$ & Trusted consumer tool; longitudinal tracking & Ecosystem integration; industry standard \\
+\addlinespace
+\midrule
+\multicolumn{6}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Assessment: score each dimension 1--5; aggregate mean determines overall maturity level.}} \\
+\multicolumn{6}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{This study achieves Level 3--4 (Operational to Governed) across most dimensions; Level 5 requires prospective clinical deployment and regulatory certification (identified as future research FS-1, FS-6).}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% TABLE 8: Consumer Trust & Adoption Factors
+%% ═══════════════════════════════════════════════════════════════════════════════
+Table~\ref{tab:rgaig_trust_adoption} maps the fifteen consumer trust factors, adoption drivers, and risk perceptions to their corresponding RGAIG+ mechanisms.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{2.5cm} p{2.8cm} X X @{}}
+\caption{RGAIG+ --- Consumer Trust and Adoption Factor Model}
+\label{tab:rgaig_trust_adoption}\\
+\toprule
+\thead{Factor Category} & \thead{Factor} & \thead{Description} & \thead{RGAIG+ Mechanism} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\multirow{5}{*}{Trust factors}
+    & Transparency      & Users understand AI decisions and reasoning & RAG explanations; SHAP feature attribution; consumer-friendly reports \\
+\addlinespace
+    & Reliability        & System produces consistent, accurate results & Bootstrap CI stability; test--retest ICC $= 0.97$; $k$-fold consistency \\
+\addlinespace
+    & Safety             & System prevents harmful outputs and misdiagnosis & Confidence thresholds ($\geq 0.85$); clinician escalation; emergency alerts \\
+\addlinespace
+    & Privacy            & User EEG data protected from unauthorised access & Encryption; de-identification; k-anonymity; data-use certificates \\
+\addlinespace
+    & Human support      & Access to clinical expertise when needed & Clinician oversight layer; consultation prompts; escalation pathway \\
+\addlinespace
+\midrule
+\multirow{5}{*}{Adoption drivers}
+    & Ease of use        & Minimal technical expertise required & Agentic pipeline automation; intuitive dashboard; guided setup \\
+\addlinespace
+    & Perceived usefulness & Framework provides meaningful health insights & ASD-focused diagnostics (ASD); early detection capability \\
+\addlinespace
+    & Clinical validation & Results endorsed by medical professionals & 12-member expert panel (4.2/5); clinician-in-the-loop design \\
+\addlinespace
+    & Data privacy       & Confidence in secure data handling & HIPAA/GDPR alignment; encrypted storage; consent management \\
+\addlinespace
+    & Cost accessibility & Affordable consumer hardware and service & Consumer wearable EEG (8--16 channels); cloud-based inference \\
+\addlinespace
+\midrule
+\multirow{5}{*}{Risk perceptions}
+    & False alarm anxiety & Incorrect positive prediction causes stress & Confidence scoring; threshold calibration; follow-up guidance \\
+\addlinespace
+    & False reassurance  & Missed abnormality creates false safety & Sensitivity-optimised models; multiple-check protocol; limitations disclosed \\
+\addlinespace
+    & Privacy concerns   & EEG data stored externally or shared & On-device processing option; data sovereignty controls; transparent policies \\
+\addlinespace
+    & Device reliability & Sensor quality affects diagnostic accuracy & Signal quality monitoring; electrode contact feedback; calibration alerts \\
+\addlinespace
+    & Over-reliance      & Consumer substitutes AI for clinical judgement & Medical disclaimers; consultation prompts; ``AI-assisted, not AI-decided'' messaging \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Model grounded in TAM \citep{davis1989tam}, TOE \citep{tornatzky1990processes}, and trust literature (McKnight et al., 2002; Siau \& Wang, 2018). Survey instruments in Table~\ref{tab:phase6_trust_survey}.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% TABLE 9: Wearable EEG Device Capability Matrix
+%% ═══════════════════════════════════════════════════════════════════════════════
+Table~\ref{tab:rgaig_device_capability} summarises the wearable EEG device capability spectrum from four to thirty-two channels, with signal quality and diagnostic capability trade-offs.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} r p{3.5cm} >{\centering\arraybackslash}p{2cm} >{\centering\arraybackslash}p{2cm} X @{}}
+\caption{RGAIG+ --- Wearable EEG Device Capability Matrix (10--20 System)}
+\label{tab:rgaig_device_capability}\\
+\toprule
+\thead{Channels} & \thead{Device Example} & \thead{Signal Quality} & \thead{Consumer Use} & \thead{Diagnostic Capability} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+32    & Clinical EEG cap (BioSemi)   & Very high  & Low       & Full clinical analysis; research-grade spatial resolution; all brain regions covered \\
+\addlinespace
+24    & Portable clinical (g.tec)    & High       & Moderate  & Near-clinical diagnostic; suitable for supervised home monitoring \\
+\addlinespace
+16    & Advanced wearable (OpenBCI)  & Moderate--high & Moderate & Strong screening; sufficient for epilepsy and ASD pattern detection \\
+\addlinespace
+14    & Emotiv EPOC X                & Moderate   & High      & Consumer diagnostic; validated in this study (ASD 97.67\%, stress 94.17\%) \\
+\addlinespace
+8     & Consumer wearable (Muse 2)   & Moderate   & Very high & Basic screening; cognitive monitoring; stress/meditation tracking \\
+\addlinespace
+5     & Emotiv Insight               & Low--moderate & Very high & Wellness monitoring; limited diagnostic; validated for stress detection \\
+\addlinespace
+4     & Minimal wearable             & Low        & Very high & Wellness only; insufficient spatial resolution for clinical diagnosis \\
+\addlinespace
+\midrule
+\multicolumn{5}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{This study uses Emotiv EPOC X (14 channels) and Emotiv Insight (5 channels) for wearable validation.}} \\
+\multicolumn{5}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Signal quality trade-off: higher channels = better spatial resolution but lower consumer usability.}} \\
+\multicolumn{5}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{RGAIG+ framework applicable across all configurations; governance controls scale with device capability.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% TABLE 10: Device-Driven Risk Assessment
+%% ═══════════════════════════════════════════════════════════════════════════════
+Table~\ref{tab:rgaig_device_risk} documents the six device-level risk categories unique to consumer wearable EEG, with their diagnostic impact and RGAIG+ mitigations.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} l X X X @{}}
+\caption{RGAIG+ --- Wearable Device Risk Assessment and Mitigation}
+\label{tab:rgaig_device_risk}\\
+\toprule
+\thead{Risk Category} & \thead{Description} & \thead{Impact on Diagnostics} & \thead{RGAIG+ Mitigation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Signal noise          & Poor electrode contact; environmental interference; skin impedance & Reduced classification accuracy; false positives/negatives & Real-time SNR monitoring; signal quality indicator; re-placement guidance \\
+\addlinespace
+Motion artefacts      & Body movement during recording; head rotation; jaw clenching & Contaminated EEG epochs; artefact-driven predictions & ICA-based artefact removal; epoch rejection threshold; consumer guidance on stillness \\
+\addlinespace
+Channel loss          & Missing brain region coverage with lower-channel devices & Incomplete spatial information; reduced feature set & Adaptive feature extraction; domain-specific channel selection; limitation flagging \\
+\addlinespace
+Consumer misuse       & Incorrect device placement; reversed electrode orientation & Systematically wrong signals; unreliable predictions & Guided setup tutorial; placement verification; impedance check feedback \\
+\addlinespace
+Device variability    & Different manufacturers; firmware versions; ADC resolution & Cross-device inconsistency; model transferability issues & Device-agnostic preprocessing; calibration protocol; transfer learning \\
+\addlinespace
+Battery and connectivity & Wireless dropout; battery depletion mid-recording & Incomplete data; interrupted diagnostic session & Minimum recording length threshold; session resume capability; offline processing \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Device risks unique to consumer wearable EEG --- not addressed by generic AI governance frameworks.}} \\
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{RGAIG+ Layer~1 (Device) and Layer~8 (Monitoring) jointly mitigate hardware-level risks.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% TABLE 11: Value & Impact Stakeholder Analysis
+%% ═══════════════════════════════════════════════════════════════════════════════
+Table~\ref{tab:rgaig_value_impact} presents the six-stakeholder value and impact analysis, detailing the value provided, impact metrics, and value type for each group.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} l X X l @{}}
+\caption{RGAIG+ --- Value and Impact Stakeholder Analysis}
+\label{tab:rgaig_value_impact}\\
+\toprule
+\thead{Stakeholder} & \thead{Value Provided} & \thead{Impact Metric} & \thead{Value Type} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Consumers            & Early neurological insights; accessible home monitoring; personalised health reports; reduced hospital visits & Active user rate; consultation reduction; early detection rate; satisfaction score & Clinical \\
+\addlinespace
+Clinicians           & Faster EEG analysis; AI-assisted triage; reduced diagnostic workload; explainable AI support & Diagnostic time reduction; workload hours saved; explanation utility rating & Operational \\
+\addlinespace
+Healthcare providers & Improved diagnostic efficiency; scalable remote monitoring; reduced misdiagnosis costs; competitive advantage & ROI (135--2{,}717\%); cost-per-diagnosis reduction; patient throughput increase & Economic \\
+\addlinespace
+Regulators           & Transparent AI governance; audit-ready compliance; clear accountability chain; incident reporting & Taxonomy pass rate (97.9\%); audit completion rate; regulatory response time & Governance \\
+\addlinespace
+AI developers        & Structured deployment framework; quality taxonomy (525 modules); testing protocol; reusable architecture & Development cycle time; defect rate reduction; compliance-by-design adoption & Technical \\
+\addlinespace
+Society              & Democratised healthcare access; trustworthy AI adoption; responsible innovation; neurological health equity & Population screening coverage; AI trust index; health outcome improvement & Societal \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Value chain: RGAIG+ governance $\rightarrow$ responsible deployment $\rightarrow$ consumer trust $\rightarrow$ adoption $\rightarrow$ early detection $\rightarrow$ health outcomes.}} \\
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Economic value detailed in Section~5.13 (ROI 135--2{,}717\%, VRIN assessment, sensitivity analysis).}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% TABLE 12: Conceptual Model Relationships
+%% ═══════════════════════════════════════════════════════════════════════════════
+Table~\ref{tab:rgaig_conceptual} maps the eight causal paths in the RGAIG+ conceptual model to their theoretical basis and empirical evidence.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{3.2cm} X X X @{}}
+\caption{RGAIG+ --- Conceptual Model Causal Relationships}
+\label{tab:rgaig_conceptual}\\
+\toprule
+\thead{Path} & \thead{Relationship} & \thead{Theoretical Basis} & \thead{Empirical Evidence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Governance $\rightarrow$ Trust                    & Responsible AI governance positively influences consumer trust & Institutional theory \citep{dimaggio1983iron}; trust literature (McKnight et al., 2002) & 10-pillar governance $\rightarrow$ expert panel trust 4.2/5 \\
+\addlinespace
+Data integrity $\rightarrow$ Reliability          & High-quality EEG data improves model reliability and consistency & Signal processing theory; Nyquist--Shannon theorem & SNR $> 20$~dB $\rightarrow$ CV $< 5\%$ across folds \\
+\addlinespace
+GenAI safeguards $\rightarrow$ Safety             & Hallucination controls reduce risk of unsafe medical advice & RAG fidelity literature \citep{lewis2020rag} & RAGAS faithfulness 0.89; hallucination $< 3\%$ \\
+\addlinespace
+Monitoring $\rightarrow$ Trustworthiness          & Continuous monitoring increases perceived system trustworthiness & Control theory; continuous assurance (Vasarhelyi et al., 2004) & Drift detection active; ICC $= 0.97$ over 5 runs \\
+\addlinespace
+Trust $\rightarrow$ Adoption                      & Consumer trust positively influences adoption intention & TAM \citep{davis1989tam}; UTAUT (Venkatesh et al., 2003) & BI items $\geq 4.0/5$; trust composite $\geq 3.5$ \\
+\addlinespace
+Adoption $\rightarrow$ Clinical outcomes          & Higher consumer adoption enables earlier neurological detection & Health technology adoption literature; diffusion of innovation \citep{rogers2003diffusion} & Active screening $\rightarrow$ earlier referral (projected, FS-1) \\
+\addlinespace
+Technology $\rightarrow$ Org. capability (M1)     & AI/DL technology enhances organisational diagnostic capability & TOE framework \citep{tornatzky1990processes}; RBV \citep{barney1991firm} & 198 models; pipeline orchestration; ASD coverage \\
+\addlinespace
+Technology $\rightarrow$ Human capability (M2)    & RAG explainability enhances clinician understanding and trust & TAM perceived usefulness; explainable AI \citep{arrieta2020xai} & RAG explanations rated 4.2/5 by expert panel \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Conceptual model integrates TAM-TOE-RBV with trust theory and responsible AI governance.}} \\
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Paths validated via quantitative experiments (H1--H5) and qualitative expert panel (Section~5.2).}} \\
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{M1 (organisational capability) and M2 (human capability) serve as mediators per conceptual model (Section~2.8).}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% TABLE 13: Generative AI-Specific Governance Controls
+%% ═══════════════════════════════════════════════════════════════════════════════
+Table~\ref{tab:rgaig_genai_controls} documents the eight GenAI-specific risks, their governance controls, and quantitative metrics within the RGAIG+ framework.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{3.0cm} X X p{3.5cm} @{}}
+\caption{RGAIG+ --- Generative AI-Specific Governance Controls}
+\label{tab:rgaig_genai_controls}\\
+\toprule
+\thead{GenAI Risk} & \thead{Description} & \thead{Governance Control} & \thead{Metric} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Hallucination              & LLM generates medically inaccurate explanations not grounded in evidence & RAG retrieval validation; faithfulness scoring; source citation requirement; clinician review gate & RAGAS faithfulness $\geq 0.85$ \\
+\addlinespace
+Unsafe medical advice      & AI-generated report recommends treatment without clinical authorisation & ``AI-assisted, not AI-decided'' framing; mandatory clinician referral for actionable findings; liability disclaimer & Clinician review rate $= 100\%$ for high-risk \\
+\addlinespace
+Synthetic data bias        & GAN-generated or augmented EEG data introduces distributional bias & Synthetic data validation protocol; distribution comparison (KS test); bias audit post-augmentation & KS statistic $< 0.05$; bias delta $< 3\%$ \\
+\addlinespace
+Prompt injection           & Adversarial input manipulates RAG retrieval or explanation output & Input sanitisation; prompt template enforcement; retrieval scope restriction to medical knowledge base & Injection detection rate $\geq 99\%$ \\
+\addlinespace
+Over-confidence            & GenAI generates explanation with high apparent certainty for uncertain prediction & Confidence calibration; uncertainty quantification; ``low confidence'' flagging when model entropy $>$ threshold & Calibration error (ECE) $< 0.05$ \\
+\addlinespace
+Knowledge staleness        & RAG knowledge base contains outdated medical literature or guidelines & Scheduled knowledge base refresh (quarterly); version tracking; source recency scoring & Knowledge base freshness $< 6$ months \\
+\addlinespace
+Privacy leakage            & LLM inadvertently includes patient-identifiable information in generated reports & De-identification verification post-generation; PII detection layer; output sanitisation & PII leakage incidents $= 0$ \\
+\addlinespace
+Explanation inconsistency  & Same input produces different explanations across repeated queries & Temperature $= 0$ for deterministic output; retrieval result caching; explanation consistency testing & Explanation similarity $\geq 0.95$ (cosine) \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{GenAI controls operate within RGAIG+ Layer~4 (Generative AI Engine) with oversight from Layer~7 (Clinical) and Layer~9 (Governance). Controls aligned with 13-phase GenAI QA taxonomy (220 modules, 98.1\% pass).}} \\
+\end{xltabular}
+\endgroup
+
+\clearpage

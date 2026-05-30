@@ -1,0 +1,455 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PHASE 4 — DETAILED RESEARCH EXECUTION TABLES
+%% Hypothesis Development (Chapter 2 concluded)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize\normalfont\color{black}
+
+%% ── Table 1: Input / Process / Output ──
+Table~\ref{tab:phase4_ipo} summarises the input--process--output chain for Phase~4, tracing each hypothesis-development step from its conceptual inputs through the analytical process to its deliverable output. This decomposition ensures that every phase output is traceable to a specific input artefact and methodological action, thereby satisfying the Design Science Research requirement for transparent artefact construction.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase4_ipo} phase4 --- input, process, and output: hypothesis development.
+
+\begin{xltabular}{\textwidth}{@{} l X X X @{}}
+\caption{Phase~4 --- Input, Process, and Output: Hypothesis Development}
+\label{tab:phase4_ipo}\\
+\toprule
+\thead{Step} & \thead{Input} & \thead{Process} & \thead{Output} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Conceptual model         & Phase~3 validated conceptual model, variable taxonomy          & Identify all directional relationships between constructs          & Relationship inventory (8 candidate paths) \\
+\addlinespace
+Variable relationships   & Relationship inventory, literature evidence                     & Classify each relationship as direct, mediation, moderation, or control & Relationship classification matrix \\
+\addlinespace
+Hypothesis formulation   & Classified relationships, theoretical support                   & Draft testable hypothesis statements with directionality           & 5 formal hypotheses (H1--H5) \\
+\addlinespace
+Null hypothesis pairing  & Formal hypotheses                                              & Formulate corresponding null hypotheses (H0) for each             & 5 null hypotheses (H0$_1$--H0$_5$) \\
+\addlinespace
+Statistical testing plan & Hypotheses, variable types, data characteristics               & Match each hypothesis to appropriate statistical technique         & Testing plan with method, threshold, sample requirement \\
+\addlinespace
+Robustness planning      & Testing plan, common method bias literature                    & Define multicollinearity checks, sensitivity tests, cross-validation & Robustness framework (VIF, bootstrap, k-fold) \\
+\addlinespace
+Research model assembly  & Hypotheses, testing plan, robustness framework                 & Integrate all components into unified research model diagram       & Complete research model with all paths labelled \\
+\addlinespace
+Evaluation criteria      & Research model, acceptance thresholds                          & Define pass/fail criteria for each hypothesis and overall model    & Evaluation criteria matrix \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 2: Hypothesis Specification ──
+Table~\ref{tab:phase4_hypotheses} presents the five formal hypotheses (H1--H5) that operationalise the research model, specifying each hypothesis statement, its type (direct or mediation), and the corresponding variable path. These hypotheses translate the conceptual relationships identified in Phase~3 into testable predictions with directional expectations, providing the empirical backbone for the analyses reported in Chapter~4.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase4_hypotheses} phase4 --- hypothesis specification table.
+
+\begin{xltabular}{\textwidth}{@{} l X l l @{}}
+\caption{Phase~4 --- Hypothesis Specification Table}
+\label{tab:phase4_hypotheses}\\
+\toprule
+\thead{ID} & \thead{Hypothesis Statement} & \thead{Type} & \thead{Relationship} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+H1 & The unified RGAIG framework achieves $\geq$85\% classification accuracy across all ASD simultaneously & Direct & IV $\rightarrow$ DV \\
+\addlinespace
+H2 & Deep learning architectures (CNN, LSTM, Transformer) significantly outperform traditional baseline models (SVM, RF, XGBoost) for ASD classification ($p < .05$) & Direct & IV $\rightarrow$ DV \\
+\addlinespace
+H3 & Automated feature importance analysis identifies the top-$k$ discriminative features that explain $\geq$80\% of classification variance across domains & Direct & IV $\rightarrow$ DV \\
+\addlinespace
+H4 & Agentic AI automation significantly mediates the relationship between technology integration and diagnostic business value ($\beta > 0$, $p < .05$) & Mediation & IV $\rightarrow$ M1 $\rightarrow$ DV \\
+\addlinespace
+H5 & RAG-based explainability significantly mediates the relationship between technology integration and clinical trust ($\beta > 0$, $p < .05$) & Mediation & IV $\rightarrow$ M2 $\rightarrow$ DV \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 3: Hypothesis Type Classification ──
+Table~\ref{tab:phase4_types} classifies each hypothesis by its structural type---direct effect, mediation, moderation, or control---and maps it to the corresponding path in the research model. This classification is essential because each type requires a distinct statistical testing strategy; for example, mediation hypotheses (H4, H5) demand Baron and Kenny's multi-step procedure, whereas direct-effect hypotheses (H1--H3) are evaluated through bootstrap resampling or paired comparisons.
+
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase4_types} phase4 --- hypothesis type classification.
+
+\begin{xltabular}{\textwidth}{@{} l l X X @{}}
+\caption{Phase~4 --- Hypothesis Type Classification}
+\label{tab:phase4_types}\\
+\toprule
+\thead{Type} & \thead{Hypotheses} & \thead{Structural Path} & \thead{Interpretation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Direct effect       & H1, H2, H3    & IV $\rightarrow$ DV                          & Technology integration directly predicts diagnostic performance \\
+\addlinespace
+Mediation           & H4, H5        & IV $\rightarrow$ M1/M2 $\rightarrow$ DV      & Organisational and human capabilities transmit the effect of technology on outcomes \\
+\addlinespace
+Moderation          & Exploratory    & Change readiness $\times$ IV $\rightarrow$ DV & Digital culture amplifies or dampens the technology--outcome relationship \\
+\addlinespace
+Control             & All            & Domain, dataset size, signal type held constant & Eliminates confounding variation in ASD-focused comparisons \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 4: Statistical Testing Techniques ──
+Table~\ref{tab:phase4_statistics} maps each hypothesis to its designated statistical test, key metric, and pre-specified acceptance threshold. Pre-registering these decision rules before data analysis guards against post-hoc rationalisation and ensures that hypothesis evaluation in Chapter~4 follows a transparent, reproducible protocol.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase4_statistics} phase4 --- statistical testing techniques per hypothesis.
+
+\begin{xltabular}{\textwidth}{@{} l l X X @{}}
+\caption{Phase~4 --- Statistical Testing Techniques per Hypothesis}
+\label{tab:phase4_statistics}\\
+\toprule
+\thead{Hypothesis} & \thead{Test Method} & \thead{Key Metric} & \thead{Acceptance Threshold} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+H1 & Bootstrap resampling (1,000 resamples, 95\% CI)         & Mean accuracy $\pm$ CI across ASD               & Lower bound of 95\% CI $\geq$ 85\% \\
+\addlinespace
+H2 & Paired $t$-test / Wilcoxon signed-rank                  & Accuracy difference (DL $-$ baseline)                       & $p < .05$, Cohen's $d > 0.5$ (medium effect) \\
+\addlinespace
+H3 & Permutation importance, SHAP values                     & Cumulative variance explained by top-$k$ features     & $\geq$80\% variance explained \\
+\addlinespace
+H4 & Baron \& Kenny mediation, Sobel test, bootstrap CI      & Indirect effect $\beta$ (IV $\rightarrow$ M1 $\rightarrow$ DV) & $\beta > 0$, $p < .05$, CI excludes zero \\
+\addlinespace
+H5 & Baron \& Kenny mediation, Sobel test, bootstrap CI      & Indirect effect $\beta$ (IV $\rightarrow$ M2 $\rightarrow$ DV) & $\beta > 0$, $p < .05$, CI excludes zero \\
+\addlinespace
+Overall model & Model fit indices (if SEM applied)             & CFI, RMSEA, SRMR, $\chi^2/df$                         & CFI $> .95$, RMSEA $< .06$, SRMR $< .08$ \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 5: Quality Validation Framework ──
+Table~\ref{tab:phase4_quality} outlines the quality validation framework applied to the research design, covering six dimensions from hypothesis testability through benchmarking against methodological conventions. This framework anchors the hypothesis development process to established standards---including the TAM-TOE-RBV theoretical base, Baron and Kenny's mediation framework, and Cohen's effect-size conventions---thereby strengthening the overall rigour of the research design.
+
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase4_quality} phase4 --- research design quality framework.
+
+\begin{xltabular}{\textwidth}{@{} l X @{}}
+\caption{Phase~4 --- Research Design Quality Framework}
+\label{tab:phase4_quality}\\
+\toprule
+\thead{Dimension} & \thead{Method} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Quality check        & Ensure every hypothesis is testable, falsifiable, and directional \\
+\addlinespace
+Justification        & Each hypothesis grounded in at least 2 literature sources and 1 theoretical lens \\
+\addlinespace
+Framework reference  & TAM-TOE-RBV integrated model, Baron \& Kenny mediation framework, Cohen effect size conventions \\
+\addlinespace
+Techniques           & Correlation analysis, paired comparison, mediation testing, moderation testing, bootstrap resampling \\
+\addlinespace
+Evaluation           & Pre-registration of hypothesis direction and threshold before data analysis; examiner Q\&A alignment \\
+\addlinespace
+Benchmarking         & 4--8 hypotheses, each with specified test, threshold, and sample requirement; robustness checks documented \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 6: Academic Readiness Evaluation ──
+Table~\ref{tab:phase4_readiness} evaluates the hypothesis development against three academic benchmarks---PhD readiness, DBA readiness, and typical professor expectations---across six criteria ranging from theoretical basis to completeness. This multi-perspective assessment confirms that the research model satisfies both scholarly rigour requirements and practical business relevance, a dual imperative for any DBA dissertation.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase4_readiness} phase4 --- professor, phd, and dba readiness evaluation.
+
+\begin{xltabular}{\textwidth}{@{} l X X X @{}}
+\caption{Phase~4 --- Professor, PhD, and DBA Readiness Evaluation}
+\label{tab:phase4_readiness}\\
+\toprule
+\thead{Criteria} & \thead{PhD Readiness} & \thead{DBA Readiness} & \thead{Professor Expectation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Theoretical basis      & H1 grounded in TAM + RBV (capability $\rightarrow$ performance); H2--H3 in mediation theory (Baron \& Kenny); H4 in TOE (organisational context); H5 in DSR + governance literature & Each hypothesis links to a business decision: H1 justifies AI investment, H2 justifies agentic automation, H4 justifies change readiness assessment before deployment & Examiner traces each H to $\geq$2 cited sources and 1 theoretical lens; H0 null paired for every H; rejection criteria pre-specified \\
+\addlinespace
+Testability            & H0$_1$--H0$_5$ formally stated: e.g., H0$_1$: ASD ensemble $< 85\%$ across ASD; H1: ASD ensemble $\geq 85\%$; thresholds operationalised with bootstrap CI & Hypotheses testable on available data: 131 unique subjects + 20{,}000 images, 5 public datasets, 198 trained models; no new data collection needed for testing & Falsifiable: H1 fails if bootstrap 95\% CI lower bound $< 85\%$; H2 fails if mediation $\beta \leq 0$ or $p \geq .05$; clear pass/fail \\
+\addlinespace
+Statistical rigour     & Bootstrap (1,000 resamples, 95\% CI), paired $t$-test/Wilcoxon for H2, Baron \& Kenny + Sobel for H4--H5, Cohen's $d$ for all, Bonferroni correction ($\alpha = .01$) & Practical interpretation: ASD ensemble 97.67\% exceeds clinical viability (85\%); ROI 135--2{,}717\% translates accuracy gains to \$6.0M savings; trust $+$22\% & Appropriate method per type: bootstrap for non-normal distributions, mediation for indirect paths, permutation importance for H3 feature analysis \\
+\addlinespace
+Practical relevance    & ASD-focused results (ASD 97.67\%, Epilepsy 99.02\%) generalisable via LOSO validation and cross-dataset transfer (ABIDE-II: 89.3\%) & Direct managerial levers: deploy RGAIG governance (98.4\% pass), invest in agentic layer ($+$6.1\% F1), assess change readiness ($+$8.3\% adoption) & Examiner expects ``so what'' for each H: H1 $\rightarrow$ clinical viability, H2 $\rightarrow$ automation ROI, H4 $\rightarrow$ adoption strategy, H5 $\rightarrow$ trust building \\
+\addlinespace
+Robustness             & VIF $< 5$ for all predictors; 10-fold stratified CV; LOSO validation ($\Delta < 5\%$); 3-scenario sensitivity analysis; Shapiro-Wilk normality; Levene's homoscedasticity & Multicollinearity screened before regression; class imbalance addressed with SMOTE; PD small-$n$ acknowledged with bootstrap & Methodological self-awareness: assumption checks documented; negative result protocol defined; boundary conditions (PD 100\% caveat) stated \\
+\addlinespace
+Completeness           & All 5 model paths have H1--H5; 3 exploratory paths acknowledged; moderation (change readiness) and 3 control variables (domain, dataset, signal) included & Key relationships: direct (H1--H3), mediation (H4--H5), moderation (exploratory); no orphan constructs in conceptual model & No untested relationships: every arrow in structural diagram has a corresponding hypothesis with test, threshold, and result slot \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 7: Robustness and Validity Framework ──
+Table~\ref{tab:phase4_robustness} catalogues eight threats to internal and external validity together with the corresponding mitigation strategies and evaluation metrics adopted in this study. Addressing these threats proactively---from multicollinearity screening (VIF) through Type~I error correction (Bonferroni)---ensures that the hypothesis tests reported in Chapter~4 are defensible against common methodological critiques.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase4_robustness} phase4 --- robustness and validity framework.
+
+\begin{xltabular}{\textwidth}{@{} l X X @{}}
+\caption{Phase~4 --- Robustness and Validity Framework}
+\label{tab:phase4_robustness}\\
+\toprule
+\thead{Threat} & \thead{Mitigation Strategy} & \thead{Evaluation Metric} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Multicollinearity         & Variance Inflation Factor (VIF) screening before regression      & VIF $< 5$ for all predictors \\
+\addlinespace
+Sample size adequacy      & Power analysis; minimum $n > 200$ or 10$\times$ free parameters & Achieved power $\geq$ .80 at $\alpha = .05$ \\
+\addlinespace
+Measurement error         & Cronbach's $\alpha$ for survey scales; cross-validation for DL   & $\alpha \geq .70$; CV accuracy stable across folds \\
+\addlinespace
+Common method bias        & Harman's single-factor test; procedural separation of measures   & No single factor explains $> 50\%$ of variance \\
+\addlinespace
+Overfitting               & Stratified $k$-fold cross-validation ($k = 10$), LOSO validation & Test accuracy within 3\% of training accuracy \\
+\addlinespace
+Selection bias             & PRISMA-compliant literature selection; random train/test split   & Balanced class distribution in all splits \\
+\addlinespace
+Type I error inflation     & Bonferroni correction for multiple comparisons                   & Adjusted $\alpha$ reported for each family of tests \\
+\addlinespace
+External validity          & ASD-focused testing across ASD areas; 131 unique subjects + 20{,}000 images       & Consistent results across domains and datasets \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 8: Research Question → Objective → Hypothesis Alignment Matrix ──
+Table~\ref{tab:phase4_alignment} presents the alignment matrix linking each research question (RQ1--RQ8) to its corresponding objective, hypothesis, variable path, and the chapter section where results are reported. This traceability matrix is critical for demonstrating that every research question is answered through a specified analytical procedure, and that no hypothesis is orphaned from its motivating research question.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase4_alignment} phase4 --- research question, objective, and hypothesis.
+
+\begin{xltabular}{\textwidth}{@{} p{0.22\textwidth} l l X l @{}}
+\caption[Phase~4 --- Research Question, Objective, and Hypothesis]{Phase~4 --- Research Question, Objective, and Hypothesis Alignment Matrix}
+\label{tab:phase4_alignment}\\
+\toprule
+\thead{Research Question} & \thead{Objective} & \thead{Hypothesis} & \thead{Variable Path} & \thead{Chapter} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+RQ1: Can a unified AI framework achieve $\geq$85\% accuracy across ASD? & O1, O2 & H1 & Technology integration $\rightarrow$ Business value (direct) & Ch.4, Sec.~4.4.1 \\
+\addlinespace
+RQ2: Does deep learning outperform classical baselines for ASD-focused classification? & O3 & H2 & DL vs baseline $\rightarrow$ F1 improvement $\geq$5\% & Ch.4, Sec.~4.4.3 \\
+\addlinespace
+RQ3: Which features are most discriminative across biomedical domains? & O4 & H3 & SHAP-ranked features $\rightarrow$ top-$k$ predictors & Ch.4, Sec.~4.4.4 \\
+\addlinespace
+RQ4: How does agentic automation mediate diagnostic workflow efficiency? & O5 & H4 & Technology $\rightarrow$ Org.\ capability (M1) $\rightarrow$ Business value & Ch.4, Sec.~4.4.5 \\
+\addlinespace
+RQ5: Does RAG-based explainability improve clinical trust? & O6 & H5 & Technology $\rightarrow$ Human capability (M2) $\rightarrow$ Business value & Ch.4, Sec.~4.5 \\
+\addlinespace
+RQ6: What governance framework ensures responsible ASD-focused AI deployment? & O7 & --- & 10-pillar governance $\rightarrow$ RGAIG taxonomy (design objective, not hypothesis) & Ch.3, Sec.~3.6 \\
+\end{xltabular}
+\par\medskip
+\noindent\textit{Note: RQ6 is addressed through Design Science Research (DSR) rather than hypothesis testing; the governance framework is the DSR artefact. All hypotheses include null alternatives (H0\_1 through H0\_5) with pre-specified rejection thresholds.}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 9: Research Evidence Chain ──
+Table~\ref{tab:phase4_evidence} traces the research evidence chain from the Phase~3 conceptual model through relationship identification, hypothesis formulation, null hypothesis pairing, and statistical planning to the final evaluation criteria. This end-to-end chain demonstrates that the hypothesis-development process followed a systematic, auditable sequence rather than an ad~hoc selection of tests.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase4_evidence} phase4 --- research evidence chain.
+
+\begin{xltabular}{\textwidth}{@{} l X @{}}
+\caption{Phase~4 --- Research Evidence Chain}
+\label{tab:phase4_evidence}\\
+\toprule
+\thead{Chain Link} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Conceptual model           & Phase~3 validated model: IV $\rightarrow$ M1/M2 $\rightarrow$ DV, moderated by change readiness \\
+\addlinespace
+Relationship inventory     & 8 candidate paths identified; 5 retained as formal hypotheses, 3 marked exploratory \\
+\addlinespace
+Hypothesis formulation     & H1 (ASD-focused accuracy), H2 (DL superiority), H3 (feature importance), H4 (agentic mediation), H5 (RAG mediation) \\
+\addlinespace
+Null hypothesis pairing    & H0$_1$--H0$_5$ formally stated with rejection criteria \\
+\addlinespace
+Statistical testing plan   & Bootstrap, paired $t$-test, permutation importance, Baron \& Kenny mediation, Sobel test \\
+\addlinespace
+Robustness framework       & VIF, power analysis, Cronbach's $\alpha$, Harman's test, $k$-fold CV, Bonferroni correction \\
+\addlinespace
+Research model              & Unified diagram: all 5 hypotheses, 3 control variables, moderation path, fit indices \\
+\addlinespace
+Evaluation criteria        & Per-hypothesis: $p$-value, effect size, CI; overall model: CFI, RMSEA, SRMR \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 10: Quality Checklist ──
+Table~\ref{tab:phase4_checklist} provides a ten-item quality checklist that verifies the completeness and rigour of the hypothesis-development phase. Each item is marked as satisfied and linked to the specific table or section that supplies the supporting evidence, ensuring that the phase meets all methodological prerequisites before data analysis commences in Chapter~4.
+
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase4_checklist} phase4 --- quality checklist.
+
+\begin{xltabular}{\textwidth}{@{} p{0.35\textwidth} c p{0.45\textwidth} @{}}
+\caption{Phase~4 --- Quality Checklist}
+\label{tab:phase4_checklist}\\
+\toprule
+\thead{Checklist Item} & \thead{Status} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Is every hypothesis testable and falsifiable?                              & $\checkmark$ & H1--H5 with directional predictions and rejection criteria in Table~\ref{tab:phase4_hypotheses} \\
+\addlinespace
+Does each hypothesis have a corresponding null hypothesis?                 & $\checkmark$ & H0$_1$--H0$_5$ formally stated in Table~\ref{tab:phase4_ipo} (null hypothesis pairing step) \\
+\addlinespace
+Is every hypothesis grounded in at least 2 literature sources?             & $\checkmark$ & TAM-TOE-RBV theoretical support per path; literature mapping in Section~2.5 \\
+\addlinespace
+Is the statistical test specified for each hypothesis?                     & $\checkmark$ & Table~\ref{tab:phase4_statistics}: bootstrap (H1), paired $t$-test (H2), SHAP (H3), Baron \& Kenny (H4, H5) \\
+\addlinespace
+Are acceptance thresholds pre-specified ($p$-value, effect size, CI)?      & $\checkmark$ & $p < .05$, Cohen's $d > 0.5$, 95\% CI bounds specified per hypothesis in Table~\ref{tab:phase4_statistics} \\
+\addlinespace
+Are mediation hypotheses tested with both Sobel and bootstrap methods?     & $\checkmark$ & H4 and H5 tested with Baron \& Kenny + Sobel test + bootstrap CI; see Table~\ref{tab:phase4_statistics} \\
+\addlinespace
+Is multicollinearity screening (VIF) planned before analysis?              & $\checkmark$ & VIF $< 5$ threshold specified in Table~\ref{tab:phase4_robustness} \\
+\addlinespace
+Is sample size adequacy addressed via power analysis?                      & $\checkmark$ & $n > 200$ or 10$\times$ free parameters; achieved power $\geq .80$ at $\alpha = .05$ (Table~\ref{tab:phase4_robustness}) \\
+\addlinespace
+Are Type I error corrections (Bonferroni) applied for multiple tests?      & $\checkmark$ & Bonferroni correction for 5 hypothesis tests; adjusted $\alpha$ reported (Table~\ref{tab:phase4_robustness}) \\
+\addlinespace
+Is the complete research model diagram self-explanatory?                   & $\checkmark$ & Unified research model TikZ diagram with all 5 hypotheses, 3 controls, and moderation path in Section~2.6 \\
+\addlinespace
+Are robustness checks documented (cross-validation, sensitivity)?          & $\checkmark$ & 8 threats mitigated in Table~\ref{tab:phase4_robustness}: VIF, Harman's test, $k$-fold CV, Bonferroni, LOSO \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% RGAIG+ THEORETICAL RESEARCH MODEL — Integrated from rgaig_theory_tables/figures.tex
+%% Phase 4 (Ch.2): SEM Hypotheses SH1-SH7 + Gap-RQ Flow Figure
+%% ═══════════════════════════════════════════════════════════════════════════════
+
+%% ── Table 11: SEM Hypothesis Mapping (RGAIG+ Theory Table 3) ──
+Table~\ref{tab:rgaig_sem_hypotheses} specifies the seven structural equation model (SEM) hypotheses (SH1--SH7) that formalise the governance--trust--adoption pathway within the RGAIG+ theoretical extension. These hypotheses decompose trust formation into five antecedent paths---governance controls, explainability, safety assurance, device reliability, and monitoring transparency---before linking trust to perceived usefulness and, ultimately, adoption intention, thereby grounding the framework in both Trust-in-Automation theory and the Technology Acceptance Model.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:rgaig_sem_hypotheses} phase4 --- structural model hypotheses: governance →.
+
+\begin{xltabular}{\textwidth}{@{} c X l c l l @{}}
+\caption[Phase~4 --- Structural Model Hypotheses: Governance →]{Phase~4 --- Structural Model Hypotheses: Governance → Trust → Adoption Pathways}
+\label{tab:rgaig_sem_hypotheses}\\
+\toprule
+\thead{ID} & \thead{Hypothesis} & \thead{Path} & \thead{Dir.} & \thead{Theory Basis} & \thead{Test Method} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+SH1 & Governance controls positively influence trust in AI diagnostics & GC → TR & (+) & Trust in Automation & SEM ($\beta$, $p$) \\
+\addlinespace
+SH2 & AI explainability positively influences trust in AI diagnostics & EX → TR & (+) & Trust in Automation & SEM ($\beta$, $p$) \\
+\addlinespace
+SH3 & Safety assurance positively influences trust in AI diagnostics & SA → TR & (+) & Trust in Automation & SEM ($\beta$, $p$) \\
+\addlinespace
+SH4 & Device reliability positively influences trust in AI diagnostics & DR → TR & (+) & Sociotechnical & SEM ($\beta$, $p$) \\
+\addlinespace
+SH5 & Monitoring transparency positively influences trust in AI diagnostics & MT → TR & (+) & Trust in Automation & SEM ($\beta$, $p$) \\
+\addlinespace
+SH6 & Trust in AI diagnostics positively influences perceived usefulness & TR → PU & (+) & TAM & SEM ($\beta$, $p$) \\
+\addlinespace
+SH7 & Perceived usefulness positively influences adoption intention & PU → AI & (+) & TAM & SEM ($\beta$, $p$) \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} All paths tested via SEM with bootstrap 95\% CI (1,000 resamples). GC = Governance Controls; EX = Explainability; SA = Safety; DR = Device Reliability; MT = Monitoring; TR = Trust; PU = Perceived Usefulness; AI = Adoption Intention.
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Figure: Gap → RQ → Hypothesis → Component Flow (RGAIG+ Theory Figure 5) ──
+\noindent\textbf{Research alignment flow showing how each.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{\begin{tikzpicture}[
+  colhead/.style={rectangle, draw=ggunavy, fill=ggunavy!25, rounded corners=2pt,
+    minimum width=3.0cm, minimum height=0.8cm, align=center, font=\small\bfseries},
+  cellbox/.style={rectangle, draw=ggunavy, fill=ggunavy!5, rounded corners=2pt,
+    minimum width=3.0cm, minimum height=0.7cm, align=center, font=\small},
+  arrowstyle/.style={-{Stealth[length=4mm,width=3mm]}, ggunavy, thick},
+]
+% Column headers
+\node[colhead] (H1) at (0, 0) {Research Gap};
+\node[colhead] (H2) at (4, 0) {Research Question};
+\node[colhead] (H3) at (8, 0) {Hypothesis};
+\node[colhead] (H4) at (12, 0) {RGAIG+ Component};
+% Row 1
+\node[cellbox] (G1) at (0, -1.2) {No unified\\governance};
+\node[cellbox] (R1) at (4, -1.2) {RQ1: How does\\governance → trust?};
+\node[cellbox] (Hy1) at (8, -1.2) {SH1: GC → TR (+)};
+\node[cellbox] (C1) at (12, -1.2) {Governance Layer\\(L9)};
+% Row 2
+\node[cellbox] (G2) at (0, -2.4) {Lack of XAI\\standards};
+\node[cellbox] (R2) at (4, -2.4) {RQ2: Role of\\explainability?};
+\node[cellbox] (Hy2) at (8, -2.4) {SH2: EX → TR (+)};
+\node[cellbox] (C2) at (12, -2.4) {GenAI Engine\\(L4)};
+% Row 3
+\node[cellbox] (G3) at (0, -3.6) {Insufficient\\safety assurance};
+\node[cellbox] (R3) at (4, -3.6) {RQ3: Safety →\\trust effect?};
+\node[cellbox] (Hy3) at (8, -3.6) {SH3: SA → TR (+)};
+\node[cellbox] (C3) at (12, -3.6) {Safety Module\\(L8)};
+% Row 4
+\node[cellbox] (G4) at (0, -4.8) {Device reliability\\not governed};
+\node[cellbox] (R4) at (4, -4.8) {RQ4: Device →\\trust path?};
+\node[cellbox] (Hy4) at (8, -4.8) {SH4: DR → TR (+)};
+\node[cellbox] (C4) at (12, -4.8) {Device Layer\\(L1)};
+% Row 5
+\node[cellbox] (G5) at (0, -6.0) {Opaque\\monitoring};
+\node[cellbox] (R5) at (4, -6.0) {RQ5: Monitoring →\\confidence?};
+\node[cellbox] (Hy5) at (8, -6.0) {SH5: MT → TR (+)};
+\node[cellbox] (C5) at (12, -6.0) {Monitoring\\(L8)};
+% Row 6
+\node[cellbox] (G6) at (0, -7.2) {Trust--adoption\\undefined};
+\node[cellbox] (R6) at (4, -7.2) {RQ6: Trust\\mediates?};
+\node[cellbox] (Hy6) at (8, -7.2) {SH6--SH7: TR →\\PU → AI};
+\node[cellbox] (C6) at (12, -7.2) {Consumer\\Interface (L6)};
+% Horizontal arrows
+\foreach \i in {1,...,6} {
+  \draw[arrowstyle] (G\i.east) -- (R\i.west);
+  \draw[arrowstyle] (R\i.east) -- (Hy\i.west);
+  \draw[arrowstyle] (Hy\i.east) -- (C\i.west);
+}
+\end{tikzpicture}}
+\caption[Research Alignment: Gap → RQ → Hypothesis → Component]{Research alignment flow showing how each identified gap (G1--G6) maps to a research question, structural hypothesis (SH1--SH7), and specific RGAIG+ framework component. This ensures complete traceability from problem identification through framework design.}
+\label{fig:rgaig_gap_rq_flow}
+\end{figure}
+
+\clearpage

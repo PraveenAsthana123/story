@@ -1,0 +1,471 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% RGAIG+ GOVERNANCE FIGURES — HORIZONTAL TikZ FLOWCHARTS AND INFOGRAPHICS
+%% Covers: Governance stack, decision engine, adoption roadmap, consumer feedback
+%% loop, validation workflow, standards coverage, contribution flow
+%% All figures horizontal layout, minimal text, maximum visual clarity
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize\normalfont\color{black}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% FIGURE 1: Multi-Layer Governance Stack (Vertical Stack, Horizontal Layout)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\noindent\textbf{RGAIG+ Multi-Layer Governance Stack: Data Flows.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+    layer/.style={rectangle, draw=ggunavy, text width=5.5cm,
+                  minimum height=1.2cm, align=center, font=\small,
+                  rounded corners=3pt, line width=0.8pt},
+    lnum/.style={circle, fill=ggunavy, text=white, font=\bfseries\scriptsize,
+                 minimum size=0.6cm, inner sep=0pt},
+    ctrl/.style={rectangle, draw=ggunavy, fill=white, text width=5cm,
+                 minimum height=1.2cm, align=center, font=\small,
+                 rounded corners=2pt, line width=0.5pt},
+    crosscut/.style={rectangle, draw=ggunavy, fill=ggunavy!15, text width=2.8cm,
+                     minimum height=11cm, align=center, font=\small\bfseries,
+                     rounded corners=4pt, line width=0.8pt},
+    uparr/.style={-{Stealth[length=4mm,width=3mm]}, line width=0.8pt, ggunavy},
+    downarr/.style={-{Stealth[length=4mm,width=3mm]}, line width=0.8pt, ggunavy!60, dashed}
+]
+
+%% Stack layers (bottom to top)
+\node[layer, fill=ggunavy!5]  (l1) at (0,0)    {\textbf{Layer 1: Device}\\{\small Wearable EEG acquisition}};
+\node[layer, fill=ggunavy!7]  (l2) at (0,1.6)  {\textbf{Layer 2: Data Governance}\\{\small Privacy, lineage, consent}};
+\node[layer, fill=ggunavy!9]  (l3) at (0,3.2)  {\textbf{Layer 3: AI Model}\\{\small DL + GenAI engine}};
+\node[layer, fill=ggunavy!11] (l4) at (0,4.8)  {\textbf{Layer 4: Application}\\{\small Consumer interface}};
+\node[layer, fill=ggunavy!13] (l5) at (0,6.4)  {\textbf{Layer 5: Decision Engine}\\{\small Risk-based output control}};
+\node[layer, fill=ggunavy!16] (l6) at (0,8.0)  {\textbf{Layer 6: Monitoring}\\{\small Drift, bias, safety}};
+\node[layer, fill=ggunavy!20] (l7) at (0,9.6)  {\textbf{Layer 7: Governance}\\{\small Compliance, audit, policy}};
+
+%% Layer numbers
+\node[lnum] at (-3.6,0) {1};
+\node[lnum] at (-3.6,1.6) {2};
+\node[lnum] at (-3.6,3.2) {3};
+\node[lnum] at (-3.6,4.8) {4};
+\node[lnum] at (-3.6,6.4) {5};
+\node[lnum] at (-3.6,8.0) {6};
+\node[lnum] at (-3.6,9.6) {7};
+
+%% Controls (right side)
+\node[ctrl] (c1) at (6.5,0)   {IEC 60601, ISO 13485\\Signal quality: SNR $\geq$ 10 dB};
+\node[ctrl] (c2) at (6.5,1.6) {HIPAA, GDPR, ISO 27001\\Encryption, de-identification};
+\node[ctrl] (c3) at (6.5,3.2) {FDA SaMD, ISO 42001\\Model cards, fairness testing};
+\node[ctrl] (c4) at (6.5,4.8) {IEC 62366-1, ISO 9241\\Usability, accessibility};
+\node[ctrl] (c5) at (6.5,6.4) {Conf $\geq$ 0.85, hallucination\\check, escalation logic};
+\node[ctrl] (c6) at (6.5,8.0) {PSI/CSI drift metrics\\KPI dashboards, alerts};
+\node[ctrl] (c7) at (6.5,9.6) {EU AI Act, NIST AI RMF\\Audit trail, annual review};
+
+%% Connect layers to controls
+\foreach \i in {1,...,7} {
+    \draw[ggunavy!40, line width=0.5pt, dashed] (l\i.east) -- (c\i.west);
+}
+
+%% Upward data flow arrows
+\foreach \i [evaluate=\i as \j using int(\i+1)] in {1,...,6} {
+    \draw[uparr] ([xshift=-1cm]l\i.north) -- ([xshift=-1cm]l\j.south);
+}
+
+%% Downward policy flow arrows
+\foreach \i [evaluate=\i as \j using int(\i-1)] in {7,6,...,2} {
+    \draw[downarr] ([xshift=1cm]l\i.south) -- ([xshift=1cm]l\j.north);
+}
+
+%% Labels for flow directions
+\node[font=\small\color{ggunavy}, rotate=90, anchor=south] at (-2.5,4.8) {Data flows up $\uparrow$};
+\node[font=\small\color{ggunavy!60}, rotate=90, anchor=south] at (2.5,4.8) {Policy flows down $\downarrow$};
+
+%% Cross-cutting responsible AI bar
+\node[crosscut] at (10.5,4.8) {\rotatebox{90}{Responsible AI (10 Pillars)}};
+
+\end{tikzpicture}}
+\caption[RGAIG+ Multi-Layer Governance Stack]{RGAIG+ Multi-Layer Governance Stack: Data Flows Up, Policy Flows Down}
+\label{fig:rgaig_governance_stack}
+\end{figure}
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% FIGURE 2: GenAI Governance Decision Engine Workflow (Horizontal)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\noindent\textbf{RGAIG+ GenAI Governance Decision Engine: AI.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+    proc/.style={rectangle, draw=ggunavy, fill=ggunavy!8, text width=2.2cm,
+                 minimum height=1.8cm, align=center, font=\small,
+                 rounded corners=3pt, line width=0.8pt},
+    decision/.style={diamond, draw=ggunavy, fill=ggunavy!12, aspect=2,
+                     align=center, font=\small, inner sep=2pt,
+                     line width=0.8pt},
+    outcome/.style={rectangle, draw=ggunavy, text width=2cm,
+                    minimum height=1.2cm, align=center, font=\small,
+                    rounded corners=3pt, line width=0.8pt},
+    arr/.style={-{Stealth[length=4mm,width=3mm]}, line width=1pt, ggunavy},
+    note/.style={font=\small\color{ggunavy!70}}
+]
+
+%% Input
+\node[proc, fill=ggunavy!15] (ai) at (0,0) {\textbf{AI Output}\\[2pt]Prediction +\\GenAI explain.};
+
+%% Risk assessment modules
+\node[proc] (conf) at (3.2,0) {\textbf{Confidence}\\[2pt]Check\\[2pt]$\geq$ 0.85?};
+\node[proc] (sig) at (6.4,0) {\textbf{Signal}\\[2pt]Quality\\[2pt]SNR $\geq$ 10?};
+\node[proc] (hall) at (9.6,0) {\textbf{Hallucination}\\[2pt]Check\\[2pt]Faith. $\geq$ 0.85?};
+\node[proc] (fair) at (12.8,0) {\textbf{Fairness}\\[2pt]Check\\[2pt]$\Delta <$ 5\%?};
+
+%% Decision diamond
+\node[decision] (risk) at (16,0) {Risk\\Level?};
+
+%% Outcomes
+\node[outcome, fill=green!10, draw=green!60!black] (allow) at (19.5,2.5) {\textbf{Allow}\\Deliver to\\consumer};
+\node[outcome, fill=yellow!10, draw=yellow!60!black] (caveat) at (19.5,0.8) {\textbf{Caveat}\\Add\\disclaimer};
+\node[outcome, fill=orange!10, draw=orange!60!black] (escalate) at (19.5,-0.8) {\textbf{Escalate}\\Route to\\clinician};
+\node[outcome, fill=red!10, draw=red!60!black] (block) at (19.5,-2.5) {\textbf{Block}\\Suppress\\output};
+
+%% Flow arrows
+\draw[arr] (ai) -- (conf);
+\draw[arr] (conf) -- (sig);
+\draw[arr] (sig) -- (hall);
+\draw[arr] (hall) -- (fair);
+\draw[arr] (fair) -- (risk);
+
+%% Decision outcomes
+\draw[arr] (risk) -- node[note, above, sloped] {Low} (allow);
+\draw[arr] (risk) -- node[note, above, sloped] {Med} (caveat);
+\draw[arr] (risk) -- node[note, below, sloped] {High} (escalate);
+\draw[arr] (risk) -- node[note, below, sloped] {Critical} (block);
+
+%% Audit trail line
+\draw[ggunavy!40, line width=0.8pt, dashed] (-0.8,-2.5) -- (17,-2.5);
+\node[note, anchor=west] at (-0.8,-2.8) {Audit trail: every decision logged with timestamp, risk factors, and outcome};
+
+\end{tikzpicture}}
+\caption[RGAIG+ GenAI Governance Decision Engine]{RGAIG+ GenAI Governance Decision Engine: AI Output to Risk-Based Routing}
+\label{fig:rgaig_decision_engine}
+\end{figure}
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% FIGURE 3: Framework Adoption Roadmap (Horizontal 6-Phase)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\noindent\textbf{RGAIG+ Framework Adoption Roadmap: Six.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+    phasebox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, text width=2.2cm,
+                 minimum height=2cm, align=center, font=\small,
+                 rounded corners=3pt, line width=0.8pt},
+    pnum/.style={circle, fill=ggunavy, text=white, font=\bfseries\small,
+                 minimum size=0.65cm, inner sep=0pt},
+    arr/.style={-{Stealth[length=3mm]}, line width=1.2pt, ggunavy},
+    maturity/.style={font=\small\color{ggunavy!70}, align=center}
+]
+
+\node[phasebox] (p1) at (0,0) {\textbf{Use Case \&}\\[2pt]\textbf{Governance}\\[4pt]{\small Stakeholders}\\{\small Risk policies}\\{\small Charter}};
+\node[phasebox] (p2) at (3,0) {\textbf{Device \&}\\[2pt]\textbf{Data Prep}\\[4pt]{\small EEG selection}\\{\small Data governance}\\{\small Calibration}};
+\node[phasebox] (p3) at (6,0) {\textbf{AI Model}\\[2pt]\textbf{Development}\\[4pt]{\small Train DL}\\{\small GenAI/RAG}\\{\small Validation}};
+\node[phasebox] (p4) at (9,0) {\textbf{Governance}\\[2pt]\textbf{Integration}\\[4pt]{\small Decision engine}\\{\small Monitoring}\\{\small KPI escalation}};
+\node[phasebox, fill=ggunavy!12] (p5) at (12,0) {\textbf{Consumer}\\[2pt]\textbf{Deployment}\\[4pt]{\small Launch app}\\{\small Clinician loop}\\{\small Education}};
+\node[phasebox, fill=ggunavy!15] (p6) at (15,0) {\textbf{Continuous}\\[2pt]\textbf{Improvement}\\[4pt]{\small Drift monitor}\\{\small Retrain}\\{\small Policy update}};
+
+%% Phase numbers
+\node[pnum, above=0.2cm of p1] {1};
+\node[pnum, above=0.2cm of p2] {2};
+\node[pnum, above=0.2cm of p3] {3};
+\node[pnum, above=0.2cm of p4] {4};
+\node[pnum, above=0.2cm of p5] {5};
+\node[pnum, above=0.2cm of p6] {6};
+
+%% Arrows
+\draw[arr] (p1) -- (p2);
+\draw[arr] (p2) -- (p3);
+\draw[arr] (p3) -- (p4);
+\draw[arr] (p4) -- (p5);
+\draw[arr] (p5) -- (p6);
+
+%% Maturity level labels below
+\node[maturity, below=0.4cm of p1] {Level 1\\Experimental};
+\node[maturity, below=0.4cm of p2] {Level 1\\Experimental};
+\node[maturity, below=0.4cm of p3] {Level 2\\Pilot};
+\node[maturity, below=0.4cm of p4] {Level 3\\Operational};
+\node[maturity, below=0.4cm of p5] {Level 3\\Operational};
+\node[maturity, below=0.4cm of p6] {Level 4\\Governed};
+
+%% Feedback loop
+\draw[-{Stealth[length=4mm,width=3mm]}, line width=0.6pt, ggunavy!50, dashed]
+    (p6.south) -- ++(0,-1.5) -| (p1.south);
+\node[font=\small\color{ggunavy!60}, anchor=north] at (7.5,-2.3) {Governance feedback loop: continuous improvement feeds back to Phase~1};
+
+\end{tikzpicture}}
+\caption{RGAIG+ Framework Adoption Roadmap: Six Implementation Phases}
+\label{fig:rgaig_adoption_roadmap}
+\end{figure}
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% FIGURE 4: Consumer Feedback Loop (Horizontal Cycle)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\noindent\textbf{RGAIG+ Consumer Feedback Loop: Continuous System.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.85\textwidth}{!}{%
+\begin{tikzpicture}[
+    cbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, text width=2.4cm,
+                 minimum height=1.6cm, align=center, font=\small,
+                 rounded corners=3pt, line width=0.8pt},
+    arr/.style={-{Stealth[length=4mm,width=3mm]}, line width=1pt, ggunavy}
+]
+
+\node[cbox] (c1) at (0,0) {\textbf{Consumer}\\[2pt]\textbf{Use}\\[2pt]{\small EEG monitoring}\\{\small AI screening}};
+\node[cbox] (c2) at (3.5,0) {\textbf{User}\\[2pt]\textbf{Feedback}\\[2pt]{\small Satisfaction}\\{\small Trust surveys}};
+\node[cbox] (c3) at (7,0) {\textbf{Device}\\[2pt]\textbf{Monitoring}\\[2pt]{\small Signal quality}\\{\small Usage patterns}};
+\node[cbox] (c4) at (10.5,0) {\textbf{Model}\\[2pt]\textbf{Improvement}\\[2pt]{\small Retrain}\\{\small Bias correction}};
+\node[cbox, fill=ggunavy!15] (c5) at (14,0) {\textbf{Updated}\\[2pt]\textbf{System}\\[2pt]{\small Better accuracy}\\{\small Better UX}};
+
+\draw[arr] (c1) -- (c2);
+\draw[arr] (c2) -- (c3);
+\draw[arr] (c3) -- (c4);
+\draw[arr] (c4) -- (c5);
+
+%% Feedback arrow back to start
+\draw[-{Stealth[length=4mm,width=3mm]}, line width=0.8pt, ggunavy!50, dashed]
+    (c5.south) -- ++(0,-1) -| (c1.south);
+\node[font=\small\color{ggunavy!60}] at (7,-1.3) {Continuous improvement cycle};
+
+\end{tikzpicture}}
+\caption{RGAIG+ Consumer Feedback Loop: Continuous System Improvement}
+\label{fig:rgaig_feedback_loop}
+\end{figure}
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% FIGURE 5: Framework Validation Workflow (Horizontal)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\noindent\textbf{RGAIG+ Multi-Method Validation Workflow: Six.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+    vbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, text width=2.2cm,
+                 minimum height=1.8cm, align=center, font=\small,
+                 rounded corners=3pt, line width=0.8pt},
+    result/.style={rectangle, draw=ggunavy, fill=white, text width=2.2cm,
+                   minimum height=1cm, align=center, font=\small,
+                   rounded corners=2pt, line width=0.5pt},
+    arr/.style={-{Stealth[length=4mm,width=3mm]}, line width=1pt, ggunavy}
+]
+
+\node[vbox] (v1) at (0,0) {\textbf{Computational}\\[2pt]\textbf{Experiments}\\[2pt]{\small DL on}\\{\small ASD}};
+\node[vbox] (v2) at (3,0) {\textbf{Expert Panel}\\[2pt]\textbf{Evaluation}\\[2pt]{\small 12-member}\\{\small Likert + open}};
+\node[vbox] (v3) at (6,0) {\textbf{Case Study}\\[2pt]\textbf{Validation}\\[2pt]{\small Seizure}\\{\small detection}};
+\node[vbox] (v4) at (9,0) {\textbf{Comparative}\\[2pt]\textbf{Analysis}\\[2pt]{\small vs NIST, ISO}\\{\small EU, RAISEF}};
+\node[vbox, fill=ggunavy!12] (v5) at (12,0) {\textbf{Survey}\\[2pt]\textbf{Validation}\\[2pt]{\small TAM-TOE-RBV}\\{\small Trust survey}};
+\node[vbox, fill=ggunavy!12] (v6) at (15,0) {\textbf{Simulation}\\[2pt]\textbf{Testing}\\[2pt]{\small Drift, bias}\\{\small scenarios}};
+
+%% Result boxes below
+\node[result] (r1) at (0,-1.8) {ASD 97.67\%\\AUC 0.956};
+\node[result] (r2) at (3,-1.8) {4.2/5 consensus\\$\kappa$ = 0.84};
+\node[result] (r3) at (6,-1.8) {9 layers\\operational};
+\node[result] (r4) at (9,-1.8) {15/15 vs\\3/15 others};
+\node[result] (r5) at (12,-1.8) {$\alpha \geq$ 0.80\\Planned};
+\node[result] (r6) at (15,-1.8) {Escalation\\Planned};
+
+%% Arrows between validation methods
+\draw[arr] (v1) -- (v2);
+\draw[arr] (v2) -- (v3);
+\draw[arr] (v3) -- (v4);
+\draw[arr] (v4) -- (v5);
+\draw[arr] (v5) -- (v6);
+
+%% Connect to results
+\foreach \i in {1,...,6} {
+    \draw[ggunavy!40, line width=0.5pt] (v\i.south) -- (r\i.north);
+}
+
+%% Status labels
+\node[font=\small\bfseries\color{green!50!black}] at (0,-2.6) {Completed};
+\node[font=\small\bfseries\color{green!50!black}] at (3,-2.6) {Completed};
+\node[font=\small\bfseries\color{green!50!black}] at (6,-2.6) {Completed};
+\node[font=\small\bfseries\color{green!50!black}] at (9,-2.6) {Completed};
+\node[font=\small\bfseries\color{ggunavy}] at (12,-2.6) {Planned};
+\node[font=\small\bfseries\color{ggunavy}] at (15,-2.6) {Planned};
+
+\end{tikzpicture}}
+\caption[RGAIG+ Multi-Method Validation Workflow]{RGAIG+ Multi-Method Validation Workflow: Six Complementary Approaches}
+\label{fig:rgaig_validation_workflow}
+\end{figure}
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% FIGURE 6: Standards Coverage by Framework (Horizontal Bar Chart)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\noindent\textbf{Standards Categories Addressed: RGAIG+ vs.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}
+\begin{axis}[
+    xbar,
+    width=\textwidth,
+    height=9cm,
+    bar width=6pt,
+    xlabel={Standards Categories Addressed (out of 8)},
+    xlabel style={font=\small},
+    symbolic y coords={RAISEF, EU AI Act, ISO 42001, NIST AI RMF, RGAIG+},
+    ytick=data,
+    yticklabel style={font=\small},
+    xticklabel style={font=\small},
+    xmin=0, xmax=9,
+    xtick={0,1,2,3,4,5,6,7,8},
+    nodes near coords,
+    nodes near coords style={font=\small\bfseries},
+    every axis plot/.append style={fill opacity=0.8},
+    enlarge y limits=0.25
+]
+\addplot[fill=ggunavy!15, draw=ggunavy] coordinates {
+    (2,RAISEF)
+    (3,EU AI Act)
+    (4,ISO 42001)
+    (3,NIST AI RMF)
+    (8,RGAIG+)
+};
+\end{axis}
+\end{tikzpicture}}
+\caption[Standards Categories Addressed]{Standards Categories Addressed: RGAIG+ vs Existing Frameworks (8 Categories: Device Safety, AI Governance, SaMD, Privacy, Usability, AI Safety, Clinical Validation, Wearable Benchmarks)}
+\label{fig:rgaig_standards_coverage}
+\end{figure}
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% FIGURE 7: Research Contribution Flow (Horizontal)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\noindent\textbf{RGAIG+ Research Contribution Flow: From Existing.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+    flowbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, text width=3cm,
+                 minimum height=1.6cm, align=center, font=\small,
+                 rounded corners=3pt, line width=0.8pt},
+    novelbox/.style={rectangle, draw=ggunavy, fill=ggunavy!20, text width=3cm,
+                  minimum height=1.6cm, align=center, font=\small,
+                  rounded corners=3pt, line width=1pt},
+    arr/.style={-{Stealth[length=3mm]}, line width=1.2pt, ggunavy}
+]
+
+\node[flowbox] (f1) at (0,0) {\textbf{Existing AI}\\[2pt]\textbf{Governance}\\[2pt]{\small NIST, ISO, EU}\\{\small Principles only}};
+\node[flowbox] (f2) at (4,0) {\textbf{Conceptual}\\[2pt]\textbf{RA Models}\\[2pt]{\small RAISEF, ethics}\\{\small No operations}};
+\node[flowbox] (f3) at (8,0) {\textbf{Operational}\\[2pt]\textbf{Gap Identified}\\[2pt]{\small No GenAI gov.}\\{\small No device gov.}};
+\node[novelbox] (f4) at (12,0) {\textbf{RGAIG+}\\[2pt]\textbf{Framework}\\[2pt]{\small 18 components}\\{\small 15 standards}};
+\node[novelbox] (f5) at (16,0) {\textbf{Validated}\\[2pt]\textbf{Governance}\\[2pt]{\small 6-method valid.}\\{\small Adoption roadmap}};
+
+\draw[arr] (f1) -- (f2);
+\draw[arr] (f2) -- (f3);
+\draw[arr] (f3) -- (f4);
+\draw[arr] (f4) -- (f5);
+
+%% Contribution type labels above
+\node[font=\small\bfseries\color{ggunavy}] at (2,1.2) {Literature};
+\node[font=\small\bfseries\color{ggunavy}] at (6,1.2) {Gap Analysis};
+\node[font=\small\bfseries\color{ggunavy}] at (10,1.2) {Design};
+\node[font=\small\bfseries\color{ggunavy}] at (14,1.2) {Validation};
+
+%% Contribution types below
+\node[font=\small\color{ggunavy!70}, text width=3cm, align=center] at (12,-1.5) {Theoretical +\\Methodological +\\Technical};
+
+\end{tikzpicture}}
+\caption[RGAIG+ Research Contribution Flow]{RGAIG+ Research Contribution Flow: From Existing Frameworks to Validated Governance}
+\label{fig:rgaig_contribution_flow}
+\end{figure}
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% FIGURE 8: Device-to-Governance Integration (Horizontal 3-Domain)
+%% ═══════════════════════════════════════════════════════════════════════════════
+\noindent\textbf{RGAIG+ Three-Domain Integration: Wearable.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+    domainbox/.style={rectangle, draw=ggunavy, text width=4.5cm,
+                   minimum height=3.5cm, align=center, font=\small,
+                   rounded corners=5pt, line width=1pt},
+    item/.style={font=\small, align=left},
+    connector/.style={-{Stealth[length=3mm]}, line width=1.2pt, ggunavy},
+    overlap/.style={ellipse, draw=ggunavy, fill=ggunavy!15,
+                    minimum width=2.5cm, minimum height=1.2cm,
+                    align=center, font=\small\bfseries}
+]
+
+%% Three domains
+\node[domainbox, fill=ggunavy!5] (d1) at (0,0) {
+    \textbf{\large Wearable}\\[2pt]\textbf{\large Technology}\\[8pt]
+    {\small EEG device reliability}\\
+    {\small Signal processing}\\
+    {\small Device benchmarks}\\
+    {\small Safety evaluation}\\
+    {\small Consumer comfort}
+};
+
+\node[domainbox, fill=ggunavy!15] (d2) at (6.5,0) {
+    \textbf{\large Generative AI}\\[2pt]\textbf{\large Governance}\\[8pt]
+    {\small Decision engine}\\
+    {\small Hallucination control}\\
+    {\small RAG faithfulness}\\
+    {\small 525-module taxonomy}\\
+    {\small 10-pillar controls}
+};
+
+\node[domainbox, fill=ggunavy!15] (d3) at (13,0) {
+    \textbf{\large Consumer}\\[2pt]\textbf{\large Healthcare}\\[8pt]
+    {\small Trust and adoption}\\
+    {\small Clinical validation}\\
+    {\small Patient safety}\\
+    {\small Regulatory compliance}\\
+    {\small Health outcomes}
+};
+
+%% Connectors
+\draw[connector] (d1) -- node[above, font=\small\bfseries\color{ggunavy}] {AI Pipeline} (d2);
+\draw[connector] (d2) -- node[above, font=\small\bfseries\color{ggunavy}] {Trust Path} (d3);
+
+%% RGAIG+ unifying bar
+\draw[ggunavy, line width=1.2pt] (-2.5,-3) -- (15.5,-3);
+\node[font=\small\bfseries\color{ggunavy}] at (6.5,-3.5) {RGAIG+ Unified Governance Framework};
+
+%% Connect domains to bar
+\draw[ggunavy!40, line width=0.6pt, dashed] (d1.south) -- (0,-3);
+\draw[ggunavy!40, line width=0.6pt, dashed] (d2.south) -- (6.5,-3);
+\draw[ggunavy!40, line width=0.6pt, dashed] (d3.south) -- (13,-3);
+
+\end{tikzpicture}}
+\caption[RGAIG+ Three-Domain Integration]{RGAIG+ Three-Domain Integration: Wearable Technology $\times$ GenAI Governance $\times$ Consumer Healthcare}
+\label{fig:rgaig_three_domains}
+\end{figure}
+
+\clearpage

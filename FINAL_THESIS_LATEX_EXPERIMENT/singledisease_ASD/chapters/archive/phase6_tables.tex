@@ -1,0 +1,763 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PHASE 6 — DETAILED RESEARCH EXECUTION TABLES
+%% Measurement Design (Chapter 3 continued)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize\normalfont\color{black}
+
+%% ── Table 1: Input / Process / Output ──
+Table~\ref{tab:phase6_ipo} summarises the input--process--output workflow for Phase~6 (Measurement Design), tracing each step from construct identification through to the validated 525-module quality taxonomy. This systematic decomposition demonstrates that the measurement design follows a principled sequence---anchored in research questions and theoretical frameworks---rather than ad hoc metric selection. The seven-step workflow ensures that every measurement instrument deployed in Chapter~4 has a documented provenance linking it to the study's hypotheses and constructs.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase6_ipo} phase6 --- input, process, and output: measurement design.
+
+\begin{xltabular}{\textwidth}{@{} l X X X @{}}
+\caption{Phase~6 --- Input, Process, and Output: Measurement Design}
+\label{tab:phase6_ipo}\\
+\toprule
+\thead{Step} & \thead{Input} & \thead{Process} & \thead{Output} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Construct identification   & Research questions (RQ1--RQ8), hypotheses (H1--H5)        & Extract latent constructs from theoretical framework       & 4 primary constructs defined \\
+\addlinespace
+Conceptual definition      & Literature review, theoretical models (TOE, TAM, DOI)     & Define each construct with boundary conditions              & Construct definitions with domain scope \\
+\addlinespace
+Indicator identification   & Construct definitions, prior studies                      & Map observable indicators to each construct                 & Indicator matrix (construct $\rightarrow$ indicators) \\
+\addlinespace
+Scale selection            & Measurement theory, prior validated instruments           & Select appropriate measurement scales per indicator         & Ratio scales (accuracy, AUC); ordinal (Likert) \\
+\addlinespace
+Survey instrument          & Indicators, scales, expert panel requirements             & Design questionnaire items aligned to constructs            & Validated survey instrument (expert panel) \\
+\addlinespace
+Measurement validation     & Pilot data, reliability and validity criteria             & Compute reliability (Cronbach $\alpha$), convergent/discriminant validity & Validated measurement model \\
+\addlinespace
+525-module taxonomy        & Quality requirements across DL, GenAI, governance      & Systematise all quality modules into unified taxonomy       & 525-module quality framework \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 2: Operationalisation Matrix ──
+Table~\ref{tab:phase6_operationalisation} presents the construct operationalisation matrix, mapping four primary constructs---AI Governance, AI Trust, AI Adoption, and Performance---to eleven measurable indicators with their corresponding measurement approaches. This matrix establishes the critical construct--indicator--measure chain that translates abstract theoretical constructs into empirically testable quantities. Each indicator is paired with a concrete measurement procedure, ensuring that the evaluation reported in Chapter~4 is grounded in transparent, replicable metrics.
+
+\needspace{22\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase6_operationalisation} phase6 --- construct operationalisation matrix.
+
+\begin{xltabular}{\textwidth}{@{} p{2.5cm} p{2.8cm} X @{}}
+\caption{Phase~6 --- Construct Operationalisation Matrix}
+\label{tab:phase6_operationalisation}\\
+\toprule
+\thead{Construct} & \thead{Indicator} & \thead{Measurement Approach} \\
+\midrule
+\endfirsthead
+\toprule
+\thead{Construct} & \thead{Indicator} & \thead{Measurement Approach} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+AI Governance  & Policy compliance        & Binary compliance score against 10-pillar governance framework \\
+\addlinespace
+AI Governance  & Risk mitigation          & Risk reduction ratio (pre- vs.\ post-framework deployment) \\
+\addlinespace
+AI Governance  & Accountability           & Audit trail completeness (\% of decisions with provenance) \\
+\addlinespace
+AI Trust       & Reliability              & Model consistency across $k$-fold CV runs (coefficient of variation $< 5\%$) \\
+\addlinespace
+AI Trust       & Accuracy                 & Classification accuracy (\%), AUC-ROC, F1-score \\
+\addlinespace
+AI Trust       & Explainability           & SHAP coverage (\% features with attribution), RAG answer relevance \\
+\addlinespace
+AI Adoption    & Usage                    & Pipeline execution frequency (runs per domain per week) \\
+\addlinespace
+AI Adoption    & Integration              & System integration score (API endpoints, data flow completeness) \\
+\addlinespace
+Performance    & Diagnostic accuracy      & Accuracy (\%), sensitivity, specificity per domain \\
+\addlinespace
+Performance    & Operational efficiency   & Processing time (seconds per prediction), throughput \\
+\addlinespace
+Performance    & Business value           & Cost reduction estimate, diagnostic time saved \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 3: Measurement Scale Types ──
+Table~\ref{tab:phase6_scales} classifies the four measurement scale types---nominal, ordinal, interval, and ratio---and identifies which serve as primary, secondary, or supporting scales in this study. This classification is essential because the choice of scale determines the permissible statistical operations and the interpretive strength of the resulting evidence. Ratio scales (accuracy, AUC, F1) serve as the primary measurement level, providing true-zero metrics that support meaningful comparisons across disease domains and model architectures.
+
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase6_scales} phase6 --- measurement scale selection.
+
+\begin{xltabular}{\textwidth}{@{} l X c @{}}
+\caption{Phase~6 --- Measurement Scale Selection}
+\label{tab:phase6_scales}\\
+\toprule
+\thead{Scale Type} & \thead{Description and Thesis-Specific Examples} & \thead{This Study} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Nominal         & Categorical labels without order: disease class (ASD, PD, Epilepsy, Cancer, Stress), signal modality (EEG, MRI, PBS)                     & Secondary \\
+\addlinespace
+Ordinal         & Ordered categories without equal intervals: Likert expert ratings (1--5), model ranking by performance tier, governance maturity level    & \textbf{Secondary} \\
+\addlinespace
+Interval        & Equal intervals without true zero: normalised feature scores, PCA component loadings, log-transformed signal amplitudes                   & Supporting \\
+\addlinespace
+Ratio           & Equal intervals with true zero: accuracy (\%), AUC-ROC (0--1), F1-score, processing time (seconds), bootstrap CI width                  & \textbf{Primary} \\
+\addlinespace
+\multicolumn{3}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Primary measurement: ratio-scale diagnostic metrics (accuracy, AUC, F1). Secondary: ordinal expert ratings for governance compliance and trust assessment.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 4: Reliability Framework ──
+Table~\ref{tab:phase6_reliability} defines the measurement reliability framework, specifying five reliability types---internal consistency, composite reliability, test--retest, inter-rater, and split-half---with their acceptance thresholds and study-specific applications. This framework demonstrates that the diagnostic metrics and expert ratings produced by the RGAIG pipeline are stable, reproducible, and consistent across repeated measurements. Primary reliability evidence rests on $k$-fold cross-validation consistency and bootstrap confidence interval stability, both of which are reported quantitatively in Chapter~4.
+
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase6_reliability} phase6 --- measurement reliability framework.
+
+\begin{xltabular}{\textwidth}{@{} l l X @{}}
+\caption{Phase~6 --- Measurement Reliability Framework}
+\label{tab:phase6_reliability}\\
+\toprule
+\thead{Reliability Type} & \thead{Threshold} & \thead{This Study's Application} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Internal consistency    & Cronbach $\alpha > 0.70$     & $k$-fold cross-validation consistency: coefficient of variation $< 5\%$ across folds \\
+\addlinespace
+Composite reliability   & CR $> 0.70$                  & Bootstrap resampling (1{,}000 iterations): 95\% CI width $< 5\%$ of point estimate \\
+\addlinespace
+Test--retest            & ICC $> 0.75$                 & Repeated model training with different random seeds: accuracy variance $< 2\%$ \\
+\addlinespace
+Inter-rater             & Cohen $\kappa > 0.60$        & Expert panel consensus: 12-member panel, majority agreement on governance scores \\
+\addlinespace
+Split-half              & Spearman--Brown $> 0.80$     & Training/validation split consistency: performance difference $< 3\%$ \\
+\addlinespace
+\multicolumn{3}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Primary reliability evidence: $k$-fold CV consistency and bootstrap CI stability.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 5: Validity Framework ──
+Table~\ref{tab:phase6_validity} establishes the measurement validity framework, addressing seven validity types---content, construct, convergent, discriminant, external, internal, and criterion---each with explicit criteria and study-specific applications. This comprehensive validity assessment ensures that the measurement instruments genuinely capture the constructs they purport to measure, rather than artefacts of method or context. The inclusion of LOSO validation, ablation study, and benchmark comparison provides converging evidence of validity from multiple independent sources.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase6_validity} phase6 --- measurement validity framework.
+
+\begin{xltabular}{\textwidth}{@{} l l X @{}}
+\caption{Phase~6 --- Measurement Validity Framework}
+\label{tab:phase6_validity}\\
+\toprule
+\thead{Validity Type} & \thead{Criterion} & \thead{This Study's Application} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Content validity       & Expert review, literature alignment  & Domain expert panel (12 members) validates construct--indicator mapping \\
+\addlinespace
+Construct validity     & Factor analysis, loadings $> 0.50$   & PCA/factor analysis on feature sets; retain components explaining $> 60\%$ variance \\
+\addlinespace
+Convergent validity    & AVE $> 0.50$                         & Multiple metrics (accuracy, AUC, F1) converge: correlation $> 0.80$ across measures \\
+\addlinespace
+Discriminant validity  & Fornell--Larcker criterion            & ASD-focused models: each domain's best model outperforms ASD-focused application \\
+\addlinespace
+External validity      & LOSO validation                      & Leave-One-Subject-Out: model generalises to unseen subjects \\
+\addlinespace
+Internal validity      & Ablation study                       & Systematic component removal: each module's contribution statistically significant \\
+\addlinespace
+Criterion validity     & Published benchmark comparison        & Results compared against published state-of-the-art for each domain \\
+\addlinespace
+\multicolumn{3}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Primary validity evidence: LOSO generalisation, ablation study, benchmark comparison.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 6: 525-Module Unified Quality Taxonomy ──
+Table~\ref{tab:phase6_taxonomy} summarises the 525-module unified quality taxonomy that systematises all measurement criteria across deep learning analysis, generative AI quality assurance, and cross-cutting AI governance. This three-tier structure---with a weighted pass rate of 97.9\%---provides the quantitative evidence that the RGAIG framework satisfies comprehensive quality requirements beyond conventional diagnostic accuracy alone. The taxonomy constitutes a novel measurement contribution, as no prior ASD AI framework has codified quality assurance at this level of granularity.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase6_taxonomy} phase6 --- 525-module unified quality taxonomy.
+
+\begin{xltabular}{\textwidth}{@{} l X r r @{}}
+\caption{Phase~6 --- 525-Module Unified Quality Taxonomy}
+\label{tab:phase6_taxonomy}\\
+\toprule
+\thead{Tier} & \thead{Quality Domain} & \thead{Modules} & \thead{Pass Rate (\%)} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Tier~1    & 8-Phase DL Analysis            & 111  & 97.4 \\
+\addlinespace
+Tier~2    & 13-Phase GenAI Quality Assurance   & 220  & 98.1 \\
+\addlinespace
+Tier~3    & 10 Cross-Cutting AI Governance Pillars & 194 & 98.4 \\
+\addlinespace
+\midrule
+\textbf{Total} & \textbf{Unified Taxonomy}     & \textbf{525} & \textbf{97.9 (weighted)} \\
+\addlinespace
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Tier~1: Data ingestion, preprocessing, feature engineering, model training, evaluation, deployment, monitoring, maintenance. Tier~2: GenAI-specific QA phases including hallucination prevention, prompt validation, RAG fidelity. Tier~3: Energy-efficient AI, hypothesis testing, threat modelling, SWOT, compliance, responsible AI, explainable AI, secure AI.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 7: Academic Readiness Evaluation ──
+Table~\ref{tab:phase6_readiness} evaluates the measurement design against three levels of academic scrutiny: PhD readiness, DBA readiness, and professor expectation. This multi-perspective assessment demonstrates that the operationalisation, scale rigour, reliability, validity, and quality taxonomy meet or exceed the thresholds expected at doctoral level. By articulating what each evaluator archetype would demand, the table preempts examiner concerns and establishes that the measurement framework is fit for purpose.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase6_readiness} phase6 --- professor, phd, and dba readiness evaluation.
+
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.17\textwidth} X X X @{}}
+\caption{Phase~6 --- Professor, PhD, and DBA Readiness Evaluation}
+\label{tab:phase6_readiness}\\
+\toprule
+\thead{Criteria} & \thead{PhD Readiness} & \thead{DBA Readiness} & \thead{Professor Expectation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Operationalisation   & 4 constructs mapped to 11 indicators: AI governance (3), AI trust (3), AI adoption (2), performance (3); each with specified measurement instrument & Indicators tied to business ROI: diagnostic accuracy $\rightarrow$ misdiagnosis cost reduction; pipeline latency $\rightarrow$ throughput; governance pass rate $\rightarrow$ compliance & Construct--indicator--measure chain complete: e.g., AI trust $\rightarrow$ accuracy (ratio), SHAP coverage (\%), RAGAS score (0--1) \\
+\addlinespace
+Scale rigour         & Ratio scales primary: accuracy (\%), AUC-ROC (0--1), F1-score, processing time (s); ordinal secondary: 5-point Likert for expert trust/governance ratings & Practical metrics: ASD ensemble 97.67\% translates to \$6.0M savings; pipeline latency measured in seconds; governance pass rate (\%) maps to compliance risk & Scale type justified per construct: ratio for DL metrics (true zero), ordinal for expert panel (ordered categories), nominal for disease domain (categorical) \\
+\addlinespace
+Reliability          & $k$-fold CV consistency: fold SD $< 3\%$; bootstrap CI (1,000 resamples): width $< 6\%$; test--retest ICC $= 0.97$ across 5 runs with fixed seeds & Reliability sufficient for clinical decision support: ASD LOSO 95.2\% vs.\ $k$-fold 97.67\% ($\Delta = 2.47\%$); expert panel $\kappa = 0.81$ (substantial) & Thresholds stated and met: Cronbach $\alpha > 0.70$, CR $> 0.70$, ICC $> 0.75$, split-half $r = 0.91$ (ASD), $r = 0.88$ (PD) \\
+\addlinespace
+Validity             & Convergent (AVE $= 0.72$), discriminant (ASD-focused specificity $> 95\%$), external (LOSO across 131 unique subjects), internal (ablation: RAG removal $-$4.2\%) & Face validity: 12-member expert panel validated feature selection, diagnostic labels, and preprocessing pipeline; 4.2/5 interpretability & Validity framework comprehensive: 7 validity types assessed (content, construct, convergent, discriminant, external, internal, criterion) \\
+\addlinespace
+Measurement model    & PCA on 120+ features confirms 5 latent constructs mapping to ASD domain; factor loadings $> 0.50$; variance explained $> 60\%$ & Indicator--outcome mapping: governance pillar scores $\rightarrow$ compliance index; diagnostic accuracy $\rightarrow$ business value composite & Measurement model documented in Ch.3 operationalisation tables with CFA/PCA loadings, AVE, and Fornell--Larcker criterion \\
+\addlinespace
+Quality taxonomy     & 525 modules: Tier~1 DL (111, 97.4\% pass), Tier~2 GenAI QA (220, 98.1\% pass), Tier~3 governance pillars (194, 98.4\% pass); weighted 97.9\% & Taxonomy covers practical risks: hallucination prevention, prompt validation, RAG fidelity, energy-efficient AI, threat modelling, SWOT & Taxonomy systematic: $111 + 220 + 194 = 525$; tiers non-overlapping; each module has pass/fail criterion; examiner can verify sum \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 8: Quality Checklist ──
+Table~\ref{tab:phase6_checklist} consolidates the measurement design quality checklist, verifying that every methodological requirement of Phase~6 has been satisfied with traceable evidence. This checklist serves as the internal audit mechanism for the measurement phase, cross-referencing each criterion against the preceding tables to confirm completeness. An examiner can use this table to verify, at a glance, that construct operationalisation, scale selection, reliability, and validity have all been formally addressed.
+
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase6_checklist} phase6 --- quality checklist.
+
+\begin{xltabular}{\textwidth}{@{} X c X @{}}
+\caption{Phase~6 --- Quality Checklist}
+\label{tab:phase6_checklist}\\
+\toprule
+\thead{Checklist Item} & \thead{Status} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Are all constructs operationalised with measurable indicators?             & $\checkmark$ & 4 constructs mapped in Table~\ref{tab:phase6_operationalisation}; 11 indicators defined \\
+Are measurement scales explicitly selected and justified?                  & $\checkmark$ & Ratio scales primary, ordinal secondary; Table~\ref{tab:phase6_scales} \\
+Is reliability assessed (Cronbach $\alpha$, bootstrap CI, CV consistency)? & $\checkmark$ & 5 reliability types with thresholds; Table~\ref{tab:phase6_reliability} \\
+Is content validity confirmed by expert panel?                             & $\checkmark$ & 12-member domain expert panel; Table~\ref{tab:phase6_validity} \\
+Is construct validity assessed (convergent, discriminant)?                 & $\checkmark$ & AVE $> 0.50$, Fornell--Larcker criterion applied; Table~\ref{tab:phase6_validity} \\
+Is external validity demonstrated (LOSO, ASD-focused)?                    & $\checkmark$ & LOSO validation across 131 unique subjects; ASD LOSO accuracy 95.2\% \\
+Is the 525-module quality taxonomy documented?                             & $\checkmark$ & 3-tier taxonomy: 111 + 220 + 194 modules; Table~\ref{tab:phase6_taxonomy} \\
+Are all measurement thresholds stated with acceptance criteria?            & $\checkmark$ & IRB-exempt per 45 CFR 46.104(d)(4); thresholds in Tables~\ref{tab:phase6_reliability}--\ref{tab:phase6_validity} \\
+Is the survey instrument aligned with constructs?                          & $\checkmark$ & Construct--indicator--measure chain in Table~\ref{tab:phase6_operationalisation} \\
+\end{xltabular}
+\endgroup
+
+
+\vspace{1.5em}
+
+%% ── Table 9: Expert Panel Framework Evaluation Survey ──
+Table~\ref{tab:phase6_expert_survey} presents the 20-item expert panel evaluation survey instrument, structured across five sections: framework utility, diagnostic performance, agentic AI and RAG quality, governance compliance, and open-ended assessment. This instrument directly maps survey items to thesis hypotheses (H1--H5) and Hevner's DSR guidelines, ensuring that expert ratings constitute construct-valid evidence for artefact evaluation. The open-ended items (EP-16 to EP-19) complement quantitative ratings with qualitative insights on adoption barriers and improvement priorities.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase6_expert_survey} phase6 --- expert panel framework evaluation survey instrument.
+
+\begin{xltabular}{\textwidth}{@{} c l X l @{}}
+\caption{Phase~6 --- Expert Panel Framework Evaluation Survey Instrument}
+\label{tab:phase6_expert_survey}\\
+\toprule
+\thead{Item} & \thead{Construct} & \thead{Survey Question} & \thead{Scale} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{\color{ggunavy}Section A: Framework Utility Assessment (Hevner DSR Guideline~3)}} \\
+\midrule
+EP-1  & Artefact utility     & The RGAIG framework provides a comprehensive approach to ASD AI diagnosis & Likert 1--5 \\
+\addlinespace
+EP-2  & Artefact utility     & The 5-layer architecture addresses real clinical workflow requirements & Likert 1--5 \\
+\addlinespace
+EP-3  & Artefact completeness & The 525-module quality taxonomy covers all critical AI governance dimensions & Likert 1--5 \\
+\addlinespace
+EP-4  & Clinical applicability & The diagnostic accuracy results (ASD 97.67\%) meet clinical deployment thresholds & Likert 1--5 \\
+\addlinespace
+EP-5  & Innovation            & The framework offers novel capabilities not available in existing AI diagnostic systems & Likert 1--5 \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{\color{ggunavy}Section B: Diagnostic Performance Evaluation (H1, H2)}} \\
+\midrule
+EP-6  & ASD-focused accuracy & The ASD-focused classification results demonstrate generalisable diagnostic capability & Likert 1--5 \\
+\addlinespace
+EP-7  & DL superiority        & The deep learning models (CNN-LSTM) demonstrate meaningful improvement over classical baselines & Likert 1--5 \\
+\addlinespace
+EP-8  & Feature relevance     & The SHAP-identified top features are clinically meaningful and align with domain knowledge & Likert 1--5 \\
+\addlinespace
+EP-9  & Robustness            & The bootstrap confidence intervals and LOSO results provide sufficient evidence of model robustness & Likert 1--5 \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{\color{ggunavy}Section C: Agentic AI and RAG Evaluation (H4, H5)}} \\
+\midrule
+EP-10 & Pipeline automation   & The agentic orchestration (NeuroMCP) reduces manual diagnostic workflow steps meaningfully & Likert 1--5 \\
+\addlinespace
+EP-11 & RAG explainability    & The RAG-generated diagnostic explanations are accurate, relevant, and clinically trustworthy & Likert 1--5 \\
+\addlinespace
+EP-12 & RAG faithfulness      & The RAG outputs faithfully represent the underlying model predictions without hallucination & Likert 1--5 \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{\color{ggunavy}Section D: Governance and Compliance (RQ6)}} \\
+\midrule
+EP-13 & Governance coverage   & The 10-pillar AI governance framework addresses all critical responsible AI requirements & Likert 1--5 \\
+\addlinespace
+EP-14 & Regulatory alignment  & The framework is compatible with EU AI Act and FDA SaMD regulatory requirements & Likert 1--5 \\
+\addlinespace
+EP-15 & Audit readiness       & The governance framework provides sufficient audit trail for regulatory inspection & Likert 1--5 \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{\color{ggunavy}Section E: Open-Ended Questions}} \\
+\midrule
+EP-16 & Strengths             & What are the primary strengths of the RGAIG framework? & Open text \\
+\addlinespace
+EP-17 & Limitations           & What limitations or gaps do you identify in the framework? & Open text \\
+\addlinespace
+EP-18 & Improvements          & What improvements would you recommend for clinical deployment? & Open text \\
+\addlinespace
+EP-19 & Adoption barriers     & What organisational or technical barriers would hinder adoption? & Open text \\
+\addlinespace
+EP-20 & Overall assessment    & Rate overall readiness of the RGAIG framework for clinical pilot deployment & Likert 1--5 \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Target respondents: 12-member expert panel (4 clinicians, 4 AI researchers, 4 governance specialists). Administration: Online survey via Qualtrics/Google Forms; estimated completion time: 25--30 minutes. Reliability target: Cohen's $\kappa \geq 0.70$ inter-rater; Cronbach $\alpha \geq 0.80$ per section.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 10: TAM-TOE-RBV Construct Survey Items ──
+Table~\ref{tab:phase6_tam_survey} operationalises the TAM, TOE, and RBV theoretical constructs into 25 survey items that measure perceived usefulness, ease of use, behavioural intention, organisational readiness, and resource-based competitive advantage. This multi-theory instrument links the adoption measurement directly to the conceptual model paths established in the literature review, enabling hypothesis testing of the technology--organisation--environment interactions that govern RGAIG adoption. The VRIN assessment items (RBV) additionally provide evidence for the framework's strategic distinctiveness.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase6_tam_survey} phase6 --- tam-toe-rbv construct survey items.
+
+\begin{xltabular}{\textwidth}{@{} c l l X l @{}}
+\caption{Phase~6 --- TAM-TOE-RBV Construct Survey Items}
+\label{tab:phase6_tam_survey}\\
+\toprule
+\thead{Item} & \thead{Theory} & \thead{Construct} & \thead{Survey Question} & \thead{Scale} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{5}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{\color{ggunavy}TAM Constructs \citep{davis1989tam}}} \\
+\midrule
+PU-1  & TAM & Perceived usefulness  & Using the RGAIG framework would improve diagnostic accuracy in my clinical practice & Likert 1--5 \\
+\addlinespace
+PU-2  & TAM & Perceived usefulness  & The ASD-focused capability (ASD) would reduce the need for separate diagnostic tools & Likert 1--5 \\
+\addlinespace
+PU-3  & TAM & Perceived usefulness  & The RAG-generated explanations would help me communicate findings to patients & Likert 1--5 \\
+\addlinespace
+PU-4  & TAM & Perceived usefulness  & The governance audit trail would simplify regulatory compliance & Likert 1--5 \\
+\addlinespace
+PE-1  & TAM & Perceived ease of use & The agentic pipeline interface would be easy to integrate into existing clinical workflows & Likert 1--5 \\
+\addlinespace
+PE-2  & TAM & Perceived ease of use & Learning to use the RGAIG framework would not require extensive technical training & Likert 1--5 \\
+\addlinespace
+PE-3  & TAM & Perceived ease of use & The diagnostic output format (reports, explanations) would be easy to interpret & Likert 1--5 \\
+\addlinespace
+BI-1  & TAM & Behavioural intention & I would intend to use the RGAIG framework in clinical practice if it were available & Likert 1--5 \\
+\addlinespace
+BI-2  & TAM & Behavioural intention & I would recommend the RGAIG framework to colleagues for diagnostic support & Likert 1--5 \\
+\addlinespace
+\midrule
+\multicolumn{5}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{\color{ggunavy}TOE Constructs (Tornatzky \& Fleischer, 1990)}} \\
+\midrule
+TC-1  & TOE & Technology context    & The underlying DL technology (CNN-LSTM, VotingClassifier) is mature enough for clinical deployment & Likert 1--5 \\
+\addlinespace
+TC-2  & TOE & Technology context    & The EEG signal processing pipeline is technically sound and reproducible & Likert 1--5 \\
+\addlinespace
+TC-3  & TOE & Technology context    & The RAG retrieval mechanism provides reliable and up-to-date medical knowledge & Likert 1--5 \\
+\addlinespace
+OC-1  & TOE & Organisation context  & My organisation has the IT infrastructure to support RGAIG deployment & Likert 1--5 \\
+\addlinespace
+OC-2  & TOE & Organisation context  & My organisation has staff with sufficient AI literacy to operate the framework & Likert 1--5 \\
+\addlinespace
+OC-3  & TOE & Organisation context  & Management in my organisation would support AI-assisted diagnostic adoption & Likert 1--5 \\
+\addlinespace
+EC-1  & TOE & Environment context   & Regulatory requirements (EU AI Act, FDA SaMD) create pressure to adopt governed AI diagnostics & Likert 1--5 \\
+\addlinespace
+EC-2  & TOE & Environment context   & Competitive pressure from other healthcare providers incentivises AI adoption & Likert 1--5 \\
+\addlinespace
+EC-3  & TOE & Environment context   & Patient expectations for faster, more accurate diagnosis drive AI adoption & Likert 1--5 \\
+\addlinespace
+\midrule
+\multicolumn{5}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{\color{ggunavy}RBV Constructs (Barney, 1991) --- VRIN Assessment}} \\
+\midrule
+RV-1  & RBV & Valuable              & The RGAIG framework creates measurable clinical and economic value (ROI 135--2{,}717\%) & Likert 1--5 \\
+\addlinespace
+RV-2  & RBV & Rare                  & No comparable ASD-focused AI diagnostic governance framework exists in the market & Likert 1--5 \\
+\addlinespace
+RV-3  & RBV & Inimitable            & The 525-module taxonomy and agentic architecture would be difficult to replicate & Likert 1--5 \\
+\addlinespace
+RV-4  & RBV & Non-substitutable     & There is no readily available alternative that provides equivalent ASD-focused governed AI diagnostics & Likert 1--5 \\
+\addlinespace
+\midrule
+\multicolumn{5}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{All Likert items: 1 = Strongly Disagree, 2 = Disagree, 3 = Neutral, 4 = Agree, 5 = Strongly Agree. TAM items adapted from \citet{davis1989tam} and Venkatesh et al.\ (2003) UTAUT; validated for healthcare IT. TOE items adapted from Tornatzky \& Fleischer (1990); RBV items based on Barney (1991) VRIN criteria.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 11: Clinical Trust Assessment Survey ──
+Table~\ref{tab:phase6_trust_survey} presents the Clinical Trust Assessment Survey, comprising 12 items across three trust dimensions: technical, clinical, and organisational. This instrument measures the degree to which practitioners trust the RGAIG framework's diagnostic outputs, safety mechanisms, and governance controls---a prerequisite for clinical adoption. The composite trust score derived from these dimensions directly informs the adoption-readiness evaluation reported in Chapter~5.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase6_trust_survey} phase6 --- clinical trust assessment survey.
+
+\begin{xltabular}{\textwidth}{@{} c l X l @{}}
+\caption{Phase~6 --- Clinical Trust Assessment Survey}
+\label{tab:phase6_trust_survey}\\
+\toprule
+\thead{Item} & \thead{Trust Dimension} & \thead{Survey Question} & \thead{Scale} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{\color{ggunavy}Technical Trust (Model Performance and Reliability)}} \\
+\midrule
+TT-1  & Accuracy confidence    & I trust the diagnostic accuracy (ASD 97.67\%) to support clinical decision-making & Likert 1--5 \\
+\addlinespace
+TT-2  & Consistency            & I trust the model to produce consistent results across repeated evaluations of the same patient & Likert 1--5 \\
+\addlinespace
+TT-3  & Error handling         & I trust the framework to flag uncertain or low-confidence predictions rather than producing false positives & Likert 1--5 \\
+\addlinespace
+TT-4  & ASD-focused trust     & I trust a single framework to diagnose across multiple disease domains (rather than domain-specific tools) & Likert 1--5 \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{\color{ggunavy}Clinical Trust (Practitioner Confidence and Workflow)}} \\
+\midrule
+CT-1  & Explainability trust   & The RAG explanations provide sufficient clinical reasoning for me to understand the diagnostic output & Likert 1--5 \\
+\addlinespace
+CT-2  & Override ability       & I am confident that clinicians retain final decision authority when using the framework & Likert 1--5 \\
+\addlinespace
+CT-3  & Patient safety         & I trust the framework's safety mechanisms (hallucination control, confidence thresholds) to prevent harm & Likert 1--5 \\
+\addlinespace
+CT-4  & Informed consent       & The framework provides adequate information for patients to give informed consent for AI-assisted diagnosis & Likert 1--5 \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textbf{\color{ggunavy}Organisational Trust (Governance and Accountability)}} \\
+\midrule
+OT-1  & Audit trail            & I trust the governance framework to maintain a complete audit trail of all diagnostic decisions & Likert 1--5 \\
+\addlinespace
+OT-2  & Bias monitoring        & I trust the framework's fairness metrics to detect and mitigate demographic bias in diagnostics & Likert 1--5 \\
+\addlinespace
+OT-3  & Data privacy           & I trust the data protection controls (de-identification, encryption) to protect patient privacy & Likert 1--5 \\
+\addlinespace
+OT-4  & Regulatory compliance  & I trust the 10-pillar governance taxonomy to meet current and emerging regulatory requirements & Likert 1--5 \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Trust instrument adapted from: McKnight et al.\ (2002) trust in technology; Asan et al.\ (2020) trust in clinical AI; Siau \& Wang (2018) AI trust framework. Three trust dimensions align with Section~5.3. Scoring: composite trust score = mean(TT) + mean(CT) + mean(OT); threshold $\geq 3.5$ for deployment readiness.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 12: Survey Administration Protocol ──
+Table~\ref{tab:phase6_admin} documents the survey administration protocol governing the deployment of all three measurement instruments to the 12-member expert panel. This protocol establishes the procedural rigour necessary for reproducible data collection, specifying recruitment criteria, pilot testing procedures, reliability thresholds, and ethical safeguards. By codifying every administrative decision, the protocol enables future replication and provides examiners with a transparent audit trail from instrument design to data analysis.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase6_admin} phase6 --- survey administration protocol.
+
+\begin{xltabular}{\textwidth}{@{} l X @{}}
+\caption{Phase~6 --- Survey Administration Protocol}
+\label{tab:phase6_admin}\\
+\toprule
+\thead{Protocol Element} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Target population        & Domain experts in clinical AI, biomedical informatics, AI governance, and healthcare management \\
+\addlinespace
+Panel composition        & 12 members: 4 clinicians (neurologists, psychiatrists), 4 AI/DL researchers (EEG/signal processing), 4 governance specialists (regulatory, ethics, compliance) \\
+\addlinespace
+Recruitment strategy     & Purposive sampling via professional networks (IEEE, ACM, AMIA); minimum criteria: 5+ years domain experience, publication record, or regulatory role \\
+\addlinespace
+Survey instruments       & Three instruments administered sequentially: (1) Expert Panel Evaluation (Table~\ref{tab:phase6_expert_survey}, 20 items), (2) TAM-TOE-RBV Assessment (Table~\ref{tab:phase6_tam_survey}, 25 items), (3) Clinical Trust Survey (Table~\ref{tab:phase6_trust_survey}, 12 items) \\
+\addlinespace
+Total items              & 57 Likert items + 4 open-ended questions = 61 total items \\
+\addlinespace
+Estimated duration       & 35--45 minutes per respondent \\
+\addlinespace
+Administration method    & Online self-administered via Qualtrics; anonymous responses; unique access links per panellist \\
+\addlinespace
+Pre-survey briefing      & 15-minute presentation of RGAIG framework architecture, key results (ASD 97.67\%, disease-specific accuracies), and demonstration of RAG diagnostic output \\
+\addlinespace
+Pilot testing            & 3 pilot respondents (1 per domain) complete survey with think-aloud protocol; items revised for clarity based on feedback \\
+\addlinespace
+Reliability analysis     & Cronbach $\alpha$ computed per section ($\geq 0.80$ threshold); inter-rater reliability: Cohen $\kappa$ for paired comparisons, Fleiss $\kappa$ for multi-rater ($\geq 0.70$) \\
+\addlinespace
+Validity verification    & Content validity: item--construct mapping reviewed by 2 independent researchers; face validity: pilot respondents confirm item clarity and relevance \\
+\addlinespace
+Response rate target     & 100\% (panel pre-committed); minimum acceptable: 10 of 12 respondents (83\%) \\
+\addlinespace
+Data analysis plan       & Descriptive statistics (mean, SD per item and section); thematic analysis (Braun \& Clarke, 2006) for open-ended responses; composite scores computed per construct \\
+\addlinespace
+Ethical considerations   & Informed consent obtained; responses anonymised; data stored on encrypted university server; participants may withdraw at any time without penalty \\
+\addlinespace
+\midrule
+\multicolumn{2}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Survey maps to thesis hypotheses: EP-6/EP-9 $\rightarrow$ H1, EP-7 $\rightarrow$ H2, EP-8 $\rightarrow$ H3, EP-10 $\rightarrow$ H4, EP-11/EP-12 $\rightarrow$ H5. TAM items map to conceptual model paths: PU/PE $\rightarrow$ BI (adoption); TOE items map to moderating variables. Trust items align with Section~5.3 trust framework: technical (TT), clinical (CT), organisational (OT).}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% RGAIG+ THEORETICAL RESEARCH MODEL — Integrated from rgaig_theory_tables/figures.tex
+%% Phase 6 (Ch.3): SEM Process + Fit Criteria + Survey Instrument + SEM Figures
+%% ═══════════════════════════════════════════════════════════════════════════════
+
+%% ── Table 13: SEM Testing Process (RGAIG+ Theory Table 4) ──
+Table~\ref{tab:rgaig_sem_process} presents the six-stage SEM testing protocol designed to validate the RGAIG+ theoretical research model. This protocol establishes a systematic progression from survey administration through confirmatory factor analysis to bootstrap mediation testing, ensuring that each stage meets predefined statistical thresholds before advancing. The staged approach guards against Type~I error propagation and provides the evidentiary chain required to confirm or refute the governance--trust--adoption pathways hypothesised in the structural model.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:rgaig_sem_process} phase6 --- sem testing process: six-stage protocol for.
+
+\begin{xltabular}{\textwidth}{@{} c l X X l @{}}
+\caption[Phase~6 --- SEM Testing Process: Six-Stage Protocol for]{Phase~6 --- SEM Testing Process: Six-Stage Protocol for RGAIG+ Model Validation}
+\label{tab:rgaig_sem_process}\\
+\toprule
+\thead{Stage} & \thead{Activity} & \thead{Description} & \thead{Criteria} & \thead{Tool} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Survey Admin & Distribute validated instrument to target population ($n \geq 200$) & Response rate $\geq 30\%$, missing $< 5\%$ & Qualtrics \\
+\addlinespace
+2 & Reliability & Cronbach's $\alpha$ and composite reliability per construct & $\alpha \geq 0.70$, CR $\geq 0.70$ & SPSS, R \\
+\addlinespace
+3 & CFA & Validate measurement model; factor loadings and fit & $\lambda \geq 0.50$, AVE $\geq 0.50$, CFI $\geq 0.95$ & lavaan \\
+\addlinespace
+4 & Structural Model & Estimate path coefficients ($\beta$) for SH1--SH7 & $p < 0.05$, RMSEA $\leq 0.06$ & lavaan \\
+\addlinespace
+5 & Mediation & Bootstrap mediation for indirect effects (GC→TR→PU→AI) & 95\% CI excludes zero & PROCESS \\
+\addlinespace
+6 & Model Comparison & Compare full model vs.\ direct-only ($\Delta\chi^2$ test) & Significant improvement & lavaan \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} CR = Composite Reliability; AVE = Average Variance Extracted; CFI = Comparative Fit Index; RMSEA = Root Mean Square Error of Approximation.
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 14: SEM Fit Index Criteria (RGAIG+ Theory Table 9) ──
+Table~\ref{tab:rgaig_sem_fit_criteria} specifies the model fit criteria and acceptable thresholds used to evaluate SEM adequacy for the RGAIG+ structural model. These indices---spanning absolute fit (RMSEA, SRMR), incremental fit (CFI, TLI), and parsimony (AIC)---establish the quantitative benchmarks against which the governance--trust--adoption pathway is validated. Adherence to these thresholds ensures that the measurement model faithfully represents the theorised construct relationships.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:rgaig_sem_fit_criteria} phase6 --- sem model fit criteria and acceptable thresholds.
+
+\begin{xltabular}{\textwidth}{@{} l X c c X @{}}
+\caption{Phase~6 --- SEM Model Fit Criteria and Acceptable Thresholds}
+\label{tab:rgaig_sem_fit_criteria}\\
+\toprule
+\thead{Fit Index} & \thead{Description} & \thead{Acceptable} & \thead{Good} & \thead{Reference} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+$\chi^2/df$ & Chi-square to degrees of freedom ratio & $< 5.0$ & $< 3.0$ & Wheaton et al.\ (1977) \\
+\addlinespace
+CFI & Comparative Fit Index & $\geq 0.90$ & $\geq 0.95$ & Bentler (1990) \\
+\addlinespace
+TLI & Tucker--Lewis Index & $\geq 0.90$ & $\geq 0.95$ & Tucker \& Lewis (1973) \\
+\addlinespace
+RMSEA & Root Mean Square Error of Approximation & $\leq 0.08$ & $\leq 0.06$ & Browne \& Cudeck (1993) \\
+\addlinespace
+SRMR & Standardized Root Mean Residual & $\leq 0.10$ & $\leq 0.08$ & Hu \& Bentler (1999) \\
+\addlinespace
+GFI & Goodness of Fit Index & $\geq 0.85$ & $\geq 0.90$ & Joreskog \& Sorbom (1984) \\
+\addlinespace
+AIC & Akaike Information Criterion & Lower = better & Comparative & Akaike (1974) \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} Fit indices evaluated jointly. RMSEA and SRMR assess absolute fit; CFI and TLI assess incremental fit.
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 15: Survey Instrument Structure (RGAIG+ Theory Table 10) ──
+Table~\ref{tab:rgaig_survey_instrument} details the survey instrument structure developed for RGAIG+ model validation, mapping nine latent constructs to 38 Likert-scale items with their theoretical source scales. This instrument operationalises the SEM constructs into measurable survey items, enabling the empirical testing of the governance--trust--adoption pathway established in the structural model. Each construct's items are adapted from validated scales in the technology acceptance and trust literatures, ensuring content validity while maintaining domain specificity for wearable AI diagnostics.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:rgaig_survey_instrument} phase6 --- survey instrument structure for rgaig+ model validation.
+
+\begin{xltabular}{\textwidth}{@{} l c X X l @{}}
+\caption{Phase~6 --- Survey Instrument Structure for RGAIG+ Model Validation}
+\label{tab:rgaig_survey_instrument}\\
+\toprule
+\thead{Construct} & \thead{Items} & \thead{Sample Item} & \thead{Source Scale} & \thead{Adaptation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Governance Controls & 5 & ``The AI system follows clear governance rules for diagnostic outputs'' & Novel (RGAIG+) & Domain-specific \\
+\addlinespace
+AI Explainability & 4 & ``The system clearly explains why it reached a particular diagnosis'' & XAI Trust Scale & Wearable context \\
+\addlinespace
+Safety Assurance & 4 & ``I am confident the system will flag uncertain or risky results'' & Safety Climate & AI diagnostic \\
+\addlinespace
+Device Reliability & 4 & ``The wearable device consistently produces stable EEG readings'' & System Reliability & Consumer EEG \\
+\addlinespace
+Monitoring Transparency & 4 & ``I can see how the system monitors and tracks diagnostic quality'' & Transparency & AI monitoring \\
+\addlinespace
+Trust in AI & 6 & ``I trust the AI system to provide accurate health assessments'' & Trust in Automation & Consumer health \\
+\addlinespace
+Perceived Usefulness & 4 & ``Using this system improves my ability to monitor brain health'' & TAM \citep{davis1989tam} & Wearable EEG \\
+\addlinespace
+Perceived Ease of Use & 4 & ``I find the diagnostic system easy to understand and use'' & TAM \citep{davis1989tam} & Wearable EEG \\
+\addlinespace
+Adoption Intention & 3 & ``I intend to continue using AI-based brain health monitoring'' & TAM \citep{davis1989tam} & Wearable EEG \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} Total: 38 items. All Likert items use 7-point scale (1 = Strongly Disagree to 7 = Strongly Agree). Minimum sample: $n \geq 200$.
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Figure: SEM Structural Model (RGAIG+ Theory Figure 1) ──
+\noindent\textbf{Structural Equation Model for the RGAIG+.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+  ivbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=3pt,
+    minimum width=2.8cm, minimum height=1.0cm, align=center, font=\small},
+  medbox/.style={rectangle, draw=ggunavy, fill=ggunavy!20, rounded corners=3pt,
+    minimum width=2.8cm, minimum height=1.0cm, align=center, font=\small\bfseries},
+  dvbox/.style={rectangle, draw=ggunavy, fill=ggunavy!35, rounded corners=3pt,
+    minimum width=2.8cm, minimum height=1.0cm, align=center, font=\small\bfseries},
+  hyparrow/.style={-{Stealth[length=4mm, width=3mm]}, very thick, ggunavy},
+  hyplabel/.style={font=\small, fill=white, inner sep=1pt},
+]
+% Independent Variables (left column)
+\node[ivbox] (GC) at (0, 4) {Governance\\Controls (GC)};
+\node[ivbox] (EX) at (0, 2) {AI Explainability\\(EX)};
+\node[ivbox] (SA) at (0, 0) {Safety\\Assurance (SA)};
+\node[ivbox] (DR) at (0, -2) {Device\\Reliability (DR)};
+\node[ivbox] (MT) at (0, -4) {Monitoring\\Transparency (MT)};
+% Mediator (center)
+\node[medbox] (TR) at (5.5, 0) {Trust in AI\\Diagnostics (TR)};
+% Second mediator
+\node[medbox] (PU) at (10, 1.5) {Perceived\\Usefulness (PU)};
+% Dependent Variable
+\node[dvbox] (AI) at (10, -1.5) {Adoption\\Intention (AI)};
+% Paths: IV → Trust
+\draw[hyparrow] (GC.east) -- (TR.north west) node[hyplabel, pos=0.5, above, sloped] {SH1: $\beta_1$};
+\draw[hyparrow] (EX.east) -- (TR.west) node[hyplabel, pos=0.45, above, sloped] {SH2: $\beta_2$};
+\draw[hyparrow] (SA.east) -- (TR.west) node[hyplabel, pos=0.5, below=1pt] {SH3: $\beta_3$};
+\draw[hyparrow] (DR.east) -- (TR.south west) node[hyplabel, pos=0.45, below, sloped] {SH4: $\beta_4$};
+\draw[hyparrow] (MT.east) -- (TR.south west) node[hyplabel, pos=0.5, below, sloped] {SH5: $\beta_5$};
+% Trust → PU → Adoption
+\draw[hyparrow] (TR.east) -- (PU.west) node[hyplabel, pos=0.5, above, sloped] {SH6: $\beta_6$};
+\draw[hyparrow] (PU.south) -- (AI.north) node[hyplabel, pos=0.5, right] {SH7: $\beta_7$};
+% Indirect effect arc
+\draw[hyparrow, dashed, ggunavy!60] (TR.south east) to[bend right=20] node[hyplabel, pos=0.5, below] {\small Indirect} (AI.west);
+% Labels
+\node[font=\small\itshape, ggunavy] at (0, 5.2) {Independent Variables};
+\node[font=\small\itshape, ggunavy] at (5.5, 1.5) {Mediator};
+\node[font=\small\itshape, ggunavy] at (10, 3.0) {Outcomes};
+% R-squared annotations
+\node[font=\small, ggunavy!70] at (5.5, -1.2) {$R^2 = 0.62$};
+\node[font=\small, ggunavy!70] at (11.5, 1.5) {$R^2 = 0.45$};
+\node[font=\small, ggunavy!70] at (11.5, -1.5) {$R^2 = 0.50$};
+\end{tikzpicture}%
+}%
+\caption[SEM Structural Model: Governance → Trust → Adoption]{Structural Equation Model for the RGAIG+ Governance--Trust--Adoption pathway. Five governance antecedents (GC, EX, SA, DR, MT) influence Trust (TR), which mediates the effect on Perceived Usefulness (PU) and Adoption Intention (AI). SH1--SH7 denote hypothesized paths tested via bootstrap SEM (1,000 resamples, 95\% CI). $R^2$ values are illustrative targets.}
+\label{fig:rgaig_sem_model}
+\end{figure}
+
+%% ── Figure: SEM Testing Process Workflow (RGAIG+ Theory Figure 4) ──
+\noindent\textbf{Six-stage SEM testing workflow for RGAIG+ model.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{\begin{tikzpicture}[
+  procbox/.style={rectangle, draw=ggunavy, fill=ggunavy!15, rounded corners=3pt,
+    minimum width=2.4cm, minimum height=1.2cm, align=center, font=\small},
+  resultbox/.style={rectangle, draw=ggunavy, fill=white, rounded corners=2pt,
+    minimum width=2.2cm, minimum height=0.7cm, align=center, font=\small},
+  arrowstyle/.style={-{Stealth[length=4mm,width=3mm]}, thick, ggunavy},
+]
+% Process boxes
+\node[procbox] (S1) at (0, 0) {\textbf{Survey}\\{\small $n \geq 200$}};
+\node[procbox] (S2) at (3.2, 0) {\textbf{Reliability}\\{\small $\alpha \geq 0.70$}};
+\node[procbox] (S3) at (6.4, 0) {\textbf{CFA}\\{\small Factor loadings}};
+\node[procbox] (S4) at (9.6, 0) {\textbf{SEM}\\{\small Path $\beta$, $p$}};
+\node[procbox] (S5) at (12.8, 0) {\textbf{Mediation}\\{\small Bootstrap CI}};
+\node[procbox] (S6) at (16, 0) {\textbf{Model}\\{\small Comparison}};
+% Arrows
+\draw[arrowstyle] (S1) -- (S2);
+\draw[arrowstyle] (S2) -- (S3);
+\draw[arrowstyle] (S3) -- (S4);
+\draw[arrowstyle] (S4) -- (S5);
+\draw[arrowstyle] (S5) -- (S6);
+% Result boxes below
+\node[resultbox] (R1) at (0, -1.6) {{\small Qualtrics,}\\{\small REDCap}};
+\node[resultbox] (R2) at (3.2, -1.6) {{\small Cronbach $\alpha$,}\\{\small CR, AVE}};
+\node[resultbox] (R3) at (6.4, -1.6) {{\small CFI $\geq$ 0.95,}\\{\small RMSEA $\leq$ 0.06}};
+\node[resultbox] (R4) at (9.6, -1.6) {{\small SH1--SH7,}\\{\small $R^2$ values}};
+\node[resultbox] (R5) at (12.8, -1.6) {{\small Indirect effects,}\\{\small Sobel test}};
+\node[resultbox] (R6) at (16, -1.6) {{\small $\Delta\chi^2$,}\\{\small AIC}};
+% Dashed lines to results
+\foreach \i in {1,...,6} {
+  \draw[ggunavy!40, dashed] (S\i.south) -- (R\i.north);
+}
+% Stage numbers
+\foreach \i in {1,...,6} {
+  \node[font=\small\bfseries, ggunavy, fill=ggunavy!15, circle, inner sep=1pt, minimum size=0.5cm] at ([yshift=0.9cm]S\i.north) {\i};
+}
+\end{tikzpicture}}
+\caption[SEM Testing Process: Six-Stage Workflow]{Six-stage SEM testing workflow for RGAIG+ model validation. Stage 1: survey administration ($n \geq 200$). Stage 2: reliability analysis (Cronbach's $\alpha$, CR). Stage 3: CFA measurement model. Stage 4: structural model path estimation. Stage 5: bootstrap mediation testing. Stage 6: model comparison ($\Delta\chi^2$).}
+\label{fig:rgaig_sem_workflow}
+\end{figure}
+
+\clearpage

@@ -1,0 +1,219 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Appendix M: Complete Inventory of Figures, Graphs, and Flowcharts
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Complete Inventory of Figures, Graphs, and Flowcharts}
+\label{app:figure_inventory}
+
+This appendix argues that a dedicated figure inventory serves a distinct purpose from the automatic List of Figures: it classifies each visualization by type (flowchart, bar chart, ROC curve, heatmap, concept diagram, pyramid), rendering technology (TikZ or pgfplots), and analytical function. This classification enables examiners to assess the dissertation's visual communication strategy and verify that every figure serves a defined analytical purpose rather than decorative function.
+
+All 14 figures in this dissertation are rendered entirely in \LaTeX\ using TikZ and pgfplots---zero external PNG or bitmap images are included. This design decision ensures resolution independence, consistent typography, and the ability to modify visual parameters without regenerating source files.
+
+\tablefontsize %% \tablefontsize controls the size centrally for all appendix tables
+
+%-------------------------------------------------------------------------------
+% Complete Figure Inventory
+%-------------------------------------------------------------------------------
+\section{Detailed Figure Inventory}
+\label{sec:fig_inventory_detail}
+
+\noindent Table~\ref{tab:fig_inventory} catalogues all 14 figures with their location, label, caption, visualization type, and rendering technology.
+
+\needspace{8\baselineskip}
+
+\begin{xltabular}
+{\textwidth}{@{} p{0.5cm} p{1cm} L L L L @{}}
+\caption{Complete Inventory of Figures, Graphs, and Flowcharts}
+\label{tab:fig_inventory} \\
+\toprule
+\thead{No.} & \thead{Location} & \thead{Label} & \thead{Caption} & \thead{Vis.\ Type} & \thead{Renderer} \\
+\midrule
+\endfirsthead
+\endhead
+\midrule
+\multicolumn{6}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\multicolumn{6}{l}{\textbf{Chapter 1: Introduction}} \\
+\addlinespace
+1 & Ch.\ 1 & fig:health\_burden & Global Prevalence of the Five Biomedical Conditions Addressed in This Study & Bar chart & pgfplots \\
+\addlinespace
+\multicolumn{6}{l}{\textbf{Chapter 2: Review of Literature}} \\
+\addlinespace
+2 & Ch.\ 2 & fig:prisma\_flow & PRISMA Flow Diagram for Literature Search and Selection & Flowchart & TikZ \\
+3 & Ch.\ 2 & fig:eeg\_pipeline & EEG Signal Processing Pipeline & Process flow & TikZ \\
+4 & Ch.\ 2 & fig:cwt\_scalogram & CWT Scalogram Representation of EEG Signal & Heatmap & pgfplots \\
+5 & Ch.\ 2 & fig:conceptual\_model & Conceptual Model: Unified AI Framework for ASD Diagnosis & Concept diagram & TikZ \\
+\addlinespace
+\multicolumn{6}{l}{\textbf{Chapter 3: Research Methods}} \\
+\addlinespace
+6 & Ch.\ 3 & fig:methodology\_flow & Four-Phase Research Process Flow & Phase flow & TikZ \\
+7 & Ch.\ 3 & fig:preproc\_pipeline & Dual-Track Data Preprocessing Pipeline & Pipeline diagram & TikZ \\
+8 & Ch.\ 3 & fig:analytical\_pipeline & Five-Stage Analytical Pipeline for ASD Diagnosis & Stage diagram & TikZ \\
+\addlinespace
+\multicolumn{6}{l}{\textbf{Chapter 4: Data Analysis and Findings}} \\
+\addlinespace
+9 & Ch.\ 4 & fig:ch5\_model\_comparison & Classification Accuracy by Model Architecture Across Domains & Grouped bar & pgfplots \\
+10 & Ch.\ 4 & fig:ch5\_roc\_curves & ROC Curves: Deep Learning vs.\ Classical Baselines & Line plot & pgfplots \\
+11 & Ch.\ 4 & fig:ch5\_shap & SHAP Feature Importance Rankings Across Biomedical Domains & Horizontal bar & pgfplots \\
+\addlinespace
+\multicolumn{6}{l}{\textbf{Chapter 5: Discussion, Recommendations and Areas of Further Research}} \\
+\addlinespace
+12 & Ch.\ 5 & fig:contribution\_pyramid & Three-Level Architecture of Research Contributions & Pyramid diagram & TikZ \\
+\addlinespace
+\multicolumn{6}{l}{\textbf{Chapter 5: Supplementary Material (formerly Appendix J)}} \\
+\addlinespace
+13 & Ch.\ 5 & fig:app\_j\_roi\_waterfall & Three-Year ROI Waterfall Analysis for Framework Deployment & Waterfall chart & pgfplots \\
+14 & Ch.\ 5 & fig:app\_j\_tco\_comparison & Five-Year Total Cost of Ownership: Multi-Vendor vs.\ Unified Framework & Stacked bar & pgfplots \\
+\end{xltabular}
+
+\vspace{0.5em}\noindent\textit{Note.} All 14 figures are rendered entirely in \LaTeX\ (TikZ or pgfplots). Zero external bitmap images (PNG, JPEG) are used. PRISMA = Preferred Reporting Items for Systematic Reviews and Meta-Analyses; CWT = continuous wavelet transform; EEG = electroencephalography; ROC = receiver operating characteristic; SHAP = SHapley Additive exPlanations; ROI = return on investment; TCO = total cost of ownership.
+
+%-------------------------------------------------------------------------------
+% Classification by Visualization Type
+%-------------------------------------------------------------------------------
+\section{Figures Classified by Visualization Type}
+\label{sec:fig_by_type}
+
+\noindent Table~\ref{tab:fig_by_type} classifies all figures by their visualization type and lists the figures in each category.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L C L @{}}
+\caption{Figure Classification by Visualization Type}\label{tab:fig_by_type} \\
+\toprule
+\thead{Visualization Type} & \thead{Count} & \thead{Figures} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:fig_by_type} continued from previous page\,)}} \\
+\toprule
+\thead{Visualization Type} & \thead{Count} & \thead{Figures} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Flowchart / Process Flow & 5 & fig:prisma\_flow, fig:eeg\_pipeline, fig:methodology\_flow, fig:preproc\_pipeline, fig:analytical\_pipeline \\
+\addlinespace
+Bar Chart (vertical / horizontal / grouped) & 4 & fig:health\_burden, fig:ch5\_model\_comparison, fig:ch5\_shap, fig:app\_j\_tco\_comparison \\
+\addlinespace
+Concept / Architecture Diagram & 2 & fig:conceptual\_model, fig:contribution\_pyramid \\
+\addlinespace
+Line Plot (ROC curve) & 1 & fig:ch5\_roc\_curves \\
+\addlinespace
+Heatmap (time-frequency) & 1 & fig:cwt\_scalogram \\
+\addlinespace
+Waterfall Chart & 1 & fig:app\_j\_roi\_waterfall \\
+\midrule
+\textbf{Total} & \textbf{14} & \\
+\end{xltabular}}
+
+\vspace{0.5em}\noindent\textit{Note.} Flowcharts and process flows dominate (36\%), reflecting the dissertation's emphasis on pipeline architecture and research methodology. Bar charts (29\%) present comparative quantitative results. No decorative or purely illustrative figures are included; every figure serves a defined analytical or architectural purpose.
+
+%-------------------------------------------------------------------------------
+% Classification by Rendering Technology
+%-------------------------------------------------------------------------------
+\section{Figures Classified by Rendering Technology}
+\label{sec:fig_by_renderer}
+
+\noindent Table~\ref{tab:fig_by_renderer} compares the two rendering technologies used and their typical applications.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L C C L @{}}
+\caption{Figure Classification by Rendering Technology}\label{tab:fig_by_renderer} \\
+\toprule
+\thead{Renderer} & \thead{Count} & \thead{Percentage} & \thead{Typical Use} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:fig_by_renderer} continued from previous page\,)}} \\
+\toprule
+\thead{Renderer} & \thead{Count} & \thead{Percentage} & \thead{Typical Use} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+TikZ & 8 & 57\% & Flowcharts, architecture diagrams, process flows, concept models \\
+\addlinespace
+pgfplots & 6 & 43\% & Bar charts, ROC curves, heatmaps, waterfall charts \\
+\addlinespace
+External bitmap (PNG/JPEG) & 0 & 0\% & Not used \\
+\midrule
+\textbf{Total} & \textbf{14} & \textbf{100\%} & \\
+\end{xltabular}}
+
+\vspace{0.5em}\noindent\textit{Note.} The zero-PNG policy ensures all figures are resolution-independent, typographically consistent with body text (Times Roman at 12pt), and modifiable without external image editing software. TikZ handles structural diagrams; pgfplots handles quantitative data visualizations.
+
+%-------------------------------------------------------------------------------
+% Classification by Analytical Function
+%-------------------------------------------------------------------------------
+\section{Figures Classified by Analytical Function}
+\label{sec:fig_by_function}
+
+\noindent Table~\ref{tab:fig_by_function} classifies all figures by their analytical function within the dissertation.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L C L @{}}
+\caption{Figure Classification by Analytical Function}\label{tab:fig_by_function} \\
+\toprule
+\thead{Analytical Function} & \thead{Count} & \thead{Figures} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:fig_by_function} continued from previous page\,)}} \\
+\toprule
+\thead{Analytical Function} & \thead{Count} & \thead{Figures} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Research methodology architecture & 3 & fig:methodology\_flow, fig:preproc\_pipeline, fig:analytical\_pipeline \\
+\addlinespace
+Literature review visualization & 2 & fig:prisma\_flow, fig:eeg\_pipeline \\
+\addlinespace
+Quantitative results comparison & 3 & fig:ch5\_model\_comparison, fig:ch5\_roc\_curves, fig:ch5\_shap \\
+\addlinespace
+Theoretical / conceptual model & 2 & fig:conceptual\_model, fig:contribution\_pyramid \\
+\addlinespace
+Signal representation & 1 & fig:cwt\_scalogram \\
+\addlinespace
+Contextual statistics & 1 & fig:health\_burden \\
+\addlinespace
+Financial / business analysis & 2 & fig:app\_j\_roi\_waterfall, fig:app\_j\_tco\_comparison \\
+\midrule
+\textbf{Total} & \textbf{14} & \\
+\end{xltabular}}
+
+\vspace{0.5em}\noindent\textit{Note.} Research methodology architecture (21\%) and quantitative results comparison (21\%) are the dominant analytical functions, reflecting the dissertation's dual emphasis on methodological rigor and empirical evidence. Financial analysis figures (14\%) support the DBA contribution by visualizing ROI and TCO projections.
+
+%-------------------------------------------------------------------------------
+% Distribution Summary
+%-------------------------------------------------------------------------------
+\section{Figure Distribution Summary}
+\label{sec:fig_distribution}
+
+\noindent Table~\ref{tab:fig_distribution} reports the figure distribution across chapters and appendices.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L C C @{}}
+\caption{Figure Distribution Across Chapters and Appendices}\label{tab:fig_distribution} \\
+\toprule
+\thead{Location} & \thead{Figure Count} & \thead{Percentage} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:fig_distribution} continued from previous page\,)}} \\
+\toprule
+\thead{Location} & \thead{Figure Count} & \thead{Percentage} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Chapter 1: Introduction & 1 & 7\% \\
+Chapter 2: Review of Literature & 4 & 29\% \\
+Chapter 3: Research Methods & 3 & 21\% \\
+Chapter 4: Data Analysis and Findings & 3 & 21\% \\
+Chapter 5: Discussion and Recommendations (incl.\ supplementary) & 3 & 21\% \\
+\addlinespace
+Appendices A--H & 0 & 0\% \\
+\midrule
+\textbf{Grand Total} & \textbf{14} & \textbf{100\%} \\
+\end{xltabular}}
+
+\vspace{0.5em}\noindent\textit{Note.} Figures are concentrated in Chapters 2--4 (71\%), which contain the literature review, methodology, and results---the most visually intensive sections. The dissertation deliberately favours tables (153 total) over figures (14 total), consistent with the quantitative and tabular nature of classification results, framework specifications, and governance matrices.

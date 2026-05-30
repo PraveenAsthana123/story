@@ -1,0 +1,40 @@
+%% ============================================================================
+%% Examiner Q&A for the Ch.3 architecture expansion (auto-generated 2026-05-27)
+%% ============================================================================
+
+\clearpage
+\subsection{Examiner Q\&A --- Anticipated Questions on the Architecture Expansion}
+\label{sec:examiner_qa_architecture}
+
+\noindent\emph{Twelve anticipated examiner questions on the Ch.~3 architectural expansion (100+ dedicated-page tables, 12 TikZ figures, 2 new appendices). Each row anticipates one likely defence question with the supporting evidence reference. The intent is that the candidate can answer any examiner challenge by quoting the row + the cross-referenced table or figure.}
+
+\paragraph{Examiner Q\&A on Architecture Expansion.}
+
+
+\noindent This table lists each \textit{q\#} across anticipated question + answer summary, and evidence pointers, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.0cm} p{9.5cm} >{\raggedright\arraybackslash}p{2.7cm} @{}}
+\caption[Examiner Q\&A on Architecture]{Examiner Q\&A on the Ch.~3 Architecture Expansion --- 12 Anticipated Questions + Evidence.}\label{tab:examiner_qa_architecture} \\
+\toprule
+\thead{Q\#} & \thead{Anticipated question + answer summary} & \thead{Evidence pointers} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Q1 & \textbf{Why so many dedicated-page tables (100+)?} Answer: The architecture serves as an institutional reference; each topic gets a dedicated page so an examiner / engineer / clinician can engage one topic at a time without reading the full chapter. Volume is purposeful: per dissertation methodology a defensible AI system must answer ``what is the spec?'' per artefact, not just ``what is the system?'' overall. & Tables \ref{tab:thematic_xref_matrix}, \ref{tab:crossref_index_new} \\
+Q2 & \textbf{Is the 23-step pipeline novel or replicating prior work?} Answer: The 23-step taxonomy is the dissertation's synthesis of best practices from Wang 2013, Rojas 2014, and current MLOps literature (Sculley 2015, Breck 2017); the contribution is the GOVERNANCE layer (Steps 21--23) + cross-cutting RGAIG / SMART framework mapping per phase, not the per-step techniques themselves. & Tables \ref{tab:asd_23step_expanded}, \ref{tab:rgaig_per_phase}, \ref{tab:smart_per_phase} \\
+Q3 & \textbf{How does ISO 42001 satisfy EU AI Act requirements?} Answer: ISO 42001 §6.1.2 (risk assessment) + §7.5 (documented information) + §8.4 (process management) map directly to EU AI Act Articles 9 (risk management) + 12 (logging) + 13 (transparency) + 14 (human oversight). The audit-evidence runbook table cross-references each ISO clause to the EU AI Act article it satisfies. & Tables \ref{tab:per_phase_iso_42001}, \ref{tab:iso_audit_runbook} \\
+Q4 & \textbf{Why bootstrap (1{,}000 / 5{,}000 resamples) instead of Monte Carlo?} Answer: Bootstrap is non-parametric (no distributional assumption); ASD-EEG features are non-normal with unknown joint distribution. Monte Carlo would require assuming a generating distribution. Bootstrap is the principled choice + the standard in PLS-SEM literature (Hair 2017). & Table \ref{tab:monte_carlo_vs_bootstrap} \\
+Q5 & \textbf{Where would Phase 2 Indian-cohort data plug in?} Answer: Phase 2 data flows through Steps 1--3 (capture / standardise / QC) per Appendix~\ref{sec:appendix_n_indian_cohort}; from Step 4 (preprocess) the same pipeline runs on Phase 2 records as on KAU + ABIDE-II. Cross-cohort comparison runs at Step 11 (evaluate) + Step 19 (drift monitor). & Tables \ref{tab:primary_pediatric_population}, \ref{tab:sec_data_phase_conversion}, App.~\ref{sec:appendix_n_indian_cohort} \\
+Q6 & \textbf{Why the 7-layer RGAIG framework instead of an off-the-shelf framework?} Answer: Standard frameworks (NIST AI RMF, OECD AI Principles) operate at a strategic level; the dissertation's contribution is the OPERATIONAL layer mapping per pipeline phase. RGAIG combines L1 capture + L2 cloud + L3 explainability + L4 governance + L5 HITL + L6 audit + L7 adoption into a pipeline-phase-level contract; per-layer artefact is verifiable per phase. & Tables \ref{tab:rgaig_per_phase}, \ref{tab:sec_data_rgaig}; Appendix H \\
+Q7 & \textbf{Why include both KAU + ABIDE-II + Phase 2 Indian cohort?} Answer: Triangulation across three cohorts (Saudi + Western + Indian) is the dissertation's external-validation strategy; cross-cohort performance gap reveals site / cultural confounding; the dissertation reports per-cohort performance + the gap with confidence intervals. Single-cohort accuracy is widely critiqued in ASD-EEG literature. & Tables \ref{tab:sec_data_accuracy}, \ref{tab:benchmarking_comparison}, \ref{tab:primary_analysis_subgroup_fairness} \\
+Q8 & \textbf{How is the Ragas faithfulness $\geq 0.85$ threshold defended?} Answer: Per Ragas published evaluation (Es 2024) + RAGAS-BENCH 2024 leaderboard. The 0.85 threshold corresponds to ``human-judged accurate'' tier; below 0.75 = ``acceptable''; below 0.65 = ``unreliable''. The dissertation's threshold is one tier above ``acceptable'' for clinical-context safety margin. & Tables \ref{tab:output_eval_ragas}, \ref{tab:per_phase_library_kpi} \\
+Q9 & \textbf{What is the HITL bypass risk if confidence $\geq 0.85$?} Answer: The auto-route at $\geq 0.85$ confidence STILL writes a draft for clinician review; ``auto-route'' means the draft is sent to clinician inbox without queueing for active review. The clinician can OVERRIDE any auto-routed report. ``Auto'' refers to routing, not to bypass of clinical review. & Tables \ref{tab:per_phase_iso_42001} row HITL; Fig \ref{fig:hitl_workflow_decision} \\
+Q10 & \textbf{How does the dissertation handle ASD-EEG bias (M:F $\sim 4{:}1$, geographic skew)?} Answer: Per-subgroup fairness analysis is mandatory per Table~\ref{tab:primary_analysis_subgroup_fairness}; per-axis thresholds (DI $\geq 0.80$; equal-opportunity gap $< 5\%$) align with EU AI Act + EEOC four-fifths rule. Sex / age / severity / comorbidity / site / device / cohort / language / SES proxy all stratified. Bias inventory + mitigation per Table~\ref{tab:brutal_primary_bias_inventory}. & Tables \ref{tab:primary_analysis_subgroup_fairness}, \ref{tab:brutal_primary_bias_inventory}, \ref{tab:brutal_balance_handling} \\
+Q11 & \textbf{Why pre-register before Phase 2 data collection (Appendix P)?} Answer: Pre-registration eliminates p-hacking + HARKing (Hypothesising After Results Known); OSF time-stamped commitment of hypotheses + thresholds before data observation is the methodological gold-standard. The dissertation's 23-item pre-registration checklist covers AI-specific items (model architecture pin, prompt version, Ragas threshold) beyond standard pre-registration. & Appendix \ref{app:pre_registration_template}, Table \ref{tab:app_p_checklist} \\
+Q12 & \textbf{How are the architecture's claims verified beyond documentation?} Answer: Drill methodology (Appendix Q) ensures every architecture claim has a programmatic verification: per-pipeline-phase drill with $\geq 3$ negative assertions per drill. Drills run in CI on every merge; regression-catalog grows monotonically; per-failure RCA per §38.3 governance. & Appendix \ref{app:drill_methodology}, Tables \ref{tab:app_q_drill_anatomy}, \ref{tab:app_q_drill_inventory} \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Q\&A intended for defence rehearsal; candidate prepares verbal answer per question + memorises the per-row evidence pointers so any examiner challenge can be answered with specific table / figure / appendix reference within seconds.

@@ -1,0 +1,645 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PHASE 5 — DETAILED RESEARCH EXECUTION TABLES
+%% Research Design (Chapter 3)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize\normalfont\color{black}
+
+%% ── Table 1: Input / Process / Output ──
+Table~\ref{tab:phase5_ipo} presents the input--process--output mapping for each step of the research design, tracing how raw methodological inputs are transformed into justified design decisions. This decomposition operationalises the Research Onion framework \citep{saunders2019research} by making each layer's rationale explicit and auditable. The resulting blueprint establishes the methodological foundation upon which all subsequent chapters build.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase5_ipo} phase5 --- input, process, and output: research design.
+
+\begin{xltabular}{\textwidth}{@{} p{0.14\textwidth} X X X @{}}
+\caption{Phase~5 --- Input, Process, and Output: Research Design}
+\label{tab:phase5_ipo}\\
+\toprule
+\thead{Step} & \thead{Input} & \thead{Process} & \thead{Output} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Research problem      & 4 problem statements (P1--P4), 12 research gaps                & Analyse nature of the research problem             & Problem classification (applied, empirical) \\
+\addlinespace
+Philosophy            & Epistemological traditions, ontological positions                & Evaluate positivism, interpretivism, pragmatism     & Pragmatist philosophy selected \\
+\addlinespace
+Approach              & Deductive, inductive, abductive reasoning                       & Match approach to hypothesis-driven investigation   & Deductive approach adopted \\
+\addlinespace
+Strategy              & Survey, case study, experiment, DSR options                     & Select strategy for artefact-building research      & Design Science Research (DSR) with computational experiments \\
+\addlinespace
+Design type           & Experimental, quasi-experimental, non-experimental              & Evaluate design constraints (no random assignment)  & Quasi-experimental design \\
+\addlinespace
+Data collection       & Quantitative, qualitative, mixed options                        & Align collection method with RQs and hypotheses     & Mixed methods: primary quantitative, secondary qualitative \\
+\addlinespace
+Methodology synthesis & Philosophy + approach + strategy + design + method              & Integrate all design decisions into coherent plan   & Research design blueprint (Chapter~3 methodology) \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 2: Quality Validation Framework ──
+Table~\ref{tab:phase5_quality} summarises the quality validation framework applied to the research design, specifying the dimension and method used to verify each aspect of methodological rigour. This framework ensures that the design decisions documented in Chapter~3 are internally consistent, literature-grounded, and benchmarked against comparable doctoral research. Each dimension maps directly to an evaluative criterion that an examiner would apply when assessing the methodology.
+
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase5_quality} phase5 --- research design quality framework.
+
+\begin{xltabular}{\textwidth}{@{} p{0.17\textwidth} X @{}}
+\caption{Phase~5 --- Research Design Quality Framework}
+\label{tab:phase5_quality}\\
+\toprule
+\thead{Dimension} & \thead{Method} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Methodology consistency    & Verify alignment: pragmatism $\rightarrow$ deductive $\rightarrow$ DSR $\rightarrow$ quasi-experimental $\rightarrow$ mixed methods \\
+\addlinespace
+Literature support         & Research design grounded in Saunders Research Onion, \citet{creswell2018research}, Hevner et al.\ (2004) DSR framework \\
+\addlinespace
+Design frameworks          & Research Onion (Saunders), DSR cycle (Hevner), Pragmatist epistemology (Dewey, Peirce) \\
+\addlinespace
+Survey/SEM alignment       & Survey instrument design consistent with SEM measurement model requirements \\
+\addlinespace
+Supervisor validation      & Research design reviewed and approved by doctoral committee \\
+\addlinespace
+Published comparison       & Design benchmarked against published DBA/PhD theses in AI governance and health informatics \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 3: Academic Readiness Evaluation ──
+Table~\ref{tab:phase5_readiness} evaluates the research design against three levels of academic scrutiny: PhD readiness, DBA readiness, and professor-level examiner expectations. This tri-level assessment demonstrates that the methodology satisfies not only the applied requirements of a DBA dissertation but also the theoretical rigour expected at doctoral level. The evaluation covers philosophy, approach, strategy, design type, coherence, and novelty, providing a comprehensive defence of each design decision.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase5_readiness} phase5 --- professor, phd, and dba readiness evaluation.
+
+\begin{xltabular}{\textwidth}{@{} p{0.10\textwidth} X X X @{}}
+\caption{Phase~5 --- Professor, PhD, and DBA Readiness Evaluation}
+\label{tab:phase5_readiness}\\
+\toprule
+\thead{Criteria} & \thead{PhD Readiness} & \thead{DBA Readiness} & \thead{Professor Expectation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Philosophy          & Pragmatism justified: artefact utility (RGAIG framework) validated by both quantitative accuracy (ASD 97.67\%) and qualitative expert assessment (12-member panel, 4.2/5) & Pragmatic stance solves applied problem: \$4.5T health burden requires action-oriented framework, not purely theoretical model & Examiner expects ontology/epistemology articulated: reality is multi-layered (pragmatist), knowledge through consequences (artefact utility) \\
+\addlinespace
+Approach            & Deductive: 5 hypotheses (H1--H5) derived from TAM-TOE-RBV theory, tested against predefined thresholds ($p < .05$, accuracy $\geq 85\%$, AUC $\geq 0.90$) & Each hypothesis links to business outcome: H1 $\rightarrow$ diagnostic accuracy, H2 $\rightarrow$ pipeline efficiency, H4 $\rightarrow$ adoption ROI, H5 $\rightarrow$ governance compliance & Approach--problem alignment: deductive fits hypothesis-driven investigation; thresholds pre-specified before data analysis (no post-hoc) \\
+\addlinespace
+Strategy            & DSR (Hevner 2004, Peffers 2007): 3 build--evaluate cycles produce RGAIG artefact; 525-module taxonomy is the designed artefact; evaluated via 198 trained models & DSR artefact has practical deployment value: agenticfinder codebase operational, Emotiv wearable BCI real-time inference at 94.1\%, ChromaDB RAG engine 1.4~GB & Strategy grounded in Hevner's 7 DSR guidelines and Peffers' 6-step DSRM; computational experiments validate artefact across ASD \\
+\addlinespace
+Design type         & Quasi-experimental: 19 ASD subjects from public repositories (no random assignment), controlled comparisons via stratified $k$-fold and LOSO cross-validation & Real-world datasets (PhysioNet, Kaggle, OpenNeuro, CHB-MIT, DEAP): 58~GB raw, 305~GB processed; clinical labels as gold standard & Design appropriate for RQ1--RQ8: secondary data research with purposive sampling; quasi-experimental controls confounds without randomisation \\
+\addlinespace
+Coherence           & Research Onion aligned: pragmatism $\rightarrow$ deductive $\rightarrow$ DSR + computational experiments $\rightarrow$ quasi-experimental $\rightarrow$ mixed methods & Methodology serves recommendations: quantitative accuracy feeds ROI 135--2{,}717\%; qualitative panel feeds trust-building playbook; governance feeds KPI escalation & No logical gaps: problem (Ch.1) $\rightarrow$ theory (Ch.2) $\rightarrow$ method (Ch.3) $\rightarrow$ results (Ch.4) $\rightarrow$ discussion (Ch.5); every layer justified \\
+\addlinespace
+Novelty             & To our knowledge, the first DSR study constructing unified ASD-focused AI diagnostic artefact validated across ASD with bootstrap and LOSO simultaneously & To our knowledge, the first governance-integrated framework: RGAIG 525-module taxonomy spans DL (111), GenAI (220), governance (194) --- no prior taxonomy at this scale & Contribution statement explicit: DSR artefact (C8), taxonomy (C3), agentic mediation (C4), RAG explainability (C5) --- each mapped to gap and hypothesis \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 4: Research Philosophy Comparison ──
+Table~\ref{tab:phase5_philosophy} compares four epistemological positions---positivism, interpretivism, pragmatism, and critical realism---and justifies the selection of pragmatism as the primary philosophy for this study. This comparison is essential to Chapter~3 because the philosophical stance constrains every subsequent methodological choice, from approach to data collection. Pragmatism accommodates both quantitative accuracy validation and qualitative trust assessment, aligning with the mixed-methods design adopted.
+
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase5_philosophy} phase5 --- research philosophy selection.
+
+\begin{xltabular}{\textwidth}{@{} p{0.13\textwidth} X c @{}}
+\caption{Phase~5 --- Research Philosophy Selection}
+\label{tab:phase5_philosophy}\\
+\toprule
+\thead{Philosophy} & \thead{Description} & \thead{This Study} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Positivism         & Objective reality exists independently of the observer; knowledge through observable, measurable facts; hypothesis testing, causal explanation                            & Secondary \\
+\addlinespace
+Interpretivism     & Reality is socially constructed; knowledge through subjective meaning and interpretation; qualitative methods, hermeneutics                                               & Not adopted \\
+\addlinespace
+Pragmatism         & Truth is what works in practice; knowledge through consequences of action; mixed methods justified by research problem; integrates quantitative evidence with practical utility & \textbf{Primary} \\
+\addlinespace
+Critical realism   & Stratified reality with underlying mechanisms; retroductive reasoning; combines empirical data with theoretical explanation                                                  & Not adopted \\
+\addlinespace
+\multicolumn{3}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Selection rationale: Pragmatism + DSR enables artefact construction (RGAIG framework) validated by both quantitative accuracy metrics and qualitative expert assessment.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 5: Research Approach Comparison ──
+Table~\ref{tab:phase5_approach} contrasts deductive, inductive, and abductive reasoning approaches and establishes the rationale for adopting a deductive approach. The deductive stance follows directly from the hypothesis-driven nature of this investigation, where five hypotheses (H1--H5) are derived from theory and tested against predefined acceptance thresholds. This table demonstrates that the approach--hypothesis alignment satisfies the Research Onion's second layer.
+
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase5_approach} phase5 --- research approach selection.
+
+\begin{xltabular}{\textwidth}{@{} l X c @{}}
+\caption{Phase~5 --- Research Approach Selection}
+\label{tab:phase5_approach}\\
+\toprule
+\thead{Approach} & \thead{Description} & \thead{This Study} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Deductive      & Moves from theory to data; begins with hypotheses derived from literature; tests predictions against empirical evidence (top-down)                    & \textbf{Adopted} \\
+\addlinespace
+Inductive      & Moves from data to theory; identifies patterns in observations; builds theoretical propositions from evidence (bottom-up)                              & Not adopted \\
+\addlinespace
+Abductive      & Moves between theory and data iteratively; infers best explanation from incomplete evidence; combines deductive and inductive reasoning                 & Not adopted \\
+\addlinespace
+\multicolumn{3}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Selection rationale: 5 hypotheses (H1--H5) derived from literature, tested via computational experiments with predefined acceptance thresholds ($p < .05$, accuracy $\geq 85\%$, AUC $\geq 0.90$).}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 6: Research Strategy Comparison ──
+Table~\ref{tab:phase5_strategy} evaluates six candidate research strategies and justifies the dual selection of Design Science Research and computational experiments as the primary strategies. DSR provides the artefact-construction methodology essential for building the RGAIG framework, while computational experiments enable systematic empirical validation across Autism Spectrum Disorder (ASD). Strategies rejected---survey, case study, experiment, and ethnography---are documented with explicit rationale to pre-empt examiner queries.
+
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase5_strategy} phase5 --- research strategy selection.
+
+\begin{xltabular}{\textwidth}{@{} p{0.16\textwidth} X c @{}}
+\caption{Phase~5 --- Research Strategy Selection}
+\label{tab:phase5_strategy}\\
+\toprule
+\thead{Strategy} & \thead{Description} & \thead{This Study} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Survey              & Structured data collection from sample population; questionnaires, scales; generalisable findings                                    & Supporting \\
+\addlinespace
+Case study          & In-depth investigation of phenomenon in real-life context; single or multiple cases; thick description                               & Not adopted \\
+\addlinespace
+Experiment          & Controlled manipulation of variables; random assignment; causal inference                                                            & Not adopted \\
+\addlinespace
+Design Science Research (DSR) & Build and evaluate artefact to solve practical problem; iterative design--evaluate cycle; utility demonstration             & \textbf{Primary} \\
+\addlinespace
+Computational experiment & Systematic evaluation of DL models on benchmark datasets; cross-validation, ablation, statistical comparison               & \textbf{Primary} \\
+\addlinespace
+Ethnography         & Prolonged field immersion; cultural interpretation; participant observation                                                          & Not adopted \\
+\addlinespace
+\multicolumn{3}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Selection rationale: DSR constructs the RGAIG framework artefact; computational experiments validate diagnostic accuracy across ASD using real clinical datasets.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 7: Research Onion Alignment ──
+Table~\ref{tab:phase5_onion} maps all six layers of the Research Onion (Saunders et al., 2019) to the specific choices made in this study, together with justifications and alternatives considered. This alignment table is the central coherence artefact of Chapter~3, demonstrating that each methodological layer follows logically from the one above it. The inclusion of rejected alternatives strengthens the argument by showing that design decisions were deliberate rather than default.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase5_onion} phase5 --- research onion alignment (saunders et al.,.
+
+\begin{xltabular}{\textwidth}{@{} p{0.10\textwidth} p{0.16\textwidth} X X @{}}
+\caption[Phase~5 --- Research Onion Alignment (Saunders et al.,]{Phase~5 --- Research Onion Alignment (Saunders et al., 2019; Creswell, 2018)}
+\label{tab:phase5_onion}\\
+\toprule
+\thead{Layer} & \thead{Choice} & \thead{Justification} & \thead{Alternative Considered} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Philosophy        & Pragmatism              & ASD ensemble computational results (97.67\%) require objective measurement; expert panel (4.2/5) requires subjective interpretation; pragmatism accommodates both & Positivism rejected: cannot capture clinical trust nuance. Interpretivism rejected: cannot validate DL accuracy \\
+\addlinespace
+Approach          & Deductive               & Pre-specified hypotheses (H1--H5) with quantitative acceptance thresholds; theory (TAM-TOE-RBV) drives data collection & Inductive rejected: study tests existing theory extensions, not emergent theory \\
+\addlinespace
+Strategy          & Design Science Research & Hevner (2004) + Peffers (2007): build and evaluate RGAIG artefact through 3 DSR cycles (build, evaluate, improve) & Grounded theory rejected: no new theory needed. Survey rejected: no organisational survey instrument \\
+\addlinespace
+Choice            & Mixed methods (concurrent) & Quantitative: DL classification + bootstrap CI. Qualitative: expert panel + thematic coding. Concurrent: both inform each other & Mono-method rejected: would miss either accuracy validation or trust evaluation \\
+\addlinespace
+Time horizon      & Cross-sectional         & Single data collection period (2024--2025) across ASD; 131 unique subjects + 20{,}000 images from existing public datasets & Longitudinal rejected: DBA timeline constraints; recommended as FS-1 future study \\
+\addlinespace
+Data collection   & Secondary quantitative + primary qualitative & Secondary: PhysioNet, ABIDE-II, PPMI, CHB-MIT, DEAP. Primary: 12-member expert panel, RAG output evaluation & Prospective clinical trial rejected: IRB complexity, timeline. Primary survey rejected: insufficient clinical AI deployment sites \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 8: Research Evidence Chain (was Table 7) ──
+Table~\ref{tab:phase5_evidence} traces the research design evidence chain from problem formulation through to data collection, verifying that every link in the methodological chain is coherent. This chain serves as a concise audit trail: an examiner can read down the table and confirm that the research problem dictates the philosophy, the philosophy dictates the approach, and so on through to the method. The final row explicitly verifies end-to-end alignment.
+
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase5_evidence} phase5 --- research design evidence chain.
+
+\begin{xltabular}{\textwidth}{@{} p{0.16\textwidth} X @{}}
+\caption{Phase~5 --- Research Design Evidence Chain}
+\label{tab:phase5_evidence}\\
+\toprule
+\thead{Chain Link} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Research problem        & Applied, ASD-focused: unified AI governance for biomedical diagnosis \\
+\addlinespace
+Philosophy              & Pragmatism --- truth through practical consequences; artefact utility \\
+\addlinespace
+Approach                & Deductive --- 5 hypotheses (H1--H5) from literature, tested against thresholds \\
+\addlinespace
+Strategy                & DSR + computational experiments --- artefact construction and empirical validation \\
+\addlinespace
+Design type             & Quasi-experimental --- real datasets, no random assignment, controlled comparisons \\
+\addlinespace
+Data collection method  & Mixed methods --- quantitative (DL metrics) + qualitative (expert panel, RAG) \\
+\addlinespace
+Coherence verification  & Every layer aligned: problem $\rightarrow$ philosophy $\rightarrow$ approach $\rightarrow$ strategy $\rightarrow$ design $\rightarrow$ method \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 9: Quality Checklist (was Table 8) ──
+Table~\ref{tab:phase5_checklist} presents a nine-item quality checklist that systematically verifies whether the research design meets the standards expected of a doctoral methodology chapter. Each item includes a pass/fail status and a pointer to the specific evidence (table, section, or citation) that substantiates compliance. This checklist operationalises the self-audit process recommended by Saunders et al.\ (2019) and Creswell (2018).
+
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase5_checklist} phase5 --- quality checklist.
+
+\begin{xltabular}{\textwidth}{@{} p{0.35\textwidth} c p{0.45\textwidth} @{}}
+\caption{Phase~5 --- Quality Checklist}
+\label{tab:phase5_checklist}\\
+\toprule
+\thead{Checklist Item} & \thead{Status} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Is the research philosophy explicitly justified?                          & $\checkmark$ & Pragmatism selected with rationale in Table~\ref{tab:phase5_philosophy}; Dewey and Peirce cited in Section~3.2 \\
+\addlinespace
+Is the research approach aligned with the hypotheses?                     & $\checkmark$ & Deductive approach adopted; 5 hypotheses (H1--H5) with predefined thresholds in Table~\ref{tab:phase5_approach} \\
+\addlinespace
+Is the research strategy appropriate for artefact-building research?      & $\checkmark$ & DSR methodology justified in Table~\ref{tab:phase5_strategy}; Hevner et al.\ (2004) DSR cycle applied \\
+\addlinespace
+Is the design type valid given dataset constraints?                       & $\checkmark$ & Quasi-experimental: real clinical datasets, no random assignment; 131 unique subjects + 20{,}000 images across ASD (Section~3.4) \\
+\addlinespace
+Is the data collection method explained and justified?                    & $\checkmark$ & Mixed methods: quantitative DL metrics + qualitative expert panel (12-member); Section~3.5 \\
+\addlinespace
+Are all Research Onion layers internally consistent?                      & $\checkmark$ & Coherence chain verified in Table~\ref{tab:phase5_evidence}: problem $\rightarrow$ pragmatism $\rightarrow$ deductive $\rightarrow$ DSR $\rightarrow$ quasi-experimental $\rightarrow$ mixed \\
+\addlinespace
+Is the methodology grounded in published frameworks (Saunders, Hevner)?   & $\checkmark$ & Saunders Research Onion (2019) and Hevner DSR (2004) cited in Section~3.1; Creswell (2018) for mixed methods \\
+\addlinespace
+Does the design support all 8 research questions (RQ1--RQ8)?             & $\checkmark$ & 8 research topics mapped to 5 hypotheses and 8 objectives in Section~3.3; RQ--hypothesis alignment table \\
+\addlinespace
+Is the design benchmarked against comparable doctoral research?           & $\checkmark$ & Compared with published DBA/PhD theses in AI governance and health informatics in Section~3.6 \\
+\end{xltabular}
+\endgroup
+
+
+\vspace{1.5em}
+
+%% ── Table 10: Mixed Methods Design Comparison ──
+Table~\ref{tab:phase5_mixed_comparison} compares five mixed-methods design types---convergent parallel, sequential explanatory, sequential exploratory, embedded, and transformative---following the Creswell (2018) taxonomy. The convergent parallel design is adopted because quantitative accuracy metrics and qualitative trust assessments address the same research questions simultaneously, and the DBA timeline precludes sequential two-phase collection. This selection directly supports the integration strategy described in Chapter~3.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase5_mixed_comparison} phase5 --- mixed methods design comparison (creswell, 2018).
+
+\begin{xltabular}{\textwidth}{@{} p{0.14\textwidth} X X c @{}}
+\caption{Phase~5 --- Mixed Methods Design Comparison (Creswell, 2018)}
+\label{tab:phase5_mixed_comparison}\\
+\toprule
+\thead{Design Type} & \thead{Description} & \thead{When Appropriate} & \thead{This Study} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Convergent parallel  & QUAN and QUAL data collected concurrently; independent analysis; integration at interpretation stage & When both strands address the same phenomenon simultaneously; time-constrained research & \textbf{Adopted} \\
+\addlinespace
+Sequential explanatory & QUAN collected first; QUAL follows to explain quantitative results & When quantitative results need deeper contextual understanding & Not adopted \\
+\addlinespace
+Sequential exploratory & QUAL collected first to identify themes; QUAN follows to generalise & When no prior quantitative measures exist for the phenomenon & Not adopted \\
+\addlinespace
+Embedded              & One strand embedded within a larger design of the other type & When supplementary data needed within a primarily mono-method study & Not adopted \\
+\addlinespace
+Transformative        & Mixed methods framed within a social justice or advocacy worldview & When research addresses power imbalances or marginalised populations & Not adopted \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Selection rationale: DL accuracy metrics (QUAN: ASD ensemble 97.67\%, AUC 0.956) and expert panel trust assessment (QUAL: 4.2/5) address the same research questions simultaneously. Sequential designs rejected: DBA timeline prohibits two-phase collection; both strands are independently meaningful.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 11: Qualitative Method Selection Justification ──
+Table~\ref{tab:phase5_qual_method} justifies the selection of expert panel review as the primary qualitative method and thematic analysis as the supporting analytical technique. Seven candidate methods are evaluated against the study's requirements, with explicit rejection rationale for Delphi, focus groups, interviews, case study, and phenomenology. This structured comparison strengthens the Chapter~3 argument that the qualitative strand is fit for purpose within a DSR artefact-evaluation context.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase5_qual_method} phase5 --- qualitative method selection justification.
+
+\begin{xltabular}{\textwidth}{@{} p{0.14\textwidth} X X c @{}}
+\caption{Phase~5 --- Qualitative Method Selection Justification}
+\label{tab:phase5_qual_method}\\
+\toprule
+\thead{Method} & \thead{Description} & \thead{Reason for Selection/Rejection} & \thead{This Study} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Expert panel review   & Structured evaluation by domain specialists using predefined rubrics; Likert-scale scoring with open commentary & Selected: 12-member panel (clinicians, AI researchers, governance experts) provides structured, comparable assessments aligned with DSR evaluation & \textbf{Adopted} \\
+\addlinespace
+Delphi method         & Multi-round anonymous expert consensus; iterative refinement until convergence & Rejected: requires 3--4 rounds over months; DBA timeline insufficient; consensus not needed --- disagreements are informative & Not adopted \\
+\addlinespace
+Focus groups          & Group discussion among 6--12 participants; moderator-facilitated & Rejected: clinical AI experts geographically dispersed; scheduling group sessions infeasible; social desirability bias risk & Not adopted \\
+\addlinespace
+Semi-structured interviews & Open-ended, one-on-one exploration of participant perspectives & Not adopted as primary: may supplement expert panel in future research (FS-3) & Not adopted \\
+\addlinespace
+Case study            & In-depth investigation of phenomenon in real-life organisational context & Rejected: no clinical deployment site available for embedded case study; artefact not yet deployed & Not adopted \\
+\addlinespace
+Phenomenology         & Lived experience exploration; bracketing of researcher assumptions & Rejected: focus is artefact evaluation, not subjective lived experience; inconsistent with DSR epistemology & Not adopted \\
+\addlinespace
+Thematic analysis     & Coding of qualitative data into themes; Braun \& Clarke (2006) six-phase protocol & \textbf{Supporting}: applied to expert panel open-ended comments; 6 themes identified (Section~4.12.3) & Supporting \\
+\addlinespace
+\midrule
+\multicolumn{4}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Expert panel enables structured DSR artefact evaluation (Hevner Guideline~3: Design Evaluation). Thematic analysis applied to panel comments; inter-rater reliability: Cohen's $\kappa = 0.84$.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 12: Quasi-Experimental Design Elements ──
+Table~\ref{tab:phase5_quasi} specifies the quasi-experimental design elements---independent, dependent, moderating, and control variables---together with baseline comparisons and the randomisation substitute employed. The second half of the table addresses five threats to internal validity (history, maturation, selection bias, instrumentation, and regression to the mean), documenting the control mechanism for each. This level of design transparency is essential for Chapter~3 because quasi-experimental studies lack random assignment and must therefore demonstrate rigorous confound management.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase5_quasi} phase5 --- quasi-experimental design elements.
+
+\begin{xltabular}{\textwidth}{@{} p{0.16\textwidth} X X @{}}
+\caption{Phase~5 --- Quasi-Experimental Design Elements}
+\label{tab:phase5_quasi}\\
+\toprule
+\thead{Design Element} & \thead{Specification} & \thead{Control Mechanism} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Independent variable (IV)     & RGAIG framework components: feature extraction pipeline, model architecture, agentic orchestration, RAG explainability & IV manipulated through ablation (remove components) and architecture comparison (6 models) \\
+\addlinespace
+Dependent variable (DV)       & Diagnostic classification metrics: accuracy, F1-score, AUC-ROC, precision, recall & Measured consistently across all ASD using identical evaluation protocol \\
+\addlinespace
+Moderating variable           & Disease domain (ASD, PD, Epilepsy, Stress, Depression); signal type (EEG, gait, wearable) & Each domain analysed separately; ASD-focused ASD ensemble computed as aggregate \\
+\addlinespace
+Control variables             & Random seed (42), train/test split ratio (80/20), $k$-fold ($k = 10$), preprocessing pipeline, hardware (NVIDIA RTX 3090) & Fixed across all experiments; documented in Section~3.4 reproducibility protocol \\
+\addlinespace
+Baseline comparisons          & 6 architectures: Logistic Regression, SVM, Random Forest, XGBoost, CNN, VotingClassifier & Each compared against RGAIG ensemble via paired $t$-test ($p < .05$) and bootstrap CI \\
+\addlinespace
+Randomisation substitute      & Leave-One-Subject-Out (LOSO) cross-validation; stratified $k$-fold; no random assignment to treatment/control & LOSO ensures subject-independent evaluation; stratified folds preserve class distribution \\
+\addlinespace
+\midrule
+\multicolumn{3}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Threats to internal validity}} \\
+\midrule
+History threat                & Different datasets collected in different years (2010--2023) & Controlled by standardised preprocessing; epoch normalisation across datasets \\
+\addlinespace
+Maturation threat             & Cross-sectional design; no repeated measures over time & Not applicable: single measurement per subject \\
+\addlinespace
+Selection bias                & Non-random sampling from public repositories; volunteer subjects in original studies & Mitigated by purposive criteria (Table~\ref{tab:phase7_population}); demographics documented; limitation acknowledged \\
+\addlinespace
+Instrumentation threat        & Different signal acquisition hardware across datasets (EEG caps, Emotiv headsets) & Controlled by domain-specific preprocessing pipelines; bandpass filtering standardised \\
+\addlinespace
+Regression to the mean        & Extreme scores may regress in repeated testing & Addressed by bootstrap resampling (1{,}000 iterations); confidence intervals reported \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 13: Hevner's 7 DSR Guidelines Traceability ──
+Table~\ref{tab:phase5_dsr} maps each of Hevner et al.'s (2004) seven DSR guidelines to the specific evidence produced in this study, establishing full traceability between the DSR methodology and its implementation. This traceability matrix is a core Chapter~3 contribution because DSR validity depends on demonstrating compliance with all seven guidelines. The table shows that the RGAIG framework satisfies requirements from artefact design (G1) through communication to both technical and managerial audiences (G7).
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase5_dsr} phase5 --- hevner's seven dsr guidelines traceability.
+
+\begin{xltabular}{\textwidth}{@{} c p{0.15\textwidth} X X @{}}
+\caption[Phase~5 --- Hevner's Seven DSR Guidelines Traceability]{Phase~5 --- Hevner's Seven DSR Guidelines Traceability (Hevner et al., 2004)}
+\label{tab:phase5_dsr}\\
+\toprule
+\thead{G\#} & \thead{Guideline} & \thead{Requirement} & \thead{This Study} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+G1 & Design as Artefact            & Produce a viable IT artefact (construct, model, method, or instantiation) & RGAIG 5-layer framework: 525-module quality taxonomy + agenticfinder codebase (198 trained models, 380~MB) \\
+\addlinespace
+G2 & Problem Relevance             & Develop technology-based solution to important business problem & \$4.5T annual health burden \citep{who2023asd}; ASD diagnostic AI reduces misdiagnosis costs by 15--30\% (Section~1.2) \\
+\addlinespace
+G3 & Design Evaluation             & Demonstrate artefact utility, quality, and efficacy via well-executed evaluation methods & Computational experiments: ASD ensemble 97.67\%, LOSO $\kappa = 0.87$; expert panel: 4.2/5; ablation study: VotingClassifier dominance confirmed \\
+\addlinespace
+G4 & Research Contributions        & Provide clear contributions to design science knowledge & 8 contributions (C1--C8): ASD ensemble metric (C1), unified taxonomy (C3), agentic mediation (C4), RAG explainability (C5), DSR artefact (C8) \\
+\addlinespace
+G5 & Research Rigour               & Apply rigorous methods in construction and evaluation of artefact & Bootstrap 95\% CI, paired $t$-tests ($p < .05$), stratified $k$-fold, LOSO, Cohen's $\kappa = 0.84$ inter-rater reliability \\
+\addlinespace
+G6 & Design as Search Process      & Utilise available means to reach desired ends while satisfying laws in the problem environment & 3 DSR iterations: Cycle~1 (baseline classifiers, 78.3\%), Cycle~2 (ensemble + feature selection, 86.4\%), Cycle~3 (RGAIG integration, 97.67\%); search bounded by computational budget (RTX~3090) and DBA timeline \\
+\addlinespace
+G7 & Communication of Research     & Present effectively to both technology-oriented and management-oriented audiences & Technical: confusion matrices, ROC curves, ablation tables (Ch.4); Managerial: ROI 135--2{,}717\%, VRIN assessment, KPI escalation (Ch.5); Governance: 10-pillar taxonomy (Section~3.8) \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 14: Consolidated RQ → Method → Integration Mapping ──
+Table~\ref{tab:phase5_rq_method} provides a consolidated mapping from each research question (RQ1--RQ8) and its corresponding hypothesis to the specific quantitative method, qualitative method, and integration section used for triangulation. This mapping table is the methodological keystone of Chapter~3, demonstrating that every research question has a complete analytical pathway from data collection through to interpretation. The convergent parallel integration strategy ensures that quantitative and qualitative strands reinforce or challenge each other at the interpretation stage.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:phase5_rq_method} phase5 --- consolidated research question to method.
+
+\begin{xltabular}{\textwidth}{@{} l l X X p{0.10\textwidth} @{}}
+\caption[Phase~5 --- Consolidated Research Question to Method]{Phase~5 --- Consolidated Research Question to Method Integration Mapping}
+\label{tab:phase5_rq_method}\\
+\toprule
+\thead{RQ} & \thead{Hypothesis} & \thead{Quantitative Method} & \thead{Qualitative Method} & \thead{Integration} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+RQ1 & H1 & Stratified $k$-fold + LOSO cross-validation; accuracy, F1, AUC per domain; ASD ensemble aggregate & Expert panel rates clinical applicability (Likert 1--5); thematic analysis of deployment barriers & Section~5.2.1 \\
+\addlinespace
+RQ2 & H2 & Paired $t$-tests: DL (CNN, RNN) vs.\ baselines (LR, SVM, RF, XGBoost); bootstrap 95\% CI & Panel assesses model interpretability vs.\ accuracy trade-off; qualitative preference ranking & Section~5.2.2 \\
+\addlinespace
+RQ3 & H3 & SHAP feature importance; permutation importance; ablation with feature subsets removed & Panel evaluates clinical meaningfulness of top features; domain expert annotation & Section~5.2.3 \\
+\addlinespace
+RQ4 & H4 & Agentic pipeline latency, orchestration overhead, end-to-end throughput; NeuroMCP benchmark & Panel assesses workflow usability; qualitative feedback on automation acceptance & Section~5.2.4 \\
+\addlinespace
+RQ5 & H5 & RAGAS metrics (faithfulness, relevance, correctness); RAG retrieval precision/recall & Panel evaluates explanation quality and clinical trust; thematic coding of RAG outputs & Section~5.2.5 \\
+\addlinespace
+RQ6 & --- & 525-module taxonomy pass rates (8-phase DL: 97.4\%, 13-phase GenAI: 98.1\%, 10-pillar: 98.4\%) & Panel validates governance completeness; regulatory alignment assessment (EU AI Act, FDA SaMD) & Section~5.7 \\
+\addlinespace
+\midrule
+\multicolumn{5}{@{}p{\dimexpr\textwidth-2\tabcolsep}}{\textit{Integration strategy: Convergent parallel \citep{creswell2018research}. Quantitative accuracy metrics and qualitative trust assessments analysed independently, then merged at interpretation (Section~5.2). Concordance assessed: where QUAN and QUAL agree, findings strengthened; where they diverge, explanations provided.}} \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% RGAIG+ THEORETICAL RESEARCH MODEL — Integrated from rgaig_theory_tables/figures.tex
+%% Phase 5 (Ch.3): Variable Operationalization + DSR Cycles + Variable Infographic
+%% ═══════════════════════════════════════════════════════════════════════════════
+
+%% ── Table 15: Variable Operationalization (RGAIG+ Theory Table 2) ──
+Table~\ref{tab:rgaig_variable_operationalization} operationalises all nine constructs of the RGAIG+ Governance--Trust--Adoption model, specifying indicator items, measurement scales, data sources, and planned analytical techniques for each. This operationalisation bridges the theoretical model (Chapter~2) and the empirical execution (Chapter~4) by defining precisely how abstract constructs such as trust, explainability, and governance controls are measured. The 38-item instrument design supports confirmatory factor analysis and structural equation modelling validation.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:rgaig_variable_operationalization} phase5 --- variable operationalization for rgaig+.
+
+\begin{xltabular}{\textwidth}{@{} p{0.14\textwidth} l X c p{0.10\textwidth} p{0.09\textwidth} @{}}
+\caption[Phase~5 --- Variable Operationalization for RGAIG+]{Phase~5 --- Variable Operationalization for RGAIG+ Governance--Trust--Adoption Model}
+\label{tab:rgaig_variable_operationalization}\\
+\toprule
+\thead{Construct} & \thead{Type} & \thead{Indicators} & \thead{Scale} & \thead{Source} & \thead{Analysis} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Governance Controls (GC) & Independent & Policy compliance, audit frequency, risk scoring, escalation triggers & 7-pt Likert & Expert survey & CFA, SEM \\
+\addlinespace
+AI Explainability (EX) & Independent & SHAP availability, confidence display, decision rationale clarity & 7-pt Likert & User survey & CFA, SEM \\
+\addlinespace
+Safety Assurance (SA) & Independent & Adverse event rate, hallucination detection, override frequency & Ratio & System metrics & CFA, SEM \\
+\addlinespace
+Device Reliability (DR) & Independent & Signal quality (SNR), uptime, calibration drift, artifact rate & Ratio & Device telemetry & CFA, SEM \\
+\addlinespace
+Monitoring Transparency (MT) & Independent & Dashboard access, alert clarity, audit trail completeness & 7-pt Likert & User survey & CFA, SEM \\
+\addlinespace
+Trust in AI (TR) & Mediator & Performance trust, process trust, purpose trust, overall reliance & 7-pt Likert & Consumer survey & CFA, mediation \\
+\addlinespace
+Perceived Usefulness (PU) & Mediator & Diagnostic accuracy perception, time saving, clinical value & 7-pt Likert & Consumer survey & CFA, SEM \\
+\addlinespace
+Perceived Ease of Use (PE) & Mediator & Interface simplicity, learning curve, cognitive load & 7-pt Likert & Consumer survey & CFA, SEM \\
+\addlinespace
+Adoption Intention (AI) & Dependent & Willingness to use, recommendation likelihood, continued use & 7-pt Likert & Consumer survey & CFA, SEM \\
+\addlinespace
+Actual Adoption (AA) & Dependent & Usage frequency, feature utilization, retention rate & Ratio & System analytics & Regression \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} GC, EX, SA, DR, MT = governance-side constructs; TR = trust mediator \citep{lee2004trust}; PU, PE = TAM mediators \citep{davis1989tam}; AI, AA = adoption outcomes.
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Figure: Variable Operationalization Infographic (RGAIG+ Theory Figure 6) ──
+\noindent\textbf{Variable operationalization infographic showing.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{\begin{tikzpicture}[
+  constructbox/.style={rectangle, draw=ggunavy, fill=ggunavy!12, rounded corners=3pt,
+    minimum width=2.6cm, minimum height=1.0cm, align=center, font=\small},
+  indicatorbox/.style={rectangle, draw=ggunavy, fill=white, rounded corners=2pt,
+    minimum width=1.8cm, minimum height=0.7cm, align=center, font=\small},
+  arrowstyle/.style={-{Stealth[length=4mm,width=3mm]}, ggunavy, thick},
+  dashedarrow/.style={-{Stealth[length=4mm,width=3mm]}, ggunavy!50, dashed},
+]
+% Governance constructs (left)
+\node[constructbox] (GC) at (0, 4) {\textbf{Governance}\\{\small Controls}};
+\node[constructbox] (EX) at (0, 2) {\textbf{Explainability}};
+\node[constructbox] (SA) at (0, 0) {\textbf{Safety}\\{\small Assurance}};
+\node[constructbox] (DR) at (0, -2) {\textbf{Device}\\{\small Reliability}};
+\node[constructbox] (MT) at (0, -4) {\textbf{Monitoring}\\{\small Transparency}};
+% Indicators (far left)
+\node[indicatorbox] at (-3.2, 4.3) {\small 5 items};
+\node[indicatorbox] at (-3.2, 2.3) {\small 4 items};
+\node[indicatorbox] at (-3.2, 0.3) {\small 4 items};
+\node[indicatorbox] at (-3.2, -1.7) {\small 4 items};
+\node[indicatorbox] at (-3.2, -3.7) {\small 4 items};
+\foreach \y in {4.3, 2.3, 0.3, -1.7, -3.7} {
+  \draw[dashedarrow] (-2.3, \y) -- (-1.3, \y);
+}
+% Trust mediator (center)
+\node[constructbox, fill=ggunavy!22, minimum width=3.0cm, minimum height=1.4cm] (TR) at (5, 0) {\textbf{Trust in AI}\\{\small Diagnostics}\\{\small (6 items)}};
+% TAM constructs (right)
+\node[constructbox, fill=ggunavy!18] (PU) at (10, 1.5) {\textbf{Perceived}\\{\small Usefulness}\\{\small (4 items)}};
+\node[constructbox, fill=ggunavy!18] (PE) at (10, -1.5) {\textbf{Perceived}\\{\small Ease of Use}\\{\small (4 items)}};
+% Outcome (far right)
+\node[constructbox, fill=ggunavy!15, minimum width=3.0cm] (AI) at (14.5, 0) {\textbf{Adoption}\\{\small Intention}\\{\small (3 items)}};
+% Paths
+\foreach \src in {GC, EX, SA, DR, MT} {
+  \draw[arrowstyle] (\src.east) -- (TR.west);
+}
+\draw[arrowstyle] (TR.east) -- (PU.west);
+\draw[arrowstyle] (TR.east) -- (PE.west);
+\draw[arrowstyle] (PU.east) -- (AI.north west);
+\draw[arrowstyle] (PE.east) -- (AI.south west);
+% Scale label
+\node[font=\small\itshape, ggunavy!60] at (0, -5.5) {7-point Likert scale};
+\node[font=\small\itshape, ggunavy!60] at (5, -5.5) {7-point Likert};
+\node[font=\small\itshape, ggunavy!60] at (10, -5.5) {7-point Likert};
+\node[font=\small\itshape, ggunavy!60] at (14.5, -5.5) {7-point Likert};
+% Total items
+\node[font=\small\bfseries, ggunavy, fill=ggunavy!15, rounded corners=2pt, inner sep=4pt] at (7, -5.5) {Total: 38 items};
+\end{tikzpicture}}
+\caption[Variable Operationalization: Constructs and Measurement]{Variable operationalization infographic showing all 9 constructs (5 governance antecedents, 1 trust mediator, 2 TAM mediators, 1 adoption outcome), their item counts, and structural relationships. All constructs measured on 7-point Likert scales; total instrument: 38 items.}
+\label{fig:rgaig_variable_infographic}
+\end{figure}
+
+%% ── Figure: DSR Three-Cycle Research Process (RGAIG+ Theory Figure 8) ──
+\noindent\textbf{Design Science Research (DSR) three-cycle process.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{\begin{tikzpicture}[
+  cyclebox/.style={rectangle, draw=ggunavy, fill=ggunavy!12, rounded corners=4pt,
+    minimum width=3.5cm, minimum height=2.4cm, align=center, font=\small},
+  itembox/.style={rectangle, draw=ggunavy, fill=white, rounded corners=2pt,
+    minimum width=2.8cm, minimum height=0.7cm, align=center, font=\small},
+  arrowstyle/.style={-{Stealth[length=3mm]}, thick, ggunavy},
+  biarrow/.style={{Stealth[length=3mm]}-{Stealth[length=3mm]}, thick, ggunavy},
+]
+% Three cycles
+\node[cyclebox, fill=ggunavy!20] (REL) at (0, 0) {\textbf{Relevance Cycle}\\[3pt]{\small Application Domain}\\{\small (Consumer Healthcare)}};
+\node[cyclebox, fill=ggunavy!15] (DES) at (6.5, 0) {\textbf{Design Cycle}\\[3pt]{\small Build \& Evaluate}\\{\small (RGAIG+ Framework)}};
+\node[cyclebox, fill=ggunavy!20] (RIG) at (13, 0) {\textbf{Rigor Cycle}\\[3pt]{\small Knowledge Base}\\{\small (Theory \& Methods)}};
+% Bi-directional arrows
+\draw[biarrow] (REL.east) -- (DES.west) node[font=\small, above, pos=0.5] {Requirements} node[font=\small, below, pos=0.5] {Field Testing};
+\draw[biarrow] (DES.east) -- (RIG.west) node[font=\small, above, pos=0.5] {Grounding} node[font=\small, below, pos=0.5] {Contributions};
+% Sub-items for Relevance
+\node[itembox] at (0, -2.0) {\small Consumer wearable EEG};
+\node[itembox] at (0, -2.8) {\small AI diagnostic trust gaps};
+\node[itembox] at (0, -3.6) {\small Governance requirements};
+% Sub-items for Design
+\node[itembox] at (6.5, -2.0) {\small 9-layer architecture};
+\node[itembox] at (6.5, -2.8) {\small GenAI governance engine};
+\node[itembox] at (6.5, -3.6) {\small Validation experiments};
+% Sub-items for Rigor
+\node[itembox] at (13, -2.0) {\small TAM, RBV, Sociotech};
+\node[itembox] at (13, -2.8) {\small Trust in Automation};
+\node[itembox] at (13, -3.6) {\small SEM, bootstrap CI};
+% Connecting dashes
+\foreach \x in {0, 6.5, 13} {
+  \draw[ggunavy!30, dashed] (\x, -1.2) -- (\x, -1.7);
+}
+\end{tikzpicture}}
+\caption[DSR Three-Cycle Research Process]{Design Science Research (DSR) three-cycle process (Hevner, 2007) applied to RGAIG+ framework development. The Relevance Cycle draws requirements from consumer healthcare; the Design Cycle builds and evaluates the 9-layer framework; the Rigor Cycle grounds the work in theoretical foundations and contributes back to the knowledge base.}
+\label{fig:rgaig_dsr_cycles}
+\end{figure}
+
+\clearpage

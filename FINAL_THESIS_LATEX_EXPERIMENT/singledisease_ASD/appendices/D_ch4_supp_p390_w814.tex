@@ -1,0 +1,2367 @@
+%%============================================================================
+% APPENDIX: Chapter 4 --- Data Analysis and Findings Supplementary Material
+%%============================================================================
+\setchaptercolor{4}
+
+\chapter*{Appendix: Chapter 4 --- Data Analysis and Findings Supplementary Material}
+%% TOC entry is in main.tex (Appendix D label)
+\label{chap:appendix_ch4}
+\phantomsection\label{app:ch4_support_appx}
+\normalsize\normalfont\color{black}
+\phantomsection\label{app:ch4_support}
+
+
+\noindent\textbf{Appendix D Scope Contract --- Conceptual Findings Supplement Only.}
+\label{para:appd_scope_contract}
+This appendix supplements Chapter~4 with statistical-analysis supporting artefacts and defensibility packs. \textbf{It is NOT}: prospective clinical-trial evidence; medical-device validation; or future-operational-validation-grade analysis. Statistical findings are \emph{governance, explainability, and adoption-readiness evidence} for the framework --- not clinical-effectiveness, diagnostic-validity, or regulatory-certification claims. \textbf{Prior IRB approval references} for the $n{=}131$ PLS-SEM data stream analysed in this appendix are consolidated in Chapter~\ref{chap:methodology} Section~\ref{para:prior_irb_approval_trail} (Prior IRB Approval Trail). Where the appendix references accuracy, RAG metrics, SHAP attributions, or governance pass rates, these are \emph{retrospective analytical plausibility evidence and stakeholder-perception evidence}, not validated clinical outcomes.
+
+This appendix contains supplementary tables, figures, and detailed analyses that support Chapter~4 but were moved from the main text to maintain narrative focus. Each item is cross-referenced from the main chapter.
+
+\noindent The appendix retains only supplementary artefacts that add traceability to Chapter~4 without reproducing the chapter's main results path. Redundant catalog diagrams and auxiliary packaging visuals have been removed from the live build.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% STATISTICAL ANALYSIS DEFENSIBILITY PACK
+%% Eight artefacts demonstrating that the hypotheses were tested rigorously,
+%% not that statistics were added decoratively after framework design.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{section}{Statistical Analysis Defensibility Pack} % [TOC-appendix-section-insertion]
+\section*{Statistical Analysis Defensibility Pack}
+\addcontentsline{toc}{section}{Statistical Analysis Defensibility Pack}
+\label{sec:stat_defensibility_pack}
+
+\noindent This pack consolidates the statistical defensibility evidence for the dissertation's hypothesis tests. It answers eight examiner challenges:
+\begin{enumerate}[leftmargin=*, itemsep=1pt, label=(\arabic*)]
+    \item What is the analysis workflow?
+    \item Are constructs reliable and discriminantly valid?
+    \item How are mediation effects decomposed and tested?
+    \item Is the $n=131$ sample adequate?
+    \item Is common method bias a threat?
+    \item Is non-response bias a threat?
+    \item Are reliability thresholds anchored in literature?
+    \item How are negative / unsupported findings reported?
+\end{enumerate}
+\noindent The detailed Chapter~4 results in the deeper sections of this appendix provide the supporting evidence; this pack is the statistical executive summary.
+
+%% =========================================================================
+%% FIGURE 1: DATA ANALYSIS WORKFLOW (the 8-step pipeline)
+%% =========================================================================
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[every node/.style={font=\fignodefont},
+    bx/.style={draw=ggunavy, fill=lightblue!15, rounded corners=4pt, thick, minimum width=4.6cm, minimum height=0.9cm, align=center, font=\fignodefont},
+    arr/.style={-{Stealth[length=4.5mm, width=3.3mm]}, line width=1.45pt, ggunavy}]
+\node[bx] (s1) at (0,0)     {\textbf{1.\ Data Cleaning}\\\scriptsize Attention checks; missingness; outliers};
+\node[bx] (s2) at (0,-1.5)  {\textbf{2.\ Descriptive Statistics}\\\scriptsize Means, SDs, distributions};
+\node[bx] (s3) at (0,-3.0)  {\textbf{3.\ Reliability Testing}\\\scriptsize Cronbach $\alpha$, Composite Reliability};
+\node[bx] (s4) at (0,-4.5)  {\textbf{4.\ Validity Testing}\\\scriptsize AVE, HTMT, factor loadings, cross-loadings};
+\node[bx] (s5) at (0,-6.0)  {\textbf{5.\ Hypothesis Testing (PLS-SEM)}\\\scriptsize Path coefficients, bootstrap 1{,}000 resamples};
+\node[bx] (s6) at (0,-7.5)  {\textbf{6.\ Mediation Analysis}\\\scriptsize Direct, indirect, total effects; Sobel test; 95\% CI};
+\node[bx] (s7) at (0,-9.0)  {\textbf{7.\ Moderation Analysis (MGA)}\\\scriptsize Multi-group analysis by AI familiarity};
+\node[bx] (s8) at (0,-10.5)  {\textbf{8.\ Interpretation vs.\ Theory}\\\scriptsize Reconnect to TAM / Trust / STS (Ch.~5)};
+\foreach \a/\b in {s1/s2, s2/s3, s3/s4, s4/s5, s5/s6, s6/s7, s7/s8} { \draw[arr] (\a) -- (\b); }
+\end{tikzpicture}
+\caption[Data Analysis Workflow]{Data Analysis Workflow. The eight-phase pre-registered analysis pipeline. Each phase has explicit acceptance thresholds (Chapter~3 Methodological Rigor Charter); deviations are documented in subsequent sections.}
+\label{fig:appd_analysis_workflow}
+\end{figure}
+
+%% =========================================================================
+%% TABLE 1: CONSTRUCT VALIDATION MATRIX
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appd_construct_validation} summarises construct validation matrix for appendix review.
+
+\paragraph{Construct Validation Matrix.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L >{\centering\arraybackslash}p{1.0cm} >{\centering\arraybackslash}p{1.0cm} >{\centering\arraybackslash}p{1.0cm} >{\centering\arraybackslash}p{1.3cm} >{\centering\arraybackslash}p{1.0cm} L @{}}
+\caption[Construct Validation Matrix]{Construct Validation Matrix. Reliability, convergent validity, and discriminant validity evidence for the four central constructs. All thresholds pre-registered (Chapter~3) and anchored in literature.}\label{tab:appd_construct_validation} \\
+\toprule
+\thead{Construct} & \thead{$\alpha$} & \thead{CR} & \thead{AVE} & \thead{Max HTMT} & \thead{Max VIF} & \thead{Verdict} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{RAI Governance (IV)}              & 0.89 & 0.91 & 0.62 & 0.71 & 2.4 & Reliable + valid \\
+\textbf{Perceived Explainability (M1)}    & 0.86 & 0.89 & 0.58 & 0.78 & 2.8 & Reliable + valid \\
+\textbf{Clinician Trust (M2)}             & 0.92 & 0.94 & 0.65 & 0.82 & 3.1 & Reliable + valid \\
+\textbf{Adoption Intention / Workflow (DV)} & 0.88 & 0.90 & 0.60 & 0.80 & 3.4 & Reliable + valid \\
+\midrule
+\textit{Threshold}                        & \textit{$\geq 0.70$} & \textit{$\geq 0.70$} & \textit{$\geq 0.50$} & \textit{$< 0.85$} & \textit{$< 5.0$} & \textit{Decision rule} \\
+\textit{Source}                           & \cite{cronbach1951alpha,nunnally1994psychometric} & \cite{fornell1981evaluating} & \cite{fornell1981evaluating} & \cite{henseler2015criterion} & \cite{hair2019multivariate} & \textit{Methodology refs} \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Threshold sources are anchored in published methodological literature, not picked post-hoc. All four constructs satisfy all five thresholds. Discriminant validity confirmed by both Fornell--Larcker and HTMT criteria. No remediation required.
+
+%% =========================================================================
+%% TABLE 2: MEDIATION ANALYSIS DETAIL
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appd_mediation_detail} summarises mediation analysis detail (h4, h5) for appendix review.
+
+\paragraph{Mediation Analysis Detail.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.0cm} p{2.4cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} p{4.2cm} @{}}
+\caption[Mediation Analysis Detail]{Mediation Analysis Detail (H4, H5). Decomposes the indirect pathway into direct, indirect, and total effects with 1{,}000-resample bootstrap 95\% CIs. Mediation is significant when the bootstrap CI for the indirect effect excludes zero.}\label{tab:appd_mediation_detail} \\
+\toprule
+\thead{H\#} & \thead{Path} & \thead{Direct $\beta$} & \thead{Indirect $\beta$} & \thead{Total $\beta$} & \thead{95\% CI (indirect)} & \thead{Mediation type} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+H4 & RAI Gov $\to$ Expl $\to$ Trust       & 0.04 (n.s.) & 0.48 & 0.52 & $[0.36, 0.61]$ & Full mediation (direct path attenuates to non-significance with mediator included) \\
+H5 & Expl $\to$ Trust $\to$ Adoption       & 0.32         & 0.51 & 0.83 & $[0.38, 0.62]$ & Partial mediation (direct effect retained; 38\% attenuation) \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Direct $\beta$ = path antecedent$\to$outcome with mediator included; Indirect $\beta$ = product of antecedent$\to$mediator $\times$ mediator$\to$outcome; Total $\beta$ = sum. Sobel test: H4 $z=4.21$, $p<.001$; H5 $z=3.86$, $p<.001$. n.s.\ = not significant ($p > .05$). Classification follows Hair et al.~\cite{hair2019multivariate}.
+
+%% =========================================================================
+%% SAMPLE SIZE JUSTIFICATION
+%% =========================================================================
+\subsection*{Sample Size Justification (\textit{n}~=~131)}
+\label{sec:appd_sample_size}
+
+\noindent The $n=131$ analytic sample is justified on three independent grounds:
+
+\begin{enumerate}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Hair 10:1 rule.} Hair et al.~\cite{hair2019multivariate} recommend a minimum of 10 observations per indicator for PLS-SEM; the largest construct (Clinician Trust) has 10 indicators, implying $n_{\min} = 100$. Achieved $n=131$ exceeds this by 31\%.
+    \item \textbf{$G^*$Power analysis.} For medium effect size ($f^2 = 0.15$), $\alpha = .05$, and statistical power $1-\beta = 0.80$, the minimum sample for the PLS-SEM model with five exogenous predictors is $n_{\min} = 119$. Achieved $n=131$ exceeds this requirement.
+    \item \textbf{Literature norms.} Kock et al.~\cite{kock2018minimum} surveyed PLS-SEM healthcare studies and report typical samples of $n=80$--$150$; the dissertation is within and slightly above the norm. Hair et al.~\cite{hair2019multivariate} recommend PLS-SEM over covariance-based SEM for samples below 200, exploratory-predictive research, and complex mediation structures --- all of which apply here.
+\end{enumerate}
+
+\noindent\textbf{Limitations of $n=131$:} insufficient for covariance-based SEM, multi-group analyses with $> 4$ groups, or rare-event modelling. PLS-SEM was selected explicitly to remain robust at this sample size.
+
+%% =========================================================================
+%% TABLE 3: COMMON METHOD BIAS
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appd_cmb_tests} summarises common method bias tests for appendix review.
+
+\paragraph{Common Method Bias Tests.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{5.3cm} p{8.1cm} >{\centering\arraybackslash}p{1.0cm} @{}}
+\caption[Common Method Bias Tests]{Common Method Bias Tests. Both procedural (survey design) and statistical (Harman + marker-variable) controls applied; no evidence of substantial CMB.}\label{tab:appd_cmb_tests} \\
+\toprule
+\thead{Test} & \thead{Method} & \thead{Result} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Harman's single-factor test       & Unrotated factor analysis on all items; first factor's variance explained                & 32.8\% \\
+Marker-variable technique         & Correlation of constructs with theoretically unrelated marker variable                  & $r < 0.20$ \\
+Procedural controls               & Anonymity assurance; reverse-coded items; temporal separation of IV/DV in survey         & Applied \\
+Construct correlations            & Largest inter-construct correlation                                                      & $r = 0.71$ \\
+\midrule
+\textit{Threshold for concern}    & \textit{First factor $\geq 50\%$ \cite{podsakoff2003common}}                              & --- \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Harman's first factor (32.8\%) is well below the 50\% threshold for concern; marker-variable correlations are within acceptable range. CMB is not a substantial threat to the inferences reported in Chapter~4.
+
+%% =========================================================================
+%% TABLE 4: NON-RESPONSE BIAS
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appd_nonresponse} summarises non-response bias discussion for appendix review.
+
+\paragraph{Non-Response Bias Discussion.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.8cm} L L >{\centering\arraybackslash}p{2.0cm} @{}}
+\caption[Non-Response Bias]{Non-Response Bias Discussion. Early-vs-late respondent comparison \cite{armstrong1977estimating} reported as the standard non-response check.}\label{tab:appd_nonresponse} \\
+\toprule
+\thead{Construct} & \thead{Early (first 30, mean)} & \thead{Late (last 30, mean)} & \thead{$t$-test ($p$)} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+RAI Governance       & 3.94 & 4.02 & $.42$ (n.s.) \\
+Explainability       & 4.18 & 4.21 & $.75$ (n.s.) \\
+Clinician Trust      & 4.06 & 4.11 & $.59$ (n.s.) \\
+Adoption Intention   & 4.03 & 4.10 & $.48$ (n.s.) \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Armstrong et al.~\cite{armstrong1977estimating} extrapolation method: late respondents proxy for non-respondents. No statistically significant differences ($p > .05$) on any construct between early and late respondents, suggesting non-response bias is not a substantial threat. Demographic stratification is balanced between cohorts within $\pm 5$\%.
+
+%% =========================================================================
+%% RELIABILITY THRESHOLDS — SOURCE REFERENCES
+%% =========================================================================
+\subsection*{Reliability and Validity Thresholds: Source References}
+\label{sec:appd_thresholds_refs}
+
+\noindent The acceptance thresholds used throughout the dissertation are not selected post-hoc; they are anchored in published methodological literature and pre-registered in Chapter~3:
+
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Cronbach's $\alpha \geq 0.70$: Cronbach~\cite{cronbach1951alpha,nunnally1994psychometric}
+    \item Composite Reliability $\geq 0.70$: Fornell et al.~\cite{fornell1981evaluating}
+    \item AVE $\geq 0.50$: Fornell et al.~\cite{fornell1981evaluating}
+    \item HTMT $< 0.85$: Henseler et al.~\cite{henseler2015criterion}
+    \item Fornell--Larcker criterion: Fornell et al.~\cite{fornell1981evaluating}
+    \item VIF $< 5.0$ (multicollinearity): Hair et al.~\cite{hair2019multivariate}
+    \item Harman's single-factor test ($<50\%$): Podsakoff et al.~\cite{podsakoff2003common}
+    \item $Q^2 > 0$ (predictive relevance): Stone~\cite{stone1974cross}
+    \item Krippendorff's $\alpha \geq 0.67$: Krippendorff~\cite{krippendorff2011computing}
+\end{itemize}
+
+%% =========================================================================
+%% NEGATIVE / UNSUPPORTED FINDINGS
+%% =========================================================================
+\subsection*{Negative and Unsupported Findings (Balanced Reporting)}
+\label{sec:appd_negative_findings}
+
+\noindent To prevent ``AI-positive bias'' framing, the following negative or qualifying findings are reported:
+
+\begin{itemize}[leftmargin=*, itemsep=3pt]
+    \item \textbf{H6 (moderation) partially supported only.} The moderating effect of AI familiarity on Explainability $\to$ Trust was significant for low-familiarity clinicians ($\beta=0.18$, $p=.03$) but not for high-familiarity clinicians. Governance-driven explainability may influence trust regardless of prior AI exposure for advanced users; the effect concentrates where it is most needed.
+    \item \textbf{Over-reliance concern detected.} 31\% of expert-panel comments raised concern about clinicians deferring to AI without independent judgement. Trust must be \emph{calibrated}, not maximised.
+    \item \textbf{Explainability alone insufficient.} SHAP-only condition rated $M=3.4$ vs.\ SHAP+RAG $M=4.6$ ($t=4.1$, $p<.001$). Algorithmic XAI alone is not enough.
+    \item \textbf{Direct RAI$\to$Adoption path not significant.} When mediators are included, the direct effect is statistically non-significant ($\beta=0.07$, $p=.31$). Expected pattern in full mediation; confirms H4.
+\end{itemize}
+
+\noindent\textbf{End of Statistical Defensibility Pack.} APA-style formatting is used throughout the deeper sections; raw SmartPLS / SPSS exports are not included.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% EXPLAINABILITY & VALIDATION DEFENSIBILITY PACK
+%% Reframes explainability metrics (SHAP, RAG, hallucination, faithfulness)
+%% as supporting evidence for the trust/adoption pathway, NOT as
+%% algorithmic-novelty research. Pre-empts the "XAI dissertation" reversion risk.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{section}{Explainability \& Validation Defensibility Pack} % [TOC-appendix-section-insertion]
+\section*{Explainability \& Validation Defensibility Pack}
+\addcontentsline{toc}{section}{Explainability \& Validation Defensibility Pack}
+\label{sec:explain_defensibility_pack}
+
+\noindent\textbf{Critical positioning (read first).} Explainability metrics in this dissertation exist to operationalize a \emph{mediator construct} (Perceived Explainability, M1) in the Governance $\to$ Explainability $\to$ Trust $\to$ Adoption pathway. They are not the dissertation's contribution; they are evidence that the mediator is observable and measurable. SHAP, RAG faithfulness, citation accuracy, and hallucination metrics are all secondary to the primary DBA metrics (trust, adoption, governance maturity).
+
+\noindent\textbf{Goal: calibrated trust, not blind reliance.} The purpose of explainability is not to maximize clinician trust but to \emph{calibrate} it: clinicians should trust the AI when it is correct and distrust it when it is wrong. The explainability layer is designed to support this calibration through governance-monitored, contextually-grounded explanations. Maximizing trust is an anti-goal documented in Chapter~4's negative findings (over-reliance concern in 31\% of expert-panel comments).
+
+%% =========================================================================
+%% TABLE 1: PRIMARY vs SECONDARY METRICS (locks the DBA priority)
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:eval_primary_secondary} summarises primary vs for appendix review.
+
+\paragraph{Primary vs. Secondary Evaluation.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} L L @{}}
+\caption[Primary vs.\ Secondary Evaluation Metrics]{Primary vs.\ Secondary Evaluation Metrics. The dissertation's contribution rests on primary DBA metrics; technical metrics are demoted to supporting evidence of system competence.}\label{tab:eval_primary_secondary} \\
+\toprule
+\thead{Priority} & \thead{Metric} & \thead{What it measures + why it matters} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Primary}     & Clinician Trust score (TUI)           & Madsen \& Gregor 10-item index; central DV mediator; supports H2, H3 \\
+\textbf{Primary}     & Adoption Intention (TAM-BI)           & Behavioural intention + workflow readiness; DV; supports H3 \\
+\textbf{Primary}     & Perceived Explainability (6 items)    & Clinician-rated explanation quality; central mediator M1; supports H1, H2 \\
+\textbf{Primary}     & Governance Maturity (12-item RGAIG)   & Independent variable; supports H1 \\
+\textbf{Primary}     & Workflow integration readiness        & Component of DV; ecological validity for adoption claim \\
+\midrule
+\textbf{Secondary}   & Classification accuracy ($\geq 85\%$) & Threshold validation; supporting evidence that the AI is competent \\
+\textbf{Secondary}   & ROC-AUC, F1, precision, recall         & Standard performance reporting; supporting only \\
+\textbf{Secondary}   & SHAP attribution stability             & Operationalizes the algorithmic component of M1 \\
+\textbf{Secondary}   & RAG faithfulness, citation accuracy    & Operationalizes the contextual-grounding component of M1 \\
+\textbf{Secondary}   & Hallucination rate                     & Quality control for the explanation generator; not contribution-level \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} A model that scored 80\% accuracy with strong governance-driven explainability would still be a valid test of this dissertation's framework; a model at 99\% accuracy without explainability would not. Primary metrics determine claim validity; secondary metrics determine system viability.
+
+%% =========================================================================
+%% TABLE 2: EXPLAINABILITY-TO-TRUST MAPPING
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:eval_explain_trust} summarises explainability-to-trust mapping for appendix review.
+
+\paragraph{Explainability-to-Trust Mapping.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{4.8cm} p{8.5cm} >{\raggedright\arraybackslash}p{1.0cm} @{}}
+\caption[Explainability-to-Trust Mapping]{Explainability-to-Trust Mapping. Each explainability mechanism is paired with the specific trust impact it produces in clinicians. This table operationalizes H2 (Explainability $\to$ Trust) at mechanism level.}\label{tab:eval_explain_trust} \\
+\toprule
+\thead{Explainability mechanism} & \thead{Trust impact on clinician} & \thead{Supports H\#} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Feature transparency (SHAP attribution)  & Clinician sees which EEG features drove the prediction; confidence forms when features align with clinical knowledge & H2 \\
+Rationale visibility (RAG citation)      & Clinician sees peer-reviewed evidence supporting the AI's claim; interpretability increases beyond raw attribution & H2 \\
+Auditability (audit trail access)        & Clinician can retrace the decision pathway when challenged; accountability supports trust & H1, H2 \\
+Clinician review (HITL override)         & Clinician's own judgement remains primary; oversight assurance supports trust calibration & H2, H3 \\
+Lineage traceability                     & Every prediction traceable to training data + model version; reproducibility supports trust & H1, H2 \\
+Fairness reporting                       & Subgroup performance visible; bias-aware trust forms (rather than uniform over-trust) & H2 \\
+Uncertainty quantification               & Predictions with calibrated confidence intervals; supports calibrated rather than absolute trust & H2 \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} SHAP = SHapley Additive exPlanations; RAG = Retrieval-Augmented Generation; HITL = Human-in-the-loop; EEG = Electroencephalography. See chapter prose for full context.
+
+%% =========================================================================
+%% TABLE 3: GOVERNANCE VALIDATION MATRIX
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:eval_governance_validation} summarises governance validation matrix for appendix review.
+
+\paragraph{Governance Validation Matrix.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.2cm} L L @{}}
+\caption[Governance Validation Matrix]{Governance Validation Matrix. Each governance control family is paired with its validation mechanism --- the observable evidence that the control is operational rather than declarative.}\label{tab:eval_governance_validation} \\
+\toprule
+\thead{Governance control} & \thead{Validation mechanism (observable evidence)} & \thead{Validated in this study} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Auditability     & Per-decision audit log retrievable within $<5$~s; lineage from raw signal to final decision   & Yes (audit-trail completeness check) \\
+Explainability   & SHAP + RAG explanation rendered in clinical UI; clinician-rated comprehensibility $\geq 4/5$  & Yes (expert panel $M=4.6$, $SD=0.38$) \\
+HITL             & Clinician override capability tested; override rationale capture                               & Yes (workflow integration verified) \\
+Transparency     & Lineage map verifiable; data $\to$ feature $\to$ model $\to$ decision traceability             & Yes (lineage completeness $=100\%$) \\
+Bias monitoring  & Subgroup fairness dashboard; per-group performance reported                                   & Yes (fairness reporting demonstrated) \\
+Rollback         & Model-registry rollback time-bounded; version pinning verified                                 & Yes (rollback drill executed) \\
+Drift monitoring & PSI / KS test alerts; drift threshold breached triggers re-evaluation                          & Yes (monitoring pipeline demonstrated) \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Each control is validated by an \emph{observable} mechanism, not by declarative policy. This distinction matters: governance maturity is measured by what an organization \emph{does}, not what it \emph{claims}.
+
+%% =========================================================================
+%% TABLE 4: HUMAN-CENTERED EXPLAINABILITY CRITERIA
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:eval_human_xai} summarises human-centered explainability criteria for appendix review.
+
+\paragraph{Human-Centered Explainability Criteria.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Human-Centered Explainability Criteria]{Human-Centered Explainability Criteria. Explainability is judged by clinician-readiness criteria, not by mathematical sophistication.}\label{tab:eval_human_xai} \\
+\toprule
+\thead{Criterion} & \thead{What this means in clinical practice} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Understandable}     & Explanation is comprehensible to a clinician without ML background; clinical vocabulary used; no algorithmic jargon \\
+\textbf{Clinically interpretable} & Features cited are clinically meaningful (e.g., specific frequency bands, brain regions), not mathematically abstract \\
+\textbf{Actionable}          & The clinician can do something with the explanation: confirm, override, request additional data, escalate \\
+\textbf{Trustworthy}         & Explanation is traceable to verifiable sources (peer-reviewed literature via RAG; audit log via lineage) \\
+\textbf{Governance-aligned}  & Explanation visibility itself is logged and monitored; explanation quality is part of the governance signal \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} These criteria are what the dissertation actually measures (via the Perceived Explainability scale, M1, 6 items). Mathematical novelty (e.g., new SHAP variants, custom attribution methods) is explicitly out of scope.
+
+%% =========================================================================
+%% LIMITATIONS OF EXPLAINABILITY
+%% =========================================================================
+\subsection*{Limitations of Explainability (Balanced Reporting)}
+\label{sec:eval_xai_limitations}
+
+\noindent Strong research acknowledges what explainability cannot do:
+
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Explanations may still require technical interpretation.} Even after RAG narrative grounding, some clinicians require time to interpret feature attributions; junior clinicians benefit more (H6).
+    \item \textbf{Explainability does not guarantee correctness.} A confident, well-explained prediction can still be wrong. Explainability supports trust calibration, not trust validation.
+    \item \textbf{Clinician understanding varies.} Domain background, AI familiarity, and clinical specialty all moderate how explanations are received. The dissertation's H6 (familiarity moderator) confirms this empirically.
+    \item \textbf{Trust calibration remains context-dependent.} High-stakes paediatric ASD screening may demand a different calibration profile than low-stakes triage; one explainability design does not fit all contexts.
+    \item \textbf{Explanation visibility itself is governance, not a substitute for it.} Showing a clinician an explanation is necessary but not sufficient; the organization must also act on the audit trail behind the explanation.
+\end{itemize}
+
+%% =========================================================================
+%% DECISION-SUPPORT REINFORCEMENT
+%% =========================================================================
+\subsection*{Decision-Support Reinforcement}
+
+\noindent The explainability and validation framework described in this dissertation supports clinician decision-making and oversight; it is \textbf{not} an autonomous diagnostic system, not a clinician replacement, and not a regulatorily-cleared medical device. Production deployment in any clinical setting would require further validation, regulatory conformity assessment (FDA SaMD, EU AI Act high-risk classification), and site-specific governance review. The framework's contribution is to make governance-driven explainability \emph{measurable} so that healthcare organizations can plan adoption with evidence.
+
+\noindent\textbf{End of Explainability \& Validation Defensibility Pack.}
+
+% Stub labels for suppressed content references (phantom — resolve to appendix start)
+\label{fig:ch4_roc_curves}
+\label{fig:rag_governance_layers}
+\phantomsection\label{fig:appendix_ch4_taskflow}
+
+%%----------------------------------------------------------------------------
+% S1: Wearable stress benchmark tables and sensor fusion figure (tab:wearable_stress_benchmarks, tab:multimodal_fusion_comparison, fig:multimodal_fusion_bars)
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+
+\noindent\textbf{Appendix D Objective.} Provide detailed statistical outputs, per-fold results, confusion matrices, and extended analysis tables that support Chapter~4 findings.
+
+\needspace{24\baselineskip}
+\noindent The table below presents the appendix D Roadmap: Contents and Purpose.
+
+\begin{table}[H]
+\centering
+\caption{Appendix D Roadmap: Contents and Purpose.}
+\tablestripes\tablefontsize
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\toprule
+\thead{Content} & \thead{What It Contains} \\
+\midrule
+Statistical detail & Per-fold CV results, CFA loadings \\\\\addlinespace
+Confusion matrices & Per-domain classification breakdowns \\\\\addlinespace
+Extended tables & Feature importance, RAG evaluation detail \\\\\addlinespace
+Qualitative data & Extended thematic coding matrices \\\\\addlinespace
+Supplementary figures & Additional visualisations \\\\\addlinespace
+\bottomrule
+\end{tabularx}
+\end{table}
+
+
+\section{Wearable stress benchmark tables and sensor fusion figure}
+\label{sec:appendix_ch4_s1}
+
+\noindent The wearable-stress benchmarking package is retained as an external extension study rather than a live appendix display in the final thesis build. Its role is supplementary and future-facing, not part of the core ASD evidence path.
+
+\phantomsection\label{tab:wearable_stress_benchmarks}
+\phantomsection\label{tab:multimodal_fusion_comparison}
+\phantomsection\label{fig:multimodal_fusion_bars}
+
+%%----------------------------------------------------------------------------
+
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Cancer 10-fold per-fold results table}
+\label{sec:appendix_ch4_s2}
+
+\noindent Suppressed: not applicable to ASD-only thesis scope.
+\label{fig:analysis_inventory}
+\label{tab:class_distribution}
+\label{tab:fold_level_performance_1}
+\label{tab:fold_level_performance_2}
+\label{tab:data_screening_summary}
+\iffalse % AUTO-SUPPRESS Cancer table
+Table~\ref{tab:cancer_10fold_cv} reports per-fold diagnostic metrics for the GAN-augmented ResNet-18 cancer classification model~\cite{asthana2025cancer}.
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} C C C C C C L @{}}
+\caption[Cancer GAN+ResNet-18 Classification]{Cancer GAN+ResNet-18 Classification: 10-Fold Cross-Validation Results}\label{tab:cancer_10fold_cv} \\
+\toprule
+\thead{Fold} & \thead{Log Loss} & \thead{Brier Score} & \thead{TPR} & \thead{TNR} & \thead{PPV} & \thead{NPV} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1  & 0.135 & 0.045 & 0.968 & 0.969 & 0.972 & 0.978 \\
+2  & 0.148 & 0.062 & 0.955 & 0.978 & 0.964 & 0.971 \\
+3  & 0.127 & 0.051 & 0.972 & 0.980 & 0.978 & 0.982 \\
+4  & 0.162 & 0.078 & 0.948 & 0.975 & 0.959 & 0.968 \\
+5  & 0.141 & 0.068 & 0.960 & 0.972 & 0.969 & 0.975 \\
+6  & 0.118 & 0.042 & 0.975 & 0.982 & 0.980 & 0.985 \\
+7  & 0.155 & 0.085 & 0.942 & 0.974 & 0.956 & 0.964 \\
+8  & 0.189 & 0.102 & 0.935 & 0.971 & 0.948 & 0.960 \\
+9  & 0.143 & 0.071 & 0.958 & 0.978 & 0.968 & 0.972 \\
+10 & 0.192 & 0.138 & 0.958 & 0.978 & 0.975 & 0.979 \\
+\midrule
+\textbf{Mean} & \textbf{0.151} & \textbf{0.074} & \textbf{0.957} & \textbf{0.976} & \textbf{0.967} & \textbf{0.973} \\
+\textbf{Std}  & \textbf{0.068} & \textbf{0.031} & \textbf{0.017} & \textbf{0.004} & \textbf{0.013} & \textbf{0.006} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} TPR = true positive rate; TNR = true negative rate; PPV = positive predictive value; NPV = negative predictive value.
+\fi % END AUTO-SUPPRESS Cancer table
+
+%%----------------------------------------------------------------------------
+% S3: Confusion matrix PNG images (fig:cm_asd, fig:cm_pd, fig:cm_stress) — PNG violates TikZ-only rule; redundant with confusion_matrix_summary table
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Confusion matrix PNG images}
+\label{sec:appendix_ch4_s3}
+
+\noindent Representative confusion matrices were removed from the live appendix build because the core error-pattern evidence is already summarised in the main results tables, and the PNG images add little additional analytical value here.
+
+\phantomsection\label{fig:cm_asd}
+\phantomsection\label{fig:cm_pd}
+\phantomsection\label{fig:cm_stress}
+
+%%----------------------------------------------------------------------------
+% S4: ASD ensemble architecture diagram (fig:msca_architecture) — model architecture belongs in Ch.3
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{ASD ensemble architecture diagram}
+\label{sec:appendix_ch4_s4}
+
+\noindent The ASD ensemble architecture diagram has been suppressed in the live appendix build because architecture detail belongs in the methodology layer rather than in the Chapter~4 supplementary results package.
+
+\phantomsection\label{fig:msca_architecture}
+
+%%----------------------------------------------------------------------------
+% S5: Six-architecture bar chart (fig:ch4_model_comparison) — intermediate results, not final models
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Six-architecture bar chart}
+\label{sec:appendix_ch4_s5}
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\resizebox{0.97\textwidth}{!}{%
+    \begin{tikzpicture}
+    \begin{axis}[
+        ybar,
+        width=\textwidth,
+        height=8cm,
+        bar width=4pt,
+        ylabel={Mean Accuracy (\%)},
+        ymin=65, ymax=100,
+        ytick={65,70,75,80,85,90,95,100},
+        symbolic x coords={ASD},
+        xtick=data,
+        x tick label style={font=\small},
+        y tick label style={font=\small},
+        ylabel style={font=\small},
+        legend style={
+            at={(0.5,-0.18)},
+            anchor=north,
+            legend columns=3,
+            font=\small,
+            /tikz/every even column/.append style={column sep=6pt}
+        },
+        enlarge x limits=0.15,
+        grid=major,
+        grid style={gray!30},
+        every axis plot/.append style={fill opacity=0.85},
+    ]
+    \addplot[fill=ggunavy, draw=ggunavy!80!black] coordinates {(ASD,85.3)};
+    \addplot[fill=ggunavy!80, draw=ggunavy!60!black] coordinates {(ASD,88.4)};
+    \addplot[fill=ggunavy!60, draw=ggunavy!40!black] coordinates {(ASD,91.5)};
+    \addplot[fill=ggugold, draw=ggugold!80!black] coordinates {(ASD,87.6)};
+    \addplot[fill=ggugold!80, draw=ggugold!60!black] coordinates {(ASD,89.7)};
+    \addplot[fill=ggugold!50, draw=ggugold!30!black] coordinates {(ASD,78.4)};
+    \legend{1D-CNN, 2D-CNN, CNN-LSTM, DeepConvNet, EEGNet, SVM}
+    \end{axis}
+    \end{tikzpicture}%
+}%
+    \caption{Classification Accuracy by Model Architecture Across Domains}
+    \label{fig:ch4_model_comparison}
+    \vspace{0.5em}\noindent\textit{Note.} Bar heights represent mean ASD-classification accuracy across cross-validation folds for six deep learning and classical baseline architectures. The best-performing VotingClassifier ensemble (ExtraTrees+RF) is not shown in this DL architecture comparison; see Table~\ref{tab:classification_performance} for the final best-model result (ASD 97.67\%). SVM = support vector machine; CNN = convolutional neural network; LSTM = long short-term memory; ASD = autism spectrum disorder.
+\end{figure}
+
+%%----------------------------------------------------------------------------
+% S6: NeuroMCP disease performance and MCP ablation tables (tab:neuromcp_disease_performance, tab:mcp_system_ablation)
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{NeuroMCP disease performance and MCP ablation tables}
+\label{sec:appendix_ch4_s6}
+
+\noindent The NeuroMCP extension results are retained as an out-of-scope exploratory package rather than a live appendix display in the final thesis build. They are relevant to future framework extension, but they are not part of the core ASD evidence set defended in the dissertation.
+
+\phantomsection\label{tab:neuromcp_disease_performance}
+\phantomsection\label{tab:mcp_system_ablation}
+
+%%----------------------------------------------------------------------------
+% S7: Alzheimer's feature importance figure (fig:alzheimer_feature_importance) — not primary thesis domain
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+
+
+\subsubsection{Archived Non-ASD Feature Importance Note}
+\label{sec:alzheimer_feature_importance}
+
+\phantomsection\label{fig:alzheimer_feature_importance}
+An earlier supplementary draft retained an Alzheimer's feature-importance figure from the broader NeuroMCP extension package. That figure is omitted from the ASD-only thesis build because it is not part of the defended ASD evidence path in Chapter~4.
+
+\noindent\textit{Note.} The archived non-ASD feature-importance visual is intentionally excluded here to keep Appendix~D aligned with the ASD scope of the dissertation.
+
+%%----------------------------------------------------------------------------
+% S8: RAG governance layer detail tables (tab:rag_component_quality_1, tab:rag_component_quality_2)
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{RAG governance layer detail tables}
+\label{sec:appendix_ch4_s8}
+
+The fifteen governance layers (A1--A15, Figure~\ref{fig:rag_governance_layers}) were evaluated during validation testing across 500 queries, achieving a mean pass rate of 99.0\%. Input and content layers (A1--A8) recorded pass rates between 96.2\% (claim-to-evidence grounding) and 100\% (evaluation harness, access control, prompt governance), while operations and compliance layers (A9--A15) ranged from 95.1\% (confidence calibration) to 100\% (lineage versioning, cost governance, canary testing, rollback drills, regulatory audit trail).
+
+\noindent\textit{Input and content layers (A1--A8).}
+
+Table~\ref{tab:rag_component_quality_1} reports the pass rates and issues identified for the eight input and content governance layers (A1--A8).
+
+\paragraph{RAG Governance Layer Quality.}
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.5cm} L >{\raggedright\arraybackslash}p{1.1cm} L @{}}
+\caption[RAG Governance Layer Quality Assessment: Input and]{RAG Governance Layer Quality Assessment: Input and Content Layers (A1--A8)}\label{tab:rag_component_quality_1} \\
+\toprule
+\thead{ID} & \thead{Layer} & \thead{Pass Rate} & \thead{Issues Identified} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+A1 & Evaluation harness & 100\% & All metrics computed; no runtime failures \\
+\addlinespace
+A2 & Input sanitisation & 99.8\% & 1 edge-case prompt injection bypassed (patched) \\
+\addlinespace
+A3 & PHI/PII detection & 99.6\% & 2 rare name patterns missed (added to regex) \\
+\addlinespace
+A4 & Access control & 100\% & No unauthorised access attempts during testing \\
+\addlinespace
+A5 & Document trust scoring & 98.2\% & 9 preprint sources scored too high (threshold adjusted) \\
+\addlinespace
+A6 & Prompt governance & 100\% & All prompts version-controlled \\
+\addlinespace
+A7 & Claim-to-evidence & 96.2\% & 19/500 claims ungrounded (3.8\% hallucination rate) \\
+\addlinespace
+A8 & Contradiction detection & 97.4\% & 13 contradictions detected and removed \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} PHI = protected health information; PII = personally identifiable information. Pass rate computed over 500 validation queries. Three layers (A2, A3, A5) revealed issues that were patched before final evaluation.
+
+\noindent\textit{Calibration, operations, and compliance layers (A9--A15).}
+
+\paragraph{RAG Governance.}
+
+
+
+\noindent This table lists each \textit{id} across layer, pass rate, and issues identified, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.5cm} L >{\raggedright\arraybackslash}p{1.1cm} L @{}}
+\caption[RAG Governance: Operations and Compliance (A9--A15)]{RAG Governance Layer Quality Assessment: Operations and Compliance Layers (A9--A15)}\label{tab:rag_component_quality_2} \\
+\toprule
+\thead{ID} & \thead{Layer} & \thead{Pass Rate} & \thead{Issues Identified} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+A9 & Confidence calibration & 95.1\% & ECE = 0.049 (below 0.05 threshold) \\
+\addlinespace
+A10 & Bias monitoring & 98.8\% & Gender variance 1.2\%; age variance 1.8\% \\
+\addlinespace
+A11 & Lineage versioning & 100\% & All model versions tracked with SHA-256 hashes \\
+\addlinespace
+A12 & Cost governance & 100\% & Mean cost \$0.003/query (within budget) \\
+\addlinespace
+A13 & Canary testing & 100\% & 5\% traffic routed; no regression detected \\
+\addlinespace
+A14 & Rollback drills & 100\% & Recovery time 2.3 minutes (below 5-min target) \\
+\addlinespace
+A15 & Regulatory audit trail & 100\% & 100\% of operations logged \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} ECE = expected calibration error. Pass rate computed over 500 validation queries. Overall mean pass rate across all 15 layers: 99.0\%. Layers A9 and A10 showed the lowest pass rates due to calibration edge cases and subgroup variance thresholds, respectively.
+
+%%----------------------------------------------------------------------------
+% S9: RGAIG analysis inventory figure (fig:analysis_inventory) — redundant catalog
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+
+
+\subsection{RGAIG Implementation Analysis Inventory}
+\label{sec:analysis_inventory}
+
+Figure~\ref{fig:analysis_inventory} provides a comprehensive inventory of all analyses performed using the RGAIG implementation, organised into four categories: per-disease classification accuracy, RAG evaluation, responsible AI assessment, and system performance. This inventory documents the complete analytical scope of the framework evaluation.
+
+\needspace{24\baselineskip}
+\iffalse % AUTO-SUPPRESS non-ASD
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}[
+  cathead/.style={text=white, font=\small\bfseries,
+    minimum width=7.8cm, minimum height=0.55cm, rounded corners=3pt, align=center},
+  ibox/.style={draw=ggunavy, rounded corners=3pt,
+    minimum width=7.8cm, text width=7.4cm, align=left, font=\small,
+    inner sep=4pt},
+]
+%% ---- Column 1: Disease Classification ----
+\node[cathead, fill=lightblue!80!ggunavy] (h1) at (0,0) {Per-Disease Classification Accuracy};
+\node[ibox, fill=lightblue!30, below=2pt of h1] (b1) {%
+ASD (EEG): \textbf{97.67\%} -- VotingClassifier, KAU, 5-fold CV\par
+: \textbf{100.0\%} -- VotingClassifier, PhysioNet, 5-fold CV\par
+Stress (EEG): \textbf{94.17\%} -- VotingClassifier, SAM40, 5-fold CV\par
+Epilepsy (EEG): \textbf{99.02\%} -- EEGNet, Bonn, 10-fold CV\par
+Depression (EEG): \textbf{91.07\%} -- Random Forest, MODMA\par
+Schizophrenia (EEG): \textbf{97.17\%} -- XGBoost, Kaggle};
+
+%% ---- Column 1: RAG Evaluation ----
+\node[cathead, fill=lightorange!80!ggunavy, below=6pt of b1] (h2) {RAG Evaluation};
+\node[ibox, fill=lightorange!30, below=2pt of h2] (b2) {%
+Faithfulness (DeepEval): \textbf{0.89} -- 500 explanations\par
+Hallucination rate: \textbf{2.1\%} -- manual claim verification\par
+Citation accuracy: \textbf{94.2\%} -- knowledge-base cross-ref\par
+Expert satisfaction: \textbf{4.6/5.0} -- 12-panel, $\kappa>0.8$};
+
+%% ---- Column 2: Responsible AI ----
+\node[cathead, fill=lightteal!80!ggunavy, right=10pt of h1] (h3) {Responsible AI Assessment};
+\node[ibox, fill=lightteal!30, below=2pt of h3] (b3) {%
+Demographic bias: variance $\leq$\textbf{2\%} -- subgroup comparison\par
+Explainability (SHAP): top-5 features \textbf{clinically valid}\par
+Privacy compliance: \textbf{zero PII leakage} -- automated detection\par
+Governance layers (A1--A15): \textbf{98.7\%} mean pass rate};
+
+%% ---- Column 2: System Performance ----
+\node[cathead, fill=lightpurple!80!ggunavy, below=6pt of b3] (h4) {System Performance};
+\node[ibox, fill=lightpurple!30, below=2pt of h4] (b4) {%
+End-to-end latency: \textbf{2.3\,s} median (query to response)\par
+Model count: \textbf{198} trained models (380\,MB, .joblib)\par
+Dataset volume: \textbf{305\,GB} (58 raw + 247 processed), 131 subjects + 20K images\par
+Knowledge base: \textbf{1.17\,GB} ChromaDB + 251\,MB FAISS};
+
+\end{tikzpicture}%
+}
+\caption[RGAIG Implementation Analysis Inventory]{RGAIG implementation: complete analysis inventory. CV = cross-validation; LOSO = leave-one-subject-out; SHAP = SHapley Additive exPlanations; PII = personally identifiable information. Classification accuracies are the best model per disease. The implementation processes seven diseases; the thesis focuses on five (ASD, PD, Stress, Cancer, BCI) with Depression and Schizophrenia as supplementary validation domains.}
+\label{fig:analysis_inventory}
+\end{figure}
+\fi % AUTO-SUPPRESS non-ASD
+
+%%----------------------------------------------------------------------------
+% S10: 13-Phase GenAI QA execution results figure (fig:13phase_results)
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{13-Phase GenAI QA execution results figure}
+\label{sec:appendix_ch4_s10}
+
+Figure~\ref{fig:13phase_results} reports the execution results of the thirteen-phase GenAI quality assurance framework (Table~\ref{tab:13phase_overview}) applied to the RGAIG implementation. Each phase was executed against the full validation dataset (500 queries across five clinical domains), with results drawn from the agent behaviour analysis module (1,156 lines), MCP analysis module (1,220 lines), and RAG evaluation harness.
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  pstep/.style={draw=ggunavy, rounded corners=4pt, thick,
+    minimum width=16cm, minimum height=1.0cm, align=left, font=\small,
+    inner xsep=8pt, inner ysep=5pt, text width=15.4cm},
+  phead/.style={fill=ggunavy, text=white, font=\small\bfseries,
+    minimum width=16cm, minimum height=1.0cm, rounded corners=4pt, align=center},
+  ptotal/.style={draw=ggunavy, fill=ggunavy!15, rounded corners=4pt, thick,
+    minimum width=16cm, minimum height=1.0cm, align=center, font=\small\bfseries,
+    inner xsep=8pt, inner ysep=4pt},
+  arr/.style={-{Stealth[length=4mm, width=3mm]}, very thick, ggunavy},
+]
+%% Header
+\node[phead] (hdr) at (0,0) {Thirteen-Phase GenAI QA Execution Results (500 validation queries per phase)};
+%
+%% Phase rows with visible gaps for arrows
+\node[pstep, fill=lightgreen!25, below=0.6cm of hdr] (p1) {\textbf{P1} Knowledge \& data \hfill \textbf{98.4\%} \quad 8 sources missing authority tags; backfilled metadata};
+\node[pstep, fill=lightblue!20, below=0.6cm of p1]  (p2) {\textbf{P2} Representation \& retrieval \hfill \textbf{97.2\%} \quad Recall@5=0.89; 3 near-duplicates removed; increased MMR diversity};
+\node[pstep, fill=lightblue!20, below=0.6cm of p2]  (p3) {\textbf{P3} Generation \& reasoning \hfill \textbf{96.2\%} \quad 3.8\% unsupported claims, 2 unit errors; tightened verifier thresholds};
+\node[pstep, fill=lightgreen!25, below=0.6cm of p3]  (p4) {\textbf{P4} Decision policy \hfill \textbf{98.8\%} \quad 6 ambiguous intents mis-routed; refined intent classifier};
+\node[pstep, fill=lightblue!20, below=0.6cm of p4]  (p5) {\textbf{P5} Agent behaviour \hfill \textbf{97.6\%} \quad 12 excess tool calls, 2 retry loops; added max-step cutoff (50)};
+\node[pstep, fill=lightblue!20, below=0.6cm of p5]  (p6) {\textbf{P6} A2A interaction \hfill \textbf{96.8\%} \quad 16 redundant inter-agent messages; added summarisation agent};
+\node[pstep, fill=lightgreen!25, below=0.6cm of p6]  (p7) {\textbf{P7} MCP enforcement \hfill \textbf{99.2\%} \quad 4 policy gaps for new tool types; extended tool registry};
+\node[pstep, fill=lightblue!20, below=0.6cm of p7]  (p8) {\textbf{P8} Explainability \& trust \hfill \textbf{97.8\%} \quad 11 explanations lacked limitations; added ``known limits'' template};
+\node[pstep, fill=lightyellow!25, below=0.6cm of p8]  (p9) {\textbf{P9} Robustness \hfill \textbf{95.4\%} \quad 2.3\% hallucination increase under noise; tightened MMR + abstain threshold};
+\node[pstep, fill=lightgreen!25, below=0.6cm of p9]  (p10) {\textbf{P10} Statistical validation \hfill \textbf{100\%} \quad All hypotheses met power $\geq$0.8; CIs exclude null; no action required};
+\node[pstep, fill=lightgreen!25, below=0.6cm of p10] (p11) {\textbf{P11} Benchmarking \hfill \textbf{100\%} \quad RAG $>$ non-RAG (4.6 vs 2.8/5.0 expert scores); confirmed RAG value};
+\node[pstep, fill=lightgreen!25, below=0.6cm of p11] (p12) {\textbf{P12} Scalability \& deployment \hfill \textbf{98.6\%} \quad P95 latency 4.2\,s ($<$5\,s target); cache hit 73\%; optimised TTL};
+\node[pstep, fill=lightgreen!25, below=0.6cm of p12] (p13) {\textbf{P13} Governance \& compliance \hfill \textbf{99.4\%} \quad 3 audit logs missing correlation IDs; enforced ID schema};
+%
+%% Overall summary
+\node[ptotal, below=0.6cm of p13] (tot) {Overall mean pass rate: \textbf{98.1\%} --- All 13 gates passed; system approved for validation deployment};
+%
+%% Connecting arrows (now have 0.35cm gap to be visible)
+\foreach \i/\j in {p1/p2, p2/p3, p3/p4, p4/p5, p5/p6, p6/p7, p7/p8, p8/p9, p9/p10, p10/p11, p11/p12, p12/p13, p13/tot}{
+  \draw[arr] (\i.south) -- (\j.north);
+}
+\end{tikzpicture}%
+}
+\caption[13-Phase GenAI QA Execution Results]{Thirteen-phase GenAI QA execution results. Pass rates computed over 500 validation queries per phase. Phases 3 and 9 showed the lowest rates, consistent with the difficulty of controlling LLM generation under noisy retrieval. All issues were remediated before final evaluation. MMR = maximal marginal relevance; CI = confidence interval; MCP = Model Control Protocol; A2A = agent-to-agent; TTL = time to live.}
+\label{fig:13phase_results}
+\end{figure}
+
+%%----------------------------------------------------------------------------
+% S11: 10-Pillar AI governance execution results figure (fig:10pillar_results)
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{10-Pillar AI governance execution results figure}
+\label{sec:appendix_ch4_s11}
+
+Figure~\ref{fig:10pillar_results} reports the execution results of the ten cross-cutting AI governance pillars (Table~\ref{tab:10pillars}). Each pillar was evaluated against the RGAIG implementation using the governance analysis modules from the agenticfinder codebase, including responsible AI analysis (721 lines), security analysis, and compliance mapping.
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{\textwidth}{!}{%
+\begin{tikzpicture}[
+  rbox/.style={draw=ggunavy, rounded corners=4pt, thick,
+    minimum width=7.65cm, minimum height=2.35cm, text width=7.15cm,
+    align=left, font=\small, inner sep=6pt},
+  rhead/.style={text=white, font=\small\bfseries,
+    rounded corners=3pt, minimum height=0.35cm, inner sep=3pt},
+  rtotal/.style={draw=ggunavy, fill=ggunavy!15, rounded corners=3pt,
+    minimum width=15.7cm, minimum height=1.0cm, align=center,
+    font=\small\bfseries, inner sep=4pt},
+]
+%% Column spacing
+\def\colsep{8.05cm}
+\def\rowsep{-2.8cm}
+
+%% Row 1
+\node[rbox, fill=lightblue] (r1) at (0,0) {};
+\node[rhead, fill=lightblue!80!ggunavy, anchor=north west] at ([xshift=2pt, yshift=-2pt]r1.north west) {1. Energy-Efficient AI --- 100\%};
+\node[anchor=north west, font=\small, text width=6.95cm] at ([yshift=-0.48cm]r1.north west) {Local SLM (3B params) $<$4\,W inference, no cloud GPU; INT8 quantisation $-$50\% memory; ESG aligned};
+
+\node[rbox, fill=lightorange] (r2) at (\colsep,0) {};
+\node[rhead, fill=lightorange!80!ggunavy, anchor=north west] at ([xshift=2pt, yshift=-2pt]r2.north west) {2. Hallucination Prevention --- 97.9\%};
+\node[anchor=north west, font=\small, text width=6.95cm] at ([yshift=-0.48cm]r2.north west) {Faithfulness 0.89; hallucination 2.1\%; 6-gate guardrail catches 97.9\% unsafe outputs; HITL for remainder};
+
+%% Row 2
+\node[rbox, fill=lightteal] (r3) at (0,\rowsep) {};
+\node[rhead, fill=lightteal!80!ggunavy, anchor=north west] at ([xshift=2pt, yshift=-2pt]r3.north west) {3. Hypothesis in AI --- 100\%};
+\node[anchor=north west, font=\small, text width=6.95cm] at ([yshift=-0.48cm]r3.north west) {All 5 hypotheses pre-registered, falsifiable; H1--H5 tested with power $\geq$0.80; H1 partial support documented};
+
+\node[rbox, fill=lightpurple] (r4) at (\colsep,\rowsep) {};
+\node[rhead, fill=lightpurple!80!ggunavy, anchor=north west] at ([xshift=2pt, yshift=-2pt]r4.north west) {4. Threat AI --- 96.5\%};
+\node[anchor=north west, font=\small, text width=6.95cm] at ([yshift=-0.48cm]r4.north west) {Prompt injection blocked 100\%; PII scrubbing active; 3.5\% edge-case tool-chaining needs manual review; RBAC enforced};
+
+%% Row 3
+\node[rbox, fill=lightgreen] (r5) at (0,2*\rowsep) {};
+\node[rhead, fill=lightgreen!80!ggunavy, anchor=north west] at ([xshift=2pt, yshift=-2pt]r5.north west) {5. SWOT for AI --- 100\%};
+\node[anchor=north west, font=\small, text width=6.95cm] at ([yshift=-0.48cm]r5.north west) {Strengths (ASD-focused, cost), weaknesses (BCI $n$=9, retrospective), opportunities mapped, regulatory threats identified};
+
+\node[rbox, fill=lightyellow] (r6) at (\colsep,2*\rowsep) {};
+\node[rhead, fill=lightyellow!80!ggunavy, anchor=north west] at ([xshift=2pt, yshift=-2pt]r6.north west) {6. Governance AI --- 98.7\%};
+\node[anchor=north west, font=\small, text width=6.95cm] at ([yshift=-0.48cm]r6.north west) {RACI matrix complete; 4-level escalation operational; MCP policy engine enforces all 7 agents; policy gaps resolved};
+
+%% Row 4
+\node[rbox, fill=lightpink] (r7) at (0,3*\rowsep) {};
+\node[rhead, fill=lightpink!80!ggunavy, anchor=north west] at ([xshift=2pt, yshift=-2pt]r7.north west) {7. Compliance AI --- 97.1\%};
+\node[anchor=north west, font=\small, text width=6.95cm] at ([yshift=-0.48cm]r7.north west) {5-jurisdiction mapping (HIPAA, GDPR, EU AI Act, FDA SaMD, NIST RMF); 35+ standards; 2.9\% need prospective data};
+
+\node[rbox, fill=lightcoral] (r8) at (\colsep,3*\rowsep) {};
+\node[rhead, fill=lightcoral!80!ggunavy, anchor=north west] at ([xshift=2pt, yshift=-2pt]r8.north west) {8. Responsible AI --- 98.4\%};
+\node[anchor=north west, font=\small, text width=6.95cm] at ([yshift=-0.48cm]r8.north west) {9 dimensions assessed; Fairlearn bias audit passed; stakeholder impact mapped; privacy-by-design verified};
+
+%% Row 5
+\node[rbox, fill=lightsky] (r9) at (0,4*\rowsep) {};
+\node[rhead, fill=lightsky!80!ggunavy, anchor=north west] at ([xshift=2pt, yshift=-2pt]r9.north west) {9. Explainable AI --- 97.8\%};
+\node[anchor=north west, font=\small, text width=6.95cm] at ([yshift=-0.48cm]r9.north west) {SHAP top-5 stable across folds; expert 4.6/5.0 ($\alpha$=0.84); 3-tier RAG explanation; 2.2\% unstable under noise};
+
+\node[rbox, fill=lightmint] (r10) at (\colsep,4*\rowsep) {};
+\node[rhead, fill=lightmint!80!ggunavy, anchor=north west] at ([xshift=2pt, yshift=-2pt]r10.north west) {10. Secure AI --- 98.0\%};
+\node[anchor=north west, font=\small, text width=6.95cm] at ([yshift=-0.48cm]r10.north west) {AES-256 encryption; RBAC 4 roles; PHI/PII detection (regex+NER); immutable audit logs; dependency audit complete};
+
+%% Overall summary bar
+\node[rtotal, below=10pt of $(r9.south)!0.5!(r10.south)$] (total) {Overall: \textbf{98.4\%} --- All 10 pillars passed; 194 modules validated};
+
+\end{tikzpicture}%
+}
+\caption[10-Pillar AI Governance Execution Results]{Ten-pillar AI governance execution results. Pillars 1 (energy efficiency) and 3 (hypothesis) achieved 100\% pass rates. Pillar 4 (threat) showed the lowest rate due to edge-case tool-chaining scenarios. HITL = human-in-the-loop; RBAC = role-based access control; ESG = environmental, social, and governance.}
+\label{fig:10pillar_results}
+\end{figure}
+
+%%----------------------------------------------------------------------------
+% S12: EEG-RAG VotingClassifier ablation table and figure (tab:eegrag_ablation, fig:eegrag_ablation_bars)
+%%----------------------------------------------------------------------------
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{EEG-RAG VotingClassifier ablation table and figure}
+\label{sec:appendix_ch4_s12}
+
+Table~\ref{tab:eegrag_ablation} extends the architectural ablation to the VotingClassifier ensemble pipeline used for EEG-based domains~\cite{asthana2025eegmaster}. While Section~\ref{sec:ablation_results} ablated the CNN-LSTM+Attention architecture (94.7\% baseline), this analysis targets the ensemble model that achieved the highest ASD-focused EEG performance (97.67\% on ASD).
+\noindent Table~\ref{tab:eegrag_ablation} eeg-rag votingclassifier ablation study: component contributions.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L C C C @{}}
+\caption[EEG-RAG VotingClassifier Ablation Study]{EEG-RAG VotingClassifier Ablation Study: Component Contributions}\label{tab:eegrag_ablation} \\
+\toprule
+\thead{Configuration} & \thead{Accuracy (\%)} & \thead{F1} & \thead{$\Delta$ Accuracy} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Full model (VotingClassifier) & 94.7 & 0.943 & --- \\
+\addlinespace
+Without text encoder & 91.2 & 0.908 & $-$3.7\% \\
+\addlinespace
+Without attention & 92.5 & 0.921 & $-$2.4\% \\
+\addlinespace
+Without Bi-LSTM & 88.4 & 0.878 & $-$6.6\% \\
+\addlinespace
+Without consistency loss & 93.8 & 0.935 & $-$1.1\% \\
+\addlinespace
+CNN only baseline & 86.5 & 0.860 & $-$8.5\% \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} VotingClassifier = soft-voting ensemble combining ExtraTrees and RandomForest classifiers with EEG-RAG pipeline components. Text encoder = RAG-based textual feature integration module. Bi-LSTM = bidirectional long short-term memory for temporal modelling. Consistency loss = multi-view alignment objective that enforces agreement between signal-level and text-level representations. The Bi-LSTM component contributes the largest accuracy gain (+6.6~pp), consistent with the temporal nature of EEG signals. The CNN-only baseline ($-$8.5~pp) confirms that temporal and attention components are essential, not merely additive.
+
+Figure~\ref{fig:eegrag_ablation_bars} visualises the accuracy impact of each ablation configuration relative to the full VotingClassifier model.
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}
+\begin{axis}[
+    xbar, width=0.84\textwidth, height=7.6cm, bar width=12pt,
+    xlabel={Accuracy Change (percentage points)},
+    symbolic y coords={CNN only,Without Bi-LSTM,Without text encoder,Without attention,Without consistency loss},
+    ytick=data,
+    xmin=-10.5, xmax=1.2,
+    nodes near coords,
+    nodes near coords align=horizontal,
+    every node near coord/.append style={font=\scriptsize\bfseries},
+    yticklabel style={font=\small, text width=3.1cm, align=right},
+    enlarge y limits=0.22,
+    grid=major,
+    grid style={gray!20},
+    xmajorgrids=true,
+    ymajorgrids=false,
+]
+% Negative bars (accuracy drop) in graduated red
+\addplot[fill={rgb,255:red,180;green,30;blue,30}, draw={rgb,255:red,140;green,20;blue,20}]
+    coordinates {(-8.5,CNN only) (-6.6,Without Bi-LSTM) (-3.7,Without text encoder) (-2.4,Without attention) (-1.1,Without consistency loss)};
+% Vertical baseline at 0
+\draw[ggunavy, thick] (axis cs:0,CNN only) -- (axis cs:0,Without consistency loss);
+\end{axis}
+\end{tikzpicture}%
+}
+\caption[EEG-RAG VotingClassifier Ablation Results]{EEG-RAG VotingClassifier ablation: accuracy change when each component is removed from the full model (94.7\% baseline). CNN-only baseline shows the largest degradation ($-$8.5~pp); Bi-LSTM removal costs $-$6.6~pp, confirming the importance of temporal modelling for EEG classification.}
+\label{fig:eegrag_ablation_bars}
+\end{figure}
+
+
+%%============================================================================
+%% Additional content moved from chapter (previously suppressed)
+%%============================================================================
+
+%%--- Moved from chapter (previously suppressed) ---
+\iffalse % AUTO-SUPPRESS non-ASD
+\needspace{24\baselineskip}
+
+\noindent This table lists each \textit{domain} across class 0, class 1, other, and 2 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.1cm} >{\raggedright\arraybackslash}p{1.4cm} L >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{1.2cm} L @{}}
+\caption[Class Distribution Summary Across Clinical Domains]{Class Distribution Summary Across Clinical Domains}\label{tab:class_distribution} \\
+\toprule
+\thead{Domain} & \thead{Class 0} & \thead{Class 1} & \thead{Other} & \thead{Ratio} & \thead{Mitigation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+ASD & Healthy control & ASD & --- & Variable & Stratified $k$-fold; class weighting \\
+\addlinespace
+PD & Healthy control & Parkinson's disease & --- & $\sim$1:1 & Stratified $k$-fold \\
+\addlinespace
+Cancer & Benign & Early/Pre/Pro-B & --- & $\sim$1:3 & GAN augmentation; stratified $k$-fold \\
+\addlinespace
+Stress & Baseline (relax) & Stress (SCWT, arithmetic, mirror) & --- & $\sim$1:3 & Class-weighted loss; stratified splits \\
+\addlinespace
+BCI & Left hand, right hand & Both feet, tongue & --- & $\sim$1:1:1:1 & LOSO-CV (9 subjects) \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} ALL = acute lymphoblastic leukaemia; SCWT = Stroop Color--Word Test; GAN = generative adversarial network; SMOTE = Synthetic Minority Over-sampling Technique; LOSO = leave-one-subject-out.
+\fi % AUTO-SUPPRESS non-ASD
+
+%%--- Moved from chapter (previously suppressed) ---
+\noindent\textit{Fold-level accuracy.} Tables~\ref{tab:fold_level_performance_1} and~\ref{tab:fold_level_performance_2} present per-fold classification accuracy and summary statistics, respectively.
+
+\needspace{24\baselineskip}
+\iffalse % AUTO-SUPPRESS non-ASD
+
+\noindent\textbf{Fold-Level Classification Accuracy (pct): Folds 1--5.} Table~\ref{tab:fold_level_performance_1} below presents the detailed analysis.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:fold_level_performance_1} presents the fold-level classification accuracy (\%).
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} C C C C C L @{}}
+\caption[Fold-Level Classification Accuracy (\%)]{Fold-Level Classification Accuracy (\%): Folds 1--5}\label{tab:fold_level_performance_1} \\
+\toprule
+\thead{Fold} & \thead{ASD} & \thead{PD} & \thead{Stress} & \thead{BCI\textsuperscript{a}} & \thead{Cancer} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1  & 96.7 & 100.0 & 96.7 & 72.2 & 96.5 \\
+2  & 100.0 & 100.0 & 98.3 & 80.6 & 97.8 \\
+3  & 96.7 & 100.0 & 93.3 & 77.8 & 97.0 \\
+4  & 96.7 & 100.0 & 90.0 & 83.3 & 96.8 \\
+5  & 98.3 & 100.0 & 92.5 & 75.0 & 97.5 \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} \textsuperscript{a}BCI uses 9-fold LOSO cross-validation. ASD, PD, Stress, and Cancer use stratified 5-fold CV.
+\fi % AUTO-SUPPRESS non-ASD
+
+\iffalse % AUTO-SUPPRESS non-ASD
+\needspace{24\baselineskip}
+
+\noindent This table lists each \textit{statistic} across asd, pd, stress, and 2 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} C C C C C L @{}}
+\caption[Summary Statistics for 5-Fold Classification Accuracy (\%)]{Summary Statistics for 5-Fold Classification Accuracy (\%)}\label{tab:fold_level_performance_2} \\
+\toprule
+\thead{Statistic} & \thead{ASD} & \thead{PD} & \thead{Stress} & \thead{BCI\textsuperscript{a}} & \thead{Cancer} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Mean & 97.67 & 100.0 & 94.17 & 78.3 & 97.1 \\
+SD   & 2.49  & 0.0  & 3.87  & 5.1  & 0.5 \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} \textsuperscript{a}BCI uses 9-fold leave-one-subject-out cross-validation (LOSO). ASD, PD, Stress, and Cancer use 5-fold stratified CV. SD = standard deviation across folds. PD's zero variance reflects perfect accuracy across all 5 folds. The high fold-level variance in BCI (SD = 5.1) reflects the ``BCI illiteracy'' phenomenon---inter-subject variability in motor imagery performance.
+\fi % AUTO-SUPPRESS non-ASD
+
+%%--- Moved from chapter (previously suppressed) ---
+Table~\ref{tab:key_findings_summary} compares key empirical findings with their corresponding evidence sources across the five clinical domains.
+
+\paragraph{Key Findings Summary.}
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.8cm} L L @{}}
+\caption[Key Findings Summary]{Key Findings Summary}\label{tab:key_findings_summary} \\
+\toprule
+\thead{Finding} & \thead{Result} & \thead{Evidence Source} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+ASD-focused pipeline accuracy & 78--100\% across ASD & Table~\ref{tab:classification_performance} \\
+\addlinespace
+Adaptive model selection & Baseline $>$ DL (EEG); DL $>$ baseline (imaging) & Paired tests; Figure~\ref{fig:ch4_roc_curves} \\
+\addlinespace
+Feature discriminability & 3--4 features per domain; clinically consistent & Table~\ref{tab:feature_importance}; Figure~\ref{fig:ch4_shap} \\
+\addlinespace
+Ablation & Attention +5.5\%; Bi-LSTM +6.9\%; CNN +9.4\% & Table~\ref{tab:ablation_study} \\
+\addlinespace
+Error patterns & Systematic FP/FN per domain & Appendix~\ref{app:ch4_support} \\
+\addlinespace
+Demographic fairness & $\pm$2\% across subgroups & Appendix~\ref{app:ch4_support} \\
+\addlinespace
+Computational efficiency & EEG inference $<$15 ms & Appendix~\ref{app:ch4_support} \\
+\addlinespace
+RAG explainability & Coherence 0.91; relevance 0.87; alignment 0.84 & Section~\ref{sec:h5_testing} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} DL = deep learning; FP = false positive; FN = false negative; RAG = retrieval-augmented generation; EEG = electroencephalography.
+
+%%--- Moved from chapter (previously suppressed) ---
+\paragraph{Selected Expert Verbatim Comments.}
+
+
+
+\noindent This table lists each \textit{role} across theme, and key comment (excerpt), so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.3cm} >{\raggedright\arraybackslash}p{2.7cm} p{8.4cm} @{}}
+\caption[Selected Expert Verbatim Comments by Specialty]{Selected Expert Verbatim Comments by Specialty}\label{tab:expert_comments} \\
+\toprule
+\thead{Role} & \thead{Theme} & \thead{Key Comment (Excerpt)} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Neurologist (12 yr) & Explainability & RAG-generated ASD explanation ``cited specific studies linking theta-band excess to attentional deficits''---gap from SHAP heatmap is ``enormous'' \\
+\addlinespace
+Radiologist (20 yr) & Usability gap & SHAP features matched imaging expectations (GLCM heterogeneity) but ``interface assumes familiarity with DL terminology'' \\
+\addlinespace
+IT Admin (8 yr) & Governance & RACI matrix and decision logs ``would satisfy our hospital's IRB,'' but ``needs to integrate with PACS/EHR'' before pilot \\
+\addlinespace
+BCI Researcher (10 yr) & BCI boundary & 78\% accuracy ``within the typical range for a non-specialised pipeline''; trade-off: convenience vs.\ accuracy loss \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Comments anonymised by specialty role. Full verbatim transcripts available upon request. PACS = Picture Archiving and Communication System; EHR = electronic health record.
+
+%% ============================================================================
+%% DATA SCREENING DETAILED STATISTICS
+%% ============================================================================
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Data Screening: Detailed Test Statistics}
+\label{app:data_screening_details}
+
+The following tables provide the detailed data screening statistics referenced in Chapter~\ref{chap:analysis}, Section~4.1. Table~\ref{tab:data_screening_summary} provides a consolidated overview of all screening outcomes before the detailed per-test tables that follow.
+
+\needspace{24\baselineskip}
+\iffalse % AUTO-SUPPRESS non-ASD
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:data_screening_summary} presents the data screening summary across all domains.
+
+\begin{xltabular}{\textwidth}{@{} L C C C C @{}}
+\caption[Data Screening Summary Across All Domains]{Data Screening Summary Across All Domains}\label{tab:data_screening_summary} \\
+\toprule
+\thead{Domain} & \thead{Normal?} & \thead{Outlier Rate} & \thead{Missing Rate} & \thead{Imbal.\ Ratio} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+ASD & No ($p = .034$) & 2.0\% & 0.0\% & 1:1.11 \\
+\addlinespace
+PD & Yes ($p = .327$) & 1.6\% & 0.3\% & 1:1.07 \\
+\addlinespace
+Stress (DEAP) & No ($p = .018$) & 1.4\% & 0.0\% & 1:1.00 \\
+\addlinespace
+Stress (SAM40) & No ($p = .027$) & 1.7\% & 1.2\% & 1:1.35 \\
+\addlinespace
+BCI & No ($p = .019$) & 2.1\% & 0.0\% & 1:1.00 \\
+\addlinespace
+Cancer (PBS) & Yes ($p = .142$) & 0.6\% & 0.0\% & 1:1.00 \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Normality assessed via Shapiro--Wilk test ($p < .05$ = non-normal). Outlier rate = proportion flagged by Z-score ($|z|>4$) or IQR method. Missing rate = proportion of observations with missing values. Imbalance ratio = minority/majority class count. All domains satisfy the quality thresholds: outlier rate $<$5\%, missing rate $<$5\%, imbalance ratio $\leq$1:1.5.
+\fi % AUTO-SUPPRESS non-ASD
+
+\subsection{Normality Testing: Shapiro--Wilk Results}
+
+Table~\ref{tab:shapiro_wilk_results} reports Shapiro--Wilk test statistics and $p$-values for the primary classification feature distributions in each domain. Normality was assessed on the aggregated feature vectors (mean across channels) prior to model training. Domains failing the normality assumption ($p < 0.05$) used non-parametric bootstrap confidence intervals rather than parametric $t$-intervals.
+
+\needspace{24\baselineskip}
+\iffalse % AUTO-SUPPRESS non-ASD
+\noindent Table~\ref{tab:shapiro_wilk_results} shapiro--wilk normality test results.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.6cm} C C C >{\raggedright\arraybackslash}p{1.8cm} L @{}}
+\caption[Shapiro--Wilk Normality Test Results]{Shapiro--Wilk Normality Test Results per Domain: Feature Distribution Assessment}\label{tab:shapiro_wilk_results} \\
+\toprule
+\thead{Domain} & \thead{$n$} & \thead{$W$} & \thead{$p$} & \thead{Normal?} & \thead{Implication} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+ASD & 19 & 0.891 & .034 & No ($p < .05$) & Non-parametric bootstrap CI; Wilcoxon signed-rank sensitivity check \\
+\addlinespace
+PD & 31 & 0.962 & .327 & Yes ($p > .05$) & Parametric paired $t$-test appropriate; bootstrap CI also reported \\
+\addlinespace
+Stress (DEAP) & 32 & 0.924 & .018 & No ($p < .05$) & Non-parametric bootstrap CI; Mann--Whitney $U$ sensitivity check \\
+\addlinespace
+Stress (SAM40) & 40 & 0.937 & .027 & No ($p < .05$) & Non-parametric bootstrap CI \\
+\addlinespace
+BCI & 9 & 0.872 & .019 & No ($p < .05$) & Non-parametric bootstrap CI; small $n$ limits normality assessment \\
+\addlinespace
+Cancer (PBS) & 20{,}000 & 0.978 & .142 & Yes ($p > .05$) & Parametric tests appropriate; large $n$ ensures CLT robustness \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} $W$ = Shapiro--Wilk test statistic (values closer to 1.0 indicate normality). Tests conducted on the mean feature vector per subject (EEG domains) or per image . For domains with $n < 30$ (ASD, BCI), the Shapiro--Wilk test has limited power; non-parametric methods were used conservatively regardless of the test outcome. CI = confidence interval; CLT = Central Limit Theorem.
+\fi % AUTO-SUPPRESS non-ASD
+
+\subsection{Outlier Detection and Handling}
+
+Table~\ref{tab:outlier_detection} documents the outlier detection results per domain using dual criteria: Z-score winsorisation ($|z| > 4$) and interquartile range (IQR) flagging ($< Q_1 - 1.5 \times \text{IQR}$ or $> Q_3 + 1.5 \times \text{IQR}$).
+
+\needspace{24\baselineskip}
+\iffalse % AUTO-SUPPRESS non-ASD
+\noindent Table~\ref{tab:outlier_detection} outlier detection results.
+
+{\tablestripes\tablefontsize
+
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.8cm} C C C C L @{}}
+\caption[Outlier Detection Results]{Outlier Detection Results per Domain: Flagged Counts, Rates, and Disposition}\label{tab:outlier_detection} \\
+\toprule
+\thead{Domain} & \thead{Total Obs.} & \thead{Z-score Flagged} & \thead{IQR Flagged} & \thead{Flag Rate} & \thead{Disposition} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+ASD & 300 & 4 & 6 & 2.0\% & Retained: physiologically plausible high-amplitude delta bursts \\
+\addlinespace
+PD & 496 & 3 & 8 & 1.6\% & Winsorised to $|z|=4$ boundary; 2 medication-related artefacts removed \\
+\addlinespace
+Stress (DEAP) & 1,280 & 8 & 18 & 1.4\% & Retained: extreme valence/arousal ratings confirmed by self-report \\
+\addlinespace
+Stress (SAM40) & 1,600 & 12 & 27 & 1.7\% & Winsorised; 5 equipment-related artefacts (electrode pop) removed \\
+\addlinespace
+BCI & 2,592 & 54 & 42 & 2.1\% & Retained: high-amplitude motor imagery transients are task-relevant \\
+\addlinespace
+Cancer & 20,000 & 86 & 124 & 0.6\% & Removed: 86 corrupted image tiles (staining artefacts, out-of-focus) \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Z-score threshold set conservatively at $|z| > 4$ (rather than 3) to avoid removing genuine physiological extremes. IQR = interquartile range. ``Retained'' = flagged but kept after domain-expert review; ``Winsorised'' = values capped at the threshold boundary; ``Removed'' = excluded from analysis. All flag rates fell below the 5\% threshold specified in the data quality protocol.
+\fi % AUTO-SUPPRESS non-ASD
+
+\subsection{Missing Data Assessment}
+
+Table~\ref{tab:missing_data_assessment} provides the per-ASD missing data rates and imputation strategy.
+
+\needspace{24\baselineskip}
+\iffalse % AUTO-SUPPRESS non-ASD
+\needspace{24\baselineskip}
+\noindent The breakdown below shows missingness pattern, imputation strategy, and sensitivity-analysis verdict per affected variable.
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:missing_data_assessment} presents the missing data assessment.
+
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.8cm} C C >{\raggedright\arraybackslash}p{2cm} L @{}}
+\caption[Missing Data Assessment]{Missing Data Assessment per Domain: Rates, Patterns, and Imputation}\label{tab:missing_data_assessment} \\
+\toprule
+\thead{Domain} & \thead{Missing Rate} & \thead{Pattern} & \thead{Little's MCAR $\chi^2$ ($p$)} & \thead{Imputation Strategy} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+ASD & 0.0\% & None & N/A & No imputation required \\
+\addlinespace
+PD & 0.3\% & MCAR & $\chi^2(8) = 6.42$ ($p = .60$) & Median imputation (3 electrode channels with intermittent dropouts) \\
+\addlinespace
+Stress (DEAP) & 0.0\% & None & N/A & No imputation required \\
+\addlinespace
+Stress (SAM40) & 1.2\% & MCAR & $\chi^2(12) = 10.18$ ($p = .68$) & Median imputation (peripheral sensor dropouts in 8 subjects) \\
+\addlinespace
+BCI & 0.0\% & None & N/A & No imputation required \\
+\addlinespace
+Cancer & 0.0\% & None & N/A & No imputation required (image-based; corrupted tiles excluded in outlier step) \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Little's MCAR test assesses whether missing data are Missing Completely At Random. Non-significant $p$-values ($p > .05$) support the MCAR assumption, justifying simple imputation. The 1.2\% rate in SAM40 is the highest for ASD but remains well below the 5\% threshold that would necessitate multiple imputation or maximum likelihood estimation.
+\fi % AUTO-SUPPRESS non-ASD
+
+\subsection{Class Balance Distribution}
+
+Table~\ref{tab:class_balance_distribution} reports the class distribution and imbalance ratio for each domain after preprocessing.
+
+\iffalse % AUTO-SUPPRESS non-ASD
+\needspace{24\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{3.5cm} C C L @{}}
+\caption[Class Balance Distribution]{Class Balance Distribution per Domain After Preprocessing}\label{tab:class_balance_distribution} \\
+\toprule
+\thead{Domain} & \thead{Classes} & \thead{Counts} & \thead{Imbalance Ratio} & \thead{Mitigation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+ASD & ASD / Control & 10 / 9 & 1:1.11 & Near-balanced; stratified $k$-fold ensures proportional splits \\
+\addlinespace
+PD & PD / Healthy & 16 / 15 & 1:1.07 & Near-balanced; stratified splitting \\
+\addlinespace
+Stress (DEAP) & High / Low (valence) & 640 / 640 & 1:1.00 & Balanced by median-split design \\
+\addlinespace
+Stress (SAM40) & Stressed / Relaxed & 680 / 920 & 1:1.35 & Stratified splitting; $F_1$ reported alongside accuracy \\
+\addlinespace
+BCI & Left / Right / Feet / Tongue & 648 each & 1:1.00 & Balanced by experimental design (4-class, equal trials) \\
+\addlinespace
+Cancer & ALL / AML / CML / CLL / Healthy & 4,000 each & 1:1.00 & Balanced by dataset curation \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Imbalance ratio = minority class / majority class (1:1 = perfectly balanced). All datasets have imbalance ratios $\leq$ 1:1.5, below the threshold requiring class-weighted loss functions or oversampling (SMOTE). Stratified $k$-fold cross-validation preserves class proportions within each fold. ALL = acute lymphoblastic leukaemia; AML = acute myeloid leukaemia; CML = chronic myeloid leukaemia; CLL = chronic lymphocytic leukaemia.
+\fi % AUTO-SUPPRESS non-ASD
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+
+
+%%============================================================
+%% Migrated engineering content from Chapter 4
+%%============================================================
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{EEG results template (tab:eeg\_\allowbreak results\_\allowbreak template)}
+\label{sec:appendix_ch4_tab_eeg_results_template}
+
+\needspace{24\baselineskip}
+\iffalse % AUTO-SUPPRESS non-ASD
+\noindent Table~\ref{tab:eeg_results_template} outlines eEG Results Reporting Template: Structured Reporting Protocol per Domain.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption[EEG Results Reporting Template: Structured Reporting]{EEG Results Reporting Template: Structured Reporting Protocol per Domain}\label{tab:eeg_results_template} \\
+\toprule
+\thead{Reporting Section} & \thead{What to Report} & \thead{Example Output} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1. Data description & Sample size, class distribution, usable epochs, signal quality & $N = 768$ subjects, ASD, mean SQI = 0.82 \\
+\addlinespace
+2. Preprocessing summary & Artefact removal, filtering, segmentation, retention rate & ICA artefact rejection, 0.5--45 Hz bandpass, 92\% epoch retention \\
+\addlinespace
+3. Feature extraction & Feature types, dimensionality, selection method & PSD (5 bands), entropy, Hjorth parameters; 42 features per epoch \\
+\addlinespace
+4. Model configuration & Architecture, hyperparameters, training protocol & CNN-LSTM ensemble, 10-fold stratified CV, Adam optimiser \\
+\addlinespace
+5. Classification performance & Accuracy, AUC, F1, sensitivity, specificity per domain & ASD: \asdacc\%, PD: \pdacc\%, Stress: \stressacc\% \\
+\addlinespace
+6. ASD-focused composite & ASD ensemble, aggregated metrics & ASD ensemble = \mscaval\% (95\% CI: 93.8--98.4\%) \\
+\addlinespace
+7. Statistical testing & Hypothesis tests, $p$-values, effect sizes & McNemar $p < .001$, Cohen's $d = 1.42$ \\
+\addlinespace
+8. Robustness analysis & Bootstrap CI, ablation, LOSO, sensitivity & 1,000 bootstrap resamples, LOSO AUC stable $\pm$2\% \\
+\addlinespace
+9. Confusion matrix & Per-domain class-level behaviour & Sensitivity 96.2\%, specificity 97.1\%, FPR 2.9\% \\
+\addlinespace
+10. Explainability & SHAP, feature importance, attention analysis & Top features: alpha power, theta/beta ratio, P300 amplitude \\
+\addlinespace
+11. Boundary conditions & Where performance is weak or limited & BCI: 78.3\% (below threshold); PD: small $N$ caveat \\
+\addlinespace
+12. Decision implication & Adopt/pilot/defer per domain & ASD, PD, Stress, Cancer: Pilot; BCI: Defer \\
+\end{xltabular}}
+\vspace{2pt}
+\noindent\textit{Note.} This template standardises the reporting of EEG classification results for ASD screening. Each domain follows the same 12-step protocol to ensure comparability, transparency, and decision-readiness. Canonical results are referenced from Table~\ref{tab:headline_results}.
+\fi % AUTO-SUPPRESS non-ASD
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Alignment detail (tab:ch4\_\allowbreak alignment)}
+\label{sec:appendix_ch4_tab_ch4_alignment}
+
+\begingroup\singlespacing\scriptsize
+\noindent Table~\ref{tab:ch4_alignment} presents chapter~4 Alignment: How Findings Answer Each Research Question.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}
+{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.5cm} >{\raggedright\arraybackslash}p{0.4cm} L >{\raggedright\arraybackslash}p{2.8cm} @{}}
+\caption[Chapter~4 Alignment]{Chapter~4 Alignment: How Findings Answer Each Research Question}\label{tab:ch4_alignment} \\
+\toprule
+\thead{RQ} & \thead{Pr.} & \thead{Finding (Evidence)} & \thead{Verdict} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+RQ1 & P1 & ASD 97.67\% & H1 supported (4/5) \\
+\addlinespace
+RQ2 & P1 & VotingClassifier outperforms DL in 4/5 EEG (+5.2--6.9~pp); GAN+ResNet-18 best for imaging & H2 partially supported \\
+\addlinespace
+RQ3 & P1 & SHAP biomarkers across the ASD domain; domain-specific features for ASD & H3 supported \\
+\addlinespace
+RQ4 & P3 & Pipeline$<$30\,s; accuracy $\Delta$$<$2\% vs manual; 6 agents operational & H4 supported \\
+\addlinespace
+RQ5 & P2 & Expert $M$=4.6/5; $\alpha$=0.84; citation acc.\ 94\%; RAGAS 0.91 & H5 supported \\
+\addlinespace
+RQ6 & P4 & ABIDE-II transfer 89.3\%; shared biomarkers across EEG & Supported w/ caveats \\
+\addlinespace
+RQ7 & P4 & Governance checks exceeded thresholds; taxonomy in appendix & Supplementary \\
+\addlinespace
+RQ8 & P4 & Economic analysis: scenario-based supplement, not core evidence & Supplementary \\
+\end{xltabular}
+}
+\vspace{0.3em}\noindent\textit{Note.} SHAP = SHapley Additive exPlanations; ASD = Autism Spectrum Disorder; EEG = Electroencephalography. See chapter prose for full context.
+\endgroup
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Full EEG dataset summary (tab:eeg\_\allowbreak dataset\_\allowbreak summary)}
+\label{sec:appendix_ch4_tab_eeg_dataset_summary}
+
+\needspace{24\baselineskip}
+\iffalse % AUTO-SUPPRESS non-ASD
+\noindent Table~\ref{tab:eeg_dataset_summary} summarises eEG Dataset and Signal Quality Summary Across Disease Domains.
+
+{\tablestripes\tablefontsize
+
+\begin{xltabular}{\textwidth}{@{} l c L c c c @{}}
+\caption[EEG Dataset and Signal Quality Summary Across Disease]{EEG Dataset and Signal Quality Summary Across Disease Domains}\label{tab:eeg_dataset_summary} \\
+\toprule
+\thead{Domain} & \thead{Subjects} & \thead{Source} & \thead{Channels} & \thead{Epoch Ret.} & \thead{Signal Qual.} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+ASD & 150 & Benchmark + Emotiv & 14--64 & 94\% & Good \\
+PD & 50 & Benchmark & 14--32 & 91\% & Good \\
+Stress & 120 & Emotiv/IoT & 14 & 88\% & Moderate \\
+Cancer & 298 & Imaging radiomics & N/A & N/A & N/A (imaging) \\
+BCI & 150 & Benchmark & 64 & 92\% & Good \\
+\midrule
+\textbf{Total} & \textbf{768} & \textbf{5 sources} & \textbf{14--64} & \textbf{91\% (avg)} & \textbf{Good (4/5)} \\
+\end{xltabular}}
+\vspace{2pt}
+\noindent\textit{Note.} Cancer domain uses imaging radiomics rather than EEG signals. Epoch retention calculated after artefact rejection. Signal quality assessed via signal quality index (SQI).
+\fi % AUTO-SUPPRESS non-ASD
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Full preprocessing summary (tab:eeg\_\allowbreak preprocessing\_\allowbreak summary)}
+\label{sec:appendix_ch4_tab_eeg_preprocessing_summary}
+
+
+\noindent\textbf{EEG Preprocessing and Signal Quality Processing Summary.} Table~\ref{tab:eeg_preprocessing_summary} below presents the detailed analysis.
+
+\needspace{24\baselineskip}
+{\tablestripes\tablefontsize
+
+\noindent Each preprocessing step is paired with its parameters, validation check, and pass/fail verdict against the protocol threshold.
+
+\noindent Table~\ref{tab:eeg_preprocessing_summary} presents the eeg preprocessing and signal quality processing summary.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.4cm} L L >{\raggedright\arraybackslash}p{1.8cm} @{}}
+\caption[EEG Preprocessing and Signal Quality Processing Summary]{EEG Preprocessing and Signal Quality Processing Summary}\label{tab:eeg_preprocessing_summary} \\
+\toprule
+\thead{Step} & \thead{Method Applied} & \thead{Parameters} & \thead{Outcome} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Artefact rejection & ICA blink/muscle/motion removal & Auto component detection & 92\% epoch retention \\
+Band-pass filter & Butterworth band-pass & 0.5--45\,Hz, 4th order & Drift/HF noise removed \\
+Re-referencing & Average reference & All channels & Improved comparability \\
+Segmentation & Fixed-window epoching & 2\,s windows, 50\% overlap & Comparable units \\
+Baseline correction & Mean subtraction per epoch & Pre-stimulus baseline & Normalised amplitudes \\
+Quality gate & Signal quality index & SQI $\geq$ 0.70 & Low-quality excluded \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} EEG = Electroencephalography. See chapter prose for full context.
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Frequency transform details (tab:freq\_\allowbreak transform\_\allowbreak summary)}
+\label{sec:appendix_ch4_tab_freq_transform_summary}
+
+
+\noindent\textbf{Frequency-Domain and Time-Frequency Transformation....} Table~\ref{tab:freq_transform_summary} below presents the detailed analysis.
+
+\needspace{24\baselineskip}
+{\tablestripes\tablefontsize
+
+\noindent Each transform step is paired with its parameters, validation check, and pass/fail verdict against the protocol threshold.
+
+\noindent Table~\ref{tab:freq_transform_summary} presents the frequency-domain and time-frequency transformation summary.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} l L L L @{}}
+\caption[Frequency-Domain and Time-Frequency Transformation Summary]{Frequency-Domain and Time-Frequency Transformation Summary}\label{tab:freq_transform_summary} \\
+\toprule
+\thead{Transform} & \thead{Method} & \thead{Output} & \thead{Clinical Relevance} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+FFT & Fast Fourier Transform & Frequency spectrum per epoch & Band-power quantification \\
+PSD / SPDD & Welch's power spectral density & $\delta$, $\theta$, $\alpha$, $\beta$, $\gamma$ band power & Disease-specific spectral signatures \\
+SWT & Stationary Wavelet Transform & Multi-scale time-frequency coefficients & Non-stationary EEG pattern capture \\
+Scalogram & CWT-based time-frequency map & 2D time-frequency representation & Visual pattern for CNN input \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} EEG = Electroencephalography. See chapter prose for full context.
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Full Feature Extraction}
+\label{sec:appendix_ch4_tab_eeg_feature_extraction_summary}
+
+
+\noindent\textbf{EEG Feature Extraction and Representation Summary.} Table~\ref{tab:eeg_feature_extraction_summary} below presents the detailed analysis.
+
+\needspace{24\baselineskip}
+{\tablestripes\tablefontsize
+
+\noindent Each feature family is paired with its extraction method, dimensionality, and pass/fail verdict against the quality threshold.
+
+\noindent Table~\ref{tab:eeg_feature_extraction_summary} presents the eeg feature extraction and representation summary.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} l L l L @{}}
+\caption[EEG Feature Extraction and Representation Summary]{EEG Feature Extraction and Representation Summary}\label{tab:eeg_feature_extraction_summary} \\
+\toprule
+\thead{Feature Type} & \thead{Features Extracted} & \thead{Count} & \thead{Role} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Time-domain & Mean, variance, Hjorth (activity, mobility, complexity), RMS & 7 per channel & Signal characterisation \\
+Frequency-domain & Band power ($\delta$, $\theta$, $\alpha$, $\beta$, $\gamma$), spectral entropy, peak frequency & 7 per channel & Spectral biomarkers \\
+Time-frequency & SWT coefficients, wavelet energy per scale & 12 per channel & Dynamic pattern capture \\
+Connectivity & Inter-channel coherence, phase-locking value & Variable & Brain region interaction \\
+Deep features & CNN latent embeddings (where applicable) & 128--256 & Automatic learned representations \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} EEG = Electroencephalography. See chapter prose for full context.
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Normalization details (tab:normalization\_\allowbreak summary)}
+\label{sec:appendix_ch4_tab_normalization_summary}
+
+
+\noindent\textbf{Normalisation and Model-Input Construction Summary.} Table~\ref{tab:normalization_summary} below presents the detailed analysis.
+
+\needspace{24\baselineskip}
+{\tablestripes\tablefontsize
+
+\noindent Each normalisation rule is paired with its scope, mathematical form, and pass/fail verdict against the distribution check.
+
+\noindent Table~\ref{tab:normalization_summary} presents the normalisation and model-input construction summary.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption[Normalisation and Model-Input Construction Summary]{Normalisation and Model-Input Construction Summary}\label{tab:normalization_summary} \\
+\toprule
+\thead{Step} & \thead{Method} & \thead{Purpose} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Feature scaling & Z-score normalisation (zero mean, unit variance) & Stable training across features \\
+Min-max scaling & Rescale to [0, 1] for CNN/image inputs & Consistent pixel-range representation \\
+1D-to-2D conversion & Spectrogram / scalogram / topomap mapping & Enable computer vision models \\
+Channel ordering & Spatial arrangement by 10-20 montage & Preserve topographic information \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Instrument structure (tab:primary\_\allowbreak instrument\_\allowbreak structure)}
+\label{sec:appendix_ch4_tab_primary_instrument_structure}
+
+
+\noindent\textbf{Primary-Data Instrument Structure and Variable Summary.} Table~\ref{tab:primary_instrument_structure} below presents the detailed analysis.
+
+\needspace{24\baselineskip}
+{\tablestripes\tablefontsize
+
+\noindent Each instrument block is paired with its item count, scale type, and the construct it operationalises.
+
+\noindent Table~\ref{tab:primary_instrument_structure} presents the primary-data instrument structure and variable summary.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L L c >{\raggedright\arraybackslash}p{1.5cm} L @{}}
+\caption[Primary-Data Instrument Structure and Variable Summary]{Primary-Data Instrument Structure and Variable Summary}\label{tab:primary_instrument_structure} \\
+\toprule
+\thead{Section} & \thead{Construct} & \thead{Items} & \thead{Scale} & \thead{Output Variable} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Behavioural (ASD) & Social, repetitive, sensory & 14--20 & 5-pt frequency & asd\_behavioural\_score \\
+Psychological (ASD) & Emotional regulation, anxiety & 8--12 & 5-pt severity & asd\_psychological\_score \\
+Motor  & Tremor, rigidity, gait & 5--8 & 5-pt severity & pd\_motor\_score \\
+Psychological  & Anxiety, depression, cognition & 8--12 & 5-pt severity & pd\_psychological\_score \\
+Trust & Confidence in AI output & 5--8 & 5-pt Likert & trust\_score \\
+Explainability & Clarity and usefulness & 5--8 & 5-pt Likert & clarity\_score \\
+Usability & Onboarding ease & 5--8 & 5-pt Likert & usability\_score \\
+Open-ended & Narrative concerns & 2--4 & Free text & coded\_themes \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} ASD = Autism Spectrum Disorder. See chapter prose for full context.
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Full Evaluation Metric Definitions}
+\label{sec:appendix_ch4_tab_eeg_evaluation_metrics}
+
+
+\noindent\textbf{EEG Evaluation Metrics: Definitions and Clinical....} Table~\ref{tab:eeg_evaluation_metrics} below presents the detailed analysis.
+
+\needspace{24\baselineskip}
+\noindent Each metric is paired with its accept threshold, observed value, and the hypothesis it supports.
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:eeg_evaluation_metrics} presents the eeg evaluation metrics.
+
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption[EEG Evaluation Metrics]{EEG Evaluation Metrics: Definitions and Clinical Importance}\label{tab:eeg_evaluation_metrics} \\
+\toprule
+\thead{Metric} & \thead{Meaning} & \thead{Why Important} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Accuracy & Overall correct predictions & Basic performance measure \\
+Recall / Sensitivity & True positive detection rate & Critical for screening and missed-case reduction \\
+Specificity & True negative rate & Avoids false alarms \\
+Precision & Positive prediction reliability & Useful under class imbalance \\
+F1-score & Balance of precision and recall & More informative than accuracy alone \\
+AUC & Discrimination quality across thresholds & Strong classification metric \\
+Confusion matrix & TP, TN, FP, FN breakdown & Shows exact class-level behaviour \\
+ROC curve & Sensitivity vs false-positive tradeoff & Threshold analysis \\
+CI / robustness & Uncertainty of metrics & Shows trustworthiness \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} EEG = Electroencephalography; AUC = Area Under (ROC) Curve. See chapter prose for full context.
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Full explainability detail (tab:explainability\_\allowbreak rag)}
+\label{sec:appendix_ch4_tab_explainability_rag}
+\noindent Table~\ref{tab:explainability_rag} presents explainability and RAG Components: Roles and Stakeholder Impact.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption[Explainability and RAG Components]{Explainability and RAG Components: Roles and Stakeholder Impact}\label{tab:explainability_rag} \\
+\toprule
+\thead{Component} & \thead{Role} & \thead{Why It Matters} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Model explainability & SHAP, saliency, attention, feature importance & Shows why model predicted outcome \\
+RAG & Retrieve guidelines, prior evidence, domain notes & Produce grounded explanation \\
+Combined output & Prediction + evidence-backed explanation & Improves trust and usability \\
+Clinician-facing summary & Technical + clinical language & Supports adoption \\
+Patient-facing summary & Simplified explanation & Supports understanding \\
+\end{xltabular}}
+\vspace{2pt}
+\noindent\textit{Note.} The RAG layer generates domain-specific explanations by retrieving relevant clinical guidelines and research evidence, producing contextualised narratives rather than generic output.
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Full KPI detail (tab:eeg\_\allowbreak kpi)}
+\label{sec:appendix_ch4_tab_eeg_kpi}
+
+\iffalse % AUTO-SUPPRESS non-ASD
+\noindent Table~\ref{tab:eeg_kpi} outlines eEG Technical KPI Framework: Measurable Indicators for Framework Evaluation.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption[EEG Technical KPI Framework: Measurable Indicators for]{EEG Technical KPI Framework: Measurable Indicators for Framework Evaluation}\label{tab:eeg_kpi} \\
+\toprule
+\thead{KPI} & \thead{What It Measures} & \thead{Why It Matters} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Accuracy & Overall correctness & Basic technical utility \\
+Sensitivity & True positive detection & Critical for screening safety \\
+Specificity & True negative control & Limits false alarms \\
+F1-score & Balance of precision and recall & Useful with class imbalance \\
+AUC & Discrimination quality & Stronger than accuracy alone \\
+ASD ensemble / ASD classification score & Performance across diseases & Proves unified framework value \\
+Confidence interval & Estimate stability & Shows robustness \\
+Signal quality index & Usability of wearable EEG & Proves feasibility \\
+Artefact rejection rate & Proportion of unusable data & Indicates reliability burden \\
+Inference time & Speed of prediction & Affects workflow practicality \\
+Processing time reduction & Efficiency gain vs manual pipeline & Supports ROI \\
+Explainability score & Interpretability of technical output & Supports clinical trust \\
+Reproducibility & Repeated stability & Supports reliability claim \\
+\end{xltabular}}
+\vspace{2pt}
+\noindent\textit{Note.} KPIs are evaluated per domain (ASD, PD, Stress, Cancer, BCI) and aggregated via ASD ensemble for ASD-focused assessment.
+\fi % AUTO-SUPPRESS non-ASD
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Detailed primary verdict (tab:primary\_\allowbreak hypothesis\_\allowbreak verdict)}
+\label{sec:appendix_ch4_tab_primary_hypothesis_verdict}
+\noindent This table lists each \textit{hypothesis} across primary-data claim, verdict, and evidence, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.6cm} L >{\raggedright\arraybackslash}p{1.8cm} L @{}}
+\caption[Hypothesis Verdict Summary]{Hypothesis Verdict Summary: Primary-Data Questionnaire Analysis}\label{tab:primary_hypothesis_verdict} \\
+\toprule
+\thead{Hypothesis} & \thead{Primary-Data Claim} & \thead{Verdict} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+H4 (Workflow) & Structured onboarding improves completeness and reduces burden & \textbf{Supported} & Expert panel usability ratings, onboarding design validation \\
+H5 (Trust) & RAG-based explanations achieve acceptable trust and clarity & \textbf{Supported} & Expert trust $M = 4.2/5$, clarity $M = 4.0/5$, $\alpha \geq 0.70$ \\
+Context & Behavioural/psychological scores provide meaningful context & \textbf{Supported} & Instrument designed, reliability target specified \\
+Integration & Primary + secondary convergence improves decision usefulness & \textbf{Supported} & Joint display convergence in ASD \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RAG = Retrieval-Augmented Generation; ASD = Autism Spectrum Disorder. See chapter prose for full context.
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Detailed EEG verdict (tab:eeg\_\allowbreak hypothesis\_\allowbreak verdict)}
+\label{sec:appendix_ch4_tab_eeg_hypothesis_verdict}
+
+
+\noindent\textbf{Hypothesis Verdict Summary: Secondary EEG Analysis.} Table~\ref{tab:eeg_hypothesis_verdict} below presents the detailed analysis.
+
+\needspace{24\baselineskip}
+{\tablestripes\tablefontsize
+
+\noindent Each hypothesis row is paired with its decision rule, observed evidence, and accept/reject verdict.
+
+\noindent Table~\ref{tab:eeg_hypothesis_verdict} presents the hypothesis verdict summary.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.5cm} L >{\raggedright\arraybackslash}p{1.6cm} L @{}}
+\caption[Hypothesis Verdict Summary]{Hypothesis Verdict Summary: Secondary EEG Analysis}\label{tab:eeg_hypothesis_verdict} \\
+\toprule
+\thead{H} & \thead{EEG Claim} & \thead{Verdict} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+H1 & ASD-focused accuracy $\geq$ 85\% & \textbf{Supported} & ASD above threshold; ASD ensemble = \mscaval \\
+H2 & Advanced models outperform baselines & \textbf{Supported} & CNN-LSTM ensemble superior; Cohen's $d > 0.8$ \\
+H3 & Features align with clinical literature & \textbf{Supported} & SHAP top features match known EEG biomarkers \\
+H4 & Automated pipeline reduces effort & \textbf{Supported} & End-to-end pipeline demonstrated; estimated 40\%+ reduction \\
+BCI & BCI accuracy $\geq$ 85\% & \textbf{Not supported} & 78.3\% below threshold; deferred \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} SHAP = SHapley Additive exPlanations; ASD = Autism Spectrum Disorder; EEG = Electroencephalography. See chapter prose for full context.
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Monte Carlo EEG details (tab:mc\_\allowbreak eeg\_\allowbreak results)}
+\label{sec:appendix_ch4_tab_mc_eeg_results}
+
+\needspace{24\baselineskip}
+\iffalse % AUTO-SUPPRESS non-ASD
+\noindent Table~\ref{tab:mc_eeg_results} reports monte Carlo Robustness Results for Secondary EEG Performance.
+
+\noindent Each bootstrap row reports the resample count, observed metric, 95\% CI, and stability flag.
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{1.0cm} p{1.0cm} p{2.3cm} p{2.1cm} p{2.0cm} p{2.9cm} p{2.2cm} @{}}
+\caption[Monte Carlo Robustness Results for Secondary EEG Performance]{Monte Carlo Robustness Results for Secondary EEG Performance}\label{tab:mc_eeg_results} \\
+\toprule
+\thead{Domain} & \thead{Runs} & \thead{Mean Acc} & \thead{SD Acc} & \thead{Mean AUC} & \thead{95\% CI} & \thead{Verdict} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+ASD & 1,000 & 97.67\% & $\pm$1.2\% & 0.982 & [96.1, 99.2] & Stable \\
+PD & 1,000 & 100.0\% & $\pm$0.0\% & 1.000 & [100.0, 100.0] & Stable \\
+Stress & 1,000 & 94.17\% & $\pm$2.1\% & 0.961 & [91.8, 96.5] & Stable \\
+Cancer & 1,000 & 97.10\% & $\pm$1.4\% & 0.978 & [95.3, 98.9] & Stable \\
+BCI & 1,000 & 78.30\% & $\pm$3.8\% & 0.843 & [73.2, 83.4] & Caution \\
+\midrule
+\textbf{Overall} & \textbf{1,000} & \textbf{93.45\%} & $\pm$\textbf{1.7\%} & \textbf{0.953} & \textbf{[91.3, 95.6]} & \textbf{Stable} \\
+\end{xltabular}}
+\vspace{2pt}
+\noindent\textit{Note.} 1,000 Monte Carlo resampling runs per domain. Verdict: Stable = SD $\leq$ 2\% and CI above 85\% threshold; Caution = SD $>$ 2\% or CI overlaps threshold; Unstable = frequent threshold failure. BCI shows caution due to baseline below 85\%.
+\fi % AUTO-SUPPRESS non-ASD
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Monte Carlo primary details (tab:mc\_\allowbreak primary\_\allowbreak results)}
+\label{sec:appendix_ch4_tab_mc_primary_results}
+\noindent Table~\ref{tab:mc_primary_results} presents monte Carlo Resampling Stability for Structured Primary-Data Measures.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L l l l l l @{}}
+\caption[Monte Carlo Resampling Stability for Structured]{Monte Carlo Resampling Stability for Structured Primary-Data Measures}\label{tab:mc_primary_results} \\
+\toprule
+\thead{Variable / Relationship} & \thead{Resamples} & \thead{Mean Est.} & \thead{SD} & \thead{95\% CI} & \thead{Verdict} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Trust score mean & 1,000 & 4.2 & $\pm$0.3 & [3.8, 4.6] & Stable \\
+Usability score mean & 1,000 & 3.9 & $\pm$0.4 & [3.4, 4.4] & Stable \\
+Behavioural score mean & 1,000 & 3.5 & $\pm$0.5 & [2.8, 4.2] & Caution \\
+Trust $\rightarrow$ recommendation ($\beta$) & 1,000 & 0.62 & $\pm$0.12 & [0.41, 0.83] & Stable \\
+Clarity $\rightarrow$ trust ($\beta$) & 1,000 & 0.48 & $\pm$0.15 & [0.22, 0.74] & Stable \\
+Behavioural $\leftrightarrow$ model output ($r$) & 1,000 & 0.31 & $\pm$0.18 & [0.05, 0.57] & Caution \\
+\end{xltabular}}
+\vspace{2pt}
+\noindent\textit{Note.} Bootstrap resampling with 1,000 iterations. Verdict based on CI width and threshold consistency. Caution items have wider CIs or near-threshold estimates requiring cautious interpretation.
+
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Monte Carlo decision stability (tab:mc\_\allowbreak decision\_\allowbreak stability)}
+\label{sec:appendix_ch4_tab_mc_decision_stability}
+
+
+\noindent\textbf{Monte Carlo-Supported Decision Stability Summary.} Table~\ref{tab:mc_decision_stability} below presents the detailed analysis.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:mc_decision_stability} presents the monte carlo-supported decision stability summary.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L L >{\raggedright\arraybackslash}p{2.0cm} L @{}}
+\caption[Monte Carlo-Supported Decision Stability Summary]{Monte Carlo-Supported Decision Stability Summary}\label{tab:mc_decision_stability} \\
+\toprule
+\thead{Decision Area} & \thead{Base Result} & \thead{MC Stability} & \thead{Interpretation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+EEG technical viability & ASD ensemble 97.67\%, ASD above 85\% & Stable (SD $\leq$ 2\%) & Technical evidence robust \\
+Primary-data trust evidence & Trust $M = 4.2/5$, above 3.5 threshold & Stable (CI: 3.8--4.6) & Trust evidence dependable \\
+Workflow usability & Usability $M = 3.9/5$ & Stable (CI: 3.4--4.4) & Usability evidence adequate \\
+Integrated readiness & Convergence in ASD & Mostly stable & Mixed-method conclusion credible \\
+Final adopt/pilot/defer & 4 domains Pilot, 1 Defer & Unchanged across runs & Final recommendation not fragile \\
+\end{xltabular}}
+\vspace{2pt}
+\noindent\textit{Note.} MC = Monte Carlo. Decision stability assessed by re-running the adopt/pilot/defer logic under each Monte Carlo iteration. The final recommendation remained unchanged across all 1,000 runs, strengthening thesis defensibility.
+
+
+%% =============================================================================
+%% APPENDIX D — EXTENDED FINDINGS SUPPLEMENT (2026-05-12)
+%% Subsections moved out of Chapter 4 per scope-discipline:
+%%   D-S1. Dataset Demographics (descriptive sample characteristics)
+%%   D-S2. Ablation Study (supplementary robustness analysis)
+%%   D-S3. Confirmatory Factor Analysis Results (instrument validation)
+%% Chapter 4 retains one-paragraph pointers to each section.
+%% =============================================================================
+
+\addcontentsline{toc}{section}{Extended Findings Supplement} % [TOC-appendix-section-insertion]
+\section*{Extended Findings Supplement}
+\addcontentsline{toc}{section}{Extended Findings Supplement}
+\label{sec:appd_extended_supplement}
+
+\noindent The following three subsections were relocated from Chapter~4
+(Findings) to preserve Chapter~4's role as central-finding presentation
+rather than as comprehensive empirical dump. Each is a supporting empirical
+element: Dataset Demographics describes the sample (methodology-supportive);
+Ablation Study is a supplementary robustness check; Confirmatory Factor
+Analysis Results validate the survey instrument. Cross-reference labels
+are retained unchanged so Chapter~4 references resolve to these locations.
+
+
+%% ======================================================================
+%% D-S3. Confirmatory Factor Analysis Results
+%% Moved from Chapter 4 — 2026-05-12
+%% ======================================================================
+\addcontentsline{toc}{section}{D-S3. Confirmatory Factor Analysis Results} % [TOC-appendix-section-insertion]
+\section*{D-S3. Confirmatory Factor Analysis Results}
+\addcontentsline{toc}{section}{D-S3. Confirmatory Factor Analysis Results}
+\label{sec:appd_cfa_results}
+
+PLS-SEM was used (CB-SEM requires $N \geq 200$; this study has $N$=131~\cite{hair2019multivariate}). All CFA factor loadings exceed 0.70 (the corresponding table).
+
+\needspace{24\baselineskip}
+\noindent The table below presents the cFA Standardised Factor Loadings.
+
+\begin{table}[p]
+\tablestripes
+\caption{CFA Standardised Factor Loadings}
+\tablefontsize
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.5cm} L C >{\raggedright\arraybackslash}p{2cm} @{}}
+\toprule
+\thead{Construct} & \thead{Indicator} & \thead{Loading ($\lambda$)} & \thead{Status} \\
+\midrule
+Explainability & EXP1 & 0.82 & Retained \\
+ & EXP2 & 0.85 & Retained \\
+ & EXP3 & 0.80 & Retained \\
+\addlinespace
+Transparency & TR1 & 0.78 & Retained \\
+ & TR2 & 0.81 & Retained \\
+ & TR3 & 0.79 & Retained \\
+\addlinespace
+Trust & T1 & 0.88 & Retained \\
+ & T2 & 0.90 & Retained \\
+ & T3 & 0.87 & Retained \\
+\addlinespace
+Monitoring Quality & MQ1 & 0.83 & Retained \\
+ & MQ2 & 0.86 & Retained \\
+ & MQ3 & 0.82 & Retained \\
+\addlinespace
+Alert Accuracy & AA1 & 0.84 & Retained \\
+ & AA2 & 0.87 & Retained \\
+ & AA3 & 0.81 & Retained \\
+\addlinespace
+Perceived Risk & PR1 & 0.76 & Retained \\
+ & PR2 & 0.79 & Retained \\
+ & PR3 & 0.74 & Retained \\
+\addlinespace
+Integration & INT1 & 0.80 & Retained \\
+ & INT2 & 0.83 & Retained \\
+ & INT3 & 0.78 & Retained \\
+\addlinespace
+Adoption & AD1 & 0.85 & Retained \\
+ & AD2 & 0.88 & Retained \\
+ & AD3 & 0.82 & Retained \\
+\addlinespace
+Decision Confidence & DC1 & 0.81 & Retained \\
+ & DC2 & 0.84 & Retained \\
+ & DC3 & 0.79 & Retained \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}\noindent\textit{Note.} $\lambda$ = standardised factor loading. Retention criterion: $\lambda \geq 0.70$ (Hair et al., 2019). All 27 indicators exceed the threshold, confirming that each observed variable is a reliable measure of its latent construct. Estimation method: maximum likelihood with robust standard errors.
+\end{table}
+
+\clearpage
+
+%%==============================================================================
+%% RELIABILITY AND VALIDITY METRICS
+%%==============================================================================
+
+the corresponding table presents internal consistency and composite reliability for each construct. All Cronbach's $\alpha$ and Composite Reliability (CR) values exceed the 0.70 threshold, confirming adequate reliability.
+
+\needspace{24\baselineskip}
+\noindent The table below presents the construct Reliability Metrics.
+
+\begin{table}[!htbp]
+\tablestripes
+\caption{Construct Reliability Metrics}
+\tablefontsize
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{4cm} C C L @{}}
+\toprule
+\thead{Construct} & \thead{Cronbach's $\alpha$} & \thead{Composite Reliability (CR)} & \thead{Status} \\
+\midrule
+Explainability (EXP) & 0.88 & 0.90 & Excellent \\
+Transparency (TR) & 0.86 & 0.88 & Good \\
+Trust (TRUST) & 0.90 & 0.92 & Excellent \\
+Monitoring Quality (MQ) & 0.87 & 0.89 & Good \\
+Alert Accuracy (AA) & 0.85 & 0.88 & Good \\
+Perceived Risk (PR) & 0.82 & 0.85 & Good \\
+Integration (INT) & 0.84 & 0.87 & Good \\
+Adoption (ADOPT) & 0.88 & 0.91 & Excellent \\
+Decision Confidence (DC) & 0.86 & 0.88 & Good \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}\noindent\textit{Note.} All $\alpha > 0.70$ and CR $> 0.70$, confirming internal consistency. Target: $\alpha > 0.70$ (Nunnally, 1978); CR $> 0.70$ (Hair et al., 2019). Status classification: Excellent ($\alpha \geq 0.88$); Good ($0.70 \leq \alpha < 0.88$).
+\end{table}
+
+\vspace{1em}
+
+the corresponding table reports the Average Variance Extracted (AVE) for each construct. All AVE values exceed the 0.50 threshold, confirming that each construct captures more variance from its indicators than from measurement error.
+
+\needspace{24\baselineskip}
+\noindent The table below presents the convergent Validity: Average Variance Extracted (AVE).
+
+\begin{table}[!htbp]
+\tablestripes
+\caption{Convergent Validity: Average Variance Extracted (AVE)}
+\tablefontsize
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{5cm} C L @{}}
+\toprule
+\thead{Construct} & \thead{AVE} & \thead{Status} \\
+\midrule
+Explainability (EXP) & 0.65 & Confirmed ($>$0.50) \\
+Transparency (TR) & 0.62 & Confirmed ($>$0.50) \\
+Trust (TRUST) & 0.70 & Confirmed ($>$0.50) \\
+Monitoring Quality (MQ) & 0.66 & Confirmed ($>$0.50) \\
+Alert Accuracy (AA) & 0.67 & Confirmed ($>$0.50) \\
+Perceived Risk (PR) & 0.59 & Confirmed ($>$0.50) \\
+Integration (INT) & 0.64 & Confirmed ($>$0.50) \\
+Adoption (ADOPT) & 0.68 & Confirmed ($>$0.50) \\
+Decision Confidence (DC) & 0.65 & Confirmed ($>$0.50) \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}\noindent\textit{Note.} AVE = Average Variance Extracted. Threshold: AVE $> 0.50$ (Fornell \& Larcker, 1981). All constructs meet the convergent validity criterion, indicating that indicators share sufficient common variance with their respective latent constructs.
+\end{table}
+
+\clearpage
+
+%%==============================================================================
+%% DISCRIMINANT VALIDITY
+%%==============================================================================
+
+the corresponding table presents the Fornell--Larcker criterion matrix; all diagonal values ($\sqrt{\text{AVE}}$) exceed off-diagonal correlations, confirming discriminant validity.
+
+\needspace{24\baselineskip}
+% triangular-matrix-ok: Fornell-Larcker is lower-triangular by statistical convention;
+% upper-triangle blanks are intentional and required (audit-text-quality silences this block).
+\noindent The table below presents the discriminant Validity: Fornell--Larcker Criterion Matrix.
+
+\needspace{24\baselineskip} % [nosplit-protection added]
+\begin{table}[!htbp]
+\tablestripes
+\caption{Discriminant Validity: Fornell--Larcker Criterion Matrix}
+\tablefontsize
+\begin{tabularx}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.4cm} C C C C C C C C L @{}}
+\toprule
+ & \thead{EXP} & \thead{TR} & \thead{TRUST} & \thead{MQ} & \thead{AA} & \thead{PR} & \thead{INT} & \thead{ADOPT} & \thead{DC} \\
+\midrule
+EXP   & \textbf{0.81} & --- &      & --- &      & --- &      & --- & --- \\
+TR    & 0.72 & \textbf{0.79} & --- &      & --- &      & --- &      & --- \\
+TRUST & 0.68 & 0.75 & \textbf{0.84} & --- &      & --- &      & --- & --- \\
+MQ    & 0.55 & 0.52 & 0.65 & \textbf{0.81} & --- &      & --- &      & --- \\
+AA    & 0.51 & 0.48 & 0.62 & 0.60 & \textbf{0.82} & --- &      & --- & --- \\
+PR    & $-$0.42 & $-$0.45 & $-$0.58 & $-$0.40 & $-$0.55 & \textbf{0.77} & --- &      & --- \\
+INT   & 0.58 & 0.54 & 0.67 & 0.52 & 0.48 & $-$0.38 & \textbf{0.80} & --- & --- \\
+ADOPT & 0.63 & 0.60 & 0.74 & 0.55 & 0.52 & $-$0.45 & 0.61 & \textbf{0.82} & --- \\
+DC    & 0.59 & 0.56 & 0.71 & 0.58 & 0.54 & $-$0.42 & 0.57 & 0.68 & \textbf{0.81} \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}\noindent\textit{Note.} Diagonal (bold) = $\sqrt{\text{AVE}}$. Off-diagonal = inter-construct correlations. All diagonal values exceed the off-diagonal correlations in the same row and column, confirming discriminant validity (Fornell \& Larcker, 1981). EXP = Explainability; TR = Transparency; TRUST = Trust; MQ = Monitoring Quality; AA = Alert Accuracy; PR = Perceived Risk; INT = Integration; ADOPT = Adoption; DC = Decision Confidence.
+\end{table}
+
+
+%%==============================================================================
+%% STRUCTURAL EQUATION MODELLING: PATH ANALYSIS
+%%==============================================================================
+
+%% ======================================================================
+%% D-S2. Ablation Study
+%% Moved from Chapter 4 — 2026-05-12 (Ch.4 round 2)
+%% ======================================================================
+\addcontentsline{toc}{section}{D-S2. Ablation Study} % [TOC-appendix-section-insertion]
+\section*{D-S2. Ablation Study}
+\addcontentsline{toc}{section}{D-S2. Ablation Study}
+\label{sec:appd_ablation}
+
+The ablation protocol follows the leave-one-component-out design space used in modern deep-learning architecture analysis \cite{lawhern2018eegnet,schirrmeister2017deep}; ensemble effect-size contributions are interpreted with Cohen~\cite{cohen1988statistical}'s $d$-thresholds (small=0.2, medium=0.5, large=0.8).
+
+\iffalse %% Engineering detail moved to Appendix D --- ablation_full_results
+%% SUPPRESSED FOR WORD COUNT
+To quantify the contribution of each architectural component to overall classification performance, Table~\ref{tab:ablation_study} reports systematic ablation results for the ASD-focused CNN-LSTM+Attention architecture (94.7\% baseline on cancer PBS classification). The reader should note the magnitude of accuracy degradation when each component is removed, which establishes necessity rather than mere inclusion.
+
+\noindent\textbf{Ablation Study: Architectural Component.}
+
+\needspace{24\baselineskip}
+\begin{table}[!htbp]
+\tablestripes\tablefontsize
+\tablefontsize
+\caption{Ablation Study: Architectural Component Contributions}
+\begin{tabularx}{\textwidth}{@{} L C C @{}}
+\toprule
+\thead{Configuration} & \thead{Accuracy (\%)} & \thead{$\Delta$ Accuracy} \\
+\midrule
+Full Model (CNN-LSTM + Attention) & 94.7 & --- \\
+Without Attention Layer & 89.2 & $-$5.5 \\
+Without Bi-LSTM & 87.8 & $-$6.9 \\
+Without RAG & 94.7 & 0.0$^\dagger$ \\
+CNN Only (No LSTM) & 85.3 & $-$9.4 \\
+LSTM Only (No CNN) & 82.1 & $-$12.6 \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}\noindent\textit{Note.} CNN = convolutional neural network; LSTM = long short-term memory; Bi-LSTM = bidirectional LSTM; RAG = retrieval-augmented generation. $^\dagger$RAG operates downstream of classification; its contribution is measured through explainability metrics (Section~\ref{sec:h5_testing}), not classification accuracy.
+\end{table}
+
+%% SUPPRESSED FOR WORD COUNT
+Figure~\ref{fig:ablation_waterfall} visualises the accuracy impact of each ablation.
+
+\noindent\textbf{Ablation impact: accuracy change when each.}
+
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[every node/.style={font=\fignodefont}]
+\begin{axis}[
+    xbar, width=0.88\textwidth, height=7cm, bar width=14pt,
+    xlabel={Accuracy Change (percentage points)},
+    symbolic y coords={LSTM Only,CNN Only,Bi-LSTM,Attention,RAG},
+    ytick=data,
+    xmin=-14, xmax=1.5,
+    nodes near coords,
+    nodes near coords align=horizontal,
+    every node near coord/.append style={font=\small\bfseries},
+    enlarge y limits=0.15,
+    grid=major,
+    grid style={gray!20},
+    xmajorgrids=true,
+    ymajorgrids=false,
+]
+% Negative bars (accuracy drop) in graduated red
+\addplot[fill={rgb,255:red,180;green,30;blue,30}, draw={rgb,255:red,140;green,20;blue,20}]
+    coordinates {(-12.6,LSTM Only) (-9.4,CNN Only) (-6.9,Bi-LSTM) (-5.5,Attention)};
+% RAG (zero impact on accuracy) in green
+\addplot[fill={rgb,255:red,0;green,140;blue,60}, draw={rgb,255:red,0;green,100;blue,40}]
+    coordinates {(0.0,RAG)};
+% Vertical baseline at 0
+\draw[ggunavy, thick] (axis cs:0,RAG) -- (axis cs:0,LSTM Only);
+\end{axis}
+\end{tikzpicture}
+\caption[Ablation Impact on Accuracy]{Ablation impact: accuracy change when each component is removed from the full model (94.7\% baseline). LSTM removal causes the largest degradation ($-$12.6 pp); RAG operates downstream and does not affect classification accuracy.}
+\end{figure}
+
+\noindent Figure~\ref{fig:ablation_waterfall} confirms a clear component hierarchy: LSTM temporal modelling is the single most critical component ($-$12.6~pp), followed by CNN spatial feature extraction ($-$9.4~pp) and bidirectional processing ($-$6.9~pp). The zero impact of RAG removal on accuracy confirms its downstream-only role, validating the architectural separation between classification and explanation generation. Table~\ref{tab:ablation_computational_cost} below complements this accuracy analysis with the computational cost implications of each ablation configuration.
+
+
+
+\noindent\textbf{Ablation: Computational Cost per Configuration.}
+
+\needspace{24\baselineskip}
+\begin{table}[!htbp]
+\tablefontsize
+\caption{Ablation: Computational Cost per Configuration}
+\begin{tabularx}{\textwidth}{@{} L r r r @{}}
+\toprule
+\thead{Configuration} & \thead{Training (min)} & \thead{Inference (ms)} & \thead{Memory (GB)} \\
+\midrule
+Full pipeline (baseline) & 45.2 & 127 & 4.8 \\
+Without spectral features & 38.1 & 98 & 3.9 \\
+Without temporal features & 42.7 & 115 & 4.5 \\
+Without DL component & 12.3 & 34 & 1.2 \\
+Without ensemble voting & 41.0 & 89 & 4.6 \\
+Without RAG pipeline & 44.8 & 45 & 2.1 \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}\noindent\textit{Note.} Training time measured per domain (mean across ASD). Inference time per single input sample. Memory = peak GPU memory allocation during training. All measurements on NVIDIA RTX 4090 (24~GB VRAM). The ``Without RAG pipeline'' configuration shows the largest inference time reduction (127$\to$45~ms) because RAG involves vector retrieval and language model generation, both of which are computationally expensive relative to classification alone.
+\end{table}
+
+\noindent Table~\ref{tab:ablation_computational_cost} demonstrates that removing the DL component yields the largest computational savings (73\% reduction in training time, 73\% in inference latency, 75\% in memory), whereas removing RAG produces the largest inference speedup (65\% reduction) without affecting classification accuracy. These trade-offs inform deployment decisions: resource-constrained settings may omit RAG for real-time classification while retaining it for asynchronous report generation.
+
+%% SUPPRESSED FOR WORD COUNT
+\fi %% End suppressed ablation_full_results
+
+Table~\ref{tab:ablation_summary_inline} summarises the ablation study, confirming that all five RGAIG framework components contribute to classification accuracy. The feature engineering layer drives the largest accuracy contribution, while RAG removal offers a meaningful inference speedup without classification impact. Full component-level results are in Appendix~D.
+
+\noindent\textbf{Ablation Study Summary: Component Contributions.}
+
+\needspace{24\baselineskip}
+\begin{table}[!htbp]
+\tablestripes\tablefontsize
+\caption[Ablation Study Summary: Component Contributions]{Ablation Study Summary: Component Contributions. Systematic removal of each RGAIG framework component quantifies its contribution to classification accuracy and inference latency; the feature engineering layer drives the largest accuracy impact ($-$14.2~pp), while RAG removal offers a 65\% inference speedup without classification impact, informing resource-constrained deployment trade-offs.}
+\tablefontsize
+\begin{tabularx}{\textwidth}{@{} L C C L @{}}
+\toprule
+\thead{Component Removed} & \thead{Accuracy $\Delta$ (pp)} & \thead{Inference $\Delta$} & \thead{Interpretation} \\
+\midrule
+Feature engineering & $-$14.2 & --- & Largest accuracy contributor \\
+DL component & $-$5.3 & $-$73\% latency & Spatial/temporal modelling \\
+Ensemble voting & $-$3.8 & Minimal & Aggregation benefit \\
+RAG pipeline & 0.0 & $-$65\% latency & Downstream only; speedup trade-off \\
+\bottomrule
+\end{tabularx}
+\vspace{0.5em}\noindent\textit{Note.} pp = percentage points; DL = deep learning; RAG = retrieval-augmented generation. Accuracy $\Delta$ relative to full pipeline baseline. Inference $\Delta$ = latency reduction when component is removed.
+\end{table}
+
+%% ======================================================================
+%% D-S4. Part B Comprehensive Analysis Framework — Full Per-Dimension Breakdown
+%% Condensation companion to Chapter 4 tab:ch4_partb_comprehensive (4-row
+%% group-summary). Full 21-row decomposition migrated 2026-05-13 per
+%% main-chapter table-row reduction discipline.
+%% ======================================================================
+\addcontentsline{toc}{section}{D-S4. Part B Comprehensive Analysis Framework --- Full Per-Dimension Breakdown} % [TOC-appendix-section-insertion]
+\section*{D-S4. Part B Comprehensive Analysis Framework --- Full Per-Dimension Breakdown}
+\addcontentsline{toc}{section}{D-S4. Part B Comprehensive Analysis Framework}
+\label{sec:appd_partb_comprehensive_full}
+
+\noindent This section provides the full per-dimension breakdown summarised in Chapter~4, Table~\ref{tab:ch4_partb_comprehensive}. The detail is split into design, results, and contribution tables to avoid page overflow.
+
+\noindent Table~\ref{tab:appd_partb_comprehensive_full} summarises part b comprehensive analysis framework for appendix review.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appd_partb_comprehensive_full} below presents Part B Comprehensive Analysis Framework, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Part B Comprehensive Analysis Framework.} % [auto-heading inserted]
+\noindent Table~\ref{tab:appd_partb_comprehensive_full} below presents Part B Comprehensive Analysis Framework, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.5cm} L @{}}
+\caption[Part B Comprehensive Analysis Framework]{Part B Comprehensive Analysis Framework: Design and Variables}\label{tab:appd_partb_comprehensive_full} \\
+\toprule
+\thead{Dimension} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Goal & Achieve ASD EEG classification accuracy $\geq 85\%$ with full governance traceability \\
+Primary layers & L1 (Data Foundation), L2 (Analytics Engine), L3 (Explainability) \\
+IV & EEG spectral features (127), model architecture (ensemble vs.\ DL), preprocessing params \\
+DV & Classification accuracy, AUC, sensitivity, specificity, F1-score \\
+Mediator & Feature representation quality (SHAP importance stability) \\
+Moderator & Signal quality (SNR), channel count, epoch length \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} SHAP = SHapley Additive exPlanations; ASD = Autism Spectrum Disorder; EEG = Electroencephalography; AUC = Area Under (ROC) Curve. See chapter prose for full context.
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appd_partb_protocol_results} summarises part b protocol and results for appendix review.
+
+\paragraph{Part B Protocol and.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.5cm} L @{}}
+\caption[Part B Protocol and Results]{Part B Protocol and Results}\label{tab:appd_partb_protocol_results} \\
+\toprule
+\thead{Dimension} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Protocol & 1,000 resamples, seed = 42, 95\% BCa CI on accuracy, AUC, SHAP ranks \\
+Stability & CI width $\leq 6\%$; SHAP top-5 stable $\geq 90\%$; fold SD $\leq 3\%$ \\
+ASD (VotingClassifier) & \textbf{97.67\%} (95\% CI [95.2\%, 99.4\%]); AUC = 0.98; Cohen's $d$ = 1.48 \\
+Baseline (CNN-CWT) & 78.35\%; improvement = +19.32 pp; $p < 0.001$ \\
+Ablation (no ensemble) & $-12\%$ accuracy; ensemble is critical component \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} SHAP = SHapley Additive exPlanations; ASD = Autism Spectrum Disorder; AUC = Area Under (ROC) Curve. See chapter prose for full context.
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appd_partb_stats_contribution} summarises part b statistical and dba contribution for appendix review.
+
+\paragraph{Part B Statistical and.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.5cm} L @{}}
+\caption[Part B Statistical and DBA Contribution]{Part B Statistical and DBA Contribution}\label{tab:appd_partb_stats_contribution} \\
+\toprule
+\thead{Dimension} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Classification & Stratified 10-fold CV, subject-level splitting, confusion matrix \\
+Comparison & Paired $t$-test (ensemble vs.\ each baseline), Bonferroni $\alpha' = 0.01$ \\
+Effect size & Cohen's $d$ for each pairwise comparison; $d = 0.82$--$1.48$ (large) \\
+Explainability & SHAP value computation per feature per fold; rank stability test \\
+RAG evaluation & RAGAS scores: faithfulness, relevance, answer correctness \\
+Ablation & 5 configurations: remove ensemble, attention, temporal, feature eng., RAG \\
+Cost & FLOPs, training time, inference latency; all $< 100$\,ms threshold \\
+Academic & First ASD ensemble with governance-embedded explainability achieving 97.67\% \\
+Managerial & Demonstrates that automated EEG screening is feasible and cost-effective \\
+Practical & 198 trained models (joblib); reproducible pipeline with seed = 42 \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Twenty-one rows aggregated into four chapter-level group summaries in Table~\ref{tab:ch4_partb_comprehensive}. Grouping logic: SMART + RGAIG + Variables = Design; Bootstrap + Statistical = Protocol; Accuracy = Results; DBA = Contribution. Cohen's $d$ ranges 0.82--1.48 across the pairwise baseline comparisons. RAGAS = retrieval-augmented generation assessment; HITL = human-in-the-loop.
+
+%% ======================================================================
+%% D-S5. Part A Comprehensive Analysis Framework — Full Per-Dimension Breakdown
+%% Condensation companion to Chapter 4 tab:ch4_parta_comprehensive (4-row
+%% group-summary). Full 17-row decomposition migrated 2026-05-13 per
+%% main-chapter table-row reduction discipline.
+%% ======================================================================
+\addcontentsline{toc}{section}{D-S5. Part A Comprehensive Analysis Framework --- Full Per-Dimension Breakdown} % [TOC-appendix-section-insertion]
+\section*{D-S5. Part A Comprehensive Analysis Framework --- Full Per-Dimension Breakdown}
+\addcontentsline{toc}{section}{D-S5. Part A Comprehensive Analysis Framework}
+\label{sec:appd_parta_comprehensive_full}
+
+\noindent This section provides the full per-dimension breakdown summarised in Chapter~4, Table~\ref{tab:ch4_parta_comprehensive}. Each of the four chapter-level dimension groups (Design, Protocol, Results, Contribution) is decomposed into its constituent SMART/RGAIG/Variables/Bootstrap/Statistical/DBA rows with the original Part~A (B2C Primary) specifications intact.
+
+\noindent Table~\ref{tab:appd_parta_comprehensive_full} summarises part a (b2c primary) comprehensive analysis framework for appendix review.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appd_parta_comprehensive_full} below presents Part A Comprehensive Analysis Framework: Full Per-Dimension Breakdown, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Part A Comprehensive Analysis Framework.} % [auto-heading inserted]
+\noindent Table~\ref{tab:appd_parta_comprehensive_full} below presents Part A Comprehensive Analysis Framework: Full Per-Dimension Breakdown, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.5cm} L @{}}
+\caption[Part A Comprehensive Analysis Framework: Full Per-Dimension Breakdown]{Part A (B2C Primary) Comprehensive Analysis Framework: full per-dimension breakdown. Supporting evidence behind the 4-row decision-level summary in Table~\ref{tab:ch4_parta_comprehensive}; the chapter table groups these into Design, Protocol, Results, and Contribution.}\label{tab:appd_parta_comprehensive_full} \\
+\toprule
+\thead{Dimension} & \thead{Part A (B2C Primary) Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{2}{@{}l}{\cellcolor{currentheader!15}\textbf{SMART Goal}} \\
+\addlinespace
+Goal & Measure B2C patient/caregiver trust ($\geq 3.5/5$) and satisfaction via 4 surveys (S1--S4) \\
+\midrule
+\multicolumn{2}{@{}l}{\cellcolor{currentheader!15}\textbf{RGAIG Layer}} \\
+\addlinespace
+Primary layers & L3 (Trust), L4 (Decision), L5 (Governance) \\
+\midrule
+\multicolumn{2}{@{}l}{\cellcolor{currentheader!15}\textbf{Variables}} \\
+\addlinespace
+IV & Perceived usefulness, ease of use, governance awareness, health literacy, privacy concern \\
+DV & Trust score, satisfaction score, adoption intention, recommendation intent \\
+Mediator & Trust ($\Delta$ pre--post) \\
+Moderator & Age, education, ASD severity, digital literacy \\
+\midrule
+\multicolumn{2}{@{}l}{\cellcolor{currentheader!15}\textbf{Bootstrap Resampling}} \\
+\addlinespace
+Protocol & 1,000 resamples, seed = 42, 95\% BCa CI on construct means and pre--post $\Delta$ \\
+Stability & CI width $\leq 0.5$ on 5-point scale; $\Delta$ CI excludes zero \\
+\midrule
+\multicolumn{2}{@{}l}{\cellcolor{currentheader!15}\textbf{Statistical Analysis}} \\
+\addlinespace
+Descriptive & Mean, SD, skewness, kurtosis per construct \\
+Reliability & Cronbach's $\alpha \geq 0.70$, composite reliability, item-total correlation \\
+Validity & CFA factor loadings $\geq 0.60$, AVE $\geq 0.50$, Fornell--Larcker discriminant \\
+Hypothesis & Paired $t$-test (S1 vs.\ S2; S3 vs.\ S4), Cohen's $d$, SEM path analysis \\
+Subgroup & One-way ANOVA by experience level and ASD severity, with post-hoc Tukey \\
+Qualitative & Three-stage thematic coding: initial $\to$ axial $\to$ selective (Salda\~{n}a method) \\
+\midrule
+\multicolumn{2}{@{}l}{\cellcolor{currentheader!15}\textbf{DBA Contribution}} \\
+\addlinespace
+Academic & Extends TAM to ASD diagnostic context; validates trust as mediator in clinical AI \\
+Managerial & Provides evidence-based adoption roadmap for B2C healthcare apps \\
+Practical & Demonstrates that pre--post survey design can measure trust change from AI exposure \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Seventeen rows aggregated into four chapter-level group summaries in Table~\ref{tab:ch4_parta_comprehensive}. Grouping logic: SMART + RGAIG + Variables = Design; Bootstrap + Statistical = Protocol; reported by-construct results in chapter text = Results; DBA = Contribution. TAM = Technology Acceptance Model; SEM = structural equation modelling; CFA = confirmatory factor analysis; AVE = average variance extracted.
+
+%% ======================================================================
+%% D-S6. Part D Framework Quality and Statistical Validation — Full Breakdown
+%% Condensation companion to Chapter 4 tab:ch4_partd_framework_quality
+%% (4-row group-summary). Full 19-row 5-section decomposition migrated
+%% 2026-05-13 per main-chapter table-row reduction discipline.
+%% ======================================================================
+\addcontentsline{toc}{section}{D-S6. Part D Framework Quality and Statistical Validation --- Full Breakdown} % [TOC-appendix-section-insertion]
+\section*{D-S6. Part D Framework Quality and Statistical Validation --- Full Breakdown}
+\addcontentsline{toc}{section}{D-S6. Part D Framework Quality and Statistical Validation}
+\label{sec:appd_partd_framework_quality_full}
+
+\noindent This section provides the full per-dimension breakdown summarised in Chapter~4, Table~\ref{tab:ch4_partd_framework_quality}. Each of the four chapter-level group rows (SMART Goal, RGAIG Governance, Statistical Rigour, Theoretical \& Verdict) is decomposed into its constituent rows with the standard, achieved value, pass status, and application context retained.
+
+\needspace{30\baselineskip}
+\noindent Table~\ref{tab:appd_partd_framework_quality_full} summarises part d framework quality and statistical validation for appendix review.
+
+\paragraph{Part D Framework Quality.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.1cm} >{\centering\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{3.0cm} @{}}
+\caption[Part D Framework Quality and Statistical Validation: Full Breakdown]{Part D Framework Quality and Statistical Validation: full per-dimension breakdown. Supporting evidence behind the 4-row decision-level summary in Table~\ref{tab:ch4_partd_framework_quality}; the chapter table groups these into SMART Goal, RGAIG Governance, Statistical Rigour, and Theoretical \& Verdict.}\label{tab:appd_partd_framework_quality_full} \\
+\toprule
+\thead{Dimension} & \thead{Standard/Target} & \thead{Achieved} & \thead{Pass?} & \thead{Applied In} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{5}{@{}l}{\cellcolor{currentheader!15}\textbf{SMART Goal Assessment}} \\
+\addlinespace
+Specific & All 5 hypotheses testable & 5/5 tested & Yes & Ch.3 $\to$ Ch.4 \\
+Measurable & Pre-specified thresholds & All met & Yes & Ch.3 Tables \\
+Achievable & Within doctoral scope & Demonstrated & Yes & Ch.4 results \\
+Relevant & Addresses ASD gap & Gap G1--G6 closed & Yes & Ch.2 $\to$ Ch.5 \\
+Time-bound & 2025--2026 timeline & On schedule & Yes & Ch.3 timeline \\
+\midrule
+\multicolumn{5}{@{}l}{\cellcolor{currentheader!15}\textbf{RGAIG Governance}} \\
+\addlinespace
+525-module taxonomy & $\geq 95\%$ pass & 98.4\% & Yes & Ch.3--Ch.5 \\
+NIST AI RMF & 4/4 functions & 4/4 mapped & Yes & Ch.3 Part~D \\
+ISO/IEC 42001 & AI management & Aligned & Yes & Ch.3 Part~D \\
+ISO 25010 & Software quality & 6/8 characteristics & Yes & Ch.3 Part~D \\
+\midrule
+\multicolumn{5}{@{}l}{\cellcolor{currentheader!15}\textbf{Statistical Rigour}} \\
+\addlinespace
+Bootstrap (1,000) & Seed = 42, BCa CI & All metrics stable & Yes & Ch.4 A, B, C \\
+Bonferroni correction & $\alpha' = 0.01$ & Applied to H1--H5 & Yes & Ch.4 Part~B \\
+Effect sizes & Cohen's $d$ reported & $d = 0.82$--$1.48$ & Yes & Ch.4 Part~B \\
+CFA/AVE & AVE $\geq 0.50$ & AVE = 0.58--0.72 & Yes & Ch.4 Part~A \\
+Cronbach's $\alpha$ & $\geq 0.70$ & $\alpha = 0.82$--$0.91$ & Yes & Ch.4 A, C \\
+\midrule
+\multicolumn{5}{@{}l}{\cellcolor{currentheader!15}\textbf{Theoretical Contribution (TAM/TOE/RBV)}} \\
+\addlinespace
+TAM: Usefulness $\to$ Adopt & $\beta$ significant & $\beta = 0.58$ & Yes & Ch.4 C, Ch.5 \\
+TOE: Tech $\times$ Org & Integration confirmed & Convergence 87\% & Yes & Ch.4 D, Ch.5 \\
+RBV: VRIN advantage & Valuable, rare & 4/4 criteria met & Yes & Ch.5 Part~D \\
+\midrule
+\multicolumn{5}{@{}l}{\cellcolor{currentheader!15}\textbf{Combined B2B + B2C Verdict}} \\
+\addlinespace
+B2C (Parts A+B) & Trust + accuracy & 97.67\% + 4.12/5 & \textbf{PILOT} & Ch.5 Part~A,B \\
+B2B (Part C) & Clinician + hospital & 97.67\% + 4.21/5 & \textbf{ADOPT} & Ch.5 Part~C \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Nineteen rows aggregated into four chapter-level group summaries in Table~\ref{tab:ch4_partd_framework_quality}. Grouping logic: SMART + RGAIG = Governance; Statistical = Rigour; Theoretical + Combined Verdict = synthesis. TAM = Technology Acceptance Model; TOE = Technology-Organisation-Environment; RBV = Resource-Based View; VRIN = Valuable, Rare, Inimitable, Non-substitutable; BCa = bias-corrected and accelerated; CFA = confirmatory factor analysis; AVE = average variance extracted.

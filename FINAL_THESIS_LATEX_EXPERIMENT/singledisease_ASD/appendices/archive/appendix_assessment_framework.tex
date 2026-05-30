@@ -1,0 +1,993 @@
+% Appendix K: Comprehensive Assessment Framework — All Chapters
+% Consolidates the 8-table assessment framework from each chapter
+\normalsize\normalfont\color{black}
+
+\section*{Purpose}
+
+This appendix consolidates the Comprehensive Assessment Framework tables from all five chapters into a single reference. Each chapter's assessment covers eight dimensions: reliability and validity, benchmark comparability, novelty contributions, technology acceptance (TAM), trust and algorithm aversion mitigation, qualitative--quantitative analysis balance, governance and accountability, and contributions summary (what was done, impact, and value created). The framework ensures consistent evaluation criteria across the dissertation while capturing chapter-specific evidence.
+
+%===============================================================================
+\section{Chapter~1: Introduction}
+\label{sec:appK_ch1}
+
+Table~\ref{tab:ch1_reliability_validity} presents the reliability and validity matrix for Chapter~1, mapping six validity criteria to the specific methods and evidence that underpin the introductory framework design.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Reliability and Validity Matrix: Chapter~1}\label{tab:ch1_reliability_validity} \\
+\toprule
+\thead{Criterion} & \thead{Method} & \thead{Chapter~1 Evidence} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch1_reliability_validity} continued from previous page\,)}} \\
+\toprule
+\thead{Criterion} & \thead{Method} & \thead{Chapter~1 Evidence} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Internal Validity & Controlled experimental design & 10-fold CV eliminates data leakage \\
+External Validity & ASD-focused generalization & ASD, 6 datasets, 4 data modalities \\
+Construct Validity & Operationalized variables & H1--H5 with explicit accuracy thresholds ($\geq$85\%) \\
+Reliability & Reproducibility & Public datasets, documented pipeline, bootstrap CI \\
+Statistical Conclusion & Power analysis, effect sizes & $n$=26, Cohen's $d$=0.80, $\alpha$=0.05 \\
+Content Validity & Expert panel review & $n$=12 domain experts, Krippendorff's $\alpha$ \\
+\end{xltabular}}
+
+Table~\ref{tab:ch1_benchmarks} compares DC-AIBF accuracy targets against published literature ranges across all five diagnostic domains, highlighting the key differentiator in each case.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L L @{}}
+\caption{Comparability: DC-AIBF vs.\ Prior Work}\label{tab:ch1_benchmarks} \\
+\toprule
+\thead{Domain} & \thead{Literature Range} & \thead{DC-AIBF Target} & \thead{Key Differentiator} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:ch1_benchmarks} continued from previous page\,)}} \\
+\toprule
+\thead{Domain} & \thead{Literature Range} & \thead{DC-AIBF Target} & \thead{Key Differentiator} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+ASD & 70--85\% (single-domain) & $\geq$85\% (unified) & Unified framework + explainability \\
+PD & 75--92\% (single-domain) & $\geq$85\% (unified) & ASD-focused consistency \\
+Stress & 72--88\% (single-domain) & $\geq$85\% (unified) & Wearable integration \\
+Cancer & 80--96\% (single-domain) & $\geq$85\% (unified) & Governance layer added \\
+BCI & 65--82\% (single-domain) & $\geq$85\% (unified) & Most challenging domain \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Prior work is single-domain with no governance or explainability. DC-AIBF provides unified, governed, explainable diagnostics.
+
+Table~\ref{tab:ch1_novelty} enumerates the eight novelty contributions (C1--C8) and explains why each claim is absent from the existing literature.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Novelty Contributions: This Thesis vs.\ Prior Work}\label{tab:ch1_novelty} \\
+\toprule
+\thead{C\#} & \thead{Novelty Contribution} & \thead{Why Novel} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch1_novelty} continued from previous page\,)}} \\
+\toprule
+\thead{C\#} & \thead{Novelty Contribution} & \thead{Why Novel} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+C1 & DC-AIBF 5-layer unified framework & No ASD-focused AI diagnostic framework exists \\
+C2 & ASD ensemble ASD-focused accuracy metric & No unified accuracy metric across domains \\
+C3 & RTAI 7-layer governance framework & No integrated AI governance for diagnostics \\
+C4 & Multi-modal data pipeline & 92\% of studies are single-modality \\
+C5 & SHAP explainability integration & Only 20\% of studies use explainability \\
+C6 & Bootstrap + sensitivity validation & Inconsistent validation in literature \\
+C7 & Expert panel with Krippendorff's $\alpha$ & Rare in AI diagnostic studies \\
+C8 & KPI escalation + ROI framework & No business decision framework for AI diagnostics \\
+\end{xltabular}}
+
+Table~\ref{tab:ch1_tam} maps six TAM constructs to the corresponding DC-AIBF design features and their expected adoption outcomes.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Technology Acceptance Model (TAM) Alignment}\label{tab:ch1_tam} \\
+\toprule
+\thead{TAM Construct} & \thead{DC-AIBF Design} & \thead{Expected Outcome} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch1_tam} continued from previous page\,)}} \\
+\toprule
+\thead{TAM Construct} & \thead{DC-AIBF Design} & \thead{Expected Outcome} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Perceived Usefulness & 97.67\% ASD ensemble, faster diagnosis, cost reduction & Clinicians see value in unified framework \\
+Perceived Ease of Use & SHAP explanations, confidence scores & Low cognitive burden for clinicians \\
+Behavioral Intention & Phased deployment, training program & Gradual adoption with support \\
+Actual Use & KPI monitoring, continuous improvement & Sustained usage tracked via metrics \\
+External Variables & Regulatory compliance, organizational support & FDA/EU alignment reduces barriers \\
+Subjective Norm & Expert panel endorsement ($\alpha$=0.84) & Peer influence drives adoption \\
+\end{xltabular}}
+
+Table~\ref{tab:ch1_trust_aversion} documents six clinician trust challenges, their root causes, and the specific DC-AIBF mitigation strategies designed to address each one.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Trust and Algorithm Aversion Mitigation}\label{tab:ch1_trust_aversion} \\
+\toprule
+\thead{Challenge} & \thead{Root Cause} & \thead{DC-AIBF Mitigation} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch1_trust_aversion} continued from previous page\,)}} \\
+\toprule
+\thead{Challenge} & \thead{Root Cause} & \thead{DC-AIBF Mitigation} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Algorithm Aversion & Clinicians distrust black-box AI & SHAP: transparent feature attribution per prediction \\
+Automation Bias & Over-reliance on AI output & AI as decision support, not replacement \\
+Opacity & Cannot explain why AI decided & Confidence scores + top-10 feature importance \\
+Accountability Gap & No clear responsibility chain & 4-level escalation: AI$\to$Team$\to$Management$\to$Board \\
+Fairness Concern & Bias against demographics & Subgroup analysis, disparity metrics, bias monitoring \\
+Calibration Trust & When to trust vs.\ override AI & Uncertainty quantification via bootstrap CI \\
+\end{xltabular}}
+
+Table~\ref{tab:ch1_qual_quant} summarises the qualitative and quantitative dimensions of Chapter~1, contrasting the interpretive gap analysis with the statistical framing of hypotheses.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Qualitative and Quantitative Analysis: Chapter~1}\label{tab:ch1_qual_quant} \\
+\toprule
+\thead{Aspect} & \thead{Qualitative} & \thead{Quantitative} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch1_qual_quant} continued from previous page\,)}} \\
+\toprule
+\thead{Aspect} & \thead{Qualitative} & \thead{Quantitative} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Approach & Systematic literature gap analysis & Market size projections, burden-of-disease statistics \\
+Data & 156 PRISMA-screened papers, expert opinions & WHO/CDC prevalence data, market reports \\
+Method & Thematic coding, gap identification & Statistical framing of hypotheses H1--H5 \\
+Output & 4 problem statements, 6 research gaps & \$217B market, 5 falsifiable thresholds ($\geq$85\%) \\
+Contribution & DC-AIBF framework conceptualization & Quantified research scope and targets \\
+\end{xltabular}}
+
+Table~\ref{tab:ch1_governance} reports the governance, accountability, and adoption design established in Chapter~1, identifying the responsible decision maker for each dimension.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Governance, Accountability, and Adoption Framework}\label{tab:ch1_governance} \\
+\toprule
+\thead{Dimension} & \thead{Chapter~1 Design} & \thead{Decision Maker} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch1_governance} continued from previous page\,)}} \\
+\toprule
+\thead{Dimension} & \thead{Chapter~1 Design} & \thead{Decision Maker} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Governance & RTAI 7-layer framework, FDA SaMD alignment & Chief Medical Officer, Compliance Team \\
+Accountability & 4-level escalation ladder & L1: AI system, L2: Team, L3: Management, L4: Board \\
+Adoptability & TAM/DOI theoretical grounding & Clinicians, IT department, Administration \\
+Trustworthiness & Expert validation, bootstrap CI, SHAP & Expert panel ($n$=12), statistical rigor \\
+Impact & Unified framework replaces 5 siloed tools & 40--60\% cost reduction, faster diagnosis \\
+Value Creation & RBV: rare, valuable, inimitable capability & Competitive advantage via DC-AIBF \\
+\end{xltabular}}
+
+Table~\ref{tab:ch1_what_impact_value} catalogues the six principal contributions of Chapter~1, linking each activity to its research impact and the value it creates.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L @{}}
+\caption{Chapter~1 Contributions: What Was Done, Impact, and Value}\label{tab:ch1_what_impact_value} \\
+\toprule
+\thead{What Was Done} & \thead{Impact} & \thead{Value Created} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch1_what_impact_value} continued from previous page\,)}} \\
+\toprule
+\thead{What Was Done} & \thead{Impact} & \thead{Value Created} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Identified 4 problems (P1--P4) & Defined the research scope & Clear problem framing for DC-AIBF \\
+Formulated 5 hypotheses (H1--H5) & Falsifiable, testable claims & Scientific rigor \\
+Defined 6 research questions (RQ1--RQ6) & Operationalized the investigation & Structured research plan \\
+Mapped 6 research gaps (G1--G6) & Positioned DC-AIBF in design space & Novel contribution justified \\
+Designed 5-layer DC-AIBF architecture & Unified framework concept & Replaces fragmented approaches \\
+Identified 8 contributions (C1--C8) & Explicit novelty claims & Academic and practical value \\
+\end{xltabular}}
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+
+%===============================================================================
+\section{Chapter~2: Literature Review}
+\label{sec:appK_ch2}
+
+Table~\ref{tab:ch2_reliability_validity} presents the reliability and validity matrix for the literature review, detailing how systematic screening protocols and quality-assessment frameworks ensure rigour.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Reliability and Validity Matrix: Chapter~2}\label{tab:ch2_reliability_validity} \\
+\toprule
+\thead{Criterion} & \thead{Method} & \thead{Chapter~2 Evidence} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch2_reliability_validity} continued from previous page\,)}} \\
+\toprule
+\thead{Criterion} & \thead{Method} & \thead{Chapter~2 Evidence} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Internal Validity & Systematic screening protocol & PRISMA with explicit inclusion/exclusion criteria \\
+External Validity & Broad literature coverage & 2,847 initial papers across 4 databases \\
+Construct Validity & Quality assessment frameworks & Newcastle-Ottawa, QUADAS-2, GRADE applied \\
+Reliability & Reproducible search protocol & Documented keywords, databases, date ranges \\
+Content Validity & Comprehensive thematic coverage & 6 theoretical lenses, 4 gap categories \\
+Inter-rater Reliability & Quality scoring consistency & Dual-review protocol for paper screening \\
+\end{xltabular}}
+
+Table~\ref{tab:ch2_benchmarks} reports the best published accuracy and typical accuracy range for each diagnostic domain, together with the key limitation identified in the literature.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L L @{}}
+\caption{Literature Benchmarks: Domain-Level Accuracy Ranges}\label{tab:ch2_benchmarks} \\
+\toprule
+\thead{Domain} & \thead{Best Published} & \thead{Typical Range} & \thead{Key Limitation} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:ch2_benchmarks} continued from previous page\,)}} \\
+\toprule
+\thead{Domain} & \thead{Best Published} & \thead{Typical Range} & \thead{Key Limitation} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+ASD (EEG) & 85\% & 70--85\% & Single-site, small samples \\
+& 92\% & 75--92\% & No ASD-focused validation \\
+Stress (Wearable) & 88\% & 72--88\% & Lab-only settings \\
+Cancer (Imaging) & 96\% & 80--96\% & Single-modality only \\
+BCI (EEG) & 82\% & 65--82\% & Subject-dependent variation \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} No study achieves $\geq$85\% for ASD with unified framework, governance, and explainability.
+
+Table~\ref{tab:ch2_novelty} contrasts the 156 reviewed papers with the DC-AIBF approach across six dimensions of novelty, demonstrating where this thesis extends the state of the art.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Novelty: This Thesis vs.\ Prior Work (156 Papers)}\label{tab:ch2_novelty} \\
+\toprule
+\thead{Aspect} & \thead{Prior Work (156 Papers)} & \thead{This Thesis (DC-AIBF)} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch2_novelty} continued from previous page\,)}} \\
+\toprule
+\thead{Aspect} & \thead{Prior Work (156 Papers)} & \thead{This Thesis (DC-AIBF)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Scope & Single-domain (92\%) & ASD unified \\
+Explainability & <20\% use SHAP/LIME & SHAP for all models \\
+Governance & 3/156 address FDA & RTAI 7-layer + KPI escalation \\
+Validation & Inconsistent CV, no CI & 10-fold CV + bootstrap 1,000 \\
+Business case & No ROI analysis & 3-scenario ROI (\$2.1--3.4M) \\
+Expert validation & Rare in AI studies & Panel ($n$=12), $\alpha$=0.84 \\
+\end{xltabular}}
+
+Table~\ref{tab:ch2_tam} maps TAM constructs to the supporting literature evidence and shows how DC-AIBF aligns with each adoption factor.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Technology Acceptance Model (TAM): Literature Evidence}\label{tab:ch2_tam} \\
+\toprule
+\thead{TAM Construct} & \thead{Literature Evidence} & \thead{DC-AIBF Alignment} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch2_tam} continued from previous page\,)}} \\
+\toprule
+\thead{TAM Construct} & \thead{Literature Evidence} & \thead{DC-AIBF Alignment} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Perceived Usefulness & Clinicians value accurate AI & 97.67\% ASD ensemble exceeds manual diagnosis \\
+Perceived Ease of Use & Complexity reduces adoption & SHAP explanations simplify output \\
+Behavioral Intention & Trust drives adoption & Expert-validated, transparent framework \\
+Actual Use & Sustained adoption requires support & KPI monitoring, phased deployment \\
+External Variables & Regulation, org culture, training & FDA alignment, training program designed \\
+\end{xltabular}}
+
+Table~\ref{tab:ch2_trust_aversion} summarises the literature findings on clinician trust challenges and pairs each with the corresponding DC-AIBF design response.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Trust and Algorithm Aversion: Literature Evidence and DC-AIBF Response}\label{tab:ch2_trust_aversion} \\
+\toprule
+\thead{Challenge} & \thead{Literature Finding} & \thead{DC-AIBF Response} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch2_trust_aversion} continued from previous page\,)}} \\
+\toprule
+\thead{Challenge} & \thead{Literature Finding} & \thead{DC-AIBF Response} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Algorithm Aversion & Humans reject algorithms after seeing errors & SHAP makes errors interpretable; confidence scoring \\
+Automation Bias & Over-reliance on automation & AI as support only; clinician retains authority \\
+Black-box Problem & Opacity reduces clinical trust & Explainability built into every DC-AIBF layer \\
+Accountability & No clear responsibility chain & 4-level escalation ladder defined \\
+Fairness & Racial bias in health AI documented & Subgroup analysis, disparity monitoring \\
+\end{xltabular}}
+
+Table~\ref{tab:ch2_qual_quant} delineates the qualitative and quantitative strands of the literature review, showing how thematic analysis complements benchmark synthesis.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Qualitative and Quantitative Analysis: Chapter~2}\label{tab:ch2_qual_quant} \\
+\toprule
+\thead{Aspect} & \thead{Qualitative} & \thead{Quantitative} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch2_qual_quant} continued from previous page\,)}} \\
+\toprule
+\thead{Aspect} & \thead{Qualitative} & \thead{Quantitative} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Approach & Thematic analysis, gap coding & Accuracy benchmark synthesis, citation counts \\
+Data & 156 papers, 6 quality frameworks & Reported accuracies: 70--96\% across domains \\
+Method & PRISMA screening, Newcastle-Ottawa & Statistical comparison of published results \\
+Output & 4 gap categories, theoretical lenses & Benchmark tables, evidence quality scores \\
+Contribution & DC-AIBF gap justification & Quantified evidence for unified framework need \\
+\end{xltabular}}
+
+Table~\ref{tab:ch2_governance} documents the governance, accountability, and adoption evidence drawn from the literature, identifying the gap or opportunity that DC-AIBF addresses in each dimension.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Governance, Accountability, and Adoption: Literature Evidence}\label{tab:ch2_governance} \\
+\toprule
+\thead{Dimension} & \thead{Chapter~2 Literature Evidence} & \thead{Gap / Opportunity} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch2_governance} continued from previous page\,)}} \\
+\toprule
+\thead{Dimension} & \thead{Chapter~2 Literature Evidence} & \thead{Gap / Opportunity} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Governance & FDA SaMD, EU AI Act reviewed & Only 3/156 papers address compliance \\
+Accountability & Trustworthy AI principles surveyed & No accountability framework for ASD-focused \\
+Adoptability & TAM, DOI theories reviewed & Clinician adoption barriers identified \\
+Trustworthiness & RTAI concepts synthesized & No 7-layer validation framework exists \\
+Impact & Market \$217B$\to$\$612B & High-impact opportunity confirmed \\
+Value & RBV analysis of AI capabilities & Unified framework = rare, inimitable resource \\
+\end{xltabular}}
+
+Table~\ref{tab:ch2_what_impact_value} catalogues the six principal contributions of the literature review, tracing each activity to its research impact and value.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L @{}}
+\caption{Chapter~2 Contributions: What Was Done, Impact, and Value}\label{tab:ch2_what_impact_value} \\
+\toprule
+\thead{What Was Done} & \thead{Impact} & \thead{Value Created} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch2_what_impact_value} continued from previous page\,)}} \\
+\toprule
+\thead{What Was Done} & \thead{Impact} & \thead{Value Created} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+PRISMA review (2,847$\to$156 papers) & Rigorous evidence base & Transparent, reproducible synthesis \\
+Identified 4 gap categories & Positioned DC-AIBF in literature & Novel contribution justified \\
+Synthesized accuracy benchmarks & Realistic targets established & Evidence-based thresholds \\
+Reviewed regulatory landscape & Compliance requirements mapped & Governance layer justified \\
+Applied 6 theoretical lenses & Multi-perspective analysis & Theoretical depth \\
+Formulated null hypothesis H0 & Falsifiable baseline established & Scientific rigor \\
+\end{xltabular}}
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+
+%===============================================================================
+\section{Chapter~3: Research Methods}
+\label{sec:appK_ch3}
+
+Table~\ref{tab:ch3_reliability_validity} presents the reliability and validity matrix for the research methods chapter, linking each criterion to the specific experimental design decision that satisfies it.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Reliability and Validity Matrix: Chapter~3}\label{tab:ch3_reliability_validity} \\
+\toprule
+\thead{Criterion} & \thead{Method} & \thead{Chapter~3 Design} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch3_reliability_validity} continued from previous page\,)}} \\
+\toprule
+\thead{Criterion} & \thead{Method} & \thead{Chapter~3 Design} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Internal Validity & Stratified 10-fold CV & No data leakage, consistent train/test splits \\
+External Validity & ASD-focused, multi-modality & ASD, 4 data types, 6 datasets \\
+Construct Validity & Operationalized hypotheses & H1--H5 with $\geq$85\% accuracy threshold \\
+Reliability & Bootstrap 1,000 resamples & 95\% CI for all accuracy estimates \\
+Statistical Conclusion & Power analysis, Bonferroni & $n$=26, $\alpha'$=0.002, power=0.80 \\
+Content Validity & Expert panel protocol & $n$=12, Krippendorff's $\alpha$ designed \\
+\end{xltabular}}
+
+Table~\ref{tab:ch3_benchmarks} compares the DC-AIBF methodological choices with the typical approaches found in prior work across six method aspects.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Comparability: DC-AIBF Methodology vs.\ Prior Work}\label{tab:ch3_benchmarks} \\
+\toprule
+\thead{Method Aspect} & \thead{Typical Prior Work} & \thead{DC-AIBF (This Thesis)} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch3_benchmarks} continued from previous page\,)}} \\
+\toprule
+\thead{Method Aspect} & \thead{Typical Prior Work} & \thead{DC-AIBF (This Thesis)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Validation & 5-fold or hold-out & 10-fold CV + bootstrap 1,000 \\
+Uncertainty & Point estimates only & 95\% CI for all metrics \\
+Multiple Testing & No correction & Bonferroni ($\alpha'$=0.002) \\
+Power Analysis & Rarely reported & G*Power: $d$=0.80, $n$=26 \\
+Explainability & Optional/absent & SHAP mandatory for all models \\
+Governance & Not addressed & RTAI 7-layer framework \\
+\end{xltabular}}
+
+Table~\ref{tab:ch3_novelty} enumerates six methodological novelty contributions and justifies why each is absent from the existing literature.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Novelty: Methodological Contributions}\label{tab:ch3_novelty} \\
+\toprule
+\thead{C\#} & \thead{Methodological Novelty} & \thead{Why Novel} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch3_novelty} continued from previous page\,)}} \\
+\toprule
+\thead{C\#} & \thead{Methodological Novelty} & \thead{Why Novel} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+C1 & Unified ASD-focused methodology & No prior ASD-focused AI diagnostic methodology \\
+C2 & Mixed-methods DSR paradigm & Rare in AI biomedical research \\
+C3 & Bootstrap + sensitivity + ablation & Comprehensive validation rarely combined \\
+C4 & RTAI 7-layer validation design & Novel governance validation framework \\
+C5 & Expert panel with Krippendorff's $\alpha$ & Quantitative inter-rater in AI diagnostics \\
+C6 & Domain-agnostic pipeline design & Same pipeline handles 5 diverse modalities \\
+\end{xltabular}}
+
+Table~\ref{tab:ch3_tam} maps TAM constructs to the methodology design choices that enable clinician adoption of the DC-AIBF framework.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Technology Acceptance Model (TAM): Methodology Design}\label{tab:ch3_tam} \\
+\toprule
+\thead{TAM Construct} & \thead{Methodology Design} & \thead{Adoption Enabler} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch3_tam} continued from previous page\,)}} \\
+\toprule
+\thead{TAM Construct} & \thead{Methodology Design} & \thead{Adoption Enabler} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Perceived Usefulness & Targets $\geq$85\% accuracy per domain & Clinically meaningful thresholds \\
+Perceived Ease of Use & SHAP integration, confidence scoring & Interpretable outputs for clinicians \\
+Behavioral Intention & Expert panel feedback loop & Clinician input shapes final framework \\
+Actual Use & KPI monitoring built into design & Continuous validation post-deployment \\
+External Variables & FDA/EU compliance built in & Regulatory approval pathway designed \\
+\end{xltabular}}
+
+Table~\ref{tab:ch3_trust_aversion} identifies six trust-related methodological risks and the corresponding mitigation built into the DC-AIBF experimental design.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Trust and Algorithm Aversion: Methodological Mitigation}\label{tab:ch3_trust_aversion} \\
+\toprule
+\thead{Challenge} & \thead{Methodological Risk} & \thead{DC-AIBF Mitigation} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch3_trust_aversion} continued from previous page\,)}} \\
+\toprule
+\thead{Challenge} & \thead{Methodological Risk} & \thead{DC-AIBF Mitigation} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Algorithm Aversion & Clinicians may reject AI predictions & SHAP makes each prediction explainable \\
+Automation Bias & Over-reliance on model output & AI as support; clinician final authority \\
+Opacity & Black-box models reduce trust & Confidence scores + feature importance \\
+Accountability & No clear escalation for errors & 4-level escalation ladder in methodology \\
+Fairness & Training data may embed bias & Subgroup analysis protocol designed \\
+Calibration & When to trust vs.\ override & Uncertainty via bootstrap CI per prediction \\
+\end{xltabular}}
+
+Table~\ref{tab:ch3_qual_quant} summarises the mixed-methods balance in the research design, contrasting expert panel validation with statistical testing protocols.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Qualitative and Quantitative Analysis: Chapter~3}\label{tab:ch3_qual_quant} \\
+\toprule
+\thead{Aspect} & \thead{Qualitative} & \thead{Quantitative} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch3_qual_quant} continued from previous page\,)}} \\
+\toprule
+\thead{Aspect} & \thead{Qualitative} & \thead{Quantitative} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Approach & Expert panel validation, thematic analysis & 10-fold CV, bootstrap, paired t-test \\
+Data & Expert opinions ($n$=12), survey responses & 6 datasets, 142--754 features per domain \\
+Method & Krippendorff's $\alpha$, thematic coding & Power analysis ($d$=0.80, $n$=26), Bonferroni \\
+Output & Framework validation, clinical acceptance & Statistical testing plan, validation protocol \\
+Contribution & Mixed-methods rigor & Reproducible experimental design \\
+\end{xltabular}}
+
+Table~\ref{tab:ch3_governance} reports the governance, accountability, and adoption provisions embedded in the methodology, together with the designated decision maker for each dimension.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Governance, Accountability, and Adoption: Methodology Design}\label{tab:ch3_governance} \\
+\toprule
+\thead{Dimension} & \thead{Chapter~3 Design} & \thead{Decision Maker} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch3_governance} continued from previous page\,)}} \\
+\toprule
+\thead{Dimension} & \thead{Chapter~3 Design} & \thead{Decision Maker} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Governance & RTAI 7-layer framework + KPI thresholds & Governance committee, compliance officer \\
+Accountability & Expert panel validation protocol & Panel lead, Krippendorff's $\alpha$ threshold \\
+Adoptability & Pipeline designed for modularity & IT team (deployment), clinicians (usability) \\
+Trustworthiness & Bootstrap CI, 10-fold CV, effect sizes & Statistician, research supervisor \\
+Impact & Reproducible methodology for ASD & Scalable to new disease domains \\
+Value & Mixed-methods combines rigor + relevance & Academic and clinical stakeholders \\
+\end{xltabular}}
+
+Table~\ref{tab:ch3_what_impact_value} catalogues the six methodological contributions of Chapter~3, tracing each design decision to its impact and the value it creates.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L @{}}
+\caption{Chapter~3 Contributions: What Was Done, Impact, and Value}\label{tab:ch3_what_impact_value} \\
+\toprule
+\thead{What Was Done} & \thead{Impact} & \thead{Value Created} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch3_what_impact_value} continued from previous page\,)}} \\
+\toprule
+\thead{What Was Done} & \thead{Impact} & \thead{Value Created} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Designed DSR methodology & Rigorous, reproducible framework & Methodological contribution \\
+Selected 6 datasets with justification & Comprehensive ASD-focused coverage & 4 data modalities represented \\
+Defined preprocessing per modality & Domain-appropriate feature engineering & Quality feature extraction \\
+Planned 10-fold CV + bootstrap & Statistically valid performance estimates & Reliable accuracy metrics \\
+Designed RTAI 7-layer validation & Governance built into methodology & Regulatory readiness \\
+IRB exemption + ethics protocol & Ethical compliance from design stage & Responsible research \\
+\end{xltabular}}
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+
+%===============================================================================
+\section{Chapter~4: Data Analysis and Findings}
+\label{sec:appK_ch4}
+
+Table~\ref{tab:ch4_reliability_validity} presents the reliability and validity matrix for the data analysis chapter, linking each criterion to the empirical result that substantiates it.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Reliability and Validity Matrix: Chapter~4}\label{tab:ch4_reliability_validity} \\
+\toprule
+\thead{Criterion} & \thead{Method} & \thead{Chapter~4 Result} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch4_reliability_validity} continued from previous page\,)}} \\
+\toprule
+\thead{Criterion} & \thead{Method} & \thead{Chapter~4 Result} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Internal Validity & 10-fold CV, no data leakage & Consistent across all 25 model runs \\
+External Validity & ASD, 6 datasets & ASD ensemble 97.67\% generalizes across domains \\
+Construct Validity & H1--H5 tested at $\alpha$=0.05 & 4/5 hypotheses supported ($p<0.001$) \\
+Reliability & Bootstrap 1,000 resamples & Narrow 95\% CI (e.g., ASD [89.2, 93.8]) \\
+Effect Size & Cohen's $d$ for all comparisons & $d$=0.82--1.48 (large effects) \\
+Expert Validation & Krippendorff's $\alpha$ & $\alpha$=0.84 (substantial agreement) \\
+\end{xltabular}}
+
+Table~\ref{tab:ch4_benchmarks} compares DC-AIBF accuracy results against the best published single-domain figures, quantifying the advantage or trade-off in each domain.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l l l L @{}}
+\caption{Comparability: DC-AIBF vs.\ Published Results}\label{tab:ch4_benchmarks} \\
+\toprule
+\thead{Domain} & \thead{Best Published} & \thead{DC-AIBF} & \thead{Advantage} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:ch4_benchmarks} continued from previous page\,)}} \\
+\toprule
+\thead{Domain} & \thead{Best Published} & \thead{DC-AIBF} & \thead{Advantage} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+ASD & 85\% (single-domain) & 91.5\% & +6.5\%, unified, governed \\
+PD & 92\% (single-domain) & 93.1\% & +1.1\%, explainable \\
+Stress & 88\% (single-domain) & 89.0\% & +1.0\%, wearable-integrated \\
+Cancer & 96\% (single-domain) & 95.0\% & $-$1.0\%, but governed \\
+BCI & 82\% (single-domain) & 78.3\% & $-$3.7\%, limitation acknowledged \\
+ASD ensemble & N/A (no unified) & 97.67\% & Novel metric \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} DC-AIBF trades marginal accuracy in some domains for unified governance, explainability, and ASD-focused consistency that no prior work provides.
+
+Table~\ref{tab:ch4_novelty} enumerates six results-level novelty contributions, each supported by specific empirical evidence from the experimental runs.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Novelty: Results-Level Contributions}\label{tab:ch4_novelty} \\
+\toprule
+\thead{C\#} & \thead{Result-Level Novelty} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch4_novelty} continued from previous page\,)}} \\
+\toprule
+\thead{C\#} & \thead{Result-Level Novelty} & \thead{Evidence} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+C1 & First unified ASD-focused ASD ensemble & 97.67\%$\pm$2.6\% across ASD \\
+C2 & ASD-focused model selection guide & XGBoost (structured), CNN (imaging) \\
+C3 & Expert-validated AI governance & $\alpha$=0.84 with $n$=12 panel \\
+C4 & Comprehensive ablation study & Feature removal: $-$6.8\%, DL removal: $-$5.3\% \\
+C5 & Transparent negative result & ASD 97.67\% honestly reported \\
+C6 & Bootstrap CI for all estimates & Quantified uncertainty for ASD \\
+\end{xltabular}}
+
+Table~\ref{tab:ch4_tam} maps TAM constructs to the empirical evidence obtained in Chapter~4, assessing the adoption readiness of DC-AIBF along each dimension.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Technology Acceptance Model (TAM): Empirical Results}\label{tab:ch4_tam} \\
+\toprule
+\thead{TAM Construct} & \thead{Chapter~4 Evidence} & \thead{Adoption Readiness} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch4_tam} continued from previous page\,)}} \\
+\toprule
+\thead{TAM Construct} & \thead{Chapter~4 Evidence} & \thead{Adoption Readiness} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Perceived Usefulness & 97.67\% ASD ensemble exceeds benchmarks & High---clinically superior \\
+Perceived Ease of Use & SHAP top-10 features interpretable & High---visual explanations \\
+Behavioral Intention & Expert panel endorsement & High---$\alpha$=0.84 agreement \\
+Actual Use & KPI monitoring framework operational & Ready for pilot deployment \\
+External Variables & FDA/EU compliance pathway mapped & Regulatory barriers addressed \\
+\end{xltabular}}
+
+Table~\ref{tab:ch4_trust_aversion} documents the empirical evidence for trust-building mechanisms, showing how each challenge was addressed and what trust outcome resulted.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Trust and Algorithm Aversion: Empirical Evidence}\label{tab:ch4_trust_aversion} \\
+\toprule
+\thead{Challenge} & \thead{Chapter~4 Evidence} & \thead{Trust Building} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch4_trust_aversion} continued from previous page\,)}} \\
+\toprule
+\thead{Challenge} & \thead{Chapter~4 Evidence} & \thead{Trust Building} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Algorithm Aversion & SHAP explanations for every prediction & Clinicians see why AI decided \\
+Automation Bias & AI confidence scores with uncertainty & Low-confidence cases flagged for review \\
+Opacity & Top-10 feature importance per domain & Transparent, interpretable models \\
+Accountability & 4-level escalation validated by experts & Clear responsibility chain \\
+Fairness & Subgroup analysis performed & Disparity metrics within acceptable range \\
+BCI Limitation & 78.3\% below threshold, reported honestly & Builds trust via transparency \\
+\end{xltabular}}
+
+Table~\ref{tab:ch4_qual_quant} summarises the qualitative and quantitative result strands, contrasting expert panel evaluation with statistical hypothesis testing.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Qualitative and Quantitative Results: Chapter~4}\label{tab:ch4_qual_quant} \\
+\toprule
+\thead{Aspect} & \thead{Qualitative} & \thead{Quantitative} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch4_qual_quant} continued from previous page\,)}} \\
+\toprule
+\thead{Aspect} & \thead{Qualitative} & \thead{Quantitative} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Approach & Expert panel evaluation, SHAP interpretation & 10-fold CV, bootstrap CI, paired t-tests \\
+Data & Expert ratings ($n$=12), feature attributions & 6 datasets, 25 model configurations \\
+Method & Krippendorff's $\alpha$=0.84, thematic analysis & ASD ensemble 97.67\%, AUC 0.82--0.98, $d$=0.82--1.48 \\
+Output & Clinical acceptance, framework validation & H1--H5 supported \\
+Contribution & Expert-validated framework & Statistically significant results \\
+\end{xltabular}}
+
+Table~\ref{tab:ch4_governance} reports the empirical governance, accountability, and adoption evidence gathered in Chapter~4, identifying the responsible decision maker for each dimension.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Governance, Accountability, and Adoption: Empirical Results}\label{tab:ch4_governance} \\
+\toprule
+\thead{Dimension} & \thead{Chapter~4 Evidence} & \thead{Decision Maker} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch4_governance} continued from previous page\,)}} \\
+\toprule
+\thead{Dimension} & \thead{Chapter~4 Evidence} & \thead{Decision Maker} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Governance & RTAI 7-layer compliance verified & Expert panel consensus \\
+Accountability & Krippendorff's $\alpha$=0.84 (substantial) & 12-member expert panel \\
+Adoptability & SHAP makes models interpretable & End-user clinicians \\
+Trustworthiness & Bootstrap CI, effect sizes, ablation & Statistical validation \\
+Impact & ASD ensemble 97.67\% across ASD & ASD clinically viable \\
+Value & Unified framework superior to siloed & Cost and efficiency gains \\
+\end{xltabular}}
+
+Table~\ref{tab:ch4_what_impact_value} catalogues the six principal contributions of Chapter~4, linking each experimental activity to its impact and value.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L @{}}
+\caption{Chapter~4 Contributions: What Was Done, Impact, and Value}\label{tab:ch4_what_impact_value} \\
+\toprule
+\thead{What Was Done} & \thead{Impact} & \thead{Value Created} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch4_what_impact_value} continued from previous page\,)}} \\
+\toprule
+\thead{What Was Done} & \thead{Impact} & \thead{Value Created} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Trained 25 model configurations & Best model per domain identified & Optimal DL architecture selection \\
+Validated with 10-fold CV + bootstrap & Reliable, reproducible accuracy estimates & Statistical rigor \\
+Tested H1--H5 with Bonferroni correction & 4/5 hypotheses supported ($p<0.001$) & Strong evidence base \\
+Performed SHAP analysis per domain & Top-10 features identified & Clinical interpretability \\
+Conducted expert validation ($n$=12) & Framework clinically accepted ($\alpha$=0.84) & Stakeholder confidence \\
+Reported BCI limitation transparently & Honest academic reporting & Research integrity \\
+\end{xltabular}}
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+
+%===============================================================================
+\section{Chapter~5: Discussion and Recommendations}
+\label{sec:appK_ch5}
+
+Table~\ref{tab:ch5_reliability_validity} presents the reliability and validity assessment for the discussion chapter, confirming each criterion against the cumulative evidence base.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Reliability and Validity Matrix: Chapter~5}\label{tab:ch5_reliability_validity} \\
+\toprule
+\thead{Criterion} & \thead{Method} & \thead{Chapter~5 Assessment} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch5_reliability_validity} continued from previous page\,)}} \\
+\toprule
+\thead{Criterion} & \thead{Method} & \thead{Chapter~5 Assessment} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Internal Validity & 10-fold CV, no data leakage & Confirmed across all ASD \\
+External Validity & ASD-focused, multi-modality & ASD generalize; BCI needs more data \\
+Construct Validity & Hypotheses with explicit thresholds & H1--H4 supported, H5 partial \\
+Reliability & Bootstrap CI, reproducible pipeline & Narrow CIs confirm stability \\
+Effect Size & Cohen's $d$ interpretation & All $d>$0.80 = large, clinically meaningful \\
+Expert Agreement & Krippendorff's $\alpha$=0.84 & Substantial agreement on framework validity \\
+\end{xltabular}}
+
+Table~\ref{tab:ch5_benchmarks} compares the final DC-AIBF accuracy figures against literature benchmarks and provides a deployment-readiness interpretation for each domain.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l l l L @{}}
+\caption{Final Assessment: DC-AIBF vs.\ Literature Benchmarks}\label{tab:ch5_benchmarks} \\
+\toprule
+\thead{Domain} & \thead{Literature} & \thead{DC-AIBF} & \thead{Chapter~5 Interpretation} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:ch5_benchmarks} continued from previous page\,)}} \\
+\toprule
+\thead{Domain} & \thead{Literature} & \thead{DC-AIBF} & \thead{Chapter~5 Interpretation} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+ASD & 70--85\% & 91.5\% & Exceeds best published; deploy Phase 1 \\
+PD & 75--92\% & 93.1\% & Matches/exceeds top; deploy Phase 2 \\
+Stress & 72--88\% & 89.0\% & Exceeds typical; wearable-ready \\
+Cancer & 80--96\% & 95.0\% & Near top; deploy Phase 1 \\
+BCI & 65--82\% & 78.3\% & Within range but below 85\% threshold \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} DC-AIBF adds governance, explainability, and ASD-focused consistency that no prior work provides.
+
+Table~\ref{tab:ch5_novelty} enumerates the eight thesis-level novelty contributions (C1--C8), consolidating the evidence that supports each claim.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Thesis Novelty Contributions (C1--C8)}\label{tab:ch5_novelty} \\
+\toprule
+\thead{C\#} & \thead{Contribution} & \thead{Why Novel} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch5_novelty} continued from previous page\,)}} \\
+\toprule
+\thead{C\#} & \thead{Contribution} & \thead{Why Novel} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+C1 & DC-AIBF 5-layer framework & First unified ASD-focused AI diagnostic framework \\
+C2 & ASD ensemble metric (97.67\%) & First ASD-focused accuracy aggregation \\
+C3 & RTAI 7-layer governance & First integrated AI diagnostic governance \\
+C4 & Multi-modal pipeline (4 modalities) & 92\% of prior work is single-modality \\
+C5 & SHAP for all ASD & Only 20\% of literature uses explainability \\
+C6 & Bootstrap + sensitivity + ablation & Most comprehensive validation in the field \\
+C7 & Expert panel ($\alpha$=0.84) & Rare quantitative validation in AI diagnostics \\
+C8 & KPI escalation + ROI (\$2.7M) & First business decision framework for AI diagnostics \\
+\end{xltabular}}
+
+Table~\ref{tab:ch5_tam} maps TAM constructs to the recommended adoption actions, translating empirical findings into a practical deployment pathway.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Technology Acceptance Model (TAM): Adoption Pathway}\label{tab:ch5_tam} \\
+\toprule
+\thead{TAM Construct} & \thead{Chapter~5 Recommendation} & \thead{Adoption Action} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch5_tam} continued from previous page\,)}} \\
+\toprule
+\thead{TAM Construct} & \thead{Chapter~5 Recommendation} & \thead{Adoption Action} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Perceived Usefulness & 97.67\% ASD ensemble + \$2.7M ROI & Communicate value to stakeholders \\
+Perceived Ease of Use & SHAP + confidence scores & Clinician training on AI outputs \\
+Behavioral Intention & Expert endorsement + regulatory path & Phased deployment builds confidence \\
+Actual Use & KPI dashboard + governance audits & Monitor adoption metrics continuously \\
+External Variables & FDA SaMD + EU AI Act alignment & Regulatory pre-submission in Year 1 \\
+Subjective Norm & Professional society endorsement & Publish in peer-reviewed journals \\
+\end{xltabular}}
+
+Table~\ref{tab:ch5_trust_aversion} documents the trust and algorithm-aversion recommendations, pairing each challenge with the expected outcome of the proposed mitigation.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Trust and Algorithm Aversion: Recommendations}\label{tab:ch5_trust_aversion} \\
+\toprule
+\thead{Challenge} & \thead{Chapter~5 Recommendation} & \thead{Expected Outcome} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch5_trust_aversion} continued from previous page\,)}} \\
+\toprule
+\thead{Challenge} & \thead{Chapter~5 Recommendation} & \thead{Expected Outcome} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Algorithm Aversion & SHAP explanations + clinician training & Informed trust, not blind trust \\
+Automation Bias & Mandatory human review for low-confidence & Prevents over-reliance on AI \\
+Opacity & Publish model details, open methodology & Transparency builds community trust \\
+Accountability & 4-level escalation + annual governance audit & Clear responsibility chain \\
+Fairness & Multi-site trials + demographic diversity & Reduces bias, improves equity \\
+Negative Results & BCI 78.3\% reported honestly & Academic integrity builds credibility \\
+\end{xltabular}}
+
+Table~\ref{tab:ch5_qual_quant} summarises the qualitative and quantitative strands of the discussion, showing how narrative synthesis complements the quantified business case.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Qualitative and Quantitative Discussion: Chapter~5}\label{tab:ch5_qual_quant} \\
+\toprule
+\thead{Aspect} & \thead{Qualitative} & \thead{Quantitative} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch5_qual_quant} continued from previous page\,)}} \\
+\toprule
+\thead{Aspect} & \thead{Qualitative} & \thead{Quantitative} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Approach & Hypothesis interpretation, stakeholder mapping & ROI analysis, KPI thresholds, sensitivity \\
+Data & Expert feedback, literature comparison & Cost-benefit data, 3-scenario projections \\
+Method & Narrative synthesis, limitation analysis & DCF analysis, tornado chart, effect size comparison \\
+Output & Recommendations per stakeholder & \$2.7M ROI, 8 KPIs $\times$ 3 thresholds \\
+Contribution & Actionable deployment roadmap & Quantified business case \\
+\end{xltabular}}
+
+Table~\ref{tab:ch5_governance} reports the governance, accountability, and adoption recommendations, assigning each dimension to the responsible decision maker within the organisation.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption{Governance, Accountability, and Adoption: Recommendations}\label{tab:ch5_governance} \\
+\toprule
+\thead{Dimension} & \thead{Chapter~5 Recommendation} & \thead{Decision Maker} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch5_governance} continued from previous page\,)}} \\
+\toprule
+\thead{Dimension} & \thead{Chapter~5 Recommendation} & \thead{Decision Maker} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Governance & 4-level escalation + annual audit cycle & Board, Chief Medical Officer \\
+Accountability & KPI dashboard with automated alerts & Operations team, compliance officer \\
+Adoptability & Phased deployment (ASD+Cancer first) & Clinical leadership, IT department \\
+Trustworthiness & Continuous monitoring, model retraining & Data science team, validators \\
+Impact & \$2.7M ROI, 40--60\% cost reduction & Hospital administration, CFO \\
+Value & DC-AIBF as competitive advantage & C-suite, strategic planning \\
+\end{xltabular}}
+
+Table~\ref{tab:ch5_what_impact_value} catalogues the six principal contributions of Chapter~5, connecting each recommendation to its research impact and practical value.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L @{}}
+\caption{Chapter~5 Contributions: What Was Done, Impact, and Value}\label{tab:ch5_what_impact_value} \\
+\toprule
+\thead{What Was Done} & \thead{Impact} & \thead{Value Created} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:ch5_what_impact_value} continued from previous page\,)}} \\
+\toprule
+\thead{What Was Done} & \thead{Impact} & \thead{Value Created} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Interpreted H1--H5 with effect sizes & Clinical significance established & Evidence-based deployment decisions \\
+Conducted 3-scenario ROI analysis & \$2.1--3.4M savings quantified & Investment case justified \\
+Designed 8 KPIs with 3 thresholds & Automated monitoring framework & Operational governance \\
+Built 4-level escalation ladder & Clear authority chain & Risk management \\
+Reported BCI limitation honestly & Academic integrity maintained & Trust with examiners \\
+Proposed 5 future directions & Research roadmap for community & Knowledge contribution \\
+\end{xltabular}}
+
+\clearpage

@@ -1,0 +1,984 @@
+%% =============================================================================
+%% Appendix M — Operationalization Detail (A-D Framework)
+%% Houses the Chapter-1 operationalization-detail sections moved out per
+%% 2026-05-12 brutal-feedback scoping discipline.
+%%
+%% Rationale: Chapter 1 (Introduction) should orient the reader to the research
+%% question, scope, significance, and high-level structure. The detailed
+%% operationalization of objectives (the A-D framework) is methodology content
+%% — properly belongs in Chapter 3 or supplementary material, not Chapter 1.
+%% Moving it here keeps Chapter 1 focused on framing and prevents the reader
+%% from hitting methodology-density tables before they understand the problem.
+%%
+%% Contents:
+%%   M1. Operationalisation of Objectives (A-D Framework)
+%%   M2. Research Structure (A-D Framework)
+%% Chapter 1 retains one-paragraph pointers to each section here.
+%% =============================================================================
+
+\addcontentsline{toc}{section}{Appendix M Framing} % [TOC-appendix-section-insertion]
+\section*{Appendix M Framing}
+\addcontentsline{toc}{section}{Appendix M Framing}
+\label{sec:appm_framing}
+
+\noindent\textbf{What this appendix is.} Detailed operationalization material for
+the A-D research framework. The A-D framework distributes the dissertation's
+empirical activity across four parts: Part A (B2C caregiver evaluation), Part B
+(B2C quantitative evaluation), Part C (B2B clinical evaluation), and Part D
+(governance and integration). The full operationalization detail for each Part
+appears here; the framework's overview and rationale remain in Chapter 1.
+
+\noindent\textbf{What this appendix is not.} It is not a separate methodology
+chapter — Chapter 3 owns methodology. It is the detail-level operationalization
+material that supports both Chapter 1's framing and Chapter 3's methods
+specification, kept in one place to prevent duplication and to preserve
+Chapter 1's focus on framing.
+
+\noindent\textbf{Cross-references retained.} Internal labels (e.g., \texttt{tab:smart\_\allowbreak objectives},
+\texttt{tab:abcd\_\allowbreak overview}, \texttt{fig:abcd\_\allowbreak chain}) remain unchanged so references
+from Chapter 1, Chapter 3, and downstream chapters resolve to their original
+table and figure targets.
+
+\paragraph{Appendix M Scope Contract --- Conceptual Future Reference Only.}
+\label{para:appendix_m_scope_contract}
+The operationalization-detail material in this appendix (A--D framework parts, decision logic, examiner traceability pack, IoT ecosystem and data-capture architecture) is presented strictly as \textbf{conceptual operationalization scaffolding, NOT as validated operational evaluation or decision-logic evidence}. Specifically: (i)~the A--D framework is a \emph{methodological organisation} for the dissertation's empirical activity, not an operational evaluation specification; (ii)~the IoT and data-capture architecture is \emph{conceptual reference} for how a hypothetical evaluation would be structured, not an evaluated conceptual operational reference; (iii)~the decision-logic sections describe \emph{governance decision patterns} (with HITL gates and audit trails) that provider organisations would instantiate, not validated production decision-flow evidence; (iv)~the examiner-traceability pack links the dissertation's components for navigation purposes — it is not itself a contribution claim. The DBA contribution is the governance + explainability + adoption framework in Chapter~\ref{chap:discussion}; Appendix~M is the operationalization scaffolding that supports it, not the contribution itself.
+
+\addcontentsline{toc}{section}{M0. Examiner Traceability Pack: Problem, Data, AI Pipeline, and Governance} % [TOC-appendix-section-insertion]
+\section*{M0. Examiner Traceability Pack: Problem, Data, AI Pipeline, and Governance}
+\addcontentsline{toc}{section}{M0. Examiner Traceability Pack: Problem, Data, AI Pipeline, and Governance}
+\label{sec:appm_examiner_traceability_pack}
+
+\noindent\textbf{Purpose.} This pack answers the examiner's likely ``where is it?'' questions in one place. It links the business problem, sub-problems, B2C/B2B positioning, data design, AI pipeline, statistical analysis, and governance decision logic without adding a new research stream.
+
+\noindent Table~\ref{tab:examiner_traceability_pack} summarises the operational chain from problem statement to DBA decision.
+
+\clearpage
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} p{6.1cm} p{4.4cm} >{\raggedright\arraybackslash}p{2.0cm} @{}}
+\caption[Examiner Traceability Pack: Problem, Data, and Variables]{Examiner Traceability Pack: Problem, Data, and Variables. The table gives a concise answer to common examiner questions and points to the thesis location where each claim is evidenced.}\label{tab:examiner_traceability_pack} \\
+\toprule
+\thead{Area} & \thead{Thesis Position} & \thead{Evidence / Method} & \thead{Where} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Problem & Families need earlier, understandable ASD screening support; providers need safe clinical oversight before AI outputs can influence care. & Main problem plus P1--P4 sub-problems: access delay, weak explainability, limited governance, unclear adoption value. & Ch.~1; Table~\ref{tab:problem_impact} \\
+\addlinespace
+B2C / B2B & B2C is the primary value path: caregiver/patient monitoring, assessment, reporting, psychology-support context, and dashboard feedback. B2B is the safety, validation, conceptual escalation reference (future scope), integration, and governance layer. & Final verdict: \textbf{Future B2C Prospective-Validation with B2B Clinical Support}. & Ch.~5; Figure~\ref{fig:management_decision_chart} \\
+\addlinespace
+As-is / To-be & As-is: episodic clinic screening, delayed specialist access, weak social-context tracking, opaque AI, manual reporting. To-be: caregiver-facing continuous monitoring with social-setting notes, clinician review, RAG explanation, dashboard report, conceptual escalation reference (future scope), and audit trail. & Patient journey, B2C/B2B value proposition, management decision chart. & Ch.~1; Ch.~5; Appendix J--K \\
+\addlinespace
+Device / EEG channels & Consumer pilot assumes Emotiv-class wearable capture; future clinical-validation pathway must compare 10--20 placement and higher-channel references. & Channel logic: 14/16 channel for future B2C prospective-validation convenience; 24/32 channel for richer validation; 64 channel for research-grade benchmark only. & Ch.~3; Appendix C/H \\
+\addlinespace
+Primary data & Subjective but structured data: caregiver, clinician, trust, usability, adoption, psychology-support context, social-setting acceptability, and governance perception. & Likert scales, questionnaire sections, coding, reliability checks. & Ch.~3; Appendix F/G \\
+\addlinespace
+Secondary data & Quantitative ASD-EEG and supporting public datasets. & EEG features, model outputs, benchmark accuracy, SHAP features, bootstrap confidence intervals. & Ch.~3--4; Appendix C/H/I \\
+\addlinespace
+Variables & IVs: governance, explainability, EEG features, usability, trust antecedents. DVs: adoption readiness, classification accuracy, trust, diagnostic support value, governance pass rate. & IV/DV mapping and hypothesis alignment. & Ch.~3; Table~\ref{tab:objective_hypothesis_variable} \\
+\end{xltabular}}
+\vspace{0.5em}
+\noindent\textit{Note.} The thesis deliberately separates \emph{technical feasibility} from \emph{evidence-maturity interpretation}. High ASD-EEG accuracy supports the B2B-controlled adoption path; B2C remains a pilot until consumer-grade comfort, privacy, usability, affordability, and prospective safety evidence clear the governance gates.
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:b2c_service_scope} b2c service scope for continuous asd screening support.
+
+\paragraph{B2C Service Scope for.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} p{4.7cm} p{4.4cm} >{\raggedright\arraybackslash}p{3.1cm} @{}}
+\caption[B2C Service Scope for Continuous ASD Screening Support]{B2C Service Scope for Continuous ASD Screening Support. This table fixes the consumer-facing scope so the thesis is read as B2C-primary, with B2B used only where clinical safety, conceptual escalation reference (future scope), and enterprise integration are required.}\label{tab:b2c_service_scope} \\
+\toprule
+\thead{B2C Scope} & \thead{What the User Gets} & \thead{Why It Matters} & \thead{B2B Support} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Continuous monitoring & Home wearable capture, symptom diary, trend line, repeated screening sessions, and alert history. & ASD support is not one appointment; families need longitudinal evidence between visits. & Clinician review of flagged trends; audit log. \\
+\addlinespace
+Social tracking & School/public-use notes, sensory discomfort log, stigma concern flag, caregiver--child context, and social-setting acceptability rating. & Adoption can fail even when accuracy is high if the device creates stigma, discomfort, or family stress. & School/clinic sharing protocol; consent boundary. \\
+\addlinespace
+Any age pathway & Child, teen, adult, and caregiver views with different consent, assent, privacy, and reporting rules. & B2C cannot be only paediatric; the same pipeline must adapt to age, autonomy, and caregiver role. & Clinician confirmation for high-risk or unclear cases. \\
+\addlinespace
+Reporting and dashboard & Plain-language result, confidence band, psychology-support summary, behaviour notes, trend dashboard, and next-step recommendation. & The value is not the raw AI score; the value is understandable action for family, therapy, school, and clinical discussion. & EHR/FHIR export; clinician-facing report. \\
+\addlinespace
+SOS emergency scenario & High-severity alert triggers caregiver warning plus B2B escalation to clinician, hospital, or emergency contact. & Consumer monitoring becomes safe only when critical patterns route to a human and provider workflow. & SOS triage, hospital alert, liability governance. \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} ASD = Autism Spectrum Disorder. See chapter prose for full context.
+
+\needspace{24\baselineskip}
+\begin{figure}[p]
+\centering
+\begin{tikzpicture}[
+  node distance=0.62cm,
+  box/.style={draw=ggunavy, fill=ggunavy!8, rounded corners=3pt, thick, align=center, text width=4.35cm, minimum height=0.78cm, font=\small},
+  report/.style={draw=ggugold!80!black, fill=ggugold!14, rounded corners=3pt, thick, align=center, text width=4.35cm, minimum height=0.78cm, font=\small},
+  alert/.style={draw=red!65!black, fill=red!8, rounded corners=3pt, thick, align=center, text width=4.35cm, minimum height=0.78cm, font=\small\bfseries},
+  arr/.style={-{Stealth[length=2.4mm,width=1.7mm]}, thick, ggunavy}
+]
+\node[box] (capture) {B2C Capture\\wearable EEG + behaviour diary};
+\node[box, below=of capture] (monitor) {Continuous Monitoring\\trend, repeat sessions, alert history};
+\node[box, below=of monitor] (social) {Social Tracking\\school, public, sensory, stigma notes};
+\node[report, below=of social] (assess) {Assessment + Psychology-Support Summary\\confidence band + plain-language explanation};
+\node[report, below=of assess] (dash) {B2C Dashboard + Report\\family, therapy, school, clinician sharing};
+\node[alert, below=of dash] (sos) {Severity Gate\\monitor / clinic / conceptual escalation reference (future scope)};
+\node[box, below=of sos] (learn) {Feedback Loop\\caregiver correction + clinician outcome};
+\foreach \a/\b in {capture/monitor,monitor/social,social/assess,assess/dash,dash/sos,sos/learn} {
+  \draw[arr] (\a) -- (\b);
+}
+\node[box, right=1.5cm of sos, text width=3.5cm] (b2b) {B2B Safety Layer\\clinician, hospital, EHR/FHIR, audit};
+\draw[arr] (sos.east) -- (b2b.west);
+\draw[arr] (b2b.north) |- (dash.east);
+\end{tikzpicture}
+\caption[B2C Continuous Monitoring, Reporting, Dashboard, and SOS Flow]{B2C Continuous Monitoring, Reporting, Dashboard, and SOS Flow. The B2C surface owns monitoring, social tracking, family reporting, and dashboard value; B2B enters only for safety-critical escalation, clinician review, hospital integration, EHR/FHIR export, and audit governance.}
+\label{fig:b2c_monitoring_reporting_sos_flow}
+\end{figure}
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:examiner_analysis_governance_pack} examiner traceability pack: analysis, ai, and governance.
+
+\paragraph{Examiner Traceability Pack.}
+
+
+
+\clearpage
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.1cm} p{5.2cm} p{4.7cm} >{\raggedright\arraybackslash}p{2.2cm} @{}}
+\caption[Examiner Traceability Pack: Analysis, AI, and Governance]{Examiner Traceability Pack: Analysis, AI, and Governance. This continuation maps the research design, signal-processing path, RAG/agentic layer, and final DBA decision.}\label{tab:examiner_analysis_governance_pack} \\
+\toprule
+\thead{Area} & \thead{Thesis Position} & \thead{Evidence / Method} & \thead{Where} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Research design & Convergent mixed-methods design: quantitative model validation plus primary stakeholder evidence. & PLS-SEM, bootstrap mediation, expert review, qualitative theme coding. & Ch.~3 \\
+\addlinespace
+Statistical analysis & Quantitative analysis supports technical performance and adoption-path testing; it does not claim autonomous diagnosis. & Cross-validation, 1,000 bootstrap, paired tests, effect size, Monte Carlo stability, SEM path analysis. & Ch.~3--4 \\
+\addlinespace
+AI pipeline & EEG data are cleaned, transformed, modelled, explained, and governed before decision use. & Filtering, normalization, standardization, artifact handling, Fourier/STFT/CWT/SWT options, 1D-to-2D conversion, ML/DL ensemble. & Ch.~3--4; Figures~\ref{fig:signal_processing_flow}, \ref{fig:model_training_pipeline} \\
+\addlinespace
+RAG / agentic AI & RAG supports explanation and evidence grounding; agentic orchestration coordinates preprocessing, modelling, RAG, governance, and logging. & Chunking, embeddings, vector retrieval, cited response, governance agent, audit trail. & Ch.~3; Ch.~5; RAG and agentic architecture figures \\
+\addlinespace
+Sensitive / subjective data & Sensitive EEG and caregiver responses require consent, minimisation, de-identification, auditability, and human review. & Consent model, privacy controls, caregiver/child pathway, clinician override. & Appendix J--K \\
+\addlinespace
+Management decision & DBA decision is not ``launch now''; it is adopt for B2B-controlled setting and pilot for B2C consumer setting. & Adopt / Pilot / Defer gate: performance, trust, governance, usability, safety. & Ch.~5; Figure~\ref{fig:management_decision_chart} \\
+\addlinespace
+Risk / governance & RGAIG, Responsible AI, Explainable AI, performance AI, compliance AI, and auditability are treated as evaluation controls. & ISO/IEC~42001, NIST AI RMF, EU AI Act-style transparency, HIPAA/PIPEDA-style privacy framing. & Ch.~5; Appendix E/H/K \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RGAIG = Responsible Generative AI Governance; PLS-SEM = Partial Least Squares SEM; RAG = Retrieval-Augmented Generation; EEG = Electroencephalography. See chapter prose for full context.
+
+\needspace{24\baselineskip}
+\begin{figure}[p]
+\centering
+\begin{tikzpicture}[
+  node distance=0.72cm,
+  box/.style={draw=ggunavy, fill=ggunavy!8, rounded corners=3pt, thick, align=center, text width=4.5cm, minimum height=0.8cm, font=\small},
+  gate/.style={draw=ggugold!80!black, fill=ggugold!15, rounded corners=3pt, thick, align=center, text width=4.5cm, minimum height=0.8cm, font=\small\bfseries},
+  arr/.style={-{Stealth[length=2.5mm,width=1.8mm]}, thick, ggunavy}
+]
+\node[box] (problem) {Problem / Sub-Problems\\access delay, trust, governance, adoption};
+\node[box, below=of problem] (data) {Data Design\\primary stakeholder data + secondary ASD-EEG};
+\node[box, below=of data] (signal) {Signal Pipeline\\filter, normalise, standardise, transform};
+\node[box, below=of signal] (model) {AI Models\\ML/DL ensemble + SHAP};
+\node[box, below=of model] (rag) {RAG + Agentic Layer\\chunk, embed, retrieve, explain, log};
+\node[gate, below=of rag] (gov) {Governance Gate\\risk, consent, audit, ISO/NIST alignment};
+\node[gate, below=of gov] (decision) {DBA Decision\\B2B Adopt; Future B2C Prospective-Validation with B2B Support};
+\foreach \a/\b in {problem/data,data/signal,signal/model,model/rag,rag/gov,gov/decision} {
+  \draw[arr] (\a) -- (\b);
+}
+\node[box, right=1.5cm of data, text width=3.5cm] (b2c) {B2C Primary\\monitoring, social tracking, assessment, dashboard};
+\node[box, right=1.5cm of gov, text width=3.5cm] (b2b) {B2B Support\\SOS, clinician, hospital, EHR, audit};
+\draw[arr] (b2c.west) -- (data.east);
+\draw[arr] (b2b.west) -- (gov.east);
+\end{tikzpicture}
+\caption[Problem-to-Decision Flow for B2C-Primary ASD Screening]{Problem-to-Decision Flow for B2C-Primary ASD Screening. The dissertation moves from problem and sub-problems to data design, signal processing, AI/RAG explanation, governance validation, and final DBA evaluation decision.}
+\label{fig:problem_to_decision_flow}
+\end{figure}
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:topic_proposal_alignment_addendum} aligns the final topic-proposal and defense-deck additions with the main thesis. This table prevents proposal-only claims from drifting away from the dissertation evidence base.
+
+\paragraph{Topic Proposal to Main.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.4cm} p{5.3cm} p{4.0cm} >{\raggedright\arraybackslash}p{2.4cm} @{}}
+\caption[Topic Proposal to Main Thesis Alignment Addendum]{Topic Proposal to Main Thesis Alignment Addendum. Each professor-facing topic-proposal item is mapped to its main-thesis evidence location and the required interpretation boundary.}\label{tab:topic_proposal_alignment_addendum} \\
+\toprule
+\thead{Proposal / Deck Item} & \thead{Main Thesis Alignment} & \thead{Boundary / Required Reading} & \thead{Where} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Why I am doing what & Family pain leads to the research problem, then to RGAIG design, evidence testing, and management decision. & This is a logic map, not a new research stream. & Ch.~1; Ch.~5; Fig.~\ref{fig:problem_to_decision_flow} \\
+\addlinespace
+Data sample summary & Secondary ASD-EEG data supports technical feasibility; primary B2C/B2B data supports trust, usability, governance, and adoption readiness. & Secondary data does not prove public B2C evidence-maturity interpretation. & Ch.~3--4; Appendix C/F/G \\
+\addlinespace
+B2C survey design & B2C survey constructs cover trust, privacy, comfort, affordability, social use, report clarity, SOS consent, and willingness to pilot. & B2C survey supports pilot-readiness only; it is not post-market validation. & Ch.~3; Appendix F/G \\
+\addlinespace
+Hypotheses by evidence type & H1--H2 are primarily quantitative; H3 is mixed; H4--H5 combine quantitative logs, governance evidence, ratings, and qualitative interpretation. & Accuracy answers ``does it work?''; survey/interview evidence answers ``will it be trusted, used, and governed?'' & Ch.~3--4; Table~\ref{tab:objective_hypothesis_variable} \\
+\addlinespace
+Value and management decision & Management verdict is future B2C prospective-validation with B2B clinical support. & The thesis does not claim autonomous diagnosis or public launch. & Ch.~5; Fig.~\ref{fig:management_decision_chart} \\
+\addlinespace
+Limitations and future scope & Public launch, third-party future clinical-validation pathway, multi-site B2C field study, child-comfort testing, and hospital integration remain future work. & These are explicit limits, not hidden weaknesses. & Ch.~5; Appendix J--L \\
+\addlinespace
+APA7 and citation alignment & Literature and standards claims use the main thesis APA7 bibliography; candidate metrics are labelled as thesis/candidate analysis. & Candidate-generated metrics must not be cited as external facts. & Front matter; Ch.~3--5; references.bib \\
+\addlinespace
+Image / figure declaration & Figure, flowchart, and visual-source declaration aligns with the thesis AI-use declaration and TikZ/vector figure policy. & External/reprinted visuals require APA7 source notes and licence/permission status. & Declaration; Table/Figure Standards; Image APA7 letter \\
+\end{xltabular}}
+\vspace{0.5em}
+\noindent\textit{Note.} This addendum should be read as a proposal-to-thesis control table. If the topic proposal, defense deck, or QE proposal introduces a professor-facing claim, it must either map to a chapter/appendix evidence location here or be removed from the proposal pack.
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:topic_objective_achievement_control} converts the topic-proposal content into an examiner-ready objective and achievement control. It should be used when checking whether each topic has a clear reference, objective, approach, evidence base, and conclusion.
+
+\paragraph{Topic Objective, Approach, Evidence.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} p{2.0cm} p{2.8cm} p{4.3cm} >{\raggedright\arraybackslash}p{3.1cm} @{}}
+\caption[Topic Objective, Approach, Evidence, and Conclusion Control]{Topic Objective, Approach, Evidence, and Conclusion Control. Each topic-proposal item is cross-referenced to the dissertation objective chain and closed with the evidence and conclusion needed for doctoral defence.}\label{tab:topic_objective_achievement_control} \\
+\toprule
+\thead{Topic} & \thead{Cross-Reference / Topic Reference} & \thead{Objective} & \thead{How the Objective Is Achieved} & \thead{Conclusion} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Problem and sub-problems & Ch.~1; Table~\ref{tab:problem_impact}; Table~\ref{tab:research_flow_alignment} & Define why ASD-EEG screening needs a governed B2C-primary solution. & Convert family access delay, explainability weakness, governance risk, and adoption uncertainty into P1--P4, RQs, objectives, and hypotheses. & The thesis problem is clear and defensible because every sub-problem maps to a method and evidence path. \\
+\addlinespace
+B2C primary and B2B support & Ch.~5; Table~\ref{tab:b2c_service_scope}; Fig.~\ref{fig:b2c_monitoring_reporting_sos_flow} & Show who receives value and who controls clinical risk. & Position B2C as monitoring, assessment, reporting, dashboard, and caregiver value; position B2B as clinician review, SOS, hospital/EHR integration, audit, and governance. & The business model is B2C-primary, but safety remains B2B-supported. \\
+\addlinespace
+Research objectives and variables & Ch.~1; Table~\ref{tab:main_objectives}; Ch.~3; Table~\ref{tab:objective_hypothesis_variable} & Make objectives measurable and linked to IV/DV logic. & Link objectives to governance, explainability, trust, usability, adoption, EEG performance, and management decision variables. & Objectives are not generic; they are measurable through quantitative, qualitative, and governance evidence. \\
+\addlinespace
+Data and analysis design & Ch.~3--4; Appendix C/F/G/I & Prove feasibility and adoption readiness without overstating public deployment. & Use secondary ASD-EEG evidence for technical feasibility and primary survey/interview evidence for trust, usability, privacy, social acceptability, and adoption readiness. & The evidence supports a governed pilot, not autonomous diagnosis or public launch. \\
+\addlinespace
+Framework and governance & Ch.~3; Appendix H/J/K/L; RGAIG framework sections & Explain how responsible AI, explainability, trust, compliance, and risk control become operating rules. & Use RGAIG maturity levels, audit controls, risk registers, explainability checks, human oversight, consent, privacy, and compliance controls. & Governance is the core contribution, not an afterthought. \\
+\addlinespace
+Management decision and value & Ch.~5; Table~\ref{tab:ch5_final_verdict}; Fig.~\ref{fig:management_decision_chart} & Give the DBA decision: adopt, pilot, defer, or reject. & Translate evidence into future B2C prospective-validation readiness, B2B clinical support requirements, ROI/workflow implications, risk boundaries, and future validation steps. & Final recommendation is future B2C prospective-validation with B2B clinical support. \\
+\addlinespace
+Limitations and future scope & Ch.~5; Appendix J--L & Show what is proven, what is not proven, and what must come next. & Separate thesis evidence from future work: consumer-device validation, multi-site trials, field deployment, hospital integration, and post-market monitoring. & Limitations are explicit and protect the thesis from overclaiming. \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RGAIG = Responsible Generative AI Governance; ASD = Autism Spectrum Disorder; EEG = Electroencephalography. See chapter prose for full context.
+\vspace{0.5em}
+\noindent\textit{Use rule.} Each proposal topic must answer four examiner questions: What is the objective? Where is it in the thesis? How was it achieved? What is the conclusion?
+
+\needspace{24\baselineskip}
+\begin{figure}[p]
+\centering
+\begin{tikzpicture}[
+  node distance=0.58cm,
+  box/.style={draw=ggunavy, fill=ggunavy!8, rounded corners=3pt, thick, align=center, text width=4.65cm, minimum height=0.74cm, font=\small},
+  evidence/.style={draw=ggugold!80!black, fill=ggugold!14, rounded corners=3pt, thick, align=center, text width=4.65cm, minimum height=0.74cm, font=\small},
+  conclusion/.style={draw=green!45!black, fill=green!9, rounded corners=3pt, thick, align=center, text width=4.65cm, minimum height=0.74cm, font=\small\bfseries},
+  arr/.style={-{Stealth[length=2.4mm,width=1.7mm]}, thick, ggunavy}
+]
+\node[box] (topic) {Topic Proposal Claim\\problem, B2C/B2B, framework, data, value};
+\node[box, below=of topic] (xref) {Cross-Reference\\chapter, appendix, table, figure};
+\node[box, below=of xref] (objective) {Objective\\what this topic must prove};
+\node[evidence, below=of objective] (approach) {Approach\\survey, EEG analysis, framework, governance, decision logic};
+\node[evidence, below=of approach] (evidencebase) {Evidence\\primary data + secondary data + citations + candidate analysis};
+\node[conclusion, below=of evidencebase] (close) {Conclusion\\pilot/adopt/defer boundary and future scope};
+\foreach \a/\b in {topic/xref,xref/objective,objective/approach,approach/evidencebase,evidencebase/close} {
+  \draw[arr] (\a) -- (\b);
+}
+\node[box, right=1.45cm of objective, text width=3.55cm] (control) {Control Check\\objective, evidence, APA7 source, no overclaim};
+\draw[arr] (objective.east) -- (control.west);
+\draw[arr] (control.south) |- (evidencebase.east);
+\end{tikzpicture}
+\caption[Topic Objective Achievement Flowchart]{Topic Objective Achievement Flowchart. Every proposal topic must move from claim to cross-reference, objective, approach, evidence, and bounded conclusion before it is retained in the dissertation or defence deck.}
+\label{fig:topic_objective_achievement_flow}
+\end{figure}
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:professor_question_defence_matrix} anticipates the main professor questions about the topic, approach, data, flow, pain area, mixed-method design, hypotheses, deployment, trust, explainability, responsibility, ethics, consensus, and AI governance.
+
+\paragraph{Professor Question Defence Matrix.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.1cm} p{5.0cm} p{5.0cm} >{\raggedright\arraybackslash}p{2.1cm} @{}}
+\caption[Professor Question Defence Matrix]{Professor Question Defence Matrix. This matrix gives concise defence answers and cross-references for the questions most likely to be asked about the topic proposal and dissertation.}\label{tab:professor_question_defence_matrix} \\
+\toprule
+\thead{Professor Question Area} & \thead{Concise Defence Answer} & \thead{Evidence / Approach} & \thead{Where to Point} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Pain area and problem & Families need earlier, understandable ASD screening support; clinicians need governed oversight before AI evidence affects care. & P1--P4 map access delay, weak explainability, governance risk, and adoption uncertainty to RQs, objectives, and evidence. & Ch.~1; Table~\ref{tab:problem_impact}; Table~\ref{tab:research_flow_alignment} \\
+\addlinespace
+Why this topic & The topic is not just EEG classification; it asks whether AI-assisted ASD screening can become trusted, explainable, and governable for B2C use. & Problem-to-decision logic links family pain, data, RGAIG, validation, and management verdict. & Fig.~\ref{fig:problem_to_decision_flow}; Ch.~5 \\
+\addlinespace
+Research design & The design is mixed-method and DBA-oriented: technical feasibility, adoption evidence, governance design, and management decision. & Secondary ASD-EEG analysis supports feasibility; primary survey/interview evidence supports trust, usability, and adoption readiness. & Ch.~3--4; Appendix C/F/G/I \\
+\addlinespace
+Quantitative evidence & Quantitative evidence answers whether the technical and survey relationships are measurable. & EEG metrics, model performance, bootstrap confidence, PLS-SEM, reliability, validity, and quantitative survey constructs. & Ch.~3--4; Table~\ref{tab:objective_hypothesis_variable} \\
+\addlinespace
+Qualitative evidence & Qualitative evidence explains why users trust, resist, or require governance boundaries. & Interview themes, open-ended survey comments, adoption barriers, social-setting concerns, consent and comfort issues. & Ch.~3--4; Appendix F/G \\
+\addlinespace
+Mixed-method integration & Mixed methods are used because accuracy alone cannot answer trust, governance, adoption, or customer-use questions. & Triangulation combines performance, explainability, trust, governance, user pain, and management-value evidence. & Ch.~4; Ch.~5 \\
+\addlinespace
+Hypotheses & Hypotheses test feasibility, explainability, trust, adoption, and governance-readiness links. & H1--H2 are mainly quantitative; H3 is mixed; H4--H5 combine quantitative ratings, qualitative interpretation, and governance evidence. & Ch.~3; Ch.~4; Table~\ref{tab:objective_hypothesis_variable} \\
+\addlinespace
+Framework evaluation & RGAIG is deployed as a governed decision-support pathway, not autonomous diagnosis. & Pipeline: capture, preprocessing, feature extraction, model output, explainability, RAG/agentic support, HITL review, audit, and escalation. & Appendix H/J/K/L; Fig.~\ref{fig:b2c_monitoring_reporting_sos_flow} \\
+\addlinespace
+Customer trust & Trust is earned through understandable reports, privacy, consent, clinician review, reliability, and bounded claims. & B2C dashboard, plain-language explanation, confidence bands, SOS boundary, audit trail, and caregiver feedback loop. & Ch.~5; Table~\ref{tab:b2c_service_scope} \\
+\addlinespace
+Explainability AI & Explainability is required so users and clinicians understand why a result was produced and what action is appropriate. & SHAP/feature explanation, confidence bands, report notes, clinician-facing review, and RAG-supported explanation boundaries. & Ch.~3--4; Appendix H/I \\
+\addlinespace
+Responsible AI & Responsible AI is operationalised through human oversight, accountability, privacy, fairness, transparency, and monitoring. & RGAIG maturity levels, governance gates, risk register, audit logs, escalation rules, and performance monitoring. & Appendix H/J/K/L; Ch.~5 \\
+\addlinespace
+Ethical and consent AI & The system must protect children, adults, caregivers, and clinical users through consent, assent, privacy, and no-autonomous-diagnosis boundaries. & Consent protocol, data minimisation, role-based access, HITL review, conceptual escalation reference (future scope) consent, and future field-validation limits. & Ch.~3; Appendix F/J/K \\
+\addlinespace
+Consensus AI / human agreement & AI output is not accepted alone; agreement is needed among model output, explanation, caregiver context, and clinician judgement. & Expert review, clinician override, dashboard feedback, escalation gate, qualitative triangulation, and governance sign-off. & Ch.~4--5; Appendix J/K \\
+\addlinespace
+Governance AI / trust AI & Governance is the mechanism that converts AI performance into trust and adoption readiness. & Governance $\rightarrow$ explainability $\rightarrow$ trust $\rightarrow$ adoption logic plus compliance, risk, and audit controls. & Abstract; Ch.~2--5; Appendix M \\
+\addlinespace
+B2C and B2B value & B2C receives monitoring, report, assessment, social-context tracking, and dashboard value; B2B supplies safety, clinical review, SOS, hospital/EHR integration, and audit. & B2C-primary / B2B-support model with management verdict: pilot B2C with B2B clinical support. & Table~\ref{tab:b2c_service_scope}; Ch.~5 \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RGAIG = Responsible Generative AI Governance; PLS-SEM = Partial Least Squares SEM; SHAP = SHapley Additive exPlanations; RAG = Retrieval-Augmented Generation. See chapter prose for full context.
+\vspace{0.5em}
+\noindent\textit{Defence rule.} For any professor question, answer in this sequence: pain/problem, objective, method, data, evidence, governance boundary, and conclusion.
+
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:proposal_dissertation_merge_control} documents how the topic-proposal document has been merged with the dissertation documents. This prevents the proposal from becoming a separate, inconsistent narrative.
+
+\paragraph{Topic Proposal to Dissertation.}
+
+
+
+\clearpage
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.4cm} p{2.8cm} p{5.6cm} >{\raggedright\arraybackslash}p{3.4cm} @{}}
+\caption[Topic Proposal to Dissertation Merge Control]{Topic Proposal to Dissertation Merge Control. Each topic-proposal component is mapped to the dissertation location where it is retained, expanded, or bounded.}\label{tab:proposal_dissertation_merge_control} \\
+\toprule
+\thead{Topic-Proposal Component} & \thead{Dissertation Merge Location} & \thead{How It Is Merged} & \thead{Control Rule} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Introduction & Chapter~1; Doctoral Research Framing Summary & Becomes the opening logic: B2C-primary ASD screening support requires B2B clinical governance, explainability, trust, and responsible-AI controls. & Do not duplicate as a separate proposal chapter. \\
+\addlinespace
+Research context and pain area & Chapter~1; Table~\ref{tab:problem_impact}; Fig.~\ref{fig:problem_to_decision_flow} & Family delay, privacy concern, social-setting risk, unclear reports, and clinician safety concerns are merged into the problem and sub-problem chain. & Every pain point must map to P1--P4 or scope/future work. \\
+\addlinespace
+Preliminary literature review & Chapter~2; literature themes; gap tables & Six proposal streams become the dissertation literature structure: ASD early identification, EEG/ML-DL, XAI, healthcare-AI adoption, responsible AI governance, and socio-technical theory. & Every literature claim needs a thesis citation or Chapter~2 theme. \\
+\addlinespace
+B2C/B2B positioning & Chapter~5; Table~\ref{tab:b2c_service_scope}; Fig.~\ref{fig:b2c_monitoring_reporting_sos_flow} & B2C is retained as primary value path; B2B is retained as safety, SOS, EHR, audit, and governance support. & Final claim remains pilot, not public launch. \\
+\addlinespace
+Objectives, questions, hypotheses & Chapter~1; Chapter~3; Table~\ref{tab:objective_hypothesis_variable} & Proposal objectives are converted into measurable dissertation objectives, RQs, variables, hypotheses, and analysis plans. & No objective without method and evidence. \\
+\addlinespace
+Approach and data flow & Chapter~3--4; Appendix C/F/G/I/H & Proposal method becomes mixed-method design: secondary EEG feasibility plus primary B2C/B2B trust, usability, governance, and adoption evidence. & Quantitative and qualitative evidence must be separated, then triangulated. \\
+\addlinespace
+Framework evaluation & Chapter~3; Appendix H/J/K/L & RGAIG becomes a governed decision-support pathway with capture, preprocessing, AI output, explanation, HITL, audit, escalation, and monitoring. & No autonomous diagnosis claim. \\
+\addlinespace
+Conclusion and management value & Chapter~5; management decision chart & Proposal conclusion becomes dissertation verdict: future B2C prospective-validation with B2B clinical support, with limitations and future validation stated. & Conclusion must include boundary and future work. \\
+\end{xltabular}}
+\vspace{0.5em}
+\noindent\textit{Note.} The topic proposal is a front-end approval document; the dissertation is the execution and evidence document. This table ensures that all proposal claims are either merged into a dissertation chapter/appendix or explicitly bounded as future work.
+
+
+%% ======================================================================
+%% M1. Operationalisation of Objectives (A--D Framework)
+%% Moved from Chapter 1 — 2026-05-12
+%% ======================================================================
+\addcontentsline{toc}{section}{M1. Operationalisation of Objectives (A--D Framework)} % [TOC-appendix-section-insertion]
+\section*{M1. Operationalisation of Objectives (A--D Framework)}
+\addcontentsline{toc}{section}{M1. Operationalisation of Objectives (A--D Framework)}
+\label{sec:appm_operationalization}
+
+To systematically address the research objectives, the study adopts a four-part evaluation framework. Each Part operationalises specific main objectives into measurable sub-objectives.
+
+\noindent\textbf{Part-Level Sub-Objectives: Hierarchical Mapping.}
+
+\noindent Table~\ref{tab:part_objectives} maps part-Level Sub-Objectives: Hierarchical Mapping from O1--O5 to A1--D3.
+
+\clearpage
+\paragraph{Part Objectives.} % [starred-section fix]
+
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.0cm} p{9.5cm} >{\centering\arraybackslash}p{1.0cm} >{\centering\arraybackslash}p{1.0cm} @{}}
+\caption[Part-Level Sub-Objectives: Hierarchical Mapping from]{Part-Level Sub-Objectives: Hierarchical Mapping from O1--O5 to A1--D3. Each sub-objective traces to a main objective, ensuring complete traceability from research design through methodology to findings.}\label{tab:part_objectives} \\
+\toprule
+\thead{ID} & \thead{Sub-Objective} & \thead{Parent} & \thead{Ch.4 Sec.} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{4}{@{}l}{\cellcolor{currentheader!15}\textbf{Part A --- B2C Evaluation (Linked to O1)}} \\
+\addlinespace
+A1 & Evaluate patient trust in AI-driven EEG screening & O1 & 4.2 \\
+A2 & Assess impact of usability and explainability on trust & O1 & 4.2 \\
+A3 & Measure user adoption intention and satisfaction & O1 & 4.2 \\
+\midrule
+\multicolumn{4}{@{}l}{\cellcolor{currentheader!15}\textbf{Part B --- Technical Evaluation (Linked to O2)}} \\
+\addlinespace
+B1 & Evaluate classification accuracy of ASD EEG model & O2 & 4.3 \\
+B2 & Assess model robustness and stability under varying conditions & O2 & 4.3 \\
+B3 & Evaluate explainability using SHAP feature importance & O2 & 4.3 \\
+B4 & Assess effectiveness of RAG-based reasoning & O2 & 4.3 \\
+\midrule
+\multicolumn{4}{@{}l}{\cellcolor{currentheader!15}\textbf{Part C --- B2B Clinical Evaluation (Linked to O3)}} \\
+\addlinespace
+C1 & Evaluate clinician trust in AI-generated outputs & O3 & 4.4 \\
+C2 & Assess improvements in clinical workflow efficiency & O3 & 4.4 \\
+C3 & Measure adoption readiness within hospital environments & O3 & 4.4 \\
+C4 & Evaluate return on investment and operational impact & O3 & 4.4 \\
+\midrule
+\multicolumn{4}{@{}l}{\cellcolor{currentheader!15}\textbf{Part D --- Governance and Integration (Linked to O4, O5)}} \\
+\addlinespace
+D1 & Validate compliance with ISO~42001 and NIST AI RMF & O4 & 4.5 \\
+D2 & Evaluate governance quality using the RGAIG framework & O4 & 4.5 \\
+D3 & Derive final evaluation decision (ADOPT vs.\ PILOT) & O5 & 4.5 \\
+\end{xltabular}}
+\vspace{0.5em}
+\noindent\textit{Note.} For the full P$\to$G$\to$O$\to$RQ$\to$H$\to$C traceability chain, see Table~\ref{tab:research_flow_alignment}.
+\noindent\textit{Note.} Sub-objectives A1--D3 are derived from main objectives O1--O5. They are not independent studies---they are operationalisations of the same integrated research design evaluated across four complementary dimensions.
+
+\noindent\textbf{Objective Mapping Summary: Main Objectives to Parts.}
+
+\noindent Table~\ref{tab:objective_mapping_summary} maps objective Mapping Summary: Main Objectives to Parts.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.2cm} L L @{}}
+\caption[Objective Mapping Summary: Main Objectives to Parts]{Objective Mapping Summary: Main Objectives to Parts. This table provides the single-view traceability that examiners require to verify that the A--D framework fully covers all research objectives.}\label{tab:objective_mapping_summary} \\
+\toprule
+\thead{Part} & \thead{Linked Objectives} & \thead{Focus} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+A & O1 $\to$ A1, A2, A3 & B2C qualitative: patient trust and adoption \\
+\addlinespace
+B & O2 $\to$ B1, B2, B3, B4 & B2C quantitative: EEG pipeline and accuracy \\
+\addlinespace
+C & O3 $\to$ C1, C2, C3, C4 & B2B qualitative: clinician acceptance \\
+\addlinespace
+D & O4, O5 $\to$ D1, D2, D3 & Governance: regulatory, ROI, evaluation \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} EEG = Electroencephalography. See chapter prose for full context.
+
+\noindent\textbf{Key Research Proposition.} This study proposes that AI-based biomedical screening systems require integrated validation across technical accuracy, user trust, clinical feasibility, and governance compliance to achieve real-world evidence-maturity interpretation. No single dimension is sufficient alone.
+
+\iffalse %% Old 8-objective table suppressed — replaced by new O1-O5 + A1-D3 hierarchy above
+\subsection{Research Objectives (OLD — SUPPRESSED)}
+
+\noindent\textbf{Research Objectives.}
+
+
+\noindent This table lists each \textit{o\#} across objective, and ch., so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} p{9.5cm} >{\raggedright\arraybackslash}p{3.0cm} @{}}
+\caption[Research Objectives]{Research Objectives. Five objectives (RO1--RO5) operationalise the identified research gaps into testable goals; each maps to a specific hypothesis, dataset, and measurable KPI target reported in Chapter~4.}\label{tab:research_objectives} \\
+\toprule
+\thead{O\#} & \thead{Objective} & \thead{Ch.} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+O1 & Develop a unified ASD screening and assessment framework. & Ch.~3--4 \\
+\addlinespace
+O2 & Evaluate ASD classification performance against pre-specified thresholds. & Ch.~4 \\
+\addlinespace
+O3 & Assess workflow automation and effort reduction within the proposed framework. & Ch.~3--4 \\
+\addlinespace
+O4 & Assess explainability and interpretation quality using SHAP and retrieval-grounded support. & Ch.~4--5 \\
+\addlinespace
+O5 & Validate the ASD framework across datasets, methods, and boundary conditions. & Ch.~4--5 \\
+\addlinespace
+O6 & Identify ASD-relevant diagnostic biomarkers and interpretation patterns. & Ch.~4 \\
+\addlinespace
+O7 & Examine governance-aligned evaluation implications as a secondary thesis output. & Ch.~4--5 \\
+\addlinespace
+O8 & Examine managerial and economic implications as bounded, model-based extensions. & Ch.~5 \\
+\end{xltabular}}
+\vspace{0.5em}
+\noindent\textit{Note.} Objectives O1--O6 represent the main validated research path of the dissertation. Objectives O7--O8 are retained as bounded secondary aims linked to governance and managerial interpretation rather than as claims of full evaluation proof.
+
+\iffalse %% Condensed — table already shows objective-to-RQ mapping
+
+\noindent Objective O7 maps to RQ7 and structural hypothesis SH6, which posits that governance compliance (responsible AI, security protocols, bias monitoring) moderates the relationship between technology integration and clinical adoption. Objective O8 maps to RQ8 and structural hypothesis SH7, which posits that the RGAIG framework achieves positive return on investment relative to single-domain alternatives through total-cost-of-ownership reduction. Together, O7 and O8 ensure that the research addresses not only technical feasibility but also regulatory readiness and economic justification---two prerequisites for real-world future clinical-validation pathway.
+\fi
+
+\noindent While Table~\ref{tab:research_objectives} summarises the eight objectives, the corresponding table expands the full set of fifteen research objectives (O1--O15), specifying for each the methodological approach, data source, analysis plan, and hypothesis or expected outcome. This detailed mapping establishes the traceability from each objective to its empirical test, ensuring that every claim made in Chapters~4 and~5 is anchored in a pre-specified analytical design.
+
+{%
+\tablestripes\tablefontsize
+\noindent Table~\ref{tab:research_objectives_detailed} summarises research objectives for appendix review.
+
+\paragraph{Research Objectives.}
+
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\centering
+\tablefontsize\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{3.4cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.0cm} p{3.5cm} >{\raggedright\arraybackslash}p{3.3cm} @{}}
+\tablefontsize\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{2.7cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.0cm} p{2.8cm} >{\raggedright\arraybackslash}p{2.6cm} @{}}
+\tablefontsize\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{2.65cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{1.5cm} p{2.7cm} >{\raggedright\arraybackslash}p{2.4cm} @{}}
+\tablefontsize\arraybackslash}p{0.58cm} >{\raggedright\arraybackslash}p{2.65cm} >{\raggedright\arraybackslash}p{1.15cm} >{\raggedright\arraybackslash}p{1.0cm} X >{\raggedright\arraybackslash}p{2.4cm} @{}}
+\caption[Research Objectives: Detailed Purpose, Approach, Data,]{Research Objectives: Detailed Purpose, Approach, Data, Analysis, and Expected Outcomes. This expanded view specifies the method, data source, analysis plan, and expected outcome for each objective, serving as the operational contract between Chapter~1 and the execution reported in Chapters~3--4.} \label{tab:research_objectives_detailed} \\
+\toprule
+\thead{ID} & \thead{Objective} & \thead{Method} & \thead{Data} & \thead{Analysis Plan} & \thead{Expected Outcome} \\
+\midrule
+\endfirsthead
+\endhead
+\midrule
+\multicolumn{6}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+O1 & Develop unified ASD screening framework & DSR/Mixed & P+S & Framework design; pipeline validation & H1: acceptable ASD screening performance \\
+\addlinespace
+O2 & Evaluate ASD classification performance & Quant & Sec & Preprocess; CV; accuracy/AUC/F1 & H1: threshold performance met \\
+\addlinespace
+O3 & Compare model strategies & Quant comp. & S & Benchmarking; paired tests; effect size & H2: advanced models beat baselines \\
+\addlinespace
+O4 & Identify discriminative features & Quant/XAI & S & SHAP/LIME; feature ranking & H3: clinically relevant features \\
+\addlinespace
+O5 & Assess workflow automation & Quant/proc. & P+S & Time-motion; before-after mapping & H4: lower effort and faster turnaround \\
+\addlinespace
+O6 & Assess conversational intake quality & Mixed & P & Interaction review; completeness & Supports H4 and H5 \\
+\addlinespace
+O7 & Integrate behav./psych.\ assessment & Mixed & P+S & Thematic coding; EEG triangulation & Richer decision context \\
+\addlinespace
+O8 & Evaluate RAG explainability and trust & Qual/Quant & P+S & Expert scoring; inter-rater agreement & H5: expert trust achieved \\
+\addlinespace
+O9 & Validate primary-data evidence & Qual/Quant & P & Coding; scoring; symptom clustering & Adds contextual value \\
+\addlinespace
+O10 & Validate EEG/IoT secondary evidence & Quant & S & Preprocess; features; bootstrap CI & Supports H1--H4 \\
+\addlinespace
+O11 & Test primary--secondary integration & Mixed & P+S & Joint display; triangulation & Improves usefulness \\
+\addlinespace
+O12 & Assess governance and audit readiness & Eval. & P+S & Checklist; audit trail; compliance map & Deployment-ready evidence \\
+\addlinespace
+O13 & Examine B2B hospital support role & Pract. & P+S & Workflow fit; stakeholder review & Clinical validation and governance support for B2C use \\
+\addlinespace
+O14 & Examine B2C home monitoring & Pract. & P+S & Pipeline; usability/risk interp. & Primary consumer value pathway; pilot validation required \\
+\addlinespace
+O15 & Produce decision-ready evidence & Mixed/dec. & P+S & Synthesize performance, trust, and governance & Adopt, pilot, or defer \\
+\end{xltabular}
+}%
+
+\noindent\textit{Note.} O1--O10 represent the core validated research path. O11--O15 address integration, governance, evaluation context, and decision synthesis. P = primary data; S = secondary data; CV = cross-validation; XAI = explainable AI; CI = confidence interval.
+
+\noindent Table~\ref{tab:smart_framing} frames the overall research using SMART criteria, complementing the per-objective SMART validation.
+
+
+
+\noindent\textbf{SMART Criteria Alignment for Research Objectives.}
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} l L @{}}
+\caption[SMART Criteria Alignment for Research Objectives]{SMART Criteria Alignment for Research Objectives. The table validates that the overall research design satisfies each SMART element---Specific, Measurable, Achievable, Relevant, and Time-bound---providing an external examiner with a concise feasibility assessment.}\label{tab:smart_framing} \\
+\toprule
+\thead{SMART Element} & \thead{Thesis Position} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Specific & Build and evaluate a unified biomedical assessment framework using conversational intake, forms, behaviour/psychological capture, and EEG/IoT analysis \\
+Measurable & Accuracy, trust, explainability, time reduction, governance indicators \\
+Achievable & Bounded to selected disease domains, available datasets, and available devices \\
+Relevant & Addresses caregiver uncertainty, home-monitoring continuity, and hospital workflow support needs \\
+Timely & Enabled by current availability of RAG, agentic AI, EEG/IoT capture, and explainable AI \\
+\end{xltabular}}
+\vspace{2pt}
+\noindent\textit{Note.} SMART = Specific, Measurable, Achievable, Relevant, Timely.
+
+\iffalse %% SMART validation — detail moved to Appendix A
+\subsection{SMART Validation of Research Objectives}
+
+Table~\ref{tab:smart_objectives} validates each objective against SMART criteria.
+
+
+\noindent\textbf{SMART Framework Validation of Research Objectives.}
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:smart_objectives} presents the smart validation of research objectives.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} p{2.9cm} p{2.9cm} p{2.8cm} p{2.6cm} >{\raggedright\arraybackslash}p{2.0cm} @{}}
+\caption[SMART Validation of Research Objectives]{SMART Framework Validation of Research Objectives}\label{tab:smart_objectives} \\
+\toprule
+\thead{O\#} & \thead{Specific} & \thead{Measurable} & \thead{Achievable} & \thead{Relevant} & \thead{Time} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+O1 & Standardized preprocessing for EEG (8-step) and imaging (5-step) across ASD & Pipeline completion rate; feature counts per domain & Public datasets available; established preprocessing methods & Addresses P1 (fragmentation); enables ASD-focused comparison & Ch.~3--4 implementation \\
+\addlinespace
+O2 & DL models achieving $\geq$85\% accuracy per domain & Accuracy, sensitivity, specificity, AUC per domain & Prior studies report 78--100\%; 85\% threshold is competitive & Addresses P1, P4; validates ASD-focused capability & Ch.~4 experiments \\
+\addlinespace
+O3 & Agentic AI for automated orchestration of 9-stage pipeline & Effort reduction (\%); time savings (\%); manual intervention count & Agentic frameworks available since 2023; proven in adjacent fields & Addresses P3 (manual inefficiency); operational contribution & Ch.~3--4 pipeline \\
+\addlinespace
+O4 & RAG-based explainability with literature-grounded narratives & Expert agreement ($\geq$80\%); citation accuracy ($\geq$90\%); RAGAS scores & RAG technology mature (2022+); 12-expert panel recruited & Addresses P2 (opacity); clinician trust contribution & Ch.~4--5 evaluation \\
+\addlinespace
+O5 & ASD-focused validation using multi-method approach & 4 validation methods: CV, ablation, expert panel, scenario testing & All methods standard in DS/AI research; data available & Addresses P4 (limited validation); generalisation evidence & Ch.~4--5 validation \\
+\addlinespace
+O6 & Domain-specific and ASD-focused biomarker identification & SHAP importance rankings; feature contribution percentages & SHAP is established XAI method; applicable to all model types & Addresses P4; advances biomarker synthesis knowledge & Ch.~4 analysis \\
+\addlinespace
+O7 & Governance-aligned evaluation architecture with RACI and KPIs & Expert governance rating ($\geq$4.0/5); regulatory alignment checklist & NIST AI RMF, FDA SaMD, EU AI Act frameworks published & Addresses P1--P4 collectively; governance contribution & Ch.~4--5 framework \\
+\addlinespace
+O8 & Economic viability via TCO analysis and illustrative financial scenario benchmarking against single-domain alternatives & illustrative financial scenario $\geq$1.0; illustrative cost-modelling reduction scenario (\%); illustrative payback estimate & Published healthcare AI cost studies; standard financial modelling & Addresses P3 (cost); economic viability contribution & Ch.~4--5 analysis \\
+\end{xltabular}}
+\vspace{0.5em}
+\noindent\textit{Note.} SMART = Specific, Measurable, Achievable, Relevant, Time-bound~\cite{doran1981smart}. Each objective satisfies all five SMART criteria, ensuring clear success metrics and feasibility within the doctoral research timeframe. AUC = area under the curve; CV = cross-validation; SHAP = Shapley additive explanations; RAGAS = Retrieval-Augmented Generation Assessment; RACI = Responsible, Accountable, Consulted, Informed; KPI = key performance indicator; NIST AI RMF = National Institute of Standards and Technology AI Risk Management Framework; SaMD = Software as a Medical Device; XAI = explainable artificial intelligence; TCO = total cost of ownership; illustrative financial scenario = return on investment.
+\fi %% End suppressed SMART validation
+
+\phantomsection\label{tab:smart_objectives}
+
+\subsection{Research Questions}
+
+\noindent\textbf{Research Questions with Linked Objectives.}
+
+
+
+\noindent This table lists each \textit{rq\#} across research question, and linked obj., so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} p{9.5cm} >{\raggedright\arraybackslash}p{1.0cm} @{}}
+\caption[Research Questions with Linked Objectives]{Research Questions with Linked Objectives. Each research question is mapped to the objective it operationalises, enabling the reader to trace any empirical finding in Chapter~4 back to the specific question it answers.}\label{tab:rq_mapping} \\
+\toprule
+\thead{RQ\#} & \thead{Research Question} & \thead{Linked Obj.} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+RQ1 & Can a unified AI pipeline analyse EEG and imaging data across multiple biomedical conditions with accuracy comparable to domain-specific approaches? & O1, O2, O5 \\
+\addlinespace
+RQ2 & Do deep learning architectures significantly outperform classical baselines for ASD-focused biomedical diagnostics? & O2 \\
+\addlinespace
+RQ3 & Which EEG oscillatory and radiomic features most strongly contribute to predictive accuracy across domains? & O6 \\
+\addlinespace
+RQ4 & Can agentic AI automate biomedical analysis workflows without compromising diagnostic accuracy? & O3 \\
+\addlinespace
+RQ5 & How does RAG-based explainability improve transparency, trustworthiness, and clinical interpretability? & O4 \\
+\addlinespace
+RQ6 & What ASD-focused patterns and domain-specific differences emerge from a unified analytical framework? & O5, O6 \\
+\addlinespace
+RQ7 & To what extent does AI governance compliance (responsible AI, security, bias monitoring) achieve regulatory readiness? & O7 \\
+\addlinespace
+RQ8 & What is the economic viability of RGAIG measured by illustrative cost-modelling reduction scenario and projected illustrative financial scenario in clinical screening? & O8 \\
+\end{xltabular}}
+\vspace{0.5em}
+\noindent\textit{Note.} Each research question is addressed by one or more hypotheses (Table~\ref{tab:hypotheses}). RQ7 and RQ8 are evaluated through structural hypotheses SH6 and SH7 respectively, tested via the governance and economic modules of the RGAIG framework. TCO = total cost of ownership; illustrative financial scenario = return on investment.
+
+\iffalse %% Condensed — table already maps RQs to objectives
+
+\noindent These eight research questions bridge academic inquiry and clinical practice. RQ1--RQ3 address diagnostic accuracy (practitioner need), RQ4--RQ5 address workflow automation and explainability (clinical adoption barriers), RQ6 addresses ASD-focused scalability (organisational capability), RQ7 addresses governance readiness (regulatory compliance), and RQ8 addresses economic justification (executive decision-making). This alignment reflects the DBA mandate to produce actionable, industry-relevant knowledge: every research question maps to a concrete decision that a healthcare executive, clinical director, or technology officer must make when evaluating AI-assisted diagnostic platforms.
+\fi
+
+%===============================================================================
+\subsection{Problem-to-Solution Traceability}
+\label{sec:problem_solution_trace}
+
+Table~\ref{tab:problem_rq_solution} provides a condensed traceability map linking each named problem to the core research response and the chapter where supporting evidence is presented.
+
+\noindent\textbf{Problem-to-Solution Traceability.}
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:problem_rq_solution} presents the problem-to-solution traceability.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{4.0cm} >{\raggedright\arraybackslash}p{1.0cm} p{6.9cm} >{\raggedright\arraybackslash}p{1.0cm} @{}}
+\caption[Problem-to-Solution Traceability]{Problem-to-Solution Traceability. The full chain from problem code through research question to design response and evidence location is recorded, providing an audit trail that an examiner can follow to verify that every claim is substantiated.}\label{tab:problem_rq_solution} \\
+\toprule
+\thead{Code} & \thead{Problem Focus} & \thead{RQ} & \thead{Research Response} & \thead{Evid.} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+P1 & Fragmented ASD AI workflow & RQ1--RQ3 & Unified ASD pipeline, comparative model evaluation, and biomarker analysis & Ch.~4 \\
+\addlinespace
+P2 & Limited explainability and trust & RQ5 & Retrieval-augmented explainability with expert-reviewed narrative and citation-grounded interpretation & Ch.~4 \\
+\addlinespace
+P3 & Manual workflow inefficiency & RQ4 & Agentic automation of preprocessing, classification, and reporting with measured effort reduction & Ch.~4 \\
+\addlinespace
+P4 & Weak governance and readiness & RQ7--RQ8 & Governance-aligned architecture and bounded managerial evaluation as secondary evidence & Ch.~4--5 \\
+\end{xltabular}}
+\vspace{0.5em}
+\noindent\textit{Note.} The main value focus of the dissertation is B2C caregiver/patient adoption, with B2B organisational controls providing future clinical-validation pathway, escalation, auditability, and governance support. Consumer and home-monitoring use cases remain pilot-bounded because public B2C launch requires prospective wearable, comfort, affordability, privacy, and trust validation.
+
+\vspace{1em}
+
+\noindent\textbf{Current scope:} ASD domain evaluation, B2C caregiver/patient value logic, and organisationally relevant B2B support evidence.
+
+\noindent\textbf{Future scope:} Prospective future B2C prospective-validation studies, broader disease expansion, stronger caregiver sampling, Canada/India localisation, and consumer home-monitoring validation under clinician-governed escalation.
+
+\vspace{1em}
+
+\noindent Figure~\ref{fig:problem_solution_flow} visualises the traceability chain from identified problems through research questions to solutions, evidence, and evaluation verdicts.
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+
+
+\noindent\textbf{Problem-to-solution traceability flow: from.}
+
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}[
+  every node/.style={font=\fignodefont},
+  >={Stealth[length=4mm, width=3mm]},
+  every node/.style={font=\small, align=center},
+  prob/.style={draw=ggunavy, fill=ggunavy!8, rounded corners=3pt,
+               minimum width=2.9cm, minimum height=1.0cm,
+               font=\small\bfseries, text=ggunavy},
+  rq/.style={draw=ggunavy, fill=ggunavy!5, rounded corners=3pt,
+             minimum width=1.8cm, minimum height=1.0cm,
+             font=\small, text=ggunavy},
+  sol/.style={draw=ggunavy, fill=ggunavy!8, rounded corners=3pt,
+              text width=2.7cm, minimum height=1.0cm,
+              font=\small, text=ggunavy},
+  evi/.style={draw=ggunavy, fill=ggunavy!5, rounded corners=3pt,
+              text width=2.7cm, minimum height=1.0cm,
+              font=\small, text=ggunavy},
+  ver/.style={draw=ggunavy, fill=ggunavy!12, rounded corners=3pt,
+              text width=2.9cm, minimum height=1.0cm,
+              font=\small\bfseries, text=ggunavy},
+  arr/.style={-{Stealth[length=4mm, width=3mm]}, very thick, ggunavy},
+  lbl/.style={font=\small\bfseries, text=ggunavy},
+]
+% 
+% --- Row labels ---
+% 
+\node[lbl] at (-2.4, 0.0)   {Problems};
+\node[lbl] at (-2.4,-2.0)   {Research\\Questions};
+\node[lbl] at (-2.4,-4.3)   {Solutions};
+\node[lbl] at (-2.4,-6.5)   {Evidence};
+\node[lbl] at (-2.4,-8.7)   {Verdict};
+% 
+% === LAYER 1: PROBLEMS ===
+\node[prob] (P1) at (0.8, 0)   {P1: Fragmented\\ASD workflow};
+\node[prob] (P2) at (4.9, 0)   {P2: Black-box\\opacity};
+\node[prob] (P3) at (9.0, 0)   {P3: Manual\\workflow};
+\node[prob] (P4) at (13.1, 0)  {P4: No\\governance};
+% 
+% === LAYER 2: RESEARCH QUESTIONS ===
+\node[rq] (RQ1) at (-0.2, -2.0) {RQ1};
+\node[rq] (RQ2) at (0.8,  -2.0) {RQ2};
+\node[rq] (RQ3) at (1.8,  -2.0) {RQ3};
+\node[rq] (RQ5) at (4.9,  -2.0) {RQ5};
+\node[rq] (RQ4) at (8.3,  -2.0) {RQ4};
+\node[rq] (RQ6) at (9.7,  -2.0) {RQ6};
+\node[rq] (RQ7) at (12.4, -2.0) {RQ7};
+\node[rq] (RQ8) at (13.8, -2.0) {RQ8};
+% 
+\draw[arr] (P1.south) -- (RQ1.north);
+\draw[arr] (P1.south) -- (RQ2.north);
+\draw[arr] (P1.south) -- (RQ3.north);
+\draw[arr] (P2.south) -- (RQ5.north);
+\draw[arr] (P3.south) -- (RQ4.north);
+\draw[arr] (P3.south) -- (RQ6.north);
+\draw[arr] (P4.south) -- (RQ7.north);
+\draw[arr] (P4.south) -- (RQ8.north);
+% 
+% === LAYER 3: SOLUTIONS ===
+\node[sol] (S1) at (0.8,  -4.3) {Unified ASD pipeline\\and model benchmark};
+\node[sol] (S2) at (4.9,  -4.3) {SHAP biomarkers\\and RAG explanation};
+\node[sol] (S3) at (9.0,  -4.3) {Agentic automation\\and IoT monitoring};
+\node[sol] (S4) at (13.1, -4.3) {QA taxonomy\\and illustrative financial-scenario model};
+% 
+\draw[arr] (RQ1.south) -- (S1.north west);
+\draw[arr] (RQ2.south) -- (S1.north);
+\draw[arr] (RQ3.south) -- (S1.north east);
+\draw[arr] (RQ5.south) -- (S2.north);
+\draw[arr] (RQ4.south) -- (S3.north west);
+\draw[arr] (RQ6.south) -- (S3.north east);
+\draw[arr] (RQ7.south) -- (S4.north west);
+\draw[arr] (RQ8.south) -- (S4.north east);
+% 
+% === LAYER 4: EVIDENCE ===
+\node[evi] (E1) at (0.8,  -6.5) {ASD datasets\\768+ subjects};
+\node[evi] (E2) at (4.9,  -6.5) {SHAP ranks\\and citations};
+\node[evi] (E3) at (9.0,  -6.5) {Workflow evidence\\and automation};
+\node[evi] (E4) at (13.1, -6.5) {525 QA modules\\Illustrative financial scenario (modelled only)};
+% 
+\draw[arr] (S1.south) -- (E1.north);
+\draw[arr] (S2.south) -- (E2.north);
+\draw[arr] (S3.south) -- (E3.north);
+\draw[arr] (S4.south) -- (E4.north);
+% 
+% === LAYER 5: VERDICT ===
+\node[ver] (V1) at (2.4,  -8.8) {H1--H3:\\Supported};
+\node[ver] (V2) at (7.0,  -8.8) {H4--H5:\\Supported};
+\node[ver] (V3) at (12.0, -8.8) {ROI:\\135--185\%};
+% 
+\draw[arr] (E1.south east) -- (V1.north west);
+\draw[arr] (E2.south west) -- (V1.north east);
+\draw[arr] (E2.south east) -- (V2.north west);
+\draw[arr] (E3.south west) -- (V2.north east);
+\draw[arr] (E4.south) -- (V3.north);
+% 
+\end{tikzpicture}%
+}%
+\caption[Problem-to-solution traceability flow]{Problem-to-solution traceability flow: from identified gaps (P1--P4) through research questions (RQ1--RQ8) to solutions, empirical evidence, and hypothesis verdicts.}
+\label{fig:problem_solution_flow}
+\end{figure}
+
+%===============================================================================
+
+
+\noindent The dissertation distinguishes itself from a purely technical AI study by treating trust, explainability, workflow relevance, governance, and bounded organisational adoption as linked evaluation dimensions rather than as separate afterthoughts. In Chapter~\ref{chap:analysis}, these dimensions are interpreted through the empirical evidence rather than through a standalone introductory control table.
+
+\phantomsection\label{tab:six_differentiators}
+
+%===============================================================================
+\subsection{IoT Ecosystem and Data Capture Architecture}
+\label{sec:iot_ecosystem}
+
+\noindent The IoT and wearable layer is treated in this dissertation as a \textbf{future-oriented evaluation pathway} rather than as a primary validated contribution. Consumer-grade EEG headsets and wearable sensors are relevant because they suggest how ASD-focused screening might eventually extend beyond institutional settings; however, the present study does not claim full end-to-end validation of a home-monitoring architecture. Accordingly, Figure~\ref{fig:iot_pipeline} is treated as a conceptual evaluation sketch rather than as core empirical evidence.
+
+\phantomsection\label{fig:iot_pipeline}
+
+%===============================================================================
+\subsection{AI Application Strategy}
+\label{sec:ai_application}
+
+\noindent At a high level, the framework applies AI through four linked functions: preprocessing heterogeneous biomedical data, extracting discriminative features, classifying domain-specific conditions, and generating explainable outputs for clinical interpretation. The detailed technical pipeline, model configurations, and validation procedures are presented in Chapter~\ref{chap:methodology}, while the resulting performance, explainability, and workflow evidence are reported in Chapter~\ref{chap:analysis}. In the introduction, the key point is not the engineering sequence itself, but that the dissertation evaluates whether these functions can be unified within one governance-aligned ASD-focused framework.
+
+\fi %% End of suppressed old objectives section
+
+%===============================================================================
+
+%% ======================================================================
+%% M2. Research Structure (A--D Framework)
+%% Moved from Chapter 1 — 2026-05-12
+%% ======================================================================
+\addcontentsline{toc}{section}{M2. Research Structure (A--D Framework)} % [TOC-appendix-section-insertion]
+\section*{M2. Research Structure (A--D Framework)}
+\addcontentsline{toc}{section}{M2. Research Structure (A--D Framework)}
+\label{sec:appm_research_structure}
+\label{sec:contributions}
+
+The dissertation claims contribution through integration rather than through invention of a new core algorithm. Its contribution set comprises five linked layers: ASD-focused technical evaluation, explainability support, workflow automation, governance framing, and bounded managerial relevance. These layers are interpreted in detail across Chapters~\ref{chap:analysis} and~\ref{chap:discussion}, while Figure~\ref{fig:novelty_stack} provides the compact visual summary of the novelty claim.
+
+\phantomsection\label{tab:contribution_declaration}
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+
+\iffalse %% Condensed — figure caption explains the novelty claim
+
+\noindent\textbf{Why this visual.} The contribution declarations in Table~\ref{tab:contribution_declaration} enumerate eight contributions, but an examiner may ask: ``Where exactly is the novelty if CNN, RAG, and SHAP are all established techniques?'' The following figure answers this question by showing that novelty resides in the integration stack, not in the individual components.
+\fi %% End suppressed Why this visual
+
+
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\vspace*{-0.5cm}
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}[
+  every node/.style={font=\fignodefont},
+  layer/.style={rectangle, rounded corners=4pt, draw=ggunavy, minimum height=1.6cm,
+    text width=12cm, align=center, font=\small, inner sep=8pt},
+  arr/.style={-{Stealth[length=4mm, width=3mm]}, very thick, ggunavy}
+]
+%
+\node[layer, fill=lightsky] (l5) {\textbf{Business Novelty (C6)}\\[3pt]Decision-centric design + illustrative financial-scenario model + DBA positioning (Ch.~5)};
+% 
+\node[layer, fill=lightorange, below=0.5cm of l5] (l4) {\textbf{Governance Novelty (C4)}\\[3pt]46-module Responsible AI framework + five-layer decision governance};
+% 
+\node[layer, fill=lightteal, below=0.5cm of l4] (l3) {\textbf{Architectural Novelty (C3)}\\[3pt]Multi-agent orchestration: 6 autonomous agents + agentic RAG pipeline};
+% 
+\node[layer, fill=lightpurple, below=0.5cm of l3] (l2) {\textbf{Explainability Novelty (C2)}\\[3pt]RAG-based clinical reasoning with citation grounding (see Ch.~4)};
+% 
+\node[layer, fill=lightgreen, below=0.5cm of l2] (l1) {\textbf{Technical Novelty (C1)}\\[3pt]ASD-focused unified pipeline across ASD (see Ch.~4)};
+\draw[arr] (l1.north west) -- (l2.south west);
+\draw[arr] (l2.north west) -- (l3.south west);
+\draw[arr] (l3.north west) -- (l4.south west);
+\draw[arr] (l4.north west) -- (l5.south west);
+% 
+\node[font=\small\itshape, text=ggunavy!70, right=0.5cm of l1.east] {Components are standard};
+% 
+\node[font=\small\itshape, text=ggunavy!70, right=0.5cm of l5.east] {Integration is novel};
+\end{tikzpicture}%
+}
+\caption[Five-layer novelty stack]{Five-layer novelty stack: the contribution is system-level integration (top), not algorithmic novelty (bottom). Individual components (CNN, SHAP, RAG) are established; their unified, governed orchestration is the thesis contribution.}
+\label{fig:novelty_stack}
+\end{figure}
+
+\iffalse %% Condensed — figure caption and annotations explain the novelty distinction
+
+\noindent\textbf{What it shows.} Figure~\ref{fig:novelty_stack} presents five vertically stacked layers of contribution, ordered from established components at the base (C1: ASD-focused pipeline) to system-level novelty at the top (C6: business model and ROI). The annotations ``components are standard'' (bottom) and ``integration is novel'' (top) make the novelty claim explicit: each layer builds on the one below, and the thesis contribution lies in the governed orchestration of known techniques, not in algorithmic invention.
+
+
+\noindent\textbf{So what.} This visual pre-empts the most predictable examiner critique by clearly delineating what is claimed (integrative novelty) from what is not (algorithmic novelty). The five-layer structure also maps directly to contributions C1--C6 in Table~\ref{tab:contribution_declaration}, providing a compact visual index for the non-claims discussion that follows.
+\fi %% End suppressed novelty stack What it shows/So what
+
+Figure~\ref{fig:novelty_stack} illustrates that novelty resides in the integration stack (C1--C6), not in any individual algorithmic component.
+
+\subsection{What This Study Does Not Claim}
+
+Table~\ref{tab:non_claims} states four explicit boundaries on what this study does not claim.
+
+
+\needspace{24\baselineskip}
+\iffalse % AUTO-SUPPRESS non-ASD
+\noindent\textbf{What This Study Does Not Claim.}
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:non_claims} presents the what this study does not claim.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption[What This Study Does Not Claim]{What This Study Does Not Claim}\label{tab:non_claims} \\
+\toprule
+\thead{Non-Claim} & \thead{Boundary} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+This study does not claim clinical evidence-maturity interpretation & All results are based on retrospective, publicly available datasets; prospective future clinical-validation pathway is required before evaluation \\
+\addlinespace
+This study does not claim algorithmic novelty in individual model components & The contribution is integrative (novel combination) rather than algorithmic; convolutional neural network (CNN), long short-term memory (LSTM), and RAG components are established technologies \\
+\addlinespace
+This study does not claim generalizability beyond the five tested domains & ASD-focused performance is demonstrated within ASD, PD, stress, BCI, and cancer radiomics; extension to other conditions requires empirical validation \\
+\addlinespace
+This study does not claim that AI should replace clinical judgment & The framework is designed as decision support; final diagnostic authority remains with the clinician \\
+\end{xltabular}}
+\vspace{0.5em}
+\noindent\textit{Note.} These non-claims define the boundary conditions within which the study's contributions should be interpreted. Each is revisited in Chapter~\ref{chap:discussion} (limitations and future research).
+\fi % AUTO-SUPPRESS non-ASD
+
+%===============================================================================
+
+
+%% =============================================================================

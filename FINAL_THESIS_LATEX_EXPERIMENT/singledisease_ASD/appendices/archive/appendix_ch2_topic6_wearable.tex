@@ -1,0 +1,61 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CHAPTER 2 SECTION: DETAILED LITERATURE REVIEW: WEARABLE EEG SYSTEMS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Detailed Literature Review: Wearable EEG Systems}
+\label{app:ch2_wearable}
+\label{sec:topic6_wearable}
+
+This section provides the detailed literature review for wearable EEG-based emotion and stress detection (MWSE-Framework) supporting the thematic synthesis in Chapter~2. The review traces the progression through hardware validation and benchmark dataset creation, classical approaches with handcrafted features, deep learning with attention and graph architectures, and multimodal attention with edge deployment. All citations are referenced in the consolidated bibliography.
+
+Consumer-grade wearable EEG headsets have enabled affective monitoring outside traditional laboratory environments. The literature has progressed through hardware validation and benchmark dataset creation (2012--2017), classical approaches with handcrafted features (2017--2020), deep learning with attention and graph architectures (2020--2023), and multimodal attention with edge deployment (2023--2025).
+
+\subsection{Hardware Validation}
+
+Duvinage et al.~\cite{duvinage2013emotiv} systematically compared Emotiv EPOC against clinical-grade g.tec EEG, finding adequate signal quality for BCI applications but $\sim$6~dB lower SNR. Badcock et al.~\cite{badcock2013neurosky} validated NeuroSky MindWave single-channel EEG for auditory ERPs in clinical and educational settings. Krigolson et al.~\cite{krigolson2017muse} validated Muse EEG headband for cognitive neuroscience research. Sawangjai et al.~\cite{sawangjai2020consumer} provided a systematic review of 147 studies identifying key trade-offs: cost vs.\ channel count, comfort vs.\ signal quality, and dry vs.\ wet electrodes.
+
+\subsection{Classical Approaches}
+
+Classical wearable EEG emotion recognition exposes a persistent accuracy ceiling. DEAP's SVM baseline (Koelstra et al.~\cite{koelstra2012deap}: 57.6\% valence, 62.0\% arousal on 32 subjects) barely exceeds chance for binary classification, and the cohort is insufficient for population-level generalisation. Zheng and Lu~\cite{zheng2015seed} report 83.99\% on SEED, but this targets discrete emotions rather than dimensional affect, making the two benchmarks non-comparable despite frequent co-citation. Li et al.~\cite{li2018transfer} improve cross-session accuracy from 62.3\% to 79.5\% via transfer learning---a substantial gain---but the gap to clinical viability remains unaddressed. Correa et al.~\cite{correa2018amigos} add only 7.8~pp through multimodal fusion (EEG+ECG+GSR), questioning whether additional sensors justify the deployment complexity. Alar\c{c}\~{a}o and Fonseca~\cite{alarcao2017emotions} identify PSD, asymmetry, and entropy as top features across 48 studies, but feature consensus has not translated into accuracy convergence.
+
+\subsection{Deep Learning}
+
+DL architectures progressively improved SEED accuracy from 87.6\% (Chao et al.~\cite{chao2019attention}, attention-LSTM) to 93.72\% (Tao et al.~\cite{tao2020attention}, convolutional-recurrent), but this 6-point improvement over four years involved increasingly complex architectures---raising the question of diminishing returns. Chao et al.'s finding that beta and gamma bands receive highest attention provides the only mechanistic insight; Salama et al.~\cite{salama2018_3dcnn} (87.44\% valence via 3D-CNN), Li et al.~\cite{li2020hierarchical} (90.16\% via hierarchical CNN), and Song et al.~\cite{song2020eeg} (90.4\% via graph CNN) report accuracy without explaining what the model learns. Topic and Russo~\cite{topic2021emotiv} provide the most deployment-relevant result (78.4\% valence with only 5 Emotiv channels), yet the 15-point gap from clinical-grade results quantifies the cost of consumer hardware constraints that no study has systematically addressed.
+
+\subsection{Real-Time and Edge Deployment}
+
+Ahn et al.~\cite{ahn2022wearable} achieved 88.7\% stress detection in real-time workplace settings using EEG + HRV + GSR multimodal fusion. Li et al.~\cite{li2022domain} improved cross-subject accuracy from 59.2\% to 72.8\% using multi-source domain-specific batch normalization.
+
+\subsection{Multimodal Attention}
+
+Chen et al.~\cite{chen2021hierarchical} achieved 92.3\% on DEAP using cross-modal attention with dynamic modality weighting. Yang et al.~\cite{yang2023crossmodal} achieved 94.1\% multimodal emotion recognition with hierarchical cross-modal attention, achieving published baseline-competitive results on DEAP and SEED.
+
+\subsection{Comparative Analysis}
+
+Table~\ref{tab:wearable_detail_comparison} compares existing wearable EEG systems against the proposed MWSE-Framework.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{3cm} p{3cm} p{2.5cm} L L @{}}
+\caption[Comparative Analysis of Wearable EEG Systems vs.\]{Comparative Analysis of Wearable EEG Systems vs.\ Proposed MWSE-Framework}\label{tab:wearable_detail_comparison} \\
+\toprule
+\thead{Study} & \thead{Method} & \thead{Result} & \thead{Gap} & \thead{MWSE Advantage} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:wearable_detail_comparison} continued from previous page\,)}} \\
+\toprule
+\thead{Study} & \thead{Method} & \thead{Result} & \thead{Gap} & \thead{MWSE Advantage} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Koelstra et al.~\cite{koelstra2012deap} & DEAP + SVM baseline & 57.6\% valence, 62.0\% arousal & Clinical hardware; no wearable & Wearable-specific adaptive preprocessing \\
+\addlinespace
+Song et al.~\cite{song2020eeg} & DGCNN learnable graph & 90.4\% on SEED & Clinical data; no edge deployment & Lightweight inference for real-time ARM \\
+\addlinespace
+Topic and Russo~\cite{topic2021emotiv} & Emotiv 5-ch CNN-LSTM & 78.4\% valence & Single device; no cross-device & Cross-device transfer learning \\
+\addlinespace
+Ahn et al.~\cite{ahn2022wearable} & EEG + HRV + GSR real-time & 88.7\% stress & No attention; no fairness auditing & Attention + responsible AI governance \\
+\addlinespace
+Yang et al.~\cite{yang2023crossmodal} & Cross-modal attention transformer & 94.1\% multimodal & Requires video (privacy); high compute & Privacy-preserving wearable-only sensors \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} DGCNN = dynamical graph convolutional neural network; MWSE = Multimodal Wearable Stress-Emotion; HRV = heart rate variability; GSR = galvanic skin response; ARM = Advanced RISC Machine (embedded processor).

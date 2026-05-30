@@ -1,0 +1,462 @@
+
+%% ============================================================================
+%% Advanced architecture pages: pipelines, vector/graph DB, scheduling,
+%% RAG sub-phases, DB master schema, RGAIG/SMART per phase, pipeline list
+%% Auto-generated 2026-05-27
+%% ============================================================================
+
+\clearpage
+\subsection{Advanced Architecture --- Pipelines, Vector / Graph DB, RAG Sub-Phases, DB Master Schema}
+\label{sec:advanced_arch_pages}
+
+\noindent\emph{Comprehensive advanced-architecture reference: pipeline types (training / inference / fallback), Qdrant vector DB + graph DB design, cron scheduling + LLM model registry, chunking + embedding + token + pre/post-retrieval, output evaluation (Ragas), accuracy + benchmarking + business value, RGAIG + SMART per phase, monitoring + governance + threshold + HITL summary, per-phase input/process/output/quality, DB master schema (master/transaction/org/condition/service/product/usage/consumption).}
+
+
+\clearpage
+\paragraph[Pipeline Types]{Pipeline Types --- Training / Inference / Fallback / Vector DB / Output Eval.}
+
+
+\noindent This table lists each \textit{pipeline} across trigger, latency target, slo, and 1 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} L L L L @{}}
+\caption[Pipeline Types]{Pipeline Types --- Training / Inference / Fallback / Vector DB / Output Eval.}\label{tab:pipeline_types} \\
+\toprule
+\thead{Pipeline} & \thead{Trigger} & \thead{Latency target} & \thead{SLO} & \thead{Tool / framework} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Training pipeline & Manual / scheduled retrain & 1--24 hours per run & Success rate $\geq 99\%$ & MLflow + sklearn / pytorch \\
+Inference pipeline (online) & Per-prediction request & $<$ 500 ms per request & p95 latency target & FastAPI + onnxruntime \\
+Inference pipeline (batch) & Scheduled batch (nightly) & 1--6 hours per batch & Throughput per hour & Celery + sklearn \\
+Fallback pipeline & Primary inference failure & $<$ 1 s per fallback & Graceful degradation & Pre-cached baseline model + rule-based heuristic \\
+Vector DB ingestion & New document arrival & $<$ 5 min per document & Success rate $\geq 99\%$ & Qdrant / ChromaDB + sentence-transformers \\
+Retrieval pipeline & Per-query request & $<$ 200 ms per query & p95 latency + recall$@5$ & Qdrant hybrid retriever + reranker \\
+Output evaluation pipeline (Ragas) & Per-RAG-response & $<$ 2 s per evaluation & Faithfulness $\geq 0.85$ & Ragas + Ollama Llama-3 judge \\
+Monitoring pipeline (drift) & Hourly batch & $<$ 30 min per run & Alert latency $<$ 5 min & Evidently + Prometheus \\
+Audit pipeline & Per-decision & $<$ 100 ms per write & Loss rate $< 0.01\%$ & OpenTelemetry + PostgreSQL \\
+Retraining trigger pipeline & Drift PSI $\geq 0.20$ OR accuracy drop $> 5$ pp & Same as training & Successful retrain $ -> $ canary deploy & Airflow / Argo Workflows \\
+HITL escalation pipeline & Confidence $< 0.50$ OR clinician override & $<$ 30 min to clinician inbox & p95 time-to-clinician & Web portal + email + Slack \\
+Report generation pipeline & HITL-approved decision & $<$ 30 s per report & Per-format success rate & WeasyPrint + jinja2 \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Per-pipeline SLO monitored continuously; per-SLO miss triggers RCA + corrective-action per §38.3 governance policy.
+
+
+\clearpage
+\paragraph[Vector DB Qdrant]{Vector DB (Qdrant) --- Configuration + Schema.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Vector DB Qdrant]{Vector DB (Qdrant) --- Configuration + Schema.}\label{tab:vector_db_qdrant} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Engine & Qdrant (Rust-based vector DB); alternative ChromaDB / FAISS / Weaviate \\
+Collection name & asd\_\allowbreak corpus (per source: literature, eeg\_sops, clinical\_notes, asd\_guidelines) \\
+Vector size & 768 (sentence-transformers all-mpnet-base-v2) OR 384 (all-MiniLM-L6-v2 for lower-latency) \\
+Distance metric & Cosine similarity (default for normalised embeddings) \\
+Index & HNSW (Hierarchical Navigable Small World); m=16, ef\_\allowbreak construct=100, ef=128 \\
+Quantization & Scalar quantization (int8) for memory reduction; ~4x smaller vs float32 \\
+Sharding & Single shard for $<$ 1M vectors; multi-shard for larger corpus \\
+Replication factor & 2 (high-availability); 1 for development \\
+Per-chunk metadata & \{source, paper\_\allowbreak id, section, page, date, version, chunk\_\allowbreak idx, parent\_\allowbreak chunk\_\allowbreak id\} \\
+Filter support & Per-source filter; per-date-range filter; per-paper-id filter \\
+Tenant isolation & Per-tenant collection OR per-tenant payload filter \\
+Backup & Daily snapshot to S3 / MinIO; per-collection restore tested \\
+Monitoring & Per-collection: vector count, index size, query-latency p95, memory \\
+PII handling & No PII embedded in vectors; per-payload PII scan before insertion \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Qdrant chosen for production scale (Rust performance + persistent index); ChromaDB for local development. Per-collection drill verifies recall$@5$ on held-out QA set before promotion.
+
+
+\clearpage
+\paragraph[Graph DB]{Graph DB Design --- Neo4j Schema for Knowledge Graph.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Graph DB]{Graph DB Design --- Neo4j Schema for Knowledge Graph.}\label{tab:graph_db_design} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Engine & Neo4j (graph DB) or Memgraph; alternative: Neptune (AWS) \\
+Node label: Paper & Properties: doi, title, year, journal, authors[] \\
+Node label: Author & Properties: orcid, name, affiliation \\
+Node label: Method & Properties: name (e.g., ``EEGNet, ``ICA), type, year\_\allowbreak introduced \\
+Node label: Result & Properties: paper\_\allowbreak id, metric, value, ci\_\allowbreak lower, ci\_\allowbreak upper \\
+Node label: Concept & Properties: name (e.g., ``alpha asymmetry), domain, definition \\
+Node label: Dataset & Properties: name (KAU / ABIDE-II / ...), n\_\allowbreak subjects, year \\
+Edge: AUTHORED & (Author)-[AUTHORED]->(Paper) \\
+Edge: CITES & (Paper)-[CITES]->(Paper) \\
+Edge: USES\_METHOD & (Paper)-[USES\_METHOD]->(Method) \\
+Edge: REPORTS\_RESULT & (Paper)-[REPORTS\_RESULT]->(Result) \\
+Edge: ABOUT & (Paper)-[ABOUT]->(Concept) \\
+Edge: USES\_DATASET & (Paper)-[USES\_DATASET]->(Dataset) \\
+Edge: RELATED\_TO & (Concept)-[RELATED\_TO]->(Concept) with weight \\
+Query example & ``Find all papers about alpha asymmetry that use KAU dataset and achieved accuracy $\geq 0.85$; Cypher MATCH \\
+Index & On Paper.doi, Author.orcid, Concept.name \\
+Backup & Daily Neo4j-admin dump to S3 / MinIO \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Graph DB complements vector DB for relational queries (citation networks, method lineage, concept hierarchy). Per-quarter graph-quality eval: completeness vs ground-truth manual citations.
+
+
+\clearpage
+\paragraph[Cron LLM Cache]{Cron Jobs + LLM Model Registry + Cache DB.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Cron LLM Cache]{Cron Jobs + LLM Model Registry + Cache DB.}\label{tab:cron_llm_cache} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Cron: nightly index refresh & 0 2 * * * --- re-index new documents added since last run \\
+Cron: hourly drift monitor & 0 * * * * --- compute per-feature PSI vs baseline; alert if $\geq 0.20$ \\
+Cron: weekly model retrain check & 0 3 * * 0 --- check if retrain trigger fires (drift OR accuracy drop) \\
+Cron: daily audit-log rotation & 0 4 * * * --- archive audit-log older than 7 days to cold storage \\
+Cron: quarterly governance review prep & 0 5 1 */3 * --- compile per-phase audit summary for review meeting \\
+LLM model registry & MLflow OR custom: per-model metadata (name, version, base, fine-tune dataset, eval scores, registered date) \\
+LLM model: Llama-3-8B-Instruct & Primary RAG-synthesis model; runs on Ollama; per-prompt-version pinned \\
+LLM model: GPT-4o-mini (fallback) & Fallback if Llama-3 unavailable; per-API-call cost logged \\
+LLM model: Llama-3-70B (heavy eval) & For Ragas faithfulness eval (judge-LLM) \\
+Cache DB: Redis & Per-query embedding cache (TTL 24h); per-prompt response cache (TTL 1h) \\
+Cache DB: per-chunk re-rank cache & Per (query, chunk) pair cached score (TTL 6h) \\
+Cache invalidation & On corpus update: invalidate per-source cache entries; on prompt-version change: invalidate all \\
+Cache hit-rate target & $\geq 30\%$ for embedding cache; $\geq 10\%$ for response cache (PII-aware: no PII responses cached) \\
+Per-cache monitor & Per-cache hit-rate / miss-rate / eviction-rate logged hourly \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Cron-job schedules managed via Argo Workflows / Airflow; per-job alert on failure. LLM model selection logged per request (which model used + why).
+
+
+\clearpage
+\paragraph[PII Index Retrieval Chunking]{PII + Index + Pre-Retrieval + Post-Retrieval + Chunking Deep Dive.}
+
+
+\noindent This table lists each \textit{technique} across purpose, implementation, and validation, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} L L L @{}}
+\caption[PII Index Retrieval Chunking]{PII + Index + Pre-Retrieval + Post-Retrieval + Chunking Deep Dive.}\label{tab:pii_index_retrieval_chunking} \\
+\toprule
+\thead{Technique} & \thead{Purpose} & \thead{Implementation} & \thead{Validation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Chunking & Split document into retrievable units & Recursive char splitter; 512 tokens, 10\% overlap; separators [backslash-n-backslash-n, backslash-n, ., space] & Retrieval recall$@5 \geq 0.80$ \\
+Token analysis & Convert text to integer token IDs & tiktoken (cl100k\_\allowbreak base) OR sentencepiece (Llama) & Round-trip decode = original \\
+Embedding & Map text to dense vector & sentence-transformers all-mpnet-base-v2 (768-dim) & STS-B eval $\geq 0.80$ correlation \\
+PII scan (pre-index) & Remove direct identifiers before embed & Presidio NLP + regex; per-pattern allowlist for clinical terms & Zero PII in indexed text \\
+PII scan (pre-output) & Remove PII from generated response & Presidio + LLM Guard rules & Zero PII in patient/clinician PDF \\
+Indexing (vector) & Insert embedding + metadata into Qdrant & Batch upsert per source; per-batch transaction & Per-collection count + metadata completeness \\
+Indexing (BM25) & Keyword inverted index for hybrid search & rank-bm25 OR Tantivy; per-token frequency & Per-query BM25 recall vs gold \\
+Indexing (metadata) & Per-chunk metadata filter index & Per-field B-tree index in PostgreSQL & Per-filter query latency $< 100$ ms \\
+Pre-retrieval (query rewriting) & Expand query with synonyms + clinical terms & LLM-based query expansion (small model) & Recall improvement on eval set $\geq 5$ pp \\
+Pre-retrieval (PII scrub) & Remove PII from user query before embed & Presidio + regex & Per-query PII detection rate \\
+Hybrid retrieval & Combine vector + BM25 + metadata & Reciprocal Rank Fusion (RRF); top-k=5 & MRR$\geq 0.70$; nDCG$@5 \geq 0.75$ \\
+Post-retrieval (reranking) & Re-score top-k with cross-encoder & cross-encoder/ms-marco-MiniLM-L-6-v2 OR Cohere rerank & nDCG$@5$ improvement $\geq 3$ pp \\
+Post-retrieval (deduplication) & Remove near-duplicate chunks & MinHash LSH; threshold 0.9 Jaccard & Diversity score per result set \\
+Post-retrieval (relevance filter) & Drop chunks below relevance threshold & Score $< 0.5$ filtered; ensures quality $>$ recall & Per-query precision check \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Per-technique drill verifies implementation invariant; chunking strategy + embedding model + reranker pinned in MLflow registry for reproducibility.
+
+
+\clearpage
+\paragraph[Output Evaluation Ragas]{Output Evaluation --- Ragas Metrics + Custom Checks.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Output Evaluation Ragas]{Output Evaluation --- Ragas Metrics + Custom Checks.}\label{tab:output_eval_ragas} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Faithfulness & Ratio: claims supported by context / total claims; target $\geq 0.85$; LLM-judge based \\
+Answer relevance & Cosine sim between question and generated response embedding; target $\geq 0.80$ \\
+Context precision & Per-retrieved-chunk relevance to question; target $\geq 0.75$ \\
+Context recall & Per-ground-truth-fact: was a relevant chunk retrieved? target $\geq 0.80$ \\
+Citation accuracy (custom) & Per-citation in response: does cited chunk actually support claim? target $= 1.00$ \\
+Hallucination flag (custom) & Per-claim: any claim NOT supported by retrieved chunks $ -> $ flag; target $= 0$ \\
+Reading-grade (custom, patient-facing) & Flesch-Kincaid grade level; target $\leq 8$ for patient PDF \\
+Clinical accuracy (custom, doctor-facing) & Clinician 1--5 Likert per response; target $\geq 4$ mean \\
+Toxicity check & Per-response: toxic content $> 0.1$ $ -> $ block + escalate; Perspective API \\
+Bias check & Per-response: demographic bias check (gendered language, cultural assumption) \\
+Latency & Per-response time-to-first-token + total time; target $<$ 5 s per response \\
+Cost & Per-response token count + estimated cost; report per-month + per-tenant \\
+Eval framework & Ragas + LangSmith + custom checks; per-response written to eval DB \\
+Eval cadence & Per-response in production; weekly aggregate report \\
+Eval-set composition & 100 held-out clinical questions per quarter; per-question gold standard \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Ragas + custom checks form the output-quality contract; per-response eval row written to PostgreSQL; per-week aggregate dashboard.
+
+
+\clearpage
+\paragraph[Accuracy Benchmarking Business Value]{Accuracy + Benchmarking + Business Value --- Consolidated Reference.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Accuracy Benchmarking Business Value]{Accuracy + Benchmarking + Business Value --- Consolidated Reference.}\label{tab:accuracy_bench_business} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Per-model accuracy (KAU) & Target $\geq 0.90$; current 0.85--0.97 per model; ensemble 0.97 \\
+Per-model accuracy (ABIDE-II external) & Target $\geq 0.85$; current 0.78--0.91 per model; ensemble 0.91 \\
+Cross-cohort gap & Target $\leq 5$ pp; current KAU--ABIDE gap 6--7 pp (above target; sensitivity check applied) \\
+Per-subgroup accuracy (sex) & Target $\Delta \leq 5$ pp M vs F; current 4.2 pp; meets target \\
+Per-subgroup accuracy (severity) & Target $\Delta \leq 5$ pp per tier; current within target \\
+Disparate impact ratio & Target $\geq 0.80$; current 0.91; meets EU AI Act Art. 10 fairness \\
+Equal-opportunity gap & Target $< 5\%$; current 3.1\%; meets target \\
+Faithfulness (RAG) & Target $\geq 0.85$ Ragas; current 0.87 on eval set \\
+Citation accuracy & Target $= 1.00$; current 0.96 (custom audit); $\sim$~4\% claims with weak citation flagged \\
+Time-to-screening (TO-BE) & Target $\leq 6$ weeks; current AS-IS 6--18 months \\
+Cost per episode (TO-BE) & Target $\leq \$1{,}500$; current AS-IS \$5{,}000--15{,}000 \\
+Clinician trust rating (PD-2) & Target $\geq 4/5$; current 4.3/5 mean \\
+Adoption intention (PD-1) & Target $\geq 4/5$; current 4.0/5 mean per PD-1 cohort \\
+Geographic reach (TO-BE) & Target: tier-1 + tier-2 + rural; current AS-IS tier-1 only \\
+Business value (B2B hospital) & Estimated saving \$2.5M / year per 100-bed hospital (faster throughput + fewer mis-allocations) \\
+Business value (B2C caregiver) & Faster diagnosis + earlier intervention; lifetime support need reduced by estimated 20\% \\
+Per-model benchmark vs SOTA & This work (ensemble) matches Liu 2025 + Subah 2024 on accuracy AND adds external validation + HITL + XAI + governance \\
+Novelty differentiator & Governance + explainability + cross-cohort + B2C-primary clinician-supported pathway not in prior SOTA \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Benchmark numbers above are illustrative architecture-template values; real per-cohort results in Ch.~\ref{chap:analysis}. Business-value estimates from PD-2 expert-panel responses; not validated as hard ROI in current submission.
+
+
+\clearpage
+\paragraph[RGAIG Per Phase]{RGAIG Framework Mapping Per Pipeline Phase.}
+
+
+\noindent This table lists each \textit{phase} across l1 capture, l2 cloud, l3 xai, and 4 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} L L L L L L L @{}}
+\caption[RGAIG Per Phase]{RGAIG Framework Mapping Per Pipeline Phase.}\label{tab:rgaig_per_phase} \\
+\toprule
+\thead{Phase} & \thead{L1 Capture} & \thead{L2 Cloud} & \thead{L3 XAI} & \thead{L4 Gov} & \thead{L5 HITL} & \thead{L6 Audit} & \thead{L7 Adoption} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1 Capture & Yes (consent + provenance) & -- & -- & Yes (DUA) & -- & Yes (per-record audit) & -- \\
+2 Standardise & Yes & -- & -- & Yes (BIDS schema) & -- & Yes (conversion log) & -- \\
+3 QC & Yes (SQI) & -- & -- & Yes (rejection rationale) & -- & Yes (per-file) & -- \\
+4 Preprocess & -- & Yes & -- & Yes (version pin) & -- & Yes (per-step) & -- \\
+5 Epoch & -- & Yes & -- & Yes (no-leakage) & -- & Yes & -- \\
+6 Time-freq & -- & Yes & -- & Yes & -- & Yes & -- \\
+7 Feature extract & -- & Yes & -- & Yes (catalog) & -- & Yes & -- \\
+8 Feature select & -- & Yes & -- & Yes (stability) & -- & Yes & -- \\
+9 Train & -- & Yes & -- & Yes (experiment tracking) & -- & Yes (per-run) & -- \\
+10 Validate & -- & Yes & -- & Yes (external test) & -- & Yes & -- \\
+11 Evaluate & -- & Yes & -- & Yes (fairness) & -- & Yes (per-metric) & -- \\
+12 XAI & -- & -- & Yes (SHAP) & Yes (clinician rating) & -- & Yes & -- \\
+13 RAG index & -- & Yes & -- & Yes (corpus catalog) & -- & Yes (per-chunk) & -- \\
+14 Retrieve & -- & Yes & -- & Yes (per-query) & -- & Yes & -- \\
+15 RAG report & -- & Yes & Yes (citations) & Yes (faithfulness) & -- & Yes & -- \\
+16 HITL & -- & -- & -- & Yes (HITL policy) & Yes (non-bypassable) & Yes (per-decision) & -- \\
+17 Deliver & -- & -- & Yes (plain-language) & Yes (disclaimer) & -- & Yes & Yes (per-delivery) \\
+18 Audit & -- & -- & -- & Yes & -- & Yes (per-row) & -- \\
+19 Monitor & -- & -- & -- & Yes (quarterly review) & -- & Yes & Yes (per-cohort) \\
+20 Improve & -- & -- & -- & Yes (canary) & -- & Yes & Yes (per-release) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Per-phase RGAIG layer engagement documented; cross-phase L6 audit covers everything; L7 adoption tracked post-deployment.
+
+
+\clearpage
+\paragraph[SMART Per Phase]{SMART(-E) Framework Per Pipeline Phase.}
+
+
+\noindent This table lists each \textit{phase} across specific, measurable, achievable, and 2 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} L L L L L @{}}
+\caption[SMART Per Phase]{SMART(-E) Framework Per Pipeline Phase.}\label{tab:smart_per_phase} \\
+\toprule
+\thead{Phase} & \thead{Specific} & \thead{Measurable} & \thead{Achievable} & \thead{Relevant} & \thead{Time-bound} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1 Capture & EEG + assessment + label per patient & SQI per file & $\leq 4$ wk per cohort & H1--H3 & Phase 2 by Q4 2026 \\
+2 Standardise & BIDS-EEG format & Roundtrip-fidelity & $\leq 1$ day per dataset & All downstream & Per ingestion \\
+3 QC & SQI $\geq 0.70$ & Cohort median SQI & $\leq 1$ hr per file & All H & Continuous \\
+4 Preprocess & Bandpass + ICA per spec & Epoch retention & $\leq 30$ min per file & H1--H3 & Per cohort \\
+5 Epoch & Subject-level split & Per-fold balance & $\leq 5$ min per cohort & All H & Per training \\
+6 Time-freq & STFT + CWT + SWT & Parseval check & $\leq 10$ min per cohort & H1--H3 & Per training \\
+7 Feature extract & 50 features & Per-feature distribution & $\leq 30$ min per cohort & H1 & Per training \\
+8 Feature select & 10--15 features & Stability across folds & $\leq 15$ min & H1 & Per training \\
+9 Train & Per-model fit & Train loss + accuracy & $\leq 6$ hr per model & H1--H2 & Per release \\
+10 Validate & GroupKFold + external & Per-fold + external accuracy & $\leq 12$ hr & H1--H2 & Per release \\
+11 Evaluate & Multi-metric panel & Per-metric + 95\% CI & $\leq 1$ hr & H1--H2 & Per release \\
+12 XAI & SHAP per prediction & Clinician rating & $<$ 500 ms per prediction & H3 & Continuous \\
+13 RAG index & Per-source chunk + embed & Vector count + metadata & $\leq 1$ day per refresh & H5 & Nightly \\
+14 Retrieve & Top-5 hybrid & MRR + nDCG & $<$ 200 ms per query & H5 & Continuous \\
+15 RAG report & LLM synthesis + citations & Ragas faithfulness & $<$ 5 s per report & H5 & Continuous \\
+16 HITL & Clinician approve / reject & Time-to-decision & $\leq 30$ min per case & H4 & Per case \\
+17 Deliver & Doctor + patient PDF & Reading-grade + format & $<$ 30 s per report & H4 & Per release \\
+18 Audit & Per-decision row & Audit-row completeness & $<$ 100 ms per write & All H & Continuous \\
+19 Monitor & Drift + bias + PII & Per-week alert & $\leq 5$ min alert latency & All H & Continuous \\
+20 Improve & Canary deploy & Improvement rate & $\leq 1$ wk per release & All H & Per quarter \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Per-phase SMART-E pillar fulfilment scored 0--5; per-pillar target $\geq 4$. Aggregate per-quarter dashboard.
+
+
+\clearpage
+\paragraph[Per-Phase Quality Summary]{Per-Phase Quality Summary --- Input / Process / Output / KPI / XAI / RAI / Secure AI / HITL.}
+
+
+\noindent This table lists each \textit{phase} across input, process, output, and 2 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{2.0cm} L @{}}
+\caption[Per-Phase Quality Summary]{Per-Phase Quality Summary --- Input / Process / Output / KPI / XAI / RAI / Secure AI / HITL.}\label{tab:per_phase_quality_summary} \\
+\toprule
+\thead{Phase} & \thead{Input} & \thead{Process} & \thead{Output} & \thead{Quality KPI} & \thead{XAI / RAI / Secure / HITL} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1 Capture & EEG signal & Acquire 256 Hz & EDF file & SQI $\geq 0.70$ & XAI: provenance log; RAI: consent; Sec: AES-256; HITL: -- \\
+5 Preprocess & Quality-graded EEG & Bandpass + ICA & Cleaned epochs & Retention $\geq 70\%$ & XAI: before/after PSD; RAI: non-destructive; Sec: container isolation; HITL: -- \\
+9 Train & Feature matrix & Model fit & Trained checkpoint & Test acc $\geq$ baseline + 5pp & XAI: hparam log; RAI: fixed seed; Sec: model signing; HITL: -- \\
+12 XAI & Prediction & SHAP compute & Per-pred explanation & Clinician rating $\geq 4/5$ & XAI: SHAP + saliency; RAI: useful rating; Sec: model-inversion defence; HITL: clinician review \\
+15 RAG report & Pred + chunks & LLM synthesis & Markdown report & Faithfulness $\geq 0.85$ & XAI: citations; RAI: no hallucination; Sec: prompt-injection filter; HITL: review-required \\
+16 HITL & Draft report & Clinician decision & Signed action & Time-to-decision p95 & XAI: rationale; RAI: non-bypassable; Sec: 2FA + role; HITL: gate \\
+17 Deliver & Signed report & PDF format & Doctor + patient PDF & Reading-grade $\leq 8$ & XAI: plain language; RAI: disclaimer; Sec: watermark; HITL: -- \\
+19 Monitor & Production traffic & Drift + bias scan & Alert events & PSI $< 0.20$; DI $\geq 0.80$ & XAI: drift viz; RAI: quarterly review; Sec: SIEM; HITL: per-alert clinician notify \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Compact per-phase quality summary covering 8 phases (representative); full 20-phase detail in Tables~\ref{tab:sec_data_per_phase_deepdive} and~\ref{tab:sec_data_ai_dimensions_per_phase}.
+
+
+\clearpage
+\paragraph[Master DB Schema]{Master DB Schema --- Master / Transaction / Org / Condition / Service / Product / Usage / Consumption.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} L L L @{}}
+\caption[Master DB Schema]{Master DB Schema --- Master / Transaction / Org / Condition / Service / Product / Usage / Consumption.}\label{tab:master_db_schema} \\
+\toprule
+\thead{Category} & \thead{Example tables} & \thead{Primary use} & \thead{Frequency} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Master data & \texttt{pd1\_\allowbreak respondent}, \texttt{pd2\_\allowbreak expert}, \texttt{sd\_\allowbreak subject}, \texttt{instrument\_\allowbreak catalog} & Per-entity identity, demographics, classification & Stable; update on new entity \\
+Transaction data & \texttt{pd1\_\allowbreak response}, \texttt{sd\_\allowbreak eeg\_\allowbreak recording}, \texttt{audit\_\allowbreak log}, \texttt{experiment\_\allowbreak run} & Per-event records & High-frequency append; immutable \\
+Organisational data & \texttt{institution}, \texttt{department}, \texttt{role}, \texttt{user} & Org chart + role assignment & Stable; update per HR change \\
+Clinical condition data & \texttt{diagnosis}, \texttt{severity}, \texttt{comorbidity}, \texttt{symptom\_\allowbreak inventory} & Per-patient clinical state & Per-assessment update \\
+Service data & \texttt{service\_\allowbreak catalog} (model inference, RAG retrieval, HITL review, report generation), \texttt{service\_\allowbreak request} & Per-service request tracking & Per-request append \\
+Product data & \texttt{model\_\allowbreak registry}, \texttt{prompt\_\allowbreak version}, \texttt{report\_\allowbreak template\_\allowbreak version} & Per-product-artefact versioning & Per-release update \\
+Usage data & \texttt{request\_\allowbreak log}, \texttt{per\_\allowbreak tenant\_\allowbreak rate}, \texttt{per\_\allowbreak user\_\allowbreak session} & Per-request consumption tracking & High-frequency append \\
+Consumption data & \texttt{token\_\allowbreak consumption}, \texttt{compute\_\allowbreak hours}, \texttt{storage\_\allowbreak bytes}, \texttt{per\_\allowbreak request\_\allowbreak cost} & Per-resource consumption + cost & Per-request append \\
+Survey data (PD-1, PD-2) & \texttt{pd1\_\allowbreak response}, \texttt{pd2\_\allowbreak delphi\_\allowbreak response} & Per-survey response capture & Per-respondent append \\
+Report data & \texttt{report\_\allowbreak generated}, \texttt{report\_\allowbreak delivered}, \texttt{report\_\allowbreak rating} & Per-generated-report tracking & Per-report append \\
+Reference data & \texttt{instrument\_\allowbreak ranges}, \texttt{normative\_\allowbreak values}, \texttt{regulatory\_\allowbreak codes} & Per-lookup reference & Stable; update per regulatory revision \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Master schema follows star-schema pattern: fact tables (transaction / usage / consumption) reference dimension tables (master / org / condition / service / product / reference). Per-category audit trail. Engine: PostgreSQL 16; large transaction tables partitioned by date.
+
+
+\clearpage
+\paragraph[Survey + Report Save Schema]{Survey + Report Save Schema --- Per-Survey + Per-Report Persistence.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Survey + Report Save Schema]{Survey + Report Save Schema --- Per-Survey + Per-Report Persistence.}\label{tab:survey_report_save_schema} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Per-PD-1 response save & Table \texttt{pd1\_\allowbreak response\_\allowbreak save}; per-respondent record: response\_\allowbreak id, raw\_\allowbreak responses (JSON), cleaned\_\allowbreak responses (JSON), construct\_\allowbreak scores (JSON), saved\_\allowbreak timestamp \\
+Per-PD-2 Delphi save & Table \texttt{pd2\_\allowbreak delphi\_\allowbreak save}; per-expert per-round: response\_\allowbreak id, round, raw\_\allowbreak text, coded\_\allowbreak themes (JSON), saved\_\allowbreak timestamp \\
+Per-survey audit trail & Per-save event: actor, action (create / update), before\_\allowbreak state, after\_\allowbreak state, request\_\allowbreak id, timestamp \\
+Per-survey integrity & SHA-256 hash per save; tampering detection via hash mismatch on read \\
+Per-generated-report save & Table \texttt{report\_\allowbreak save}; per-report: report\_\allowbreak id, type (doctor/patient), content\_\allowbreak markdown, content\_\allowbreak pdf\_\allowbreak path, version, generated\_\allowbreak timestamp \\
+Per-report citation trail & Table \texttt{report\_\allowbreak citation}; per-report per-claim: claim\_\allowbreak text, citation\_\allowbreak source, chunk\_\allowbreak id, faithfulness\_\allowbreak score \\
+Per-report HITL decision & Table \texttt{report\_\allowbreak hitl}; per-report: clinician\_\allowbreak id, decision (approve / reject / escalate), rationale, decision\_\allowbreak timestamp \\
+Per-report delivery log & Table \texttt{report\_\allowbreak delivery}; per-report per-recipient: recipient\_\allowbreak id, channel (app / email / portal), delivery\_\allowbreak status, delivered\_\allowbreak timestamp \\
+Per-report feedback & Table \texttt{report\_\allowbreak feedback}; per-report per-rater: clinician\_\allowbreak id OR caregiver\_\allowbreak id, rating (1--5), free\_\allowbreak text, feedback\_\allowbreak timestamp \\
+Requirement-data report types & Table \texttt{requirement\_\allowbreak report\_\allowbreak type}; per-type: name (BRD / FRD / SAD / LLD / HLD / etc.), template\_\allowbreak version, owner, frequency \\
+Per-requirement-report save & Table \texttt{requirement\_\allowbreak report\_\allowbreak save}; per-report: type, version, content\_\allowbreak markdown, signed\_\allowbreak by, signed\_\allowbreak timestamp \\
+Retention policy & Per dissertation §\ref{sec:ethics_consent_anchor}: 7 years for research records; per-request deletion supported with audit trail \\
+Encryption & Per-column encryption (AES-256) for PII; per-cell access logged \\
+Indexes & Per-timestamp + per-respondent + per-type indexes for fast retrieval \\
+Backup & Daily PostgreSQL pg\_\allowbreak dump $ -> $ S3 / MinIO; per-backup integrity check; per-quarter restore test \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Per-survey + per-report save policy enforced via DB trigger; per-write audit row written. Daily backup verified; quarterly restore drill.
+
+
+\clearpage
+\paragraph[Data Flow + Reporting Flow]{Data Flow + Reporting Flow --- End-to-End Schema.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Data Flow + Reporting Flow]{Data Flow + Reporting Flow --- End-to-End Schema.}\label{tab:data_flow_reporting_flow} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Stage 1: Survey response capture & Source: REDCap web form; Sink: \texttt{pd1\_\allowbreak response\_\allowbreak save}; Latency: $<$ 1 s per response \\
+Stage 2: EEG file upload & Source: Emotiv app / clinical EEG machine; Sink: object store + \texttt{sd\_\allowbreak eeg\_\allowbreak recording}; Latency: $<$ 5 min per file \\
+Stage 3: Preprocessing trigger & Source: file-arrival event; Sink: preprocessing pipeline + \texttt{sd\_\allowbreak preproc\_\allowbreak run}; Latency: $<$ 30 min per file \\
+Stage 4: Feature extraction trigger & Source: preprocessing completion event; Sink: \texttt{sd\_\allowbreak feature\_\allowbreak matrix}; Latency: $<$ 30 min per file \\
+Stage 5: Model inference trigger & Source: feature-ready event OR online request; Sink: \texttt{prediction\_\allowbreak log}; Latency: $<$ 500 ms per prediction \\
+Stage 6: XAI compute & Source: prediction event; Sink: \texttt{xai\_\allowbreak artefact}; Latency: $<$ 1 s per prediction \\
+Stage 7: RAG retrieval & Source: prediction + context; Sink: \texttt{rag\_\allowbreak retrieval\_\allowbreak log}; Latency: $<$ 200 ms per query \\
+Stage 8: RAG report synthesis & Source: prediction + XAI + retrieval; Sink: \texttt{report\_\allowbreak save} (draft state); Latency: $<$ 5 s per report \\
+Stage 9: HITL review trigger & Source: draft-report event; Sink: clinician inbox; Latency: $\leq 30$ min to clinician \\
+Stage 10: HITL decision capture & Source: clinician web action; Sink: \texttt{report\_\allowbreak hitl}; Latency: $<$ 1 s per decision \\
+Stage 11: Report PDF generation & Source: HITL approval; Sink: object store + \texttt{report\_\allowbreak save} (final state); Latency: $<$ 30 s per report \\
+Stage 12: Report delivery & Source: HITL-approved report; Sink: mobile app + email + portal; Latency: $<$ 1 min per delivery \\
+Stage 13: Audit log write & Source: every prior stage event; Sink: \texttt{audit\_\allowbreak log}; Latency: $<$ 100 ms per write \\
+Stage 14: Drift monitor & Source: per-feature production distribution; Sink: \texttt{drift\_\allowbreak alert}; Latency: hourly batch \\
+Stage 15: Quarterly review & Source: aggregated audit + drift; Sink: governance meeting + \texttt{governance\_\allowbreak review\_\allowbreak minutes}; Latency: quarterly \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} End-to-end data flow + reporting flow with per-stage latency SLO. Per-stage drill verifies latency target. Aggregate latency dashboard reported per week.

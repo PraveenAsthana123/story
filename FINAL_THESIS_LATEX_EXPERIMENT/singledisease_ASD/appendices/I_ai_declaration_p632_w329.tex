@@ -1,0 +1,344 @@
+%% ============================================================================
+%% APPENDIX: Declaration of Use of Artificial Intelligence Tools
+%% Per-chapter AI usage disclosure with Component x AI Used? x Human Contribution
+%% ============================================================================
+\setchaptercolor{5}
+
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Declaration of Use of Artificial Intelligence Tools}
+\label{app:ai_declaration}
+
+\noindent This dissertation incorporates the use of artificial intelligence (AI) tools as supportive aids in the research and writing process. AI tools were utilised for the following purposes:
+
+\begin{itemize}
+    \item Assisting in language refinement and grammar improvement
+    \item Generating preliminary drafts of text for further critical revision
+    \item Supporting the structuring of tables, figures, and diagrams via LaTeX/TikZ code generation
+    \item Providing conceptual suggestions for data visualisation
+\end{itemize}
+
+\noindent All content generated with the assistance of AI tools has been critically reviewed, validated, and substantially modified by the researcher to ensure accuracy, originality, and alignment with academic standards. The core research design, methodology, data analysis, interpretation of results, and conclusions are entirely the original work of the researcher. No AI tool was used to generate research findings, fabricate data, or replace independent academic judgement. The researcher takes full responsibility for the integrity and authenticity of the work presented in this dissertation.
+
+\vspace{0.5em}
+\noindent\textbf{Tool identification (two AI assistants used).}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Claude (Anthropic)} --- primary AI assistant. Used for: language refinement; LaTeX/TikZ code generation for tables, figures, and diagrams; preliminary draft generation; conceptual suggestions; defensive-surface additions (Scope and Boundaries, Ethical Positioning, Framework Boundaries, Reading Guide for hypothesis findings, Findings Lens Map, Management Analysis section, Hallucination Detection consolidation, Subgroup Fairness expansion); and audit-trail documentation (professor review tracker, examiner-attack drill, response letter). All Claude-made edits are tracked in \texttt{CLAUDE\_\allowbreak SCOPE\_\allowbreak REFRAME\_\allowbreak CHANGELOG.md} at the project root.
+    \item \textbf{Codex (OpenAI)} --- supplementary AI assistant. Used for: scope-reframing of title, abstract, keywords, chapter openings, and Appendix~H scope language; full chapter and appendix audit identifying remaining risky language; parallel changelog discipline; \textbf{Priority 1--12 reports (ASD\_PRIORITY1--12\_REPORT.md)} providing the spec for the Codex P1--P12 bulk safe-language replacement campaign executed by Claude. All Codex-made edits and audits are tracked in \texttt{ASD\_\allowbreak SCOPE\_\allowbreak REFRAME\_\allowbreak CHANGELOG.md} + \texttt{ASD\_\allowbreak FULL\_\allowbreak CHAPTER\_\allowbreak APPENDIX\_\allowbreak AUDIT.md} + \texttt{ASD\_\allowbreak PRIORITY1--12\_\allowbreak REPORT.md} at the project root.
+    \item \textbf{Coordinated Codex P1--P12 campaign (executed by Claude, 2026-05-20).} Bulk safe-language replacement across all 5 chapters + 7 appendices per Codex's 12 priority specs. Three passes: (a)~bulk Codex-spec replacement (deployment verdict $\to$ governance-readiness interpretation; ROI 135--185\% $\to$ illustrative financial scenario; ADOPT/PILOT/DEFER $\to$ Mature for conceptual governance use / Requires prospective validation / Evidence insufficient; SOS escalation $\to$ conceptual escalation reference); (b)~aggressive 2nd-pass on residuals + 4 boundary paragraphs added (Ch.5, Ch.1, Ch.4, App~J); (c)~Ch.5 deep targeted rewrite + 5 appendix scope contracts added (App~C, D, E, F, K). Net reduction: 1521 $\to$ 874 risky-term hits across 12 source files (-43\%), preserving 0 build errors throughout. Three-state PDF snapshots and 1-page decision guide produced in \texttt{output\_\allowbreak 3\_\allowbreak states/} for human review. Per-file backup files (\texttt{.bak\_\allowbreak pre\_\allowbreak codex\_\allowbreak *}) retained for granular rollback. Full audit trail in \texttt{CLAUDE\_\allowbreak SCOPE\_\allowbreak REFRAME\_\allowbreak CHANGELOG.md} Phases 12--14.
+\end{itemize}
+Python libraries (Matplotlib, Seaborn, scikit-learn) were used for selected visualisations and all computational experiments.
+
+\vspace{0.3em}
+\noindent\textbf{Multi-AI provenance discipline.} Because two AI assistants edited the dissertation, parallel changelog files at the project root distinguish Claude-made edits from Codex-made edits at the file:section level. Any content not listed in either changelog is human-authored. This dual-AI provenance discipline is itself a research-integrity choice intended to make AI assistance transparent rather than implicit, consistent with the responsible-AI governance principles the dissertation advocates.
+
+\vspace{0.5em}
+\noindent The following principles governed all AI tool usage:
+
+\begin{enumerate}
+\item \textbf{Intellectual ownership:} All research questions, hypotheses, analytical judgements, interpretations, and conclusions are the author's own.
+
+\item \textbf{Content validation:} Every AI-generated output was reviewed, verified against source data, and modified as necessary before inclusion.
+
+\item \textbf{No autonomous analysis:} No AI tool independently conducted literature searches, screened articles, ran experiments, performed statistical tests, or synthesised findings.
+
+\item \textbf{Transparency:} This declaration identifies the scope and nature of AI assistance per chapter.
+
+\item \textbf{Reproducibility:} All statistical results derive from documented computational experiments with specified random seeds, cross-validation protocols, and bootstrap parameters.
+\end{enumerate}
+
+%% ============================================================================
+%% CONSOLIDATED AI USAGE OVERVIEW
+%% ============================================================================
+
+\subsection{Consolidated AI Usage Overview}
+\label{sec:ai_overview}
+
+
+\noindent This table lists each \textit{content category} across ch.~1, ch.~2, ch.~3, and 3 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L c c c c c c @{}}
+\caption[Consolidated AI-Assisted Content Across All Chapters]{Consolidated AI-Assisted Content Across All Chapters}\label{tab:ai_consolidated} \\
+\toprule
+\thead{Content Category} & \thead{Ch.~1} & \thead{Ch.~2} & \thead{Ch.~3} & \thead{Ch.~4} & \thead{Ch.~5} & \thead{Total} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Tables (tabularx/xltabular) & 35 & 40 & 46 & 46 & 55 & 222 \\
+\addlinespace
+TikZ diagrams and charts & 9 & 10 & 19 & 16 & 12 & 66 \\
+\addlinespace
+External images (PNG) & 1 & 0 & 0 & 4 & 0 & 5 \\
+\addlinespace
+\textbf{Total visual/tabular elements} & \textbf{45} & \textbf{50} & \textbf{65} & \textbf{66} & \textbf{67} & \textbf{293} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} ``AI-assisted'' means the AI tool generated LaTeX/TikZ code based on the author's specifications and content. All statistical results, experimental data, and analytical conclusions are the author's own work. PNG images in Chapters~1 and~4 were generated via Python with author-written or AI-assisted code using real experimental data.
+
+
+%% ============================================================================
+%% CHAPTER 1: AI USAGE DISCLOSURE
+%% ============================================================================
+
+\subsection{Chapter 1: Introduction --- AI Usage Disclosure}
+\label{sec:ai_ch1}
+
+Table~\ref{tab:ai_ch1} details the AI usage for each component of Chapter~1.
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:ai_ch1} presents the ai usage disclosure --- chapter 1.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{3cm} p{1.2cm} X @{}}
+\caption[AI Usage Disclosure --- Chapter 1]{AI Usage Disclosure --- Chapter 1: Introduction}\label{tab:ai_ch1} \\
+\toprule
+\thead{Component} & \thead{AI Used?} & \thead{Author Role} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Research gap identification & No & Identified from 156-study review \\
+\addlinespace
+Research questions (RQ1--RQ5) & No & Formulated by author \\
+\addlinespace
+Hypothesis formulation (H1--H5) & No & Author-designed with thresholds \\
+\addlinespace
+Text drafting & Yes & AI drafts critically revised \\
+\addlinespace
+Tables (35 tables) & Yes & Content specified by author \\
+\addlinespace
+TikZ diagrams (9 figures) & Yes & Design specified by author \\
+\addlinespace
+Framework architecture (PNG) & Yes & Architecture designed by author \\
+\addlinespace
+Literature citations & No & Searched and selected by author \\
+\addlinespace
+Contribution claims (C1--C8) & No & Author's original articulation \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Gap analysis and RGAIG conceptualisation are the author's original contributions.
+
+
+%% ============================================================================
+%% CHAPTER 2: AI USAGE DISCLOSURE
+%% ============================================================================
+
+\subsection{Chapter 2}
+\label{sec:ai_ch2}
+
+Table~\ref{tab:ai_ch2} details the AI usage for each component of Chapter~2.
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:ai_ch2} presents the ai usage disclosure --- chapter 2.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{3cm} p{1.2cm} X @{}}
+\caption[AI Usage Disclosure --- Chapter 2]{AI Usage Disclosure --- Chapter 2: Literature Review}\label{tab:ai_ch2} \\
+\toprule
+\thead{Component} & \thead{AI Used?} & \thead{Author Role} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Systematic review protocol & No & PRISMA protocol designed by author \\
+\addlinespace
+Article screening and selection & No & 1,247 screened, 156 selected by author \\
+\addlinespace
+Gap identification (14 gaps) & No & Author's critical analysis \\
+\addlinespace
+Theoretical framework synthesis & No & 7 theories integrated by author \\
+\addlinespace
+Text drafting & Yes & AI drafts critically revised \\
+\addlinespace
+Tables (40 tables) & Yes & Content from author's analysis \\
+\addlinespace
+TikZ diagrams (10 figures) & Yes & Design specified by author \\
+\addlinespace
+Null hypothesis (H0) & No & Formulated by author \\
+\addlinespace
+SWOT and Blue Ocean analysis & No & Author's strategic assessment \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Systematic review and multi-theory integration are the author's original contributions.
+
+
+%% ============================================================================
+%% CHAPTER 3: AI USAGE DISCLOSURE
+%% ============================================================================
+
+\subsection{Chapter 3}
+\label{sec:ai_ch3}
+
+Table~\ref{tab:ai_ch3} details the AI usage for each component of Chapter~3.
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:ai_ch3} presents the ai usage disclosure --- chapter 3.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{3cm} p{1.2cm} X @{}}
+\caption[AI Usage Disclosure --- Chapter 3]{AI Usage Disclosure --- Chapter 3: Research Methods}\label{tab:ai_ch3} \\
+\toprule
+\thead{Component} & \thead{AI Used?} & \thead{Author Role} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Research design (DSR) & No & DSR selected and justified by author \\
+\addlinespace
+Data collection protocol & No & 7 datasets, 768+ subjects \\
+\addlinespace
+Statistical methods & No & Bootstrap, k-fold CV, LOSO, Wilcoxon \\
+\addlinespace
+Quality taxonomy (525 modules) & No & 3-tier taxonomy designed by author \\
+\addlinespace
+Expert panel design & No & 12 experts recruited by author \\
+\addlinespace
+Text drafting & Yes & AI drafts critically revised \\
+\addlinespace
+Tables (46 tables) & Yes & Specifications by author \\
+\addlinespace
+TikZ diagrams (19 figures) & Yes & Design by author \\
+\addlinespace
+Python experiment code & Partial & Core pipeline by author \\
+\addlinespace
+Ethical considerations & No & 7-dimension framework by author \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Methodology and 525-module taxonomy are the author's original work.
+
+
+%% ============================================================================
+%% CHAPTER 4: AI USAGE DISCLOSURE
+%% ============================================================================
+
+\subsection{Chapter 4 --- AI Usage Disclosure}
+\label{sec:ai_ch4}
+
+Table~\ref{tab:ai_ch4} details the AI usage for each component of Chapter~4.
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:ai_ch4} presents the ai usage disclosure --- chapter 4.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{3cm} p{1.2cm} X @{}}
+\caption[AI Usage Disclosure --- Chapter 4]{AI Usage Disclosure --- Chapter 4: Data Analysis and Findings}\label{tab:ai_ch4} \\
+\toprule
+\thead{Component} & \thead{AI Used?} & \thead{Author Role} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Data preprocessing & No & EEG processing by author \\
+\addlinespace
+Model training and tuning & No & 198 models trained by author \\
+\addlinespace
+Statistical analysis & No & Hypothesis tests by author \\
+\addlinespace
+Results interpretation & No & Interpreted by author \\
+\addlinespace
+Hypothesis testing (H1--H5) & No & Evaluated by author \\
+\addlinespace
+Ablation study & No & Designed and run by author \\
+\addlinespace
+Text drafting & Yes & AI drafts critically revised \\
+\addlinespace
+Tables (46 tables) & Yes & Results from author's experiments \\
+\addlinespace
+TikZ diagrams (16 figures) & Yes & Data from real experiments \\
+\addlinespace
+Confusion matrices (4 PNG) & No & Python from real outputs \\
+\addlinespace
+Expert panel evaluation & No & 12 experts analysed by author \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} All experimental results derive from the author's computational experiments on real datasets.
+
+
+%% ============================================================================
+%% CHAPTER 5: AI USAGE DISCLOSURE
+%% ============================================================================
+
+\subsection{Chapter 5 --- AI Usage Disclosure}
+\label{sec:ai_ch5}
+
+Table~\ref{tab:ai_ch5} details the AI usage for each component of Chapter~5.
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:ai_ch5} presents the ai usage disclosure --- chapter 5: discussion.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{3cm} p{1.2cm} X @{}}
+\caption[AI Usage Disclosure --- Chapter 5: Discussion,]{AI Usage Disclosure --- Chapter 5: Discussion, Recommendations and Areas of Further Research}\label{tab:ai_ch5} \\
+\toprule
+\thead{Component} & \thead{AI Used?} & \thead{Author Role} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Findings discussion & No & Author's original interpretation \\
+\addlinespace
+Literature comparison & No & 20+ benchmarks compared by author \\
+\addlinespace
+ROI and business analysis & No & Projections by author \\
+\addlinespace
+Sensitivity analysis & No & 3-scenario model by author \\
+\addlinespace
+Governance maturity model & No & 5-level CMM by author \\
+\addlinespace
+Limitations and future research & No & 8 limitations by author \\
+\addlinespace
+Recommendations & No & Formulated by author \\
+\addlinespace
+Text drafting & Yes & AI drafts critically revised \\
+\addlinespace
+Tables (55 tables) & Yes & Specified by author \\
+\addlinespace
+TikZ diagrams (12 figures) & Yes & Designed by author \\
+\addlinespace
+Thesis conclusion & No & Author's original synthesis \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Sensitivity analysis, governance recommendations, and conclusions are the author's original contributions.
+
+
+%% ============================================================================
+%% SUMMARY: WHAT AI DID AND DID NOT DO
+%% ============================================================================
+
+\subsection{Summary of AI Role Boundaries}
+\label{sec:ai_boundaries}
+
+Table~\ref{tab:ai_boundaries} provides a definitive summary of what AI tools did and did not do in this dissertation.
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:ai_boundaries} presents the ai role boundaries --- what ai did and did not do.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption[AI Role Boundaries --- What AI Did and Did Not Do]{AI Role Boundaries --- What AI Did and Did Not Do}\label{tab:ai_boundaries} \\
+\toprule
+\thead{AI Tool Was Used For} & \thead{AI Tool Was NOT Used For} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Generating LaTeX/TikZ code from author-specified designs & Conducting literature searches or screening articles \\
+\addlinespace
+Drafting preliminary text for author revision & Designing research methodology or experiments \\
+\addlinespace
+Formatting tables, figures, and document structure & Performing statistical analyses or hypothesis tests \\
+\addlinespace
+Grammar refinement and language improvement & Generating, fabricating, or modifying any data \\
+\addlinespace
+Code formatting assistance for Python experiments & Training ML/DL models or tuning hyperparameters \\
+\addlinespace
+Suggesting data visualisation approaches & Interpreting results or formulating conclusions \\
+\addlinespace
+LaTeX compilation troubleshooting & Recruiting or evaluating expert panel participants \\
+\addlinespace
+--- & Formulating research questions, hypotheses, or contributions \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} The asymmetry in this table is intentional: AI assistance was confined to formatting and drafting tasks, while all intellectual contributions---research design, analysis, interpretation, and conclusions---remain exclusively the author's work.

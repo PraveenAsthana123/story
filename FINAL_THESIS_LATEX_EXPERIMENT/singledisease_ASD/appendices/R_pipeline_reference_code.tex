@@ -1,0 +1,173 @@
+%% ============================================================================
+%% APPENDIX R --- Pipeline Reference Implementation Skeleton
+%% Auto-generated 2026-05-27. Python code stubs demonstrating that each of the
+%% 23 pipeline phases (per dissertation §sec:asd_pipeline_dedicated_pages) is
+%% concretely implementable. Code listings, not runnable production code.
+%% ============================================================================
+
+\chapter*{Appendix R --- Pipeline Reference Implementation Skeleton}
+\addcontentsline{toc}{chapter}{Appendix R --- Pipeline Reference Implementation Skeleton}
+\label{app:pipeline_reference_code}
+
+\noindent This appendix documents the reference implementation skeleton for the 23-step ASD-EEG pipeline. Each section provides a Python code stub showing the function signature, dependencies, and validation hooks for one pipeline phase. The skeleton demonstrates that the architecture is concretely implementable (not aspirational) without committing to a specific production deployment.
+
+\addcontentsline{toc}{section}{R.1 Reference Implementation Architecture} % [TOC-appendix-section-insertion]
+\section*{R.1 Reference Implementation Architecture}
+\addcontentsline{toc}{section}{R.1 Reference Implementation Architecture}
+
+\paragraph{R.1 Reference Implementation Architecture.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} L @{}}
+\caption[Pipeline Reference Architecture]{Pipeline Reference Implementation Architecture --- File Layout + Dependencies + Design Rules.}\label{tab:app_r_arch} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+File layout & \texttt{src/\allowbreak pipeline/\allowbreak phase\_\allowbreak NN\_\allowbreak <name>.py} per phase; one Python file per pipeline phase \\
+Entry point & \texttt{src/\allowbreak pipeline/\allowbreak run\_\allowbreak pipeline.py} orchestrates per-phase execution \\
+Configuration & \texttt{src/\allowbreak config/\allowbreak phase\_\allowbreak NN.yaml} per phase; parameters pinned per release \\
+Logging & Per-phase JSON audit row to \texttt{audit\_\allowbreak log} table; per-step \texttt{request\_\allowbreak id} propagated end-to-end \\
+Dependencies & Python 3.11+; mne-python 1.5+; sklearn 1.4+; pytorch 2.1+; sentence-transformers 2.5+; chromadb 0.4+; ollama 0.1+; ragas 0.1+ \\
+Random seed & Per-phase fixed at 42 (reproducibility); per-bootstrap pinned \\
+Per-phase function signature & \texttt{def phase\_\allowbreak NN(input: PhaseInput, config: Config, audit: Audit) $\to$ PhaseOutput} \\
+Validation hook & Per-phase \texttt{validate\_\allowbreak output(output, threshold)} call before downstream consumer \\
+Error handling & Per-phase \texttt{try/except} with graceful degradation + audit-log of error + escalation per §38.3 \\
+Test stack & pytest unit tests in \texttt{tests/\allowbreak unit/}; drills in \texttt{tests/\allowbreak drills/} (per Appendix~\ref{app:drill_methodology}) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} The skeleton is the dissertation's reference architecture; production implementation is institutional-deployment-specific and outside dissertation scope. The skeleton demonstrates implementability, not provides a turnkey product.
+
+\clearpage
+\addcontentsline{toc}{section}{R.2 Phase Implementation Stub --- Per-Step Function Signature} % [TOC-appendix-section-insertion]
+\section*{R.2 Phase Implementation Stub --- Per-Step Function Signature}
+\addcontentsline{toc}{section}{R.2 Phase Implementation Stub}
+
+\paragraph{R.2 Per-Step Function Signature.}
+
+
+\noindent This table lists each \textit{\#} across function name, input type, output type, and 1 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.2cm} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{2.6cm} L @{}}
+\caption[Per-Step Function Signatures]{Per-Step Function Signatures --- 23 Pipeline Phases as Python Functions.}\label{tab:app_r_signatures} \\
+\toprule
+\thead{\#} & \thead{Function name} & \thead{Input type} & \thead{Output type} & \thead{Key library} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1 & \texttt{define\_\allowbreak objective} & \texttt{StakeholderReq} & \texttt{SMARTGoal} & doc artefact only \\
+2 & \texttt{collect\_\allowbreak data} & \texttt{DataRequest} & \texttt{RawDataset} & boto3 / sftp / mne.io \\
+3 & \texttt{standardise\_\allowbreak format} & \texttt{RawFile} & \texttt{BIDSDirectory} & mne-python + pybids \\
+4 & \texttt{quality\_\allowbreak check} & \texttt{BIDSFile} & \texttt{QualityReport} & mne.preprocessing + custom SQI \\
+5 & \texttt{preprocess} & \texttt{QualityFile} & \texttt{CleanedEEG} & mne.filter + ICA + ICLabel \\
+6 & \texttt{epoch\_\allowbreak split} & \texttt{CleanedEEG} & \texttt{EpochTensor} & mne.Epochs + sklearn.GroupKFold \\
+7 & \texttt{prepare\_\allowbreak signal} & \texttt{EpochTensor} & \texttt{StandardisedTensor} & numpy + sklearn StandardScaler \\
+8 & \texttt{time\_\allowbreak frequency} & \texttt{StandardisedTensor} & \texttt{Spectrogram} & scipy.signal + pywt \\
+9 & \texttt{convert\_\allowbreak to\_\allowbreak image} & \texttt{Spectrogram} & \texttt{ImageTensor} & matplotlib + PIL + mne.viz \\
+10 & \texttt{normalise} & \texttt{ImageTensor / FeatureMatrix} & \texttt{NormalisedTensor} & sklearn.preprocessing \\
+11 & \texttt{extract\_\allowbreak features} & \texttt{StandardisedTensor} & \texttt{FeatureMatrix} & antropy + scipy + mne-connectivity \\
+12 & \texttt{evaluate\_\allowbreak features} & \texttt{FeatureMatrix} & \texttt{FeatureRanking} & sklearn.feature\_\allowbreak selection + shap \\
+13 & \texttt{select\_\allowbreak features} & \texttt{FeatureMatrix + FeatureRanking} & \texttt{ReducedMatrix} & sklearn.LassoCV + RFE + boruta-py \\
+14 & \texttt{train\_\allowbreak model} & \texttt{ReducedMatrix} & \texttt{TrainedModel} & sklearn + pytorch \\
+15 & \texttt{validate\_\allowbreak model} & \texttt{TrainedModel + TestSet} & \texttt{ValidationResult} & sklearn.cross\_\allowbreak validate \\
+16 & \texttt{evaluate\_\allowbreak model} & \texttt{TrainedModel + TestSet} & \texttt{MetricPanel} & sklearn.metrics + bootstrap \\
+17 & \texttt{compute\_\allowbreak xai} & \texttt{TrainedModel + Input} & \texttt{Explanation} & shap + captum + grad-cam \\
+18 & \texttt{index\_\allowbreak rag\_\allowbreak corpus} & \texttt{DocCorpus} & \texttt{VectorStore} & sentence-transformers + chromadb \\
+19 & \texttt{retrieve} & \texttt{Query} & \texttt{RankedChunks} & chromadb + rank-bm25 \\
+20 & \texttt{synthesise\_\allowbreak report} & \texttt{Prediction + XAI + Chunks} & \texttt{Report} & ollama + langchain + ragas \\
+21 & \texttt{hitl\_\allowbreak review} & \texttt{Report} & \texttt{ReviewDecision} & web portal + audit DB \\
+22 & \texttt{deliver\_\allowbreak final} & \texttt{ReviewedReport} & \texttt{PDFs} & WeasyPrint + jinja2 \\
+23 & \texttt{governance\_\allowbreak monitor} & \texttt{ProductionTraffic + AuditLog} & \texttt{AlertEvents} & Prometheus + Evidently + Presidio \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Each function signature is the implementation contract; per-phase Python file at \texttt{src/\allowbreak pipeline/\allowbreak phase\_\allowbreak NN\_\allowbreak <name>.py} implements this signature. Type hints (PhaseInput / PhaseOutput) per Python 3.11 typing module. Per-function audit row written per call.
+
+\clearpage
+\addcontentsline{toc}{section}{R.3 Sample Function Stub --- Phase 5 (Preprocessing)} % [TOC-appendix-section-insertion]
+\section*{R.3 Sample Function Stub --- Phase 5 (Preprocessing)}
+\addcontentsline{toc}{section}{R.3 Sample Function Stub}
+
+\paragraph{R.3 Sample Function Stub --- Preprocessing.}
+
+
+\noindent This table lists each \textit{element} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} L @{}}
+\caption[Phase 5 Stub --- Preprocessing]{Phase 5 (Preprocessing) Reference Function Stub --- Implementation Pattern.}\label{tab:app_r_phase5_stub} \\
+\toprule
+\thead{Element} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+File & \texttt{src/\allowbreak pipeline/\allowbreak phase\_\allowbreak 05\_\allowbreak preprocess.py} \\
+Function signature & \texttt{def preprocess(quality\_\allowbreak file: QualityFile, config: PreprocessConfig, audit: Audit) $\to$ CleanedEEG:} \\
+Input contract & \texttt{quality\_\allowbreak file.sqi $\geq$ 0.70} pre-validated by Phase 4 \\
+Sub-step 5.1 Bandpass & \texttt{raw.filter(l\_\allowbreak freq=0.5, h\_\allowbreak freq=45, method='iir', iir\_\allowbreak params=dict(order=4))} \\
+Sub-step 5.2 Notch & \texttt{raw.notch\_\allowbreak filter(freqs=[50, 100, 150])} (EU) OR \texttt{[60, 120, 180]} (US) \\
+Sub-step 5.3 Re-reference & \texttt{raw.set\_\allowbreak eeg\_\allowbreak reference('average', projection=False)} \\
+Sub-step 5.4 Bad-channel detect & \texttt{bads = mne.preprocessing.find\_\allowbreak bad\_\allowbreak channels\_\allowbreak maxwell(raw)} OR per-channel amplitude + correlation \\
+Sub-step 5.5 Interpolate & \texttt{raw.interpolate\_\allowbreak bads(reset\_\allowbreak bads=True)} (spherical-spline) \\
+Sub-step 5.6 ICA & \texttt{ica = mne.preprocessing.ICA(n\_\allowbreak components=min(20, n\_\allowbreak ch), method='fastica', random\_\allowbreak state=42).fit(raw)} \\
+Sub-step 5.7 IC classify & \texttt{labels = mne\_\allowbreak icalabel.label\_\allowbreak components(raw, ica, method='iclabel')} \\
+Sub-step 5.8 Remove + reconstruct & \texttt{ica.exclude = where(labels['proba']['eye'] + labels['proba']['muscle'] $>$ 0.7)} \\
+& \texttt{ica.apply(raw)} \\
+Sub-step 5.9 Epoch reject & \texttt{epochs = mne.Epochs(raw, ..., reject=dict(eeg=150e-6))} \\
+Sub-step 5.10 Audit log & \texttt{audit.write(\{request\_\allowbreak id, phase=5, pre\_\allowbreak sqi, post\_\allowbreak sqi, ic\_\allowbreak removed, epochs\_\allowbreak dropped, software\_\allowbreak version, timestamp\})} \\
+Output validation & \texttt{assert cleaned\_\allowbreak eeg.epoch\_\allowbreak retention $\geq$ 0.70} \\
+Return & \texttt{CleanedEEG(epochs, metadata)} \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} The stub illustrates the implementation pattern; production code adds error handling, retry, rate limiting, and observability. Each sub-step writes its before / after PSD comparison to disk per the global Before/After Preprocessing Visualization policy. Drill at \texttt{tests/\allowbreak drills/\allowbreak drill\_\allowbreak preprocess.py} verifies the pattern with $\geq 3$ negative assertions.
+
+\clearpage
+\addcontentsline{toc}{section}{R.4 Pipeline Orchestrator Stub} % [TOC-appendix-section-insertion]
+\section*{R.4 Pipeline Orchestrator Stub}
+\addcontentsline{toc}{section}{R.4 Pipeline Orchestrator}
+
+\paragraph{R.4 Pipeline Orchestrator Stub.}
+
+
+\noindent This table lists each \textit{element} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} L @{}}
+\caption[Pipeline Orchestrator Stub]{Pipeline Orchestrator Stub --- Chaining 23 Phases End-to-End.}\label{tab:app_r_orchestrator} \\
+\toprule
+\thead{Element} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+File & \texttt{src/\allowbreak pipeline/\allowbreak run\_\allowbreak pipeline.py} \\
+Function signature & \texttt{def run\_\allowbreak pipeline(input: PipelineInput, config: PipelineConfig) $\to$ PipelineOutput:} \\
+Step 0: Generate request\_\allowbreak id & \texttt{request\_\allowbreak id = uuid4(); audit = Audit(request\_\allowbreak id)} \\
+Step 1: Define objective & \texttt{goal = phase\_\allowbreak 01.define\_\allowbreak objective(input.stakeholder\_\allowbreak req, config.phase\_\allowbreak 01, audit)} \\
+Step 2: Collect data & \texttt{raw = phase\_\allowbreak 02.collect\_\allowbreak data(input.data\_\allowbreak request, config.phase\_\allowbreak 02, audit)} \\
+Step 3: Standardise & \texttt{bids = phase\_\allowbreak 03.standardise\_\allowbreak format(raw, config.phase\_\allowbreak 03, audit)} \\
+Step 4: QC & \texttt{quality = phase\_\allowbreak 04.quality\_\allowbreak check(bids, config.phase\_\allowbreak 04, audit)} \\
+Step 5: Preprocess & \texttt{cleaned = phase\_\allowbreak 05.preprocess(quality, config.phase\_\allowbreak 05, audit)} \\
+... & ... (per-phase calls) \\
+Step 21: HITL review & \texttt{review = phase\_\allowbreak 21.hitl\_\allowbreak review(report, config.phase\_\allowbreak 21, audit)} \\
+Step 22: Deliver & \texttt{pdfs = phase\_\allowbreak 22.deliver\_\allowbreak final(review, config.phase\_\allowbreak 22, audit)} \\
+Step 23: Governance monitor & \texttt{phase\_\allowbreak 23.governance\_\allowbreak monitor(audit.events, config.phase\_\allowbreak 23)} (async background task) \\
+Error handling & Per-phase \texttt{try/except} captures exception, writes audit row, escalates per §38.3 \\
+Per-phase validation & \texttt{validate\_\allowbreak output(output, phase\_\allowbreak threshold)} called between phases \\
+Audit & Final \texttt{audit.flush()} ensures all rows persisted to PostgreSQL \\
+Return & \texttt{PipelineOutput(pdfs, audit.events, performance\_\allowbreak metrics)} \\
+Async option & For batch processing: Celery task per phase + per-phase queue \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Orchestrator pattern is the dissertation's reference; institutional deployment can replace with Airflow / Argo Workflows / Temporal for scaled production. Per-request audit lineage preserved end-to-end via the \texttt{request\_\allowbreak id} thread.

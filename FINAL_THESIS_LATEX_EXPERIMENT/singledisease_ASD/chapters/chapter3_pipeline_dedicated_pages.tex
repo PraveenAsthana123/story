@@ -1,0 +1,792 @@
+
+%% ============================================================================
+%% Dedicated per-step pipeline architecture pages
+%% Auto-generated 2026-05-27. One \clearpage page per step (24 total: sample
+%% data + 23 pipeline steps + 6 supplementary technique pages). Each page
+%% answers: purpose, technique, input, output, model/params, validation.
+%% Anchored to KAU-style autism reference dataset (n=100, 50 features).
+%% ============================================================================
+
+\clearpage
+\subsection{ASD-EEG Pipeline --- Dedicated Per-Step Architecture}
+\label{sec:asd_pipeline_dedicated_pages}
+
+\noindent\emph{Twenty-four-table single-page-per-step architecture reference: one dedicated page for sample data, twenty-three for pipeline steps, six for cross-cutting techniques. Each page consolidates purpose, technique, input, output, model parameters, and validation criterion for the step. Anchored to the KAU-style autism reference dataset ($n=100$ subjects, 50 engineered features per subject) so every step page can refer to concrete sample data shown in Table~\ref{tab:pipeline_sample_data}.}
+
+
+\clearpage
+\paragraph{Sample Data View.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} @{}}
+\caption[Pipeline Sample Data --- 10 KAU-Style Records]{Pipeline Sample Data --- 10 Records from KAU-Aligned Autism Reference Dataset (5 autism + 5 control; 8 of 50 features shown).}\label{tab:pipeline_sample_data} \\
+\toprule
+\thead{Subj} & \thead{Class} & \thead{$\delta$ pow} & \thead{$\theta$ pow} & \thead{$\alpha$ pow} & \thead{$\beta$ pow} & \thead{$\gamma$ pow} & \thead{Hjorth mob} & \thead{Sample ent} & \thead{Hurst exp} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Autism & 20.140 & 47.801 & 76.131 & 55.619 & 34.171 & 1.000 & 0.265 & 0.250 \\
+14 & Control & 26.617 & 39.558 & 110.076 & 50.825 & 10.214 & 1.000 & 0.255 & 0.176 \\
+2 & Autism & 23.130 & 53.846 & 49.572 & 71.767 & 28.683 & 1.000 & 0.260 & 0.230 \\
+16 & Control & 17.225 & 16.180 & 105.494 & 77.585 & 20.267 & 1.000 & 0.256 & 0.191 \\
+4 & Autism & 28.738 & 68.395 & 60.078 & 31.727 & 41.150 & 1.000 & 0.237 & 0.211 \\
+11 & Control & 19.806 & 27.370 & 95.176 & 79.510 & 16.257 & 1.000 & 0.245 & 0.199 \\
+4 & Autism & 22.220 & 32.597 & 98.889 & 33.276 & 44.045 & 1.000 & 0.255 & 0.211 \\
+13 & Control & 14.203 & 31.035 & 135.865 & 37.911 & 19.275 & 1.000 & 0.253 & 0.168 \\
+8 & Autism & 25.935 & 39.691 & 58.138 & 51.764 & 52.369 & 1.000 & 0.272 & 0.230 \\
+18 & Control & 12.649 & 20.501 & 83.660 & 98.687 & 24.258 & 1.000 & 0.270 & 0.174 \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} $\delta, \theta, \alpha, \beta, \gamma$ = standard EEG frequency bands (delta 0.5--4 Hz, theta 4--8 Hz, alpha 8--13 Hz, beta 13--30 Hz, gamma 30--45 Hz). Hjorth mobility, Sample entropy, and Hurst exponent are temporal-nonlinear complexity measures. Full feature inventory is 50 columns per record (statistical 15 + spectral 18 + temporal 9 + nonlinear 8). Source: \texttt{agentic/\allowbreak data/\allowbreak autism/\allowbreak sample/\allowbreak autism\_\allowbreak sample\_\allowbreak 100.csv} (n=100, 5 autism + 5 control extracted here for display).
+
+
+\clearpage
+\paragraph[Step 1 --- Research Objective]{Step 1 --- Research Objective.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 1 --- Research Objective]{Step 1 --- Research Objective Specification.}\label{tab:pipeline_step_objective} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 1 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Research Objective \\
+Purpose & Define what the pipeline is for: screening support, biomarker discovery, severity tracking. Establishes the success criteria the downstream steps must serve. \\
+Technique & Stakeholder requirements gathering; SMART goal specification per dissertation §SMART-E pillar contract. \\
+Input format & Stakeholder interviews; literature gaps; clinical need statements. \\
+Output format & SMART-E pillar contract per research question; success criteria per H1--H7. \\
+Model / parameters & No algorithmic model; documentation artefact. \\
+Validation criterion & Stakeholder sign-off; supervisor review. \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 1 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 1 and the downstream consumer is Step 2. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 2 --- Data Collection]{Step 2 --- Data Collection.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 2 --- Data Collection]{Step 2 --- Primary + Secondary Data Acquisition.}\label{tab:pipeline_step_data_collection} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 2 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Data Collection \\
+Purpose & Gather raw EEG signals + clinical metadata + behavioural assessment scores + medication / age / sex / diagnosis label per patient record. \\
+Technique & Retrospective de-identified record acquisition per Table~\ref{tab:primary_clinical_data_items}; institutional DSA/DUA per Table~\ref{tab:primary_required_documentation}. \\
+Input format & Source institution database; consent-checked records. \\
+Output format & Per-patient JSON manifest + EEG file(s) + behavioural-score CSV. \\
+Model / parameters & No model; ingestion pipeline. \\
+Validation criterion & Per-record completeness check (Table~\ref{tab:primary_analysis_data_quality}). \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 2 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 1 and the downstream consumer is Step 3. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 3 --- Data Standardization]{Step 3 --- Data Standardization.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 3 --- Data Standardization]{Step 3 --- Format Conversion to BIDS-EEG / FIF.}\label{tab:pipeline_step_standardization} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 3 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Data Standardization \\
+Purpose & Convert heterogeneous EDF / BDF / CSV / MAT inputs to a single canonical format (BIDS-EEG or FIF) so downstream steps see a uniform interface. \\
+Technique & BIDS-EEG converter (per Pernet 2019 standard) OR mne-python read\_\allowbreak raw -> FIF write; metadata side-car JSON. \\
+Input format & Raw EEG file (any supported format). \\
+Output format & BIDS-EEG directory OR FIF file + sidecar JSON. \\
+Model / parameters & No model; deterministic converter. \\
+Validation criterion & Roundtrip check (read -> write -> read). \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 3 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 2 and the downstream consumer is Step 4. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 4 --- Raw EEG Quality Check]{Step 4 --- Raw EEG Quality Check.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 4 --- Raw EEG Quality Check]{Step 4 --- Raw EEG Quality Assurance.}\label{tab:pipeline_step_quality_check} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 4 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Raw EEG Quality Check \\
+Purpose & Verify the converted file meets minimum-viable spec: correct sampling rate, no missing channels, acceptable noise floor, bad channels flagged. \\
+Technique & Sampling-rate check; channel-list check; line-noise PSD probe; bad-channel detection (correlation + amplitude). \\
+Input format & BIDS / FIF file from Step 3. \\
+Output format & Quality-graded file + per-file SQI score + bad-channel mask. \\
+Model / parameters & Statistical rules; no learned model. \\
+Validation criterion & SQI threshold \(\geq 0.70\); bad-channel \(< 25\%\) per Table~\ref{tab:primary_analysis_data_quality}. \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 4 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 3 and the downstream consumer is Step 5. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 5 --- Preprocessing]{Step 5 --- Preprocessing.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 5 --- Preprocessing]{Step 5 --- Bandpass + Notch + Re-reference + ICA.}\label{tab:pipeline_step_preprocessing} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 5 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Preprocessing \\
+Purpose & Clean EEG by removing physiological + line-noise artefacts so subsequent feature extraction sees signal not noise. \\
+Technique & Bandpass filter 0.5--45 Hz (Butterworth 4th order); notch 50/60 Hz; average / linked-mastoid re-reference; bad-channel interpolation; ICA (Infomax) for blink / muscle removal. \\
+Input format & Quality-graded raw EEG (Step 4). \\
+Output format & Cleaned EEG (channel \(\times\) time matrix). \\
+Model / parameters & Butterworth filter; ICA-Infomax algorithm. \\
+Validation criterion & Per-step before/after PSD comparison; epoch retention \(\geq 70\%\). \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 5 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 4 and the downstream consumer is Step 6. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 6 --- Epoching]{Step 6 --- Epoching.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 6 --- Epoching]{Step 6 --- Window Segmentation with Subject-Level Split.}\label{tab:pipeline_step_epoching} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 6 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Epoching \\
+Purpose & Split continuous EEG into fixed-length epochs (2s / 4s / 8s) and split patients by subject ID to prevent within-patient leakage across train / test folds. \\
+Technique & Sliding-window epoching (no overlap for primary analysis; 50\% overlap for data augmentation in training-fold only); GroupKFold with subject ID as group. \\
+Input format & Cleaned continuous EEG (Step 5). \\
+Output format & Epoch tensor: (n\_epochs, n\_channels, n\_samples). \\
+Model / parameters & GroupKFold (no model). \\
+Validation criterion & Verify no subject ID appears in both train and test folds. \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 6 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 5 and the downstream consumer is Step 7. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 7 --- 1D Signal Preparation]{Step 7 --- 1D Signal Preparation.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 7 --- 1D Signal Preparation]{Step 7 --- 1D EEG Signal Tensor Preparation.}\label{tab:pipeline_step_signal_prep} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 7 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & 1D Signal Preparation \\
+Purpose & Format epochs into a clean channel \(\times\) time matrix suitable for both signal-analysis (Step 8) and ML / DL training (Step 14). \\
+Technique & Tensor reshape; per-epoch standardisation (zero-mean, unit-variance per channel). \\
+Input format & Epoch tensor from Step 6. \\
+Output format & Standardised tensor: float32 (n\_epochs, n\_channels, n\_samples). \\
+Model / parameters & No model. \\
+Validation criterion & Mean \(\approx 0\) and SD \(\approx 1\) per channel post-standardisation. \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 7 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 6 and the downstream consumer is Step 8. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 8 --- Time-Frequency Transform]{Step 8 --- Time-Frequency Transform.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 8 --- Time-Frequency Transform]{Step 8 --- STFT + CWT + Wigner-Ville Distributions.}\label{tab:pipeline_step_time_freq} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 8 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Time-Frequency Transform \\
+Purpose & Convert 1D time-series epochs into time-frequency representations to expose spectral dynamics that pure time-domain features miss. \\
+Technique & STFT (Hamming window, 256-sample, 50\% overlap) -> spectrogram; CWT (Morlet wavelet) -> scalogram; SPWVD / STWVD for high-resolution research-grade analysis. \\
+Input format & 1D signal tensor (Step 7). \\
+Output format & Spectrogram / scalogram tensor: (n\_epochs, n\_channels, n\_freq, n\_time). \\
+Model / parameters & STFT (numpy / scipy.signal); CWT (PyWavelets / mne); Wigner (custom). \\
+Validation criterion & Parseval energy conservation check (sum-of-squares time = sum-of-squares freq). \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 8 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 7 and the downstream consumer is Step 9. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 9 --- 1D to 2D Conversion]{Step 9 --- 1D to 2D Conversion.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 9 --- 1D to 2D Conversion]{Step 9 --- EEG 1D -> 2D Image Representations.}\label{tab:pipeline_step_eeg_to_image} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 9 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & 1D to 2D Conversion \\
+Purpose & Convert spectrogram / scalogram tensors into 2D images suitable for CNN / ViT model families that expect image inputs. \\
+Technique & Spectrogram-to-image (log-power, viridis colormap, 224\(\times\)224 px); scalogram image; topographic map (mne.viz.plot\_\allowbreak topomap); connectivity matrix; power-band heatmap. \\
+Input format & Time-frequency tensor (Step 8). \\
+Output format & Image tensor: (n\_epochs, 3, 224, 224) RGB float32. \\
+Model / parameters & matplotlib + PIL; mne topomap. \\
+Validation criterion & Visual inspection sample; image-statistics sanity (mean, SD in expected range). \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 9 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 8 and the downstream consumer is Step 10. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 10 --- Normalization]{Step 10 --- Normalization.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 10 --- Normalization]{Step 10 --- Power Normalization + Z-Score Standardization.}\label{tab:pipeline_step_normalization} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 10 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Normalization \\
+Purpose & Bring features to a common scale so distance-based algorithms (SVM, kNN, neural networks) treat features fairly without large-magnitude features dominating. \\
+Technique & Log-power transform (for spectral features); MinMax scaler (0--1); StandardScaler (z-score, fit on train fold only). \\
+Input format & Spectrogram / image / feature vectors. \\
+Output format & Normalised tensors / feature vectors. \\
+Model / parameters & sklearn.preprocessing.StandardScaler. \\
+Validation criterion & Per-feature mean \(\approx 0\) and SD \(\approx 1\) post-standardisation; no train-test leakage. \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 10 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 9 and the downstream consumer is Step 11. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 11 --- Feature Extraction]{Step 11 --- Feature Extraction.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 11 --- Feature Extraction]{Step 11 --- 50+ EEG Feature Engineering.}\label{tab:pipeline_step_feature_extract} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 11 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Feature Extraction \\
+Purpose & Compute 50+ hand-engineered features per epoch / per-subject capturing spectral, temporal, nonlinear, and complexity dynamics for classical ML pipelines. \\
+Technique & Spectral: \(\delta / \theta / \alpha / \beta / \gamma\) band power; spectral entropy; spectral centroid. Temporal: Hjorth mobility / complexity; zero-crossings; line-length. Nonlinear: sample entropy; approximate entropy; Hurst exponent; DFA; Lempel-Ziv complexity. Connectivity: PLV; coherence. \\
+Input format & Normalised epoch tensor (Step 10). \\
+Output format & 50-feature matrix: (n\_epochs OR n\_subjects, 50). \\
+Model / parameters & scipy.signal; antropy; mne-connectivity; custom Hjorth. \\
+Validation criterion & Feature ranges sanity check; per-feature distribution plot (before / after). \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 11 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 10 and the downstream consumer is Step 12. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 12 --- Feature Evaluation]{Step 12 --- Feature Evaluation.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 12 --- Feature Evaluation]{Step 12 --- Univariate + Multivariate Feature Evaluation.}\label{tab:pipeline_step_feature_eval} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 12 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Feature Evaluation \\
+Purpose & Identify which features carry signal for ASD vs control discrimination so feature-selection (Step 13) can prune the noise dimensions. \\
+Technique & One-way ANOVA (parametric); Kruskal-Wallis (non-parametric); mutual information; Pearson + Spearman correlation with target; SHAP-rank from a quick GBM baseline; clinical-relevance flag from literature. \\
+Input format & 50-feature matrix + label vector. \\
+Output format & Per-feature ranking table (F-statistic, p, MI, |r|, SHAP rank). \\
+Model / parameters & sklearn.feature\_\allowbreak selection; shap. \\
+Validation criterion & BH-FDR correction at q=0.05 across 50 features; report top-15. \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 12 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 11 and the downstream consumer is Step 13. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 13 --- Feature Selection]{Step 13 --- Feature Selection.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 13 --- Feature Selection]{Step 13 --- LASSO + RFE + PCA + Boruta.}\label{tab:pipeline_step_feature_select} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 13 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Feature Selection \\
+Purpose & Reduce 50 -> 10--15 features to mitigate the curse of dimensionality and improve generalisation, while preserving discrimination signal. \\
+Technique & LASSO (L1 logistic regression with cross-validated \(\lambda\)); RFE (Recursive Feature Elimination); PCA (95\% variance retained); Boruta; SelectKBest (k=15). \\
+Input format & Evaluated feature matrix (Step 12). \\
+Output format & Reduced feature matrix: (n, 10--15). \\
+Model / parameters & sklearn.linear\_\allowbreak model.LassoCV; sklearn.feature\_\allowbreak selection.RFE; boruta\_\allowbreak py. \\
+Validation criterion & Stability selection across CV folds; jackknife per fold. \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 13 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 12 and the downstream consumer is Step 14. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 14 --- Model Training]{Step 14 --- Model Training.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 14 --- Model Training]{Step 14 --- Classical ML + Deep Learning Model Training.}\label{tab:pipeline_step_model_train} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 14 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Model Training \\
+Purpose & Train multiple models (classical + DL) so the comparison answers H2 (DL superiority vs classical baselines) and the ensemble vote provides robustness. \\
+Technique & Classical: SVM (RBF kernel); Random Forest; XGBoost; Logistic Regression. Deep: EEGNet; CNN-LSTM; Transformer (with positional encoding); Vision Transformer (on 2D images from Step 9). \\
+Input format & Reduced feature matrix (classical) OR 1D signal tensor (Step 7) OR 2D image tensor (Step 9). \\
+Output format & Trained model checkpoint(s) + per-model metadata. \\
+Model / parameters & sklearn.svm.SVC; xgboost.XGBClassifier; torch.nn (EEGNet, CNN-LSTM, Transformer, ViT). \\
+Validation criterion & Per-fold metrics; early stopping; learning-curve diagnostics. \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 14 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 13 and the downstream consumer is Step 15. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 15 --- Model Validation]{Step 15 --- Model Validation.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 15 --- Model Validation]{Step 15 --- Subject-Level CV + External Dataset Validation.}\label{tab:pipeline_step_model_validate} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 15 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Model Validation \\
+Purpose & Verify the model generalises beyond the training subjects and beyond the source dataset, addressing the most common ASD-EEG validation failure. \\
+Technique & Subject-level 10-fold stratified CV (no within-subject leakage); train / val / test 70 / 15 / 15 split; external dataset hold-out (e.g., train on KAU, test on ABIDE-II). \\
+Input format & Trained model + feature matrix (Step 13) OR signal tensor (Step 7). \\
+Output format & Per-fold + per-test-set accuracy + 95\% bootstrap CI. \\
+Model / parameters & sklearn.model\_\allowbreak selection.GroupKFold. \\
+Validation criterion & Verify no subject in both train and test; verify external test from independent source. \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 15 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 14 and the downstream consumer is Step 16. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 16 --- Model Evaluation]{Step 16 --- Model Evaluation.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 16 --- Model Evaluation]{Step 16 --- Multi-Metric Evaluation + Confusion Matrix.}\label{tab:pipeline_step_model_evaluate} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 16 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Model Evaluation \\
+Purpose & Report a comprehensive metric panel so the verdict per H1--H7 is grounded in multiple performance lenses, not just headline accuracy. \\
+Technique & Accuracy; precision; recall (sensitivity); specificity; F1; AUC-ROC; AUC-PR; Cohen \(\kappa\); Matthews correlation; confusion matrix; per-class report. \\
+Input format & Trained + validated model + test predictions. \\
+Output format & Per-model metric table + confusion matrix + ROC + PR curves. \\
+Model / parameters & sklearn.metrics; bootstrap CI 1{,}000 resamples. \\
+Validation criterion & Bonferroni-corrected per-comparison \(\alpha\); per-subgroup metric report (Table~\ref{tab:primary_analysis_subgroup_fairness}). \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 16 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 15 and the downstream consumer is Step 17. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 17 --- Explainable AI]{Step 17 --- Explainable AI.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 17 --- Explainable AI]{Step 17 --- SHAP + Saliency + Attention Visualization.}\label{tab:pipeline_step_xai} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 17 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Explainable AI \\
+Purpose & Produce per-prediction explanations that a clinician can inspect, supporting H3 (XAI improves interpretability) and the dissertation's explainability contract. \\
+Technique & SHAP (TreeExplainer for tree models; KernelExplainer for SVM; DeepExplainer for NN); saliency maps (vanilla / Grad-CAM for CNN); attention maps (Transformer self-attention); channel-importance bar chart; frequency-band-importance heatmap. \\
+Input format & Trained model + per-prediction input feature. \\
+Output format & Per-prediction explanation artefact (SHAP values, saliency map, attention map). \\
+Model / parameters & shap; captum; torch. \\
+Validation criterion & Clinician rating of explanation usefulness (Likert via PD-2 panel). \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 17 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 16 and the downstream consumer is Step 18. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 18 --- RAG Knowledge Layer]{Step 18 --- RAG Knowledge Layer.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 18 --- RAG Knowledge Layer]{Step 18 --- Document Indexing + Embedding + Vector Store.}\label{tab:pipeline_step_rag_layer} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 18 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & RAG Knowledge Layer \\
+Purpose & Build the searchable knowledge corpus that grounds AI-generated reports in cited evidence (research papers, EEG SOPs, clinical notes, ASD guidelines, model cards, experiment logs). \\
+Technique & Document chunking (512--1024 tokens, 10--20\% overlap); embedding via sentence-transformers (all-mpnet-base-v2, 768-dim); vector store (ChromaDB / FAISS); metadata enrichment (source, date, version). \\
+Input format & Document corpus (PDF, MD, JSON). \\
+Output format & Vector index (ChromaDB collection) + metadata sidecar. \\
+Model / parameters & sentence-transformers; chromadb; faiss. \\
+Validation criterion & Index size + per-chunk retrieval-latency benchmark; embedding-quality eval. \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 18 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 17 and the downstream consumer is Step 19. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 19 --- Retrieval]{Step 19 --- Retrieval.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 19 --- Retrieval]{Step 19 --- Hybrid Vector + Keyword + Metadata Retrieval.}\label{tab:pipeline_step_retrieval} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 19 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Retrieval \\
+Purpose & Retrieve the most-relevant evidence chunks for a given query (model prediction + clinical context) using a hybrid search that combines semantic and keyword signals. \\
+Technique & Vector search (cosine similarity on query embedding); BM25 keyword search; metadata filter (date, source-type); reciprocal-rank-fusion rerank; top-k=5. \\
+Input format & User query OR model-prediction context. \\
+Output format & Ranked evidence chunks: list of (chunk\_text, source, score). \\
+Model / parameters & chromadb hybrid retriever; rank\_bm25; cohere-reranker (optional). \\
+Validation criterion & Mean Reciprocal Rank (MRR) on held-out queries; nDCG@5. \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 19 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 18 and the downstream consumer is Step 20. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 20 --- RAG Report Generation]{Step 20 --- RAG Report Generation.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 20 --- RAG Report Generation]{Step 20 --- Grounded Report Synthesis.}\label{tab:pipeline_step_rag_report} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 20 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & RAG Report Generation \\
+Purpose & Synthesise a structured report combining model prediction + key biomarkers + XAI explanation + retrieved evidence + clinical metadata, with citation trail for every claim. \\
+Technique & LLM (Llama-3-8B / GPT-4o-mini via Ollama OR API) with system prompt enforcing citation-per-claim; templated report skeleton; post-hoc citation verification. \\
+Input format & Model prediction + Step 17 explanation + Step 19 retrieved evidence + patient metadata. \\
+Output format & Structured Markdown / PDF report with inline citations. \\
+Model / parameters & Ollama (Llama-3-8B-Instruct); custom prompt template. \\
+Validation criterion & Ragas faithfulness \(\geq 0.85\); citation accuracy = 100\%; answer-relevance \(\geq 0.80\). \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 20 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 19 and the downstream consumer is Step 21. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 21 --- Human Review (HITL)]{Step 21 --- Human Review (HITL).}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 21 --- Human Review (HITL)]{Step 21 --- Clinician Review + Approve / Reject / Escalate.}\label{tab:pipeline_step_hitl} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 21 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Human Review (HITL) \\
+Purpose & Route every consequential output through a licensed clinician (psychiatrist / neurophysiologist) who approves, rejects, or requests additional assessment before the report reaches the patient or care pathway. \\
+Technique & Confidence-tier routing: \(\text{conf} \geq 0.85\) auto-route to draft-report state; 0.50--0.85 mandatory clinician review; \(< 0.50\) reject + flag for re-assessment. HITL gate non-bypassable for any patient-facing output. \\
+Input format & Generated report (Step 20) + confidence score from Step 16. \\
+Output format & Reviewed report with clinician sign-off, OR rejection-with-rationale. \\
+Model / parameters & Workflow engine (not a model); Celery / Temporal. \\
+Validation criterion & Per-decision audit row (\texttt{request\_\allowbreak id}, clinician\_\allowbreak id, decision, rationale, timestamp). \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 21 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 20 and the downstream consumer is Step 22. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 22 --- Final Output]{Step 22 --- Final Output.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 22 --- Final Output]{Step 22 --- Doctor-Facing + Patient-Facing Reports.}\label{tab:pipeline_step_final_output} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 22 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Final Output \\
+Purpose & Format two parallel deliverables: a doctor-facing technical report with full evidence trail, and a patient / family-facing report with plain-language explanation + no-diagnosis disclaimer. \\
+Technique & Templated formatting: doctor PDF (risk-support score + EEG abnormality summary + biomarkers + citations + limitations + next clinical step); patient PDF (simple explanation + no-diagnosis disclaimer + follow-up recommendation + caregiver resources). \\
+Input format & Reviewed report (Step 21). \\
+Output format & 2 PDFs: doctor.pdf + patient.pdf, both with audit lineage. \\
+Model / parameters & WeasyPrint / Pandoc. \\
+Validation criterion & Reading-grade analysis on patient PDF (target \(\leq\) Grade 8); doctor PDF completeness checklist. \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 22 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 21 and the downstream consumer is Step 23. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Step 23 --- Governance + Monitoring]{Step 23 --- Governance + Monitoring.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Step 23 --- Governance + Monitoring]{Step 23 --- Cross-Cutting Audit + Drift + PII Monitoring.}\label{tab:pipeline_step_governance} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step number & Step 23 of 23 (per \texttt{tab:asd\_\allowbreak 23step\_\allowbreak expanded}) \\
+Step name & Governance + Monitoring \\
+Purpose & Continuously monitor the pipeline for drift, bias, PII leakage, and clinician-override patterns so the governance contract holds in production over time. \\
+Technique & Audit-log writer (every step -> audit row with \texttt{request\_\allowbreak id}); PII scanner (regex + Presidio); bias monitor (per-subgroup metric drift); model drift detector (PSI / KS); data drift detector (feature distribution shift); MCP runtime fabric (App.~\ref{chap:appendix_rgaig_architecture}). \\
+Input format & Every prior step's audit row + production traffic. \\
+Output format & Live governance dashboard + alert events. \\
+Model / parameters & Prometheus + Grafana; Evidently; Presidio. \\
+Validation criterion & Per-week governance review; per-alert RCA + corrective action. \\
+Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style reference record \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 23 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 22 and the downstream consumer is Step 23. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
+
+
+\clearpage
+\paragraph[Technique: Chunking Strategy]{Technique: Chunking Strategy.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Technique: Chunking Strategy]{Technique: Chunking Strategy --- detail page.}\label{tab:pipeline_tech_chunking} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Anchor step & RAG-Step 18 sub-technique \\
+Technique name & Technique: Chunking Strategy \\
+Purpose & Split source documents into retrievable units that balance context preservation against retrieval precision. \\
+Method / algorithm & Recursive character splitter (512 tokens, 10\% overlap, separators \([\backslash\)n\(\backslash\)n, \(\backslash\)n, ., space\(]\)); semantic chunking via sentence embeddings; hierarchical chunking with parent-child relationships. \\
+Input format & Raw document text. \\
+Output format & List of chunks: \(\{\text{chunk\_id, text, position, parent\_id}\}\). \\
+Implementation libraries & langchain.text\_\allowbreak splitter. \\
+Validation criterion & Retrieval recall@5 on held-out QA set; chunk-size sweep. \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This technique page is a sub-detail of the dissertation's 23-step pipeline (Table~\ref{tab:asd_23step_expanded}); the parent step's page provides upstream + downstream context. The drill suite verifies the technique's implementation matches its specification before pipeline integration.
+
+
+\clearpage
+\paragraph[Technique: Tokenization]{Technique: Tokenization.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Technique: Tokenization]{Technique: Tokenization --- detail page.}\label{tab:pipeline_tech_tokenization} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Anchor step & Pre-embedding sub-technique \\
+Technique name & Technique: Tokenization \\
+Purpose & Convert text strings into integer token sequences that an embedding model can consume. \\
+Method / algorithm & BPE (Byte-Pair Encoding) via tiktoken / SentencePiece; per-model tokenizer (Llama uses SentencePiece; OpenAI uses tiktoken cl100k\_\allowbreak base). \\
+Input format & Text chunk (string). \\
+Output format & Token sequence: list of integer IDs + attention mask. \\
+Implementation libraries & tiktoken; sentencepiece; transformers AutoTokenizer. \\
+Validation criterion & Round-trip decode = original text; token count within model context window. \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This technique page is a sub-detail of the dissertation's 23-step pipeline (Table~\ref{tab:asd_23step_expanded}); the parent step's page provides upstream + downstream context. The drill suite verifies the technique's implementation matches its specification before pipeline integration.
+
+
+\clearpage
+\paragraph[Technique: Embedding]{Technique: Embedding.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Technique: Embedding]{Technique: Embedding --- detail page.}\label{tab:pipeline_tech_embedding} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Anchor step & RAG-Step 18 + Step 14 sub-technique \\
+Technique name & Technique: Embedding \\
+Purpose & Map a token sequence (text) or feature vector (EEG) into a fixed-dimensional dense vector that captures semantic / discriminative meaning. \\
+Method / algorithm & Text: sentence-transformers all-mpnet-base-v2 (768-dim); E5-base (768-dim); for EEG: CNN-encoder embedding (128-dim) trained jointly with classifier head. \\
+Input format & Token sequence OR EEG feature tensor. \\
+Output format & Dense vector: float32 (n\_docs / n\_epochs, dim). \\
+Implementation libraries & sentence-transformers; torch.nn.Linear (for EEG encoder). \\
+Validation criterion & Embedding-quality eval: STS-B (text); ASD-vs-control linear-probe accuracy (EEG). \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This technique page is a sub-detail of the dissertation's 23-step pipeline (Table~\ref{tab:asd_23step_expanded}); the parent step's page provides upstream + downstream context. The drill suite verifies the technique's implementation matches its specification before pipeline integration.
+
+
+\clearpage
+\paragraph[Technique: MCP Tool Invocation]{Technique: MCP Tool Invocation.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Technique: MCP Tool Invocation]{Technique: MCP Tool Invocation --- detail page.}\label{tab:pipeline_tech_mcp} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Anchor step & RAG-Step 20 + governance Step 23 sub-technique \\
+Technique name & Technique: MCP Tool Invocation \\
+Purpose & Use the Model Context Protocol (MCP) as the runtime fabric that lets an LLM call governed tools (RAG retrieval, audit logger, PII scanner, model registry) with scope + audit on every call. \\
+Method / algorithm & MCP server per capability (rag\_\allowbreak retrieve, audit\_\allowbreak log, pii\_\allowbreak scan, model\_\allowbreak score); JSON-RPC over stdio / SSE; scope tokens + audit row per tool call. \\
+Input format & LLM tool-call request (JSON-RPC). \\
+Output format & Tool result (JSON) + audit row. \\
+Implementation libraries & mcp-python (anthropic.mcp); custom servers per Appendix~\ref{chap:appendix_rgaig_architecture}. \\
+Validation criterion & Per-tool latency p95; scope-rejection drill; audit-row completeness. \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This technique page is a sub-detail of the dissertation's 23-step pipeline (Table~\ref{tab:asd_23step_expanded}); the parent step's page provides upstream + downstream context. The drill suite verifies the technique's implementation matches its specification before pipeline integration.
+
+
+\clearpage
+\paragraph[Technique: Computer Vision]{Technique: Computer Vision.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Technique: Computer Vision]{Technique: Computer Vision --- detail page.}\label{tab:pipeline_tech_cv} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Anchor step & Step 9 + Step 14 detail \\
+Technique name & Technique: Computer Vision \\
+Purpose & Apply CNN / ViT architectures to 2D EEG representations (spectrograms, scalograms, topomaps) for image-style classification. \\
+Method / algorithm & EfficientNet-B0 backbone + 2-layer MLP head; ViT-base/16; ResNet-18 transfer-learning from ImageNet; image augmentation (random rotation, brightness, contrast). \\
+Input format & 2D image tensor from Step 9: (B, 3, 224, 224). \\
+Output format & Classification logits: (B, n\_classes). \\
+Implementation libraries & torchvision.models; timm (for ViT). \\
+Validation criterion & Per-class accuracy; learning-curve diagnostics; Grad-CAM saliency. \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This technique page is a sub-detail of the dissertation's 23-step pipeline (Table~\ref{tab:asd_23step_expanded}); the parent step's page provides upstream + downstream context. The drill suite verifies the technique's implementation matches its specification before pipeline integration.
+
+
+\clearpage
+\paragraph[Technique: Time-Series Modeling]{Technique: Time-Series Modeling.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Technique: Time-Series Modeling]{Technique: Time-Series Modeling --- detail page.}\label{tab:pipeline_tech_timeseries} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Anchor step & Step 14 detail for 1D signal \\
+Technique name & Technique: Time-Series Modeling \\
+Purpose & Model the 1D EEG signal as a sequence directly (no 2D conversion), using sequence models that capture temporal dependencies. \\
+Method / algorithm & LSTM (256 hidden, 2 layers); GRU; 1D-CNN; Transformer with positional encoding (learnable); EEGNet (canonical EEG architecture). Pre-training option: self-supervised contrastive (SimCLR-EEG). \\
+Input format & 1D signal tensor from Step 7: (B, C, T). \\
+Output format & Sequence-aware classification logits. \\
+Implementation libraries & torch.nn.LSTM / GRU / TransformerEncoder; eegnet-pytorch. \\
+Validation criterion & Test on long vs short epochs; ablate sequence length; verify temporal consistency. \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} This technique page is a sub-detail of the dissertation's 23-step pipeline (Table~\ref{tab:asd_23step_expanded}); the parent step's page provides upstream + downstream context. The drill suite verifies the technique's implementation matches its specification before pipeline integration.

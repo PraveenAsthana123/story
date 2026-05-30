@@ -1,0 +1,1311 @@
+%% =============================================================================
+%% Appendix O — RGAIG Agentic Framework: Enterprise Architecture Specification
+%% Forward-looking; companion to Chapter 3 (framework) and Chapter 5 (future research)
+%% Source: docs/rgaig_agentic_framework_architecture.md (markdown source-of-truth)
+%% =============================================================================
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% SCOPE CONTROL & TECHNOLOGY SELECTION DEFENSIBILITY PACK
+%% Prevents the appendix from becoming an "everything AI" repository.
+%% Explicitly excludes speculative AI (AGI, quantum, swarm, neuromorphic),
+%% bounds future work to academically defensible studies, and ties every
+%% supplementary technology to the governance-trust-adoption contribution.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{section}{Scope Control \& Technology Selection Defensibility Pack} % [TOC-appendix-section-insertion]
+\section*{Scope Control \& Technology Selection Defensibility Pack}
+\addcontentsline{toc}{section}{Scope Control \& Technology Selection Defensibility Pack}
+\label{sec:scope_defensibility_pack}
+\label{chap:appendix_rgaig_architecture}  %% appendix-level anchor for cross-refs from Ch.3 + figures
+
+\noindent\textbf{Appendix governance discipline (read first).} Supplementary technical materials in this appendix were intentionally constrained to maintain alignment with the dissertation's focus on \emph{governance-enabled clinician trust and adoption}. Every technology, architecture, or future direction included here must answer one question: \emph{how does this support governance, explainability, trust, or adoption in AI-assisted ASD-EEG screening?} If the answer is unclear or speculative, the item is excluded. This pack documents both the inclusion logic and the exclusion logic explicitly, so reviewers can see scope was governed, not merely declared.
+
+\noindent\textbf{The Golden Rule.} Every supplementary item must support: governance, explainability, trust, OR adoption. Items failing this test are not in this appendix.
+
+%% =========================================================================
+%% TABLE 1: TECHNOLOGY-TO-RESEARCH MAPPING (what is included and why)
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appo_tech_research_map} summarises technology-to-research mapping for appendix review.
+
+\paragraph{Technology-to-Research Mapping.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{4.6cm} p{8.8cm} >{\centering\arraybackslash}p{1.0cm} @{}}
+\caption[Technology-to-Research Mapping]{Technology-to-Research Mapping. Every technology referenced in this dissertation is justified by the research construct it supports. Technologies without a clear research-support role are explicitly excluded (Table~\ref{tab:appo_excluded_tech}).}\label{tab:appo_tech_research_map} \\
+\toprule
+\thead{Technology} & \thead{Research role} & \thead{Supports} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{SHAP attribution}        & Algorithmic component of perceived explainability; surfaces per-feature contributions to clinicians            & H1, H2 \\
+\textbf{Retrieval-Augmented Generation (RAG)} & Contextual grounding of explanations via peer-reviewed citation; supports verifiable, traceable rationale & H1, H2 \\
+\textbf{Human-in-the-Loop (HITL) workflow} & Clinician override capability; supports trust calibration and decision authority           & H3, H4 \\
+\textbf{Audit logging}           & Per-decision lineage from raw signal to recorded decision; supports governance accountability                  & H1, H4 \\
+\textbf{Workflow UI (EHR-integrated)} & Adoption-readiness operationalization; in-clinic visibility of AI output + explanation + governance        & H3, H5 \\
+\textbf{Bias monitoring}         & Subgroup fairness reporting; supports trust calibration and governance compliance                              & H1 \\
+\textbf{Drift monitoring}        & Production performance tracking; supports governance maturity (rollback path)                                   & H1 \\
+\textbf{Model registry + rollback} & Version pinning + time-bounded revert; supports governance robustness                                          & H1 \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Each technology is included \emph{because} it supports at least one hypothesis. Technologies that support \emph{none} of H1--H6 (regardless of intrinsic merit) are documented in the excluded-technologies table.
+
+%% =========================================================================
+%% TABLE 2: EXCLUDED TECHNOLOGIES (what is NOT in the dissertation)
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appo_excluded_tech} summarises excluded technologies and reasons for appendix review.
+
+\paragraph{Excluded Technologies.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Excluded Technologies]{Excluded Technologies and Reasons. Technologies explicitly out of scope for this dissertation, with the specific reason each is excluded. The absence of each item is deliberate, not an oversight.}\label{tab:appo_excluded_tech} \\
+\toprule
+\thead{Excluded area} & \thead{Reason for exclusion} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Artificial General Intelligence (AGI)}   & Outside research scope; speculative; does not exist; cannot be evaluated against trust/adoption metrics \\
+\textbf{Quantum AI}                              & Insufficient relevance to clinical AI governance; no operational evaluation evidence; speculative for healthcare \\
+\textbf{Swarm intelligence / multi-agent ecosystems} & Lacks healthcare adoption focus; conflicts with HITL-centred governance model where one clinician retains decision authority \\
+\textbf{Neuromorphic AI}                          & Hardware-research domain; not relevant to clinician trust or governance maturity \\
+\textbf{Autonomous AI diagnosis}                  & Conflicts with the dissertation's HITL governance positioning; AI is decision support, not autonomous diagnosis \\
+\textbf{Autonomous-civilization / digital-society AI} & Sci-fi adjacent; not academically defensible in a 2026 healthcare-adoption thesis \\
+\textbf{Deep multi-agent ecosystems}              & Engineering complexity not tied to the trust/adoption pathway; weakens scope discipline \\
+\textbf{Edge AI / IoT deep dives}                 & Hardware-engineering scope; orthogonal to governance maturity \\
+\textbf{Digital twins of clinical workflows}      & Future research direction; not part of the empirical contribution \\
+\textbf{LLMOps / MLOps platform engineering}      & Operational tooling; relevant to evaluation teams, not research contribution \\
+\textbf{Service mesh / Kubernetes / observability internals} & Infrastructure engineering; not governance-relevant at the dissertation level \\
+\textbf{Custom XAI / new SHAP variants}           & Methodological-novelty XAI research; this dissertation uses standard SHAP as an operationalization tool, not as research contribution \\
+\textbf{General LLM benchmarking}                 & AI evaluation research; not adoption research; out of scope \\
+\textbf{Vendor-specific platform recommendations} & Procurement guidance; not research contribution \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Each exclusion is justified by its absence of role in the Governance $\to$ Explainability $\to$ Trust $\to$ Adoption pathway. ``We could include this'' is not sufficient justification; ``this supports a hypothesis'' is.
+
+%% =========================================================================
+%% TABLE 3: BOUNDED FUTURE WORK (academically plausible only)
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appo_future_work_bounded} summarises bounded future work directions for appendix review.
+
+\paragraph{Bounded Future Work Directions.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} L @{}}
+\caption[Bounded Future Work Directions]{Bounded Future Work Directions. Future research is constrained to academically plausible studies that build on this dissertation's empirical pathway. Speculative AI futures are excluded.}\label{tab:appo_future_work_bounded} \\
+\toprule
+\thead{Future direction} & \thead{What it would test that this dissertation cannot} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Longitudinal governance evaluation}   & Whether governance maturity changes adoption trajectory over 12--24 months in real deployments \\
+\textbf{Multi-site healthcare validation}     & Whether the Governance $\to$ Trust $\to$ Adoption pathway replicates across $\geq 5$ healthcare systems with varying governance starting points \\
+\textbf{Clinician-AI collaboration studies}   & How clinicians and AI co-produce decisions when explainability is calibrated; supports HITL theory extension \\
+\textbf{Explainability personalization}       & Whether tailoring explanations by clinician role / experience improves trust calibration \\
+\textbf{Governance maturity benchmarking}     & Cross-institutional study mapping organizations to maturity levels and benchmarking adoption outcomes \\
+\textbf{Deployment readiness evaluation}      & Field-validation of the RGAIG Maturity Framework on actual healthcare deployments \\
+\midrule
+\textbf{Explicitly excluded from future work} & AGI healthcare civilization; autonomous AI hospitals; quantum governance ecosystems; swarm diagnosis systems; speculative AI futures \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Future work directions are academically defensible follow-ups to this dissertation's findings. Speculative AI futures are explicitly excluded because they cannot be evaluated against the dissertation's measured constructs.
+
+%% =========================================================================
+%% TABLE 4: PRACTICAL DEPLOYMENT CONSTRAINTS
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appo_deployment_constraints} summarises practical evaluation constraints for appendix review.
+
+\paragraph{Practical Evaluation Constraints.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Practical Evaluation Constraints]{Practical Evaluation Constraints. Realistic factors that constrain evaluation of the governance-enabled AI framework in actual healthcare settings.}\label{tab:appo_deployment_constraints} \\
+\toprule
+\thead{Constraint} & \thead{What this means} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Governance maturity}     & Organizations at RGAIG Level~1--2 cannot deploy without first investing in foundational governance (audit, access, lineage) \\
+\textbf{Clinician training}      & Workflow integration requires clinician training on explanation interpretation; training capacity gates adoption pace \\
+\textbf{Workflow integration}    & EHR + HL7-FHIR integration is non-trivial; deployments without EHR integration cannot reach Level~6 (Operationalized) \\
+\textbf{Organizational readiness} & C-suite sign-off, governance committee, ethics review board --- all prerequisites; per Chapter~4 H5 partial mediation finding \\
+\textbf{Regulatory constraints}  & FDA SaMD classification (in the US), EU AI Act conformity assessment (in the EU), HIPAA/GDPR compliance (data); all gate future clinical-validation pathway \\
+\textbf{Patient population scope} & ASD-EEG screening pathway has been validated; cross-condition evaluation requires additional validation per condition \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RGAIG = Responsible Generative AI Governance; ASD = Autism Spectrum Disorder; EEG = Electroencephalography. See chapter prose for full context.
+
+%% =========================================================================
+%% WHY HUMAN OVERSIGHT REMAINS NECESSARY (locked statement)
+%% =========================================================================
+\subsection*{Why Human Oversight Remains Central}
+\label{sec:appo_human_oversight}
+
+\noindent Despite continuing advances in explainability, governance automation, and model performance, \textbf{human oversight remains central to trustworthy healthcare AI adoption}. This is not a temporary limitation of current technology; it is a structural feature of clinical decision-making. Five reasons:
+
+\begin{enumerate}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Accountability cannot be automated.} A clinician is professionally and legally accountable for the screening decision. Even with high AI performance, accountability cannot be transferred to a model.
+    \item \textbf{Edge cases require judgement.} Calibrated trust means clinicians override when patterns differ from training distribution; an AI cannot know its own boundaries reliably.
+    \item \textbf{Patient values matter.} ASD diagnosis interacts with family context, cultural values, and quality-of-life considerations no model captures. Clinician judgement integrates these.
+    \item \textbf{Trust is bidirectional.} Patient trust in care depends on a clinician explaining a decision, not on a model emitting it. AI augments the clinician; it does not replace the clinician's role in the trust relationship with the patient.
+    \item \textbf{Regulation requires it.} EU AI Act (2024) and FDA SaMD framework require human oversight in high-risk medical AI. Governance compliance \emph{is} clinician oversight.
+\end{enumerate}
+
+\noindent The dissertation's central pathway (Governance $\to$ Explainability $\to$ Trust $\to$ Adoption) is therefore not an autonomous-AI roadmap; it is an oversight-enabled-AI roadmap. The RGAIG Maturity Framework's highest level (Level~6: Operationalized) is workflow-integrated AI with continuous-learning governance --- \emph{not} clinician-removed AI.
+
+\noindent\textbf{End of Scope Control \& Technology Selection Defensibility Pack.} The Architecture Defensibility Pack that follows documents the conceptual operational framework; the engineering specification below that is supplementary technical context only.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ARCHITECTURE APPENDIX DEFENSIBILITY PACK
+%% Reframes the technical architecture as conceptual operational support
+%% for the DBA contribution (Governance -> Trust -> Adoption).
+%% Pre-empts the supervisor critique that the architecture could
+%% accidentally revert the thesis into an "enterprise AI architecture" frame.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\addcontentsline{toc}{section}{Architecture Appendix Defensibility Pack} % [TOC-appendix-section-insertion]
+\section*{Architecture Appendix Defensibility Pack}
+\addcontentsline{toc}{section}{Architecture Appendix Defensibility Pack}
+\label{sec:appo_defensibility_pack}
+
+\noindent\textbf{Critical disclaimer (read first).} The architecture documented in this appendix represents a \emph{conceptual governance-enabled decision-support operating environment}, not a clinically deployed autonomous diagnostic platform. It is a forward-looking operational representation of how the Responsible AI Governance constructs investigated in this dissertation could be instantiated at enterprise scale. The architecture is \textbf{not} a future-operational-validation pathway blueprint; it is an artefact that makes the dissertation's governance, explainability, trust, and adoption claims concrete and defensible. Production evaluation in any healthcare setting would require additional future clinical-validation pathway, regulatory clearance (FDA SaMD, EU AI Act conformity assessment), prospective safety evaluation, and site-specific governance review --- none of which is in scope here.
+
+\noindent\textbf{Reading order.} This appendix is organised in two layers:
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Layer 1 (this pack):} Conceptual operational framework --- how architecture supports the Governance $\to$ Explainability $\to$ Trust $\to$ Adoption pathway. Doctoral-relevant.
+    \item \textbf{Layer 2 (subsequent sections):} Supporting technical context --- containers, services, data flows, evaluation topology. Engineering-relevant only; provided for completeness, not as dissertation contribution.
+\end{itemize}
+
+\noindent Table~\ref{tab:appo_research_arch_map} maps each dissertation construct to the architectural component that makes it observable.
+
+%% =========================================================================
+%% TABLE 1: RESEARCH-TO-ARCHITECTURE MAPPING
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appo_research_arch_map} maps each architectural component of the RGAIG system to the research question it addresses, the design decision behind it, and the chapter section that justifies the choice.
+
+\paragraph{Research-to-Architecture Mapping.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} L @{}}
+\caption[Research-to-Architecture Mapping]{Research-to-Architecture Mapping}\label{tab:appo_research_arch_map} \\
+\toprule
+\thead{Research element} & \thead{Architecture representation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{RAI governance}      & Audit log, bias monitor, rollback registry, access control, lineage, HITL queue, and drift dashboard. \\
+\textbf{Explainability}      & SHAP attribution, RAG citation grounding, and clinician-facing rationale panel. \\
+\textbf{Clinician trust}     & Override workflow, rationale capture, calibration feedback, and override audit. \\
+\textbf{Adoption readiness}  & EHR display, workflow context, fit telemetry, training, and onboarding support. \\
+\textbf{H1--H6 support}      & Converts the governance-to-adoption pathway from abstract construct to observable artefact. \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Each architectural element below the pack is traceable to one of these research elements. Engineering details that do not map to a research element are demoted to deep-appendix or future work.
+
+%% =========================================================================
+%% FIGURE 1: HUMAN-CENTERED WORKFLOW
+%% =========================================================================
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[every node/.style={font=\fignodefont},
+    bx/.style={draw=ggunavy, fill=ggunavy!10, rounded corners=4pt, thick, minimum width=4.0cm, minimum height=1.1cm, align=center, font=\fignodefont},
+    govbx/.style={draw=ggunavy, fill=orange!12, rounded corners=4pt, thick, minimum width=4.0cm, minimum height=1.1cm, align=center, font=\fignodefont\itshape},
+    arr/.style={-{Stealth[length=3mm, width=2mm]}, thick, ggunavy}]
+\node[bx]    (c1)  at (0,0)    {\textbf{Clinician}\\\scriptsize (the human in the loop)};
+\node[bx]    (eeg) at (0,-1.7) {\textbf{AI-Assisted EEG Analysis}\\\scriptsize ASD classifier (decision support)};
+\node[govbx] (gov) at (0,-3.4) {\textbf{Governance + Explainability Layer}\\\scriptsize Audit, bias, HITL, SHAP+RAG explanation};
+\node[bx]    (rev) at (0,-5.1) {\textbf{Clinician Review}\\\scriptsize Inspect explanation; override available};
+\node[bx]    (tr)  at (0,-6.8) {\textbf{Trust Evaluation}\\\scriptsize Calibrated trust forms};
+\node[bx]    (adop) at (0,-8.5) {\textbf{Adoption Readiness}\\\scriptsize Workflow integration};
+\foreach \a/\b in {c1/eeg, eeg/gov, gov/rev, rev/tr, tr/adop} { \draw[arr] (\a) -- (\b); }
+\draw[arr, dashed, bend left=60] (adop.east) to node[right, font=\scriptsize] {feedback} (c1.east);
+\end{tikzpicture}
+\caption[Human-Centered Workflow]{Human-Centered Workflow. The clinician initiates and concludes every screening event; AI is a decision-support layer mediated by governance and explainability. The dashed feedback loop closes the trust-calibration cycle by feeding clinician overrides back into governance monitoring. This figure is the DBA-grade architectural reduction of the dissertation's central pathway.}
+\label{fig:appo_human_workflow}
+\end{figure}
+
+%% =========================================================================
+%% FIGURE 2: DATA GOVERNANCE FLOW
+%% =========================================================================
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[every node/.style={font=\fignodefont},
+    bx/.style={draw=ggunavy, fill=ggunavy!10, rounded corners=4pt, thick, minimum width=3.2cm, minimum height=1.0cm, align=center, font=\fignodefont},
+    govbx/.style={draw=ggunavy, fill=orange!12, rounded corners=4pt, thick, minimum width=3.2cm, minimum height=1.0cm, align=center, font=\fignodefont\itshape},
+    arr/.style={-{Stealth[length=3mm, width=2mm]}, thick, ggunavy}]
+\node[bx]    (eeg) at (0,0)     {\textbf{EEG Data}\\\scriptsize De-identified};
+\node[govbx] (gov) at (4,0)     {\textbf{Governance Controls}\\\scriptsize Lineage, access, audit};
+\node[bx]    (xai) at (8,0)     {\textbf{Explainability Layer}\\\scriptsize SHAP + RAG};
+\node[bx]    (rev) at (12,0)    {\textbf{Clinician Review}\\\scriptsize Inspect + override};
+\node[bx]    (out) at (12,-2.3) {\textbf{Decision Support Output}\\\scriptsize EHR-integrated};
+\foreach \a/\b in {eeg/gov, gov/xai, xai/rev} { \draw[arr] (\a) -- (\b); }
+\draw[arr] (rev) -- (out);
+\end{tikzpicture}
+\caption[Data Governance Flow]{Data Governance Flow. EEG data flows through governance controls, then through the explainability layer, then to the clinician for review, finally to an EHR-integrated decision-support output. The architecture's central role is to ensure every data movement is governed (lineage), every prediction is explainable (SHAP+RAG), and every decision is clinician-reviewed (HITL).}
+\label{fig:appo_data_gov_flow}
+\end{figure}
+
+%% =========================================================================
+%% TABLE 2: GOVERNANCE MATURITY → ARCHITECTURE MAPPING
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appo_maturity_arch} summarises governance maturity-to-architecture mapping for appendix review.
+
+\paragraph{Governance Maturity.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{3.3cm} p{9.5cm} @{}}
+\caption[Governance Maturity-to-Architecture Mapping]{Governance Maturity-to-Architecture Mapping. Each RGAIG Maturity level (Chapter~1 Section~\ref{sec:rgaig_maturity_artifact}) corresponds to an architectural characteristic. Healthcare organizations advance levels by adding architectural capability, not by accumulating frameworks.}\label{tab:appo_maturity_arch} \\
+\toprule
+\thead{Lvl} & \thead{Maturity stage} & \thead{Architectural characteristic at this level} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Initial          & Ad-hoc AI scripts; no governance services; no audit trail; explainability absent \\
+2 & Managed          & Basic logging; manual access control; isolated AI tools; no integration \\
+3 & Governed         & Formal audit-log service; bias-monitoring jobs; rollback registry; documented control inventory \\
+4 & Explainable      & Explanation service (SHAP + RAG) embedded in clinical UI; reasoning surfaced to clinician at point of care \\
+5 & Trusted          & Clinician feedback loop + trust-calibration monitoring; fairness dashboards per patient subgroup; verified performance evidence \\
+6 & Operationalized  & Workflow-integrated AI with EHR + HL7-FHIR; outcome monitoring; continuous-learning governance; cross-site replication \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} The architecture is layered to support maturity progression: Levels~1--3 capabilities are foundational services; Levels~4--5 add clinical-UI and trust-monitoring services; Level~6 adds workflow + outcome integration. An organization adopts capabilities incrementally, paying only for what advances their next level.
+
+%% =========================================================================
+%% TABLE 3: GOVERNANCE DIMENSIONS THAT MATTER FOR THE THESIS
+%% =========================================================================
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appo_gov_dimensions} summarises governance dimensions that directly support the dissertation's hypotheses for appendix review.
+
+\paragraph{Governance Dimensions Operationalized.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{4.0cm} p{9.3cm} >{\centering\arraybackslash}p{1.0cm} @{}}
+\caption[Governance Dimensions Operationalized]{Governance Dimensions That Directly Support the Dissertation's Hypotheses. Other engineering capabilities (caching, message queuing, observability tracing) exist in Layer 2 below but are not dissertation-relevant.}\label{tab:appo_gov_dimensions} \\
+\toprule
+\thead{Governance area} & \thead{Architectural service operationalizing it} & \thead{Supports} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Explainability    & SHAP attribution generator + RAG citation grounding + clinical-UI reasoning panel   & H1, H2 \\
+Auditability      & Immutable audit-log service with per-decision retrieval API                          & H1, H4 \\
+Bias monitoring   & Subgroup fairness dashboard + alerting on threshold breach                          & H1 \\
+HITL              & Clinician override capability + rationale capture + escalation queue                & H3, H5 \\
+Transparency      & End-to-end lineage tracking (data $\to$ feature $\to$ model $\to$ decision)         & H1, H2 \\
+Rollback          & Model registry with version pinning and time-bounded revert path                    & H1 \\
+Traceability      & Citation traceability from RAG output to peer-reviewed source                        & H2 \\
+\end{xltabular}}
+\vspace{0.4em}
+\noindent\textit{Note.} Engineering capabilities outside this table (e.g., service mesh, message queue, container orchestration, vector-DB internals, CI/CD pipelines) exist in the technical architecture below but are demoted to deep-appendix material; they do not constitute part of the dissertation contribution.
+
+\noindent\textbf{End of Layer 1 (Conceptual Architecture Pack).} The technical-context detail that follows is provided for engineering completeness only. Examiners assessing the doctoral contribution should focus on Tables~\ref{tab:appo_research_arch_map}--\ref{tab:appo_gov_dimensions} and Figures~\ref{fig:appo_human_workflow}--\ref{fig:appo_data_gov_flow} above; the remainder of this appendix is supplementary technical context.
+
+\paragraph{Appendix H Scope Contract --- Conceptual Future Reference Only.}
+\label{para:appendix_h_scope_contract}
+The architecture content that follows (C4 levels~1--7, container diagrams, runtime council, Kubernetes probes, rollback patterns, disaster recovery, load testing, integration catalogue, security architecture) is presented strictly as \textbf{conceptual future reference architecture, NOT as validated evaluation evidence}. Specifically: (i)~it is \emph{not} a medical-device specification; (ii)~it is \emph{not} a clinical-readiness proof; (iii)~it is \emph{not} an operational evaluation proof; (iv)~it is \emph{not} certified runtime infrastructure. This appendix is retained as \textbf{future implementation context} so a provider organisation adopting RGAIG could see how the conceptual framework would translate into engineering specification at a future evaluation stage. The DBA contribution of this dissertation is the \emph{governance, explainability, and adoption framework} (Chapter~\ref{chap:discussion}); Appendix~H is reference scaffolding for that contribution, not the contribution itself. Examiners should treat any deployment, runtime, or compliance claim that appears below as \emph{conceptual} rather than \emph{validated}.
+
+\section{Document Status and Scope}
+\label{sec:appo_status}
+
+\noindent This appendix provides a \emph{conceptual reference architecture} for future implementation of the RGAIG framework. It is \textbf{forward-looking and non-validated as an operational system}: the dissertation evaluates governance, explainability, trust, adoption readiness, and human oversight, not future implementation. Any technical elements below are supplementary design context and must not be read as evidence of clinical readiness, medical-device certification, production reliability, or live evaluation capability.
+
+\noindent\textbf{Why this belongs in the thesis.} Chapter~3 specifies the framework-evaluation methodology. Chapter~4 evaluates governance, explainability, trust, adoption, and oversight findings. Chapter~5 discusses implications and limitations. This appendix is included only to show one possible future implementation context for the governance framework. It answers the bounded question: \emph{what governance controls would future implementers need to consider before any clinical pilot?}
+
+\noindent\textbf{What this appendix is not:}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Not implementation code, not validated evaluation evidence, and not a medical-device specification.
+    \item Not a re-derivation of RGAIG (Chapter~3 owns that).
+    \item Not a cost study (Chapter~5 \S~ROI owns that).
+    \item Not future clinical-validation pathway, live-system benchmarking, or operational proof.
+\end{itemize}
+
+\section{Business Context and Stakeholders}
+\label{sec:appo_business}
+
+\subsection{Business Problem (Anchored to Chapter~1)}
+
+The RGAIG framework defined in Chapter~3 is a layered governance and trust framework for non-diagnostic AI-assisted ASD screening support. Chapter~\ref{chap:analysis} evaluates framework relevance and stakeholder-facing governance evidence; it does not validate hospital deployment. This appendix therefore sketches a future reference architecture to illustrate governance controls that would be required before any prospective clinical or institutional pilot.
+
+\subsection{Stakeholder Concerns}
+\noindent Table~\ref{tab:appo_stakeholder_concerns} presents architectural Concerns by Stakeholder.
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Architectural Concerns by Stakeholder]{Architectural Concerns by Stakeholder. This table maps each decision-maker to the architectural property they evaluate when assessing the framework for deployment, ensuring that the architecture specification addresses the full set of stakeholder requirements rather than optimising for a single audience.}\label{tab:appo_stakeholder_concerns} \\
+\toprule
+\thead{Stakeholder} & \thead{Architectural Concern} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Clinician & Confidence calibration; explainability latency; clinical-safe error envelopes \\
+\addlinespace
+Hospital administrator & Cost ceiling per screening; vendor lock-in avoidance; GPU utilisation \\
+\addlinespace
+Operations manager & SLA; throughput; on-call runbooks \\
+\addlinespace
+Policy / regulator & Audit-trail completeness; model card; fairness monitoring; EU AI Act Art.~86 right-to-explanation \\
+\addlinespace
+Patient / data subject & Consent; data retention; override rights; fairness across demographics \\
+\addlinespace
+AI / platform engineer & Deployability; observability; rollback; drift detection; safe model swap \\
+\addlinespace
+Investor / funder & Unit economics; capacity model; time-to-deployment \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\subsection{Success Criteria}
+\noindent Table~\ref{tab:appo_success_criteria} presents architecture-Level Success Criteria.
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{4.0cm} L @{}}
+\caption[Architecture-Level Success Criteria]{Architecture-Level Future Readiness Criteria. Each dimension is a future implementation consideration, not a validated operational target; collectively these criteria define issues that would require prospective testing, ethics approval, and institutional governance before deployment.}\label{tab:appo_success_criteria} \\
+\toprule
+\thead{Dimension} & \thead{Target} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Bounded empirical evidence (not future clinical-validation pathway) & ASD-EEG task reported as supporting plausibility only \\
+\addlinespace
+End-to-end p95 latency & $\leq$ 4\,s for routine; $\leq$ 250\,ms for cached repeats \\
+\addlinespace
+Fairness (disparate impact ratio) & $\geq$ 0.80 across age $\times$ sex $\times$ ethnicity, monitored weekly \\
+\addlinespace
+Audit-row completeness & 100\,\% of clinical-decision invocations \\
+\addlinespace
+Cost per screening & $\leq$ \$15 (ROI ceiling per Ch.~\ref{chap:discussion}) \\
+\addlinespace
+Recovery objective (RTO / RPO) & RTO 15\,min / RPO 0 for clinical APIs \\
+\addlinespace
+Regulatory mapping & Conceptual awareness only; no certification or compliance claim \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} ASD = Autism Spectrum Disorder; EEG = Electroencephalography. See chapter prose for full context.
+
+\subsection{Out of Scope}
+
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Drug-discovery models (per delimitation Ch.~1)
+    \item Robotic surgical guidance
+    \item Generative-creative non-clinical use
+    \item Edge-only evaluation without cloud component (future work)
+\end{itemize}
+
+\section{Architecture Principles}
+\label{sec:appo_principles}
+
+The RGAIG enterprise architecture extends the standard 12-factor application principles with five AI-specific extensions and four RGAIG-specific principles.
+\noindent Table~\ref{tab:appo_principles} presents architecture Principles: 12-Factor Foundation Plus AI and RGAIG Extensions.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.1cm} >{\raggedright\arraybackslash}p{4.6cm} p{7.6cm} @{}}
+\caption[Architecture Principles: 12-Factor Foundation Plus AI]{Architecture Principles: 12-Factor Foundation Plus AI and RGAIG Extensions. Standard application principles (1--12) provide a evaluation baseline; the AI extensions (13--17) address requirements specific to systems that include trained models and prompts; the RGAIG-specific principles (18--21) encode the governance and clinical-safety commitments unique to this framework.}\label{tab:appo_principles} \\
+\toprule
+\thead{\#} & \thead{Principle} & \thead{Implication} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1--12 & Standard 12-factor & Codebase / dependencies / config / backing services / build-release-run / processes / port-binding / concurrency / disposability / dev-prod parity / logs / admin-processes \\
+\addlinespace
+13 & Models as code-equivalent dependencies & Pinned, versioned, registered in model registry \\
+\addlinespace
+14 & Prompts as code & Versioned in prompt registry; redeploy = bump version \\
+\addlinespace
+15 & Data contracts & Schemas versioned + validated at every boundary \\
+\addlinespace
+16 & Evaluation as build artefact & Every model release ships eval + fairness + drift report \\
+\addlinespace
+17 & Cost as first-class metric & Token cost dashboards + alerts at 50\,/\,80\,/\,100\,\% budget \\
+\addlinespace
+18 (RGAIG) & Decision audit before deploy & Every clinical-decision path emits an audit row before output is returned \\
+\addlinespace
+19 (RGAIG) & HITL gate at confidence threshold & $<$ 0.80 confidence $\to$ mandatory clinician override before commit \\
+\addlinespace
+20 (RGAIG) & Explainability is a SLA, not a feature & Local explanation (SHAP / counterfactual / citation) returned within p95 $\leq$ 1\,s of decision \\
+\addlinespace
+21 (RGAIG) & Hub-and-spoke isolation per agent & Council agents communicate ONLY through the hub; never agent-to-agent direct calls \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RGAIG = Responsible Generative AI Governance; SHAP = SHapley Additive exPlanations; HITL = Human-in-the-loop. See chapter prose for full context.
+
+\section{C4 Architecture Levels 1 to 7}
+\label{sec:appo_c4}
+
+The architecture is documented across seven C4 levels: standard C4 (Levels 1--4) plus three RGAIG-specific extensions (Levels 5--7) for governance, observability, and lifecycle.
+
+\subsection{Level 1 --- System Context}
+
+The system-context view (Figure~\ref{fig:appo_c4l1}) places the RGAIG enterprise framework within its operating ecosystem of users and external systems.
+
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}{0.95\textwidth}
+\footnotesize\ttfamily
+\begin{verbatim}
+                    +-----------------------------------+
+                    |          External Actors          |
+                    |  Clinician  Patient  Admin        |
+                    |  Regulator  Researcher  Payer     |
+                    +----------------+------------------+
+                                     |
+                                     v
+                    +-----------------------------------+
+                    |  RGAIG AGENTIC FRAMEWORK          |
+                    |  Hub-and-Spoke Council + RAG +    |
+                    |  Governance + HITL + Audit        |
+                    +-----------------------------------+
+                       |    |    |     |       |
+                       v    v    v     v       v
+                  +-----++-----++----++-----++-------+
+                  | EHR || EEG || LLM|| Vec || Audit |
+                  | HL7 ||Wear-||Prov||  DB || Arch  |
+                  | FHIR||able ||OAI ||Qdrant|| S3 + |
+                  +-----++-----++----++-----++-------+
+\end{verbatim}
+\end{minipage}
+\caption[C4 Level 1 --- System Context]{C4 Level 1 --- System Context. The RGAIG framework as a single black-box system, with external actors (clinician, patient, administrator, regulator, researcher, payer) and external systems (EHR, wearable EEG, LLM provider, vector DB, audit archive). Internal structure is opened in Levels 2--4.}
+\label{fig:appo_c4l1}
+\end{figure}
+
+\subsubsection{External-System Catalogue}
+\noindent Table~\ref{tab:appo_external_systems} presents external Systems and Failure Modes.
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{1.8cm} L @{}}
+\caption[External Systems and Failure Modes]{External Systems and Failure Modes. Each external system is characterised by direction of data flow, protocol, owning entity, and graceful-degradation strategy when the system is unavailable, ensuring the architecture can continue serving clinical decisions through expected partial outages.}\label{tab:appo_external_systems} \\
+\toprule
+\thead{System} & \thead{Direction} & \thead{Protocol} & \thead{Owner} & \thead{Failure Mode} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+EHR (Epic / Cerner) & Bi-directional & HL7 v2.x; FHIR R4 REST & Hospital IT & Read-only fallback to local cache \\
+\addlinespace
+Wearable EEG (Emotiv) & Inbound & LSL stream; WebSocket & Device vendor & Drop session; record incident \\
+\addlinespace
+LLM provider & Outbound & HTTPS API & Vendor / self-hosted & Multi-provider fallback (ADR-004) \\
+\addlinespace
+Vector DB (Qdrant) & Bi-directional & gRPC & Self-hosted & Hot replica failover \\
+\addlinespace
+Audit archive (S3) & Outbound write-only & HTTPS & Cloud provider & Local DLQ; replay on recovery \\
+\addlinespace
+Identity provider & Outbound & OAuth 2.0 / SAML 2.0 & Enterprise SSO & Cached tokens within TTL \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} EEG = Electroencephalography. See chapter prose for full context.
+
+\subsection{Level 2 --- Container Diagram}
+
+The container view decomposes the framework into 12 deployable containers organised by functional plane (Figure~\ref{fig:appo_c4l2}).
+
+\needspace{24\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\begin{minipage}{0.95\textwidth}
+\footnotesize\ttfamily
+\begin{verbatim}
++------------------------------------------------+
+|  EDGE                                          |
+|  +-------------+  +-----------------+          |
+|  | API Gateway |  | WebSocket GW    |          |
+|  +------+------+  +--------+--------+          |
++---------+--------------------+-----------------+
+          v                    v
++------------------------------------------------+
+|  CONTROL PLANE (Hub)                           |
+|  +-------------+ +-------------+ +-----------+ |
+|  | Orchestrator| |Policy Engine| |Audit Logger|
+|  +-------------+ +-------------+ +-----------+ |
+|  +-------------+ +-------------+ +-----------+ |
+|  |Tool Registry| |Prompt Reg.  | |Budget Mgr | |
+|  +-------------+ +-------------+ +-----------+ |
++----+-------------------------------------------+
+     v
++------------------------------------------------+
+|  COUNCIL RUNTIME (15 Specialist Agents)        |
+|  Planner | RAG | Tool | Coding | Critic |      |
+|  Reflection | Explainability | Responsible-AI |
+|  Governance | Security | Performance |         |
+|  Evaluation | Drift | Provenance | Self-Heal   |
++----+-------------------------------------------+
+     v
++------------------------------------------------+
+|  WORKFLOW ENGINE                               |
+|  +-------------+  +-------------+              |
+|  | LangGraph   |  | Temporal    |              |
+|  | (stateful)  |  | (durable)   |              |
+|  +-------------+  +-------------+              |
++----+-------------------------------------------+
+     v
++------------------------------------------------+
+|  DATA / KNOWLEDGE PLANE                        |
+|  Qdrant | Postgres | Neo4j | S3 / GCS         |
+|  Feast (Feature Store) | Redis (Prompt Cache) |
++----+-------------------------------------------+
+     v
++------------------------------------------------+
+|  OBSERVABILITY                                 |
+|  OTel | Prometheus | Grafana | Kiali | Jaeger |
++------------------------------------------------+
+\end{verbatim}
+\end{minipage}
+\caption[C4 Level 2 --- Container Diagram]{C4 Level 2 --- Container Diagram. Twelve containers organised by functional plane: Edge (1--2), Control Plane (3--8), Council Runtime (9), Workflow Engine (10), Data / Knowledge (11), Observability and HITL (12). Hub-and-spoke topology routes all inter-agent communication through the Control Plane.}
+\label{fig:appo_c4l2}
+\end{figure}
+
+\subsubsection{Container Responsibility Matrix}
+\noindent Table~\ref{tab:appo_containers} documents container Responsibility Matrix.
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.2cm} >{\raggedright\arraybackslash}p{2.6cm} L >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{1.6cm} @{}}
+\caption[Container Responsibility Matrix]{Container Responsibility Matrix. Each container is characterised by its primary responsibility, technology choice, statefulness, and accountable team, providing a single reference for capacity planning, on-call rotation, and ownership disputes.}\label{tab:appo_containers} \\
+\toprule
+\thead{\#} & \thead{Container} & \thead{Primary Responsibility} & \thead{Tech} & \thead{Stateful?} & \thead{Owner} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & API Gateway & Auth, rate-limit, mTLS termination & Kong / Envoy & No & Platform \\
+2 & WebSocket Gateway & Streaming inference + EEG live & FastAPI + uvloop & No & Platform \\
+3 & Orchestrator & Workflow routing; agent dispatch & Python (LangGraph) & Yes (state) & Agent team \\
+4 & Policy Engine & RBAC + ABAC + tool policy & OPA (Rego) & No & Security \\
+5 & Tool Registry & MCP tool catalogue, contracts & Python + Postgres & Yes & Agent team \\
+6 & Prompt Registry & Versioned prompt templates & Python + Git-backed & Yes & AI ops \\
+7 & Audit Logger & Decision row append-only writer & Python + Kafka & No (Kafka) & Compliance \\
+8 & Budget Manager & Token / cost ceilings per tenant & Python + Redis & Yes & FinOps \\
+9 & Council Runtime & 15+ specialist agents & Python (LangGraph) & Yes (graph) & Agent team \\
+10 & Workflow Engine & LangGraph + Temporal & Python + Temporal & Yes & Platform \\
+11 & Data / Knowledge & Vector / SQL / graph / object & Qdrant / PG / Neo4j / S3 & Yes & Data team \\
+12 & HITL Console & Clinician approval UI; override logger & React + Postgres & Yes & UX + Compliance \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} HITL = Human-in-the-loop; EEG = Electroencephalography. See chapter prose for full context.
+
+\subsection{Level 3 --- Component Detail (Council Runtime)}
+
+The Council Runtime (Container~9) hosts 15 specialist agents, each with a single responsibility. All agents communicate only through the central Orchestrator (Container~3) --- never agent-to-agent.
+\noindent Table~\ref{tab:appo_agents} lists council Specialist Agents and HITL Triggers.
+
+{\tablestripes\tablefontsize
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} p{6.3cm} >{\raggedright\arraybackslash}p{5.1cm} @{}}
+\caption[Council Specialist Agents and HITL Triggers]{Council Specialist Agents and HITL Triggers. Each agent has a single, narrow responsibility and a clear escalation rule for routing to human-in-the-loop review, ensuring no agent's output bypasses clinical oversight when its confidence or safety thresholds are not met.}\label{tab:appo_agents} \\
+\toprule
+\thead{Agent} & \thead{Single Responsibility} & \thead{HITL Trigger} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Planner & Decompose user goal $\to$ ordered task plan & If plan needs $>$ 10 steps \\
+RAG & Retrieve evidence chunks; rerank; cite & If retrieval $\leq$ 3 chunks \\
+Tool & Select + invoke MCP tools & If tool not previously authorised \\
+Coding & Generate code (sandboxed) & If runtime change to live config \\
+Critic & Evaluate prior agent output & Always; reports score \\
+Reflection & Self-critique; replan if quality low & If Critic score $<$ 0.6 \\
+Explainability & Produce SHAP / counterfactual / citation & Always for clinical decisions \\
+Responsible-AI & Bias / fairness / toxicity check & If DI $<$ 0.80 or toxicity above threshold \\
+Governance & Policy lookup; consent enforcement; retention check & If consent missing or expired \\
+Security & Prompt-injection scan; output sanitisation & If injection detected \\
+Performance & Latency / cost ceiling enforcement & If projected cost $>$ budget \\
+Evaluation & Score on internal eval set; quality gate & Always before commit \\
+Drift & PSI / KS detection on input distribution & If PSI $>$ 0.20 \\
+Provenance & Build lineage graph: source $\to$ chunk $\to$ token $\to$ output & Always; writes to Neo4j \\
+Self-Heal & Retry on transient failure; quarantine on persistent & If retry budget exceeded \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} SHAP = SHapley Additive exPlanations; RAG = Retrieval-Augmented Generation; HITL = Human-in-the-loop. See chapter prose for full context.
+
+\subsection{Level 4 --- Code-Pattern Descriptions (No Code)}
+
+\subsubsection{Agent Invocation Pattern}
+
+\noindent Every agent obeys the following invocation pattern:
+
+\begin{enumerate}[leftmargin=*, itemsep=2pt]
+    \item Validate input schema (per Tool Registry) $+$ emit OpenTelemetry span: \texttt{agent.<name>.start}.
+    \item Policy check: invoke Policy Engine; deny if not authorised.
+    \item Confidence guard: if upstream confidence $<$ threshold, escalate to HITL.
+    \item Execute core logic (LangGraph node).
+    \item Emit decision audit row to Kafka (per \S~\ref{sec:appo_audit_schema} schema).
+    \item Emit OpenTelemetry span: \texttt{agent.<name>.end}.
+    \item Return $\{$result, confidence, audit\_row\_id, span\_id, next\_state$\}$.
+\end{enumerate}
+
+\subsubsection{Circuit-Breaker Semantics}
+\noindent Table~\ref{tab:appo_circuit_breaker} presents circuit-Breaker States and Recovery.
+
+\noindent Each breaker is paired with the upstream it guards, the open/close trigger, and the fallback response.
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{2.5cm} L >{\raggedright\arraybackslash}p{3.0cm} @{}}
+\caption[Circuit-Breaker States and Recovery]{Circuit-Breaker States and Recovery. Three-state breaker prevents cascading failure when an upstream LLM provider or tool degrades; the half-open probe ensures recovery is detected without flooding the breaker.}\label{tab:appo_circuit_breaker} \\
+\toprule
+\thead{State} & \thead{Trigger} & \thead{Behaviour} & \thead{Recovery} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Closed & Normal & All calls go through & --- \\
+Open & 5 failures in 60\,s & Fail-fast; return cached or fallback model & Half-open after 30\,s cooldown \\
+Half-open & After cooldown & Probe with 1 request & Closed if success; Open if fail \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\subsection{Levels 5 to 7}
+
+\subsubsection{Level 5 --- Governance Plane}
+\noindent Table~\ref{tab:appo_governance_plane} presents governance-Plane Elements and Cadences.
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{6.1cm} >{\raggedright\arraybackslash}p{4.3cm} p{3.9cm} @{}}
+\caption[Governance-Plane Elements and Cadences]{Governance-Plane Elements and Cadences. Each governance element has an accountable owner and a defined cadence, ensuring governance is operational rather than aspirational.}\label{tab:appo_governance_plane} \\
+\toprule
+\thead{Element} & \thead{Owner} & \thead{Cadence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+ADR registry (\S~\ref{sec:appo_adrs}) & Architecture team & Per decision \\
+Model card per deployed model & AI ops & Per release \\
+Risk register (Table~\ref{tab:ai_risk_register}) & Compliance & Quarterly \\
+Approval workflow (production change) & Eng manager & Per change \\
+Decision audit reviewer rotation & Compliance + clinician panel & Monthly sample \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\subsubsection{Level 6 --- Observability Plane}
+\noindent Table~\ref{tab:appo_observability} presents observability Streams and Retention Policy.
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.5cm} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Observability Streams and Retention Policy]{Observability Streams and Retention Policy. Retention is tiered by purpose: hot storage for incident response; cold storage for regulatory compliance; live mesh topology for real-time on-call.}\label{tab:appo_observability} \\
+\toprule
+\thead{Stream} & \thead{Sink} & \thead{Retention} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+OTel traces & Jaeger & 30 days hot; 1 yr cold \\
+Metrics & Prometheus & 90 days \\
+Structured logs & Loki & 90 days hot; 1 yr cold \\
+Decision audit & Postgres + S3 archive & 7 years (regulated) \\
+Provenance graph & Neo4j & 1 yr \\
+Service-mesh topology & Kiali & Live \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\noindent\textbf{Required logging fields} (on every log line, audit row, and span): \texttt{request\_\allowbreak id}, \texttt{tenant\_\allowbreak id}, \texttt{actor}, \texttt{agent}, \texttt{tool}, \texttt{latency\_\allowbreak ms}, \texttt{outcome} (one of: ok, denied, failed, timeout, hitl).
+
+\subsubsection{Level 7 --- Lifecycle Plane}
+
+\noindent The release lifecycle proceeds: build $\to$ eval-gate $\to$ release-cut $\to$ canary $\to$ progressive (10\,/\,50\,/\,100\,\%) $\to$ monitor $\to$ drift-detect $\to$ retrain-trigger $\to$ rollback (if needed) $\to$ retire.
+\noindent Table~\ref{tab:appo_lifecycle} presents lifecycle Stages, Durations, and Automation.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.5cm} L @{}}
+\caption[Lifecycle Stages, Durations, and Automation]{Lifecycle Stages, Durations, and Automation. Each stage carries a duration target, owner, and automation policy; manual stages are explicitly identified to prevent silent automation drift in future-operational evaluation-critical paths.}\label{tab:appo_lifecycle} \\
+\toprule
+\thead{Stage} & \thead{Duration} & \thead{Owner} & \thead{Auto / Manual} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Build & $<$ 30\,min & CI & Auto \\
+Eval gate & 1\,h & AI ops & Auto with manual override \\
+Release cut & $<$ 1\,h & AI ops & Manual approval \\
+Canary & 24\,h at 5\,\% & SRE & Auto rollback on alert \\
+Progressive 10\,/\,50\,/\,100\,\% & 72\,h total & SRE & Auto if green \\
+Drift detect & Continuous & AI ops & Auto \\
+Retrain trigger & When PSI $>$ 0.20 & AI ops & Manual approval \\
+Rollback & $<$ 5\,min & SRE & Auto via feature-flag \\
+Retire & After 90-day deprecation notice & AI ops & Manual \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\section{Master Capability Matrix (36 Capabilities)}
+\label{sec:appo_capability_matrix}
+
+The capability matrix consolidates the 24-feature Master Agent Capability Matrix with Tool Set 2 (operational layer, 6 tools) and Tool Set 3 (assurance layer, 6 tools), with priority assignments (P0~=~must-launch; P1~=~phase 2; P2~=~phase 3+).
+
+\subsection{Core 24 Capabilities}
+\noindent Table~\ref{tab:appo_capability_core} documents master Agent Capability Matrix: Input, Process, Output, Monitoring, Owner, Priority.
+
+\clearpage
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.2cm} >{\raggedright\arraybackslash}p{2.4cm} L L >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{0.6cm} @{}}
+\caption[Master Agent Capability Matrix: Input, Process, Output,]{Master Agent Capability Matrix: Input, Process, Output, Monitoring, Owner, Priority. Each of the 24 core capabilities is decomposed into its inputs, processing logic, outputs, and monitoring telemetry, with priority assignment for build sequencing across the eight-phase evaluation ladder (\S~\ref{sec:appo_phases}).}\label{tab:appo_capability_core} \\
+\toprule
+\thead{\#} & \thead{Feature} & \thead{Process} & \thead{Output / Monitoring} & \thead{Owner} & \thead{Pri} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Agent Identity & Validate scope & Registered profile; identity log & Platform & P0 \\
+2 & Agent Contract & Validate request / response & Pass / fail; violation log & Agent team & P0 \\
+3 & Goal Manager & Convert goal to outcome & Goal object; status report & Agent team & P0 \\
+4 & Planner & Decompose into tasks & Task plan; plan trace & Agent team & P0 \\
+5 & Dynamic Replanner & Adjust plan on failure & Revised plan; replan event & Agent team & P0 \\
+6 & Tool Intelligence & Select by cost / risk / latency & Selected tool; decision log & Agent team & P0 \\
+7 & Tool Permission & RBAC / ABAC check & Allow / deny; security audit & Security & P0 \\
+8 & Dry Run & Simulate action & Preview; dry-run log & Agent team & P1 \\
+9 & Memory TTL & Check expiry & Keep / delete; lifecycle log & Data team & P1 \\
+10 & Memory Conflict & Resolve by freshness / source & Resolved memory; conflict report & Data team & P1 \\
+11 & Confidence Score & Score certainty & Confidence value; report & AI ops & P0 \\
+12 & Disagreement Resolver & Resolve agent conflict & Final decision; council report & Agent team & P1 \\
+13 & Voting Engine & Quorum / block / escalate & Approve / revise / block; audit & Agent team & P1 \\
+14 & Agent Health & Check status & Healthy / unhealthy; dashboard & SRE & P0 \\
+15 & Sandbox & Isolate execution & Safe result; sandbox log & Security & P0 \\
+16 & Quota Manager & Enforce token / cost limits & Allow / throttle / block; report & FinOps & P0 \\
+17 & Feedback Learning & Improve prompt / policy & Feedback record; trend & AI ops & P1 \\
+18 & Release Manager & Canary / promote / rollback & Release state; report & SRE & P0 \\
+19 & Drift Detection & Detect quality drop & Drift alert; dashboard & AI ops & P1 \\
+20 & Provenance & Trace origin & Provenance graph; lineage log & Compliance & P0 \\
+21 & Simulation & Run agent safely & Simulation result; test report & AI ops & P1 \\
+22 & Digital Twin & Replay safely & Replay report; twin trace & AI ops & P2 \\
+23 & Human Handoff & Package context & Approval request; audit & Compliance & P0 \\
+24 & Chaos Testing & Test recovery & Resilience result; chaos report & SRE & P2 \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\subsection{Tool Set 2 --- Operational Layer}
+\noindent Table~\ref{tab:appo_toolset2} presents tool Set 2: Extended Operational Capabilities.
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{2.7cm} p{3.6cm} p{3.7cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.0cm} @{}}
+\caption[Tool Set 2: Extended Operational Capabilities]{Tool Set 2: Extended Operational Capabilities. These six tools convert a stateless inference service into a governed, replanning agent. Without them, an LLM call is one-shot; with them, the system can recover, re-route, and escalate.}\label{tab:appo_toolset2} \\
+\toprule
+\thead{\#} & \thead{Tool} & \thead{Process} & \thead{Output / Monitoring} & \thead{Owner} & \thead{Pri} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+25 & Goal Manager (extended) & Extract acceptance criteria; flag ambiguity & Structured goal record; clarity score & Agent team & P0 \\
+26 & Planner (extended) & Tree-of-thought + cost estimate per branch & Ranked plan with cost; cost dashboard & Agent team & P0 \\
+27 & Replanner (extended) & Minimal-edit plan repair vs full replan & Revised plan + diff; replan-frequency metric & Agent team & P0 \\
+28 & Tool Selector (extended) & Reranked tool list with rationale & Selected tool + alternates; selection accuracy & Agent team & P0 \\
+29 & Human Handoff (extended) & Snapshot context + recommendation + risks & Approval request; HITL response time & Compliance & P0 \\
+30 & Health Monitor (extended) & Rollup: per-agent, per-tenant, global & Red / amber / green per agent; uptime SLA & SRE & P0 \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} HITL = Human-in-the-loop. See chapter prose for full context.
+
+\subsection{Tool Set 3 --- Assurance Layer}
+\noindent Table~\ref{tab:appo_toolset3} presents tool Set 3: Extended Assurance Capabilities.
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{2.5cm} p{3.5cm} p{3.9cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.0cm} @{}}
+\caption[Tool Set 3: Extended Assurance Capabilities]{Tool Set 3: Extended Assurance Capabilities. These six tools are the regulatory evidence base: memory governance, provenance, simulation, and chaos engineering are the four legs of EU AI Act / NIST AI RMF / ISO 42001 conformance.}\label{tab:appo_toolset3} \\
+\toprule
+\thead{\#} & \thead{Tool} & \thead{Process} & \thead{Output / Monitoring} & \thead{Owner} & \thead{Pri} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+31 & Memory Governance & Retention policy + consent enforcement & Governed memory record; violation count & Data team + Compliance & P1 \\
+32 & Drift Detector (extended) & PSI + KS + per-segment drift & Drift alerts + retrain trigger; PSI dashboard & AI ops & P1 \\
+33 & Provenance Tracker (extended) & Append every retrieval + tool call to lineage graph & Per-decision provenance graph; completeness \% & Compliance & P0 \\
+34 & Simulation Engine & Run candidate prompt / model on eval set & Comparative report (control vs candidate); pass-rate & AI ops & P1 \\
+35 & Digital Twin & Shadow inference; compare to prod & Divergence report; shadow-vs-prod delta & AI ops & P2 \\
+36 & Chaos Engine & Inject failure + monitor recovery & Resilience scorecard; MTTR per scenario & SRE & P2 \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\subsection{Priority and Effort Summary}
+\noindent Table~\ref{tab:appo_priority_summary} presents priority Distribution and Effort Estimate.
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{3.5cm} L @{}}
+\caption[Priority Distribution and Effort Estimate]{Priority Distribution and Effort Estimate. The eight-phase ladder (\S~\ref{sec:appo_phases}) sequences delivery: P0 capabilities deliver phases 1--4; P1 capabilities deliver phases 5--6; P2 capabilities deliver phases 7--8.}\label{tab:appo_priority_summary} \\
+\toprule
+\thead{Priority} & \thead{Count} & \thead{Phase} & \thead{Effort Estimate} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+P0 & 18 & Phase 1--4 (must-launch) & $\sim$\,6 months for a 3-person team \\
+P1 & 12 & Phase 5--6 & $\sim$\,4 months additional \\
+P2 & 6 & Phase 7--8 & $\sim$\,3 months additional \\
+\textbf{Total} & \textbf{36} & \textbf{8 phases} & \textbf{$\sim$\,13 months for production readiness} \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\section{Architecture Decision Records (ADRs)}
+\label{sec:appo_adrs}
+
+Twelve foundational architecture decisions for the RGAIG framework are recorded in a separate standalone supplementary document, \textit{Architecture Decision Records (ADRs) --- RGAIG Framework} (\texttt{separate\_\allowbreak docs/adr\_\allowbreak registry.pdf}), to keep this appendix focused on the layered architecture and to avoid inflating its heading density with twelve subsections of reference material.
+
+The twelve ADRs cover:
+\begin{enumerate}[leftmargin=*, itemsep=1pt, label=(\arabic*)]
+    \item Hub-and-spoke vs full mesh topology
+    \item LangGraph as primary orchestrator
+    \item Council voting algorithm
+    \item Multi-LLM router with fallback chain
+    \item RAG hybrid retrieval
+    \item Memory TTL and conflict resolution
+    \item HITL threshold
+    \item Drift detection method
+    \item Service mesh choice (Istio over Linkerd)
+    \item Python-primary polyglot policy
+    \item Audit-row-before-output discipline
+    \item Explainability as SLA
+\end{enumerate}
+
+Each ADR follows the standard format: status, context, decision, consequences, alternatives, references. Examiners and auditors may consult the standalone document on-demand without disrupting the architecture narrative in this appendix.
+
+\section{Decision Audit Schema}
+\label{sec:appo_audit_schema}
+
+Every clinical-decision invocation persists exactly one immutable audit row. The row is keyed by \texttt{request\_\allowbreak id} (UUID) and carries the following fields:
+\noindent Table~\ref{tab:appo_audit_fields} presents decision Audit Row Schema.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} p{9.5cm} @{}}
+\caption[Decision Audit Row Schema]{Decision Audit Row Schema. Every field has a defined source, type, and retention rule; the schema is implemented in PostgreSQL (hot, 90 days) with cold archival to S3 (7-year retention for regulated decisions per HIPAA / GDPR / EU AI Act).}\label{tab:appo_audit_fields} \\
+\toprule
+\thead{Field} & \thead{Description} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\texttt{request\_\allowbreak id} & UUID; primary key \\
+\texttt{timestamp} & ISO-8601 UTC \\
+\texttt{tenant\_\allowbreak id} & Hospital identifier \\
+\texttt{user\_\allowbreak id} & Clinician / patient identifier (pseudonymised) \\
+\texttt{session\_\allowbreak id} & UUID for session-level grouping \\
+\texttt{input\_\allowbreak hash} & sha256 of canonicalised input (privacy-preserving) \\
+\texttt{input\_\allowbreak features} & Map: feature\_name $\to$ value or hash \\
+\texttt{context\_\allowbreak used} & Retrieval chunks (id, source, similarity, rerank score); prompt template id; prompt version \\
+\texttt{model} & Name, version, provider \\
+\texttt{prediction} & Diagnostic verdict (any) \\
+\texttt{confidence} & Float (0..1) \\
+\texttt{explanation} & Method (SHAP / LIME / counterfactual / citation); top features; counterfactual text; citation chunk-ids \\
+\texttt{rules\_\allowbreak applied} & Array of policy ids \\
+\texttt{guardrails\_\allowbreak triggered} & Array of guardrail names \\
+\texttt{fairness\_\allowbreak flag} & pass / warn / fail \\
+\texttt{fairness\_\allowbreak metrics} & Disparate impact ratio; equal-opportunity gap \\
+\texttt{human\_\allowbreak override} & Null if none, else $\{$clinician\_id, override\_action, reason, timestamp$\}$ \\
+\texttt{latency\_\allowbreak ms} & Integer milliseconds \\
+\texttt{cost} & Prompt tokens; completion tokens; cost USD \\
+\texttt{agent\_\allowbreak trace} & Array of OTel span ids \\
+\texttt{errors} & Array of $\{$component, error\_code, message$\}$ \\
+\texttt{feedback} & Null if none, else $\{$rating, comment, timestamp$\}$ \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} SHAP = SHapley Additive exPlanations. See chapter prose for full context.
+
+\noindent\textbf{Storage and retention:} PostgreSQL hot store (90 days) $+$ S3 cold archive (7 years for regulated decisions; 1 year for non-clinical).
+
+\section{Integration Catalogue}
+\label{sec:appo_integration}
+\noindent Table~\ref{tab:appo_integration_workflow} presents workflow and Orchestration Tools.
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.5cm} L L L @{}}
+\caption[Workflow and Orchestration Tools]{Workflow and Orchestration Tools. LangGraph is primary, Temporal for durable long-running flows, Kafka for event backbone; CrewAI and AutoGen are patterns to apply within LangGraph nodes rather than separate runtimes (running 3 orchestrators is operational suicide).}\label{tab:appo_integration_workflow} \\
+\toprule
+\thead{Tool} & \thead{Role} & \thead{Why} & \thead{Failure Mode} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+LangGraph & Stateful agent flow (short-running) & DAG with conditional branches; built-in checkpointing & State replays from checkpoint \\
+CrewAI & Hierarchical task decomposition (pattern) & Manager-worker; role-based agents & Pattern-only \\
+AutoGen & Peer-to-peer council debate (pattern) & Multi-agent conversation with role rotation & Pattern-only \\
+Temporal & Durable long-running workflows & Survives node death; replay-based & Latency overhead; cluster ops \\
+Kafka & Event backbone & Audit row stream; inter-agent events & Cluster ops complexity \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+\needspace{24\baselineskip}
+\noindent Table~\ref{tab:appo_integration_other} presents service Mesh, Observability, AI Tooling, and Reliability Stack.
+
+\paragraph{Service Mesh, Observability, AI.}
+
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.5cm} L @{}}
+\caption[Service Mesh, Observability, AI Tooling, and Reliability]{Service Mesh, Observability, AI Tooling, and Reliability Stack. The integration catalogue captures ``what to conceptually evaluate'' alongside ``why'' --- each entry is selected because it solves a specific architectural concern documented in the relevant ADR.}\label{tab:appo_integration_other} \\
+\toprule
+\thead{Layer} & \thead{Tool} & \thead{Role} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Mesh & Istio & mTLS, retry, circuit-break, traffic-shifting \\
+Mesh & Envoy & Sidecar proxy (Istio data plane) \\
+Mesh & Kiali & Mesh topology visualisation \\
+Observability & OpenTelemetry & Vendor-neutral traces, metrics, logs \\
+Observability & Jaeger & Trace storage and query \\
+Observability & Prometheus & Metrics time-series \\
+Observability & Grafana & Dashboards and alert rules \\
+Observability & Loki & Log aggregation \\
+AI tooling & Qdrant & Vector database \\
+AI tooling & Neo4j & Knowledge graph and provenance graph \\
+AI tooling & Feast & Feature store \\
+AI tooling & MLflow & Model registry and experiment tracking \\
+AI tooling & RAGAS, DeepEval & RAG and LLM evaluation \\
+AI tooling & Guardrails / NeMo & Output guardrails \\
+AI tooling & OPA (Rego) & Policy engine \\
+Reliability & pybreaker / Tenacity & Circuit breaker; retry with backoff \\
+Reliability & Litmus / Chaos Mesh & Chaos engineering on Kubernetes \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RAG = Retrieval-Augmented Generation. See chapter prose for full context.
+
+\section{Security Architecture}
+\label{sec:appo_security}
+
+\subsection[OWASP Top 10 + AI Threats]{OWASP Top 10 Plus AI Threats}
+\noindent Table~\ref{tab:appo_owasp} presents oWASP Top 10 (2025) and AI-Specific Threats (A11--A15) with RGAIG Mitigations.
+
+\clearpage
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.8cm} L L @{}}
+\caption[OWASP Top 10 (2025) and AI-Specific Threats (A11--A15)]{OWASP Top 10 (2025) and AI-Specific Threats (A11--A15) with RGAIG Mitigations. The five AI-specific threats (prompt injection, insecure output, training data poisoning, model theft, excessive agency) extend the standard OWASP catalogue and reflect the threat surface unique to LLM-and-agent systems.}\label{tab:appo_owasp} \\
+\toprule
+\thead{ID} & \thead{Threat} & \thead{RGAIG Mitigation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+A01 & Broken access control & RBAC + ABAC via OPA; per-tenant isolation \\
+A02 & Cryptographic failure & TLS 1.3 in transit; AES-256 at rest; Vault-managed keys \\
+A03 & Injection & Parameterised queries; Pydantic input validation; output sanitisation \\
+A04 & Insecure design & Architecture review per ADR; threat model per container \\
+A05 & Security misconfig & OPA policies in CI; Kyverno admission control on K8s \\
+A06 & Vulnerable / outdated components & SBOM + Dependabot + Trivy on every image \\
+A07 & Identification / auth failure & OIDC + MFA; rotated session tokens \\
+A08 & Software / data integrity & Sigstore / cosign on container images; signed model artefacts \\
+A09 & Logging / monitoring failure & OTel mandatory; audit-row sync write per ADR-011 \\
+A10 & SSRF & Egress allow-list; deny by default \\
+\midrule
+\multicolumn{3}{@{}l}{\textit{AI-Specific Threats (A11--A15) — extends standard OWASP catalogue}} \\
+\midrule
+A11 & Prompt injection & Layered: input scanner + output sanitiser + tool-permission gating \\
+A12 & Insecure output handling & Output validator; no raw HTML; safe Markdown only \\
+A13 & Training data poisoning & Data lineage check; trust-tier on data sources \\
+A14 & Model theft & Rate limit on inference API; output-watermark for high-tier models \\
+A15 & Excessive agency & Tool-permission scope; HITL for irreversible actions \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RGAIG = Responsible Generative AI Governance; HITL = Human-in-the-loop. See chapter prose for full context.
+
+\subsection{STRIDE Threat Model}
+\noindent Table~\ref{tab:appo_stride} presents sTRIDE Threat Model for Orchestrator (Container 3).
+
+\clearpage
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.5cm} L L @{}}
+\caption[STRIDE Threat Model for Orchestrator (Container 3)]{STRIDE Threat Model for Orchestrator (Container 3). The full STRIDE table is replicated for each of the 12 containers; the Orchestrator is shown here as a representative example. STRIDE = Spoofing, Tampering, Repudiation, Information disclosure, Denial of service, Elevation of privilege.}\label{tab:appo_stride} \\
+\toprule
+\thead{Threat} & \thead{Risk} & \thead{Mitigation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{S} Spoofing & Attacker forges request as legit clinician & mTLS + OIDC; signed tokens \\
+\textbf{T} Tampering & Modify request mid-flight & mTLS + audit-row hash \\
+\textbf{R} Repudiation & Clinician denies issuing approval & Override row signed + clinician-id + timestamp \\
+\textbf{I} Information disclosure & PII leak via logs & Structured-log redaction; no raw PHI in logs \\
+\textbf{D} Denial of service & LLM call exhaustion & Quota Manager + circuit breaker + rate limit \\
+\textbf{E} Elevation of privilege & Council agent escalates to admin & Strict role boundary; OPA blocks scope-of-practice violations \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\subsection{SOC 2 Mapping}
+\noindent Table~\ref{tab:appo_soc2} presents sOC 2 Common Criteria with RGAIG Implementation.
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.6cm} L @{}}
+\caption[SOC 2 Common Criteria with RGAIG Implementation]{SOC 2 Common Criteria with RGAIG Implementation. Mapping each Trust-Services-Criteria control to its concrete architectural element provides the auditor a one-page traceability surface during SOC 2 attestation.}\label{tab:appo_soc2} \\
+\toprule
+\thead{SOC 2 Control} & \thead{RGAIG Implementation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+CC6.1 Access & OPA + OIDC + RBAC + per-tenant isolation \\
+CC6.2 Secrets & HashiCorp Vault + short-lived tokens \\
+CC6.6 Network segmentation & Istio + Kubernetes NetworkPolicy \\
+CC7.2 Anomaly & Drift Detector + alert rules \\
+CC7.3 Incident response & Runbook per container; PagerDuty rotation \\
+CC8.1 Change management & ADR + canary + rollback \\
+CC9.2 Vendor management & LLM provider SLA + fallback chain (ADR-004) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RGAIG = Responsible Generative AI Governance. See chapter prose for full context.
+
+\section{Rollout and Reliability}
+\label{sec:appo_rollout}
+
+\subsection{Four-Layer Rollback}
+\noindent Table~\ref{tab:appo_rollback} presents four-Layer Rollback Strategy.
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} L >{\raggedright\arraybackslash}p{3.5cm} @{}}
+\caption[Four-Layer Rollback Strategy]{Four-Layer Rollback Strategy. Every layer is independently reversible; never drop a database column in the same release that adds it; never deploy AI without registry-rollback path tested in staging.}\label{tab:appo_rollback} \\
+\toprule
+\thead{Layer} & \thead{Strategy} & \thead{Tool} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Application & Blue-green / canary / feature flags & Argo Rollouts + LaunchDarkly \\
+Database & Expand $\to$ migrate $\to$ contract & Flyway / Liquibase \\
+AI (model + prompt) & Registry rollback to prior version & MLflow + custom prompt registry \\
+Infrastructure & Terraform state versioned & Terraform Cloud \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\subsection{Kubernetes Three-Probe Pattern}
+\noindent Table~\ref{tab:appo_probes} presents kubernetes Three-Probe Health Pattern.
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.8cm} L @{}}
+\caption[Kubernetes Three-Probe Health Pattern]{Kubernetes Three-Probe Health Pattern. Liveness checking dependencies causes cascade pod restarts; readiness removes the pod from service when dependencies degrade. The distinction is critical for cluster stability under partial outage.}\label{tab:appo_probes} \\
+\toprule
+\thead{Probe} & \thead{Logic} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Startup & ``Have I finished booting?'' (heavy initialisation) \\
+Liveness & ``Am I alive?'' --- process-level only; never check dependencies (false-restart risk) \\
+Readiness & ``Can I serve right now?'' --- check dependencies; remove from service if degraded \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\subsection{Disaster Recovery}
+\noindent Table~\ref{tab:appo_dr} presents disaster Recovery Tiers with RTO and RPO Targets.
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.7cm} p{8.0cm} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{1.5cm} @{}}
+\caption[Disaster Recovery Tiers with RTO and RPO Targets]{Disaster Recovery Tiers with RTO and RPO Targets. Critical-tier components (clinical APIs, audit logger) require synchronous replication to meet RPO 0; standard-tier components tolerate hourly RPO with manual failover.}\label{tab:appo_dr} \\
+\toprule
+\thead{Tier} & \thead{Component} & \thead{RTO} & \thead{RPO} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Critical & API Gateway, Orchestrator, Audit Logger, Postgres & 15\,min & 0 (sync replicate) \\
+Important & Council Runtime, Workflow Engine, Vector DB & 1\,h & 15\,min \\
+Standard & Observability backends, Feature Store & 4\,h & 1\,h \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\noindent DR drills: failover test quarterly; backup restore monthly; tabletop incident drill semi-annually.
+
+\subsection{Load-Testing Plan (Five-Phase)}
+\noindent Table~\ref{tab:appo_load_test} presents five-Phase Load Testing Plan.
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{2.5cm} L @{}}
+\caption[Five-Phase Load Testing Plan]{Five-Phase Load Testing Plan. Phases 1--5 progressively stress the system; for AI-specific testing, layered isolation runs first (embedder + vector + LLM separately) before end-to-end with real production query mix; tokens and cost are first-class metrics.}\label{tab:appo_load_test} \\
+\toprule
+\thead{Phase} & \thead{Load} & \thead{Pass Criterion} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Smoke & 1--10 VU & Zero errors \\
+Load & Target SLA (e.g., 500 VU) & p95 $<$ SLA, error $<$ 1\,\% \\
+Stress & 0 $\to$ 2000 VU & Find breakpoint VU \\
+Soak & Target $\times$ 24\,h & Memory growth $<$ 10\,\% \\
+Spike & 0 $\to$ peak in 60\,s & Recovery $<$ 60\,s \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: dissertation analysis; abbreviations defined in chapter prose.
+
+\section{Phase Progression (Phase 1 to 8)}
+\label{sec:appo_phases}
+
+The maturity ladder maps to the framework's eight-phase evaluation sequence. Each phase is a ``ship-and-validate'' cycle, not just ``code done''.
+\noindent Table~\ref{tab:appo_phases} presents eight-Phase Evaluation Ladder with Capability Gates.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.2cm} >{\raggedright\arraybackslash}p{2.8cm} L >{\raggedright\arraybackslash}p{2.8cm} @{}}
+\caption[Eight-Phase Evaluation Ladder with Capability Gates]{Eight-Phase Evaluation Ladder with Capability Gates. Each phase gates on a defined set of capabilities from the master capability matrix (\S~\ref{sec:appo_capability_matrix}); the current state of the reference implementation (\texttt{agenticfinder}) is honestly assessed at \textbf{Phase 3, partial Phase 4} --- not Phase 7 or 8 as aspirational marketing might claim.}\label{tab:appo_phases} \\
+\toprule
+\thead{\#} & \thead{Phase Name} & \thead{Capability Gates} & \thead{Maps to Thesis} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Simple chatbot & Agent Identity; Agent Contract; Agent Health; basic LLM call & Pre-RGAIG baseline \\
+2 & RAG platform & + RAG Agent; Tool Selector basic; Vector DB; citation generation & RGAIG Layer 3 (Explainability) MVP \\
+3 & Agentic workflow & + Goal Manager; Planner; Replanner; Tool Permission; Confidence Score & RGAIG Layers 1+2+3 integrated \\
+4 & Council of agents & + Voting Engine; Disagreement Resolver; Critic; Reflection; Explainability; Responsible-AI & RGAIG Layer 4 (HITL) + Layer 5 (Governance) MVP \\
+5 & Hub-and-spoke platform & + Policy Engine; Audit Logger; Provenance; Quota Manager; Release Manager & RGAIG Layer 6 (Adoption) infrastructure \\
+6 & AI mesh runtime & + Istio; OTel; Kiali; Drift; Sandbox; Memory TTL/Conflict; Self-Heal & RGAIG enterprise readiness \\
+7 & AI Operating System & + Simulation; Digital Twin; Chaos; Feedback Learning; full HITL Console & RGAIG Layer 7 Lifecycle \\
+8 & Enterprise AI ecosystem & + Multi-tenant SaaS; regulator portal; marketplace integration & Post-thesis future research \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RGAIG = Responsible Generative AI Governance; RAG = Retrieval-Augmented Generation; HITL = Human-in-the-loop. See chapter prose for full context.
+
+\noindent\textbf{Current state.} The \texttt{agenticfinder} reference implementation is at \emph{Phase 3, partial Phase 4} --- Critic and Explainability agents are operational; Voting and Reflection are partial. This honest grading prevents over-claiming and locates the future-research agenda squarely in Phases 4 through 8.
+
+\section{Thesis Linkage Map}
+\label{sec:appo_thesis_linkage}
+\noindent Table~\ref{tab:appo_thesis_linkage} presents cross-Reference Map: Appendix Sections to Thesis Chapters.
+
+\clearpage
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.4cm} L L @{}}
+\caption[Cross-Reference Map: Appendix Sections to Thesis Chapters]{Cross-Reference Map: Appendix Sections to Thesis Chapters. Every section of this appendix maps back to a specific thesis chapter or section, ensuring the architecture specification extends rather than contradicts the empirically validated framework.}\label{tab:appo_thesis_linkage} \\
+\toprule
+\thead{Appendix Section} & \thead{Thesis Chapter / Section} & \thead{Relationship} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Section O.2 Business context & Ch.~1 Problem Statement; Ch.~5 Decision Impact Table~\ref{tab:decision_impact_by_stakeholder} & Anchored in defined problem \\
+Section O.3 Principles & Ch.~3 RGAIG framework definition & 17 + 4 RGAIG-specific principles extend Ch.~3 \\
+Section O.4 C4 levels & Ch.~3 framework architecture & Operational expansion \\
+Section O.4.4 Levels 5--7 & Ch.~5 Implications for Policy and Regulation & Maps governance to runtime \\
+Section O.5 Capability matrix & Ch.~3 525-module taxonomy + Ch.~4 ablation & Each capability is an ablation candidate \\
+Section O.7 Audit schema & Decision-audit policy commitment & Operational schema \\
+Section O.6 ADRs & Ch.~3 framework rationale & Decision rationale recorded \\
+Section O.8 Integration catalogue & Ch.~3 RAG and HITL sections & Concrete tools for thesis layers \\
+Section O.9 Security & Ch.~3 governance + Ch.~5 risk & Compliance evidence base \\
+Section O.10 Rollout & Ch.~5 B2B Adoption Roadmap & Deployment-stage detail \\
+Section O.11 Phase progression & Ch.~5 B2C Consumer Evaluation Pathway & Phase ladder \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RGAIG = Responsible Generative AI Governance; RAG = Retrieval-Augmented Generation; HITL = Human-in-the-loop. See chapter prose for full context.
+
+\section{Open Items and Future Resolution}
+\label{sec:appo_open_items}
+
+The following items remain open for resolution before this appendix moves from forward-looking specification to implementation guide. Each item is documented honestly in the markdown source-of-truth (\texttt{docs/rgaig\_\allowbreak agentic\_\allowbreak framework\_\allowbreak architecture.md}, \S\,18).
+
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item Council voting algorithm: default per-role weights; or runtime-configurable?
+    \item HITL response-time SLA: clinically acceptable latency for non-emergency vs emergency override paths.
+    \item Cost ceiling per screening: hard ceiling or guideline?
+    \item Multi-tenancy depth: single-hospital, multi-department, or multi-hospital? Affects isolation model.
+    \item Wearable device scope: which Emotiv models in scope for v1? Insight only, or EPOC X / Flex too?
+    \item Edge / offline mode: required for v1 or post-v2? Affects model choice (Ollama vs cloud-only).
+    \item Third-party governance audit: when to commission (replacing self-assessment).
+    \item Two external tool references in source materials require clarification before inclusion: \emph{paperclip} and \emph{polysai}; both are recorded as ambiguous in the markdown source and excluded from this appendix until clarified.
+\end{itemize}
+
+\section{Appendix Conclusion}
+\label{sec:appo_conclusion}
+
+\noindent\textbf{Appendix O summary.} This appendix specifies the target enterprise architecture:
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Architecture.} 12 containers (hub-and-spoke control plane + 15-agent council).
+    \item \textbf{Capabilities.} 36 capabilities with priority sequencing across 8 evaluation phases.
+    \item \textbf{Decisions.} 12 ADRs capturing every load-bearing choice.
+    \item \textbf{Security.} OWASP + STRIDE + SOC 2 threat coverage.
+    \item \textbf{Resilience.} 4-layer rollback; 5-phase load-test plan; K8s 3-probe health pattern.
+    \item \textbf{Compliance.} ISO 31000 risk-register cross-reference; complete decision-audit row schema.
+\end{itemize}
+\noindent The reference implementation (\texttt{agenticfinder}) currently sits at \textbf{Phase 3 of 8}, providing the empirical foundation on which Phases 4--8 deploy.
+
+\noindent The appendix is forward-looking: it specifies what future implementation requires, beyond the current research-grade reference implementation that produced the validated empirical results in Chapter~\ref{chap:analysis}. The post-thesis research agenda (Chapter~\ref{chap:discussion} \S~Future Research) is grounded in the gap between the empirically validated current state (Phase 3) and the enterprise-grade target state (Phase 8) specified here.

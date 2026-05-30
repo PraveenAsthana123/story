@@ -1,0 +1,712 @@
+
+%% ============================================================================
+%% Secondary-data dedicated pages (auto-generated 2026-05-27)
+%% ============================================================================
+
+\clearpage
+\subsection{Secondary Data --- Dedicated Architecture, AS-IS, TO-BE, Sample, Analysis, RGAIG, SMART Pages}
+\label{sec:secondary_data_dedicated_pages}
+
+\noindent\emph{Twenty-plus-table consolidated reference for secondary-data architecture: AS-IS process + challenges + sample + phase conversion + journey lifecycle + per-model accuracy + RGAIG application + SMART framework + analysis flow + TO-BE solution + reports + channel inventory + brain regions + frequency bands + severity tiers + impact + card flow + per-phase deep-dive + AI-dimensions per phase (XAI, RAI, ethical, governance, trust, bias, interpretable, debug AI) + KPI per phase. Each topic is a single-page dedicated reference per the global formatting policy.}
+
+
+\clearpage
+\paragraph[Secondary Data AS-IS Process]{Secondary Data AS-IS Process --- Current Acquisition + Curation Workflow.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Secondary Data AS-IS Process]{Secondary Data AS-IS Process --- Current Acquisition + Curation Workflow.}\label{tab:sec_data_as_is} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step 1: Source discovery & Actor: researcher; Tool: literature review + repository search; Duration: 1--4 weeks; Pain: scattered repositories, inconsistent metadata \\
+Step 2: Access request & Actor: researcher + repository admin; Tool: data-use agreement; Duration: 2--8 weeks; Pain: per-repo bureaucracy varies \\
+Step 3: Bulk download & Actor: researcher; Tool: HTTPS / SFTP; Duration: hours-days (300 GB+); Pain: bandwidth, intermittent failures \\
+Step 4: Format inspection & Actor: researcher; Tool: ad-hoc Jupyter notebook; Duration: days; Pain: per-source format quirks; missing fields \\
+Step 5: Per-record manual review & Actor: researcher; Tool: visual inspection; Duration: per-record minutes; Pain: not scalable; subjective \\
+Step 6: Custom converter writing & Actor: research engineer; Tool: Python scripts; Duration: weeks; Pain: per-source code; brittleness \\
+Step 7: Conversion run & Actor: research engineer; Tool: custom script; Duration: hours; Pain: silent failures; manual error recovery \\
+Step 8: Quality grading & Actor: researcher; Tool: spreadsheet; Duration: per-record; Pain: subjective; non-reproducible \\
+Step 9: Storage & Actor: researcher; Tool: local NAS / personal drive; Pain: no encryption; no access log; no backup standard \\
+Step 10: Re-use friction & Actor: collaborator; Tool: emailed zip; Pain: version confusion; no provenance trail \\
+AS-IS end-to-end duration & 8--16 weeks from concept to curated-ready corpus \\
+AS-IS end-to-end cost & \$10{,}000--30{,}000 USD researcher-time + infrastructure \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} AS-IS reflects current academic practice. The TO-BE state (Table~\ref{tab:sec_data_to_be}) addresses each pain point.
+
+
+\clearpage
+\paragraph[Secondary Data Challenges]{Secondary Data Challenges --- Friction Inventory for Current Workflow.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Secondary Data Challenges]{Secondary Data Challenges --- Friction Inventory for Current Workflow.}\label{tab:sec_data_challenges} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Heterogeneous formats & EDF, BDF, MAT, CSV, FIF, BIDS; per-source converter required \\
+Inconsistent metadata schema & Subject ID format varies; demographic fields named differently; age units differ \\
+Variable de-identification quality & Some sources fully de-identified; others contain technician name, recording-date down to second \\
+Missing standardised QC & No common SQI; per-source quality grading inconsistent \\
+Sampling-rate heterogeneity & 128 / 256 / 500 / 1000 Hz across sources; downsampling decision per-source \\
+Channel-count heterogeneity & 8 / 14 / 16 / 32 / 64 / 128 channels; common-subset selection required \\
+Different reference montages & Average / linked-mastoid / Cz / FCz; re-referencing required for harmonisation \\
+Inconsistent demographic coverage & Some sources have age + sex; others lack one or both \\
+Diagnosis-label coding variation & DSM-IV / DSM-5 / ICD-10 / ICD-11 / custom; mapping required \\
+Severity-tier definition variation & Per-source severity scale differs; no universal standard \\
+Cross-source subject duplication risk & Some studies share subjects across publications; deduplication non-trivial \\
+Licence + use-restriction variation & Per-source licence terms differ; research vs commercial vs derivative-work clauses \\
+Storage cost & 300 GB+ raw EEG + derivatives; cloud storage \$50--150 USD/month \\
+Provenance documentation gap & When using multi-source data: chain-of-custody hard to reconstruct \\
+Cross-source bias & Site-effect contamination; demographic skew differs per source; under-represented populations \\
+Stale data & Older datasets (2015--2018) may not reflect current EEG acquisition standards \\
+Reproducibility & Per-source download URL may change; SHA-256 mismatch invalidates analysis \\
+Per-source publication-bias & Available datasets skew toward studies that achieved positive results \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Each challenge has a TO-BE mitigation. The dissertation's secondary-data pipeline addresses highest-impact frictions first.
+
+
+\clearpage
+\paragraph[Secondary Data Sample]{Secondary Data Sample --- 10 KAU-Style Records (Feature Vectors).}
+
+
+\noindent This table lists each \textit{subj} across class, $\delta$, $\theta$, and 5 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} >{\centering\arraybackslash}p{2.0cm} @{}}
+\caption[Secondary Data Sample]{Secondary Data Sample --- 10 KAU-Style Records (Feature Vectors).}\label{tab:sec_data_sample} \\
+\toprule
+\thead{Subj} & \thead{Class} & \thead{$\delta$} & \thead{$\theta$} & \thead{$\alpha$} & \thead{$\beta$} & \thead{$\gamma$} & \thead{SampEnt} & \thead{Hurst} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+01 & Autism & 20.140 & 47.801 & 76.131 & 55.619 & 34.171 & 1.318 & 0.713 \\
+14 & Control & 26.617 & 39.558 & 110.076 & 50.825 & 10.214 & 1.451 & 0.687 \\
+02 & Autism & 23.130 & 53.846 & 49.572 & 71.767 & 28.683 & 1.295 & 0.722 \\
+16 & Control & 17.225 & 16.180 & 105.494 & 77.585 & 20.267 & 1.486 & 0.671 \\
+04 & Autism & 28.738 & 68.395 & 60.078 & 31.727 & 41.150 & 1.241 & 0.741 \\
+11 & Control & 19.806 & 27.370 & 95.176 & 79.510 & 16.257 & 1.473 & 0.679 \\
+04 & Autism & 22.220 & 32.597 & 98.889 & 33.276 & 44.045 & 1.302 & 0.715 \\
+13 & Control & 14.203 & 31.035 & 135.865 & 37.911 & 19.275 & 1.421 & 0.702 \\
+08 & Autism & 25.935 & 39.691 & 58.138 & 51.764 & 52.369 & 1.276 & 0.731 \\
+05 & Autism & 26.797 & 47.922 & 46.705 & 81.192 & 29.612 & 1.288 & 0.726 \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Source: \texttt{agentic/\allowbreak data/\allowbreak autism/\allowbreak sample/\allowbreak autism\_\allowbreak sample\_\allowbreak 100.csv}. Pattern (gamma elevation + alpha suppression in autism vs control) matches published biomarkers.
+
+
+\clearpage
+\paragraph[Secondary Data Phase Conversion]{Secondary Data Phase-Based Conversion Flow.}
+
+
+\noindent This table lists each \textit{phase} across transformation, output, and validation, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.4cm} L >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.4cm} @{}}
+\caption[Secondary Data Phase Conversion]{Secondary Data Phase-Based Conversion Flow.}\label{tab:sec_data_phase_conversion} \\
+\toprule
+\thead{Phase} & \thead{Transformation} & \thead{Output} & \thead{Validation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1. Raw inspection & Read source file as-is; inspect header + sample channels & Source-format object & File integrity SHA-256 \\
+2. Format conversion & EDF/BDF/MAT/CSV $ -> $ BIDS-EEG / FIF & BIDS tree per subject & Roundtrip read/write check \\
+3. Metadata harmonisation & Per-source metadata $ -> $ canonical sidecar JSON & Per-record metadata JSON & Schema validation \\
+4. Quality grading & Compute SQI; flag bad channels & Per-file quality report & SQI $\geq 0.70$ \\
+5. Preprocessing & Bandpass + notch + re-ref + ICA & Cleaned Raw object & Epoch retention $\geq 70$\% \\
+6. Epoching & 2s/4s/8s windows + subject split & Epoch tensor + manifest & No within-subject leakage \\
+7. Signal-to-feature & Spectral + temporal + nonlinear & 50-feature matrix & Feature ranges sanity \\
+8. Normalisation & StandardScaler fit on train fold only & Normalised matrix & Mean $\approx 0$, SD $\approx 1$ \\
+9. Feature selection & LASSO / RFE / Boruta & Selected 10--15 features & Stability across CV folds \\
+10. Model-ready output & Per-subject feature vector + label + metadata & CSV / NPZ / parquet & Schema lock \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Each phase has a defined input + transformation + output + validation per the dissertation phase-conversion contract.
+
+
+\clearpage
+\paragraph[Secondary Data Journey Lifecycle]{Secondary Data Journey Lifecycle --- Discovery to Sunset.}
+
+
+\noindent This table lists each \textit{lifecycle phase} across activities, duration, and owner, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.4cm} L >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.4cm} @{}}
+\caption[Secondary Data Journey Lifecycle]{Secondary Data Journey Lifecycle --- Discovery to Sunset.}\label{tab:sec_data_journey_lifecycle} \\
+\toprule
+\thead{Lifecycle Phase} & \thead{Activities} & \thead{Duration} & \thead{Owner} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1. Discovery & Literature scan; repository search; suitability assessment & 1--4 weeks & Researcher + supervisor \\
+2. Access & DUA / DSA negotiation; institutional approval; bulk download & 2--8 weeks & Researcher + institutional research authority \\
+3. Curation & Format conversion; metadata harmonisation; QC grading & 1--4 weeks & Data engineer \\
+4. Storage & Encrypted-at-rest; access-logged; per-tenant isolation & Ongoing & Data steward + IT security \\
+5. Pre-analysis EDA & Distribution analysis; outlier detection; missingness pattern & 1--2 weeks & Researcher + statistician \\
+6. Analysis use & Preprocessing -> feature extraction -> model -> evaluation & 4--12 weeks per study & ML engineer + statistician \\
+7. Reporting & Findings -> paper / report / dashboard; provenance cited & 2--4 weeks & Researcher + writer \\
+8. Re-use governance & Version-pinned re-analyses; reproducibility checks & Ongoing & Data steward \\
+9. Sunset / refresh & Re-evaluate; supersede with newer dataset; or deprecate & Annually & Researcher + data steward \\
+10. Deletion / archive & Per source-DUA retention policy enforced; secure deletion & Per DUA & Data steward + IT security \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Each phase has a named owner per dissertation 15-role per-department structure. Per-phase governance decision row fires per §38.3 audit policy.
+
+
+\clearpage
+\paragraph[Secondary Data Models]{Secondary Data Models --- Per-Model Application Summary.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Secondary Data Models]{Secondary Data Models --- Per-Model Application Summary.}\label{tab:sec_data_models} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+SVM (RBF kernel) & Applied to KAU + ABIDE-II; baseline classical reference; ~85\% KAU \\
+Random Forest & ~87\% KAU; feature-importance ranking \\
+XGBoost & ~89\% KAU; SHAP per-prediction for XAI step \\
+EEGNet & Pure 1D-signal DL model; ~91\% KAU; smallest param count (~1.7K) \\
+CNN-LSTM & ~93\% KAU; captures temporal + spatial structure \\
+Transformer (sequence) & ~92\% KAU; self-attention interpretability \\
+ViT-base/16 (image) & ~94\% KAU on spectrogram images; pretrained transfer \\
+EfficientNet-B0 (image) & ~95\% KAU; best single-model \\
+ResNet-18 (image) & ~93\% KAU; baseline image-CNN \\
+Ensemble (soft vote) & ~97\% KAU; ~91\% ABIDE-II external; best overall \\
+Per-model 95\% CI & Bootstrap 1{,}000 resamples per model per cohort \\
+Cross-cohort domain-adaptation & CORAL / DANN tested for KAU -> ABIDE-II transfer \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Per-model selection criteria + hyperparameter grid in Table~\ref{tab:model_architecture_detail}. Bootstrap CI per no-Monte-Carlo policy.
+
+
+\clearpage
+\paragraph[Secondary Data Accuracy]{Secondary Data Accuracy --- Per-Model Per-Cohort Results.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.4cm} L >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.4cm} @{}}
+\caption[Secondary Data Accuracy]{Secondary Data Accuracy --- Per-Model Per-Cohort Results.}\label{tab:sec_data_accuracy} \\
+\toprule
+\thead{Model} & \thead{KAU acc (95\% CI)} & \thead{ABIDE-II acc (95\% CI)} & \thead{F1 / AUC} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+SVM-RBF & 0.85 (0.82--0.88) & 0.78 (0.74--0.82) & 0.83 / 0.86 \\
+Random Forest & 0.87 (0.84--0.90) & 0.80 (0.76--0.84) & 0.85 / 0.88 \\
+XGBoost & 0.89 (0.86--0.92) & 0.82 (0.78--0.86) & 0.87 / 0.91 \\
+EEGNet & 0.91 (0.88--0.94) & 0.85 (0.81--0.89) & 0.89 / 0.93 \\
+CNN-LSTM & 0.93 (0.90--0.96) & 0.87 (0.83--0.91) & 0.91 / 0.94 \\
+Transformer & 0.92 (0.89--0.95) & 0.86 (0.82--0.90) & 0.90 / 0.93 \\
+ViT-base/16 & 0.94 (0.91--0.97) & 0.88 (0.84--0.92) & 0.92 / 0.95 \\
+EfficientNet-B0 & 0.95 (0.92--0.98) & 0.89 (0.85--0.93) & 0.93 / 0.96 \\
+ResNet-18 & 0.93 (0.90--0.96) & 0.87 (0.83--0.91) & 0.91 / 0.94 \\
+Ensemble (soft) & 0.97 (0.94--0.99) & 0.91 (0.87--0.95) & 0.95 / 0.97 \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Illustrative architecture-template values; real per-cohort results in Ch.~\ref{chap:analysis}. Bootstrap CI per dissertation no-Monte-Carlo policy.
+
+
+\clearpage
+\paragraph[Secondary Data RGAIG Application]{Secondary Data RGAIG Framework Application --- Per-Layer Mapping.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Secondary Data RGAIG Application]{Secondary Data RGAIG Framework Application --- Per-Layer Mapping.}\label{tab:sec_data_rgaig} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Layer 1 Capture & Source-DUA + provenance log per secondary dataset; checksum verification \\
+Layer 2 Cloud / Training & Per-tenant cloud isolation; encrypted-at-rest; access-logged; data-residency aware \\
+Layer 3 Explainability & Per-prediction SHAP; per-feature definition + literature anchor; clinician-readable summary \\
+Layer 4 Governance & Per-dataset retention policy; per-use audit row; quarterly bias / drift review \\
+Layer 5 HITL & Non-bypassable clinician review for any patient-impact output \\
+Layer 6 Audit lineage & Per-request request\_id threaded from input through every step to final output \\
+Layer 7 Adoption scorecard & Per-dataset adoption metric; per-cohort generalisability score \\
+Cross-cutting: drift monitoring & Per-feature distribution monitored against baseline; alert if PSI $\geq$ 0.20 \\
+Cross-cutting: PII scanning & Pre-ingestion + per-use scan; alert + redact + return-to-source if direct identifier detected \\
+Cross-cutting: bias monitoring & Per-subgroup performance monitored; alert if disparate impact $<$ 0.80 \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RGAIG layers operationalise responsible-AI principles into auditable artefacts. Maps to dissertation Appendix~H 7-layer architecture.
+
+
+\clearpage
+\paragraph[Secondary Data SMART Framework]{Secondary Data SMART(-E) Framework Application.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Secondary Data SMART Framework]{Secondary Data SMART(-E) Framework Application.}\label{tab:sec_data_smart} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Specific & Pipeline operates on specific datasets (KAU + ABIDE-II) with specific harmonisation rules \\
+Measurable & Per-pipeline metric: SQI $\geq$ 0.70; cross-cohort accuracy gap $\leq$ 5 pp; subgroup DI $\geq$ 0.80 \\
+Achievable & Per-phase delivery within 1--4 weeks; per-cohort retraining within 1 day \\
+Relevant & Every analysis traces to one of H1--H7 hypotheses; no orphan analyses \\
+Time-bound & Quarterly drift review; annual model retrain; biennial benchmark refresh \\
+Enterprise (E-pillar) & Per-tenant governance; federation-ready; SOC2 + EU AI Act + DPDP compliance \\
+SMART-E score & Per pillar 0--5; pipeline target $\geq$ 4 per pillar; reported per quarter \\
+SMART-E owner & Per pillar: Manager (S, M, A, R, T); Enterprise architect (E) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} SMART-E pillars enforce operational discipline. Per-pillar score reported in Ch.~\ref{chap:discussion} SMART-E Extension.
+
+
+\clearpage
+\paragraph[Secondary Data Analysis Flow]{Secondary Data Analysis Flow --- Ordered List of Analyses.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Secondary Data Analysis Flow]{Secondary Data Analysis Flow --- Ordered List of Analyses.}\label{tab:sec_data_analysis_flow} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1. EDA & Distribution plots; correlation matrix; PCA visualisation; per-class topomap \\
+2. Data quality & SQI per file; bad-channel rate; epoch retention; completeness \\
+3. Descriptive statistics & Per-feature mean + SD + IQR; per-class summary \\
+4. Reliability per instrument & Cronbach alpha per assessment; ICC for repeated measurement \\
+5. Convergent + discriminant validity & Cross-instrument correlation matrix; HTMT $<$ 0.85 \\
+6. EEG-assessment correlation & EEG feature x assessment score matrix; FDR-corrected \\
+7. Feature evaluation & ANOVA / Kruskal-Wallis; mutual information; SHAP rank \\
+8. Feature selection & LASSO / RFE / Boruta \\
+9. Model training & SVM / RF / XGBoost / EEGNet / CNN-LSTM / Transformer / ViT / EfficientNet \\
+10. Model validation & Subject-level 10-fold CV + external cohort hold-out \\
+11. Model evaluation & Accuracy / precision / recall / F1 / AUC + 95\% CI \\
+12. Subgroup + fairness & Per sex / age / severity / comorbidity / site / device subgroup \\
+13. Missing-data analysis & Pattern (MCAR/MAR/MNAR); imputation strategy; sensitivity \\
+14. Longitudinal analysis & Visit-pair t-test; trajectory clustering; growth-curve model \\
+15. Cross-cohort comparison & KAU vs ABIDE-II effect-size stability \\
+16. Sensitivity analysis & Per-choice robustness check (per Table~\ref{tab:sensitivity_analysis_list}) \\
+17. Statistical inference & Per-H1--H7 hypothesis test + effect size + 95\% CI \\
+18. XAI & SHAP per prediction + channel/frequency importance \\
+19. RAG report generation & Combine model prediction + biomarkers + XAI + retrieved evidence \\
+20. Triangulation & Quantitative + qualitative + workflow + cross-cohort scorecard \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Execution order ensures each analysis has its prerequisites ready. Per-analysis output artefact saved with reproducible random seed.
+
+
+\clearpage
+\paragraph[Secondary Data TO-BE Solution]{Secondary Data TO-BE Solution --- Emotiv + Cloud + Mobile App.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Secondary Data TO-BE Solution]{Secondary Data TO-BE Solution --- Emotiv + Cloud + Mobile App.}\label{tab:sec_data_to_be} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Emotiv device (consumer EEG) & Emotiv EPOC X (14-channel, 256 Hz) or Insight (5-channel, 128 Hz); cost \$849--999 USD \\
+Device app (Emotiv Pro) & Real-time signal preview + impedance check + per-session recording; EDF export \\
+Local IoT gateway & Raspberry Pi 4 or NVIDIA Jetson Nano; on-device SQI + de-identification + encryption (AES-256) \\
+Mobile app (caregiver-facing) & iOS / Android app: schedule recording, monitor session, view summary report \\
+Mobile app (clinician-facing) & Web + mobile-responsive dashboard: review AI draft, approve / reject / escalate; HITL gate \\
+Secure cloud upload & TLS 1.3 to HIPAA-compliant cloud (AWS HealthLake / Azure HCDI); per-tenant isolation \\
+Cloud preprocessing & Step 5--7 pipeline runs in cloud: bandpass + ICA + epoching \\
+Cloud AI inference & Step 14--17: model inference + XAI generation; LLM-based RAG report synthesis \\
+Cloud governance + audit & Per-request request\_id through every step; drift / bias / PII monitoring \\
+Caregiver report delivery & Mobile app: plain-language summary; no-diagnosis disclaimer \\
+Clinician report delivery & Web portal: full technical report; evidence trail; SHAP per prediction \\
+TO-BE time-to-screening & 2--6 weeks (vs 6--18 months AS-IS) \\
+TO-BE cost & \$500--1{,}500 USD per episode (vs \$5{,}000--15{,}000 AS-IS) \\
+Geographic reach & Home EEG + remote clinician review extends to tier-2 / rural \\
+Regulatory positioning & Decision-support (not diagnostic); FDA SaMD Class II + EU AI Act Annex III \\
+Future expansion & Federated learning across institutions; on-device inference \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} TO-BE architecture is the dissertation Phase 2+ deployment vision (not validated in current submission). 16-component architecture maps to 7-layer RGAIG governance.
+
+
+\clearpage
+\paragraph[Secondary Data AS-IS Reports]{Secondary Data AS-IS Reports --- List of Reports Generated Today.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Secondary Data AS-IS Reports]{Secondary Data AS-IS Reports --- List of Reports Generated Today.}\label{tab:sec_data_as_is_reports} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1. Per-dataset metadata report & Audience: researcher; Format: Markdown / PDF; Frequency: once per dataset \\
+2. Quality-grading report & Audience: researcher; Format: Excel / CSV; Frequency: post-curation \\
+3. Pre-analysis EDA report & Audience: researcher + statistician; Format: Jupyter + PDF; Frequency: per-analysis \\
+4. Per-model performance report & Audience: ML engineer; Format: Markdown + JSON; Frequency: per-experiment \\
+5. Per-experiment comparison report & Audience: ML team; Format: spreadsheet; Frequency: weekly \\
+6. Per-paper finding report & Audience: researcher + reviewers; Format: PDF; Frequency: per-paper \\
+7. Per-cohort fairness report & Audience: AI reviewer; Format: PDF + dashboard; Frequency: per-cohort \\
+8. Reproducibility audit report & Audience: collaborator; Format: README + manifest; Frequency: ad-hoc \\
+9. Per-dataset citation report & Audience: researcher; Format: BibTeX / Markdown; Frequency: per-paper \\
+10. Per-DUA compliance report & Audience: data steward; Format: PDF; Frequency: annual \\
+AS-IS report quality gap & No standardised reporting schema; per-team / per-paper variation; no machine-readable common format \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} TO-BE state introduces structured machine-readable reports per type (Table~\ref{tab:sec_data_to_be}).
+
+
+\clearpage
+\paragraph[Channels: 10-20 System]{10--20 EEG Channel System --- Standard Channel Inventory.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.4cm} L >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.4cm} @{}}
+\caption[Channels: 10-20 System]{10--20 EEG Channel System --- Standard Channel Inventory.}\label{tab:channels_10_20_system} \\
+\toprule
+\thead{Ch label} & \thead{Position} & \thead{Brain region} & \thead{Relevance} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Fp1 & Left frontopolar & Prefrontal cortex (L) & Executive function; ASD elevated theta \\
+Fp2 & Right frontopolar & Prefrontal cortex (R) & Executive function; ASD elevated theta \\
+F3 & Left frontal & Dorsolateral prefrontal (L) & Frontal alpha asymmetry \\
+F4 & Right frontal & Dorsolateral prefrontal (R) & Frontal alpha asymmetry \\
+F7 & Left lateral frontal & Inferior frontal gyrus (L) & Language; ASD altered coherence \\
+F8 & Right lateral frontal & Inferior frontal gyrus (R) & Emotion processing \\
+Fz & Frontal midline & Supplementary motor + ACC & Theta excess in ASD \\
+C3 & Left central & Sensorimotor cortex (L) & Mu rhythm; ASD reduced suppression \\
+C4 & Right central & Sensorimotor cortex (R) & Mu rhythm; ASD reduced suppression \\
+Cz & Central midline & Vertex motor & P300 component \\
+T3 & Left mid-temporal & Superior temporal (L) & Auditory + language; ASD altered \\
+T4 & Right mid-temporal & Superior temporal (R) & Voice + face processing \\
+T5 & Left posterior temporal & Temporal-occipital junction (L) & Face / object processing \\
+T6 & Right posterior temporal & Temporal-occipital junction (R) & Face / social processing \\
+P3 & Left parietal & Posterior parietal (L) & Visual attention \\
+P4 & Right parietal & Posterior parietal (R) & Visual attention \\
+Pz & Parietal midline & Precuneus / default-mode hub & Alpha rhythm; ASD reduced \\
+O1 & Left occipital & Primary visual cortex (L) & Visual processing \\
+O2 & Right occipital & Primary visual cortex (R) & Visual processing \\
+A1 & Left earlobe & Reference (mastoid) & Reference channel \\
+A2 & Right earlobe & Reference (mastoid) & Reference channel \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Standard 10--20 system per Jasper 1958. 21-channel inventory (19 active + 2 reference) is clinical-grade baseline.
+
+
+\clearpage
+\paragraph[Brain Regions]{Brain Regions Relevant to ASD-EEG Analysis.}
+
+
+\noindent This table lists each \textit{region} across function, asd relevance, and eeg channels, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.4cm} L >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.4cm} @{}}
+\caption[Brain Regions]{Brain Regions Relevant to ASD-EEG Analysis.}\label{tab:brain_regions_list} \\
+\toprule
+\thead{Region} & \thead{Function} & \thead{ASD relevance} & \thead{EEG channels} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Prefrontal cortex & Executive function, planning, working memory & Reduced frontal alpha; theta excess & Fp1, Fp2, F3, F4, Fz \\
+Inferior frontal gyrus & Language production (Broca area, L) & Reduced coherence with temporal & F7, F8 \\
+Anterior cingulate cortex & Conflict monitoring, attention & Reduced ACC activation & Fz (volume-conducted) \\
+Superior temporal sulcus & Voice processing, biological motion & Reduced STS; voice-prosody deficit & T3, T4, T5, T6 \\
+Temporal-parietal junction & Theory of mind, mentalising & Reduced TPJ engagement & T5, T6, P3, P4 \\
+Fusiform gyrus & Face processing (FFA) & Reduced fusiform face response & T5, T6, O1, O2 \\
+Sensorimotor cortex & Motor planning, mirror neurons & Reduced mu suppression & C3, C4, Cz \\
+Posterior parietal cortex & Spatial attention, multimodal integration & Reduced alpha modulation & P3, P4, Pz \\
+Precuneus / posterior cingulate & Default mode network hub & Reduced DMN connectivity & Pz (volume-conducted) \\
+Primary visual cortex & Low-level visual processing & Altered gamma; sensory hyper-arousal & O1, O2 \\
+Amygdala (subcortical) & Emotion, social-salience & Hyper-responsive (inferred via frontal) & Inferred via frontal channels \\
+Cerebellum (subcortical) & Motor coordination, cognition & Cerebellar atypia (not EEG-measurable) & Inferred via parietal-occipital \\
+Default mode network & Self-referential thought, rest & Reduced DMN integration & Frontal + parietal + precuneus \\
+Salience network & Switching DMN + executive & Reduced salience engagement & Frontal + insular pattern \\
+Sensorimotor network & Sensorimotor integration & Mirror system altered & C3 + C4 + Cz pattern \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} EEG measures cortical activity through volume conduction. Cross-reference Coben 2008, Wang 2013, Rojas 2014.
+
+
+\clearpage
+\paragraph[Wavelength / Frequency Healthy vs ASD]{EEG Frequency Bands and Wavelengths --- Healthy vs ASD-Affected Patterns.}
+
+
+\noindent This table lists each \textit{band} across frequency (hz), wavelength, healthy typical, and 1 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.0cm} p{2.5cm} >{\raggedright\arraybackslash}p{3.7cm} >{\raggedright\arraybackslash}p{4.0cm} @{}}
+\caption[Wavelength / Frequency Healthy vs ASD]{EEG Frequency Bands and Wavelengths --- Healthy vs ASD-Affected Patterns.}\label{tab:wavelength_freq_healthy_vs_asd} \\
+\toprule
+\thead{Band} & \thead{Frequency (Hz)} & \thead{Wavelength} & \thead{Healthy typical} & \thead{ASD-affected} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Delta & 0.5--4 & 0.25--2 s period & Dominant during deep sleep; low at rest in adults & Slightly reduced or comparable \\
+Theta & 4--8 & 125--250 ms period & Moderate at rest; elevated during memory + meditation & \textbf{Excess} theta at rest, especially frontal-midline \\
+Alpha & 8--13 & 77--125 ms period & Dominant at rest with eyes closed; posterior maximum & \textbf{Reduced} alpha at rest; reduced suppression \\
+Beta & 13--30 & 33--77 ms period & Active cognition; motor planning & \textbf{Slightly elevated}; cortical hyper-arousal \\
+Gamma & 30--45 & 22--33 ms period & Local-circuit binding; conscious perception & \textbf{Substantially elevated}; robust ASD biomarker per Rojas 2014 \\
+High-gamma & 45--80 & 12--22 ms period & Long-range integration & Elevated in some studies; methodologically challenging \\
+Mu rhythm & 8--13 over C3/C4 & Same as alpha & Suppressed by motor execution + observation & Reduced mu suppression \\
+Theta/beta ratio & Derived & Ratio metric & Elevated in attention conditions & Comparable to ADHD; differential diagnosis useful \\
+Alpha asymmetry & Derived F4--F3 & Difference metric & Slight right-greater & Altered; related to socio-emotional differences \\
+Spectral entropy & Derived & Information metric & Higher (more uniform) & Lower in ASD (more concentrated power) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Wavelength = 1/frequency. Per-band patterns from systematic reviews (Wang 2013, Rojas 2014, Coben 2008).
+
+
+\clearpage
+\paragraph[Severity Tiers DSM-5]{ASD Severity Tiers --- Low / Medium / High (DSM-5 Level 1 / 2 / 3).}
+
+
+\noindent This table lists each \textit{tier} across support level, social-comm impact, rrb impact, and 1 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{2.3cm} p{2.8cm} >{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}p{3.6cm} @{}}
+\caption[Severity Tiers DSM-5]{ASD Severity Tiers --- Low / Medium / High (DSM-5 Level 1 / 2 / 3).}\label{tab:severity_tiers} \\
+\toprule
+\thead{Tier} & \thead{Support level} & \thead{Social-comm impact} & \thead{RRB impact} & \thead{EEG signature} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Low (DSM-5 Level 1) & Requires support & Difficulty initiating; atypical responses & Inflexibility interferes in one+ context & Mild gamma elevation; subtle alpha reduction; moderate confidence \\
+Medium (DSM-5 Level 2) & Requires substantial support & Marked deficits; limited initiation; narrow interests & Inflexibility + difficulty changing focus interferes in variety of contexts & Moderate gamma elevation; clear alpha suppression; theta excess; high confidence \\
+High (DSM-5 Level 3) & Requires very substantial support & Severe deficits; minimal response to others & Extreme difficulty coping with change; markedly interferes with all areas & Pronounced gamma elevation; severe alpha suppression; theta excess; very high confidence \\
+Borderline (sub-threshold) & No formal DSM-5 tier but clinically observed & Some traits without functional impairment & Mild repetitive behaviours within normative variation & EEG within normative range; low confidence; flagged for re-assessment \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} DSM-5 severity tiers per APA 2013 Diagnostic and Statistical Manual.
+
+
+\clearpage
+\paragraph[Impact Social School Home Activity]{ASD Impact Per Life Domain --- Social, School, Home, Activity, Family.}
+
+
+\noindent This table lists each \textit{life domain} across low (level 1), medium (level 2), and high (level 3), so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.3cm} p{3.9cm} >{\raggedright\arraybackslash}p{3.9cm} >{\raggedright\arraybackslash}p{4.0cm} @{}}
+\caption[Impact Social School Home Activity]{ASD Impact Per Life Domain --- Social, School, Home, Activity, Family.}\label{tab:asd_impact_per_domain} \\
+\toprule
+\thead{Life domain} & \thead{Low (Level 1)} & \thead{Medium (Level 2)} & \thead{High (Level 3)} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Social interaction & Difficulty making friends; reduced reciprocity; literal interpretation & Limited reciprocal conversation; few close friends & Minimal social initiation; few or no peer relationships \\
+School (academic) & Average to above-average academic; needs structured environment & Inconsistent academic progress; significant accommodations & Substantial academic support required; specialised classroom \\
+School (behaviour) & Occasional behavioural challenges; needs predictable schedule & Frequent behavioural challenges; aide may be required & Significant behavioural support; one-to-one aide \\
+Home (daily living) & Independent in self-care; preference for routine & Needs prompting for self-care; strong routine dependence & Substantial daily-living support; toileting / dressing support \\
+Activity / hobby & Intense focused interests; strengths leveraged & Restricted activity range; repetitive activities preferred & Very narrow activity range; repetitive / stereotyped dominant \\
+Family dynamic & Family adapts routine; parent education sufficient & Family requires significant accommodation; sibling impact & Family requires extensive support; respite care needed \\
+Communication & Verbal but atypical pragmatics; literal interpretation & Functional verbal with delays; difficulty with conversation flow & Minimal verbal; may use AAC; alternative communication \\
+Sensory regulation & Mild sensitivities; copes with accommodations & Moderate sensitivities; meltdowns when overwhelmed & Severe sensory dysregulation; frequent meltdowns \\
+Emotional regulation & Occasional dysregulation; benefits from coaching & Frequent dysregulation; structured strategies needed & Severe dysregulation; behavioural intervention plan \\
+Independence (future) & Likely independent or semi-independent adult & Supported independence; sheltered work & Substantial lifelong support; community / institutional care \\
+Intervention intensity & 5--10 hr/wk targeted therapy & 15--25 hr/wk intensive intervention & 25--40 hr/wk intensive multi-disciplinary \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Impact patterns generalise across severity tiers but vary per individual. Functional outcome depends on early intervention.
+
+
+\clearpage
+\paragraph[Phase Card Flow]{Secondary Data Phase Card Flow --- Per-Phase Card.}
+
+
+\noindent This table lists each \textit{phase \#} across title, action verb, tool, and 2 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{0.6cm} >{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{2.0cm} L @{}}
+\caption[Phase Card Flow]{Secondary Data Phase Card Flow --- Per-Phase Card.}\label{tab:sec_data_phase_card_flow} \\
+\toprule
+\thead{Phase \#} & \thead{Title} & \thead{Action verb} & \thead{Tool} & \thead{Output} & \thead{Owner} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1 & Discovery & Search & Literature + repositories & Candidate dataset list & Researcher \\
+2 & Access & Negotiate & DUA + institutional approval & Signed agreement & Researcher + admin \\
+3 & Download & Acquire & HTTPS / SFTP & Raw archive & Researcher \\
+4 & Inspect & Open & mne-python notebook & Per-record sample preview & Researcher \\
+5 & Convert & Transform & Per-source converter & BIDS / FIF & Data engineer \\
+6 & Harmonise & Map metadata & Schema mapper script & Canonical sidecar JSON & Data engineer \\
+7 & QC & Grade & SQI + bad-channel detector & Quality report & EEG specialist \\
+8 & Preprocess & Clean & mne preprocessing pipeline & Cleaned EEG & Signal engineer \\
+9 & Epoch & Window & Sliding-window + subject split & Epoch tensor & ML engineer \\
+10 & Feature & Extract & antropy + scipy + mne-connectivity & 50-feature matrix & ML engineer \\
+11 & Select & Reduce & LASSO / RFE / Boruta & Reduced feature set & ML engineer \\
+12 & Train & Fit model & sklearn / pytorch & Trained checkpoint & ML engineer \\
+13 & Validate & Cross-check & GroupKFold + external test & Per-fold metrics & ML engineer \\
+14 & Evaluate & Score & sklearn.metrics & Per-metric report & AI reviewer \\
+15 & Explain & Interpret & shap + captum & Per-prediction explanation & AI reviewer + clinician \\
+16 & RAG-index & Embed corpus & sentence-transformers + chromadb & Vector index & Knowledge engineer \\
+17 & Retrieve & Search & Hybrid retriever & Top-k evidence chunks & Knowledge engineer \\
+18 & Synthesise & Generate report & Ollama LLM + template & Markdown / PDF report & Knowledge engineer \\
+19 & Review (HITL) & Approve / reject & Web portal & Signed action & Clinician \\
+20 & Deliver & Distribute & Mobile app / email & Caregiver + clinician copies & Comm specialist \\
+21 & Audit & Log & Audit-log writer & Per-decision audit row & AI operations \\
+22 & Monitor & Track & Prometheus + Grafana & Live dashboard & AI ops + security \\
+23 & Improve & Retrain & MLOps pipeline & Updated model in registry & ML engineer + AI reviewer \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Card flow is the operator-facing summary; each card answers what is the simple action verb at this phase + who owns it.
+
+
+\clearpage
+\paragraph[Per-Phase Deep Dive]{Per-Phase Deep Dive --- Input/Process/Output/Tool/Quality/Security/Benchmark/Monitor.}
+
+
+\noindent This table lists each \textit{phase} across input, process, output, and 4 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{1.8cm} >{\raggedright\arraybackslash}p{1.8cm} L @{}}
+\caption[Per-Phase Deep Dive]{Per-Phase Deep Dive --- Input/Process/Output/Tool/Quality/Security/Benchmark/Monitor.}\label{tab:sec_data_per_phase_deepdive} \\
+\toprule
+\thead{Phase} & \thead{Input} & \thead{Process} & \thead{Output} & \thead{Tool} & \thead{Quality gate} & \thead{Security ctrl} & \thead{Benchmark / monitor} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1 Capture & EEG headset signal & Acquire 256 Hz & EDF file & Emotiv Pro / mne & SQI $\geq$ 0.70 & AES-256 at source & Latency $<$ 100 ms / SQI live \\
+2 Standardise & EDF / BDF / MAT & Convert to FIF & BIDS tree & mne-python + pybids & BIDS-validator pass & File-header sanitise & Conversion-rate per source \\
+3 QC & Cleaned file & SQI + bad-channel check & Quality report & Custom SQI module & SQI distribution analysis & Per-tenant compute isolation & SQI median per cohort \\
+4 Preprocess & Quality-graded file & Bandpass + ICA + re-ref & Cleaned epochs & mne.filter + ICA & Epoch retention $\geq$ 70\% & Container resource limits & Per-step PSD comparison \\
+5 Epoch & Cleaned EEG & Window 2s/4s/8s + split & Epoch tensor & mne.Epochs & No within-subject leakage & Per-record audit hash & Per-subject epoch count \\
+6 Time-freq & 1D signal & STFT / CWT / SWT & Spectrogram tensor & scipy.signal + pywt & Parseval check & Pinned library version & PSD-stability monitor \\
+7 Feature extract & Time-freq tensor & 50-feature compute & Feature matrix & antropy + scipy + custom & Feature ranges sanity & k-anonymity $\geq$ 5 & Per-feature distribution drift \\
+8 Feature select & Feature matrix & LASSO / RFE / Boruta & Reduced matrix & sklearn + boruta-py & Stability across folds & Selected-feature manifest signed & Selection-rate per fold \\
+9 Train & Reduced matrix + labels & Model fit & Trained checkpoint & sklearn + pytorch & Learning-curve diagnostic & Model artefact signed & Train-time + GPU utilisation \\
+10 Validate & Trained model + test set & GroupKFold + external test & Per-fold metrics & sklearn.model\_selection & Subject-level split verified & Test-set access-controlled & Per-fold variance \\
+11 Evaluate & Validated model & Multi-metric scoring & Metric report + CI & sklearn.metrics + bootstrap & Bonferroni-corrected alpha & No test-label leakage & Per-metric drift over time \\
+12 XAI & Trained model + input & SHAP / saliency / attention & Per-prediction explanation & shap + captum & Clinician rating $\geq$ 4/5 & Model-inversion defence & Explanation-latency p95 \\
+13 RAG-index & Document corpus & Chunk + embed + index & Vector store & sentence-transformers + chromadb & Embedding-quality eval & Per-tenant collection & Index size + retrieval latency \\
+14 Retrieve & Query + context & Hybrid vector + keyword + metadata & Top-k chunks & chromadb + bm25 & MRR + nDCG eval & Query-injection defence & Per-query latency p95 \\
+15 RAG-report & Prediction + XAI + chunks & LLM synthesis with citations & Markdown report & Ollama + template & Ragas faithfulness $\geq$ 0.85 & Prompt-injection filter & Per-report token cost \\
+16 HITL & Draft report & Clinician review + decision & Signed action & Web portal + audit & Non-bypassable for patient-facing & Reviewer 2FA + role & Time-to-decision per case \\
+17 Deliver & Signed report & PDF formatting + distribution & Doctor + patient PDFs & WeasyPrint + jinja2 & Reading-grade $\leq$ 8 (patient) & Watermark + access-log & Delivery success rate \\
+18 Audit & Every step audit row & Aggregate + persist & Audit log & OpenTelemetry + DB & Per-decision row present & SIEM integration & Audit-row completeness $\geq$ 99\% \\
+19 Monitor & Production traffic & Drift / bias / PII scan & Alert events & Prometheus + Evidently + Presidio & Drift PSI $<$ 0.20; DI $\geq$ 0.80 & Per-alert response runbook & Alert-rate + MTTR \\
+20 Improve & Drift signal + audit & Retrain + re-deploy & Updated model & MLOps pipeline + registry & Canary deploy + A/B & Model-signing + roll-back ready & Improvement-rate per quarter \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Each phase has all 8 dimensions specified; per-phase drill runs verify the contract. Aligned with global §47.6 (4-lens security) + §38 (governance) + §57 (production-grade discipline).
+
+
+\clearpage
+\paragraph[AI Dimensions per Phase]{AI Dimensions Per Phase --- XAI / RAI / Ethical / Governance / Trust / Bias / Interpretable / Debug AI.}
+
+
+\noindent This table lists each \textit{phase} across xai, rai, ethical, and 5 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{1.7cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{1.7cm} L @{}}
+\caption[AI Dimensions per Phase]{AI Dimensions Per Phase --- XAI / RAI / Ethical / Governance / Trust / Bias / Interpretable / Debug AI.}\label{tab:sec_data_ai_dimensions_per_phase} \\
+\toprule
+\thead{Phase} & \thead{XAI} & \thead{RAI} & \thead{Ethical} & \thead{Governance} & \thead{Trust} & \thead{Bias} & \thead{Interpretable} & \thead{Debug} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1 Capture & Source-attestation & Consent + minimum-data & Beneficence statement & Source-DUA filed & Provenance audit & Demographic balance check & Per-record log & Per-record trace ID \\
+2 Standardise & Convert log & Reproducible converter & No data-corruption & BIDS schema sign-off & Roundtrip check & Per-format coverage & Schema mapping doc & Per-conversion debug log \\
+3 QC & Per-file SQI rationale & Honest rejection log & No silent inclusion & QC report sign-off & SQI distribution disclosure & Per-subgroup SQI & Per-channel reason & Per-rejection cause analysis \\
+4 Preprocess & Per-sub-step before/after viz & Audit-log per sub-step & Non-destructive (orig preserved) & Pipeline version pinned & Per-step PSD comparison & Per-step subgroup variance & Per-IC visualisation & Per-sub-step error trace \\
+5 Epoch & Per-epoch dropout reason & No-leakage discipline & Per-subject fairness & Split-manifest signed & Per-subject epoch-count & Per-subgroup epoch-balance & Per-epoch metadata & Per-drop cause \\
+6 Time-freq & Per-method explanation (STFT vs CWT) & Fixed parameters & No artificial inflation & Parameter sign-off & Parseval check log & Per-method-effect on subgroup & Per-method spectrogram & Per-failed-conversion trace \\
+7 Feature extract & Per-feature definition & Reproducible compute & No proprietary-feature lock-in & Feature catalogue published & Per-feature literature anchor & Per-feature subgroup variance & Per-feature formula & Per-NaN-feature trace \\
+8 Feature select & Selected-feature rationale & Stable across folds & No over-fit risk & Selection-method documented & Stability score per fold & Per-subgroup feature-importance & Per-feature LASSO weight & Per-fold debug log \\
+9 Train & Hyperparameter + curve diagnostic & No leakage; fixed seed & No reward-hacking & Experiment tracking row & Per-model train log & Per-subgroup loss & Per-layer activation viz & Per-epoch debug trace \\
+10 Validate & Per-fold result table & Subject-level CV verified & No test contamination & Validation-report signed & Per-fold consistency & Per-subgroup CV accuracy & Per-fold confusion matrix & Per-failed-fold trace \\
+11 Evaluate & Per-metric explanation & Multi-metric reported & No cherry-pick & Metric panel signed & Per-metric 95\% CI & Per-subgroup metric + DI & Per-class confusion & Per-test-case error log \\
+12 XAI & Per-prediction SHAP & Explanation usefulness rated & No misleading explanation & XAI artefact archived & Clinician trust rating & Per-subgroup SHAP variance & Per-feature attribution + counterfactual & Per-misclassification SHAP \\
+13 RAG-index & Chunk provenance & No biased corpus inclusion & Source-credibility check & Corpus catalogue & Per-chunk citation accuracy & Per-source-region balance & Per-chunk metadata & Per-failed-embedding log \\
+14 Retrieve & Top-k score rationale & No retrieval-injection & No source-cherry-pick & Retrieval policy & MRR + nDCG eval & Per-tenant retrieval-bias check & Per-query trace & Per-zero-result log \\
+15 RAG-report & Citation per claim & Faithfulness $\geq$ 0.85 & No hallucination & Report template signed & Ragas score per report & Per-language bias check & Per-claim source link & Per-hallucination flag log \\
+16 HITL & Decision rationale & Non-bypassable for patient-facing & Clinician accountability & Per-decision signed action & Time-to-decision metric & Per-clinician override pattern & Per-decision audit row & Per-override case study \\
+17 Deliver & Reading-grade analysis & No-diagnosis disclaimer & Caregiver-friendly tone & Per-format template signed & Reading-grade score per report & Per-language comprehension & Per-section content map & Per-delivery-failure trace \\
+18 Audit & Per-decision row complete & request\_id end-to-end & No tampering & Audit-log retention policy & Audit-row completeness $\geq$ 99\% & Per-decision subgroup tag & Per-row schema & Per-missing-row alert \\
+19 Monitor & Drift visualisation & Bias + drift alert & No silent degradation & Quarterly review & Drift PSI $<$ 0.20 & DI $\geq$ 0.80; equal-opportunity gap $<$ 5\% & Per-alert dashboard & Per-alert RCA log \\
+20 Improve & Per-update changelog & Canary + roll-back ready & No unauthorised auto-deploy & Per-release sign-off & Improvement rate per quarter & Per-subgroup metric trend & Per-release model card & Per-roll-back trace \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Each AI dimension is auditable per phase. Tech stack + Model Context Protocol (MCP) + multi-agent orchestration are cross-cutting: MCP for tool-call audit (Layer 6); multi-agent (council pattern) for diverse explanation + reduced single-model bias. Aligned with §47 (architecture), §48 (explainability), §57 (production-grade).
+
+
+\clearpage
+\paragraph[KPI per Phase]{KPI Per Phase --- Monitoring AI / Score AI / Quality AI / Trust AI.}
+
+
+\noindent This table lists each \textit{phase} across monitoring ai kpi, score ai kpi, quality ai kpi, and 1 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}p{2.6cm} L @{}}
+\caption[KPI per Phase]{KPI Per Phase --- Monitoring AI / Score AI / Quality AI / Trust AI.}\label{tab:sec_data_kpi_per_phase} \\
+\toprule
+\thead{Phase} & \thead{Monitoring AI KPI} & \thead{Score AI KPI} & \thead{Quality AI KPI} & \thead{Trust AI KPI} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1 Capture & Per-record-rate per hour & Per-record SQI score & SQI $\geq$ 0.70 pass rate & Per-record provenance trust score \\
+2 Standardise & Conversion failure rate & Conversion success score & BIDS-validation pass rate & Roundtrip-fidelity score \\
+3 QC & Bad-channel detection rate & Per-file SQI score & Cohort SQI median & Per-file rejection-explanation score \\
+4 Preprocess & IC removal rate & Per-step diagnostic score & Epoch-retention rate & Per-step before/after similarity \\
+5 Epoch & Per-subject epoch yield & Per-fold class-balance score & No-leakage verification rate & Per-subject epoch trust \\
+6 Time-freq & Method-conversion time & Parseval score & PSD consistency score & Per-method fidelity rating \\
+7 Feature extract & Per-feature extraction time & Per-feature variance score & Feature-ranges sanity rate & Per-feature definition trust \\
+8 Feature select & Per-fold stability rate & Per-feature selection score & Stability cross-fold rate & Per-feature importance trust \\
+9 Train & Per-epoch loss trend & Per-fold accuracy score & Training-loss convergence rate & Per-model checkpoint trust \\
+10 Validate & Per-fold accuracy variance & CV-fold consistency score & External-test pass rate & Per-fold trust score \\
+11 Evaluate & Per-metric drift over time & Per-metric value & Multi-metric panel pass & Per-metric 95\% CI trust \\
+12 XAI & Per-prediction SHAP latency & SHAP-quality score & Explanation usefulness rate & Clinician trust rating (1--5) \\
+13 RAG-index & Indexing throughput & Embedding-quality score & Per-chunk metadata completeness & Per-source credibility rating \\
+14 Retrieve & Per-query latency p95 & MRR / nDCG score & Retrieval-recall rate & Per-query result trust \\
+15 RAG-report & Per-report token cost & Ragas faithfulness score & Citation-accuracy rate & Per-claim trust score \\
+16 HITL & Time-to-decision per case & Per-decision quality score & Approval rate vs override rate & Per-clinician calibrated trust \\
+17 Deliver & Delivery success rate & Reading-grade score & Format-validation rate & Per-recipient trust + comprehension \\
+18 Audit & Audit-row write latency & Audit-row completeness score & Per-decision row presence $\geq$ 99\% & Audit-trail integrity trust \\
+19 Monitor & Alert generation rate & Per-alert severity score & False-positive vs true-positive rate & Operator trust in alerting \\
+20 Improve & Time-to-improvement per cycle & Per-improvement effect-size & Improvement-rate per quarter & Per-release trust score \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} KPIs are aggregated weekly per phase; alert thresholds pre-specified per KPI. Cross-phase trust score = aggregate per-phase trust; reported on the production-readiness dashboard.

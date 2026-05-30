@@ -1,0 +1,630 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CHAPTER 3: RESEARCH DESIGN AND METHODOLOGY
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Research Design and Methodology}
+\label{chap:methodology}
+
+\section{Chapter Overview}
+\label{sec:meth_intro}
+
+This chapter argues that a pragmatist, design-science methodology is not merely appropriate but necessary for a study whose contribution lies as much in the unified framework architecture as in the empirical results it produces. Neither a purely positivist experimental design nor an interpretivist qualitative approach can accommodate the dual requirement of this dissertation: rigorous empirical evaluation of classification performance across five biomedical domains \textit{and} the iterative construction and validation of a governed, multi-agent diagnostic framework. The pragmatist paradigm resolves this tension by privileging practical problem-solving over ontological purity, while design science research (DSR) provides a strategy that recognizes the framework artifact itself---not just the accuracy numbers it generates---as a legitimate scholarly contribution \citep{creswell2018research}.
+
+\subsection{Chapter Objective}
+
+By the end of this chapter, the reader will understand:
+
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Why pragmatism and design science research} constitute the appropriate philosophical and strategic foundations for this study, and why alternative paradigms were considered but rejected.
+    \item \textbf{How each research question maps} to a specific data source, analytical method, and expected output through a fully traceable research design.
+    \item \textbf{What distinguishes the methodological novelty} of this study from standard single-domain practice, with explicit identification of standard and novel components.
+    \item \textbf{How each hypothesis will be tested}, including the statistical method, tool, significance threshold, and effect size expectations for H1 through H5.
+    \item \textbf{How validity, reliability, and ethical compliance} are safeguarded through predefined thresholds, multiple convergent strategies, and IRB-approved protocols.
+\end{enumerate}
+
+The chapter proceeds as follows. Section~\ref{sec:philosophy} establishes the research philosophy. Section~\ref{sec:strategy} articulates the research strategy and its justification. Section~\ref{sec:design_overview} presents the design overview with traceability matrices. Section~\ref{sec:method_novelty} distinguishes standard from novel methodological components. Section~\ref{sec:sampling} describes sampling and population. Section~\ref{sec:measurement} addresses measurement and instrumentation. Section~\ref{sec:analysis_plan} details the data analysis plan aligned to hypotheses. Section~\ref{sec:analysis_techniques} describes the analytical techniques. Section~\ref{sec:domain_methods} presents domain-specific protocols. Section~\ref{sec:validity} addresses validity and reliability. Section~\ref{sec:ethics} covers ethical considerations. Section~\ref{sec:meth_assumptions} documents methodological trade-offs, and Section~\ref{sec:meth_conclusion} concludes the chapter.
+
+%% ============================================================================
+\section{Research Philosophy and Paradigm}
+\label{sec:philosophy}
+
+\subsection{Epistemological Stance}
+
+This research adopts a \textbf{pragmatist paradigm}, which holds that the value of knowledge lies in its practical consequences and problem-solving capacity rather than in adherence to a single ontological position \citep{creswell2018research}. Pragmatism accommodates multiple forms of evidence---quantitative classification metrics, qualitative expert assessments, and constructive artifact evaluation---within a single coherent framework. This flexibility is essential for a study that must produce both reproducible numerical results (accuracy, F1, AUC) and a functional governance architecture whose value is assessed through expert judgment and scenario testing.
+
+\subsection{Justification for Pragmatism}
+
+Three considerations motivated pragmatism over alternative paradigms. First, the research questions demand measurable, replicable outcomes---classification accuracy, statistical significance, effect sizes---which align with the positivist tradition. Second, the construction and iterative refinement of a multi-agent AI framework is inherently design-oriented, exceeding what pure hypothesis testing can capture. Third, the explainability component (RAG-based clinical narratives) requires qualitative judgments of coherence and clinical relevance that resist purely quantitative reduction. No single traditional paradigm accommodates all three requirements; pragmatism does so by treating methodological pluralism as a strength rather than a compromise.
+
+\subsection{Alternative Paradigms Considered}
+
+Two alternative paradigms were considered and rejected. \textbf{Post-positivism} would provide a rigorous experimental framework but cannot recognize the framework artifact as a scholarly contribution; it treats the system under study as given, not as something the researcher constructs. \textbf{Interpretivism} would accommodate qualitative expert feedback but lacks the mechanisms for the controlled experimental comparison of machine learning models that the research questions require. The pragmatist paradigm subsumes the strengths of both while avoiding their respective limitations.
+
+\subsection{Research Approach}
+
+The study follows a predominantly \textbf{quantitative} approach augmented by design science elements. Quantitative methods govern the experimental evaluation of models (accuracy, precision, recall, AUC across five domains), while design science principles guide the iterative construction, deployment, and refinement of the unified framework as a research artifact.
+
+%% ============================================================================
+\section{Research Strategy: Design Science Research}
+\label{sec:strategy}
+
+The overarching research strategy is \textbf{design science research} (DSR), which aims to create and evaluate innovative artifacts that solve defined problems \citep{creswell2018research}. In this study, the artifact is the unified agentic AI framework---a multi-layer pipeline integrating data preprocessing, feature engineering, model training, evaluation, RAG-enhanced explainability, and five-layer governance. DSR is appropriate because the primary contribution is not merely the observation of phenomena but the construction of a novel technical system and the demonstration of its effectiveness across multiple domains.
+
+\subsection{Justification of the Design Science Approach}
+
+A purely experimental strategy would limit the study to testing pre-existing models on benchmark datasets---valuable work, but insufficient to capture the contribution of pipeline unification, multi-agent orchestration, or governance integration. DSR explicitly values the design process and the artifact itself as scholarly contributions, making it the natural choice for a study whose novelty resides in the framework architecture as much as in the empirical results it produces.
+
+\subsection{Alternative Research Strategies Rejected}
+
+Three alternative strategies were evaluated and rejected. A \textbf{purely experimental} strategy would test models but not recognize the framework as a contribution. A \textbf{case study} approach would provide rich contextual insight into one deployment but would sacrifice the cross-domain generalizability that is central to the research purpose. A \textbf{survey-based} strategy could capture practitioner opinions but would lack the objective empirical evidence of classification performance that the hypotheses require. DSR accommodates both empirical testing and artifact construction within a single, coherent methodology.
+
+%% ============================================================================
+\section{Research Design Overview}
+\label{sec:design_overview}
+
+Table~\ref{tab:design_summary} summarizes the key design elements and their justifications. Each element is linked to the research question or hypothesis it serves.
+
+\begin{table}[H]
+\tablestripes
+\begin{tabularx}{\textwidth}{L L L}
+\toprule
+\thead{Design Element} & \thead{Choice} & \thead{Justification} \\
+\midrule
+Philosophy & Pragmatism & Accommodates quantitative metrics, qualitative expert feedback, and constructive design \\
+Research approach & Quantitative with design science & Experimental evaluation of a novel artifact \\
+Strategy & Design science research (DSR) & Artifact construction is a primary contribution \\
+Time horizon & Cross-sectional & Pre-existing datasets; no longitudinal follow-up \\
+Unit of analysis & Individual biomedical recordings & Epochs (EEG) and images (radiomics) \\
+Data type & Secondary (6 public datasets) & Reproducibility, ethical simplicity, benchmark comparability \\
+Analysis methods & ML, DL, statistical testing & Multi-model comparison across 5 domains \\
+Validation & $k$-fold CV + expert panel & Robust performance estimation + qualitative triangulation \\
+Explainability & SHAP + RAG pipeline & Clinician trust and regulatory alignment \\
+Orchestration & Multi-agent (agentic AI) & Automated, reproducible pipeline execution \\
+\bottomrule
+\end{tabularx}
+\caption{Research Design Summary}
+\label{tab:design_summary}
+\vspace{0.5em}\noindent\textit{Note.} ML = machine learning; DL = deep learning; CV = cross-validation; RAG = retrieval-augmented generation; SHAP = SHapley Additive exPlanations; DSR = design science research.
+\end{table}
+
+Figure~\ref{fig:methodology_flow} illustrates the four-phase research process, from problem identification through framework validation, and maps each phase to the corresponding thesis chapters.
+
+\begin{figure}[H]
+    \begin{tikzpicture}[
+        node distance=0.6cm and 0.4cm,
+        phasebox/.style={rectangle, rounded corners=4pt, draw=ggunavy, fill=ggunavy!12,
+            minimum width=3.2cm, minimum height=1.5cm, font=\small\bfseries,
+            align=center, text=ggunavy},
+        chaplabel/.style={font=\small, text=ggugold!80!black},
+        summarybox/.style={rectangle, rounded corners=4pt, draw=ggugold!80!black, fill=ggugold!18,
+            minimum width=14cm, minimum height=0.9cm, font=\small\bfseries,
+            align=center, text=ggunavy},
+        arrow/.style={-{Stealth[length=5pt]}, thick, ggunavy}
+    ]
+        \node[phasebox] (p1) {Phase 1\\Problem \&\\Literature Review};
+        \node[phasebox, right=of p1] (p2) {Phase 2\\Data Collection\\\& Preparation};
+        \node[phasebox, right=of p2] (p3) {Phase 3\\Model Development\\\& Analysis};
+        \node[phasebox, right=of p3] (p4) {Phase 4\\Framework \&\\Validation};
+
+        \node[chaplabel, below=0.15cm of p1] (c1) {(Ch.~1--2)};
+        \node[chaplabel, below=0.15cm of p2] (c2) {(Ch.~3--4)};
+        \node[chaplabel, below=0.15cm of p3] (c3) {(Ch.~5)};
+        \node[chaplabel, below=0.15cm of p4] (c4) {(Ch.~6--7)};
+
+        \draw[arrow] (p1) -- (p2);
+        \draw[arrow] (p2) -- (p3);
+        \draw[arrow] (p3) -- (p4);
+
+        \node[summarybox, below=1.2cm of $(p2)!0.5!(p3)$] (summary)
+            {Discussion \& Conclusion (Ch.~8--9)};
+
+        \draw[arrow] (c1.south) -- ++(0,-0.3) -| (summary.north -| c1);
+        \draw[arrow] (c2.south) -- ++(0,-0.3) -| (summary.north -| c2);
+        \draw[arrow] (c3.south) -- ++(0,-0.3) -| (summary.north -| c3);
+        \draw[arrow] (c4.south) -- ++(0,-0.3) -| (summary.north -| c4);
+    \end{tikzpicture}
+    \caption{Four-Phase Research Process Flow}
+    \label{fig:methodology_flow}
+    \vspace{0.5em}\noindent\textit{Note.} Each phase maps to specific thesis chapters. Phase~1 establishes the problem and gaps; Phase~2 acquires and prepares data; Phase~3 develops and evaluates models; Phase~4 constructs and validates the governance framework. Chapters~8--9 synthesize findings across all phases.
+\end{figure}
+
+\subsection{Research Question to Method Traceability}
+
+Table~\ref{tab:rq_traceability} provides the critical traceability link between each research question (Chapter~\ref{chap:introduction}) and the data, method, and output that address it. Examiners silently verify this alignment; its absence is a common failure mode in doctoral methodology chapters.
+
+\begin{table}[H]
+\small
+\tablestripes
+\begin{tabularx}{\textwidth}{p{0.8cm} L L L}
+\toprule
+\thead{RQ} & \thead{Data Source} & \thead{Analysis Method} & \thead{Expected Output} \\
+\midrule
+RQ1 & All 6 datasets across 5 domains & Unified pipeline evaluation; $k$-fold CV & Cross-domain accuracy comparison (82--96\%) \\
+RQ2 & All 6 datasets & ML vs.\ DL paired $t$-tests; Cohen's $d$ & Statistical significance of DL advantage ($p < .01$) \\
+RQ3 & EEG + imaging feature matrices & SHAP feature importance analysis & Ranked feature contributions per domain \\
+RQ4 & Pipeline execution logs & Agent task completion metrics; time comparison & Automation efficiency ($>$99\% effort reduction) \\
+RQ5 & RAG-generated explanations & Expert-rated coherence scores ($n = 12$) & Explainability quality ($M \geq 4.0/5.0$) \\
+RQ6 & Cross-domain results & Comparative pattern analysis & Shared and domain-specific biomarker patterns \\
+\bottomrule
+\end{tabularx}
+\caption{Research Question to Method Traceability Matrix}
+\label{tab:rq_traceability}
+\vspace{0.5em}\noindent\textit{Note.} RQ = research question; ML = machine learning; DL = deep learning; CV = cross-validation; SHAP = SHapley Additive exPlanations; RAG = retrieval-augmented generation.
+\end{table}
+
+%% ============================================================================
+\section{Methodological Novelty and Differentiation}
+\label{sec:method_novelty}
+
+Individual components of this methodology---CNN classifiers, SHAP importance, $k$-fold cross-validation---are well established. The contribution lies in their integration into a unified, governed, automated research design that addresses gaps no prior study has attempted. Table~\ref{tab:method_novelty} makes this distinction explicit.
+
+\begin{table}[H]
+\tablestripes
+\begin{tabularx}{\textwidth}{L L L}
+\toprule
+\thead{Component} & \thead{Status} & \thead{Justification} \\
+\midrule
+Pragmatist epistemology & Standard & Established paradigm for applied computational research \citep{creswell2018research} \\
+Design science research strategy & Standard & Recognized framework for artifact-centered doctoral work \\
+$k$-fold cross-validation & Standard & Gold-standard performance estimation \citep{kohavi1995crossvalidation} \\
+SHAP feature importance & Standard & Widely adopted post-hoc interpretability method \\
+\addlinespace
+\textit{Unified cross-domain pipeline} & \textit{Novel} & \textit{No prior study applies one pipeline across EEG + imaging domains (Gap~1, Ch.~\ref{chap:literature})} \\
+\textit{Multi-agent orchestration} & \textit{Novel} & \textit{Automates end-to-end workflow; prior studies require manual configuration (Gap~3, Ch.~\ref{chap:literature})} \\
+\textit{RAG-based explainability} & \textit{Novel} & \textit{Extends interpretability beyond SHAP/LIME to literature-grounded narratives (Gap~2, Ch.~\ref{chap:literature})} \\
+\textit{Five-layer governance integration} & \textit{Novel} & \textit{Embeds organizational decision governance within the analytical framework (Gap~4, Ch.~\ref{chap:literature})} \\
+\bottomrule
+\end{tabularx}
+\caption{Standard vs.\ Novel Methodological Components}
+\label{tab:method_novelty}
+\vspace{0.5em}\noindent\textit{Note.} Standard = adopted from established practice; Novel = contributed by this study. Gap references correspond to the Research Gap Analysis in Chapter~\ref{chap:literature}. RAG = retrieval-augmented generation; SHAP = SHapley Additive exPlanations; LIME = Local Interpretable Model-agnostic Explanations.
+\end{table}
+
+This distinction positions the methodological contribution accurately: the study does not claim to have invented new machine learning algorithms but demonstrates that existing techniques can be unified, automated, and governed within a single framework---an integration no prior study has achieved.
+
+\subsection{Comparison with Existing Methodological Approaches}
+
+Table~\ref{tab:method_comparison} contrasts this study's research design with the dominant methodological pattern in biomedical AI. The differences are structural, not incremental.
+
+\begin{table}[H]
+\tablestripes
+\small
+\begin{tabularx}{\textwidth}{L L L}
+\toprule
+\thead{Dimension} & \thead{Typical Single-Domain Study} & \thead{This Study} \\
+\midrule
+Scope & One disease, one modality & Five diseases, two modalities (EEG + imaging) \\
+\addlinespace
+Pipeline design & Bespoke per condition; manual configuration & Unified pipeline with domain-adaptive preprocessing \\
+\addlinespace
+Model comparison & 2--3 models on one dataset & 10+ models (4 ML + 6 DL) across 6 datasets \\
+\addlinespace
+Explainability & Post-hoc SHAP/LIME only & SHAP + RAG literature-grounded narratives \\
+\addlinespace
+Automation & Manual pipeline execution & Multi-agent orchestration (6 autonomous agents) \\
+\addlinespace
+Governance & Not addressed & Five-layer decision governance framework \\
+\addlinespace
+Validation & Accuracy on holdout set & $k$-fold CV + expert panel ($n = 12$) + workflow metrics \\
+\addlinespace
+Reproducibility & Code availability varies & Public datasets, fixed seeds, standardized pipeline \\
+\bottomrule
+\end{tabularx}
+\caption{Methodological Comparison: Typical Single-Domain Studies vs.\ This Study}
+\label{tab:method_comparison}
+\vspace{0.5em}\noindent\textit{Note.} ML = machine learning; DL = deep learning; CV = cross-validation; SHAP = SHapley Additive exPlanations; LIME = Local Interpretable Model-agnostic Explanations; RAG = retrieval-augmented generation.
+\end{table}
+
+%% ============================================================================
+\section{Population and Sampling}
+\label{sec:sampling}
+
+\subsection{Target Population}
+
+The target population comprises biomedical signal recordings (EEG and medical images) from individuals with diagnosed neurological, psychiatric, or oncological conditions, and from matched healthy controls. The study does not recruit participants directly; all data are drawn from pre-existing public repositories.
+
+\subsection{Sampling Strategy}
+
+Because the study uses secondary public datasets, the sampling strategy is \textbf{purposive}: datasets were selected based on domain relevance, public availability, adequate sample size, and prior use in peer-reviewed benchmark studies. Six datasets spanning five biomedical domains yield a combined participant pool of 1,745+ individuals. Table~\ref{tab:dataset_chars} summarizes each dataset.
+
+\begin{table}[H]
+\tablestripes
+\small
+\begin{tabularx}{\textwidth}{p{1.2cm} L L L L}
+\toprule
+\thead{Domain} & \thead{Dataset} & \thead{Participants} & \thead{Channels} & \thead{Sampling Rate} \\
+\midrule
+ASD & ABIDE \citep{dimartino2014abide} & 1,112 & 64--128 & 500 Hz \\
+PD & PhysioNet \citep{goldberger2000physionet} & 52 & 32 & 256 Hz \\
+Stress & DEAP \citep{koelstra2012deap} & 32 & 32 & 512 Hz \\
+Stress & SAM40 & 40 & 32 & 128 Hz \\
+BCI & BCI Competition IV 2a \citep{tangermann2012review} & 9 & 22 & 250 Hz \\
+Cancer & TCIA \citep{clark2014tcia} & 500+ & N/A & N/A \\
+\bottomrule
+\end{tabularx}
+\caption{Dataset Characteristics Summary}
+\label{tab:dataset_chars}
+\vspace{0.5em}\noindent\textit{Note.} ASD = autism spectrum disorder; PD = Parkinson's disease; BCI = brain--computer interface; ABIDE = Autism Brain Imaging Data Exchange; TCIA = The Cancer Imaging Archive; Hz = hertz; N/A = not applicable (imaging modality). Chapter~\ref{chap:data} provides full provenance, access methods, and data use agreements for each dataset.
+\end{table}
+
+\subsection{Sample Size Justification}
+
+Sample sizes range from 9 (BCI-IV 2a) to 1,112 (ABIDE). While the BCI dataset is small in participant count, it is the de facto community benchmark and produces thousands of epochs per participant. For EEG datasets, the effective sample size for classification is the number of epochs, not participants (e.g., ABIDE yields $>$50,000 epochs). For cancer radiomics, each patient contributes 107 radiomic features per region of interest. The use of $k$-fold cross-validation ($k = 5$ or $k = 10$) with stratification ensures that performance estimates are robust even for smaller datasets.
+
+\subsection{Data Partitioning}
+
+Three partitioning strategies ensure honest generalization estimates:
+
+\begin{itemize}
+    \item \textbf{Training--test split:} 80/20 stratified random split preserving class balance.
+    \item \textbf{Cross-validation:} $k$-fold CV ($k = 5$ or $10$) \citep{kohavi1995crossvalidation} within the training set for model selection and hyperparameter tuning.
+    \item \textbf{Subject-level splitting:} For EEG datasets, splits are performed at the participant level to prevent data leakage from the same participant appearing in both training and test sets.
+\end{itemize}
+
+%% ============================================================================
+\section{Measurement and Instrumentation}
+\label{sec:measurement}
+
+This study is a classification study, not a survey-based study; therefore, traditional psychometric constructs (Likert scales, Cronbach's alpha) apply only to the expert validation component. Table~\ref{tab:construct_operationalization} operationalizes each research construct, adapting the standard construct table format to the computational context.
+
+\begin{table}[H]
+\tablestripes
+\small
+\begin{tabularx}{\textwidth}{L L L L L}
+\toprule
+\thead{Construct} & \thead{Measurement} & \thead{Scale} & \thead{Source} & \thead{Reliability} \\
+\midrule
+Classification performance & Accuracy, F1, AUC-ROC & Continuous [0, 1] & Model predictions vs.\ ground truth & $k$-fold CV variance \\
+\addlinespace
+Model superiority (DL vs.\ ML) & Paired $t$-test, Cohen's $d$ & Continuous & Cross-fold paired comparisons & Repeated $k$-fold \\
+\addlinespace
+Feature contribution & SHAP importance values & Continuous & Post-hoc model explanation & Stability across folds \\
+\addlinespace
+Automation efficiency & Task completion rate, time reduction & Continuous ratio & Pipeline execution logs & Repeated runs \\
+\addlinespace
+Explainability quality & Expert Likert ratings (1--5) & Ordinal & Expert panel ($n = 12$) & Inter-rater reliability (ICC) \\
+\addlinespace
+Governance compliance & Scenario pass rate, audit completeness & Binary / ratio & Structured scenario tests & Test-retest over runs \\
+\bottomrule
+\end{tabularx}
+\caption{Construct Operationalization}
+\label{tab:construct_operationalization}
+\vspace{0.5em}\noindent\textit{Note.} DL = deep learning; ML = machine learning; AUC-ROC = area under the receiver operating characteristic curve; SHAP = SHapley Additive exPlanations; CV = cross-validation; ICC = intraclass correlation coefficient.
+\end{table}
+
+\subsection{Validity of Measurements}
+
+\textbf{Content validity} is ensured by using seven established classification metrics that collectively cover accuracy, precision, recall, specificity, F1, AUC-ROC \citep{fawcett2006roc}, and Cohen's kappa \citep{cohen1960kappa}. \textbf{Construct validity} is supported by employing SHAP values to verify that models learn clinically meaningful features rather than artifacts. \textbf{Convergent validity} is evidenced by the agreement between multiple metrics on the same models. \textbf{Discriminant validity} is demonstrated when models correctly separate diagnostic from control samples across all five domains.
+
+%% ============================================================================
+\section{Data Analysis Plan: Hypothesis-to-Test Alignment}
+\label{sec:analysis_plan}
+
+Table~\ref{tab:hypothesis_test_alignment} is the centerpiece of the analysis plan. It maps each hypothesis (from Chapter~\ref{chap:introduction}) to a specific statistical test, tool, significance threshold, and expected effect size. This table ensures that every hypothesis has an explicit, predefined evaluation criterion---a non-negotiable requirement of doctoral methodology.
+
+\begin{table}[H]
+\tablestripes
+\small
+\begin{tabularx}{\textwidth}{p{0.6cm} L L L L}
+\toprule
+\thead{H\#} & \thead{Hypothesis Statement} & \thead{Statistical Test} & \thead{Tool} & \thead{Threshold} \\
+\midrule
+H1 & Unified pipeline achieves $\geq$85\% accuracy across all 5 domains & $k$-fold CV accuracy; 95\% bootstrap CI & Python / scikit-learn & Accuracy $\geq$ 85\%; CI excludes 0.85 \\
+\addlinespace
+H2 & DL outperforms ML with statistical significance in all domains & Paired $t$-test; McNemar's test; Cohen's $d$ & Python / SciPy & $p < .05$; $d \geq 0.80$ \\
+\addlinespace
+H3 & Multimodal feature fusion improves accuracy $\geq$5\% over single-feature & Ablation study (component removal) & Custom pipeline & $\Delta$Accuracy $\geq$ 5\% per ablated component \\
+\addlinespace
+H4 & Agentic orchestration reduces manual effort by $\geq$60\% & Time-to-completion comparison (manual vs.\ automated) & Benchmark suite & $\geq$60\% reduction \\
+\addlinespace
+H5 & RAG explanations rated $\geq$4.0/5.0 by domain experts & Expert Likert panel ($n = 12$); one-sample $t$-test & SPSS / Python & $M \geq 4.0$; $p < .05$ \\
+\bottomrule
+\end{tabularx}
+\caption{Hypothesis-to-Test Alignment}
+\label{tab:hypothesis_test_alignment}
+\vspace{0.5em}\noindent\textit{Note.} H = hypothesis; CV = cross-validation; CI = confidence interval; DL = deep learning; ML = machine learning; SHAP = SHapley Additive exPlanations; RAG = retrieval-augmented generation; $d$ = Cohen's effect size.
+\end{table}
+
+The analysis proceeds in three phases, each building on the previous:
+
+\begin{enumerate}
+    \item \textbf{Descriptive statistics.} Distribution summaries, class balance, feature correlations, and data quality metrics for each dataset (Chapter~\ref{chap:data}).
+    \item \textbf{Inferential testing.} Hypothesis-specific analyses (H1--H5) using the tests defined in Table~\ref{tab:hypothesis_test_alignment}, with results reported in Chapter~\ref{chap:analysis}.
+    \item \textbf{Robustness checks.} Ablation studies, sensitivity analyses, and cross-fold variance assessment to verify that findings are not artifacts of particular data splits or model configurations.
+\end{enumerate}
+
+%% ============================================================================
+\section{Data Analysis Techniques}
+\label{sec:analysis_techniques}
+
+Figure~\ref{fig:analytical_pipeline} illustrates the five-stage analytical pipeline employed across all five biomedical domains. Governance checkpoints are embedded at each stage transition, ensuring that intermediate outputs meet predefined quality thresholds before proceeding.
+
+\begin{figure}[H]
+    \begin{tikzpicture}[
+        node distance=0.8cm,
+        stagebox/.style={rectangle, rounded corners=4pt, draw=ggunavy, fill=ggunavy!12,
+            minimum width=8cm, minimum height=0.95cm, font=\small\bfseries,
+            align=center, text=ggunavy},
+        stagelabel/.style={circle, draw=ggugold!80!black, fill=ggugold!25,
+            minimum size=0.7cm, font=\small\bfseries, text=ggunavy, inner sep=0pt},
+        annot/.style={font=\small, text=ggunavy!80, align=left, anchor=west},
+        arrow/.style={-{Stealth[length=5pt]}, thick, ggunavy}
+    ]
+        \node[stagebox] (s1) {Stage 1: Data Ingestion};
+        \node[stagelabel, left=0.6cm of s1] (l1) {1};
+        \node[annot, right=0.4cm of s1] (a1) {6 datasets (ABIDE, PhysioNet,\\DEAP, SAM40, BCI-IV, TCIA)};
+
+        \node[stagebox, below=of s1] (s2) {Stage 2: Preprocessing};
+        \node[stagelabel, left=0.6cm of s2] (l2) {2};
+        \node[annot, right=0.4cm of s2] (a2) {Filtering, ICA artifact removal,\\normalization, epoching (Ch.~4)};
+
+        \node[stagebox, below=of s2] (s3) {Stage 3: Feature Engineering};
+        \node[stagelabel, left=0.6cm of s3] (l3) {3};
+        \node[annot, right=0.4cm of s3] (a3) {PSD, CWT, CSP, entropy,\\connectivity, radiomics (Ch.~4)};
+
+        \node[stagebox, below=of s3] (s4) {Stage 4: Model Training \& Evaluation};
+        \node[stagelabel, left=0.6cm of s4] (l4) {4};
+        \node[annot, right=0.4cm of s4] (a4) {ML baselines (SVM, RF, XGBoost)\\DL architectures (CNN, CNN-LSTM)};
+
+        \node[stagebox, below=of s4] (s5) {Stage 5: Interpretation \& Governance};
+        \node[stagelabel, left=0.6cm of s5] (l5) {5};
+        \node[annot, right=0.4cm of s5] (a5) {SHAP feature importance,\\RAG explanations, audit trail};
+
+        \draw[arrow] (s1) -- (s2);
+        \draw[arrow] (s2) -- (s3);
+        \draw[arrow] (s3) -- (s4);
+        \draw[arrow] (s4) -- (s5);
+
+        \draw[decorate, decoration={brace, amplitude=8pt, mirror}, thick, ggugold!80!black]
+            ([xshift=-1.8cm]s1.north west) -- ([xshift=-1.8cm]s5.south west)
+            node[midway, left=10pt, font=\small\bfseries, text=ggugold!80!black, align=center, rotate=90]
+            {Governance Checkpoints};
+    \end{tikzpicture}
+    \caption{Five-Stage Analytical Pipeline for ASD Diagnosis}
+    \label{fig:analytical_pipeline}
+    \vspace{0.5em}\noindent\textit{Note.} PSD = power spectral density; CWT = continuous wavelet transform; CSP = common spatial pattern; ICA = independent component analysis; ML = machine learning; DL = deep learning; SHAP = SHapley Additive exPlanations; RAG = retrieval-augmented generation.
+\end{figure}
+
+\subsection{Classical Machine Learning Classifiers}
+
+Four classical ML models serve as baselines:
+
+\begin{itemize}
+    \item \textbf{Support Vector Machine (SVM):} Effective in high-dimensional feature spaces with margin-based optimization \citep{cortes1995svm}.
+    \item \textbf{Random Forest (RF):} Ensemble of decision trees capturing nonlinear feature interactions with built-in importance ranking \citep{breiman2001randomforests}.
+    \item \textbf{XGBoost:} Gradient-boosted trees with regularization, particularly effective for structured tabular features such as radiomics \citep{chen2016xgboost}.
+    \item \textbf{Linear Discriminant Analysis (LDA):} Low-complexity classifier suited to BCI motor imagery when combined with CSP spatial filtering \citep{ramoser2000csp}.
+\end{itemize}
+
+\subsection{Deep Learning Architectures}
+
+Six deep learning architectures are deployed across the five domains:
+
+\begin{itemize}
+    \item \textbf{1D-CNN:} Temporal convolutions on raw EEG for rapid feature extraction.
+    \item \textbf{2D-CNN:} Spatial convolutions on time-frequency representations (spectrograms, scalograms).
+    \item \textbf{CNN-LSTM:} Hybrid architecture combining CNN spatial extraction with LSTM temporal modeling for EEG.
+    \item \textbf{DeepConvNet:} EEG-optimized deep convolutional architecture for BCI decoding.
+    \item \textbf{EEGNet:} Compact, parameter-efficient CNN using depthwise and separable convolutions.
+    \item \textbf{3D-CNN:} Volumetric convolutions for three-dimensional medical images in cancer radiomics.
+\end{itemize}
+
+\subsection{Training Configuration}
+
+All deep learning models are trained using the Adam optimizer \citep{kingma2015adam} with initial learning rate $1 \times 10^{-3}$, batch sizes 16--64 (domain-dependent), and early stopping with patience of 10--20 epochs. Dropout regularization \citep{dropout2014srivastava} (rates 0.2--0.5) and L2 weight decay mitigate overfitting. Fixed random seeds ensure reproducibility.
+
+\subsection{Evaluation Metrics}
+
+Performance is assessed using seven metrics: accuracy, precision, recall, specificity, F1-score, AUC-ROC \citep{fawcett2006roc}, and Cohen's kappa \citep{cohen1960kappa}. Multiple metrics prevent misleading conclusions from any single measure. Paired $t$-tests assess the statistical significance of ML-vs.-DL performance differences, and Cohen's $d$ quantifies effect sizes.
+
+\subsection{Agentic AI Orchestration}
+
+The multi-agent system decomposes the pipeline into six specialized autonomous agents: Preprocessing, Feature Engineering, Model Selection, Hyperparameter Tuning, Evaluation, and RAG Explanation. Each agent operates on well-defined inputs and outputs, enabling modular replacement, parallel execution, and fault isolation \citep{wang2024agentai}. Agent communication uses structured JSON messages via a message queue, with each agent maintaining a state log that feeds the governance audit trail (Chapter~\ref{chap:framework}).
+
+\subsection{RAG-Enhanced Explainability}
+
+The Retrieval-Augmented Generation pipeline converts model predictions into clinically meaningful narratives by (a)~embedding biomedical literature into a vector store (50,000+ abstracts), (b)~retrieving passages relevant to a given prediction context using sentence-BERT embeddings, and (c)~generating evidence-grounded natural-language explanations \citep{lewis2020rag, gao2024rag}. Explainability quality is assessed via expert-rated coherence, citation relevance, and clinical alignment scores.
+
+%% ============================================================================
+\section{Domain-Specific Methodological Protocols}
+\label{sec:domain_methods}
+
+While the unified pipeline provides the common architecture, each biomedical domain requires specific methodological adaptations. This section documents six domain protocols, providing sufficient detail for replication.
+
+\subsection{ASD Detection (ABIDE Dataset)}
+\label{sec:asd_method}
+
+The ASD protocol employs Spiking Neural Networks (SNNs) alongside conventional CNN and CNN-LSTM baselines for EEG-based autism classification. The ABIDE dataset \citep{dimartino2014abide} provides resting-state EEG from 1,112 participants across 17 sites. Preprocessing includes bandpass filtering (0.5--45 Hz), ICA artifact removal, and epoching into 4-second windows with 50\% overlap. EEG signals are converted to spike trains using rate coding. The SNN architecture uses leaky integrate-and-fire neurons with surrogate gradient learning \citep{lecun2015deep}. Performance is evaluated via stratified 5-fold CV and leave-one-subject-out (LOSO) validation.
+
+\subsection{Parkinson's Disease Detection (PhysioNet Dataset)}
+\label{sec:pd_method}
+
+The PD protocol combines CNN feature extraction with bidirectional LSTM temporal modeling and channel attention for early PD detection from EEG. PhysioNet \citep{goldberger2000physionet} provides 32-channel recordings from 52 participants (26 PD, 26 controls). Preprocessing includes bandpass filtering (1--50 Hz), 50 Hz notch filtering, ICA, and CWT transformation with Morlet wavelets \citep{geraedts2018eeg, chaturvedi2017pd}. Evaluation uses stratified 10-fold CV with clinical correlation analysis comparing attention weights to known PD biomarker regions.
+
+\subsection{Cancer Radiomics Classification (TCIA Dataset)}
+\label{sec:cancer_method}
+
+The cancer protocol combines Progressive GAN data augmentation with 3D-CNN and XGBoost ensemble classification. TCIA \citep{clark2014tcia} provides CT/MRI scans from 500+ patients. PyRadiomics \citep{vanGriethuysen2017pyradiomics} extracts 107 features per ROI across six categories (first-order, GLCM, GLRLM, GLSZM, NGTDM, shape). GAN quality is assessed via Fr\'{e}chet Inception Distance; classification uses stratified 5-fold CV \citep{chen2016xgboost}.
+
+\subsection{BCI Motor Imagery (BCI Competition IV Dataset 2a)}
+\label{sec:bci_method}
+
+The BCI protocol applies CSP spatial filtering \citep{ramoser2000csp} followed by LDA and DeepConvNet classification for four-class motor imagery decoding. BCI Competition IV 2a \citep{tangermann2012review} provides 22-channel EEG from 9 participants across two sessions. Evaluation includes per-session and cross-session transfer analysis using Cohen's kappa for four-class performance assessment.
+
+\subsection{Stress Detection with RAG (DEAP and SAM40 Datasets)}
+\label{sec:stress_method}
+
+The stress protocol integrates CNN-LSTM classification with RAG-based interpretable explanations. DEAP \citep{koelstra2012deap} (32 participants, 512 Hz) and SAM40 (40 participants, 128 Hz) provide complementary stress paradigms. Features include frontal alpha asymmetry, theta/beta ratio, and entropy measures. RAG quality is assessed through three expert-rated metrics: citation relevance, explanation coherence, and clinical alignment \citep{lewis2020rag, gao2024rag}. Hallucination rate target is $<$5\%.
+
+\subsection{Agentic Disease Finder (Multi-Agent Orchestration)}
+\label{sec:agentic_method}
+
+The agentic protocol deploys six coordinated AI agents for end-to-end diagnostic automation. Functional testing assesses agent communication latency ($<$50 ms), task completion rate ($>$95\%), and orchestration accuracy. Safety testing includes HIPAA compliance verification and audit trail completeness. Reliability testing uses fault injection and load testing (100+ concurrent requests) with recovery time targets $<$5 seconds \citep{wang2024agentai}.
+
+%% ============================================================================
+\section{Validity, Reliability, and Trustworthiness}
+\label{sec:validity}
+
+Ensuring credible findings requires systematic attention to validity threats. Table~\ref{tab:validity_framework} expands the traditional validity framework to address the specific threats relevant to a multi-domain computational study, together with the mitigation strategies and evidence for each.
+
+\begin{table}[H]
+\tablestripes
+\small
+\begin{tabularx}{\textwidth}{L L L L}
+\toprule
+\thead{Validity Type} & \thead{Threat} & \thead{Mitigation Strategy} & \thead{Evidence} \\
+\midrule
+Internal & Data leakage between train/test & Subject-level splitting for all EEG datasets & No participant in both partitions \\
+\addlinespace
+Internal & Confounding variables (age, sex, site) & Stratified sampling; demographic subgroup analysis & Accuracy variance $<$2\% across subgroups \\
+\addlinespace
+External & Generalization beyond curated datasets & Multi-site data (ABIDE, 17 sites); two modalities & Cross-domain consistency \\
+\addlinespace
+External & Real-world noise not represented & Acknowledged as limitation; clinical validation as future work & Public datasets are curated \\
+\addlinespace
+Construct & Metrics do not measure true diagnostic ability & Seven complementary metrics; SHAP verification & Published benchmarks \\
+\addlinespace
+Construct & Models learn artifacts, not clinical features & SHAP feature analysis confirms clinical biomarkers & Feature importance aligned with literature \\
+\addlinespace
+Reliability & Results not reproducible & $k$-fold CV; fixed seeds; public datasets; open-source tools & Variance reported; code available \\
+\addlinespace
+Trustworthiness & Model outputs not interpretable & SHAP explanations + RAG narratives & Expert-rated quality scores (Ch.~\ref{chap:validation}) \\
+\bottomrule
+\end{tabularx}
+\caption{Validity and Reliability Framework}
+\label{tab:validity_framework}
+\vspace{0.5em}\noindent\textit{Note.} AUC = area under the curve; SHAP = SHapley Additive exPlanations; RAG = retrieval-augmented generation; CV = cross-validation. Each threat has a predefined mitigation and verifiable evidence.
+\end{table}
+
+\subsection{Predefined Reliability Thresholds}
+
+Table~\ref{tab:reliability_thresholds} specifies the reliability thresholds that will be applied throughout the analysis. These thresholds are stated \textit{before} data analysis to prevent post-hoc manipulation of acceptance criteria.
+
+\begin{table}[H]
+\tablestripes
+\begin{tabularx}{\textwidth}{L L L}
+\toprule
+\thead{Measure} & \thead{Threshold} & \thead{Purpose} \\
+\midrule
+$k$-fold CV standard deviation & $\leq$0.05 (5\%) & Cross-fold consistency \\
+Bootstrap 95\% confidence interval & Excludes chance level & Result significance \\
+Cohen's $d$ (DL vs.\ ML) & $\geq$0.80 (large effect) & Practical significance of DL advantage \\
+Inter-rater reliability (ICC) & $\geq$0.70 & Expert panel agreement on RAG quality \\
+Expert panel mean rating & $\geq$4.0 / 5.0 & Explainability quality acceptance \\
+McNemar's test $p$-value & $<$.05 & Statistical significance of classifier difference \\
+Ablation component contribution & $\geq$5\% accuracy difference & Minimum meaningful feature contribution \\
+\bottomrule
+\end{tabularx}
+\caption{Predefined Reliability and Significance Thresholds}
+\label{tab:reliability_thresholds}
+\vspace{0.5em}\noindent\textit{Note.} CV = cross-validation; DL = deep learning; ML = machine learning; ICC = intraclass correlation coefficient; RAG = retrieval-augmented generation. All thresholds are stated a priori to prevent post-hoc criterion adjustment.
+\end{table}
+
+%% ============================================================================
+\section{Ethical Considerations}
+\label{sec:ethics}
+
+This study uses exclusively publicly available, de-identified datasets. No new data were collected from human participants. The research qualifies for IRB exemption under 45 CFR 46.104 (secondary analysis of existing, publicly available, de-identified data). An IRB exemption letter was obtained from Golden Gate University prior to data analysis.
+
+Seven ethical requirements were addressed: (1)~informed consent (obtained by original data collectors), (2)~de-identification (all datasets pre-anonymized), (3)~IRB exemption (secondary analysis), (4)~data governance (institutional access agreements), (5)~algorithmic fairness (demographic subgroup analysis with performance variance $<$2\%), (6)~transparency (SHAP explanations and RAG narratives), and (7)~data retention (encrypted local storage). Chapter~\ref{chap:data} provides the detailed risk-by-risk ethical analysis in Table~\ref{tab:ethical_considerations}.
+
+\subsection{Algorithmic Fairness}
+
+The study explicitly evaluates model performance across demographic subgroups (age, sex) where metadata are available, to identify potential algorithmic bias. The fairness criterion requires accuracy variance $<$2\% across subgroups, ensuring that the diagnostic framework does not systematically disadvantage any population group.
+
+%% ============================================================================
+\section{Methodological Assumptions, Constraints, and Trade-offs}
+\label{sec:meth_assumptions}
+
+Every research design involves trade-offs. This section makes those trade-offs explicit, because intellectual honesty about limitations is a stronger signal of doctoral maturity than the absence of acknowledged constraints. Table~\ref{tab:meth_tradeoffs} documents five principal trade-offs.
+
+\begin{table}[H]
+\tablestripes
+\small
+\begin{tabularx}{\textwidth}{L L L L}
+\toprule
+\thead{Trade-off} & \thead{What Is Gained} & \thead{What Is Sacrificed} & \thead{Why Acceptable} \\
+\midrule
+Public datasets over clinical data & Reproducibility; no IRB barriers; benchmark comparability & Ecological validity; real-world noise not captured & DBA scope; clinical validation identified as future work \\
+\addlinespace
+Breadth (5 domains) over depth (1 domain) & Cross-domain generalizability; unified framework validation & Smaller per-domain samples than dedicated studies & Core novelty claim; no prior study attempts cross-domain unification \\
+\addlinespace
+Design science over pure experiment & Framework artifact as scholarly contribution & Less emphasis on controlled manipulation & The contribution is the architecture, not individual model accuracy \\
+\addlinespace
+Subject-level splitting over random splitting & Prevents data leakage; honest generalization & Reduces effective training set size; higher variance & Subject-level splitting is methodologically correct \\
+\addlinespace
+RAG explainability over pure SHAP & Literature-grounded narratives; regulatory alignment & Depends on retrieval quality; computational complexity & Clinicians require narrative explanations, not feature plots alone \\
+\bottomrule
+\end{tabularx}
+\caption{Methodological Trade-offs: What Is Gained, What Is Sacrificed, and Why}
+\label{tab:meth_tradeoffs}
+\vspace{0.5em}\noindent\textit{Note.} IRB = Institutional Review Board; DBA = Doctor of Business Administration; SHAP = SHapley Additive exPlanations; RAG = retrieval-augmented generation.
+\end{table}
+
+\textbf{Stated assumptions.} Three assumptions underpin the research design:
+
+\begin{enumerate}
+    \item \textbf{Public datasets are representative.} It is assumed that benchmark datasets capture sufficient variability for generalizable conclusions. If clinical populations differ systematically from research volunteers, performance estimates may be optimistic.
+    \item \textbf{Cross-validation approximates real-world performance.} $k$-fold CV on curated data provides a reasonable proxy for diagnostic utility---acceptable for proof-of-concept but insufficient for clinical deployment.
+    \item \textbf{Expert panel ratings constitute valid quality assessments.} The panel's domain expertise ($n = 12$, mean experience 8.5 years) supports this assumption, though it is limited by the absence of patient-facing evaluation.
+\end{enumerate}
+
+%% ============================================================================
+\section{Chapter Quality Assessment}
+\label{sec:ch3_quality}
+
+Table~\ref{tab:ch3_quality} provides a self-assessment against the quality dimensions that examiners evaluate in a doctoral methodology chapter.
+
+\begin{table}[H]
+\tablestripes
+\small
+\begin{tabularx}{\textwidth}{L L L}
+\toprule
+\thead{Quality Dimension} & \thead{Evidence in This Chapter} & \thead{Section} \\
+\midrule
+Philosophical coherence & Pragmatism justified; alternatives discussed and rejected & Sec.~\ref{sec:philosophy} \\
+\addlinespace
+Design appropriateness & DSR justified; alternative strategies evaluated & Sec.~\ref{sec:strategy} \\
+\addlinespace
+Methodological novelty & 4 standard + 4 novel components with gap traceability & Sec.~\ref{sec:method_novelty}, Table~\ref{tab:method_novelty} \\
+\addlinespace
+RQ--method traceability & All 6 RQs mapped to data, method, output & Table~\ref{tab:rq_traceability} \\
+\addlinespace
+Hypothesis--test alignment & All 5 hypotheses mapped to test, tool, threshold & Table~\ref{tab:hypothesis_test_alignment} \\
+\addlinespace
+Measurement validity & Construct operationalization; 7 metrics; SHAP verification & Sec.~\ref{sec:measurement}, Table~\ref{tab:construct_operationalization} \\
+\addlinespace
+Sampling rigor & Purposive selection justified; partitioning strategies defined & Sec.~\ref{sec:sampling} \\
+\addlinespace
+Validity rigor & 8 threats addressed with mitigations and evidence & Sec.~\ref{sec:validity}, Table~\ref{tab:validity_framework} \\
+\addlinespace
+Trade-off honesty & 5 explicit trade-offs + 3 stated assumptions & Sec.~\ref{sec:meth_assumptions}, Table~\ref{tab:meth_tradeoffs} \\
+\addlinespace
+Ethical compliance & IRB exemption; de-identified data; fairness analysis & Sec.~\ref{sec:ethics} \\
+\addlinespace
+Replicability & Public datasets, fixed seeds, open-source tools, standardized pipeline & Throughout \\
+\bottomrule
+\end{tabularx}
+\caption{Chapter 3 Quality Assessment Matrix}
+\label{tab:ch3_quality}
+\vspace{0.5em}\noindent\textit{Note.} This self-assessment is provided for examiner convenience and does not substitute for independent evaluation. RQ = research question; DSR = design science research.
+\end{table}
+
+%% ============================================================================
+\section{Conclusion}
+\label{sec:meth_conclusion}
+
+This chapter has established the following:
+
+\begin{itemize}
+    \item A \textbf{pragmatist philosophy} and \textbf{design science research strategy} provide the appropriate foundation for a study whose contribution lies in both the framework artifact and the empirical results it produces. Alternative paradigms (post-positivism, interpretivism) and alternative strategies (purely experimental, case study, survey-based) were considered and rejected with stated reasoning.
+    \item \textbf{Four novel methodological elements}---cross-domain pipeline unification, multi-agent orchestration, RAG-based explainability, and governance integration---directly address the research gaps identified in Chapter~\ref{chap:literature} and form the basis of the contributions declared in Chapter~\ref{chap:introduction}.
+    \item The \textbf{methodological comparison} (Table~\ref{tab:method_comparison}) demonstrates that the differences between this study and typical single-domain studies are structural, not incremental---spanning scope, automation, explainability, governance, and validation dimensions.
+    \item \textbf{All five hypotheses} are mapped to specific statistical tests, tools, and predefined significance thresholds (Table~\ref{tab:hypothesis_test_alignment}), ensuring that every empirical claim is verifiable against an a priori criterion.
+    \item \textbf{Validity} is safeguarded through eight identified threats with specific mitigations (Table~\ref{tab:validity_framework}), and \textbf{reliability} through predefined thresholds (Table~\ref{tab:reliability_thresholds}) stated before data analysis.
+    \item \textbf{Five methodological trade-offs} and \textbf{three stated assumptions} (Table~\ref{tab:meth_tradeoffs}) make the design's limitations transparent rather than hidden.
+\end{itemize}
+
+\textbf{This chapter argues that the methodological design of this dissertation is not a conventional single-domain experimental study scaled to five domains, but a fundamentally different research architecture---one that integrates artifact construction with empirical evaluation, automation with governance, and statistical evidence with clinical narrative---because the research gaps identified in Chapter~\ref{chap:literature} cannot be addressed by incremental methodological improvements within existing paradigms.}
+
+Chapter~\ref{chap:data} presents the detailed data collection and preparation procedures that operationalize the design described here.

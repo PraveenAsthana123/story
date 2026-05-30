@@ -1,0 +1,241 @@
+%% ============================================================================
+%% APPENDIX P --- Pre-Registration Template for Phase 2 SAP (OSF Submission)
+%% Auto-generated 2026-05-27. Per global §38 governance + dissertation Phase 2
+%% pre-registration requirement (Table~\ref{tab:primary_analysis_sap_per_hypothesis}).
+%% ============================================================================
+
+\chapter*{Appendix P --- Pre-Registration Template for Phase 2 Statistical Analysis Plan}
+\addcontentsline{toc}{chapter}{Appendix P --- Pre-Registration Template for Phase 2 SAP}
+\label{app:pre_registration_template}
+
+\noindent This appendix provides the pre-registration template for the dissertation's Phase 2 Statistical Analysis Plan (SAP), to be submitted to the Open Science Framework (OSF) before any Phase 2 data collection begins. Pre-registration is the institutional commitment that hypotheses, methods, and thresholds were specified BEFORE data was seen, eliminating p-hacking + HARKing (Hypothesising After Results Known) risk. The template follows the OSF Standard Pre-Registration template (Bowman et al.\ 2020) extended with AI / ML / RAG-specific sections required by the dissertation's RGAIG governance framework.
+
+\addcontentsline{toc}{section}{P.1 Study Identification} % [TOC-appendix-section-insertion]
+\section*{P.1 Study Identification}
+\addcontentsline{toc}{section}{P.1 Study Identification}
+
+\paragraph{P.1 Study Identification.}
+
+\noindent Table~\ref{tab:app_p_study_id} below presents the study-identification fields required for the OSF pre-registration cover page.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} L @{}}
+\caption[Pre-Registration: Study Identification]{Pre-Registration Template: Study Identification Fields.}\label{tab:app_p_study_id} \\
+\toprule
+\thead{Field} & \thead{Content} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:app_p_study_id} continued from previous page\,)}} \\
+\toprule
+\thead{Field} & \thead{Content} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Study title & Phase 2 prospective validation of RGAIG framework for clinician-supported ASD-EEG screening: multi-institutional Indian cohort \\
+Principal Investigator & Praveen K Asthana (DBA candidate, Golden Gate University) \\
+Co-Principal-Investigator & Per Appendix~\ref{sec:appendix_n_indian_cohort} Co-PI role specification (institutional clinical PI per institution) \\
+Institutional sponsor & Golden Gate University; partnering Indian institution(s) per Appendix~N \\
+Funding source & Self-funded; no commercial sponsor \\
+Conflicts of interest & None disclosed (researcher has no equity in any commercial AI / EEG vendor) \\
+Pre-registration date & TBD (before Phase 2 data collection begins; estimated Q4 2026) \\
+OSF project URL & TBD upon pre-registration submission \\
+Anticipated submission journal & Journal of Medical Internet Research (JMIR) OR JAMA Network Open \\
+Anticipated time-line & Phase 2 data collection 2026-Q4 through 2027-Q4; analysis + paper 2028-Q1 through Q3 \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} OSF = Open Science Framework. Pre-registration submission generates a time-stamped immutable record that the hypotheses, methods, and thresholds below were committed BEFORE any data analysis.
+
+\clearpage
+\addcontentsline{toc}{section}{P.2 Hypothesis Pre-Registration} % [TOC-appendix-section-insertion]
+\section*{P.2 Hypothesis Pre-Registration}
+\addcontentsline{toc}{section}{P.2 Hypothesis Pre-Registration}
+
+\paragraph{P.2 Hypothesis Pre-Registration.}
+
+\noindent Table~\ref{tab:app_p_hypothesis} below presents the per-hypothesis pre-registration for H1--H7; each row specifies the hypothesis, the directional prediction, the primary test, the effect-size threshold, and the multiple-comparison adjustment.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{0.6cm} L >{\raggedright\arraybackslash}p{2.4cm} >{\raggedright\arraybackslash}p{2.4cm} @{}}
+\caption[Pre-Registration: Hypotheses]{Pre-Registration Template: Per-Hypothesis Specification (H1--H7).}\label{tab:app_p_hypothesis} \\
+\toprule
+\thead{H\#} & \thead{Hypothesis + directional prediction} & \thead{Primary test + effect size} & \thead{Threshold + adjustment} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:app_p_hypothesis} continued from previous page\,)}} \\
+\toprule
+\thead{H\#} & \thead{Hypothesis + directional prediction} & \thead{Primary test + effect size} & \thead{Threshold + adjustment} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+H1 & XAI methods improve clinician interpretability (directional: $\beta > 0$ for path RAI $\to$ Explainability) & PLS-SEM path coefficient $\beta_{\text{RAI} \to \text{Expl}}$; bootstrap 5{,}000 resamples; 95\% CI excludes 0 & $|\beta| \geq 0.20$ AND $p < 0.05$; Bonferroni $\alpha' = 0.0071$ for 7 paths \\
+H2 & Linked EEG + assessment improve quality (directional: paired-comparison AUC linked $>$ unlinked) & Paired AUC comparison; Cohen's $d$ effect size & $\Delta$AUC $\geq 0.05$ AND $p < 0.025$ Bonferroni \\
+H3 & HITL workflows improve clinician trust (directional: pre/post Likert increases) & Wilcoxon signed-rank on Likert change & Cohen's $d \geq 0.50$ (medium effect) AND $p < 0.05$ \\
+H4 & Healthy controls improve statistical reliability (directional: CI width $<$ no-control baseline) & Bootstrap CI-width comparison & CI-width reduction $\geq 20\%$ \\
+H5 & RAG-based retrieval improves explainability (directional: Ragas faithfulness $>$ baseline) & Mean comparison on faithfulness score; bootstrap CI & Faithfulness $\geq 0.85$ AND $\geq 0.05$ above baseline \\
+H6 & CV approaches support EEG-image + assessment digitisation (directional: CV accuracy $>$ tabular baseline) & McNemar test on classification accuracy; Bonferroni $\alpha' = 0.01$ for 5 comparisons & Accuracy gain $\geq 5$ pp AND $p < 0.01$ \\
+H7 & Longitudinal AI-assisted tracking supports severe-case monitoring (directional: per-visit improvement) & Mixed-effects regression: outcome $\sim$ time + AI-flag & Partial $\eta^2 \geq 0.06$ (medium) AND $p < 0.05$ \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} HITL = Human-In-The-Loop; RAG = Retrieval-Augmented Generation; CV = Computer Vision; PLS-SEM = Partial Least Squares SEM. Per-hypothesis threshold pre-specified BEFORE any data observation. Multi-comparison strategy: Bonferroni for confirmatory; BH-FDR for exploratory (correlation matrices).
+
+\clearpage
+\addcontentsline{toc}{section}{P.3 Sample Size + Power Pre-Registration} % [TOC-appendix-section-insertion]
+\section*{P.3 Sample Size + Power Pre-Registration}
+\addcontentsline{toc}{section}{P.3 Sample Size + Power}
+
+\paragraph{P.3 Sample Size + Power Pre-Registration.}
+
+\noindent Table~\ref{tab:app_p_sample_size} below presents the pre-registered sample-size + power calculation per hypothesis.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{0.6cm} L >{\centering\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{2.4cm} @{}}
+\caption[Pre-Registration: Sample Size]{Pre-Registration: Sample Size + Power per Hypothesis.}\label{tab:app_p_sample_size} \\
+\toprule
+\thead{H\#} & \thead{Sample-size requirement} & \thead{Power target} & \thead{Justification} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:app_p_sample_size} continued from previous page\,)}} \\
+\toprule
+\thead{H\#} & \thead{Sample-size requirement} & \thead{Power target} & \thead{Justification} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+H1 & $n \geq 100$ for PLS-SEM 10$\times$ rule per Hair 2017 & 0.80 & Detects $|\beta| \geq 0.20$ at $\alpha=0.05$ \\
+H2 & $n \geq 64$ per arm (paired comparison) & 0.80 & Cohen $d = 0.50$ (medium) \\
+H3 & $n \geq 30$ within-subject pre/post & 0.80 & Cohen $d = 0.50$ (medium) for within-subject \\
+H4 & $n \geq 25$ per group (matched pairs) & 0.80 & Per Cohen 1992 small-effect detection \\
+H5 & $\geq 30$ queries per cohort & 0.80 & Per-query power; Ragas eval-set guidance \\
+H6 & $n \geq 34$ per domain (per Cohen 1992 large-effect rule) & 0.80 & Bonferroni-corrected for 5 comparisons \\
+H7 & $n \geq 30$ multi-visit subjects & 0.80 & Within-subject moderate effect \\
+Total target & Phase 2 cohort: 100--300 subjects across 15 institutions & --- & Combines per-hypothesis requirements + safety margin \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Sample-size calculations performed via G*Power 3.1 (two-tailed); per-hypothesis minimum committed pre-registration. If observed sample $<$ target, hypothesis is reported as ``underpowered''; result interpreted as exploratory pilot.
+
+\clearpage
+\addcontentsline{toc}{section}{P.4 Stopping Rules + Deviations Protocol} % [TOC-appendix-section-insertion]
+\section*{P.4 Stopping Rules + Deviations Protocol}
+\addcontentsline{toc}{section}{P.4 Stopping Rules + Deviations}
+
+\paragraph{P.4 Stopping Rules + Deviations Protocol.}
+
+\noindent Table~\ref{tab:app_p_stopping_rules} below presents the pre-registered stopping rules + deviation-from-protocol management procedures.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} L @{}}
+\caption[Pre-Registration: Stopping Rules]{Pre-Registration: Stopping Rules + Deviations Protocol.}\label{tab:app_p_stopping_rules} \\
+\toprule
+\thead{Rule type} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:app_p_stopping_rules} continued from previous page\,)}} \\
+\toprule
+\thead{Rule type} & \thead{Specification} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Sample-size attainment & Stop data collection at $n=300$ OR after 18 months whichever earlier; report partial-attainment honestly \\
+Interim analysis & NO interim analysis pre-registered; full analysis only at data-collection close \\
+Adverse event & If any patient report adverse outcome attributed to AI-assistance: pause $\to$ root-cause $\to$ resume only after safety review \\
+Per-institution drop-out & If $> 3$ institutions withdraw: re-evaluate generalisability claim; document in limitations \\
+Per-record exclusion & Per pre-specified inclusion/exclusion criteria (Table~\ref{tab:primary_inclusion_exclusion}); exclusion log per record \\
+Protocol deviation handling & Any deviation: documented in OSF amendment with rationale + impact assessment; sign-off by Co-PI + IEC \\
+Premature termination & If institutional support withdrawn OR safety concern: terminate; report all collected data + reason \\
+Software / pipeline version change mid-collection & Frozen at pre-registration; any change $\to$ amendment + re-eval of pre/post data \\
+Analyst blinding & Statistical analyst blinded to subject ID + outcome until pre-registered analysis plan locked \\
+Reporting & All hypotheses pre-registered MUST be reported; null + negative results reported with same rigor as positive \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Stopping rules + deviations protocol enforce research integrity; any deviation logged in OSF amendment with time-stamp and rationale. Per ICMJE author-authorship guidelines: all pre-registered hypotheses reported in final paper regardless of significance.
+
+\clearpage
+\addcontentsline{toc}{section}{P.5 AI / ML / RAG-Specific Pre-Registration} % [TOC-appendix-section-insertion]
+\section*{P.5 AI / ML / RAG-Specific Pre-Registration}
+\addcontentsline{toc}{section}{P.5 AI / ML / RAG-Specific}
+
+\paragraph{P.5 AI / ML / RAG-Specific Pre-Registration.}
+
+\noindent Table~\ref{tab:app_p_ai_specific} below presents the AI / ML / RAG-specific pre-registration items extending the standard OSF template; these items are required by the dissertation's RGAIG governance framework.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} L @{}}
+\caption[Pre-Registration: AI/ML Specific]{Pre-Registration: AI / ML / RAG-Specific Items (per RGAIG governance).}\label{tab:app_p_ai_specific} \\
+\toprule
+\thead{Item} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:app_p_ai_specific} continued from previous page\,)}} \\
+\toprule
+\thead{Item} & \thead{Specification} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Model architecture & Pre-registered per Table~\ref{tab:model_architecture_detail}; 4 classical + 4 DL + ensemble \\
+Model selection criterion & Per-hypothesis primary model pre-specified; alternative models reported but not primary inference \\
+Hyperparameter grid & Per-model grid pre-specified; per-fold CV-selected best; sensitivity to grid range reported \\
+Random seed & Fixed at 42 for all reproducible operations; per-bootstrap seed pinned \\
+Training-test split & GroupKFold by subject ID; pre-registered split-strategy \\
+External-test cohort & ABIDE-II committed as external test; Indian Phase-2 cohort committed for cross-cultural generalisation \\
+Subgroup fairness analysis & Pre-registered per Table~\ref{tab:primary_analysis_subgroup_fairness}; per-axis thresholds (DI $\geq 0.80$; gap $< 5\%$) \\
+XAI method per model family & Pre-registered: SHAP-Tree for tree models; SHAP-Deep for NN; saliency for CNN; attention for Transformer \\
+RAG corpus version & Pinned at Phase-2 start; corpus version hash recorded; any update $\to$ amendment \\
+LLM version & Pre-registered: Llama-3-8B-Instruct (Ollama) primary; GPT-4o-mini fallback; per-version recorded \\
+Prompt template version & Pinned at Phase-2 start; per-prompt-version hash recorded \\
+Ragas threshold & Pre-registered: faithfulness $\geq 0.85$; answer-relevance $\geq 0.80$; context-precision $\geq 0.75$ \\
+HITL gate threshold & Pre-registered: $\geq 0.85$ auto; 0.50--0.85 review; $< 0.50$ reject \\
+Audit-log retention & Pre-registered: 7 years per dissertation §\ref{sec:ethics_consent_anchor}; full request\_id trail per decision \\
+Drift monitoring & Pre-registered: per-feature PSI; alert at $\geq 0.20$; weekly review \\
+Reproducibility commitment & All code + frozen-model checkpoints + corpus snapshot uploaded to OSF on paper acceptance \\
+Open-data commitment & De-identified feature matrix + analysis scripts public on OSF; raw EEG governed by source-DUA \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} AI / ML / RAG-specific pre-registration items extend OSF standard to address reproducibility-crisis in ML research. Per-version hash pinning ensures the model + prompt + corpus state can be exactly recreated for post-hoc audit. Aligned with FAIR data principles + EU AI Act Article 12 (logging) requirement.
+
+\clearpage
+\addcontentsline{toc}{section}{P.6 Pre-Registration Checklist (One-Page Summary)} % [TOC-appendix-section-insertion]
+\section*{P.6 Pre-Registration Checklist (One-Page Summary)}
+\addcontentsline{toc}{section}{P.6 Pre-Registration Checklist}
+
+\paragraph{P.6 Pre-Registration Checklist (One-Page Summary).}
+
+\noindent Table~\ref{tab:app_p_checklist} below presents the one-page pre-registration checklist; each row must be ticked before OSF submission.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.0cm} L >{\centering\arraybackslash}p{1.4cm} @{}}
+\caption[Pre-Registration Checklist]{Pre-Registration Checklist --- One-Page Summary (sign-off required).}\label{tab:app_p_checklist} \\
+\toprule
+\thead{Item} & \thead{Description} & \thead{Status} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:app_p_checklist} continued from previous page\,)}} \\
+\toprule
+\thead{Item} & \thead{Description} & \thead{Status} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+1 & Study identification complete (P.1) & $\square$ \\
+2 & Hypotheses + directional predictions specified (P.2) & $\square$ \\
+3 & Primary test per hypothesis specified (P.2) & $\square$ \\
+4 & Effect-size + threshold + multi-comparison strategy specified (P.2) & $\square$ \\
+5 & Sample-size + power calculation done (P.3) & $\square$ \\
+6 & Stopping rules pre-registered (P.4) & $\square$ \\
+7 & Deviation-management protocol pre-registered (P.4) & $\square$ \\
+8 & Model architecture pinned + hyperparameter grid pre-registered (P.5) & $\square$ \\
+9 & Random seed fixed (P.5) & $\square$ \\
+10 & External-test cohort pre-registered (P.5) & $\square$ \\
+11 & Subgroup fairness analysis pre-registered (P.5) & $\square$ \\
+12 & XAI method per model family pre-registered (P.5) & $\square$ \\
+13 & RAG corpus + LLM + prompt version pinned (P.5) & $\square$ \\
+14 & Ragas threshold pre-registered (P.5) & $\square$ \\
+15 & HITL gate threshold pre-registered (P.5) & $\square$ \\
+16 & Audit-log retention pre-registered (P.5) & $\square$ \\
+17 & Drift monitoring pre-registered (P.5) & $\square$ \\
+18 & Reproducibility commitment made (P.5) & $\square$ \\
+19 & Open-data commitment made (P.5) & $\square$ \\
+20 & IEC / IRB approval obtained per participating institution & $\square$ \\
+21 & Co-PI letter of commitment signed (per institution) & $\square$ \\
+22 & OSF submission time-stamp received & $\square$ \\
+23 & Pre-registration approved + locked & $\square$ \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} 23-item checklist; ALL items must be ticked before Phase 2 data collection begins. Per-item sign-off recorded with name + date + signature. Failure to complete pre-registration $\to$ data collection cannot begin. The checklist is the auditable record of pre-registration completeness.

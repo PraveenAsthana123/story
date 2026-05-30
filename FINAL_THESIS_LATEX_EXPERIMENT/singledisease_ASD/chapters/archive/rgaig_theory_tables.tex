@@ -1,0 +1,515 @@
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% RGAIG+ THEORETICAL RESEARCH MODEL — Tables
+%% Chapter→Phase→Section→Table structure | Minimal text, maximum tables
+%% ═══════════════════════════════════════════════════════════════════════════════
+\normalsize\normalfont\color{black}
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 1: Theoretical Foundations Matrix (Ch.2 → Phase 3 → Literature Review)
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_theory_foundations} maps the five theoretical foundations to their corresponding RGAIG+ layers and constructs.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} l l X X l @{}}
+\caption{Theoretical Foundations Mapped to RGAIG+ Framework Components}
+\label{tab:rgaig_theory_foundations}\\
+\toprule
+\thead{Theory} & \thead{Core Premise} & \thead{RGAIG+ Layer} & \thead{Contribution} & \thead{Constructs} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+TAM \citep{davis1989tam} & Perceived usefulness, ease of use & Consumer Interface (L6), Clinical Oversight (L7) & Explains consumer and clinician adoption of AI-driven diagnostics & PU, PE, BI \\
+\addlinespace
+RBV \citep{barney1991firm} & Competitive advantage from VRIN resources & Diagnostic AI (L3), GenAI Engine (L4) & Justifies RGAIG+ as strategic organizational resource & VRIN criteria \\
+\addlinespace
+Sociotechnical (Trist, 1981) & Joint optimization of social--technical subsystems & All 9 layers & Frames human--AI interaction across governance layers & Joint Optimization \\
+\addlinespace
+Trust in Automation \citep{lee2004trust} & Trust mediates reliance on automated systems & GenAI Engine (L4), Agentic Orchestration (L5) & Models trust formation in AI diagnostic outputs & Performance, Process, Purpose \\
+\addlinespace
+DSR \citep{hevner2004design} & Iterative design--evaluate--build cycle & Framework Architecture (all layers) & Provides research methodology for RGAIG+ development & Design, Relevance, Rigor \\
+\end{xltabular}
+\endgroup
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 2: Variable Operationalization (Ch.3 → Phase 5 → Research Design)
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_variable_operationalization} documents the operationalisation of ten constructs in the governance--trust--adoption model, including indicators, scales, and analysis methods.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{2.8cm} p{1.5cm} X c p{2.0cm} p{1.5cm} @{}}
+\caption[Variable Operationalization for RGAIG+]{Variable Operationalization for RGAIG+ Governance--Trust--Adoption Model}
+\label{tab:rgaig_variable_operationalization}\\
+\toprule
+\thead{Construct} & \thead{Type} & \thead{Indicators} & \thead{Scale} & \thead{Source} & \thead{Analysis} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Governance Controls (GC) & Independent & Policy compliance, audit frequency, risk scoring, escalation triggers & 7-pt Likert & Expert survey & CFA, SEM \\
+\addlinespace
+AI Explainability (EX) & Independent & SHAP availability, confidence display, decision rationale clarity & 7-pt Likert & User survey & CFA, SEM \\
+\addlinespace
+Safety Assurance (SA) & Independent & Adverse event rate, hallucination detection, override frequency & Ratio & System metrics & CFA, SEM \\
+\addlinespace
+Device Reliability (DR) & Independent & Signal quality (SNR), uptime, calibration drift, artifact rate & Ratio & Device telemetry & CFA, SEM \\
+\addlinespace
+Monitoring Transparency (MT) & Independent & Dashboard access, alert clarity, audit trail completeness & 7-pt Likert & User survey & CFA, SEM \\
+\addlinespace
+Trust in AI (TR) & Mediator & Performance trust, process trust, purpose trust, overall reliance & 7-pt Likert & Consumer survey & CFA, mediation \\
+\addlinespace
+Perceived Usefulness (PU) & Mediator & Diagnostic accuracy perception, time saving, clinical value & 7-pt Likert & Consumer survey & CFA, SEM \\
+\addlinespace
+Perceived Ease of Use (PE) & Mediator & Interface simplicity, learning curve, cognitive load & 7-pt Likert & Consumer survey & CFA, SEM \\
+\addlinespace
+Adoption Intention (AI) & Dependent & Willingness to use, recommendation likelihood, continued use & 7-pt Likert & Consumer survey & CFA, SEM \\
+\addlinespace
+Actual Adoption (AA) & Dependent & Usage frequency, feature utilization, retention rate & Ratio & System analytics & Regression \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} GC, EX, SA, DR, MT = governance-side constructs; TR = trust mediator \citep{lee2004trust}; PU, PE = TAM mediators \citep{davis1989tam}; AI, AA = adoption outcomes.
+\endgroup
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 3: SEM Hypothesis Mapping (Ch.3 → Phase 5 → Hypothesis Development)
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_sem_hypotheses} presents the seven structural model hypotheses specifying the governance-to-trust-to-adoption pathways.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} c X l c l l @{}}
+\caption{Structural Model Hypotheses: Governance → Trust → Adoption Pathways}
+\label{tab:rgaig_sem_hypotheses}\\
+\toprule
+\thead{ID} & \thead{Hypothesis} & \thead{Path} & \thead{Dir.} & \thead{Theory Basis} & \thead{Test Method} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+SH1 & Governance controls positively influence trust in AI diagnostics & GC → TR & (+) & Trust in Automation & SEM ($\beta$, $p$) \\
+\addlinespace
+SH2 & AI explainability positively influences trust in AI diagnostics & EX → TR & (+) & Trust in Automation & SEM ($\beta$, $p$) \\
+\addlinespace
+SH3 & Safety assurance positively influences trust in AI diagnostics & SA → TR & (+) & Trust in Automation & SEM ($\beta$, $p$) \\
+\addlinespace
+SH4 & Device reliability positively influences trust in AI diagnostics & DR → TR & (+) & Sociotechnical & SEM ($\beta$, $p$) \\
+\addlinespace
+SH5 & Monitoring transparency positively influences trust in AI diagnostics & MT → TR & (+) & Trust in Automation & SEM ($\beta$, $p$) \\
+\addlinespace
+SH6 & Trust in AI diagnostics positively influences perceived usefulness & TR → PU & (+) & TAM & SEM ($\beta$, $p$) \\
+\addlinespace
+SH7 & Perceived usefulness positively influences adoption intention & PU → AI & (+) & TAM & SEM ($\beta$, $p$) \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} All paths tested via SEM with bootstrap 95\% CI (1,000 resamples). GC = Governance Controls; EX = Explainability; SA = Safety; DR = Device Reliability; MT = Monitoring; TR = Trust; PU = Perceived Usefulness; AI = Adoption Intention.
+\endgroup
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 4: SEM Testing Process (Ch.3 → Phase 6 → Analysis Strategy)
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_sem_process} summarises the six-stage SEM testing protocol used for RGAIG+ model validation, from survey administration through model comparison.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} c l X X l @{}}
+\caption{SEM Testing Process: Six-Stage Protocol for RGAIG+ Model Validation}
+\label{tab:rgaig_sem_process}\\
+\toprule
+\thead{Stage} & \thead{Activity} & \thead{Description} & \thead{Criteria} & \thead{Tool} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Survey Admin & Distribute validated instrument to target population ($n \geq 200$) & Response rate $\geq 30\%$, missing $< 5\%$ & Qualtrics \\
+\addlinespace
+2 & Reliability & Cronbach's $\alpha$ and composite reliability per construct & $\alpha \geq 0.70$, CR $\geq 0.70$ & SPSS, R \\
+\addlinespace
+3 & CFA & Validate measurement model; factor loadings and fit & $\lambda \geq 0.50$, AVE $\geq 0.50$, CFI $\geq 0.95$ & lavaan \\
+\addlinespace
+4 & Structural Model & Estimate path coefficients ($\beta$) for SH1--SH7 & $p < 0.05$, RMSEA $\leq 0.06$ & lavaan \\
+\addlinespace
+5 & Mediation & Bootstrap mediation for indirect effects (GC→TR→PU→AI) & 95\% CI excludes zero & PROCESS \\
+\addlinespace
+6 & Model Comparison & Compare full model vs.\ direct-only ($\Delta\chi^2$ test) & Significant improvement & lavaan \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} CR = Composite Reliability; AVE = Average Variance Extracted; CFI = Comparative Fit Index; RMSEA = Root Mean Square Error of Approximation.
+\endgroup
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 5: Gap → RQ → Hypothesis → Framework Component Matrix
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_gap_rq_hypothesis} traces each research gap through its research question and hypothesis to the corresponding RGAIG+ component and validation method.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} c p{2.5cm} X l p{2.5cm} p{2.0cm} @{}}
+\caption[Research Alignment Matrix: Gap → Research Question →]{Research Alignment Matrix: Gap → Research Question → Hypothesis → RGAIG+ Component}
+\label{tab:rgaig_gap_rq_hypothesis}\\
+\toprule
+\thead{ID} & \thead{Research Gap} & \thead{Research Question} & \thead{Hyp.} & \thead{RGAIG+ Component} & \thead{Validation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+G1 & No unified governance for consumer AI diagnostics & How can governance controls improve trust? & SH1 & Governance (L9) & Expert, SEM \\
+\addlinespace
+G2 & Lack of XAI standards for consumer GenAI & Role of AI explainability in trust? & SH2 & GenAI Engine (L4) & User study \\
+\addlinespace
+G3 & Insufficient safety assurance for wearable AI & How does safety affect trust? & SH3 & Safety Module (L8) & Computational \\
+\addlinespace
+G4 & Device reliability not governed & Does reliability influence trust? & SH4 & Device Layer (L1) & Lab testing \\
+\addlinespace
+G5 & Opaque monitoring undermines confidence & Monitoring transparency → trust? & SH5 & Monitoring (L8) & Survey \\
+\addlinespace
+G6 & Trust--adoption pathway undefined & Does trust mediate governance → adoption? & SH6--SH7 & Interface (L6) & SEM mediation \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} G1--G6 = research gaps from Chapter~2. SH1--SH7 = structural hypotheses (Table~\ref{tab:rgaig_sem_hypotheses}). L1--L9 = RGAIG+ layers.
+\endgroup
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 6: Literature Synthesis (Ch.2 → Phase 3 → Thematic Analysis)
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_lit_synthesis} synthesises the eight literature themes, identifying key findings, research gaps, and their RGAIG+ framework implications.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} l X X X @{}}
+\caption{Literature Synthesis: Themes, Gaps, and RGAIG+ Framework Implications}
+\label{tab:rgaig_lit_synthesis}\\
+\toprule
+\thead{Theme} & \thead{Key Findings} & \thead{Research Gap} & \thead{RGAIG+ Implication} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+AI Governance & NIST AI RMF, ISO/IEC 42001, EU AI Act provide domain-general guidance & No consumer wearable-specific governance exists & 9-layer architecture with device-aware governance \\
+\addlinespace
+Consumer EEG & Consumer devices (4--16 ch) achieve 85--97\% accuracy in controlled settings & Signal quality not integrated with governance & Device Layer (L1) with SNR monitoring \\
+\addlinespace
+GenAI in Healthcare & LLM-based systems improve diagnostic explanation & Hallucination risk unaddressed for consumer AI & GenAI Engine (L4) with hallucination detection \\
+\addlinespace
+Trust in AI & Trust in Automation: performance, process, purpose dimensions & Trust undefined for consumer AI diagnostics & Trust mediator with 3-dimensional instrument \\
+\addlinespace
+Technology Adoption & TAM: perceived usefulness and ease of use drive adoption & TAM not applied to governed AI diagnostics & Extended TAM with governance antecedents \\
+\addlinespace
+Agentic AI & Multi-agent orchestration improves task coordination & No governance for agentic AI in clinical use & Agentic Orchestration Layer (L5) \\
+\addlinespace
+Responsible AI & Fairness, accountability, transparency well-established & Implementation gap: principles to controls & Cross-cutting pillar across all 9 layers \\
+\addlinespace
+Safety/Regulation & IEC 60601, ISO 14971, FDA SaMD provide foundations & Consumer devices outside traditional scope & Safety Module (L8) adapted for consumers \\
+\end{xltabular}
+\endgroup
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 7: Theory-to-Framework Layer Mapping (Ch.2 → Phase 3)
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_theory_layer_map} maps five theoretical foundations to each of the nine RGAIG+ layers, providing the theoretical justification for each layer's design.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} l c c c c c X @{}}
+\caption[Theory-to-Framework Mapping: Theoretical Underpinnings]{Theory-to-Framework Mapping: Theoretical Underpinnings of Each RGAIG+ Layer}
+\label{tab:rgaig_theory_layer_map}\\
+\toprule
+\thead{RGAIG+ Layer} & \thead{TAM} & \thead{RBV} & \thead{Socio-tech} & \thead{Trust} & \thead{DSR} & \thead{Theoretical Justification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+L1: Device & & \checkmark & \checkmark & & \checkmark & RBV: device as strategic resource; Sociotech: hardware--human interface \\
+\addlinespace
+L2: Signal Proc. & & \checkmark & & & \checkmark & RBV: signal quality as competitive input; DSR: iterative algorithm design \\
+\addlinespace
+L3: Diagnostic AI & & \checkmark & \checkmark & & \checkmark & RBV: DL models as VRIN resource; DSR: model development cycle \\
+\addlinespace
+L4: GenAI Engine & & \checkmark & & \checkmark & \checkmark & Trust: confidence in AI explanations; RBV: GenAI as differentiator \\
+\addlinespace
+L5: Agentic Orch. & & & \checkmark & \checkmark & \checkmark & Sociotech: agent--human coordination; Trust: multi-agent reliability \\
+\addlinespace
+L6: Consumer UI & \checkmark & & \checkmark & \checkmark & & TAM: PU/PE drive adoption; Trust: transparency builds reliance \\
+\addlinespace
+L7: Clinical & \checkmark & & \checkmark & & & TAM: clinician acceptance; Sociotech: clinical workflow integration \\
+\addlinespace
+L8: Monitoring & & & \checkmark & \checkmark & \checkmark & Trust: monitoring enables verification; Sociotech: feedback loops \\
+\addlinespace
+L9: Governance & & \checkmark & \checkmark & \checkmark & \checkmark & RBV: governance as capability; DSR: policy artifact design \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} \checkmark\ = theory directly informs layer design. Sociotechnical and DSR provide broadest coverage (7/9 layers each); TAM focuses on consumer-facing layers (L6--L7).
+\endgroup
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 8: Chapter → Phase → Section → Table/Figure Index
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_artifact_map} presents the dissertation artefact map, linking each chapter and research phase to its key sections, tables, and figures.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} c l c X X X @{}}
+\caption{Dissertation Artifact Map: Chapter → Phase → Section → Table/Figure}
+\label{tab:rgaig_artifact_map}\\
+\toprule
+\thead{Ch.} & \thead{Title} & \thead{Phase} & \thead{Key Sections} & \thead{Tables} & \thead{Figures} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Introduction & 1--2 & Problem statement, research gaps, RQs, hypothesis overview & Gap--RQ matrix, Ethical considerations & Research scope, 9-layer overview \\
+\addlinespace
+2 & Literature Review & 3--4 & Theoretical foundations, lit synthesis, framework comparison & Theory foundations, Lit synthesis, Contribution matrix & Theoretical integration, Framework comparison \\
+\addlinespace
+3 & Research Methods & 5--7 & DSR methodology, variable operationalization, SEM design & Variable operationalization, SEM process, Validation strategy & SEM model, DSR cycle, Validation workflow \\
+\addlinespace
+4 & Data Analysis & 8--11 & Signal processing, DL results, GenAI evaluation, governance & 8-phase results, Device benchmarks, Decision matrix & Results dashboard, ROC curves \\
+\addlinespace
+5 & Discussion & 12--15 & Findings, theoretical implications, limitations, future research & Standards alignment, Adoption roadmap, Governance stack & Governance stack, Feedback loop, One-page framework \\
+\end{xltabular}
+\endgroup
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 9: SEM Fit Index Criteria (Ch.3 → Phase 6 → Model Evaluation)
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_sem_fit_criteria} reports the seven SEM model fit indices with their acceptable and good thresholds, as established in the methodological literature.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} l X c c l @{}}
+\caption{SEM Model Fit Criteria and Acceptable Thresholds}
+\label{tab:rgaig_sem_fit_criteria}\\
+\toprule
+\thead{Fit Index} & \thead{Description} & \thead{Acceptable} & \thead{Good} & \thead{Reference} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+$\chi^2/df$ & Chi-square to degrees of freedom ratio & $< 5.0$ & $< 3.0$ & Wheaton et al.\ (1977) \\
+\addlinespace
+CFI & Comparative Fit Index & $\geq 0.90$ & $\geq 0.95$ & Bentler (1990) \\
+\addlinespace
+TLI & Tucker--Lewis Index & $\geq 0.90$ & $\geq 0.95$ & Tucker \& Lewis (1973) \\
+\addlinespace
+RMSEA & Root Mean Square Error of Approximation & $\leq 0.08$ & $\leq 0.06$ & Browne \& Cudeck (1993) \\
+\addlinespace
+SRMR & Standardized Root Mean Residual & $\leq 0.10$ & $\leq 0.08$ & Hu \& Bentler (1999) \\
+\addlinespace
+GFI & Goodness of Fit Index & $\geq 0.85$ & $\geq 0.90$ & Joreskog \& Sorbom (1984) \\
+\addlinespace
+AIC & Akaike Information Criterion & Lower = better & Comparative & Akaike (1974) \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} Fit indices evaluated jointly. RMSEA and SRMR assess absolute fit; CFI and TLI assess incremental fit.
+\endgroup
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 10: Survey Instrument Structure (Ch.3 → Phase 5 → Data Collection)
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_survey_instrument} documents the thirty-eight-item survey instrument structure, with sample items and source scales for each construct.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} l c X l l @{}}
+\caption{Survey Instrument Structure for RGAIG+ Model Validation}
+\label{tab:rgaig_survey_instrument}\\
+\toprule
+\thead{Construct} & \thead{Items} & \thead{Sample Item} & \thead{Source Scale} & \thead{Adaptation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Governance Controls & 5 & ``The AI system follows clear governance rules for diagnostic outputs'' & Novel (RGAIG+) & Domain-specific \\
+\addlinespace
+AI Explainability & 4 & ``The system clearly explains why it reached a particular diagnosis'' & XAI Trust Scale & Wearable context \\
+\addlinespace
+Safety Assurance & 4 & ``I am confident the system will flag uncertain or risky results'' & Safety Climate & AI diagnostic \\
+\addlinespace
+Device Reliability & 4 & ``The wearable device consistently produces stable EEG readings'' & System Reliability & Consumer EEG \\
+\addlinespace
+Monitoring Transparency & 4 & ``I can see how the system monitors and tracks diagnostic quality'' & Transparency & AI monitoring \\
+\addlinespace
+Trust in AI & 6 & ``I trust the AI system to provide accurate health assessments'' & Trust in Automation & Consumer health \\
+\addlinespace
+Perceived Usefulness & 4 & ``Using this system improves my ability to monitor brain health'' & TAM \citep{davis1989tam} & Wearable EEG \\
+\addlinespace
+Perceived Ease of Use & 4 & ``I find the diagnostic system easy to understand and use'' & TAM \citep{davis1989tam} & Wearable EEG \\
+\addlinespace
+Adoption Intention & 3 & ``I intend to continue using AI-based brain health monitoring'' & TAM \citep{davis1989tam} & Wearable EEG \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} Total: 38 items. All Likert items use 7-point scale (1 = Strongly Disagree to 7 = Strongly Agree). Minimum sample: $n \geq 200$.
+\endgroup
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 11: Discriminant Validity Template (Ch.4 → Phase 8 → CFA Results)
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_discriminant_validity} presents the Fornell--Larcker discriminant validity assessment, with square roots of AVE on the diagonal and inter-construct correlations off-diagonal.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} l c c c c c c c c c @{}}
+\caption[Discriminant Validity Assessment: Fornell--Larcker]{Discriminant Validity Assessment: Fornell--Larcker Criterion (Template)}
+\label{tab:rgaig_discriminant_validity}\\
+\toprule
+\thead{Construct} & \thead{GC} & \thead{EX} & \thead{SA} & \thead{DR} & \thead{MT} & \thead{TR} & \thead{PU} & \thead{PE} & \thead{AI} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+GC & \textbf{0.78} & & & & & & & & \\
+EX & 0.45 & \textbf{0.81} & & & & & & & \\
+SA & 0.52 & 0.48 & \textbf{0.76} & & & & & & \\
+DR & 0.38 & 0.32 & 0.55 & \textbf{0.74} & & & & & \\
+MT & 0.61 & 0.53 & 0.49 & 0.41 & \textbf{0.79} & & & & \\
+TR & 0.58 & 0.62 & 0.54 & 0.47 & 0.56 & \textbf{0.83} & & & \\
+PU & 0.42 & 0.51 & 0.39 & 0.35 & 0.44 & 0.67 & \textbf{0.80} & & \\
+PE & 0.36 & 0.44 & 0.33 & 0.39 & 0.38 & 0.52 & 0.58 & \textbf{0.77} & \\
+AI & 0.39 & 0.46 & 0.37 & 0.33 & 0.41 & 0.63 & 0.71 & 0.55 & \textbf{0.82} \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} Diagonal (bold) = $\sqrt{\text{AVE}}$. Off-diagonal = inter-construct correlations. Discriminant validity established when diagonal exceeds off-diagonal \citep{fornell1981evaluating}. Values are illustrative targets.
+\endgroup
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 12: SEM Path Results Template (Ch.4 → Phase 9 → Hypothesis Testing)
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_sem_path_results} reports the structural model path analysis results for hypotheses SH1--SH7, including standardised coefficients, significance levels, and confidence intervals.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} c l c c c c c c l @{}}
+\caption{Structural Model Path Analysis Results (Template)}
+\label{tab:rgaig_sem_path_results}\\
+\toprule
+\thead{H} & \thead{Path} & \thead{$\beta$} & \thead{SE} & \thead{$t$} & \thead{$p$} & \thead{95\% CI} & \thead{$R^2$} & \thead{Decision} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+SH1 & GC → TR & 0.28 & 0.05 & 5.60 & $<$0.001 & [0.18, 0.38] & & Supported \\
+SH2 & EX → TR & 0.35 & 0.04 & 8.75 & $<$0.001 & [0.27, 0.43] & & Supported \\
+SH3 & SA → TR & 0.22 & 0.05 & 4.40 & $<$0.001 & [0.12, 0.32] & & Supported \\
+SH4 & DR → TR & 0.18 & 0.05 & 3.60 & $<$0.001 & [0.08, 0.28] & 0.62 & Supported \\
+SH5 & MT → TR & 0.24 & 0.05 & 4.80 & $<$0.001 & [0.14, 0.34] & & Supported \\
+SH6 & TR → PU & 0.67 & 0.04 & 16.75 & $<$0.001 & [0.59, 0.75] & 0.45 & Supported \\
+SH7 & PU → AI & 0.71 & 0.03 & 23.67 & $<$0.001 & [0.65, 0.77] & 0.50 & Supported \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} $\beta$ = standardized path coefficient; SE = standard error; 95\% CI from bootstrap (1,000 resamples); $R^2$ = variance explained. Values are illustrative targets.
+\endgroup
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 13: Phase-to-Chapter Allocation (Cross-cutting → All chapters)
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_phase_chapter_map} maps the fifteen RGAIG+ research phases to their respective dissertation chapters, with key deliverables for each phase.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} c p{3.2cm} c X X X @{}}
+\caption{RGAIG+ Phase-to-Chapter Allocation with Key Deliverables}
+\label{tab:rgaig_phase_chapter_map}\\
+\toprule
+\thead{Ph.} & \thead{Phase Name} & \thead{Ch.} & \thead{Section Focus} & \thead{Key Tables} & \thead{Key Figures} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Problem Identification & 1 & Research gaps, objectives & Gap--RQ--Hypothesis matrix & Research scope \\
+\addlinespace
+2 & Literature Mapping & 2 & Systematic review & Literature synthesis & Framework comparison \\
+\addlinespace
+3 & Theoretical Foundation & 2 & Theory integration & Theory foundations, Theory--layer map & Theoretical integration \\
+\addlinespace
+4 & Framework Comparison & 2 & Existing frameworks & Contribution matrix & Standards coverage \\
+\addlinespace
+5 & Research Design & 3 & Methodology, variables & Variable operationalization, Survey & SEM model diagram \\
+\addlinespace
+6 & Analysis Strategy & 3 & SEM protocol & SEM process, Fit criteria & SEM workflow \\
+\addlinespace
+7 & Data Collection & 3 & Sampling, instruments & Sample demographics & Data collection flow \\
+\addlinespace
+8 & Signal Processing & 4 & EEG preprocessing & Device benchmarks, Consumer vs clinical & Signal pipeline \\
+\addlinespace
+9 & DL Analysis & 4 & Disease classification & 8-phase results, Confusion matrices & ROC curves \\
+\addlinespace
+10 & GenAI Evaluation & 4 & LLM governance testing & 13-phase GenAI results & Decision engine \\
+\addlinespace
+11 & Governance Metrics & 4 & Pillar assessment & 10-pillar results, Decision matrix & Governance stack \\
+\addlinespace
+12 & Discussion & 5 & Findings interpretation & Standards alignment, Roadmap & Adoption roadmap \\
+\addlinespace
+13 & Implications & 5 & Theoretical and practical & Governance lifecycle, RACI & Feedback loop \\
+\addlinespace
+14 & Limitations & 5 & Boundary conditions & Risk factors, Validation comparison & Validation workflow \\
+\addlinespace
+15 & Dissemination & 5 & Future research & Component inventory & One-page framework \\
+\end{xltabular}
+\endgroup
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 14: Mediation Analysis Template (Ch.4 → Phase 9)
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_mediation_analysis} reports the serial mediation analysis results, decomposing the direct, indirect, and total effects for each governance-to-adoption pathway.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} l c c c c l @{}}
+\caption{Mediation Analysis: Direct, Indirect, and Total Effects (Template)}
+\label{tab:rgaig_mediation_analysis}\\
+\toprule
+\thead{Effect Path} & \thead{Direct} & \thead{Indirect} & \thead{Total} & \thead{95\% CI} & \thead{Mediation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+GC → TR → PU → AI & 0.12 & 0.13 & 0.25 & [0.08, 0.19] & Partial \\
+\addlinespace
+EX → TR → PU → AI & 0.09 & 0.17 & 0.26 & [0.11, 0.24] & Full \\
+\addlinespace
+SA → TR → PU → AI & 0.08 & 0.10 & 0.18 & [0.05, 0.16] & Full \\
+\addlinespace
+DR → TR → PU → AI & 0.10 & 0.09 & 0.19 & [0.04, 0.14] & Partial \\
+\addlinespace
+MT → TR → PU → AI & 0.07 & 0.11 & 0.18 & [0.06, 0.17] & Full \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} Serial mediation: IV → Trust → PU → Adoption Intention. 95\% CI from bootstrap (1,000 resamples). Full = direct not significant; Partial = both significant. Values are illustrative targets.
+\endgroup
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% TABLE 15: Construct Reliability Template (Ch.4 → Phase 8)
+%% ───────────────────────────────────────────────────────────────────────────────
+Table~\ref{tab:rgaig_construct_reliability} presents the construct reliability and convergent validity assessment for all nine survey constructs, including Cronbach's alpha, composite reliability, and average variance extracted.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\noindent Table~\ref{tab:rgaig_construct_reliability} construct reliability and convergent validity (template).
+
+\begin{xltabular}{\textwidth}{@{} p{3.5cm} c c c c c l @{}}
+\caption{Construct Reliability and Convergent Validity (Template)}
+\label{tab:rgaig_construct_reliability}\\
+\toprule
+\thead{Construct} & \thead{Items} & \thead{$\alpha$} & \thead{CR} & \thead{AVE} & \thead{$\sqrt{\text{AVE}}$} & \thead{Status} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Governance Controls & 5 & 0.88 & 0.90 & 0.61 & 0.78 & Adequate \\
+AI Explainability & 4 & 0.85 & 0.87 & 0.66 & 0.81 & Adequate \\
+Safety Assurance & 4 & 0.82 & 0.84 & 0.58 & 0.76 & Adequate \\
+Device Reliability & 4 & 0.80 & 0.83 & 0.55 & 0.74 & Adequate \\
+Monitoring Transparency & 4 & 0.86 & 0.88 & 0.62 & 0.79 & Adequate \\
+Trust in AI Diagnostics & 6 & 0.91 & 0.93 & 0.69 & 0.83 & Good \\
+Perceived Usefulness & 4 & 0.87 & 0.89 & 0.64 & 0.80 & Adequate \\
+Perceived Ease of Use & 4 & 0.83 & 0.86 & 0.59 & 0.77 & Adequate \\
+Adoption Intention & 3 & 0.89 & 0.91 & 0.67 & 0.82 & Good \\
+\end{xltabular}
+\par\smallskip\noindent\textit{Note.} Thresholds: $\alpha \geq 0.70$; CR $\geq 0.70$; AVE $\geq 0.50$ \citep{fornell1981evaluating}. All constructs exceed minimums. Values are illustrative targets.
+\endgroup

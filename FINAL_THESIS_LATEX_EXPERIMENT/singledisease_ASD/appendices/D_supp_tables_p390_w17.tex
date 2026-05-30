@@ -1,0 +1,228 @@
+%% ============================================================================
+%% APPENDIX M — Supplementary Technical and Data Screening Tables
+%% Tables moved from main chapters to reduce body length while preserving
+%% full methodological transparency.
+%% ============================================================================
+
+%% When included as a standalone appendix, uncomment the \chapter line below:
+%% \chapter{Supplementary Technical and Data Screening Tables}
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Supplementary Technical and Data Screening Tables}
+\label{app:supplementary_tables}
+
+Data screening tables, model architecture comparisons, and EEG frequency band reference are provided in the Supplementary Volume.
+
+%% MOVED TO SUPPLEMENTARY VOLUME: Data Screening and Model Tables
+\iffalse
+
+\subsection{Data Screening Tables}
+
+The following four tables document the data quality assurance procedures
+applied prior to hypothesis testing. They are referenced from
+Section~\ref{sec:thematic_analysis} of Chapter~4.
+
+\noindent Table~\ref{tab:missing_data} summarises missing data assessment and treatment by dataset for appendix review.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L c L L @{}}
+\caption{Missing Data Assessment and Treatment by Dataset}\label{tab:missing_data} \\
+\toprule
+\thead{Dataset} & \thead{Missing (\%)} & \thead{Cause} & \thead{Treatment} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+KAU ASD       & 0.0 & --- (real-time QA protocols) & None required \\
+PhysioNet PD  & 2.3 & Electrode displacement (T5, T6) & Per-channel median imputation \\
+DEAP Stress   & 0.0 & --- (controlled lab environment) & None required \\
+SAM40 Stress  & 1.1 & Bluetooth connectivity gaps & Median imputation \\
+BCI-IV 2a     & 0.0 & --- (competition-grade curation) & None required \\
+TCIA Cancer   & 3.7 & Missing slice metadata / DICOM errors & Records excluded \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} All rates below the 5\% threshold for multiple imputation. TCIA records excluded (not imputed) because volumetric feature extraction requires complete data.
+
+\noindent Table~\ref{tab:app_outlier_detection_supp} summarises outlier detection for appendix review.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L c L c @{}}
+\caption{Outlier Detection: IQR-Flagged Rates and Treatment by Dataset}\label{tab:app_outlier_detection_supp} \\
+\toprule
+\thead{Dataset} & \thead{IQR-Flagged (\%)} & \thead{Treatment} & \thead{Final Removal (\%)} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+KAU ASD       & 1.4 & Artefact epochs removed; physiological retained & 1.4 \\
+PhysioNet PD  & 0.9 & Winsorised & 0.9 \\
+DEAP Stress   & 1.8 & Muscle/blink artefacts removed & 1.8 \\
+SAM40 Stress  & 1.6 & Same as DEAP & 1.6 \\
+BCI-IV 2a     & 2.1 & Electrode-pop epochs removed & 2.1 \\
+TCIA Cancer   & 0.3 & Winsorised & 0.3 \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} All removal rates below the 5\% threshold. Physiologically plausible outliers retained with winsorisation; only artefact-contaminated epochs removed.
+
+\noindent Table~\ref{tab:normality_testing} summarises normality testing for appendix review.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} l r r l L @{}}
+\caption{Normality Testing: Shapiro--Wilk Results per Dataset}\label{tab:normality_testing} \\
+\toprule
+\thead{Dataset} & \thead{W Statistic} & \thead{p-value} & \thead{Normal?} & \thead{Action Taken} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+KAU ASD & 0.934 & 0.021 & No & Non-parametric tests (Wilcoxon) used \\
+PhysioNet PD & 0.967 & 0.183 & Yes & Parametric tests permissible \\
+DEAP Stress & 0.912 & 0.004 & No & Bootstrap CI for inference \\
+SAM40 Stress & 0.945 & 0.048 & No & Non-parametric + bootstrap \\
+BCI-IV 2a & 0.891 & 0.012 & No & Friedman test for 4-class comparison \\
+TCIA Cancer & 0.978 & 0.312 & Yes & Parametric tests permissible \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Normality assessed at $\alpha$ = .05. Datasets failing the Shapiro--Wilk test were analysed using non-parametric alternatives or bootstrap-based inference. The fold-level accuracy distributions (reported in the main hypothesis testing sections) exhibited approximate normality for the ASD domain, permitting paired \textit{t}-tests with Bonferroni correction as the primary inferential method.
+
+\noindent Table~\ref{tab:class_balance} summarises class balance assessment and mitigation for appendix review.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L L c L @{}}
+\caption{Class Balance Assessment and Mitigation}\label{tab:class_balance} \\
+\toprule
+\thead{Domain} & \thead{Distribution} & \thead{Ratio} & \thead{Mitigation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+ASD   & 47\% ASD / 53\% TD & 1:1.13 & Stratified split \\
+PD    & 50\% PD / 50\% HC & 1:1.00 & Balanced by design \\
+Stress & 40--43\% high / 57--60\% low & 1:1.3--1.5 & Stratified split + $F_1$ reporting \\
+BCI   & 25\% per class (4-class) & 1:1:1:1 & Balanced by design \\
+Cancer & 46\% malignant / 54\% benign & 1:1.17 & Stratified split \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} CV = cross-validation. Subject-level splitting prevents epoch-level data leakage.
+
+\clearpage
+
+\addcontentsline{toc}{section}{Model Specification Tables (Chapter~3)} % [TOC-appendix-section-insertion]
+\section*{Model Specification Tables (Chapter~3)}
+
+The following two tables document the model architectures and hyperparameter
+configurations used across the experimental pipeline. They are referenced from
+Section~\ref{sec:analysis_techniques} of Chapter~3.
+
+\noindent Table~\ref{tab:model_architecture_comparison} summarises model architecture comparison for appendix review.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L L L L L @{}}
+\caption[Model Architecture Comparison: Parameters, Inputs,]{Model Architecture Comparison: Parameters, Inputs, Advantages, and Domain Deployment}\label{tab:model_architecture_comparison} \\
+\toprule
+\thead{Model} & \thead{Parameters} & \thead{Input} & \thead{Advantage} & \thead{Domains Applied} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{5}{l}{Classical Baselines} \\
+\midrule
+SVM & N/A (kernel) & Feature vector & High-dim margin optimisation & All ASD \\
+\addlinespace
+Random Forest & $\sim$10K trees & Feature vector & Built-in importance; nonlinear & All ASD \\
+\addlinespace
+XGBoost & $\sim$5K boosted & Feature vector & Regularised boosting; tabular data & All ASD \\
+\addlinespace
+LDA & $\sim$100 & CSP features & Low complexity; BCI standard & BCI, PD \\
+\midrule
+\multicolumn{5}{l}{Deep Learning} \\
+\midrule
+EEGNet & $\sim$2.5K & ($C$, $T$) & Lightweight; interpretable; depthwise conv & ASD, PD, BCI \\
+\addlinespace
+DeepConvNet & $\sim$300K & ($C$, $T$) & EEG-optimised deep extraction & BCI, Stress \\
+\addlinespace
+1D-CNN & $\sim$150K & ($T$,) & Temporal convolutions on raw signal & ASD, PD, Stress \\
+\addlinespace
+2D-CNN & $\sim$500K & ($H$, $W$, 3) & Spatial features from scalograms/images & All EEG + Cancer \\
+\addlinespace
+CNN-LSTM & $\sim$1M & ($C$, $T$) & Spatial + temporal + attention & ASD, PD, Stress \\
+\addlinespace
+3D-CNN & $\sim$25M & ($D$, $H$, $W$) & Volumetric medical imaging & Cancer \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} $C$ = channels; $T$ = time points; $H$ = height; $W$ = width; $D$ = depth (volumetric). SVM = support vector machine; LDA = linear discriminant analysis; CSP = common spatial pattern; CNN = convolutional neural network; LSTM = long short-term memory. Parameter counts are approximate and vary with input dimensions. EEGNet's compact architecture ($\sim$2.5K parameters) is specifically designed for small EEG datasets (BCI: $n = 9$), while CNN-LSTM's larger capacity ($\sim$1M parameters) is applied to datasets where temporal dynamics are critical (ASD, PD, Stress).
+
+\noindent Table~\ref{tab:hyperparameter_config} summarises model hyperparameter configuration for appendix review.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} L L L L L L @{}}
+\caption{Model Hyperparameter Configuration}\label{tab:hyperparameter_config} \\
+\toprule
+\thead{Parameter} & \thead{SVM} & \thead{RF} & \thead{XGBoost} & \thead{CNN-LSTM} & \thead{EEGNet} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Kernel / Estimators & RBF & 500 trees & 300 rounds & --- & --- \\
+\addlinespace
+$C$ / Max depth & 1.0 & 20 & 6 & --- & --- \\
+\addlinespace
+$\gamma$ / Learning rate & auto & --- & 0.1 & 0.001 & 0.001 \\
+\addlinespace
+Batch size & --- & --- & --- & 32 & 32 \\
+\addlinespace
+Epochs & --- & --- & --- & 100 & 100 \\
+\addlinespace
+Early stopping & --- & --- & 10 rounds & 15 epochs & 15 epochs \\
+\addlinespace
+Optimiser & --- & --- & --- & Adam & Adam \\
+\addlinespace
+Dropout & --- & --- & --- & 0.5 & 0.25 \\
+\addlinespace
+Weight decay & --- & --- & L2 = 0.01 & L2 = $10^{-4}$ & L2 = $10^{-4}$ \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} SVM = support vector machine; RF = random forest; RBF = radial basis function; $C$ = regularisation parameter; $\gamma$ = kernel bandwidth; L2 = L2 regularisation (weight decay). Dashes indicate parameters not applicable to the given model family. All deep learning models use Adam optimiser with $\beta_1 = 0.9$, $\beta_2 = 0.999$. Hyperparameters were selected via grid search within inner cross-validation folds.
+
+\clearpage
+
+\addcontentsline{toc}{section}{EEG Reference Table (Chapter~1)} % [TOC-appendix-section-insertion]
+\section*{EEG Reference Table (Chapter~1)}
+
+The following table documents the five canonical EEG frequency bands
+and their clinical associations relevant to this dissertation.
+It is referenced from the Signal Processing Theories section of Chapter~1.
+
+\noindent Table~\ref{tab:eeg_frequency_bands} summarises eeg frequency bands and clinical significance for appendix review.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{2.0cm} p{2.0cm} p{2.0cm} p{8.5cm} @{}}
+\caption{EEG Frequency Bands and Clinical Significance}\label{tab:eeg_frequency_bands} \\
+\toprule
+\thead{Band} & \thead{Range (Hz)} & \thead{Amplitude ($\mu$V)} & \thead{Clinical Association} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Delta ($\delta$) & 0.5--4 & 20--200 & Deep sleep stages (N3), diffuse brain injury, metabolic encephalopathy; elevated delta power is a non-specific marker of cortical dysfunction \\
+\addlinespace
+Theta ($\theta$) & 4--8 & 5--100 & Drowsiness, meditative states, working memory encoding; elevated frontal theta is a documented ASD biomarker~\cite{bosl2018eeg}; theta/beta ratio is used in ADHD assessment \\
+\addlinespace
+Alpha ($\alpha$) & 8--13 & 10--50 & Relaxed wakefulness with eyes closed; posterior alpha suppression correlates with PD tremor severity~\cite{geraedts2018eeg}; alpha asymmetry is a stress indicator \\
+\addlinespace
+Beta ($\beta$) & 13--30 & 5--30 & Active cognitive processing, motor planning, sustained attention; excessive beta synchronisation in basal ganglia--cortical loops is a PD hallmark; beta desynchronisation drives BCI motor imagery classification \\
+\addlinespace
+Gamma ($\gamma$) & 30--100 & 2--10 & High-frequency cognitive binding, perceptual integration, cross-modal processing; reduced gamma coherence is associated with ASD social cognition deficits; gamma-band features support BCI control signal decoding \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Amplitude ranges are approximate and vary with electrode placement, subject age, and recording conditions. Hz = Hertz; $\mu$V = microvolts. The RGAIG preprocessing pipeline extracts power spectral density (PSD) features from all five bands, enabling the multi-scale CNN architecture to learn domain-specific discriminative patterns.
+
+\fi %% END MOVED TO SUPPLEMENTARY VOLUME
+
+\clearpage

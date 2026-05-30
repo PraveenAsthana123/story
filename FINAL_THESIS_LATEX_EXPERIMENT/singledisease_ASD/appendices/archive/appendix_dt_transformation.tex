@@ -1,0 +1,1307 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% APPENDIX H: DIGITAL TRANSFORMATION FRAMEWORK —
+%% STRATEGIC ANALYSIS, DEPLOYMENT ROADMAP, AND OPERATING MODEL
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Digital Transformation Assessment Overview}
+\label{app:dt_overview}
+
+This appendix argues that the RGAIG framework satisfies the four pillars of a rigorous digital transformation initiative: a quantified business problem (WHY), tangible delivery with measurable impact (WHAT), a structured transformation roadmap (HOW---process), and a sustainable operating model (HOW---people, governance, and structure). The appendix follows a deliberate analytical sequence: it begins with strategic foundations (first principle, environmental scan, competitive analysis), proceeds through current-state diagnosis and gap analysis, builds the financial case, defines the deployment roadmap and operating model, and concludes with change management and integrated impact assessment.
+
+\subsection{Chapter Objective}
+
+By the end of this appendix, the reader should understand: (1)~the strategic context and competitive environment for clinical AI digital transformation, (2)~the current-state problems and the target-state vision with quantified gaps, (3)~the financial case including five-year projections and breakeven, (4)~the phased deployment roadmap with governance and change management, and (5)~how technology, process, people, and governance integrate into a single operating model.
+
+%% ============================================================================
+%% PART 1: STRATEGIC FOUNDATIONS
+%% ============================================================================
+
+\section{First Principle and North Star}
+\label{sec:dt_first_principle}
+
+\subsection{First Principle}
+
+The RGAIG digital transformation rests on a single first principle:
+
+\begin{quote}
+\textit{Every patient presenting with a neurological, psychiatric, or haematological condition deserves an AI-assisted diagnostic opinion that is accurate, explainable, and governed---regardless of which hospital they visit, which clinician they see, or which AI vendor the hospital has procured.}
+\end{quote}
+
+\noindent This principle drives every architectural and organisational decision:
+
+\begin{itemize}
+\item \textbf{Accurate}: Unified pipeline validated across the ASD domain, not a single-disease tool ($\rightarrow$ H1, H2).
+\item \textbf{Explainable}: RAG-generated clinical narratives with SHAP biomarker alignment, not a black-box prediction ($\rightarrow$ H5).
+\item \textbf{Governed}: RTAI 7-layer framework with RACI, escalation, and audit trail, not ad-hoc monitoring ($\rightarrow$ RTAI Framework).
+\item \textbf{Regardless of hospital}: Modular architecture deployable on standard GPU infrastructure, not vendor-locked proprietary systems ($\rightarrow$ DT-9).
+\item \textbf{Regardless of clinician}: Standardised output format with confidence intervals, reducing inter-rater variability by 12--18~percentage points ($\rightarrow$ H3).
+\item \textbf{Regardless of vendor}: Single-vendor unified platform replacing 3--5 fragmented tools, reducing TCO by 65--69\% ($\rightarrow$ ROI model).
+\end{itemize}
+
+\subsection{North Star Metric}
+
+The North Star metric for the RGAIG digital transformation programme is:
+
+\begin{center}
+\textbf{Percentage of clinical AI diagnostic decisions that are simultaneously accurate ($\geq$85\%), explainable (expert satisfaction $\geq$80\%), and governed (full audit trail)}
+\end{center}
+
+\noindent Table~\ref{tab:dt_north_star} tracks this metric across deployment phases.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L C C C L @{}}
+\caption{North Star Metric Progression Across Deployment Phases}\label{tab:dt_north_star} \\
+\toprule
+\thead{Phase} & \thead{Accurate (\%)} & \thead{Explainable (\%)} & \thead{Governed (\%)} & \thead{North Star (All Three)} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_north_star} continued from previous page\,)}} \\
+\toprule
+\thead{Phase} & \thead{Accurate (\%)} & \thead{Explainable (\%)} & \thead{Governed (\%)} & \thead{North Star (All Three)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+0. Assess (baseline) & 0\% & 0\% & 0\% & 0\% (no AI in use) \\
+1. Foundation & 0\% & 0\% & 100\% & 0\% (governance ready, no models deployed) \\
+2. Pilot (1 domain) & 85--95\% & 80--91\% & 100\% & 68--86\% of pilot cases \\
+3. Scale (3--4 domains) & 85--95\% & 80--91\% & 100\% & 55--75\% of all cases \\
+4. Optimise (ASD) & 85--95\% & 80--91\% & 100\% & \textbf{$\geq$80\% target} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} The North Star compounds three independent probabilities. A case counts toward the North Star only if all three conditions are met simultaneously. Target: $\geq$80\% of all AI-assisted diagnoses meet all three criteria by Phase~4.
+
+%% ============================================================================
+\section{Strategic Analysis Frameworks}
+\label{sec:dt_strategic}
+
+\subsection{SWOT Analysis}
+\label{sec:dt_swot}
+
+Table~\ref{tab:dt_swot} provides a SWOT analysis of the RGAIG specifically as a digital transformation initiative, extending the field-level SWOT in Chapter~2 to an organisational deployment perspective.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{SWOT Analysis of RGAIG Digital Transformation Programme}\label{tab:dt_swot} \\
+\toprule
+\thead{Strengths (Internal)} & \thead{Weaknesses (Internal)} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_swot} continued from previous page\,)}} \\
+\toprule
+\thead{Strengths (Internal)} & \thead{Weaknesses (Internal)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[leftmargin=*,nosep]
+\item Unified architecture replaces 3--5 vendor systems
+\item Demonstrated 78--95\% accuracy across ASD
+\item RTAI 7-layer governance exceeds regulatory minimums
+\item Modular design allows incremental domain addition
+\item Full explainability (SHAP + RAG) for every prediction
+\item Quantified ROI: 135--185\% over 3 years
+\item Open-source technology stack (no vendor lock-in)
+\end{itemize}
+\end{minipage}
+&
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[leftmargin=*,nosep]
+\item No live clinical deployment to date
+\item BCI domain below 85\% accuracy threshold
+\item Expert panel limited to N=12 (self-selected)
+\item Financial projections entirely modelled
+\item No EHR/PACS integration demonstrated
+\item Cultural alignment and leadership intent scored 2/5
+\item No operations pipeline for continuous retraining
+\end{itemize}
+\end{minipage} \\
+\midrule
+\thead{Opportunities (External)} & \thead{Threats (External)} \\
+\midrule
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[leftmargin=*,nosep]
+\item EU AI Act mandates governance (creates demand)
+\item Global AI-in-healthcare market growing to \$180B by 2030
+\item Hospital CIO demand for platform consolidation
+\item Foundation models can be integrated via agentic layer
+\item Federated learning enables multi-institutional scaling
+\item Health equity mandates drive fairness requirements
+\end{itemize}
+\end{minipage}
+&
+\begin{minipage}[t]{\linewidth}
+\begin{itemize}[leftmargin=*,nosep]
+\item Foundation models (GPT-4V, Med-PaLM) may commoditise clinical AI
+\item Rapid model obsolescence (18--24 month architecture cycles)
+\item Clinician resistance to AI-augmented workflows
+\item Data privacy regulations may restrict cross-institutional sharing
+\item Competitor unified platforms emerging (2025--2026)
+\item ``AI winter'' risk from over-promising and under-delivering
+\end{itemize}
+\end{minipage} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} SWOT assessment is specific to RGAIG as an organisational transformation programme, not to the broader field (which is covered in Chapter~2, Table~2.11).
+
+\subsection{PESTEL Analysis}
+\label{sec:dt_pestel}
+
+Table~\ref{tab:dt_pestel} analyses the six macro-environmental forces affecting clinical AI digital transformation.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L @{}}
+\caption{PESTEL Analysis for Clinical AI Digital Transformation}\label{tab:dt_pestel} \\
+\toprule
+\thead{Factor} & \thead{Current State (2025--2026)} & \thead{Implication for RGAIG} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_pestel} continued from previous page\,)}} \\
+\toprule
+\thead{Factor} & \thead{Current State (2025--2026)} & \thead{Implication for RGAIG} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Political & Government AI strategies in 60+ countries; US Executive Order on AI Safety (2023); WHO AI governance guidelines & Favourable: political will for AI governance creates demand for governed frameworks like RGAIG \\
+\addlinespace
+Economic & Healthcare AI market: \$15B (2023) $\rightarrow$ \$180B (2030); hospital IT budgets 4--6\% of revenue; cost pressure from ageing populations & Strong driver: cost reduction is primary CIO/CFO motivation; RGAIG's 65--69\% TCO savings directly addresses budget pressure \\
+\addlinespace
+Social & Growing patient expectation for AI transparency; clinician burnout epidemic; health equity movements demanding algorithmic fairness & Mixed: patients want explainability (RGAIG strength); clinicians fear replacement (adoption risk); fairness monitoring addresses equity demands \\
+\addlinespace
+Technological & Foundation models maturing; edge computing enabling on-device inference; 5G enabling real-time telemedicine AI; quantum computing emerging & Opportunity and threat: RGAIG's modular architecture can incorporate new technologies; but rapid obsolescence requires continuous architecture updates \\
+\addlinespace
+Environmental & Data centre energy consumption scrutiny; carbon footprint of GPU training; green AI movement & Moderate risk: RGAIG's compact model (312K parameters, 45M FLOPs) is energy-efficient compared to billion-parameter foundation models \\
+\addlinespace
+Legal & EU AI Act (August 2025); FDA SaMD guidance; HIPAA updates for AI; state-level AI liability laws emerging & Strong driver: regulatory compliance is a forcing function for governed AI; RGAIG's RTAI framework and audit trail provide compliance infrastructure \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} PESTEL = Political, Economic, Social, Technological, Environmental, Legal. Assessment as of 2025--2026. The most favourable factors are Economic (cost pressure) and Legal (compliance mandates), both of which create direct demand for RGAIG's value proposition.
+
+\subsection{Porter's Five Forces}
+\label{sec:dt_porter}
+
+Table~\ref{tab:dt_porter} applies Porter's Five Forces~\cite{porter1985competitive} to the clinical AI platform market.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L C L L @{}}
+\caption{Porter's Five Forces Analysis for Clinical AI Platform Market}\label{tab:dt_porter} \\
+\toprule
+\thead{Force} & \thead{Intensity} & \thead{Assessment} & \thead{RGAIG Response} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_porter} continued from previous page\,)}} \\
+\toprule
+\thead{Force} & \thead{Intensity} & \thead{Assessment} & \thead{RGAIG Response} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Threat of new entrants & High & Low barriers to entry for single-domain AI; high barriers for unified ASD-focused platforms with governance & RGAIG's ASD coverage + RTAI governance creates a high barrier that single-domain entrants cannot easily replicate \\
+\addlinespace
+Bargaining power of buyers (hospitals) & High & Hospitals have multiple vendor options; price sensitivity increasing; CIOs demanding platform consolidation & RGAIG's open-source stack eliminates vendor lock-in; 65--69\% TCO savings provides strong buyer value proposition \\
+\addlinespace
+Bargaining power of suppliers (data, compute) & Medium & Public datasets freely available; GPU costs declining 15--20\%/year; cloud compute commoditising & RGAIG uses exclusively public datasets and commodity hardware; no supplier dependency \\
+\addlinespace
+Threat of substitutes & High & Foundation models (GPT-4V, Med-PaLM) could substitute purpose-built pipelines; manual diagnosis is status quo & Modular architecture incorporates foundation models as components; native EEG processing and governance are not substitutable \\
+\addlinespace
+Industry rivalry & Medium & Fragmented: no dominant unified platform; IBM Watson deprecated; Google Health restructured; many single-domain startups & Market opportunity: unified platform space is currently unoccupied; RGAIG can establish first-mover advantage in governed ASD-focused AI \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Overall assessment: the clinical AI platform market is attractive (high growth, fragmented competition) but subject to disruption from foundation models. RGAIG's competitive moat is its combination of domain-specific signal processing, clinical explainability, and institutional governance---capabilities that neither single-domain tools nor foundation models currently provide together.
+
+%% ============================================================================
+%% PART 2: CURRENT STATE DIAGNOSIS AND GAP ANALYSIS
+%% ============================================================================
+
+\section{AS-IS vs.\ TO-BE Transformation Analysis}
+\label{sec:dt_as_is_to_be}
+
+\subsection{AS-IS State: Current Fragmented Operations}
+
+Table~\ref{tab:dt_as_is} characterises the current state of clinical AI operations in a typical 300--500 bed hospital operating under the fragmented model.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L C @{}}
+\caption{AS-IS State: Fragmented Clinical AI Operations}\label{tab:dt_as_is} \\
+\toprule
+\thead{Dimension} & \thead{Current State (AS-IS)} & \thead{Unit Cost} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_as_is} continued from previous page\,)}} \\
+\toprule
+\thead{Dimension} & \thead{Current State (AS-IS)} & \thead{Unit Cost} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+AI systems & 3--5 separate vendor tools per condition; each with proprietary interface & \$60--90K/system/year \\
+\addlinespace
+Preprocessing & Manual or semi-automated; domain-specific scripts maintained by different teams & 2--4 hours/case \\
+\addlinespace
+Model training & Per-vendor; no standardisation; no ASD-focused knowledge transfer & \$40--60K/domain/year \\
+\addlinespace
+Explainability & Ad hoc or absent; heatmaps without clinical narrative; no audit trail & 0\% systematic coverage \\
+\addlinespace
+Governance & Fragmented; per-system vendor audit; no unified committee; no RACI & \$25--40K/system/year \\
+\addlinespace
+Integration & Separate EHR connectors per system; 3--5 integration points to maintain & \$30--50K/system/year \\
+\addlinespace
+Clinician training & Per-system onboarding; 3--5 separate training programmes & \$10--20K/system/year \\
+\addlinespace
+Compliance & Manual audit; inconsistent documentation; EU AI Act gap unknown & 45--90 min/audit/system \\
+\addlinespace
+Diagnostic time & 25--35 minutes per case (manual workflow) & --- \\
+\addlinespace
+Inter-rater agreement & 72--81\% (manual EEG interpretation baselines) & --- \\
+\midrule
+\textbf{Total annual operating cost} & \textbf{5 systems $\times$ \$180--285K} & \textbf{\$900K--1.4M/year} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Unit costs based on Gartner healthcare IT benchmarks (2024) and published vendor pricing. Diagnostic time and inter-rater agreement from Kelly et al.\ and published clinical baselines.
+
+\subsection{TO-BE State: Unified RGAIG Operations}
+
+Table~\ref{tab:dt_to_be} characterises the target state after full RGAIG deployment.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L C @{}}
+\caption{TO-BE State: Unified RGAIG Clinical AI Operations}\label{tab:dt_to_be} \\
+\toprule
+\thead{Dimension} & \thead{Target State (TO-BE)} & \thead{Unit Cost} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_to_be} continued from previous page\,)}} \\
+\toprule
+\thead{Dimension} & \thead{Target State (TO-BE)} & \thead{Unit Cost} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+AI systems & Single unified platform; ASD; one interface; modular domain addition & \$80--120K/year total \\
+\addlinespace
+Preprocessing & Automated 8-step EEG + 5-step imaging pipeline; $<$1 minute per case & $<$1 min/case \\
+\addlinespace
+Model training & Centralised; standardised pipeline; ASD-focused transfer learning & \$70--100K/year total \\
+\addlinespace
+Explainability & 100\% SHAP + RAG coverage; clinical narratives per prediction; full audit trail & 100\% coverage \\
+\addlinespace
+Governance & Unified AI Governance Committee; RACI; 8-KPI escalation; quarterly bias audits & \$35--50K/year total \\
+\addlinespace
+Integration & Single EHR/PACS connector; one integration point & \$40--60K/year total \\
+\addlinespace
+Clinician training & Single 8-hour certification; unified interface; quarterly refresher & \$15--25K/year total \\
+\addlinespace
+Compliance & Automated audit trail; continuous monitoring; EU AI Act aligned & $<$15 min/audit \\
+\addlinespace
+Diagnostic time & 5--15 minutes per case (AI-assisted workflow) & --- \\
+\addlinespace
+Inter-rater agreement & 89--94\% (AI-standardised output with CIs) & --- \\
+\midrule
+\textbf{Total annual operating cost} & \textbf{Unified platform} & \textbf{\$250--370K/year} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} TO-BE costs represent steady-state annual operations after Phase~4 deployment. CI = confidence interval. Initial one-time investment of \$450--650K is separate (see Table~\ref{tab:dt_budget_staging}).
+
+\subsection{Gap Analysis: AS-IS to TO-BE}
+
+Table~\ref{tab:dt_gap_analysis} identifies the gaps between AS-IS and TO-BE states across ten dimensions, with the specific AI lever and transformation action required to close each gap.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L L @{}}
+\caption{Gap Analysis: AS-IS to TO-BE with AI Levers}\label{tab:dt_gap_analysis} \\
+\toprule
+\thead{Dimension} & \thead{Gap (AS-IS $\rightarrow$ TO-BE)} & \thead{AI Lever} & \thead{Transformation Action} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_gap_analysis} continued from previous page\,)}} \\
+\toprule
+\thead{Dimension} & \thead{Gap (AS-IS $\rightarrow$ TO-BE)} & \thead{AI Lever} & \thead{Transformation Action} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Systems architecture & 3--5 siloed tools $\rightarrow$ 1 unified platform & ASD ensemble ASD-focused pipeline & Platform consolidation (Phase~1) \\
+\addlinespace
+Preprocessing & Manual 2--4 hr $\rightarrow$ Automated $<$1 min & 8-step standardised pipeline & Pipeline deployment (Phase~1) \\
+\addlinespace
+Diagnostic accuracy & 78--82\% $\rightarrow$ 85--95\% & CNN-LSTM + attention + ensemble & Model deployment (Phase~2) \\
+\addlinespace
+Explainability & 0\% $\rightarrow$ 100\% coverage & SHAP + RAG clinical narratives & RAG pipeline integration (Phase~2) \\
+\addlinespace
+Governance & Ad hoc $\rightarrow$ Level~3+ maturity & RTAI 7-layer framework & Committee formation (Phase~1) \\
+\addlinespace
+Compliance & Manual audit $\rightarrow$ Automated trail & Continuous monitoring + KPI escalation & Monitoring dashboard (Phase~1) \\
+\addlinespace
+Inter-rater agreement & 72--81\% $\rightarrow$ 89--94\% & Standardised AI output with CIs & Clinical workflow redesign (Phase~2) \\
+\addlinespace
+Workforce capability & Per-system training $\rightarrow$ Unified certification & Competency framework (6 roles) & Training programme (Phase~1--2) \\
+\addlinespace
+Cost structure & \$900K--1.4M/yr $\rightarrow$ \$250--370K/yr & Platform consolidation & Vendor contract renegotiation (Phase~3) \\
+\addlinespace
+Patient experience & No transparency $\rightarrow$ Explainable reports & Patient-facing explanation summaries & Report generation (Phase~3) \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Each gap maps to a specific AI lever (the technology capability) and a transformation action (the organisational change). Phases reference the deployment roadmap in Table~\ref{tab:dt_roadmap}.
+
+%% ============================================================================
+%% PART 3: QUANTIFIED BUSINESS CASE
+%% ============================================================================
+
+\section{Pillar 1: WHY --- Quantified Business Problem}
+\label{sec:dt_why}
+
+\subsection{Total Cost of Fragmentation}
+\label{sec:dt_cost_fragmentation}
+
+The fragmented status quo imposes quantifiable costs on healthcare organisations. Table~\ref{tab:dt_fragmentation_cost} estimates the total cost of maintaining separate AI systems per clinical domain for a representative 300--500 bed hospital, using published healthcare IT benchmarks and vendor cost data.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L C C C @{}}
+\caption[Estimated Annual Cost of Fragmented AI Deployment]{Estimated Annual Cost of Fragmented AI Deployment (300--500 Bed Hospital)}\label{tab:dt_fragmentation_cost} \\
+\toprule
+\thead{Cost Category} & \thead{Per Domain} & \thead{5 Domains (Fragmented)} & \thead{Unified (RGAIG)} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_fragmentation_cost} continued from previous page\,)}} \\
+\toprule
+\thead{Cost Category} & \thead{Per Domain} & \thead{5 Domains (Fragmented)} & \thead{Unified (RGAIG)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Software licensing and maintenance & \$60K--\$90K & \$300K--\$450K & \$80K--\$120K \\
+\addlinespace
+GPU infrastructure and cloud compute & \$40K--\$60K & \$200K--\$300K & \$70K--\$100K \\
+\addlinespace
+Integration and interoperability (EHR/PACS) & \$30K--\$50K & \$150K--\$250K & \$40K--\$60K \\
+\addlinespace
+Governance and compliance staff (per-system audit) & \$25K--\$40K & \$125K--\$200K & \$35K--\$50K \\
+\addlinespace
+Vendor management overhead & \$15K--\$25K & \$75K--\$125K & \$10K--\$15K \\
+\addlinespace
+Clinician training (per-system onboarding) & \$10K--\$20K & \$50K--\$100K & \$15K--\$25K \\
+\midrule
+\textbf{Total annual cost} & \$180K--\$285K & \textbf{\$900K--\$1,425K} & \textbf{\$250K--\$370K} \\
+\addlinespace
+\textbf{Fragmentation multiplier} & --- & \textbf{3.6--3.9$\times$} & \textbf{1.0$\times$ (baseline)} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Estimates based on Gartner healthcare IT spending benchmarks (2024), AWS/Azure healthcare pricing, and published vendor cost data. The 3.6--3.9$\times$ multiplier validates the ``3--5$\times$ deployment cost'' claim in Chapter~1, Problem~P1. EHR = electronic health record; PACS = picture archiving and communication system.
+
+\subsection{Cost of Inaction Scenario}
+
+If a 300--500 bed hospital does not consolidate its clinical AI infrastructure by 2027, it faces the compounding costs summarised in Table~\ref{tab:dt_cost_of_inaction}.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L C L @{}}
+\caption{Cost of Inaction: Three-Year Risk Exposure for Non-Consolidation}\label{tab:dt_cost_of_inaction} \\
+\toprule
+\thead{Risk Category} & \thead{3-Year Exposure} & \thead{Basis} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_cost_of_inaction} continued from previous page\,)}} \\
+\toprule
+\thead{Risk Category} & \thead{3-Year Exposure} & \thead{Basis} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Regulatory penalties (EU AI Act) & Up to EUR~35M or 7\% turnover & High-risk classification of medical AI~\cite{euaiact2024} \\
+\addlinespace
+Cumulative fragmentation cost & \$2.7M--\$4.3M & 3 years $\times$ \$900K--\$1.4M/yr (Table~\ref{tab:dt_fragmentation_cost}) \\
+\addlinespace
+Talent attrition & Accelerated knowledge loss & 25\% annual turnover in health AI roles~\cite{kpmg2024healthai}; fragmented teams lose knowledge faster \\
+\addlinespace
+Competitive disadvantage & Loss of referral volume & Unified adopters deploy new domains 40--60\% faster~\cite{accenture2024healthai} \\
+\addlinespace
+Patient safety risk & Increased recall exposure & FDA documented 521 AI/ML device recalls (2020--2024)~\cite{fda2024aiml} \\
+\midrule
+\textbf{Combined 3-year exposure} & \textbf{\$3.5M--\$6.0M} & \textbf{vs.\ \$450K--\$650K RGAIG investment} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Regulatory penalty estimate is probability-weighted (10--20\% likelihood). Fragmentation and talent costs are cumulative over 3 years. Competitive and patient safety costs are qualitative assessments supported by cited sources.
+
+%% ============================================================================
+\section{Five-Year Financial Projection and Breakeven Analysis}
+\label{sec:dt_financial}
+
+\subsection{Five-Year Cost Comparison: AS-IS vs.\ TO-BE}
+
+Table~\ref{tab:dt_5year_cost} provides a year-by-year cost comparison between maintaining the fragmented AS-IS state and deploying the RGAIG TO-BE state.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L C C C C C C @{}}
+\caption[Five-Year Cost Comparison: Fragmented (AS-IS) vs.\]{Five-Year Cost Comparison: Fragmented (AS-IS) vs.\ Unified (TO-BE), \$K}\label{tab:dt_5year_cost} \\
+\toprule
+\thead{Cost Component} & \thead{Year 1} & \thead{Year 2} & \thead{Year 3} & \thead{Year 4} & \thead{Year 5} & \thead{5-Year Total} \\
+\midrule
+\endfirsthead
+\multicolumn{7}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_5year_cost} continued from previous page\,)}} \\
+\toprule
+\thead{Cost Component} & \thead{Year 1} & \thead{Year 2} & \thead{Year 3} & \thead{Year 4} & \thead{Year 5} & \thead{5-Year Total} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{7}{l}{\textbf{AS-IS (Fragmented, 5 Vendors)}} \\
+\addlinespace
+Operating cost & 900--1,425 & 945--1,496 & 992--1,571 & 1,042--1,650 & 1,094--1,732 & 4,973--7,874 \\
+Compliance remediation & 50--100 & 50--100 & 75--150 & 75--150 & 100--200 & 350--700 \\
+\textbf{AS-IS total} & \textbf{950--1,525} & \textbf{995--1,596} & \textbf{1,067--1,721} & \textbf{1,117--1,800} & \textbf{1,194--1,932} & \textbf{5,323--8,574} \\
+\addlinespace
+\midrule
+\multicolumn{7}{l}{\textbf{TO-BE (Unified RGAIG)}} \\
+\addlinespace
+One-time investment & 425--650 & --- & --- & --- & --- & 425--650 \\
+Annual operating cost & 250--370 & 250--370 & 265--390 & 280--410 & 295--430 & 1,340--1,970 \\
+Upgrades and maintenance & --- & 30--50 & 30--50 & 40--60 & 40--60 & 140--220 \\
+\textbf{TO-BE total} & \textbf{675--1,020} & \textbf{280--420} & \textbf{295--440} & \textbf{320--470} & \textbf{335--490} & \textbf{1,905--2,840} \\
+\addlinespace
+\midrule
+\textbf{Annual savings} & \textbf{275--505} & \textbf{715--1,176} & \textbf{772--1,281} & \textbf{797--1,330} & \textbf{859--1,442} & --- \\
+\textbf{Cumulative savings} & 275--505 & 990--1,681 & 1,762--2,962 & 2,559--4,292 & \textbf{3,418--5,734} & --- \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} AS-IS costs assume 5\% annual inflation in vendor licensing and compliance costs. TO-BE costs assume 5\% annual increase in compute and maintenance. Year~1 TO-BE includes one-time investment; subsequent years are operating costs only. All figures in \$K for a 300--500 bed hospital.
+
+\subsection{Cost-Benefit Analysis}
+
+Table~\ref{tab:dt_cost_benefit} provides a structured cost-benefit analysis across five value dimensions.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L C C @{}}
+\caption{Cost-Benefit Analysis of RGAIG Digital Transformation}\label{tab:dt_cost_benefit} \\
+\toprule
+\thead{Category} & \thead{Item} & \thead{5-Year Cost (\$K)} & \thead{5-Year Benefit (\$K)} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_cost_benefit} continued from previous page\,)}} \\
+\toprule
+\thead{Category} & \thead{Item} & \thead{5-Year Cost (\$K)} & \thead{5-Year Benefit (\$K)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{4}{l}{\textbf{Direct Financial}} \\
+Investment (infrastructure, training, governance) & & 425--650 & --- \\
+Annual operations (5 years) & & 1,480--2,190 & --- \\
+Vendor consolidation savings & Eliminate 4 of 5 vendor contracts & --- & 2,100--3,400 \\
+Operational efficiency & Reduced diagnostic time, automated preprocessing & --- & 810--1,350 \\
+\addlinespace
+\midrule
+\multicolumn{4}{l}{\textbf{Risk Avoidance}} \\
+EU AI Act penalty avoidance & EUR~35M maximum; probability-weighted & --- & 350--700 \\
+Malpractice liability reduction & Improved accuracy + audit trail & --- & 200--400 \\
+\addlinespace
+\midrule
+\multicolumn{4}{l}{\textbf{Revenue Enhancement}} \\
+Increased throughput & 40--60\% more cases per shift & --- & 600--1,000 \\
+Referral volume growth & AI-enabled reputation advantage & --- & 300--500 \\
+\addlinespace
+\midrule
+\multicolumn{4}{l}{\textbf{Intangible}} \\
+Clinician satisfaction & Reduced burnout, cognitive load & --- & Not quantified \\
+Patient trust & Explainable AI reports & --- & Not quantified \\
+Institutional reputation & Innovation leadership & --- & Not quantified \\
+\addlinespace
+\midrule
+\textbf{Total} & & \textbf{1,905--2,840} & \textbf{4,360--7,350} \\
+\addlinespace
+\textbf{Net benefit (5 years)} & & \multicolumn{2}{c}{\textbf{\$2,455K--\$4,510K}} \\
+\textbf{Benefit-cost ratio} & & \multicolumn{2}{c}{\textbf{2.3:1 -- 2.6:1}} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Risk avoidance benefits are probability-weighted (10--20\% likelihood of penalty $\times$ impact). Revenue enhancement assumes conservative 5--10\% growth attributable to AI capabilities. Intangible benefits are acknowledged but not monetised to maintain conservative estimates.
+
+\subsection{Breakeven Analysis}
+
+Table~\ref{tab:dt_breakeven_scenarios} summarises the breakeven analysis under three scenarios derived from the financial projections in Table~\ref{tab:dt_5year_cost}. Clinical volume is the dominant sensitivity variable ($\pm$42--45\%): hospitals processing fewer than 200 AI-assisted diagnoses per month may not reach breakeven within 24 months, while those above 500 per month break even within 12 months.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:dt_breakeven_scenarios} breakeven analysis: three-scenario summary.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L C C C @{}}
+\caption{Breakeven Analysis: Three-Scenario Summary}\label{tab:dt_breakeven_scenarios} \\
+\toprule
+\thead{Metric} & \thead{Conservative ($-$20\%)} & \thead{Base Case} & \thead{Optimistic (+20\%)} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_breakeven_scenarios} continued from previous page\,)}} \\
+\toprule
+\thead{Metric} & \thead{Conservative ($-$20\%)} & \thead{Base Case} & \thead{Optimistic (+20\%)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Breakeven month & 20--24 & 14--18 & 10--14 \\
+\addlinespace
+Annual benefits (\$K) & 324--456 & 405--570 & 486--684 \\
+\addlinespace
+3-year ROI & 85--120\% & 135--185\% & 190--250\% \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} ROI = return on investment. All scenarios assume a one-time investment of \$450--650K (Table~\ref{tab:dt_budget_staging}). The conservative scenario applies a uniform $-$20\% reduction to projected benefits; the optimistic scenario applies +20\%. Breakeven occurs when cumulative savings from vendor consolidation and operational efficiency offset the initial investment.
+
+%% ============================================================================
+%% PART 4: COMPETITIVE POSITIONING
+%% ============================================================================
+
+\section{Pillar 2: WHAT --- Foundation Model Positioning}
+\label{sec:dt_foundation_models}
+
+A critical question for any 2025--2026 clinical AI framework is whether large foundation models (GPT-4V, Med-PaLM~2, BiomedCLIP, LLaVA-Med) render purpose-built architectures like RGAIG obsolete. Table~\ref{tab:dt_foundation_comparison} addresses this directly.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L @{}}
+\caption{RGAIG vs.\ Foundation Model Approaches: Architectural Comparison}\label{tab:dt_foundation_comparison} \\
+\toprule
+\thead{Dimension} & \thead{Foundation Models (GPT-4V, Med-PaLM)} & \thead{RGAIG (This Study)} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_foundation_comparison} continued from previous page\,)}} \\
+\toprule
+\thead{Dimension} & \thead{Foundation Models (GPT-4V, Med-PaLM)} & \thead{RGAIG (This Study)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Input modality & Primarily text + natural images; limited raw EEG support & Native EEG time-series + medical imaging; CWT signal-to-image conversion \\
+\addlinespace
+Domain specificity & General-purpose; requires fine-tuning per clinical task with large labelled datasets & Purpose-built pipelines per domain with domain-specific preprocessing \\
+\addlinespace
+Explainability & Token-level attention; no clinical biomarker mapping & SHAP feature importance aligned to clinical biomarkers; RAG-generated clinical narratives \\
+\addlinespace
+Governance and audit & Black-box API; model weights inaccessible; no local governance control & Full model transparency; local deployment; RTAI 7-layer governance \\
+\addlinespace
+Regulatory compliance & No FDA 510(k) or CE marking for diagnostic use as of 2025 & Designed for FDA SaMD and EU AI Act; audit trail and bias monitoring built-in \\
+\addlinespace
+Deployment cost & \$0.01--\$0.10 per API call; scales with volume; no capital control & One-time \$450--650K; fixed cost; institutional control \\
+\addlinespace
+Data sovereignty & Patient data sent to cloud API provider & On-premises or private cloud; HIPAA/GDPR compliant by design \\
+\addlinespace
+EEG signal processing & Not natively supported; requires external preprocessing & 8-step standardised preprocessing pipeline; band-power, connectivity, entropy features \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Foundation models and RGAIG are complementary, not competing. RGAIG uses LLM-powered RAG for explainability while maintaining domain-specific signal processing pipelines that foundation models cannot replace. The agentic architecture (NeuroMCP-Agent) can incorporate foundation model capabilities as they mature. CWT = continuous wavelet transform; SaMD = Software as a Medical Device.
+
+\noindent \textbf{Key insight}: Foundation models excel at natural language and natural image understanding but lack native EEG signal processing capability, clinical biomarker-level explainability, institutional governance control, and regulatory compliance readiness. RGAIG is designed to \textit{incorporate} foundation model capabilities through its agentic routing layer while maintaining the domain-specific pipelines, governance infrastructure, and regulatory audit trails that foundation models alone cannot provide. The framework's modular architecture ensures that as foundation models mature in clinical EEG and radiomics, they can be slotted into the pipeline without architectural redesign.
+
+%% ============================================================================
+%% PART 5: READINESS AND MATURITY
+%% ============================================================================
+
+\section{Customer Satisfaction Framework}
+\label{sec:dt_customer_satisfaction}
+
+The RGAIG serves four distinct ``customer'' groups. Table~\ref{tab:dt_satisfaction} defines satisfaction metrics, measurement instruments, baselines, and targets for each.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L C C @{}}
+\caption{Customer Satisfaction Framework for RGAIG Stakeholders}\label{tab:dt_satisfaction} \\
+\toprule
+\thead{Customer Group} & \thead{Satisfaction Metric} & \thead{Instrument} & \thead{Baseline} & \thead{Target} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_satisfaction} continued from previous page\,)}} \\
+\toprule
+\thead{Customer Group} & \thead{Satisfaction Metric} & \thead{Instrument} & \thead{Baseline} & \thead{Target} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Clinicians & Trust in AI recommendations & 5-point Likert scale (quarterly survey) & 2.8/5 & $\geq$4.2/5 \\
+\addlinespace
+Clinicians & Perceived workload reduction & NASA-TLX (task load index) & 72/100 & $\leq$55/100 \\
+\addlinespace
+Clinicians & Explanation quality & Expert satisfaction rating (per RAG output) & 62\% & $\geq$85\% \\
+\addlinespace
+Patients & Understanding of AI involvement & Post-visit survey (binary: yes/no understood) & 30\% & $\geq$75\% \\
+\addlinespace
+Patients & Confidence in diagnosis & 5-point Likert scale (post-visit) & 3.5/5 & $\geq$4.3/5 \\
+\addlinespace
+Patients & Willingness to recommend & Net Promoter Score (NPS) & 25 & $\geq$50 \\
+\addlinespace
+IT/Informatics & System reliability satisfaction & Uptime SLA adherence + support ticket volume & 95\% & $\geq$99.5\% \\
+\addlinespace
+IT/Informatics & Integration ease & Deployment time for new domain (days) & 90--120 days & $\leq$30 days \\
+\addlinespace
+Administrators & Cost per diagnosis & Financial tracking (monthly) & \$180--285 & \$50--74 \\
+\addlinespace
+Administrators & Regulatory confidence & Compliance audit pass rate & 60\% & $\geq$95\% \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Baselines for clinician trust and patient understanding are from published healthcare AI adoption surveys (Asan et al., 2020; Kerasidou, 2021). NASA-TLX baseline represents cognitive load during manual diagnostic workflows. NPS = Net Promoter Score (range --100 to +100). SLA = Service Level Agreement.
+
+\section{Digital Transformation Maturity Model}
+\label{sec:dt_maturity}
+
+Table~\ref{tab:dt_maturity} presents a comprehensive six-level maturity model for clinical AI digital transformation, extending the five-level governance maturity model in Chapter~5 to encompass all four DT pillars (technology, process, people, governance).
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} C L L L L L @{}}
+\caption{Clinical AI Digital Transformation Maturity Model (Six Levels)}\label{tab:dt_maturity} \\
+\toprule
+\thead{Level} & \thead{Name} & \thead{Technology} & \thead{Process} & \thead{People} & \thead{Governance} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_maturity} continued from previous page\,)}} \\
+\toprule
+\thead{Level} & \thead{Name} & \thead{Technology} & \thead{Process} & \thead{People} & \thead{Governance} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+0 & Unaware & No AI tools; manual-only diagnostics & No AI workflow; paper-based or basic EHR & No AI awareness; no training & No AI governance; no policy \\
+\addlinespace
+1 & Exploring & Pilot of single vendor tool; no integration & Ad hoc AI use; no standard workflow & Individual champions; no formal training & Informal; vendor-managed compliance \\
+\addlinespace
+2 & Emerging & 1--2 AI tools deployed; basic monitoring & Defined workflow for pilot domain; manual QA & Core team trained; no enterprise programme & Committee formed; basic RACI; initial KPIs \\
+\addlinespace
+3 & Established & Unified platform (RGAIG Phase~2--3); EHR integrated; automated monitoring & Standardised clinical pathways for 3+ domains; SOPs in place & Enterprise training programme; competency framework; ambassador network & Full RACI; 8-KPI escalation; quarterly audits; regulatory submissions prepared \\
+\addlinespace
+4 & Advanced & Full ASD deployment; operations pipeline; automated drift detection and retraining & Continuous improvement (Kaizen); ASD-focused knowledge transfer; real-time feedback loops & AI literacy organisation-wide; career pathways for AI-clinical roles; patient AI education & Governance embedded in bylaws; external audit programme; cross-institutional agreements \\
+\addlinespace
+5 & Transformative & Federated multi-institutional platform; foundation model integration; edge deployment for telemedicine & AI-native clinical pathways; diagnostic workflows redesigned around AI; predictive resource allocation & Research collaboration with academic partners; AI co-innovation with industry; patient co-design & National/regional AI governance leadership; policy influence; standards body participation \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Most hospitals in 2025 are at Level~0--1. RGAIG is designed to advance an organisation from Level~1 to Level~3--4 within the 40--58 week deployment roadmap. Levels~4--5 require 2--5 additional years of operational maturity. SOP = Standard Operating Procedure; QA = quality assurance.
+
+%% ============================================================================
+%% PART 6: DT PILLAR SCORECARD
+%% ============================================================================
+
+\section{DT Pillar Assessment Scorecard}
+\label{sec:dt_scorecard}
+
+Table~\ref{tab:dt_scorecard} provides a consolidated assessment of how the RGAIG addresses each digital transformation pillar, with evidence pointers and identified gaps.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L L @{}}
+\caption{Digital Transformation Pillar Assessment Scorecard}\label{tab:dt_scorecard} \\
+\toprule
+\thead{DT Pillar} & \thead{What Is Present} & \thead{Key Evidence} & \thead{Gaps Addressed in This Appendix} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_scorecard} continued from previous page\,)}} \\
+\toprule
+\thead{DT Pillar} & \thead{What Is Present} & \thead{Key Evidence} & \thead{Gaps Addressed in This Appendix} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+1. WHY (Problem) & Four named problems (P1--P4); stakeholder mapping; convergence argument; CMM maturity gap & Ch.~1, Sec.~\ref{sec:problem_statement}; Ch.~2, Table~2.14 & Total cost of fragmentation; cost-of-inaction scenario (Sec.~\ref{sec:dt_cost_fragmentation}) \\
+\addlinespace
+2. WHAT (Delivery) & 10 models; before-after metrics; ROI model with sensitivity analysis; 8 KPIs with escalation & Ch.~4, Table~4.14; Ch.~5, Table~5.15 & Foundation model positioning (Sec.~\ref{sec:dt_foundation_models}) \\
+\addlinespace
+3. HOW (Roadmap) & Readiness assessment; maturity model; practitioner recommendations; risk matrix & Ch.~3, Sec.~3.12; Ch.~5, Table~5.10 & Integrated 5-phase deployment roadmap (Sec.~\ref{sec:dt_deployment_roadmap}); Kotter mapping (Sec.~\ref{sec:dt_kotter}); gate criteria (Table~\ref{tab:dt_gate_criteria}); budget staging (Table~\ref{tab:dt_budget_staging}) \\
+\addlinespace
+4. HOW (Operating Model) & 4-level escalation; NIST alignment; 7-layer RTAI; governance maturity & Ch.~5, Fig.~5.5; Table~5.8 & RACI matrix (Table~\ref{tab:dt_raci}); competency framework (Table~\ref{tab:dt_competency}); CoE design (Sec.~\ref{sec:dt_coe}); incident management (Fig.~\ref{fig:dt_incident}) \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} DT = digital transformation; CMM = capability maturity model; CoE = Centre of Excellence; RACI = Responsible, Accountable, Consulted, Informed; RTAI = Responsible and Trustworthy AI.
+
+%% ============================================================================
+%% PART 7: DEPLOYMENT ROADMAP
+%% ============================================================================
+
+\section{Pillar 3: HOW --- Integrated Deployment Roadmap}
+\label{sec:dt_deployment_roadmap}
+
+\subsection{Five-Phase Deployment Roadmap}
+
+Table~\ref{tab:dt_roadmap} presents the integrated organisational deployment roadmap from readiness assessment through enterprise-wide optimisation. Each phase includes objectives, key activities, Kotter step alignment, duration, and decision gate criteria.
+
+\needspace{3\baselineskip}
+
+\tablefontsize
+\begin{xltabular}
+{\textwidth}{@{} L L L L L @{}}
+\caption{Integrated Five-Phase Deployment Roadmap for RGAIG}\label{tab:dt_roadmap} \\
+\toprule
+\thead{Phase} & \thead{Objectives} & \thead{Key Activities} & \thead{Kotter Steps} & \thead{Duration} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+0. Assess & Establish readiness baseline; secure executive sponsorship & 10-dimension readiness assessment; governance gap analysis; stakeholder mapping; business case presentation & 1 (Urgency), 2 (Coalition) & 4--6 weeks \\
+\addlinespace
+1. Foundation & Build governance infrastructure; configure technical environment & Form AI Governance Committee; define RACI; deploy GPU infrastructure; configure monitoring; train core team & 3 (Vision), 4 (Enlist) & 8--12 weeks \\
+\addlinespace
+2. Pilot & Validate single domain in controlled setting & Deploy highest-readiness domain (e.g., cancer radiomics); run parallel with manual workflow; collect clinician feedback; measure KPIs against baselines & 5 (Enable), 6 (Quick Wins) & 12--16 weeks \\
+\addlinespace
+3. Scale & Extend to additional domains; formalise operations & Add 2--3 domains sequentially; refine governance based on pilot lessons; integrate with EHR/PACS; expand training programme & 7 (Sustain) & 16--24 weeks \\
+\addlinespace
+4. Optimise & Enterprise-wide deployment; continuous improvement & Full ASD deployment; automated drift detection; quarterly bias audits; ROI measurement against projections; publish outcomes & 8 (Institute) & Ongoing \\
+\end{xltabular}
+\vspace{0.5em}\noindent\textit{Note.} Total time from assessment to full deployment: 40--58 weeks (10--14 months). Phases may overlap where dependencies allow. Kotter steps refer to Kotter's~\cite{kotter1996leading} eight-step change model. EHR = electronic health record; PACS = picture archiving and communication system.
+
+\subsection{Phase Gate Criteria}
+
+Table~\ref{tab:dt_gate_criteria} defines the mandatory criteria that must be satisfied before advancing to the next deployment phase. No phase transition occurs without gate approval from the AI Governance Committee.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L @{}}
+\caption{Phase Gate Criteria for Deployment Advancement}\label{tab:dt_gate_criteria} \\
+\toprule
+\thead{Gate} & \thead{Mandatory Criteria} & \thead{Approval Authority} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_gate_criteria} continued from previous page\,)}} \\
+\toprule
+\thead{Gate} & \thead{Mandatory Criteria} & \thead{Approval Authority} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Gate 0$\rightarrow$1 & Readiness score $\geq$3/5 on 7 of 10 dimensions; executive sponsor identified; budget approved; governance charter drafted & CIO + CMO joint approval \\
+\addlinespace
+Gate 1$\rightarrow$2 & AI Governance Committee operational; RACI approved; GPU infrastructure deployed; core team trained (certification $\geq$80\%); monitoring dashboard live & AI Governance Committee \\
+\addlinespace
+Gate 2$\rightarrow$3 & Pilot domain accuracy $\geq$85\% (or domain-specific threshold); clinician satisfaction $\geq$4.0/5; zero patient safety incidents; governance audit passed; KPI baselines established & AI Governance Committee + CMO \\
+\addlinespace
+Gate 3$\rightarrow$4 & $\geq$3 domains deployed with accuracy above threshold; EHR integration validated; quarterly bias audit completed; ROI tracking initiated; change management feedback positive ($\geq$70\% adoption) & Board of Directors \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Gate criteria are designed to prevent premature scaling. If any mandatory criterion is not met, the current phase continues with a remediation plan reviewed at 30-day intervals.
+
+\subsection{Phase-by-Phase Budget Staging}
+
+Table~\ref{tab:dt_budget_staging} breaks down the total investment of \$450K--\$650K across deployment phases, enabling staged capital allocation.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L C C C C C C @{}}
+\caption{Budget Staging Across Deployment Phases (\$K, 300--500 Bed Hospital)}\label{tab:dt_budget_staging} \\
+\toprule
+\thead{Category} & \thead{Phase 0} & \thead{Phase 1} & \thead{Phase 2} & \thead{Phase 3} & \thead{Phase 4} & \thead{Total} \\
+\midrule
+\endfirsthead
+\multicolumn{7}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_budget_staging} continued from previous page\,)}} \\
+\toprule
+\thead{Category} & \thead{Phase 0} & \thead{Phase 1} & \thead{Phase 2} & \thead{Phase 3} & \thead{Phase 4} & \thead{Total} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+GPU infrastructure & --- & 120--180 & --- & 30--50 & 20--30 & 170--260 \\
+Software and licensing & --- & 30--40 & 10--15 & 20--30 & 10--15 & 70--100 \\
+Integration (EHR/PACS) & --- & --- & 20--30 & 40--60 & 10--20 & 70--110 \\
+Governance setup & 10--15 & 20--30 & --- & --- & 5--10 & 35--55 \\
+Training and change mgmt & 5--10 & 15--25 & 10--15 & 15--25 & 10--15 & 55--90 \\
+External consulting & 15--20 & 10--15 & --- & --- & --- & 25--35 \\
+\midrule
+\textbf{Phase total} & \textbf{30--45} & \textbf{195--290} & \textbf{40--60} & \textbf{105--165} & \textbf{55--90} & \textbf{425--650} \\
+\textbf{Cumulative} & 30--45 & 225--335 & 265--395 & 370--560 & 425--650 & --- \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Phase 0 (assessment) and Phase 2 (pilot) are deliberately low-cost to reduce commitment risk before scaling. Phase 1 (foundation) carries the largest single investment due to GPU infrastructure. Budget ranges reflect hospital size and existing IT maturity. Figures are consistent with the ROI model in Chapter~5, Section~5.13.2.
+
+\subsection{Kotter Eight-Step Operationalisation}
+\label{sec:dt_kotter}
+
+Table~\ref{tab:dt_kotter} maps each of Kotter's~\cite{kotter1996leading} eight steps to specific RGAIG deployment activities, deliverables, responsible roles, and target timelines.
+
+
+\tablefontsize
+\begin{xltabular}
+{\textwidth}{@{} L L L L @{}}
+\caption{Kotter's Eight-Step Change Model Operationalised for RGAIG Deployment}\label{tab:dt_kotter} \\
+\toprule
+\thead{Kotter Step} & \thead{RGAIG Activity} & \thead{Deliverable} & \thead{Phase} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1. Create urgency & Present cost-of-fragmentation analysis (Table~\ref{tab:dt_fragmentation_cost}); brief leadership on EU AI Act penalties; share CMM maturity gap & Executive briefing deck; board resolution & 0 \\
+\addlinespace
+2. Build guiding coalition & Recruit AI Governance Committee (CIO, CMO, COO, clinical lead, data science lead, ethics officer, patient advocate) & Committee charter; meeting cadence (biweekly) & 0 \\
+\addlinespace
+3. Form strategic vision & Define unified AI diagnostic platform vision; align with hospital strategic plan; set 3-year targets & Vision document; OKR framework & 1 \\
+\addlinespace
+4. Enlist volunteer army & Identify clinical champions per department; establish AI ambassador network; launch internal communication campaign & Champion roster; newsletter; intranet site & 1 \\
+\addlinespace
+5. Enable action & Remove barriers: procure GPU, configure Docker, train core team, establish data governance, resolve EHR integration blockers & Infrastructure ready; team certified; data access agreements signed & 1--2 \\
+\addlinespace
+6. Generate short-term wins & Pilot single domain; demonstrate accuracy improvement; show clinician time savings; publish internal case study & Pilot results dashboard; internal success story & 2 \\
+\addlinespace
+7. Sustain acceleration & Scale to additional domains; formalise training programme; institutionalise quarterly bias audits; integrate with clinical workflows & ASD-focused deployment; SOP library; audit reports & 3 \\
+\addlinespace
+8. Institute change & Embed AI governance in hospital bylaws; make training mandatory; link KPIs to department performance reviews; share outcomes externally & Updated bylaws; mandatory training policy; external publication & 4 \\
+\end{xltabular}
+\vspace{0.5em}\noindent\textit{Note.} OKR = Objectives and Key Results; SOP = Standard Operating Procedure. The mapping ensures that change management is not an afterthought but is structurally integrated into each deployment phase.
+
+\subsection{Pilot Site Selection Criteria}
+
+Table~\ref{tab:dt_pilot_criteria} defines the criteria for selecting the initial deployment site and clinical domain. The scoring system enables objective comparison when multiple candidates exist.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L L @{}}
+\caption{Pilot Site and Domain Selection Criteria}\label{tab:dt_pilot_criteria} \\
+\toprule
+\thead{Criterion} & \thead{Description} & \thead{Weight} & \thead{Threshold} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_pilot_criteria} continued from previous page\,)}} \\
+\toprule
+\thead{Criterion} & \thead{Description} & \thead{Weight} & \thead{Threshold} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Clinical champion & Identified clinician willing to co-lead pilot; $\geq$5 years experience; department head or equivalent & 25\% & Must have \\
+\addlinespace
+Data maturity & Domain dataset available, cleaned, and accessible; integration with local data infrastructure validated & 20\% & Score $\geq$3/5 \\
+\addlinespace
+Clinical volume & Sufficient case volume for meaningful evaluation ($\geq$50 cases/month in target domain) & 15\% & $\geq$50/month \\
+\addlinespace
+Governance baseline & Department has existing quality improvement processes; willingness to adopt AI governance protocol & 15\% & Score $\geq$2/5 \\
+\addlinespace
+Risk profile & Domain risk classification (low = screening, medium = triage, high = diagnosis); prefer low-to-medium for first pilot & 15\% & Low or medium \\
+\addlinespace
+IT readiness & Department IT infrastructure supports GPU deployment; network bandwidth sufficient for real-time inference & 10\% & Score $\geq$3/5 \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Each criterion scored 1--5 and weighted. Minimum composite score for pilot selection: 3.5/5. If no department meets the threshold, Phase~0 is extended for targeted readiness improvement.
+
+%% ============================================================================
+%% PART 8: OPERATING MODEL
+%% ============================================================================
+
+\section{Pillar 4: HOW --- Operating Model}
+\label{sec:dt_operating_model}
+
+\subsection{RACI Decision Matrix}
+\label{sec:dt_raci}
+
+Table~\ref{tab:dt_raci} instantiates the RACI matrix for the 18 key decisions and activities in the RGAIG operational lifecycle. This replaces the conceptual references to ``RACI'' scattered across Chapters~3 and~5 with a concrete, actionable assignment.
+
+\needspace{4\baselineskip}
+
+\tablefontsize
+\begin{xltabular}
+{\textwidth}{@{} L C C C C C C @{}}
+\caption{RACI Matrix for RGAIG Operational Decisions}\label{tab:dt_raci} \\
+\toprule
+\thead{Decision / Activity} & \thead{Data Sci} & \thead{Clinical Lead} & \thead{IT Ops} & \thead{Gov.\ Officer} & \thead{CIO} & \thead{CMO} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Model training and hyperparameter tuning & R & C & I & I & I & I \\
+Model validation (accuracy, fairness) & R & C & I & A & I & I \\
+Approve model for production deployment & C & C & C & R & A & C \\
+Override AI recommendation (per case) & I & R/A & I & I & I & I \\
+Trigger model retraining (drift detected) & R & C & C & A & I & I \\
+Quarterly bias audit execution & R & C & I & A & I & C \\
+Bias audit remediation approval & I & C & I & R & A & C \\
+Patient safety incident investigation & C & R & C & A & I & A \\
+Escalation to Board of Directors & I & I & I & R & A & A \\
+EHR/PACS integration change & C & C & R & I & A & I \\
+New domain onboarding approval & C & C & C & R & A & C \\
+Training programme design and delivery & C & C & I & I & R & C \\
+Data access agreement renewal & I & I & R & A & I & I \\
+RAG knowledge base update & R & C & I & I & I & I \\
+KPI dashboard configuration & R & I & R & C & I & I \\
+Regulatory submission preparation & C & C & I & R & A & C \\
+Budget allocation for next phase & I & I & I & C & R & C \\
+External publication of outcomes & C & R & I & C & C & A \\
+\end{xltabular}
+\vspace{0.5em}\noindent\textit{Note.} R = Responsible (does the work); A = Accountable (final decision authority); C = Consulted (provides input); I = Informed (notified of outcome). Data Sci = Data Science team; IT Ops = IT Operations; Gov.\ Officer = Governance Officer. Separation of duties: the team that trains the model (Data Science = R) is not the team that approves it for production (Governance Officer = R, CIO = A).
+
+\subsection{AI Governance Committee Charter}
+\label{sec:dt_committee}
+
+The AI Governance Committee is the central decision-making body for RGAIG operations. Table~\ref{tab:dt_committee} defines its composition, authority, and operating cadence.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{AI Governance Committee Charter}\label{tab:dt_committee} \\
+\toprule
+\thead{Element} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_committee} continued from previous page\,)}} \\
+\toprule
+\thead{Element} & \thead{Specification} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Purpose & Oversee all AI-assisted diagnostic systems; ensure safety, fairness, and regulatory compliance; approve model deployments and escalations \\
+\addlinespace
+Composition & CIO (Chair), CMO (Vice-Chair), COO, Clinical Lead (rotating by domain), Data Science Lead, Governance Officer, Ethics Representative, Patient Advocate, Legal/Compliance Counsel \\
+\addlinespace
+Quorum & 6 of 9 members, including at least one of CIO or CMO \\
+\addlinespace
+Meeting cadence & Biweekly (Phases 0--2); monthly (Phases 3--4); emergency session within 4 hours for Level~4 escalation \\
+\addlinespace
+Decision authority & Approve/reject model deployment; authorise retraining; commission audits; escalate to Board; approve new domain onboarding; approve budget reallocations $\leq$\$50K \\
+\addlinespace
+Reporting line & Reports to hospital Board of Directors via quarterly AI governance report \\
+\addlinespace
+Sub-committees & (1)~Clinical Safety Sub-committee (CMO + Clinical Lead + Ethics); (2)~Technical Review Sub-committee (CIO + Data Science + IT Ops); (3)~Regulatory Compliance Sub-committee (Governance Officer + Legal + Ethics) \\
+\addlinespace
+Document retention & All decisions recorded in governance log with rationale; retained for 7 years per regulatory requirement \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Charter should be ratified by the hospital Board of Directors before Phase~1 deployment begins. Annual charter review is mandatory.
+
+\subsection{Competency Framework}
+\label{sec:dt_competency}
+
+Table~\ref{tab:dt_competency} defines the competencies required for each key role in the RGAIG operating model, with proficiency levels (Awareness, Working, Practitioner, Expert) and training pathways.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L C L @{}}
+\caption{Competency Framework for RGAIG Stakeholder Roles}\label{tab:dt_competency} \\
+\toprule
+\thead{Role} & \thead{Key Competencies} & \thead{Proficiency} & \thead{Training Pathway} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_competency} continued from previous page\,)}} \\
+\toprule
+\thead{Role} & \thead{Key Competencies} & \thead{Proficiency} & \thead{Training Pathway} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Clinician (end user) & AI output interpretation; confidence interval reading; override protocol; SHAP explanation reading & Working & 8-hour certification; quarterly refresher; case-based e-learning \\
+\addlinespace
+Data Scientist & Model training; SHAP/LIME computation; drift detection; ablation analysis; RAG pipeline maintenance & Expert & MSc/PhD prerequisite; 40-hour RGAIG-specific onboarding; annual re-certification \\
+\addlinespace
+Clinical Informaticist & EHR/PACS integration; data quality monitoring; clinical workflow redesign; terminology mapping & Practitioner & 24-hour certification; vendor-specific EHR training; FHIR/HL7 competency \\
+\addlinespace
+IT Operations & GPU infrastructure management; Docker/container deployment; monitoring dashboard; security and access control & Practitioner & 16-hour certification; cloud/on-prem deployment lab; incident response drill \\
+\addlinespace
+Governance Officer & Bias audit methodology; regulatory framework (FDA, EU AI Act); escalation protocol; RACI management; ethics review & Expert & Professional certification (e.g., CIPP, CDMP); 40-hour governance training; regulatory update quarterly \\
+\addlinespace
+Executive (CIO/CMO/COO) & AI strategy; ROI interpretation; risk appetite setting; governance oversight; stakeholder communication & Awareness & 4-hour executive briefing; quarterly AI governance dashboard review; annual strategy retreat \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Proficiency levels: Awareness = understands concepts; Working = can use the system; Practitioner = can configure and troubleshoot; Expert = can design and teach. CIPP = Certified Information Privacy Professional; CDMP = Certified Data Management Professional; FHIR = Fast Healthcare Interoperability Resources.
+
+\subsection{AI Centre of Excellence Design}
+\label{sec:dt_coe}
+
+Table~\ref{tab:dt_coe} evaluates three organisational design options for the AI function and recommends the hybrid model for RGAIG deployment.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L L @{}}
+\caption{AI Centre of Excellence: Organisational Design Options}\label{tab:dt_coe} \\
+\toprule
+\thead{Dimension} & \thead{Centralised CoE} & \thead{Federated (Embedded)} & \thead{Hybrid (Recommended)} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_coe} continued from previous page\,)}} \\
+\toprule
+\thead{Dimension} & \thead{Centralised CoE} & \thead{Federated (Embedded)} & \thead{Hybrid (Recommended)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Structure & Single AI team under CIO; serves all departments & AI staff embedded in each clinical department; no central team & Central CoE for governance, infrastructure, and standards; embedded AI liaisons in each department \\
+\addlinespace
+Governance & Unified; consistent standards & Fragmented; department-level variation & Unified standards from CoE; local adaptation by liaisons \\
+\addlinespace
+Responsiveness & Slow (queue-based) & Fast (co-located with clinicians) & Fast for routine; CoE for complex \\
+\addlinespace
+Knowledge sharing & Strong (single team) & Weak (siloed) & Moderate (CoE convenes cross-department forums) \\
+\addlinespace
+Scalability & Limited by central headcount & Scales with departments & Scales infrastructure centrally; skills locally \\
+\addlinespace
+FTE requirement (300--500 bed) & 8--12 FTE (central) & 2--3 FTE per department $\times$ 5 = 10--15 FTE & 5--7 FTE (central) + 1 FTE per department $\times$ 5 = 10--12 FTE \\
+\addlinespace
+Best for & Early deployment (Phases 0--2) & Mature deployment (Phase 4+) & Full lifecycle (Phases 0--4) \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} The hybrid model is recommended because it balances governance consistency (central) with clinical responsiveness (embedded). During Phases~0--2, the central CoE dominates; as deployment matures (Phase~3+), embedded liaisons take increasing operational responsibility. FTE = full-time equivalent; CoE = Centre of Excellence.
+
+\subsection{Incident Management Lifecycle}
+\label{sec:dt_incident}
+
+Figure~\ref{fig:dt_incident} defines the six-stage incident management lifecycle for patient safety events and model failures in the RGAIG operating model.
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}[
+    node distance=1.2cm and 0.6cm,
+    stage/.style={
+        rectangle, rounded corners=3pt, draw=ggunavy, fill=ggunavy!8,
+        text width=3.8cm, minimum height=1.4cm, align=center,
+        font=\fignodefont
+    },
+    arrow/.style={-{Stealth[length=4mm, width=3mm]}, very thick, ggunavy},
+    timelabel/.style={font=\fignodefont\itshape, text=ggunavy!70}
+]
+
+% Nodes - two rows of 3
+\node[stage, fill=lightcoral] (detect) {{\bfseries 1. DETECT}\\Automated monitoring alert\\or clinician report};
+\node[stage, fill=lightorange, right=of detect] (triage) {{\bfseries 2. TRIAGE}\\Severity classification:\\Low / Medium / High / Critical};
+\node[stage, fill=lightyellow, right=of triage] (investigate) {{\bfseries 3. INVESTIGATE}\\Root cause analysis;\\data audit; model forensics};
+
+\node[stage, fill=lightteal, below=1.5cm of detect] (remediate) {{\bfseries 4. REMEDIATE}\\Model retrain / rollback;\\process correction; patient notification};
+\node[stage, fill=lightblue, right=of remediate] (close) {{\bfseries 5. CLOSE}\\Governance Committee sign-off;\\documentation; regulatory filing};
+\node[stage, fill=lightgreen, right=of close] (learn) {{\bfseries 6. LEARN}\\Lessons learned;\\update training; policy revision};
+
+% Arrows
+\draw[arrow] (detect) -- (triage);
+\draw[arrow] (triage) -- (investigate);
+\draw[arrow] (investigate) -- ++(0,-0.75cm) -| (remediate);
+\draw[arrow] (remediate) -- (close);
+\draw[arrow] (close) -- (learn);
+\draw[arrow, dashed] (learn.south) -- ++(0,-0.5cm) -| ([xshift=-0.3cm]detect.south) node[timelabel, pos=0.5, below] {Feedback loop};
+
+% Time labels
+\node[timelabel, above=0.3cm of detect] {$\leq$15 min};
+\node[timelabel, above=0.3cm of triage] {$\leq$1 hour};
+\node[timelabel, above=0.3cm of investigate] {$\leq$48 hours};
+\node[timelabel, below=0.15cm of remediate] {$\leq$7 days};
+\node[timelabel, below=0.15cm of close] {$\leq$14 days};
+\node[timelabel, below=0.15cm of learn] {$\leq$30 days};
+%% Extend bounding box to include top time labels
+\path (detect.north) ++(0,0.7);
+
+\end{tikzpicture}%
+}%
+\caption{Incident Management Lifecycle for RGAIG Clinical AI Operations}
+\label{fig:dt_incident}
+\vspace{0.5em}\noindent\textit{Note.} Time targets are maximums; critical patient safety incidents trigger the 4-hour emergency escalation protocol (Chapter~5, Figure~\ref{fig:escalation_ladder}). All incidents are logged in the governance audit trail with unique identifiers for regulatory traceability.
+\end{figure}
+
+\subsection{Rollback and Contingency Protocol}
+
+If a deployment phase fails to meet gate criteria after two consecutive 30-day remediation cycles, the contingency actions in Table~\ref{tab:dt_rollback_protocol} apply.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L @{}}
+\caption{Rollback and Contingency Protocol by Failure Scenario}\label{tab:dt_rollback_protocol} \\
+\toprule
+\thead{Failure Scenario} & \thead{Immediate Action} & \thead{Decision Timeline} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_rollback_protocol} continued from previous page\,)}} \\
+\toprule
+\thead{Failure Scenario} & \thead{Immediate Action} & \thead{Decision Timeline} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Pilot failure (Phase~2) & Revert to manual workflow; root cause analysis & AI Governance Committee review within 14 days; retry, switch domain, or pause \\
+\addlinespace
+Scaling failure (Phase~3) & Freeze new domain additions; stabilise existing deployments; commission external audit & Findings presented to Board within 30 days \\
+\addlinespace
+Production failure (Phase~4) & Invoke incident management lifecycle (Figure~\ref{fig:dt_incident}); suspend affected domain & Regulatory notification within 72 hours if patient safety implicated \\
+\addlinespace
+Programme termination & Orderly wind-down plan (60-day timeline) & Board authorisation required if: $\geq$2 domains fail accuracy after remediation, $\geq$1 patient safety incident, or adoption $<$30\% after 6 months \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Contingency actions trigger after two consecutive 30-day remediation cycles fail to meet gate criteria. Unaffected domains continue operating during remediation of any single-domain failure.
+
+%% ============================================================================
+%% PART 9: CHANGE MANAGEMENT
+%% ============================================================================
+
+\section{Change Management Programme}
+\label{sec:dt_change_management}
+
+\subsection{Stakeholder Impact and Resistance Analysis}
+
+Table~\ref{tab:dt_change_impact} provides a detailed change impact analysis per stakeholder group with anticipated resistance factors and mitigation strategies.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L C L L @{}}
+\caption[Stakeholder Change Impact, Resistance Factors, and]{Stakeholder Change Impact, Resistance Factors, and Mitigation Strategies}\label{tab:dt_change_impact} \\
+\toprule
+\thead{Stakeholder} & \thead{Impact} & \thead{Resistance Factors} & \thead{Mitigation Strategy} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_change_impact} continued from previous page\,)}} \\
+\toprule
+\thead{Stakeholder} & \thead{Impact} & \thead{Resistance Factors} & \thead{Mitigation Strategy} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Senior clinicians & High & Fear of skill devaluation; ``AI will replace me''; loss of diagnostic autonomy; scepticism about accuracy & Position AI as ``second opinion'' not replacement; preserve override authority; show accuracy data with CIs; involve in pilot design \\
+\addlinespace
+Junior clinicians & Medium & Unfamiliarity; training burden; workflow disruption during transition & 8-hour certification with case-based learning; buddy system with trained colleagues; protected learning time \\
+\addlinespace
+Nurses and technicians & Low & Additional data entry; new system interfaces & Streamlined interface; demonstrate time savings; involve in UX design \\
+\addlinespace
+Data science team & Medium & New technology stack; accountability for model failures; governance overhead & Expert-level training (40h); clear RACI separating development from approval; career advancement pathway \\
+\addlinespace
+IT operations & Medium & Infrastructure change; on-call burden; GPU management complexity & 16-hour certification; automated monitoring reduces manual burden; vendor support during Phase~1 \\
+\addlinespace
+Hospital administrators & Low & Budget allocation decisions; unfamiliar ROI metrics; political risk of AI failure & Executive briefing (4h); phased budget commitment; pilot before full investment \\
+\addlinespace
+Patients & Minimal & Lack of understanding; privacy concerns; distrust of ``machine diagnosis'' & Patient-facing explanation summaries; opt-out mechanism; transparency notices; patient advocate on governance committee \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Impact levels: High = significant workflow redesign; Medium = moderate process changes; Low = minimal disruption. UX = user experience; CI = confidence interval.
+
+\subsection{Communication Plan}
+
+Table~\ref{tab:dt_comms} defines the communication cadence, channel, and messaging for each deployment phase.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L L @{}}
+\caption{Change Communication Plan by Deployment Phase}\label{tab:dt_comms} \\
+\toprule
+\thead{Phase} & \thead{Key Message} & \thead{Channel} & \thead{Frequency} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_comms} continued from previous page\,)}} \\
+\toprule
+\thead{Phase} & \thead{Key Message} & \thead{Channel} & \thead{Frequency} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+0. Assess & ``We are exploring how AI can support your clinical work---your input will shape the programme'' & Town hall; departmental briefings; intranet announcement & Biweekly \\
+\addlinespace
+1. Foundation & ``We are building the infrastructure and governance to ensure safe, governed AI. No clinical changes yet'' & Newsletter; governance committee updates; training invitations & Weekly \\
+\addlinespace
+2. Pilot & ``Our first AI-assisted domain is live. Here are the early results and clinician feedback'' & Pilot results dashboard; case studies; clinical grand rounds presentation & Weekly \\
+\addlinespace
+3. Scale & ``Based on pilot success, we are expanding. Here is what changes for your department and how we support you'' & Department-specific briefings; training schedule; FAQ document & Biweekly \\
+\addlinespace
+4. Optimise & ``AI-assisted diagnosis is now standard practice. Here are our outcomes and what we are improving next'' & Annual report; external publication; patient newsletter; Board presentation & Monthly \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Communication follows Kotter's ``enlist volunteer army'' principle: early messaging focuses on invitation and co-creation; later messaging shifts to evidence and celebration. FAQ = Frequently Asked Questions.
+
+\subsection{Quick Wins Strategy}
+
+Quick wins are essential for sustaining momentum during Phase~2. Table~\ref{tab:dt_quick_wins} identifies five achievable early successes designed to build organisational confidence.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L L @{}}
+\caption{Quick Wins Strategy for Phase~2 Pilot Deployment}\label{tab:dt_quick_wins} \\
+\toprule
+\thead{\#} & \thead{Quick Win} & \thead{Timeline} & \thead{Visibility} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_quick_wins} continued from previous page\,)}} \\
+\toprule
+\thead{\#} & \thead{Quick Win} & \thead{Timeline} & \thead{Visibility} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+1 & First AI-assisted diagnosis with clinician confirmation and patient explanation report generated & Week 2 of pilot & Department \\
+\addlinespace
+2 & Dashboard showing real-time accuracy above 85\% threshold with zero safety incidents & Week 4 & Hospital-wide \\
+\addlinespace
+3 & Clinician testimonial: ``AI caught a case I would have flagged for further review anyway---but 20 minutes faster'' & Week 6 & Grand rounds \\
+\addlinespace
+4 & First quarterly bias audit completed with $\leq$2\% subgroup variance documented & Week 12 & Governance committee \\
+\addlinespace
+5 & Pilot cost analysis showing projected savings on track against business case & Week 16 & CFO / Board \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Quick wins are selected for visibility, achievability, and alignment with different stakeholder interests (clinicians, administrators, governance, finance).
+
+%% ============================================================================
+%% PART 10: INTEGRATION AND IMPACT
+%% ============================================================================
+
+\section{Cross-Cutting: Technology--Process--People--Governance Integration}
+\label{sec:dt_integration}
+
+Table~\ref{tab:dt_integration_matrix} demonstrates how the four operating model dimensions integrate across each deployment phase, ensuring that no dimension is advanced in isolation.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L L L @{}}
+\caption[Integration Matrix: Technology, Process, People, and]{Integration Matrix: Technology, Process, People, and Governance by Deployment Phase}\label{tab:dt_integration_matrix} \\
+\toprule
+\thead{Phase} & \thead{Technology} & \thead{Process} & \thead{People} & \thead{Governance} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_integration_matrix} continued from previous page\,)}} \\
+\toprule
+\thead{Phase} & \thead{Technology} & \thead{Process} & \thead{People} & \thead{Governance} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+0. Assess & Readiness assessment of IT infrastructure (dimension 7/10) & Map current diagnostic workflows; identify bottlenecks & Stakeholder mapping; identify clinical champions & Governance gap analysis; draft committee charter \\
+\addlinespace
+1. Foundation & Deploy GPU; configure Docker; set up monitoring; install RAG pipeline & Define SOPs for model lifecycle (train, validate, deploy, monitor) & Core team training (40h certification); executive briefing (4h) & Ratify committee charter; approve RACI; establish audit trail \\
+\addlinespace
+2. Pilot & Deploy single domain; integrate with local data; baseline KPIs & Run AI-assisted and manual workflows in parallel; measure comparison & Clinician certification (8h); feedback collection via structured surveys & First governance cycle; pilot bias audit; review escalation protocol \\
+\addlinespace
+3. Scale & Add domains; EHR/PACS integration; optimise inference latency & Formalise clinical pathway integration; update SOPs per domain & Expand training to all departments; launch ambassador network & Quarterly bias audits operational; ASD-focused governance review \\
+\addlinespace
+4. Optimise & Full ASD deployment; automated drift detection; operations pipeline & Continuous improvement (Kaizen); annual process review; publish outcomes & Mandatory annual re-certification; career pathway for AI-clinical roles & Governance embedded in hospital bylaws; annual Board review; external audit \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} SOP = Standard Operating Procedure. Each cell represents a necessary condition for the phase; all four dimensions must progress together to maintain alignment.
+
+%% ============================================================================
+\section{Quantified Impact Summary: Top-Line and Bottom-Line}
+\label{sec:dt_impact_summary}
+
+Table~\ref{tab:dt_impact_summary} consolidates all quantified impacts across the four DT pillars into a single executive-level summary, distinguishing demonstrated (empirically validated in this study) from projected (modelled or literature-based) impacts.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L C L @{}}
+\caption{Consolidated Digital Transformation Impact Summary}\label{tab:dt_impact_summary} \\
+\toprule
+\thead{Impact Metric} & \thead{Type} & \thead{Value} & \thead{Evidence Source} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_impact_summary} continued from previous page\,)}} \\
+\toprule
+\thead{Impact Metric} & \thead{Type} & \thead{Value} & \thead{Evidence Source} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\multicolumn{4}{l}{\textbf{Top-Line (Clinical Outcomes)}} \\
+\addlinespace
+ASD-focused diagnostic accuracy & Demonstrated & 78--95\% & Ch.~4, Table~4.2 (H1) \\
+Deep learning vs.\ classical baseline improvement & Demonstrated & +8--17 pp & Ch.~4, Table~4.5 (H2) \\
+Discriminative features per domain & Demonstrated & 3--4 per domain & Ch.~4, Table~4.7 (H3) \\
+Expert explainability satisfaction & Demonstrated & 84--91\% & Ch.~4, Table~4.9 (H5) \\
+Inter-rater consistency improvement & Demonstrated & +12--18 pp & Ch.~4, Table~4.14 \\
+Diagnostic time reduction & Demonstrated & 75--85\% & Ch.~4, Table~4.14 \\
+\addlinespace
+\midrule
+\multicolumn{4}{l}{\textbf{Bottom-Line (Financial and Operational)}} \\
+\addlinespace
+3-year ROI & Projected & 135--185\% & Ch.~5, Table~5.15 \\
+Payback period & Projected & 12--18 months & Ch.~5, Table~5.15 \\
+5-year TCO savings vs.\ multi-vendor & Projected & 65--69\% (\$2.1--3.4M) & Ch.~5, Table~5.15 \\
+Annual fragmentation cost avoided & Projected & \$650K--1.1M/yr & This appendix, Table~\ref{tab:dt_fragmentation_cost} \\
+Feature extraction effort reduction & Demonstrated & $>$99\% & Ch.~4, Table~4.14 \\
+Manual workflow steps eliminated & Demonstrated & 47 $\rightarrow$ 0 & Ch.~4, Sec.~4.3.4 (H4) \\
+Audit preparation time reduction & Projected & 60--70\% & Ch.~5, Table~5.6 \\
+\addlinespace
+\midrule
+\multicolumn{4}{l}{\textbf{Risk Reduction}} \\
+\addlinespace
+EU AI Act compliance readiness & Designed & 95\% alignment score & Ch.~5, Table~5.3 \\
+Demographic fairness variance & Demonstrated & $\leq$2\% across subgroups & Ch.~4, Sec.~4.6 \\
+Governance audit trail coverage & Designed & 100\% & Ch.~5, Table~5.8 \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} ``Demonstrated'' = empirically validated in this study using public benchmark datasets and expert panel evaluation. ``Projected'' = modelled using published healthcare IT benchmarks and sensitivity analysis. ``Designed'' = architectural capability built into the framework but not yet tested in production. pp = percentage points; TCO = total cost of ownership.
+
+%% ============================================================================
+\section{Appendix Summary}
+\label{sec:dt_summary}
+
+This appendix advances the RGAIG beyond a technical research artifact to an enterprise-grade digital transformation programme. Table~\ref{tab:dt_appendix_contributions} summarises the nine contributions provided.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{0.4cm} L L L @{}}
+\caption{Appendix Contributions: Digital Transformation Programme Components}\label{tab:dt_appendix_contributions} \\
+\toprule
+\thead{\#} & \thead{Component} & \thead{Key Deliverable} & \thead{Reference} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_appendix_contributions} continued from previous page\,)}} \\
+\toprule
+\thead{\#} & \thead{Component} & \thead{Key Deliverable} & \thead{Reference} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+1 & Strategic Foundations & First principle, North Star metric ($\geq$80\%), SWOT, PESTEL, Porter's Five Forces & Secs.~\ref{sec:dt_first_principle}--\ref{sec:dt_strategic} \\
+\addlinespace
+2 & Current-State Diagnosis & AS-IS/TO-BE across 10 dimensions; annual cost \$900K--1.4M $\rightarrow$ \$250--370K & Sec.~\ref{sec:dt_as_is_to_be} \\
+\addlinespace
+3 & Quantified Business Case & 5-year savings \$3.4--5.7M; breakeven month 14--18; BCR 2.3:1--2.6:1 & Secs.~\ref{sec:dt_why}--\ref{sec:dt_financial} \\
+\addlinespace
+4 & Competitive Positioning & Foundation model comparison; RGAIG complements GPT-4V and Med-PaLM & Sec.~\ref{sec:dt_foundation_models} \\
+\addlinespace
+5 & Readiness and Maturity & 10 satisfaction metrics across 4 stakeholder groups; 6-level maturity model & Secs.~\ref{sec:dt_customer_satisfaction}--\ref{sec:dt_maturity} \\
+\addlinespace
+6 & Deployment Roadmap & 5-phase roadmap (40--58 weeks); Kotter alignment; gate criteria; \$425--650K budget staging & Sec.~\ref{sec:dt_deployment_roadmap} \\
+\addlinespace
+7 & Operating Model & RACI (18 decisions); committee charter (9 members); competency framework (6 roles); hybrid CoE & Sec.~\ref{sec:dt_operating_model} \\
+\addlinespace
+8 & Change Management & 7-group impact analysis; phase-aligned communication plan; quick wins strategy & Sec.~\ref{sec:dt_change_management} \\
+\addlinespace
+9 & Integration and Impact & Phase-by-phase integration matrix; consolidated impact scorecard (demonstrated vs.\ projected) & Secs.~\ref{sec:dt_integration}--\ref{sec:dt_impact_summary} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} BCR = benefit-cost ratio; CoE = Centre of Excellence; RACI = Responsible, Accountable, Consulted, Informed.
+
+\noindent \textbf{Thesis argument}: \textit{The RGAIG is not merely a technical architecture but a complete digital transformation programme---with a quantified business case, a phased deployment roadmap, a sustainable operating model, and measurable impact across clinical, financial, and governance dimensions---that enables healthcare organisations to transition from fragmented, ungoverned AI silos to a unified, responsible, and value-generating diagnostic platform.}

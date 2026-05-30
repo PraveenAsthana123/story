@@ -1,0 +1,57 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CHAPTER 2 SECTION: DETAILED LITERATURE REVIEW: GAN-BASED CANCER CLASSIFICATION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Detailed Literature Review: GAN-Based Cancer Classification}
+\label{app:ch2_cancer}
+\label{sec:topic3_cancer}
+
+This section provides the detailed literature review for GAN-based classification of hematological malignancies from peripheral blood smear (PBS) images supporting the thematic synthesis in Chapter~2. The review covers the evolution from classical feature engineering through deep CNN architectures to generative AI with GAN augmentation and transformer classifiers. All citations are referenced in the consolidated bibliography.
+
+Computational hematopathology has evolved from classical feature engineering (2018--2020), through deep CNN architectures (2020--2022), to generative AI with GAN augmentation and transformer classifiers (2022--2025).
+
+\subsection{Classical Baseline and CNN Frameworks}
+
+Classical and CNN-based cancer classification show strong within-dataset performance but limited generalisability. Ghaderzadeh et al.~\cite{ghaderzadeh2022ball} report >97\% on B-ALL, though restricted to a single staining protocol and leukaemia subtype. Nawaz et al.~\cite{nawaz2018multiclass} handle multi-class histology with a hierarchical CNN, but the ensemble design was not compared against simpler architectures. Singh et al.~\cite{singh2022gradcam} is the only study addressing interpretability via Grad-CAM, yet Grad-CAM heatmaps on histopathology images lack the clinical context pathologists require for confirmation. Rehman et al.~\cite{rehman2019all} and Kumar et al.~\cite{kumar2023ensemble} demonstrate effective detection and ensemble stabilisation respectively, but neither evaluates cross-site or cross-protocol transferability.
+
+\subsection{GAN-Based Data Augmentation}
+
+GAN-based augmentation addresses the endemic class imbalance in haematological datasets, but the evidence for downstream accuracy improvement is uneven. Bai et al.~\cite{bai2022cyclegan} is the only study quantifying accuracy gains from CycleGAN augmentation; the remaining studies (Barrera Llanga et al.~\cite{barrera2023syntheticcell}, Eckardt et al.~\cite{eckardt2025stylegan}, Hazra et al.~\cite{hazra2022wgan}, Veeraiah et al.~\cite{veeraiah2023maygan}) demonstrate image quality without measuring classification benefit. Eckardt et al. introduce privacy preservation---a consideration absent from the other studies---but target bone marrow smears rather than peripheral blood, limiting direct comparability. The lack of standardised evaluation metrics across these studies prevents determining which GAN architecture is best suited to haematological augmentation.
+
+\subsection{GAN-Based Stain Normalization}
+
+Stain normalisation addresses inter-laboratory variability---a primary confounder in cross-site cancer classification. Huang et al.~\cite{huang2023staingan} and Barrera Llanga et al.~\cite{barrera2023stainnorm} target the most common clinical artefact (Wright stain variation), while W\"{o}lflein et al.~\cite{wolflein2023hoechst} and Robles-Francisco et al.~\cite{robles2022cyclegan} tackle virtual staining for label-free microscopy. Martell et al.~\cite{martell2023cyclegan} remove the requirement for matched stain pairs---a practical advantage. However, none of these studies evaluates stain normalisation as a preprocessing step within a full classification pipeline, leaving the downstream accuracy benefit unmeasured.
+
+\subsection{GAN + Transformer Hybrids}
+
+Hameed et al.~\cite{hameed2025aml} combined GAN augmentation with Vision Transformers for significant AML accuracy improvement. Depto et al.~\cite{depto2023gansmote} demonstrated GAN superiority over SMOTE for minority-class augmentation.
+
+\subsection{Comparative Analysis}
+
+Table~\ref{tab:cancer_comparison} compares existing GAN-based frameworks against the proposed unified pipeline.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.8cm} p{3.3cm} L L L @{}}
+\caption{Comparative Analysis of GAN-Based Hematological AI Frameworks}\label{tab:cancer_comparison} \\
+\toprule
+\thead{Study} & \thead{Method} & \thead{Result} & \thead{Gap} & \thead{Framework Response} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:cancer_comparison} continued from previous page\,)}} \\
+\toprule
+\thead{Study} & \thead{Method} & \thead{Result} & \thead{Gap} & \thead{Framework Response} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Bai et al.~\cite{bai2022cyclegan} & CycleGAN augmentation & Accuracy gains & No stain normalization; no ViT & Integrated stain + augmentation + ViT pipeline \\
+\addlinespace
+Barrera Llanga et al.~\cite{barrera2023syntheticcell} & SyntheticCellGAN & High morphological fidelity & Not coupled with optimized classifier & Closed-loop GAN $\rightarrow$ classifier training \\
+\addlinespace
+Eckardt et al.~\cite{eckardt2025stylegan} & StyleGAN2-ADA bone marrow & Enhanced robustness + privacy & No PBS stain handling; no ViT & Multi-class PBS with stain normalization \\
+\addlinespace
+Huang et al.~\cite{huang2023staingan} & StainGAN color translation & Reduced staining variability & No classification pipeline & Unified stain + augmentation + classification \\
+\addlinespace
+Hameed et al.~\cite{hameed2025aml} & GAN + Vision Transformers & Significant AML accuracy & AML-only; no multi-class & Multi-class ALL/\allowbreak AML/\allowbreak CML/\allowbreak CLL classification \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} GAN = generative adversarial network; ViT = vision transformer; PBS = peripheral blood smear; ALL = acute lymphoblastic leukemia; AML = acute myeloid leukemia; CML = chronic myeloid leukemia; CLL = chronic lymphocytic leukemia.

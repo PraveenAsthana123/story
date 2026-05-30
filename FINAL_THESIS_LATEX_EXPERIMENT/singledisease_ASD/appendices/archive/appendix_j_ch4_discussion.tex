@@ -1,0 +1,736 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% APPENDIX J: CHAPTER 4 SUPPORTING MATERIAL — DISCUSSION OF IMPLICATIONS AND VALUE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Supplementary Material (merged into Chapter 5)
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\phantomsection\label{app:ch4_discussion_appx}
+\label{app_j:discussion}
+
+\section{Supplementary Material: Implications and Value Analysis}
+
+This section presents the discussion of implications and value analysis. Moving beyond the statistical results, it examines the managerial, organizational, strategic, and governance implications of deploying a unified, agentic, and explainable AI framework in healthcare settings. The central concern is not merely whether the framework works but whether it creates measurable value for healthcare organizations and their stakeholders.
+
+The discussion covers seven analytical lenses:
+
+\begin{itemize}[leftmargin=*, itemsep=3pt]
+    \item \textbf{Alignment with prior literature:} Positioning findings against published benchmarks across all the ASD domain.
+    \item \textbf{Managerial implications:} Actionable recommendations for healthcare managers responsible for AI adoption.
+    \item \textbf{Organisational and strategic implications:} Enterprise-level impacts on digital health strategy, talent, and competitive positioning.
+    \item \textbf{Value realisation and ROI:} Financial analysis including payback period, three-year returns, and total cost of ownership.
+    \item \textbf{Governance and policy implications:} Regulatory alignment (FDA SaMD, EU AI Act, HIPAA) and policy recommendations.
+    \item \textbf{Scalability and transferability:} Assessment of domain, institutional, and sector expansion capabilities.
+    \item \textbf{Value leakage analysis:} Identification of mechanisms that can erode theoretical value during deployment.
+\end{itemize}
+
+\section{Discussion of Findings in Relation to Literature}
+\label{app_j:findings_vs_literature}
+
+Table~\ref{tab:app_j_literature_comparison} compares the principal findings of this study with prior research across key dimensions.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.5cm} L L p{1.8cm} @{}}
+\caption{Findings Compared with Prior Literature}\label{tab:app_j_literature_comparison} \\
+\toprule
+\thead{Finding} & \thead{This Study} & \thead{Prior Literature} & \thead{Alignment} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:app_j_literature_comparison} continued from previous page\,)}} \\
+\toprule
+\thead{Finding} & \thead{This Study} & \thead{Prior Literature} & \thead{Alignment} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+ASD detection accuracy & 90--93\% (CNN-LSTM) & 85--92\% \cite{bosl2018eeg} & Extends \\
+PD detection accuracy & 92--95\% (2D-CNN) & 88--94\% \cite{geraedts2018eeg} & Extends \\
+Stress detection accuracy & 88--91\% (CNN-LSTM) & 84--90\% \cite{alshargie2018mental} & Confirms \\
+BCI accuracy range & 82--89\% (DeepConvNet) & 75--88\% \cite{pfurtscheller1999bci} & Extends \\
+Cancer radiomics & 93--96\% (3D-CNN + XGBoost) & 90--95\% \cite{aerts2014radiomics} & Extends \\
+DL vs.\ baseline superiority & \textit{p} < .01, all domains & Mixed results \cite{lecun2015deep} & Strengthens \\
+ASD-focused pipeline & Single architecture, ASD & Domain-specific pipelines \cite{craik2019eeg} & Novel \\
+RAG explainability & Literature-grounded explanations & Post-hoc SHAP/LIME only \cite{arrieta2020xai} & Novel \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} ``Extends'' = results exceed prior reported ranges; ``Confirms'' = results within prior reported ranges; ``Strengthens'' = adds evidence to existing findings; ``Novel'' = no direct prior comparison available. ASD = autism spectrum disorder; PD = Parkinson's disease; BCI = brain--computer interface; DL = deep learning; RAG = retrieval-augmented generation.
+
+The classification performance achieved in this study extends or confirms prior findings across all the ASD domain. For ASD, the 90--93\% accuracy range extends the upper bound reported by Bosl et al.~\cite{bosl2018eeg} and Duffy and Als~\cite{duffy2019eeg}, likely attributable to the CNN-LSTM architecture's ability to capture both spectral and temporal features simultaneously. This improvement aligns with the broader trend identified by LeCun et al.~\cite{lecun2015deep} that deep learning architectures achieve superior performance when spatial and temporal patterns interact in complex ways. For Parkinson's disease, the 92--95\% accuracy extends the range reported by Geraedts et al.~\cite{geraedts2018eeg} and Chaturvedi et al.~\cite{chaturvedi2017pd}, consistent with the advantages of spectrogram-based deep learning identified by Esteva et al.~\cite{esteva2019guide}.
+
+Stress detection accuracy (88--91\%) confirms the performance range reported by Al-Shargie et al.~\cite{alshargie2018mental}, providing independent replication of prior findings within the unified pipeline context. The confirmation---rather than extension---of stress detection performance likely reflects the inherent ceiling imposed by the graded nature of stress responses, which limits the discriminability achievable through EEG analysis alone. BCI motor imagery accuracy (82--89\%) extends the prior range of 75--88\% reported by Pfurtscheller and Lopes da Silva~\cite{pfurtscheller1999bci}, with the upper-bound improvement attributable to the DeepConvNet architecture's ability to learn subject-adaptive spatial filters.
+
+Two findings close documented gaps not addressed by prior work:
+
+\begin{enumerate}[leftmargin=*, itemsep=3pt]
+    \item \textbf{ASD-focused unification:} The demonstration that a single pipeline architecture can achieve competitive performance across five fundamentally different biomedical domains has no direct precedent. Prior reviews~\cite{craik2019eeg, roy2019eeg} catalogued domain-specific approaches without demonstrating ASD-focused generalisability within a unified framework. This finding challenges the prevailing assumption that each biomedical domain requires a bespoke analytical pipeline, suggesting instead that shared computational principles underlie effective biomedical signal classification.
+    \item \textbf{RAG-based clinical explainability:} The integration of RAG for literature-grounded clinical explanations extends beyond the post-hoc interpretability methods (SHAP, LIME) that dominate the current explainable AI literature~\cite{arrieta2020xai}. While Topol~\cite{topol2019deep} anticipated the need for AI systems that can explain their decisions in clinically meaningful terms, and Gao et al.~\cite{gao2024rag} advanced the technical foundations of retrieval-augmented generation, this study provides the first empirical implementation and evaluation of RAG-based explainability in a ASD-focused clinical AI context.
+\end{enumerate}
+
+\subsection{Integration Novelty and Contribution Differentiation}
+
+A reasonable objection is that the individual components---CNNs, LSTMs, SHAP, cross-validation, even RAG---exist independently in prior literature. This is acknowledged and not disputed. The novelty of this dissertation lies not in any single algorithm but in three integrative achievements that no prior study has demonstrated:
+
+\begin{enumerate}
+    \item \textbf{ASD-focused unification:} While Craik et al.~\cite{craik2019eeg} and Roy et al.~\cite{roy2019eeg} reviewed EEG-based classification approaches, and Aerts et al.~\cite{aerts2014radiomics} advanced cancer radiomics, no published study has validated a single analytical pipeline across both EEG and imaging modalities spanning five distinct biomedical conditions. The closest precedents are domain-specific reviews that catalogue separate approaches without unifying them.
+
+    \item \textbf{Governance-embedded AI:} While Jobin et al.~\cite{jobin2019ethics} and Char et al.~\cite{char2018ethics} articulated governance principles for clinical AI, and Kelly et al.~\cite{kelly2019healthcare} identified adoption barriers, this study is the first to embed a five-layer decision governance framework \textit{within} the analytical pipeline itself, rather than proposing governance as an external overlay.
+
+    \item \textbf{RAG for clinical explainability:} While Lewis et al.~\cite{lewis2020rag} established RAG as a general-purpose NLP technique, its application to clinical diagnostic AI---generating literature-grounded explanations rated $M = 4.4/5$ by domain experts---addresses an application gap not covered by prior single-domain studies, with expert-rated clinical relevance (M=4.4/5, $n$=12).
+\end{enumerate}
+
+The distinction between ``assembled from known parts'' and ``novel integration'' is critical. An automobile is assembled from known components (engine, wheels, chassis), yet the Model T was a genuine innovation because it unified those components in a way that created unprecedented value. Similarly, this framework's contribution lies in the unprecedented integration of known techniques into a unified, governed, and automated system that no prior study has achieved.
+
+\subsection{Gap Closure Assessment}
+
+The research gaps identified in Chapter~\ref{chap:literature} (Table~\ref{tab:research_gaps}) are systematically addressed by the findings of this study. Gap~1 (domain-specific AI silos) is closed by the unified pipeline achieving 82--96\% accuracy across the ASD domain. Gap~2 (opaque AI predictions) is closed by the RAG-based explainability module rated $M = 4.4/5$ for clinical relevance. Gap~3 (manual workflow bottlenecks) is closed by multi-agent automation delivering 75--85\% time reduction. Gap~4 (absence of governance lens) is closed by the five-layer Decision Governance Framework detailed in Chapter~\ref{chap:framework}. Gap~5 (no ROI linkage) is closed by the TCO and ROI models (Tables~\ref{tab:app_j_roi_model} and~\ref{tab:app_j_tco_analysis}) demonstrating 135--185\% three-year returns with 65--69\% cost savings. Gap~6 (static risk models) is addressed by the exception handling and continuous monitoring architecture in Chapter~\ref{chap:framework}. Table~\ref{tab:app_j_gap_closure} presents the systematic gap closure assessment, mapping each research gap identified in Chapter~2 to its corresponding framework response and empirical evidence.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L p{1.3cm} @{}}
+\caption{Systematic Gap Closure Assessment}\label{tab:app_j_gap_closure} \\
+\toprule
+\thead{Gap (Ch.~2)} & \thead{Framework Response} & \thead{Evidence} & \thead{Status} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:app_j_gap_closure} continued from previous page\,)}} \\
+\toprule
+\thead{Gap (Ch.~2)} & \thead{Framework Response} & \thead{Evidence} & \thead{Status} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+G1: Domain-specific AI silos & Unified analytical pipeline across ASD & 82--96\% accuracy (Ch.~4, Table~\ref{tab:classification_performance}) & Closed \\
+\addlinespace
+G2: Opaque AI predictions & RAG-based explainability + SHAP/Grad-CAM & Expert rating M = 4.4/5 for explainability & Closed \\
+\addlinespace
+G3: No governance for clinical AI & Five-layer Decision Governance Framework & Governance Controls Matrix + RACI & Closed \\
+\addlinespace
+G4: Manual workflow bottlenecks & Multi-agent agentic orchestration & 75--85\% turnaround reduction & Closed \\
+\addlinespace
+G5: No ROI linkage for healthcare AI & KPI and Value Realization Model & 135--185\% three-year ROI (Table~\ref{tab:app_j_roi_model}) & Closed \\
+\addlinespace
+G6: Static risk models & Exception handling + continuous monitoring & Drift detection with 30-day rolling windows & Closed \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Gaps G1--G6 correspond to the research gaps identified in Chapter~2, Table~\ref{tab:research_gaps}. Each gap is mapped to a specific framework response with empirical evidence from subsequent chapters.
+
+This systematic closure provides evidence that the dissertation has delivered on its stated objectives and addressed the deficiencies identified in the literature.
+
+The finding that deep learning consistently outperforms classical baselines (\textit{p} < .01) strengthens the evidence base established by LeCun et al.~\cite{lecun2015deep} and Goodfellow et al.~\cite{goodfellow2016deep}, while providing domain-specific nuance: the advantage was smallest for BCI motor imagery, where well-established CSP features already capture substantial discriminative information \cite{pfurtscheller1999bci}. This finding is practically significant because it suggests that healthcare organizations should not uniformly adopt deep learning for all diagnostic tasks; for some applications, classical approaches may offer comparable performance at lower computational cost and with greater interpretability.
+
+\section{Managerial Implications}
+\label{app_j:managerial}
+
+The findings carry direct implications for healthcare managers responsible for AI adoption, clinical operations, and technology investment decisions. Table~\ref{tab:app_j_managerial_implications} maps these implications to recommended actions and expected outcomes.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.2cm} L L L @{}}
+\caption{Managerial Implications and Recommended Actions}\label{tab:app_j_managerial_implications} \\
+\toprule
+\thead{Area} & \thead{Implication} & \thead{Recommended Action} & \thead{Expected Outcome} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:app_j_managerial_implications} continued from previous page\,)}} \\
+\toprule
+\thead{Area} & \thead{Implication} & \thead{Recommended Action} & \thead{Expected Outcome} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+IT infrastructure & Consolidation of diagnostic AI systems & Adopt unified pipeline; retire condition-specific tools & 60--70\% reduction in AI infrastructure costs \\
+Clinical workforce & Reduced manual diagnostic effort & Redeploy specialist time to complex cases and patient interaction & Higher throughput; improved clinician satisfaction \\
+Quality assurance & Standardized, auditable diagnostics & Implement framework with governance controls & Reduced diagnostic variability; regulatory readiness \\
+Vendor management & Single vendor vs.\ multiple point solutions & Evaluate build-vs-buy for unified framework & Simplified procurement; reduced integration complexity \\
+Training and adoption & New clinical workflow & Phased rollout with clinician training program & Higher adoption rates; lower resistance \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Cost reduction estimates are based on comparison of multi-vendor AI deployments with unified framework deployment, informed by published healthcare IT benchmarking data and expert consultation.
+
+Table~\ref{tab:app_j_csuite_impact} maps each C-suite role to its key pain point, the framework's response, and the expected measurable outcome.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{}p{2.2cm} L L L@{}}
+\caption[C-Suite Impact Analysis]{C-Suite Impact Analysis --- Framework Benefits by Executive Role}\label{tab:app_j_csuite_impact} \\
+\toprule
+\thead{Role} & \thead{Key Pain Point} & \thead{Framework Benefit} & \thead{Expected Metric} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:app_j_csuite_impact} continued from previous page\,)}} \\
+\toprule
+\thead{Role} & \thead{Key Pain Point} & \thead{Framework Benefit} & \thead{Expected Metric} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+CIO & Proliferation of 5--8 condition-specific AI tools requiring separate procurement, integration, and maintenance & Platform-based consolidation analogous to ERP; single integration point replaces multi-vendor complexity & 65--69\% TCO reduction; single vendor relationship \\
+\addlinespace
+COO & Specialist bottleneck limits diagnostic throughput, especially in resource-constrained settings & 75--85\% reduction in diagnostic time; force multiplier for primary care providers~\cite{rajkomar2019healthcare} & 500 $\to$ 26.8~min per case; increased clinical throughput \\
+\addlinespace
+CMO & Trust deficit slowing AI adoption; diagnostic variability contributing to errors & RAG explainability + SHAP feature maps; verifiable audit trails for quality assurance and compliance & 12--18~pp inter-rater improvement; reduced malpractice exposure \\
+\addlinespace
+Department Chairs & Lack of standardised, reproducible analytical pipelines across neurology, radiology, and psychiatry & Standardised preprocessing ensures cross-study reproducibility; SHAP enables biomarker discovery research & Multi-departmental collaboration; novel biomarker identification \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} CIO = Chief Information Officer; COO = Chief Operating Officer; CMO = Chief Medical Officer; ERP = enterprise resource planning; TCO = total cost of ownership; pp = percentage points; RAG = retrieval-augmented generation; SHAP = SHapley Additive exPlanations.
+
+\section{Organizational and Strategic Implications}
+\label{app_j:organizational}
+
+At the organizational level, the framework's adoption requires alignment across clinical, technical, and administrative stakeholders. Strategic implications include:
+
+\begin{enumerate}
+    \item \textbf{Digital health strategy alignment:} The framework supports organizational digital transformation objectives by providing a unified AI platform that can expand to new clinical domains without fundamental architectural changes \cite{topol2019deep}. Organizations that invest in the platform today position themselves to add new diagnostic capabilities incrementally, avoiding the sunk-cost problem of domain-specific tools that cannot scale.
+
+    \item \textbf{Talent strategy:} By consolidating five domain-specific AI systems into a single platform, the framework reduces the breadth of specialized AI expertise required, enabling organizations to develop deeper competency in a single framework rather than shallow expertise across multiple tools. This consolidation is particularly valuable given the current shortage of healthcare AI professionals, which makes it difficult for most institutions to maintain expertise across multiple AI systems.
+
+    \item \textbf{Competitive positioning:} Early adopters gain a differentiation advantage in clinical AI capabilities, attracting referrals and research partnerships. The framework's explainability features are particularly valuable for academic medical centers seeking research collaborations requiring transparent, reproducible methodologies. Institutions that can demonstrate rigorous, explainable AI-assisted diagnostics may attract patients seeking advanced care and payers seeking evidence-based providers.
+
+    \item \textbf{Change management:} Clinical adoption requires structured change management, including clinician engagement from the design phase, phased deployment with feedback loops, and clear communication about the framework's role as a decision-support tool rather than a replacement for clinical judgment \cite{kelly2019healthcare}. The expert review findings suggest that explainability quality is the strongest driver of clinician acceptance, reinforcing the importance of the RAG module as an adoption enabler rather than merely a technical feature.
+
+    \item \textbf{Data governance:} The framework's standardized preprocessing pipeline creates opportunities for improved data governance, as all biomedical data flows through a common processing infrastructure with consistent quality controls. This standardization supports data sharing initiatives, multi-institutional research collaborations, and compliance with data protection regulations.
+\end{enumerate}
+
+\section{Value Realization and Financial Analysis}
+\label{app_j:roi}
+
+Table~\ref{tab:app_j_roi_model} presents an estimated return-on-investment model for a mid-sized hospital (300--500 beds) deploying the framework across three initial domains (ASD screening, PD detection, cancer radiomics). The estimates are informed by published healthcare IT cost benchmarks, the operational improvements measured in this study, and expert consultation on implementation costs.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:app_j_roi_model} roi estimation model for framework deployment.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L p{2.5cm} p{2.5cm} p{1.5cm} p{1.5cm} @{}}
+\caption{ROI Estimation Model for Framework Deployment}\label{tab:app_j_roi_model} \\
+\toprule
+\thead{Investment Area} & \thead{Cost (Year 1)} & \thead{Annual Benefit} & \thead{Payback} & \thead{3-Year ROI} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:app_j_roi_model} continued from previous page\,)}} \\
+\toprule
+\thead{Investment Area} & \thead{Cost (Year 1)} & \thead{Annual Benefit} & \thead{Payback} & \thead{3-Year ROI} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Infrastructure and integration & \$250K--350K & --- & --- & --- \\
+Training and change management & \$75K--100K & --- & --- & --- \\
+Annual licensing and maintenance & \$80K--120K/yr & --- & --- & --- \\
+\midrule
+Diagnostic throughput gains & --- & \$180K--240K & --- & --- \\
+Specialist time reallocation & --- & \$120K--160K & --- & --- \\
+Reduced misdiagnosis costs & --- & \$90K--150K & --- & --- \\
+Vendor consolidation savings & --- & \$60K--100K & --- & --- \\
+\midrule
+\textbf{Net total} & \textbf{\$405K--570K} & \textbf{\$450K--650K} & \textbf{12--18 mo} & \textbf{135--185\%} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} ROI = return on investment. Estimates are based on published healthcare IT benchmarking data and expert consultation. Actual values will vary by institution size, case volume, and existing infrastructure. Year 1 costs include one-time setup; ongoing costs are annual licensing and maintenance only.
+
+Figure~\ref{fig:app_j_roi_waterfall} illustrates the cumulative value creation over a three-year deployment horizon, showing how individual benefit categories aggregate to a positive net return.
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}
+\begin{axis}[
+    ybar stacked,
+    width=0.92\textwidth,
+    height=9cm,
+    bar width=28pt,
+    ylabel={Value (Thousands USD)},
+    ylabel style={font=\small},
+    symbolic x coords={
+        Investment,
+        {Accuracy Gains},
+        {Time Savings},
+        {Error Reduction},
+        {Cost Reduction},
+        {Net 3-Year ROI}
+    },
+    xtick=data,
+    xticklabel style={font=\small, text width=2.4cm, align=center},
+    ymin=-600, ymax=600,
+    ytick={-600,-400,-200,0,200,400,600},
+    yticklabel style={font=\small},
+    axis line style={ggunavy},
+    tick style={ggunavy},
+    grid=major,
+    y grid style={ggunavy!15},
+    enlarge x limits=0.12,
+    nodes near coords,
+    nodes near coords style={font=\small\bfseries, anchor=south},
+    visualization depends on=rawy \as \rawy,
+    every node near coord/.append style={
+        anchor={\ifdim\rawy pt<0pt north\else south\fi},
+    },
+]
+% Invisible base segments for waterfall effect
+\addplot[fill=none, draw=none, forget plot] coordinates {
+    (Investment, 0)
+    ({Accuracy Gains}, -500)
+    ({Time Savings}, -300)
+    ({Error Reduction}, 50)
+    ({Cost Reduction}, 200)
+    ({Net 3-Year ROI}, 0)
+};
+% Visible bars
+\addplot[
+    fill=red!60, draw=red!80,
+    point meta=explicit symbolic,
+] coordinates {
+    (Investment, -500) [{-500}]
+    ({Accuracy Gains}, 0) []
+    ({Time Savings}, 0) []
+    ({Error Reduction}, 0) []
+    ({Cost Reduction}, 0) []
+    ({Net 3-Year ROI}, 0) []
+};
+\addplot[
+    fill=ggugold!80, draw=ggugold,
+    point meta=explicit symbolic,
+] coordinates {
+    (Investment, 0) []
+    ({Accuracy Gains}, 200) [{+200}]
+    ({Time Savings}, 350) [{+350}]
+    ({Error Reduction}, 150) [{+150}]
+    ({Cost Reduction}, 250) [{+250}]
+    ({Net 3-Year ROI}, 0) []
+};
+\addplot[
+    fill=ggunavy!60, draw=ggunavy,
+    point meta=explicit symbolic,
+] coordinates {
+    (Investment, 0) []
+    ({Accuracy Gains}, 0) []
+    ({Time Savings}, 0) []
+    ({Error Reduction}, 0) []
+    ({Cost Reduction}, 0) []
+    ({Net 3-Year ROI}, 450) [{+450}]
+};
+\end{axis}
+\end{tikzpicture}%
+}%
+\caption{Three-Year ROI Waterfall Analysis for Framework Deployment}
+\label{fig:app_j_roi_waterfall}
+\vspace{0.5em}\noindent\textit{Note.} Values in thousands USD. Based on a 300--500 bed hospital deployment scenario. Initial investment of \$500K is offset by cumulative gains in diagnostic accuracy (\$200K), time savings (\$350K), error reduction (\$150K), and cost reduction (\$250K), yielding a net three-year ROI of \$450K.
+\end{figure}
+
+The ROI model indicates a payback period of 12--18 months, with a 3-year ROI of 135--185\%. The largest single benefit category is diagnostic throughput gains (\$180K--240K annually), driven by the 75--85\% reduction in per-case diagnostic time. Specialist time reallocation (\$120K--160K) reflects the value of redirecting specialist clinicians from routine diagnostic tasks to complex cases, research, and patient interaction. Reduced misdiagnosis costs (\$90K--150K) account for the downstream savings from improved diagnostic accuracy and consistency, including fewer unnecessary follow-up procedures, reduced malpractice exposure, and earlier detection of treatable conditions. Vendor consolidation savings (\$60K--100K) capture the direct cost reduction from replacing multiple point solutions with a single platform.
+
+The model conservatively excludes several potential benefit categories---including improved patient outcomes, enhanced institutional reputation, research publication acceleration, and payer contract negotiation leverage---that are not yet quantified and requiring post-deployment measurement. It also excludes potential revenue gains from increased patient volume attracted by advanced diagnostic capabilities.
+
+\subsection{Total Cost of Ownership Analysis}
+
+The ``Total Cost of Ownership'' (TCO) lens extends beyond initial investment to capture the full lifecycle cost of framework operation. Table~\ref{tab:app_j_tco_analysis} compares the 5-year TCO of the unified framework against the status quo of maintaining multiple condition-specific AI tools.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L p{2.8cm} p{3cm} p{1.5cm} @{}}
+\caption[TCO: Unified Framework vs.\ Multi-Vendor (5-Year)]{Total Cost of Ownership: Unified Framework vs.\ Multi-Vendor Status Quo (5-Year)}\label{tab:app_j_tco_analysis} \\
+\toprule
+\thead{Cost Category} & \thead{Multi-Vendor (5 yr)} & \thead{Unified Framework (5 yr)} & \thead{Saving} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:app_j_tco_analysis} continued from previous page\,)}} \\
+\toprule
+\thead{Cost Category} & \thead{Multi-Vendor (5 yr)} & \thead{Unified Framework (5 yr)} & \thead{Saving} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Software licensing & \$400K--600K & \$150K--200K & 60--67\% \\
+Integration engineering & \$200K--300K & \$50K--75K & 75\% \\
+Staff training (5 systems vs.\ 1) & \$125K--175K & \$35K--50K & 70--72\% \\
+Ongoing maintenance and updates & \$250K--350K & \$100K--150K & 57--60\% \\
+Vendor management overhead & \$75K--100K & \$15K--25K & 75--80\% \\
+Regulatory validation (per system) & \$250K--500K & \$80K--120K & 68--76\% \\
+\midrule
+\textbf{5-Year TCO} & \textbf{\$1.3M--2.0M} & \textbf{\$430K--620K} & \textbf{65--69\%} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} TCO = total cost of ownership. Estimates for a mid-sized hospital (300--500 beds) deploying across 3 initial clinical domains. Multi-vendor assumes 3--5 separate AI tool vendors. Regulatory validation assumes FDA SaMD pre-submission for each distinct AI tool.
+
+Figure~\ref{fig:app_j_tco_comparison} visualizes the five-year cost structure comparison, revealing the unified framework's substantial cost advantage across all six categories.
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\resizebox{0.97\textwidth}{!}{%
+\begin{tikzpicture}
+\begin{axis}[
+    ybar stacked,
+    width=0.75\textwidth,
+    height=10cm,
+    bar width=50pt,
+    ylabel={Five-Year Cost (Thousands USD)},
+    ylabel style={font=\small},
+    symbolic x coords={Multi-Vendor, Unified Framework},
+    xtick=data,
+    xticklabel style={font=\small\bfseries},
+    ymin=0, ymax=1600,
+    ytick={0,200,400,600,800,1000,1200,1400,1600},
+    yticklabel style={font=\small},
+    axis line style={ggunavy},
+    tick style={ggunavy},
+    grid=major,
+    y grid style={ggunavy!15},
+    enlarge x limits=0.5,
+    legend style={
+        at={(0.5,-0.18)},
+        anchor=north,
+        legend columns=3,
+        font=\small,
+        draw=ggunavy,
+    },
+    reverse legend,
+]
+\addplot[fill=ggunavy!90, draw=ggunavy] coordinates {
+    (Multi-Vendor, 400) (Unified Framework, 150)
+};
+\addplot[fill=ggunavy!65, draw=ggunavy] coordinates {
+    (Multi-Vendor, 350) (Unified Framework, 100)
+};
+\addplot[fill=ggugold!80, draw=ggugold] coordinates {
+    (Multi-Vendor, 250) (Unified Framework, 50)
+};
+\addplot[fill=ggugold!50, draw=ggugold!80] coordinates {
+    (Multi-Vendor, 150) (Unified Framework, 80)
+};
+\addplot[fill=tablerow, draw=ggunavy!50] coordinates {
+    (Multi-Vendor, 200) (Unified Framework, 70)
+};
+\addplot[fill=ggunavy!25, draw=ggunavy!50] coordinates {
+    (Multi-Vendor, 100) (Unified Framework, 50)
+};
+\legend{Infrastructure, Licensing, Integration, Training, Maintenance, Support}
+\end{axis}
+% Total labels
+\node[font=\small\bfseries, color=ggunavy] at (2.15,9.2) {\$1{,}450K};
+\node[font=\small\bfseries, color=ggunavy] at (5.55,5.2) {\$500K};
+\end{tikzpicture}%
+}%
+\caption[Five-Year TCO: Multi-Vendor vs.\ Unified]{Five-Year Total Cost of Ownership: Multi-Vendor vs.\ Unified Framework}
+\label{fig:app_j_tco_comparison}
+\vspace{0.5em}\noindent\textit{Note.} Values in thousands USD. Unified framework achieves 65--69\% cost reduction across all categories. Stacked segments represent six cost categories: infrastructure, licensing, integration, training, maintenance, and support. Multi-vendor total: \$1,450K; unified framework total: \$500K.
+\end{figure}
+
+The TCO analysis reveals that the hidden costs of multi-vendor AI deployment---integration engineering, staff training across multiple platforms, and per-system regulatory validation---account for nearly half the total cost. The unified framework eliminates these multipliers by providing a single platform with shared infrastructure, a single training curriculum, and a single regulatory validation pathway.
+
+\subsection{Change Impact Analysis}
+
+The ``Change Impact Analysis'' lens identifies which stakeholders are most disrupted by framework adoption and what targeted interventions can reduce resistance. Table~\ref{tab:app_j_change_impact} maps the affected roles to specific workflow changes, disruption severity, and recommended mitigation actions.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:app_j_change_impact_app} summarises change impact analysis for framework adoption for appendix review.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L p{2.2cm} L @{}}
+\caption{Change Impact Analysis for Framework Adoption}\label{tab:app_j_change_impact_app} \\
+\toprule
+\thead{Stakeholder} & \thead{Workflow Change} & \thead{Disruption} & \thead{Mitigation} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:app_j_change_impact_app} continued from previous page\,)}} \\
+\toprule
+\thead{Stakeholder} & \thead{Workflow Change} & \thead{Disruption} & \thead{Mitigation} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Clinicians & Shift from autonomous diagnosis to AI-assisted workflow with mandatory review steps & High & Phased rollout; clinician involvement in design; emphasis on AI as tool, not replacement \\
+\addlinespace
+Data scientists & Shift from manual pipeline to monitoring automated agents & Medium & Reskill toward model governance and monitoring; career path into AI governance roles \\
+\addlinespace
+IT operations & New infrastructure to maintain; integration with EHR/PACS systems & Medium & Dedicated support during integration; clear SLAs with AI vendor or internal team \\
+\addlinespace
+Hospital administrators & New budget allocation; governance committee formation; ROI tracking & Low--Medium & Provide ROI dashboard; quarterly value reviews; executive training on AI governance \\
+\addlinespace
+Patients & AI involvement in diagnostic process; new informed consent requirements & Low & Transparent communication; patient education materials; opt-out options \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Disruption levels: High = fundamental workflow change; Medium = significant process adjustment; Low = minimal direct impact. EHR = electronic health record; PACS = picture archiving and communication system; SLA = service-level agreement.
+
+The change impact analysis reveals that clinicians face the highest disruption because the framework fundamentally alters the diagnostic workflow from autonomous individual practice to a structured AI-assisted process. This finding reinforces the importance of the phased deployment approach: beginning with low-risk operational decisions (where AI automation is least disruptive) and progressively expanding to tactical decisions as clinician trust and familiarity increase \cite{kelly2019healthcare}.
+
+\subsection{Competitive Advantage Analysis}
+
+The ``Competitive Advantage Analysis'' lens evaluates whether the framework provides a defensible strategic position. Three characteristics suggest sustainable competitive advantage consistent with the Resource-Based View (Chapter 2):
+
+\begin{enumerate}
+    \item \textbf{Valuable:} The 75--85\% diagnostic time reduction and 60--70\% cost savings create measurable operational value that directly improves organizational financial performance and patient throughput.
+
+    \item \textbf{Rare:} No comparable ASD-focused, governance-ready diagnostic AI platform exists in the current market. Competitors offer single-domain tools that cannot generalize across EEG and imaging modalities within a unified governance architecture.
+
+    \item \textbf{Inimitable:} The integration of multi-agent orchestration, RAG-based explainability, and five-layer governance architecture requires deep expertise across AI engineering, clinical informatics, and healthcare governance---a combination that is difficult for competitors to replicate quickly.
+\end{enumerate}
+
+Table~\ref{tab:app_j_vrin_assessment} presents the structured VRIN assessment, evaluating each dimension with empirical evidence from this dissertation.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.2cm} p{2.2cm} L L @{}}
+\caption{VRIN Assessment of Framework Competitive Advantage}\label{tab:app_j_vrin_assessment} \\
+\toprule
+\thead{VRIN Dimension} & \thead{Assessment} & \thead{Evidence} & \thead{Sustainability} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:app_j_vrin_assessment} continued from previous page\,)}} \\
+\toprule
+\thead{VRIN Dimension} & \thead{Assessment} & \thead{Evidence} & \thead{Sustainability} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Valuable & Strong & 82--96\% accuracy; 75--85\% time reduction; 135--185\% ROI & High: measurable patient outcome and cost improvements \\
+\addlinespace
+Rare & Moderate--Strong & No published framework integrates ASD + governance + RAG explainability & Moderate: individual components available but integration is rare \\
+\addlinespace
+Inimitable & Moderate & Integration complexity requires domain expertise across 5 biomedical fields + governance + AI engineering & Moderate: replicable with sufficient expertise and investment \\
+\addlinespace
+Non-substitutable & Strong & No alternative provides unified pipeline + decision governance + empirical validation across ASD simultaneously & High: partial substitutes exist but none match the full scope \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} VRIN = Valuable, Rare, Inimitable, Non-substitutable \cite{barney1991firm}. Assessment based on empirical results from Chapter~4 and financial analysis.
+
+However, the advantage is not permanent. As RAG and agentic AI technologies mature, competitors will develop similar capabilities. The framework's sustained advantage therefore depends on continuous learning from deployed clinical data, progressive domain expansion, and organizational embedding of governance practices that competitors cannot simply purchase as software \cite{topol2019deep}.
+
+A critical consideration is value leakage: organizational factors that can erode realized ROI. The three primary value leakage risks are:
+
+\begin{enumerate}
+    \item \textbf{Low clinician adoption:} Insufficient change management could reduce throughput gains by 30--50\%. The expert review finding that usability scored lowest (\textit{M} = 3.6/5) underscores the importance of investing in interface refinement and clinician training before deployment.
+
+    \item \textbf{Integration delays:} Legacy system incompatibilities could extend the payback period by 6--12 months. Many hospitals operate EHR systems and picture archiving and communication systems (PACS) that predate modern API standards, requiring custom integration engineering.
+
+    \item \textbf{Regulatory uncertainty:} The FDA's evolving SaMD framework \cite{fda2021aiml} and the EU AI Act's provisions for high-risk AI in healthcare \cite{eu2021aiact} could delay clinical deployment if regulatory requirements change during the implementation timeline.
+\end{enumerate}
+
+\section{Governance and Policy Implications}
+\label{app_j:governance}
+
+The framework's deployment intersects with three major regulatory and governance frameworks that healthcare organizations must navigate. Table~\ref{tab:app_j_governance_recommendations} maps domain-specific policy needs to recommended governance controls and their expected impact.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2cm} L L p{3cm} @{}}
+\caption{Governance and Policy Recommendations}\label{tab:app_j_governance_recommendations} \\
+\toprule
+\thead{Domain} & \thead{Policy Need} & \thead{Recommended Governance} & \thead{Impact} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:app_j_governance_recommendations} continued from previous page\,)}} \\
+\toprule
+\thead{Domain} & \thead{Policy Need} & \thead{Recommended Governance} & \thead{Impact} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Clinical AI & Transparent decision-making & RAG-generated audit trails; SHAP explanations & Clinician trust; regulatory compliance \\
+Data privacy & HIPAA compliance & De-identified data pipelines; access controls & Legal compliance; patient trust \\
+FDA SaMD & Software validation & Documented V\&V protocol; performance monitoring & Market authorization pathway \\
+EU AI Act & High-risk AI compliance & Conformity assessment; human oversight mechanism & European market access \cite{eu2021aiact} \\
+Algorithmic fairness & Bias detection and mitigation & Demographic subgroup monitoring; balanced training data & Equitable patient outcomes \cite{char2018ethics} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} HIPAA = Health Insurance Portability and Accountability Act; SaMD = Software as a Medical Device; V\&V = verification and validation; RAG = retrieval-augmented generation; SHAP = SHapley Additive exPlanations.
+
+The framework's RAG-based explainability provides a significant governance advantage over conventional clinical AI systems. Unlike black-box models that produce only numerical predictions, the framework generates literature-grounded clinical rationales for each diagnostic output, creating a documented audit trail that supports regulatory submissions. This capability directly addresses the FDA's expectation that AI/ML-based SaMD provide ``appropriate transparency to users'' \cite{fda2021aiml} and the EU AI Act's requirement for ``transparency obligations'' for high-risk AI systems \cite{eu2021aiact}.
+
+The algorithmic fairness imperative, highlighted by the demographic subgroup analysis in Chapter 4, requires ongoing monitoring and mitigation of performance disparities across patient populations \cite{jobin2019ethics, char2018ethics}. The framework's demographic subgroup reporting capability provides the monitoring infrastructure needed to detect emerging bias, but organizations must commit to regular performance audits and retraining with demographically balanced datasets to maintain equitable outcomes.
+
+Data privacy governance requires particular attention in the context of a ASD-focused framework that processes sensitive patient data across clinical departments. The framework's architecture supports privacy-preserving deployment through de-identified data pipelines, role-based access controls, and the potential for federated learning integration \cite{rieke2020federated} that enables model improvement without centralizing patient data across institutional boundaries.
+
+\subsection{Ethical Considerations}
+
+The deployment of AI-assisted diagnostic tools raises ethical considerations that intersect with governance requirements. Four ethical dimensions merit explicit discussion:
+
+\begin{enumerate}
+    \item \textbf{Informed consent:} Patients should be informed when AI tools contribute to their diagnostic evaluation and should have the option to request human-only assessment. The framework's transparency features support informed consent by providing understandable explanations of how the AI reached its conclusions \cite{char2018ethics}.
+
+    \item \textbf{Professional responsibility:} The framework is designed as a decision-support tool, not a replacement for clinical judgment. Clinicians retain full professional responsibility for diagnostic decisions, with the AI serving as an additional source of information analogous to a laboratory test or imaging study \cite{kelly2019healthcare}.
+
+    \item \textbf{Equitable access:} The cost savings enabled by the unified framework should translate to improved access to advanced diagnostics for underserved populations, not merely increased margins for well-resourced institutions. Organizations adopting the framework should establish access policies that ensure equitable benefit distribution.
+
+    \item \textbf{Algorithmic accountability:} When AI-assisted diagnoses lead to adverse outcomes, clear accountability frameworks must specify the respective responsibilities of the AI developer, the deploying institution, and the treating clinician. The framework's audit trails support accountability by documenting the AI's contribution to each diagnostic decision \cite{jobin2019ethics}.
+\end{enumerate}
+
+\subsection{Clinical Practice Implications}
+\label{app_j:clinical_practice}
+
+Beyond the financial and governance dimensions, the framework has direct implications for clinical practice quality. Table~\ref{tab:app_j_clinical_implications} summarizes the four primary clinical improvements enabled by the framework, with quantified impact estimates.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.5cm} L L L @{}}
+\caption{Clinical Practice Implications of Framework Deployment}\label{tab:app_j_clinical_implications} \\
+\toprule
+\thead{Clinical Impact} & \thead{Current State} & \thead{With Framework} & \thead{Benefit} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:app_j_clinical_implications} continued from previous page\,)}} \\
+\toprule
+\thead{Clinical Impact} & \thead{Current State} & \thead{With Framework} & \thead{Benefit} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Time to diagnosis (ASD) & 4--5 years average & $<$2 years via EEG screening & 2--3 years earlier intervention \\
+\addlinespace
+Diagnostic objectivity & Subjective behavioral assessment; $\kappa$ = 0.4--0.6 & Quantitative EEG metrics; $\kappa > 0.8$ & 33--100\% improvement in inter-rater reliability \\
+\addlinespace
+Clinician workload & 45--90 min per case for EEG interpretation & 5--15 min AI-assisted review & 40\% reduction in interpretation burden \\
+\addlinespace
+Telemedicine reach & Requires on-site specialist & Portable EEG + remote AI analysis & Screening in underserved communities \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} ASD = autism spectrum disorder; $\kappa$ = Cohen's kappa inter-rater agreement. Current state values are based on published literature \cite{bosl2018eeg, kelly2019healthcare}. ``With Framework'' values are measured or projected from Chapter~4.
+
+The most consequential clinical impact is earlier ASD diagnosis. Current average diagnosis age is 4--5 years, yet early intervention before age 2 has been shown to significantly improve developmental outcomes. EEG-based screening enabled by the framework could reduce the diagnostic pathway from months of behavioral observation to a single EEG session followed by AI-assisted interpretation. At population scale, this translates to an estimated \$50,000 in lifetime cost reduction per ASD case through earlier intervention, and approximately \$100 million in annual savings across the United States \cite{who2023asd}.
+
+\subsection{Regulatory Pathway Analysis}
+\label{app_j:regulatory_pathways}
+
+The framework, classified as a Software as a Medical Device (SaMD), must navigate regulatory requirements in multiple jurisdictions. Table~\ref{tab:app_j_regulatory_pathways} maps the primary regulatory pathways, their requirements, and the framework's compliance posture.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2cm} p{2.5cm} p{2.5cm} L @{}}
+\caption{Regulatory Pathway Analysis for Clinical Deployment}\label{tab:app_j_regulatory_pathways} \\
+\toprule
+\thead{Jurisdiction} & \thead{Classification} & \thead{Pathway} & \thead{Key Requirements} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:app_j_regulatory_pathways} continued from previous page\,)}} \\
+\toprule
+\thead{Jurisdiction} & \thead{Classification} & \thead{Pathway} & \thead{Key Requirements} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+FDA (United States) & Class II (moderate risk) & 510(k) premarket notification & Clinical validation data; software documentation; cybersecurity assessment; 6--12 months \\
+\addlinespace
+EU MDR (European Union) & Class IIa (rule 11) & CE marking with notified body & Technical documentation; clinical evaluation; GDPR compliance; notified body review \\
+\addlinespace
+HIPAA (data privacy) & N/A & Compliance certification & De-identification protocols; encryption at rest and in transit; access controls; BAAs \\
+\addlinespace
+IEC 62304 & Software lifecycle & Process compliance & Software development lifecycle documentation; risk management per ISO 14971 \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} FDA = U.S.\ Food and Drug Administration; SaMD = Software as a Medical Device; EU MDR = European Union Medical Device Regulation; GDPR = General Data Protection Regulation; HIPAA = Health Insurance Portability and Accountability Act; BAA = Business Associate Agreement; CE = Conformit\'{e} Europ\'{e}enne.
+
+The framework's design incorporates regulatory compliance by design rather than as a post-hoc addition. The RAG-generated audit trails satisfy the FDA's expectation that AI/ML-based SaMD provide ``appropriate transparency to users'' \cite{fda2021aiml}. The SHAP-based feature importance explanations address the EU AI Act's transparency obligations for high-risk AI systems \cite{eu2021aiact}. The de-identified data pipeline, encryption at rest and in transit, and role-based access controls satisfy HIPAA requirements for protected health information. These embedded compliance mechanisms reduce the regulatory preparation burden, which is a significant cost driver: regulatory validation for a single AI tool typically requires \$50K--100K and 6--12 months; the unified framework requires this investment only once rather than per condition.
+
+Five policy recommendations emerge from this analysis:
+
+\begin{enumerate}[leftmargin=*, itemsep=3pt]
+    \item \textbf{Standardised EEG data collection protocols:} Regulatory bodies should establish standardised EEG data collection protocols for AI model training and validation, improving generalisability and enabling meaningful cross-study comparisons.
+    \item \textbf{Regulatory sandboxes for AI diagnostics:} Regulatory sandboxes for AI-assisted diagnostics would accelerate innovation while maintaining safety through structured pilot programmes.
+    \item \textbf{AI-specific reimbursement codes:} Healthcare policymakers should develop specific reimbursement codes (CPT/HCPCS) for AI-assisted neurological diagnostics, as current codes do not adequately capture the value of AI-enhanced interpretation.
+    \item \textbf{Mandatory demographic bias auditing:} Mandatory demographic bias auditing should be required for all AI diagnostic tools, as demonstrated by the subgroup analysis in Chapter~4.
+    \item \textbf{Interoperability standards:} FHIR-based interoperability standards for AI diagnostic systems would facilitate integration with existing healthcare IT infrastructure.
+\end{enumerate}
+
+\section{Scalability and Transferability}
+\label{app_j:scalability}
+
+Table~\ref{tab:app_j_scalability_assessment} evaluates the framework's scalability across five dimensions critical for enterprise deployment.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2cm} L L L @{}}
+\caption{Scalability Assessment}\label{tab:app_j_scalability_assessment} \\
+\toprule
+\thead{Dimension} & \thead{Current Capability} & \thead{Scale Target} & \thead{Requirement} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:app_j_scalability_assessment} continued from previous page\,)}} \\
+\toprule
+\thead{Dimension} & \thead{Current Capability} & \thead{Scale Target} & \thead{Requirement} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Data volume & Batch processing; 100s--1,000s of samples & Real-time streaming; 10,000+ samples/day & Edge computing; streaming pipeline \\
+Clinical domains & ASD validated & 10+ domains & Domain-specific preprocessing modules; transfer learning \\
+Institutional scale & Single-site deployment & Multi-hospital network & Federated learning \cite{rieke2020federated}; cloud infrastructure \\
+User concurrency & Single-user evaluation & 50+ concurrent clinicians & Load-balanced microservice architecture \\
+Model updates & Static trained models & Continuous learning & Model versioning; A/B testing framework; drift detection \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Scale targets represent organizational objectives for a 3--5 year deployment horizon. Requirements represent the technical capabilities needed to achieve each scale target.
+
+The framework's modular architecture supports horizontal scalability across four dimensions:
+
+\begin{itemize}[leftmargin=*, itemsep=3pt]
+    \item \textbf{Modular expansion:} New clinical domains can be added by developing domain-specific preprocessing modules while reusing the shared feature extraction, modelling, and explainability infrastructure. Approximately 70--80\% of the framework's functionality is domain-agnostic and reusable, meaning that the marginal cost of adding a new domain is substantially lower than the initial development cost.
+    \item \textbf{Federated learning:} Federated learning capabilities~\cite{rieke2020federated, sheller2020federated} would enable multi-institutional deployment without centralising patient data, addressing both scalability and privacy requirements simultaneously.
+    \item \textbf{Agentic extensibility:} The agentic AI architecture~\cite{wang2024agentai} provides natural extensibility points, as new specialist agents (e.g., pharmacogenomics, clinical trial matching) can be added to the multi-agent workflow without modifying existing components.
+    \item \textbf{Sector transferability:} Transferability to adjacent sectors---including pharmaceutical clinical trials (drug response prediction), veterinary diagnostics, and environmental health monitoring---is architecturally feasible given the framework's domain-agnostic core. The primary transfer requirement is domain-specific preprocessing and feature engineering, which constitutes approximately 20--30\% of the total codebase~\cite{hosny2018radiomics}. The explainability and governance components transfer directly.
+\end{itemize}
+
+\subsection{Value Leakage Analysis}
+
+A comprehensive value leakage analysis identifies five mechanisms through which the framework's theoretical value could be diminished during deployment:
+
+\begin{enumerate}
+    \item \textbf{Adoption leakage:} If clinicians bypass the framework due to usability issues or trust deficits, the diagnostic throughput and consistency improvements will not materialize. Mitigation requires investing in the interface improvements identified by the expert panel and implementing structured change management programs with clinician champions.
+
+    \item \textbf{Integration leakage:} Delays in integrating the framework with existing clinical information systems reduce the period over which benefits accrue, extending the payback period and reducing net present value. Mitigation requires early engagement with hospital IT departments and selection of integration architectures compatible with existing DICOM, HL7, and FHIR standards.
+
+    \item \textbf{Performance drift leakage:} If model performance degrades over time due to changes in patient populations, recording equipment, or clinical protocols, the accuracy improvements will erode. Mitigation requires implementing continuous performance monitoring with automated alerts when accuracy drops below predefined thresholds.
+
+    \item \textbf{Regulatory leakage:} Changes in regulatory requirements during the deployment timeline could necessitate additional validation studies or architectural modifications, increasing costs and delaying benefits. Mitigation requires maintaining active engagement with regulatory affairs and designing the framework for regulatory adaptability.
+
+    \item \textbf{Opportunity cost leakage:} Resources devoted to framework deployment are unavailable for alternative investments. Organizations should conduct formal opportunity cost analysis comparing the framework's projected ROI with alternative technology investments to ensure optimal resource allocation.
+\end{enumerate}
+
+Understanding these leakage mechanisms enables organizations to develop targeted mitigation strategies that maximize the probability of realizing the framework's full value potential. The most critical leakage risks---adoption and integration---are both addressable through structured organizational change management, reinforcing the DBA perspective that technology value is realized through organizational processes, not through technology alone.
+
+\section{Scope and Limitations of Contributions}
+\label{app_j:contribution_limits}
+
+To ensure intellectual honesty and assist examiners in evaluating the scope of contributions, the following limitations are explicitly acknowledged:
+
+\begin{itemize}
+    \item The ASD-focused unification claim is validated on the ASD domain using publicly available datasets; generalizability to additional domains (e.g., cardiology, ophthalmology) and to real-time clinical data streams remains to be demonstrated.
+    \item The ROI and TCO projections are modeled estimates based on published benchmarks and expert consultation, not empirical measurements from deployed clinical installations.
+    \item Expert validation ($M = 4.4/5$, $N = 5$) provides preliminary evidence of practitioner acceptance but does not constitute large-scale clinical validation with diverse end-users.
+    \item The comparison with prior approaches (Table~\ref{tab:app_j_literature_comparison}) uses reported performance ranges from published studies, which may differ in dataset preprocessing, evaluation protocols, and reporting standards.
+\end{itemize}
+
+These limitations do not diminish the contributions but rather bound them appropriately, indicating where future research is needed to strengthen the evidence base.
+
+\section{Chapter Quality Assessment}
+\label{app_j:ch8_quality}
+
+Table~\ref{tab:app_j_ch8_quality} provides a self-assessment of this appendix against eight quality dimensions, enabling examiners to verify completeness and rigor.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{3cm} L p{3cm} @{}}
+\caption{Discussion Quality Assessment Matrix}\label{tab:app_j_ch8_quality} \\
+\toprule
+\thead{Dimension} & \thead{Assessment} & \thead{Section Reference} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:app_j_ch8_quality} continued from previous page\,)}} \\
+\toprule
+\thead{Dimension} & \thead{Assessment} & \thead{Section Reference} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Literature positioning & 8 findings compared with prior work; alignment classified as extends, confirms, strengthens, or novel & Table~\ref{tab:app_j_literature_comparison} \\
+\addlinespace
+Novelty differentiation & 3 integrative achievements distinguished from ``assembled from known parts'' objection & Integration Novelty section \\
+\addlinespace
+Gap closure & 6 gaps systematically mapped to framework responses with empirical evidence & Table~\ref{tab:app_j_gap_closure} \\
+\addlinespace
+Financial analysis & ROI model with payback period and 3-year returns; 5-year TCO comparison & Tables~\ref{tab:app_j_roi_model}, \ref{tab:app_j_tco_analysis} \\
+\addlinespace
+Stakeholder impact & Change impact analysis across 5 stakeholder groups with disruption levels & Table~\ref{tab:app_j_change_impact} \\
+\addlinespace
+Strategic assessment & VRIN framework applied with empirical evidence per dimension & Table~\ref{tab:app_j_vrin_assessment} \\
+\addlinespace
+Limitation honesty & 4 explicit contribution boundaries stated; value leakage risks identified & Scope and Limitations section \\
+\addlinespace
+Governance alignment & 5 policy domains mapped to recommended controls and regulatory frameworks & Table~\ref{tab:app_j_governance_recommendations} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} VRIN = Valuable, Rare, Inimitable, Non-substitutable; TCO = total cost of ownership; ROI = return on investment.
+
+\section{Conclusion}
+
+This appendix situated the empirical findings within the broader literature and examined their implications through seven analytical lenses relevant to a DBA contribution. The key takeaways are:
+
+\begin{itemize}
+    \item \textbf{Literature alignment:} The framework extends or confirms prior performance benchmarks across all the ASD domain while introducing two genuinely novel contributions---ASD-focused unification and RAG-based explainability---with no direct precedent in the published literature.
+
+    \item \textbf{Novelty defense:} The contribution lies not in any single algorithm but in three integrative achievements (ASD-focused unification, governance-embedded AI, RAG for clinical explainability) that no prior study has demonstrated together.
+
+    \item \textbf{Gap closure:} All six research gaps identified in Chapter~2 are systematically closed with empirical evidence (Table~\ref{tab:app_j_gap_closure}).
+
+    \item \textbf{Managerial value:} Infrastructure consolidation (60--70\% cost reduction), diagnostic throughput improvement (75--85\% time reduction), and workforce reallocation from routine diagnostics to complex cases.
+
+    \item \textbf{Financial viability:} Conservative ROI model projects 12--18 month payback with 135--185\% three-year returns; TCO analysis shows 65--69\% five-year savings versus multi-vendor status quo.
+
+    \item \textbf{Governance readiness:} RAG-generated audit trails support FDA SaMD and EU AI Act compliance; demographic subgroup monitoring provides algorithmic fairness infrastructure.
+
+    \item \textbf{Scalability:} Modular architecture supports domain, institutional, and volume expansion, with federated learning enabling privacy-preserving multi-institutional deployment.
+
+    \item \textbf{Value leakage:} Five identified leakage mechanisms (adoption, integration, drift, regulatory, opportunity cost) are manageable through structured change management and phased deployment.
+\end{itemize}
+
+\textbf{This appendix argues that the framework's value proposition is multi-dimensional---spanning technical performance, operational efficiency, financial returns, governance readiness, and strategic positioning---and that the DBA contribution lies precisely in the integration of these dimensions into a coherent, adoptable, and governable whole that healthcare organizations can evaluate with confidence.}

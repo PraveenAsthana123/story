@@ -1,0 +1,152 @@
+%% ============================================================================
+%% APPENDIX Q --- Drill Methodology for Pipeline Verification
+%% Auto-generated 2026-05-27. Per global §43 drill-testing pattern.
+%% ============================================================================
+
+\chapter*{Appendix Q --- Drill Methodology for Pipeline Verification}
+\addcontentsline{toc}{chapter}{Appendix Q --- Drill Methodology for Pipeline Verification}
+\label{app:drill_methodology}
+
+\noindent This appendix documents the drill-testing methodology used to verify the 23-step ASD-EEG pipeline. A drill is a standalone script that exercises the REAL running stack (live databases, real EEG files, actual HTTP endpoints) end-to-end and reports per-step pass / fail with deterministic exit codes. The methodology aligns with the global drill-testing pattern (research-software-engineering §43) and provides the verification substrate for every dedicated-page architecture table in this dissertation.
+
+\addcontentsline{toc}{section}{Q.1 What a Drill Is + What It Is Not} % [TOC-appendix-section-insertion]
+\section*{Q.1 What a Drill Is + What It Is Not}
+\addcontentsline{toc}{section}{Q.1 What a Drill Is}
+
+\paragraph{Q.1 Drill Definition Contract.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} L @{}}
+\caption[Drill Definition Contract]{Drill Definition Contract --- What a Drill IS and IS NOT.}\label{tab:app_q_drill_definition} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+A drill IS & A standalone script (Python preferred) exercising the REAL running stack end-to-end \\
+A drill IS & A test that prints $\checkmark$ / $\times$ per step with deterministic exit code (0 = pass; 1 = fail) \\
+A drill IS & A regression-catalog entry: once added, the drill runs in every CI pipeline run forever \\
+A drill IS & Self-contained: drill prereqs documented; setup automated (docker-compose up); no manual step \\
+A drill IS & A test that includes $\geq 3$ NEGATIVE assertions per drill (proves the system REJECTS bad inputs) \\
+A drill IS NOT & A pytest unit test (those use mocks; drills use real services) \\
+A drill IS NOT & A happy-path-only test (drills must verify rejection of bad inputs explicitly) \\
+A drill IS NOT & A documentation-only check (drills must actually fail when the system is broken) \\
+A drill IS NOT & A manual step-by-step walkthrough (drills are fully automated) \\
+A drill IS NOT & A test that depends on production data (drills generate their own synthetic test data) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Drills are the verification substrate that makes every architecture table in this dissertation reproducibly correct; the drill suite runs in CI before any pull-request merge.
+
+\clearpage
+\addcontentsline{toc}{section}{Q.2 Drill Anatomy --- 5-Step Template} % [TOC-appendix-section-insertion]
+\section*{Q.2 Drill Anatomy --- 5-Step Template}
+\addcontentsline{toc}{section}{Q.2 Drill Anatomy}
+
+\paragraph{Q.2 Drill 5-Step Anatomy.}
+
+
+\noindent This table lists each \textit{\#} across step, and content + acceptance, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{4.9cm} p{8.5cm} @{}}
+\caption[Drill 5-Step Anatomy]{Drill 5-Step Anatomy --- Universal Template.}\label{tab:app_q_drill_anatomy} \\
+\toprule
+\thead{\#} & \thead{Step} & \thead{Content + acceptance} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1 & Setup / prereq check & Verify required services up (docker-compose ps); fail with descriptive message if missing \\
+2 & Generate synthetic test data & Per-drill fixed seed; data covers normal + edge cases + adversarial cases \\
+3 & Exercise the system under test & Send real HTTP / RPC / DB request; capture response + side-effect \\
+4 & Assert positive invariants & Check expected behaviour: response shape, status code, persisted state \\
+5 & Assert NEGATIVE invariants ($\geq 3$ per drill) & Check that bad inputs are REJECTED: wrong format, missing field, unauthorised access, oversized payload, malicious input \\
+& Cleanup + report & Reset any state changes; print PASS / FAIL per step; exit code 0 / 1 \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} The negative-assertion requirement is the key differentiator from a pytest unit test; a drill that only verifies the happy path can pass on a system that quietly accepts garbage. Per dissertation §\ref{sec:advanced_arch_pages} per-phase drill commitment, each pipeline phase has a paired drill verifying its threshold.
+
+\clearpage
+\addcontentsline{toc}{section}{Q.3 Per-Pipeline-Phase Drill Inventory} % [TOC-appendix-section-insertion]
+\section*{Q.3 Per-Pipeline-Phase Drill Inventory}
+\addcontentsline{toc}{section}{Q.3 Per-Pipeline-Phase Drill Inventory}
+
+\paragraph{Q.3 Per-Phase Drill Inventory.}
+
+
+\noindent This table lists each \textit{phase} across drill script, positive assertions, and negative assertions ($\geq 3$), so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{2.6cm} >{\raggedright\arraybackslash}p{4.6cm} p{6.0cm} @{}}
+\caption[Per-Phase Drill Inventory]{Per-Phase Drill Inventory --- Drill Script per Pipeline Phase.}\label{tab:app_q_drill_inventory} \\
+\toprule
+\thead{Phase} & \thead{Drill script} & \thead{Positive assertions} & \thead{Negative assertions ($\geq 3$)} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1 & drill\_capture & EDF file written; metadata sidecar present; SQI computed & Wrong sampling rate REJECTED; corrupt header REJECTED; oversized file REJECTED \\
+2 & drill\_standardise & Roundtrip read $\to$ write $\to$ read identity & BIDS-invalid file REJECTED; unsupported format REJECTED; missing channel-info REJECTED \\
+3 & drill\_qc & SQI $\geq 0.70$ pass; bad-channel mask correct & SQI $< 0.70$ flagged not accepted silently; $\geq 25\%$ bad-ch REJECTED; missing channel REJECTED \\
+4 & drill\_preprocess & PSD smooth post-bandpass; line-noise removed; epoch retention $\geq 70\%$ & Without filter -- raw noise rejected; ICA failure handled; insufficient epochs REJECTED \\
+5 & drill\_epoching & Subject-level split enforced; per-fold class balance & Subject in train AND test REJECTED; empty fold REJECTED; overlap leakage REJECTED \\
+6 & drill\_timefreq & STFT Parseval check; CWT scale coverage & Window $>$ signal REJECTED; non-positive sample rate REJECTED; aliasing detected \\
+7 & drill\_feature\_extract & 50 features per epoch; ranges within sanity bounds & NaN feature flagged; out-of-range value flagged; missing channel propagated \\
+8 & drill\_feature\_select & Selected feature count 10--15; stability $\geq 80\%$ folds & Empty selection REJECTED; per-fold unstable selection flagged \\
+9 & drill\_train & Training loss decreases; checkpoint saved & Training divergence detected; OOM handled gracefully; bad-data NaN propagation REJECTED \\
+10 & drill\_validate & Subject-level CV passes; external test result reported & Subject leakage REJECTED; test-set contamination REJECTED; missing fold flagged \\
+11 & drill\_evaluate & Multi-metric panel computed; 95\% CI present & Without bootstrap REJECTED; single-metric-only REJECTED; missing confusion matrix REJECTED \\
+12 & drill\_xai & Per-prediction SHAP present; channel importance computed & Without model REJECTED; explanation latency $> 1$s REJECTED; missing model-card REJECTED \\
+13 & drill\_rag\_index & Vector count matches corpus; metadata complete & Embedding-dim mismatch REJECTED; missing source REJECTED; PII-leaked chunk REJECTED \\
+14 & drill\_retrieve & Top-k results returned; MRR / nDCG meets threshold & Empty query REJECTED; injected SQL / prompt REJECTED; oversized query REJECTED \\
+15 & drill\_rag\_report & Citation per claim; Ragas faithfulness $\geq 0.85$ & Hallucinated claim REJECTED; PII in output REJECTED; oversized response REJECTED \\
+16 & drill\_hitl & Confidence-tier routing per spec; audit row per decision & Bypass HITL gate REJECTED; missing clinician auth REJECTED; missing rationale REJECTED \\
+17 & drill\_deliver & Doctor + patient PDFs generated; reading-grade $\leq 8$ for patient & Missing disclaimer REJECTED; PII in patient PDF REJECTED; delivery failure handled \\
+18 & drill\_audit & Per-decision row written; request\_id propagated end-to-end & Missing request\_id REJECTED; tampered audit row detected; orphan row flagged \\
+19 & drill\_monitor & Drift / bias / PII alert fires on threshold & Alert without RCA REJECTED; missing recovery action flagged; threshold-bypass REJECTED \\
+20 & drill\_improve & Canary deployment + roll-back path tested & Roll-back without canary REJECTED; degraded model auto-promoted REJECTED; missing changelog REJECTED \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} 20 drills (one per pipeline phase plus 3 extras for cross-cutting). Each drill has $\geq 3$ negative assertions per dissertation drill-discipline contract. Drill scripts live at \texttt{tests/drills/}; CI runs the full suite before any merge.
+
+\clearpage
+\addcontentsline{toc}{section}{Q.4 Drill Discipline + CI Integration} % [TOC-appendix-section-insertion]
+\section*{Q.4 Drill Discipline + CI Integration}
+\addcontentsline{toc}{section}{Q.4 Drill Discipline + CI}
+
+\paragraph{Q.4 Drill Discipline.}
+
+
+\noindent This table lists each \textit{rule} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} L @{}}
+\caption[Drill Discipline + CI]{Drill Discipline Rules + Continuous-Integration Enforcement.}\label{tab:app_q_drill_discipline} \\
+\toprule
+\thead{Rule} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Every feature commit ships a drill & New behaviour without a drill is not accepted; reviewer enforces \\
+Every bug-fix commit ships a regression drill & The drill that would have caught the bug must exist before the fix is merged \\
+$\geq 3$ negative assertions per drill & Happy-path-only drills are rejected at review \\
+Drill must exercise REAL stack & Mock-based tests live in pytest; drills use docker-compose services \\
+Drill must be self-contained & Prereqs documented; setup automated; no operator-typed steps \\
+Drill must be deterministic & Fixed seeds; reproducible across runs; flaky drills are bugs to fix \\
+Drill must run in CI on every PR & github actions / argo workflows job; PR cannot merge if drill fails \\
+Drill must include audit-row assertion & Per-decision audit row presence + content checked \\
+Drill must include rollback assertion & For deployment-related drills: roll-back path tested \\
+Drill suite is the regression catalog & Catalog grows monotonically; old drills are never deleted, only updated \\
+Drill failure triggers RCA & Per dissertation §38.3 governance: per-failure root-cause analysis required \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} The drill-discipline rules elevate the drill suite from ``tests'' to ``regression catalog'' --- a permanent record of behaviours the system MUST preserve. The catalog grows monotonically; deletion is forbidden; updates only refine the assertion.

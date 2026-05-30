@@ -1,0 +1,379 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PHASE 13 — DETAILED RESEARCH EXECUTION TABLES
+%% Thesis Writing & Document Integration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\normalsize\normalfont\color{black}
+
+%% ── Table 1: Input / Process / Output ──
+Table~\ref{tab:phase13_ipo} presents the input, process, and output mapping for each step of the thesis writing and document integration phase.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.16\textwidth} X X X @{}}
+\caption[Phase~13 --- Input, Process, and Output: Thesis Writing]{Phase~13 --- Input, Process, and Output: Thesis Writing and Document Integration}
+\label{tab:phase13_ipo}\\
+\toprule
+\thead{Step} & \thead{Input} & \thead{Process} & \thead{Output} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Chapter drafting             & Research findings from Phases~1--12, validated hypotheses (H1--H5), ASD ensemble 97.67\% results, 525-module taxonomy outputs                        & Draft 5 chapters sequentially: Introduction, Literature Review, Research Methods, Data Analysis \& Findings, Discussion \& Recommendations & 5 complete chapter manuscripts with consistent academic voice \\
+\addlinespace
+Literature integration       & 120+ reviewed papers, citation database, systematic review outputs from Phase~2--4                                                          & Weave literature references into argument structure using natbib + ieeetr; verify every claim has citation support                        & Fully referenced manuscript with 0 undefined citations \\
+\addlinespace
+Cross-referencing            & Chapter drafts, table labels, figure labels, section labels, hypothesis references                                                           & Insert \texttt{\textbackslash ref\{\}} and \texttt{\textbackslash pageref\{\}} links across all 5 chapters; verify bidirectional consistency & 0 undefined references; coherent inter-chapter navigation \\
+\addlinespace
+Table and figure creation    & Statistical results, model outputs, taxonomy structures, governance frameworks                                                                & Create booktabs-formatted tables and TikZ-rendered figures; ensure each is self-contained with caption and label                           & All tables use booktabs; all figures use TikZ (zero PNG) \\
+\addlinespace
+Formatting compliance        & GGU DBA formatting guidelines, APA 7th edition standards, \LaTeX{} class configuration                                                       & Apply Times New Roman 12pt, double-spacing, 1-inch margins, roman/arabic pagination; run font monitor tool                                & Compliant manuscript: report class, mathptmx, correct pagination \\
+\addlinespace
+Citation management          & References.bib, natbib package, ieeetr bibliography style                                                                                    & Compile bibliography; resolve all citation warnings; verify author--year consistency                                                       & Complete .bbl file with 0 undefined citations, 0 multiply-defined labels \\
+\addlinespace
+Appendix organisation        & Suppressed low-impact content, data-use certificates, extended tables, AI declaration                                                         & Organise into 5 appendices (A--E) mapped one-to-one with Chapters~1--5; extract via \texttt{extract\_appendix\_\allowbreak content.py}                & Appendix~A (7 items), B (10), C (14 + certificates), D (12 + screening), E (10 + AI declaration) \\
+\addlinespace
+Document review              & Complete manuscript, compilation log, formatting checklist                                                                                    & Perform 4-pass \LaTeX{} compilation; verify 0 errors, 0 warnings; run quality checklist                                                  & Final thesis document ready for submission (562 pages) \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 2: Quality Validation Framework ──
+Table~\ref{tab:phase13_quality} documents the quality framework dimensions and methods applied to ensure clarity, coherence, and compliance in the thesis writing process.
+
+\needspace{3\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{0.15\textwidth} X @{}}
+\caption{Phase~13 --- Quality Validation Framework for Thesis Writing}
+\label{tab:phase13_quality}\\
+\toprule
+\thead{Dimension} & \thead{Method} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Writing clarity           & Apply Flesch--Kincaid readability analysis; target grade level 16--18 (doctoral academic prose); eliminate jargon without definition; ensure every paragraph has a topic sentence and evidence \\
+\addlinespace
+Academic tone             & Maintain third-person voice throughout; use ``argues'' and ``demonstrates'' rather than ``explores'' or ``looks at''; vary sentence structure; avoid hedging without evidence qualification \\
+\addlinespace
+Argument coherence        & Verify each chapter opens with ``This chapter argues that\ldots'' (CLAIM language); ensure logical flow from problem statement through methodology to findings; map every finding back to a research question \\
+\addlinespace
+Evidence integration      & Cross-check that every empirical claim cites specific results (e.g., ASD ensemble 97.67\% $\pm$ 2.1\%, $p < .001$); verify all 5 hypotheses reference supporting statistical evidence with effect sizes \\
+\addlinespace
+Formatting compliance     & Run font monitor tool (\texttt{font\_monitor.py}); verify Times 12pt double-spaced; booktabs tables only; TikZ figures only; 1-inch margins; roman front matter pagination; arabic body pagination \\
+\addlinespace
+Citation accuracy         & Compile with bibtex; verify 0 undefined citations and 0 multiply-defined labels; spot-check 10\% of references against original sources for author name, year, and title accuracy \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 3: Professor, PhD, and DBA Readiness Evaluation ──
+Table~\ref{tab:phase13_readiness} compares the PhD, DBA, and professor readiness expectations for the thesis writing phase across six evaluation criteria.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{0.11\textwidth} X X X @{}}
+\caption{Phase~13 --- Professor, PhD, and DBA Readiness Evaluation}
+\label{tab:phase13_readiness}\\
+\toprule
+\thead{Criteria} & \thead{PhD Readiness} & \thead{DBA Readiness} & \thead{Professor Expectation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Writing quality            & Academic voice: ``argues,'' ``demonstrates,'' ``establishes'' throughout; every chapter opens with ``This chapter argues that\ldots''; counter-arguments for PD 100\% and depression 88\% recall addressed & Business implications stated plainly: ASD ensemble 97.67\% means clinical viability; ROI 135--2{,}717\% means \$6.0M savings; trust $+$22\% means clinician acceptance; governance 98.4\% means regulatory readiness & Publication-ready: Flesch--Kincaid grade 16--18; no jargon without definition; every paragraph has topic sentence and evidence; 3 revision cycles per chapter \\
+\addlinespace
+Argument structure         & TAM-TOE-RBV thread from Ch.2 (theory) through Ch.3 (operationalisation) through Ch.4 (path coefficients $\beta = 0.28$--$0.58$) through Ch.5 (contribution C2); counter-arguments in every chapter & Problem--solution: \$4.5T burden (Ch.1) $\rightarrow$ 12 gaps (Ch.2) $\rightarrow$ DSR + 525-module taxonomy (Ch.3) $\rightarrow$ ASD ensemble 97.67\% (Ch.4) $\rightarrow$ ROI 135--2{,}717\% + governance roadmap (Ch.5) & Red thread: RQ1--RQ8 posed in Ch.1, methods in Ch.3, findings in Ch.4, answers in Ch.5; examiner follows without backtracking; 60 Q\&A questions anticipated \\
+\addlinespace
+Evidence presentation      & Every H reported with $p$-value ($< .001$), effect size ($d = 0.63$--$1.42$), and bootstrap 95\% CI; ASD classification accuracy: ASD 97.67\% & Evidence linked to business: each 1\% accuracy gain $= \$28$K saved; agentic layer $+$6.1\% F1 $=$ 73\% error reduction; 525-module taxonomy $=$ compliance certification readiness & Negative results reported: depression recall 88\% below 90\% clinical target; PD 100\% caveated (small $n$); RAG hallucination rate $< 3\%$ but non-zero \\
+\addlinespace
+Formatting                 & Report class, mathptmx (Times 12pt), double-spaced, 1-inch margins; booktabs tables (no vertical lines); TikZ-only figures (zero PNG); chapter title divider pages; \texttt{font\_monitor.py} verified & GGU DBA guidelines: roman front matter pagination, arabic body; \texttt{\textbackslash normalsize\hspace{0pt}\textbackslash normalfont\hspace{0pt}\textbackslash color\hspace{0pt}\{black\}} after every \texttt{\textbackslash chapter\{\}} to prevent font leak & Zero errors: 4-pass compilation (pdflatex $\times$ 3 + bibtex); 0 undefined references; 0 undefined citations; 0 multiply-defined labels; 562 pages \\
+\addlinespace
+Citation standards         & natbib + ieeetr: 120+ references; seminal (Davis 1989, Hevner 2004, Barney 1991) and recent (2020--2025) balanced; PRISMA-sourced corpus integrated & Regulatory documents cited: EU AI Act Articles~9/13, FDA SaMD guidance, HIPAA Privacy Rule, WHO \$4.5T burden report; practitioner sources alongside academic & $\geq$60\% within 5 years; 3--5 citations per paragraph in Ch.2; proper attribution for all datasets (ABIDE-II, PhysioNet, CHB-MIT, DEAP) \\
+\addlinespace
+Chapter coherence          & Abbreviations expanded on first use per chapter (RGAIG, ASD ensemble, DSR, TAM, TOE, RBV, BCI, RAG); forward/backward \texttt{\textbackslash ref\{\}} links verified bidirectionally & 5 chapters + 5 appendices (A--E, one per chapter): A (7 items), B (10), C (14 + certificates), D (12 + screening), E (10 + AI declaration); examiner Q\&A (12 per chapter, 60 total) & Single coherent work: Ch.1 poses questions, Ch.2 grounds theory, Ch.3 designs method, Ch.4 presents evidence, Ch.5 answers and recommends; thread visible throughout \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 4: Writing Methodology ──
+Table~\ref{tab:phase13_writing} reports the writing methodology selection, describing the approach used in this study and the rationale for each method.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{0.18\textwidth} X X @{}}
+\caption{Phase~13 --- Writing Methodology Selection and Rationale}
+\label{tab:phase13_writing}\\
+\toprule
+\thead{Method} & \thead{This Study} & \thead{Rationale} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Top-down drafting (Primary)        & Outline all 5 chapters from research questions and hypothesis structure before writing body text; draft chapter skeletons with section headings mapped to RGAIG framework components & Ensures structural coherence across 562 pages; prevents scope drift; aligns every section with a research question or hypothesis; GGU DBA guidelines prescribe chapter sequence \\
+\addlinespace
+Iterative revision (Secondary)     & 3 revision cycles per chapter: (1) content accuracy pass verifying all statistics against source data, (2) argument flow pass ensuring logical progression, (3) formatting compliance pass using font monitor tool & Multi-pass revision catches category errors (wrong numbers, broken references) that single-pass misses; 525-module taxonomy and 198 model results require meticulous cross-checking against \texttt{disease\_results.json} \\
+\addlinespace
+Peer review integration (Supporting) & Incorporate supervisor feedback after each chapter draft; integrate 12-member expert panel qualitative comments; address examiner Q\&A anticipated questions (12 per chapter, 60 total) & External review identifies blind spots in argumentation; examiner Q\&A preparation strengthens defence readiness; DBA requires demonstrated responsiveness to practitioner feedback \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 5: Document Integration Matrix ──
+Table~\ref{tab:phase13_integration} maps each thesis component to its source research phase and describes how the findings were integrated into the final manuscript.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{0.17\textwidth} l X @{}}
+\caption[Phase~13 --- Document Integration Matrix: Source Phase]{Phase~13 --- Document Integration Matrix: Source Phase to Thesis Component}
+\label{tab:phase13_integration}\\
+\toprule
+\thead{Component} & \thead{Source Phase} & \thead{Integration Method} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Problem statement              & Phase~1          & Translate research gap identification into Ch.1 Introduction; frame unified AI diagnostic need across ASD with 19 ASD subjects \\
+\addlinespace
+Literature synthesis           & Phases~2--4      & Consolidate systematic review, theoretical framework (TAM-TOE-RBV), and gap analysis into Ch.2 Literature Review; organise by theme not chronology \\
+\addlinespace
+Methodology description        & Phases~5--8      & Map DSR methodology, data collection (305~GB across 7 disease domains), preprocessing pipeline, and 525-module taxonomy design into Ch.3 Research Methods \\
+\addlinespace
+Results presentation           & Phases~9--10     & Present ASD ensemble 97.67\% $\pm$ 2.1\%, per-ASD accuracies (ASD 97.67\%), bootstrap CIs, and ablation studies in Ch.4 Data Analysis \& Findings \\
+\addlinespace
+Discussion and recommendations & Phases~11--12    & Synthesise hypothesis interpretation, literature comparison, contributions (C1--C8), ROI 135--2{,}717\%, governance implications, and limitations into Ch.5 Discussion \& Recommendations \\
+\addlinespace
+Cross-references               & All phases       & Insert \texttt{\textbackslash ref\{\}} links connecting chapters bidirectionally; ensure every hypothesis in Ch.4 references its definition in Ch.3 and interpretation in Ch.5 \\
+\addlinespace
+Abbreviation consistency       & All phases       & Expand every abbreviation on first use per chapter (e.g., RGAIG, ASD ensemble, DSR, TAM, TOE, RBV, BCI, RAG); subsequent uses short form only; maintain master abbreviation list \\
+\addlinespace
+Table and figure numbering     & All phases       & Sequential numbering within chapters (Table~4.1, Figure~3.2); verify no duplicate labels; all tables use booktabs with \texttt{\textbackslash caption} above; all figures use TikZ with caption below \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 6: Academic Writing Standards ──
+Table~\ref{tab:phase13_standards} enumerates the academic writing standards and formatting requirements governing the thesis document.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{0.13\textwidth} X @{}}
+\caption{Phase~13 --- Academic Writing Standards and Formatting Requirements}
+\label{tab:phase13_standards}\\
+\toprule
+\thead{Standard} & \thead{Requirement} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Voice              & Third person throughout; active voice where appropriate (``the framework achieves'' not ``it was achieved by the framework''); use ``argues,'' ``demonstrates,'' ``establishes'' --- avoid ``explores,'' ``looks at,'' ``deals with'' \\
+\addlinespace
+Tense              & Past tense for methods and results (``the model achieved ASD ensemble 97.67\%''); present tense for established facts and discussion (``the RGAIG framework addresses governance gaps''); future tense only for recommendations and future work \\
+\addlinespace
+Font and spacing   & Times New Roman 12pt (mathptmx package); double-spaced body text; single-spaced within tables and block quotes; \texttt{\textbackslash normalsize\hspace{0pt}\textbackslash normalfont\hspace{0pt}\textbackslash color\hspace{0pt}\{black\}} after every \texttt{\textbackslash chapter\{\}} to prevent font leak \\
+\addlinespace
+Margins            & 1~inch all sides (left, right, top, bottom); consistent throughout all 562 pages including front matter, body, and appendices; binding margin not required for electronic submission \\
+\addlinespace
+Citations          & natbib package with ieeetr bibliography style; numeric in-text citations; 120+ references; 30\%+ published within last 5 years; proper attribution for datasets (ABIDE-II, PhysioNet, UCI) \\
+\addlinespace
+Headings           & \texttt{\textbackslash chapter} $\rightarrow$ \texttt{\textbackslash section} $\rightarrow$ \texttt{\textbackslash subsection} hierarchy; TOC depth = 0 (chapters only); dedicated chapter title divider pages with decorative rules \\
+\addlinespace
+Page numbering     & Roman numerals (i, ii, iii) for front matter (title page through list of figures); arabic numerals (1, 2, 3) from Chapter~1 onwards; continuous numbering through appendices \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 7: Evaluation and Benchmarking ──
+Table~\ref{tab:phase13_benchmark} summarises the evaluation benchmarks against which the thesis document is measured, including length balance, citation density, and cross-reference integrity.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{0.16\textwidth} X @{}}
+\caption{Phase~13 --- Evaluation and Benchmarking Standards for Thesis Document}
+\label{tab:phase13_benchmark}\\
+\toprule
+\thead{Metric / Benchmark} & \thead{Standard} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Chapter length balance      & No single chapter exceeds 25\% of total body page count; target distribution: Ch.1 (36~pp, 7\%), Ch.2 (63~pp, 12\%), Ch.3 (44~pp, 8\%), Ch.4 (47~pp, 9\%), Ch.5 (55~pp, 10\%); appendices complement without duplicating \\
+\addlinespace
+Table-to-text ratio         & Minimum 1 table per 4 pages of body text; every table referenced in surrounding prose; tables summarise, text interprets --- no data presented only in text when a table is more effective \\
+\addlinespace
+Figure quality              & All figures rendered in TikZ (zero raster PNG/JPG); vector graphics scalable without quality loss; consistent colour scheme (ggunavy \#003057 accent); every figure has caption below and label for cross-referencing \\
+\addlinespace
+Citation density            & Literature Review (Ch.2): 3--5 citations per paragraph; Methods (Ch.3): 1--3 per paragraph for methodological justification; Results (Ch.4): citations for benchmark comparisons; minimum 120 total references \\
+\addlinespace
+Cross-reference integrity   & 0 undefined \texttt{\textbackslash ref\{\}} warnings; 0 multiply-defined labels; every table, figure, equation, and appendix referenced at least once in body text; bidirectional chapter references verified \\
+\addlinespace
+Argument flow               & Each chapter opens with objectives and closes with summary linking to next chapter; ``red thread'' from Ch.1 research questions through Ch.5 answers visible; 12-question examiner Q\&A table per chapter \\
+\addlinespace
+Grammar and spelling        & Zero grammatical errors; British English spelling consistent throughout (organisation, analyse, behaviour); spell-check plus manual proofread; no orphan or widow lines (\texttt{\textbackslash widowpenalty=10000}) \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 8: Research Evidence Chain ──
+Table~\ref{tab:phase13_evidence} traces the research evidence chain from raw experimental findings through interpreted results, chapter drafts, and cross-referencing to the final validated manuscript.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} p{0.16\textwidth} X @{}}
+\caption[Phase~13 --- Research Evidence Chain: From Raw Findings]{Phase~13 --- Research Evidence Chain: From Raw Findings to Final Manuscript}
+\label{tab:phase13_evidence}\\
+\toprule
+\thead{Chain Link} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Raw findings                 & 198 trained models (380~MB joblib files) across 7 disease domains; 305~GB processed data from 19 ASD subjects; ASD classification accuracy scores in \texttt{disease\_results.json}: ASD 97.67\%, Epilepsy 99.02\%, Depression 91.07\%, Schizophrenia 97.17\% \\
+\addlinespace
+Interpreted results          & ASD ensemble 97.67\% $\pm$ 2.1\% (bootstrap 95\% CI, 1,000 resamples); all 5 hypotheses supported ($p < .05$); Cohen's $d$ range 0.63--1.42; ROI 135--2{,}717\%; 525-module taxonomy pass rates: Tier~1 97.4\%, Tier~2 98.1\%, Tier~3 98.4\% \\
+\addlinespace
+Chapter drafts               & Ch.1 Introduction (36~pp): problem framing and research questions; Ch.2 Literature Review (63~pp): 120+ paper synthesis; Ch.3 Research Methods (44~pp): DSR methodology and 525-module taxonomy; Ch.4 Data Analysis (47~pp): per-ASD results and ablation; Ch.5 Discussion (55~pp): contributions C1--C8 and recommendations \\
+\addlinespace
+Cross-referenced document    & All inter-chapter references resolved; hypothesis definitions (Ch.3) linked to results (Ch.4) linked to interpretation (Ch.5); every table and figure cited in body text; abbreviations expanded on first use per chapter \\
+\addlinespace
+Formatted thesis             & Report class, mathptmx (Times 12pt), double-spaced, 1-inch margins; booktabs tables throughout; TikZ-only figures; natbib + ieeetr citations; roman front matter + arabic body pagination; chapter title divider pages \\
+\addlinespace
+Final manuscript             & 562 pages; 0 compilation errors; 0 undefined references; 0 undefined citations; 0 multiply-defined labels; 5 chapters + 5 appendices (A--E); examiner Q\&A tables (12 questions per chapter, 60 total); 15-point quality checklist passed \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 9: Quality Checklist ──
+Table~\ref{tab:phase13_checklist} maps each quality gate for the thesis writing phase to its verification status and supporting evidence.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} X c X @{}}
+\caption{Phase~13 --- Thesis Writing and Document Integration Quality Checklist}
+\label{tab:phase13_checklist}\\
+\toprule
+\thead{Checklist Item} & \thead{Status} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+All 5 chapters drafted (Introduction, Literature Review, Research Methods, Data Analysis \& Findings, Discussion \& Recommendations)?               & $\checkmark$ & 562-page document: Ch.1 (36~pp), Ch.2 (63~pp), Ch.3 (44~pp), Ch.4 (47~pp), Ch.5 (55~pp) per Table~\ref{tab:phase13_benchmark} \\
+\addlinespace
+All tables formatted with booktabs (no vertical lines, \texttt{\textbackslash toprule}/\texttt{\textbackslash midrule}/\texttt{\textbackslash bottomrule} only)?                                                                                & $\checkmark$ & Automated search for \texttt{\textbackslash hline} returns zero matches; all tables use booktabs per Table~\ref{tab:phase13_standards} \\
+\addlinespace
+All figures rendered in TikZ (zero raster PNG/JPG images in final document)?                                                                          & $\checkmark$ & Zero \texttt{\textbackslash includegraphics} commands in source files; all figures use TikZ per Table~\ref{tab:phase13_benchmark} row~3 \\
+\addlinespace
+Cross-references resolved --- 0 undefined \texttt{\textbackslash ref\{\}} warnings in compilation log?                                               & $\checkmark$ & 4-pass compilation log shows 0 undefined reference warnings; verified in Table~\ref{tab:phase13_evidence} row~6 \\
+\addlinespace
+Citations complete --- 0 undefined \texttt{\textbackslash cite\{\}} warnings; natbib + ieeetr applied consistently?                                  & $\checkmark$ & bibtex pass produces 0 undefined citation warnings; 120+ references verified per Table~\ref{tab:phase13_standards} row~5 \\
+\addlinespace
+Abbreviations expanded on first use per chapter (RGAIG, ASD ensemble, DSR, TAM, TOE, RBV, BCI, RAG, etc.)?                                                   & $\checkmark$ & Per-chapter abbreviation expansion verified in Table~\ref{tab:phase13_integration} row~7; master abbreviation list maintained \\
+\addlinespace
+Appendices organised by chapter: A (Ch.1, 7 items), B (Ch.2, 10 items), C (Ch.3, 14 items + certificates), D (Ch.4, 12 items + screening), E (Ch.5, 10 items + AI declaration)? & $\checkmark$ & Appendix item counts confirmed in Table~\ref{tab:phase13_integration} row~1; extract\_appendix\_content.py generates appendices \\
+\addlinespace
+Document compiles with 0 errors across 4-pass compilation (\texttt{pdflatex} $\times$ 3 + \texttt{bibtex} $\times$ 1)?                               & $\checkmark$ & 0 \LaTeX{} errors confirmed; font\_monitor.py compliance check passed per Table~\ref{tab:phase13_quality} row~5 \\
+\addlinespace
+Page count within GGU DBA guidelines (562 pages including front matter and appendices)?                                                                & $\checkmark$ & 562 pages verified in Table~\ref{tab:phase13_evidence} row~6; chapter distribution within GGU guidelines \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% RGAIG+ THEORETICAL RESEARCH MODEL — Integrated from rgaig_theory_tables/figures.tex
+%% Phase 13 (Ch.5): Artifact Map + Phase-Chapter Map
+%% ═══════════════════════════════════════════════════════════════════════════════
+
+%% ── Table 10: Dissertation Artifact Map (RGAIG+ Theory Table 8) ──
+Table~\ref{tab:rgaig_artifact_map} maps each dissertation chapter to its corresponding research phase, key sections, tables, and figures, providing a navigational guide to the entire document.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} c p{0.12\textwidth} c X X X @{}}
+\caption[Phase~13 --- Dissertation Artifact Map: Chapter → Phase]{Phase~13 --- Dissertation Artifact Map: Chapter → Phase → Section → Table/Figure}
+\label{tab:rgaig_artifact_map}\\
+\toprule
+\thead{Ch.} & \thead{Title} & \thead{Phase} & \thead{Key Sections} & \thead{Tables} & \thead{Figures} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Introduction & 1--2 & Problem statement, research gaps, RQs, hypothesis overview & Gap--RQ matrix, Ethical considerations & Research scope, 9-layer overview \\
+\addlinespace
+2 & Literature Review & 3--4 & Theoretical foundations, lit synthesis, framework comparison & Theory foundations, Lit synthesis, Contribution matrix & Theoretical integration, Framework comparison \\
+\addlinespace
+3 & Research Methods & 5--7 & DSR methodology, variable operationalization, SEM design & Variable operationalization, SEM process, Validation strategy & SEM model, DSR cycle, Validation workflow \\
+\addlinespace
+4 & Data Analysis & 8--11 & Signal processing, DL results, GenAI evaluation, governance & 8-phase results, Device benchmarks, Decision matrix & Results dashboard, ROC curves \\
+\addlinespace
+5 & Discussion & 12--15 & Findings, theoretical implications, limitations, future research & Standards alignment, Adoption roadmap, Governance stack & Governance stack, Feedback loop, One-page framework \\
+\end{xltabular}
+\endgroup
+
+\vspace{1.5em}
+
+%% ── Table 11: Phase-to-Chapter Allocation (RGAIG+ Theory Table 13) ──
+Table~\ref{tab:rgaig_phase_chapter_map} documents the allocation of each RGAIG+ research phase to its corresponding thesis chapter, section focus, and key deliverables.
+
+\needspace{4\baselineskip}
+\begingroup\singlespacing\tablefontsize\tablestripes
+\begin{xltabular}{\textwidth}{@{} c p{0.14\textwidth} c X X X @{}}
+\caption{Phase~13 --- RGAIG+ Phase-to-Chapter Allocation with Key Deliverables}
+\label{tab:rgaig_phase_chapter_map}\\
+\toprule
+\thead{Ph.} & \thead{Phase Name} & \thead{Ch.} & \thead{Section Focus} & \thead{Key Tables} & \thead{Key Figures} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+1 & Problem Identification & 1 & Research gaps, objectives & Gap--RQ--Hypothesis matrix & Research scope \\
+\addlinespace
+2 & Literature Mapping & 2 & Systematic review & Literature synthesis & Framework comparison \\
+\addlinespace
+3 & Theoretical Foundation & 2 & Theory integration & Theory foundations, Theory--layer map & Theoretical integration \\
+\addlinespace
+4 & Framework Comparison & 2 & Existing frameworks & Contribution matrix & Standards coverage \\
+\addlinespace
+5 & Research Design & 3 & Methodology, variables & Variable operationalization, Survey & SEM model diagram \\
+\addlinespace
+6 & Analysis Strategy & 3 & SEM protocol & SEM process, Fit criteria & SEM workflow \\
+\addlinespace
+7 & Data Collection & 3 & Sampling, instruments & Sample demographics & Data collection flow \\
+\addlinespace
+8 & Signal Processing & 4 & EEG preprocessing & Device benchmarks, Consumer vs clinical & Signal pipeline \\
+\addlinespace
+9 & DL Analysis & 4 & Disease classification & 8-phase results, Confusion matrices & ROC curves \\
+\addlinespace
+10 & GenAI Evaluation & 4 & LLM governance testing & 13-phase GenAI results & Decision engine \\
+\addlinespace
+11 & Governance Metrics & 4 & Pillar assessment & 10-pillar results, Decision matrix & Governance stack \\
+\addlinespace
+12 & Discussion & 5 & Findings interpretation & Standards alignment, Roadmap & Adoption roadmap \\
+\addlinespace
+13 & Implications & 5 & Theoretical and practical & Governance lifecycle, RACI & Feedback loop \\
+\addlinespace
+14 & Limitations & 5 & Boundary conditions & Risk factors, Validation comparison & Validation workflow \\
+\addlinespace
+15 & Dissemination & 5 & Future research & Component inventory & One-page framework \\
+\end{xltabular}
+\endgroup
+
+\clearpage

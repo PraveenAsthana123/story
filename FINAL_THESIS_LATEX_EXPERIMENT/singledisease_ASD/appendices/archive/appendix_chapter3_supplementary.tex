@@ -1,0 +1,683 @@
+%% =====================================================================
+%% APPENDIX: Chapter 3 — Supplementary Methodology Materials
+%% Content removed from Chapter 3 during examiner feedback and audit.
+%% Reason: Focus Ch.3 on core methodology; move implementation details,
+%% tool comparisons, and system architecture here for reference.
+%% =====================================================================
+\setchaptercolor{3}
+
+\label{app:ch3_supplementary}
+
+This appendix contains supplementary materials that support the research methodology presented in Chapter~\ref{chap:methodology}. These materials were separated from the main chapter to maintain focus on core methodological decisions while preserving detailed implementation specifications, tool comparisons, and system architecture documentation for reference.
+
+%% =====================================================================
+\section{Extended Epistemological Justification}
+\label{sec:appx_epistemology}
+%% =====================================================================
+
+This research adopts a \textbf{pragmatist paradigm}~\cite{creswell2018research} as its philosophical foundation, situated within a predominantly \textbf{quantitative} approach augmented by design science elements. Pragmatism holds that knowledge claims arise from actions, situations, and consequences rather than from antecedent conditions alone, making it particularly well-suited to applied research that must bridge computational experimentation with clinical decision-making~\cite{creswell2018research}. The ontological position underpinning this study is one of \textbf{critical realism}: biomedical signals such as electroencephalographic recordings possess objective, measurable properties (voltage amplitudes, spectral power densities, temporal dynamics), yet the clinical interpretation of those signals is inherently context-dependent, shaped by diagnostic conventions, institutional protocols, and the experience of individual clinicians. This dual nature---objective measurement combined with socially situated interpretation---motivates the epistemological stance that knowledge in biomedical AI emerges from the convergence of quantitative empirical measurement and qualitative expert assessment, rather than from either source in isolation. Could a simpler design have sufficed? A purely positivist study could report accuracy; a purely interpretivist study could report clinician perceptions. Neither could do both with the traceability this dissertation demands.
+
+The paradigm selection rationale is as follows:
+\begin{itemize}
+    \item \textbf{Why pragmatism:} Accommodates quantitative metrics (accuracy, F1, AUC), qualitative expert assessment, and constructive artifact evaluation within a single framework
+    \item \textbf{Why not post-positivism:} Cannot recognize the framework artifact itself as a scholarly contribution
+    \item \textbf{Why not interpretivism:} Lacks mechanisms for controlled DL model comparison
+\end{itemize}
+
+
+%% =====================================================================
+\section{Research Timeline}
+\label{sec:appx_timeline}
+%% =====================================================================
+
+Figure~\ref{fig:research_timeline_appx} presents the 26-week research timeline with four milestones, showing overlapping phases that indicate parallel work streams.
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+    \centering
+    \resizebox{0.97\textwidth}{!}{%
+    \begin{tikzpicture}[
+        phaselabel/.style={font=\fignodefont, text=ggunavy, anchor=east},
+        milestonelabel/.style={font=\figtitlefont, text=ggunavy, anchor=south, align=center},
+        weeklabel/.style={font=\fignodefont, text=ggunavy}
+    ]
+        % --- Week axis ---
+        \draw[thick, ggunavy] (0, 0) -- (13, 0);
+        \foreach \w in {0,2,...,26} {
+            \draw[ggunavy] ({\w*0.5}, -0.1) -- ({\w*0.5}, 0.1);
+            \node[weeklabel, below] at ({\w*0.5}, -0.15) {\w};
+        }
+        \node[font=\figtitlefont, text=ggunavy, below] at (6.5, -0.55) {Week};
+
+        % --- Phase bars (bottom to top) ---
+        \fill[lightblue, rounded corners=2pt] ({1*0.5}, 0.4) rectangle ({4*0.5}, 0.7);
+        \node[phaselabel] at (-0.1, 0.55) {Literature Review};
+
+        \fill[lightorange, rounded corners=2pt] ({2*0.5}, 0.9) rectangle ({6*0.5}, 1.2);
+        \node[phaselabel] at (-0.1, 1.05) {Dataset Acquisition};
+
+        \fill[lightteal, rounded corners=2pt] ({5*0.5}, 1.4) rectangle ({8*0.5}, 1.7);
+        \node[phaselabel] at (-0.1, 1.55) {Preprocessing Pipeline};
+
+        \fill[lightpurple, rounded corners=2pt] ({7*0.5}, 1.9) rectangle ({13*0.5}, 2.2);
+        \node[phaselabel] at (-0.1, 2.05) {Model Development};
+
+        \fill[lightgreen, rounded corners=2pt] ({9*0.5}, 2.4) rectangle ({15*0.5}, 2.7);
+        \node[phaselabel] at (-0.1, 2.55) {Training \& Optimization};
+
+        \fill[lightyellow, rounded corners=2pt] ({14*0.5}, 2.9) rectangle ({21*0.5}, 3.2);
+        \node[phaselabel] at (-0.1, 3.05) {Evaluation \& Testing};
+
+        \fill[lightpink, rounded corners=2pt] ({19*0.5}, 3.4) rectangle ({23*0.5}, 3.7);
+        \node[phaselabel] at (-0.1, 3.55) {Clinical Validation};
+
+        \fill[lightcoral, rounded corners=2pt] ({22*0.5}, 3.9) rectangle ({26*0.5}, 4.2);
+        \node[phaselabel] at (-0.1, 4.05) {Documentation};
+
+        % --- Milestone markers (dashed vertical lines) ---
+        \draw[dashed, thick, ggunavy!70] ({7*0.5}, -0.1) -- ({7*0.5}, 4.5);
+        \node[milestonelabel] at ({7*0.5}, 4.6) {M1\\Data Ready};
+
+        \draw[dashed, thick, ggunavy!70] ({14*0.5}, -0.1) -- ({14*0.5}, 4.5);
+        \node[milestonelabel] at ({14*0.5}, 4.6) {M2\\Models Complete};
+
+        \draw[dashed, thick, ggunavy!70] ({22*0.5}, -0.1) -- ({22*0.5}, 4.5);
+        \node[milestonelabel] at ({22*0.5}, 4.6) {M3\\Evaluation Done};
+
+        \draw[dashed, thick, ggunavy!70] ({26*0.5}, -0.1) -- ({26*0.5}, 4.5);
+        \node[milestonelabel] at ({26*0.5}, 4.6) {M4\\Final};
+    \end{tikzpicture}%
+    }% end resizebox
+    \caption{Research Timeline: 26-Week Project Plan with Milestones}
+    \label{fig:research_timeline_appx}
+    \vspace{0.5em}\noindent\textit{Note.} M = milestone. Overlapping phases indicate parallel work streams. M1 = data readiness; M2 = model architecture completion; M3 = evaluation and statistical testing; M4 = final submission.
+\end{figure}
+
+
+%% =====================================================================
+\section{ASD-Focused Feature Extraction Comparison}
+\label{sec:appx_feature_extraction}
+%% =====================================================================
+
+Table~\ref{tab:feature_comparison_appx} compares the feature extraction methods used across the five clinical domains, and Table~\ref{tab:signal_to_image_appx} documents the signal-to-image conversion methods that enable deep learning architectures to process time-series EEG data.
+
+\needspace{8\baselineskip}
+\iffalse % AUTO-SUPPRESS non-ASD
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:feature_comparison_appx} asd-focused feature extraction comparison.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{1.8cm} L L p{2cm} L L @{}}
+\caption{ASD-Focused Feature Extraction Comparison}\label{tab:feature_comparison_appx} \\
+\toprule
+\thead{Feature Domain} & \thead{ASD} & \thead{PD} & \thead{Cancer} & \thead{Stress} & \thead{BCI} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{@{}l}{\textit{(\,Tab.~\ref{tab:feature_comparison_appx} continued from previous page\,)}} \\
+\toprule
+\thead{Feature Domain} & \thead{ASD} & \thead{PD} & \thead{Cancer} & \thead{Stress} & \thead{BCI} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Time domain & Hjorth parameters, zero-crossing, statistical moments & Hjorth parameters, waveform shape analysis & N/A (pixel-level) & Statistical moments, Hjorth parameters & Statistical moments, zero-crossing rate \\
+\addlinespace
+Frequency & Band power ($\delta$, $\theta$, $\alpha$, $\beta$, $\gamma$), PSD, spectral entropy & Beta power (13--30 Hz), alpha power, $\theta$/$\beta$ ratio & N/A & Frontal $\alpha$ asymmetry, frontal $\theta$, high $\beta$ & Band power, PSD, spectral entropy \\
+\addlinespace
+Time-frequency & CWT scalogram & Multi-scale CWT (3 scales) & N/A & VMD + CWT & CWT spectrogram \\
+\addlinespace
+Spatial & Topographic maps & Channel attention maps & CNN feature maps (Conv1--5) & Channel-level features & Topographic maps \\
+\addlinespace
+Connectivity & PLV, coherence, Granger causality & Beta coherence, pathological synchrony & N/A & Limited (cross-channel) & Limited (cross-channel) \\
+\addlinespace
+Key biomarker & $\theta$/$\beta$ ratio elevation & Beta-band elevation and synchrony & Cell morphology (blast ratio) & Frontal $\alpha$ asymmetry & $\alpha$/$\theta$ ratio reduction \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} CWT = continuous wavelet transform; VMD = variational mode decomposition; PLV = phase-locking value; PSD = power spectral density; CNN = convolutional neural network; $\delta$ = delta (0.5--4 Hz); $\theta$ = theta (4--8 Hz); $\alpha$ = alpha (8--12 Hz); $\beta$ = beta (13--30 Hz); $\gamma$ = gamma ($>$30 Hz).
+\fi % AUTO-SUPPRESS non-ASD
+
+Table~\ref{tab:signal_to_image_appx} documents the signal-to-image conversion methods that enable deep learning architectures to process time-series EEG data across the five clinical domains.
+
+\needspace{8\baselineskip}
+\iffalse % AUTO-SUPPRESS non-ASD
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{1.6cm} p{3.5cm} p{2.8cm} L @{}}
+\caption{Signal-to-Image Conversion Methods Across Domains}\label{tab:signal_to_image_appx} \\
+\toprule
+\thead{Domain} & \thead{Conversion Method} & \thead{Output Dimensions} & \thead{Rationale} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:signal_to_image_appx} continued from previous page\,)}} \\
+\toprule
+\thead{Domain} & \thead{Conversion Method} & \thead{Output Dimensions} & \thead{Rationale} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+ASD (EEG) & CWT scalogram (Morlet wavelet) & 224 $\times$ 224 $\times$ 3 (RGB) & Captures multi-scale oscillatory patterns; compatible with ImageNet-pretrained CNNs \\
+\addlinespace
+& Multi-scale CWT (3 frequency scales) & 3 $\times$ 64 $\times$ 64 & Separates $\alpha$, $\beta$, $\gamma$ band contributions for channel attention mechanism \\
+\addlinespace
+Cancer (Image) & Direct input (already image) & 224 $\times$ 224 $\times$ 3 (RGB) & Microscopy images require no signal conversion; stain normalisation applied instead \\
+\addlinespace
+Stress (EEG) & CWT + topographic map overlay & 128 $\times$ 128 $\times$ 3 (RGB) & Combines time-frequency and spatial activation patterns \\
+\addlinespace
+BCI (EEG) & Spectrogram (STFT) & 224 $\times$ 224 $\times$ 3 (RGB) & Standard short-time Fourier transform captures drowsiness-specific $\alpha$/$\theta$ transitions \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} CWT = continuous wavelet transform; STFT = short-time Fourier transform; CNN = convolutional neural network; RGB = red--green--blue colour channels.
+\fi % AUTO-SUPPRESS non-ASD
+
+
+%% =====================================================================
+\section{Software Stack and Hardware Specifications}
+\label{sec:appx_sw_hw}
+%% =====================================================================
+
+Table~\ref{tab:sw_stack_appx} documents the software stack and Table~\ref{tab:hw_reproducibility_appx} provides hardware specifications and reproducibility controls.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.5cm} p{4.5cm} L @{}}
+\caption{Software Stack for Experimental Infrastructure}\label{tab:sw_stack_appx} \\
+\toprule
+\thead{Category} & \thead{Component} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:sw_stack_appx} continued from previous page\,)}} \\
+\toprule
+\thead{Category} & \thead{Component} & \thead{Specification} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Core language & Python & 3.10+ \\
+\addlinespace
+Deep learning & PyTorch, TensorFlow, Keras & 2.0+, 2.x, integrated \\
+\addlinespace
+Signal processing & MNE-Python, SciPy, NumPy & Domain-specific EEG analysis \\
+\addlinespace
+Image processing & OpenCV, Scikit-learn & Radiomics and CV pipeline \\
+\addlinespace
+GenAI / RAG & LangChain, Hugging Face Transformers & RAG pipeline and embeddings \\
+\addlinespace
+GPU acceleration & CUDA, cuDNN & 11.8+, 8.6+ \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} CUDA = Compute Unified Device Architecture; cuDNN = CUDA Deep Neural Network library; RAG = retrieval-augmented generation; CV = computer vision.
+
+Table~\ref{tab:hw_reproducibility_appx} summarises the hardware specifications and reproducibility controls employed across all experiments.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.5cm} p{4.5cm} L @{}}
+\caption{Hardware Specifications and Reproducibility Controls}\label{tab:hw_reproducibility_appx} \\
+\toprule
+\thead{Category} & \thead{Component} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:hw_reproducibility_appx} continued from previous page\,)}} \\
+\toprule
+\thead{Category} & \thead{Component} & \thead{Specification} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Primary GPU & NVIDIA RTX 4090 & 24 GB VRAM \\
+\addlinespace
+Alternative GPU & NVIDIA A100 & 40 GB VRAM \\
+\addlinespace
+CPU & AMD Ryzen 9 / Intel i9 & Multi-core processing \\
+\addlinespace
+Memory & System RAM & 64 GB DDR5 (minimum) \\
+\addlinespace
+Storage & NVMe SSD & 2 TB \\
+\addlinespace
+Training time & Per domain & 24--72 hours \\
+\addlinespace
+Environment & Docker containers & Pinned dependency versions \\
+\addlinespace
+Determinism & Fixed random seed (42) & PyTorch, TensorFlow, NumPy, Scikit-learn \\
+\addlinespace
+Version control & Git & Tagged experiment commits \\
+\addlinespace
+Experiment tracking & MLflow & Hyperparameter and metric logging \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} GPU = graphics processing unit; VRAM = video random access memory; DDR5 = Double Data Rate 5; NVMe = Non-Volatile Memory Express; SSD = solid-state drive; MLflow = open-source machine learning lifecycle platform.
+
+
+%% =====================================================================
+\section{GenAI Evaluation Frameworks Comparison}
+\label{sec:appx_genai_eval}
+%% =====================================================================
+
+Table~\ref{tab:genai_eval_frameworks_appx} compares the three GenAI evaluation frameworks used in this study: DeepEval (primary evaluation harness), RAGAS (retrieval-specific metrics), and G-Eval (LLM-judged narrative quality).
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{1.6cm} L L p{1.6cm} L @{}}
+\caption{GenAI Evaluation Frameworks: DeepEval, RAGAS, and G-Eval}\label{tab:genai_eval_frameworks_appx} \\
+\toprule
+\thead{Framework} & \thead{Metrics} & \thead{Evaluation Method} & \thead{Open Source} & \thead{RGAIG Usage} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:genai_eval_frameworks_appx} continued from previous page\,)}} \\
+\toprule
+\thead{Framework} & \thead{Metrics} & \thead{Evaluation Method} & \thead{Open Source} & \thead{RGAIG Usage} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+DeepEval & 14 metrics: faithfulness, hallucination, bias, toxicity, answer relevancy & Reference-free and reference-based; custom metric support & Yes (Python) & Primary framework for faithfulness and hallucination scoring \\
+\addlinespace
+RAGAS & 8 metrics: context precision, context recall, faithfulness, answer relevancy, answer correctness & Component-wise evaluation of retrieval and generation stages independently & Yes (Python) & Retrieval quality: context precision and recall measurement \\
+\addlinespace
+G-Eval & 4 criteria: coherence, consistency, fluency, relevance & LLM-based evaluation with chain-of-thought scoring (GPT-4 as judge) & Partial & Coherence and fluency scoring for clinical narrative quality \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} DeepEval serves as the primary evaluation harness; RAGAS provides retrieval-specific metrics; G-Eval provides LLM-judged narrative quality assessment. Using multiple frameworks provides triangulation of output quality.
+
+
+%% =====================================================================
+\section{RAG Output Quality Metrics}
+\label{sec:appx_rag_metrics}
+%% =====================================================================
+
+Table~\ref{tab:dcaibf_output_metrics_appx} presents the RAG output quality metrics and acceptance thresholds applied during RGAIG validation testing across 500 generated explanations in five clinical domains.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2cm} p{1.6cm} p{1cm} p{1.5cm} L @{}}
+\caption{RGAIG RAG Output Quality Metrics and Acceptance Thresholds}\label{tab:dcaibf_output_metrics_appx} \\
+\toprule
+\thead{Metric} & \thead{Framework} & \thead{Score} & \thead{Threshold} & \thead{Interpretation} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:dcaibf_output_metrics_appx} continued from previous page\,)}} \\
+\toprule
+\thead{Metric} & \thead{Framework} & \thead{Score} & \thead{Threshold} & \thead{Interpretation} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Faithfulness & DeepEval & 0.89 & $\geq$0.85 & 89\% of generated claims supported by retrieved context \\
+\addlinespace
+Answer relevancy & RAGAS & 0.92 & $\geq$0.80 & Generated answers address the clinical query directly \\
+\addlinespace
+Context recall & RAGAS & 0.87 & $\geq$0.80 & 87\% of relevant passages retrieved from knowledge base \\
+\addlinespace
+Context precision & RAGAS & 0.91 & $\geq$0.85 & 91\% of retrieved passages are relevant to the query \\
+\addlinespace
+Hallucination rate & DeepEval & 2.1\% & $\leq$5\% & 2.1\% of claims have no supporting evidence \\
+\addlinespace
+Citation accuracy & Custom & 94.2\% & $\geq$90\% & 94.2\% of citations traceable to knowledge base \\
+\addlinespace
+Coherence & G-Eval & 4.6/5.0 & $\geq$4.0 & Expert-rated narrative quality and logical flow \\
+\addlinespace
+Toxicity & DeepEval & 0.0\% & $\leq$1\% & No toxic, biased, or harmful content detected \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} $n$=500 generated explanations across five clinical domains. Faithfulness = proportion of generated claims supported by retrieved context. Citation accuracy = proportion of cited references traceable to the knowledge base. Hallucination rate = percentage of generated claims with no supporting evidence.
+
+
+%% =====================================================================
+\section{End-to-End System Architecture: Eight Processing Flows}
+\label{sec:appx_system_flows}
+%% =====================================================================
+
+Table~\ref{tab:system_flows_summary_appx} summarises the eight processing flows that comprise the RGAIG pipeline, documenting key stages, quality gates, and output artefacts for each flow.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{0.6cm} p{1.8cm} L p{2.8cm} L @{}}
+\caption{End-to-End System Architecture: Eight Processing Flows}\label{tab:system_flows_summary_appx} \\
+\toprule
+\thead{\#} & \thead{Flow} & \thead{Key Stages} & \thead{Quality Gate} & \thead{Output Artefact} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:system_flows_summary_appx} continued from previous page\,)}} \\
+\toprule
+\thead{\#} & \thead{Flow} & \thead{Key Stages} & \thead{Quality Gate} & \thead{Output Artefact} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+1 & Data Flow & Ingestion $\to$ Validation $\to$ Preprocessing $\to$ Feature extraction & SNR $>$10~dB; completeness $>$95\% & 142-feature vector per sample \\
+\addlinespace
+2 & Model Training Flow & Stratified split $\to$ 10-fold CV $\to$ baseline + DL training $\to$ Ensemble & All folds converge; no data leakage & Best model per domain \\
+\addlinespace
+3 & Hybrid Baseline+DL Flow & Dual-branch (3 baseline + 3 DL) $\to$ Majority-vote ensemble & Ensemble $>$ individual models & Final prediction with confidence \\
+\addlinespace
+4 & RAG Explainability Flow & Prediction $\to$ Query $\to$ FAISS retrieval $\to$ LLM generation $\to$ Hallucination check & Citation accuracy $\geq$90\%; coherence $\geq$4/5 & Evidence-grounded clinical narrative \\
+\addlinespace
+5 & GPU/vLLM Deployment & Model export $\to$ Quantisation $\to$ vLLM serving $\to$ API gateway & Latency $<$200~ms; accuracy drop $<$1\% & Production REST API endpoint \\
+\addlinespace
+6 & PII Protection Flow & PII detection $\to$ De-identification $\to$ Encryption $\to$ Access control $\to$ Audit & $k$-anonymity $\geq$5; zero PII in model input & HIPAA/GDPR-compliant data pipeline \\
+\addlinespace
+7 & Guardrail AI Flow & Input validation $\to$ Content filter $\to$ Hallucination detection $\to$ Confidence threshold & All 6 gates pass; else human escalation & Clinically safe, verified output \\
+\addlinespace
+8 & Statistical Flow & Hypothesis $\to$ Test selection $\to$ CV execution $\to$ Bootstrap CI $\to$ Effect size $\to$ Bonferroni & $p < .05$; CI excludes null; $d > 0.5$ & Accept/reject verdict per hypothesis \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Each flow operates autonomously but shares data through structured JSON messages via the multi-agent orchestration layer. Quality gates enforce fail-fast semantics: a stage that fails its gate triggers retry or human escalation, never silent pass-through. vLLM = virtual large language model serving engine; FAISS = Facebook AI Similarity Search; PII = personally identifiable information.
+
+
+%% =====================================================================
+\section{Model Control Protocol: Governance Capabilities}
+\label{sec:appx_mcp}
+%% =====================================================================
+
+Table~\ref{tab:mcp_capabilities_appx} documents the six governance capabilities implemented by the Model Control Protocol (MCP), which provides a standardised governance layer controlling how AI agents access tools, data sources, and models within the RGAIG pipeline.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2cm} L L p{3.2cm} @{}}
+\caption{Model Control Protocol: Six Governance Capabilities}\label{tab:mcp_capabilities_appx} \\
+\toprule
+\thead{Capability} & \thead{Function} & \thead{Implementation} & \thead{Enforcement} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:mcp_capabilities_appx} continued from previous page\,)}} \\
+\toprule
+\thead{Capability} & \thead{Function} & \thead{Implementation} & \thead{Enforcement} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Model registry & Central catalogue of all deployed models with version, hash, and metadata & MLflow model registry; SHA-256 integrity hash per model artefact & No model loads without registry entry \\
+\addlinespace
+Version control & Track model lineage: data version $\to$ feature version $\to$ model version $\to$ deployment & Git-based versioning; DVC for data and model artefacts & Deployment blocked if version chain incomplete \\
+\addlinespace
+Audit logs & Immutable record of all model predictions, inputs, outputs, and configuration & Append-only SQLite log; daily rotation; 90-day retention & Every inference call logged; no silent execution \\
+\addlinespace
+Access control & Role-based permissions: who can train, deploy, query, or rollback models & RBAC policy engine; three roles (admin, clinician, patient) & API key + role verification per request \\
+\addlinespace
+Deployment gates & Pre-deployment quality checks: accuracy $\geq$85\%, fairness variance $\leq$2\%, latency $<$200\,ms & Automated gate in CI/CD pipeline; all gates must pass & Failed gate blocks deployment; alerts to admin \\
+\addlinespace
+Rollback & Instant reversion to previous model version if post-deployment metrics degrade & Blue-green deployment; previous version kept hot & Auto-rollback if accuracy drops $>$3\% in 24h \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} MCP = Model Control Protocol; RBAC = role-based access control; DVC = Data Version Control; CI/CD = continuous integration/continuous deployment.
+
+
+%% =====================================================================
+\section{Input Guardrail Rules}
+\label{sec:appx_input_guardrails}
+%% =====================================================================
+
+Table~\ref{tab:ch3_input_guardrails_appx} documents the five pre-processing safety checks applied before any query reaches the RAG pipeline.
+
+\needspace{4\baselineskip}
+\iffalse % AUTO-SUPPRESS non-ASD
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2cm} L L p{3.5cm} @{}}
+\caption{Input Guardrail Rules: Five Pre-Processing Safety Checks}\label{tab:ch3_input_guardrails_appx} \\
+\toprule
+\thead{Rule} & \thead{Trigger Condition} & \thead{Action} & \thead{Example} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:ch3_input_guardrails_appx} continued from previous page\,)}} \\
+\toprule
+\thead{Rule} & \thead{Trigger Condition} & \thead{Action} & \thead{Example} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Block diagnosis intent & Query requests definitive diagnosis (``do I have cancer?'') & Block; redirect to clinician & ``Please consult your healthcare provider for diagnosis'' \\
+\addlinespace
+Block prescription & Query requests medication or dosage (``what drug should I take?'') & Block; display disclaimer & ``RGAIG does not provide prescription advice'' \\
+\addlinespace
+Redirect high-risk & Query mentions self-harm, suicide, or emergency symptoms & Redirect to crisis hotline + human clinician & Display crisis resources (988, emergency contacts) \\
+\addlinespace
+Refuse out-of-scope & Query outside the five clinical domains (ASD, PD, Cancer, Stress, BCI) & Refuse with explanation & ``This system is designed for neurodegenerative conditions'' \\
+\addlinespace
+Redact PII & Query contains patient name, DOB, SSN, or medical record number & Redact before processing; log detection event & ``John Smith'' $\to$ ``[PATIENT]'' \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} PII = personally identifiable information; DOB = date of birth; SSN = Social Security number. Rules are evaluated in priority order; the first matching rule terminates processing.
+\fi % AUTO-SUPPRESS non-ASD
+
+
+%% =====================================================================
+\section{Output Guardrail Rules}
+\label{sec:appx_output_guardrails}
+%% =====================================================================
+
+Table~\ref{tab:ch3_output_guardrails_appx} documents the five post-generation safety checks applied after LLM generation and before display to the user.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.2cm} L L p{2.8cm} @{}}
+\caption{Output Guardrail Rules: Five Post-Generation Safety Checks}\label{tab:ch3_output_guardrails_appx} \\
+\toprule
+\thead{Rule} & \thead{Detection Method} & \thead{Action} & \thead{Threshold} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:ch3_output_guardrails_appx} continued from previous page\,)}} \\
+\toprule
+\thead{Rule} & \thead{Detection Method} & \thead{Action} & \thead{Threshold} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Downgrade medical authority & Tone classifier detects authoritative medical claims & Inject hedging language (``this may indicate,'' ``consider consulting'') & Authority score $>$0.7 \\
+\addlinespace
+Inject uncertainty & Confidence below threshold for classification & Add explicit uncertainty statement to output & Model confidence $<$85\% \\
+\addlinespace
+Block unsupported claims & Claim-to-evidence mapping finds ungrounded assertions & Remove claim; replace with ``insufficient evidence'' & Zero matching passages \\
+\addlinespace
+Hallucination gate & Faithfulness score below threshold & Replace output with ``I don't have enough information'' & Faithfulness $<$0.70 \\
+\addlinespace
+Human review escalation & Sensitive topic detected (end-of-life, paediatric, mental health) & Flag for clinician review before patient display & Topic classifier confidence $>$0.8 \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Output rules are evaluated sequentially; multiple rules may apply to the same output. Human review escalation is the final safety net before content reaches the patient.
+
+
+%% =====================================================================
+\section{PII Protection Pipeline}
+\label{sec:appx_pii_pipeline}
+%% =====================================================================
+
+Table~\ref{tab:pii_pipeline_appx} documents the six-stage PII protection pipeline implemented to ensure patient data protection throughout the RGAIG system.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{0.6cm} L L p{3.8cm} @{}}
+\caption{PII Protection Pipeline: Six-Stage Implementation}\label{tab:pii_pipeline_appx} \\
+\toprule
+\thead{\#} & \thead{Process} & \thead{Technology} & \thead{Verification} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:pii_pipeline_appx} continued from previous page\,)}} \\
+\toprule
+\thead{\#} & \thead{Process} & \thead{Technology} & \thead{Verification} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+1 & Detect: identify PII entities in input text & Regex patterns (SSN, DOB, email, phone) + spaCy NER & Recall $>$99\% on synthetic PII test set \\
+\addlinespace
+2 & Classify: categorise entities by sensitivity & PHI (HIPAA-defined), PII (general), sensitive (clinical notes) & Three-tier classification \\
+\addlinespace
+3 & Redact: replace entities with type tokens & ``John Smith'' $\to$ ``[PERSON]''; ``123-45-6789'' $\to$ ``[SSN]'' & Redacted text reviewed by audit layer \\
+\addlinespace
+4 & Encrypt: protect data at rest and in transit & AES-256-GCM at rest; TLS 1.3 in transit & FIPS 140-2 compliant; 90-day key rotation \\
+\addlinespace
+5 & Access control: restrict by role and purpose & RBAC with three roles; GDPR Art.~5(1)(b) purpose limitation & Access denied without valid role + purpose \\
+\addlinespace
+6 & Audit: immutable access and processing log & Append-only SQLite log; tamper-evident hash chain & HIPAA \S164.312(b) compliance \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} PHI = protected health information; PII = personally identifiable information; NER = named entity recognition; RBAC = role-based access control; GCM = Galois/Counter Mode; FIPS = Federal Information Processing Standards.
+
+
+%% =====================================================================
+\section{Security Framework Alignment}
+\label{sec:appx_security}
+%% =====================================================================
+
+Table~\ref{tab:security_alignment_appx} maps RGAIG security controls to five regulatory frameworks, demonstrating compliance readiness.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.5cm} L L @{}}
+\caption{Security Framework Alignment: Five Regulatory Standards}\label{tab:security_alignment_appx} \\
+\toprule
+\thead{Regulation} & \thead{Key Requirement} & \thead{RGAIG Control} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:security_alignment_appx} continued from previous page\,)}} \\
+\toprule
+\thead{Regulation} & \thead{Key Requirement} & \thead{RGAIG Control} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+HIPAA \S164.312 & Technical safeguards: access control, audit, encryption, integrity & RBAC, AES-256, audit trail, hash verification \\
+\addlinespace
+GDPR Art.~25/32 & Data protection by design; encryption; pseudonymisation & Privacy-by-design architecture; $k$-anonymity $\geq$5 \\
+\addlinespace
+NIST AI RMF & Risk management throughout AI lifecycle; trustworthy AI & 15 governance layers (A1--A15); continuous monitoring \\
+\addlinespace
+ISO 27001 & Information security management system; risk assessment & Documented risk register; annual review cycle \\
+\addlinespace
+EU AI Act Art.~14 & Human oversight for high-risk AI systems & Human-in-the-loop escalation; confidence thresholds \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} HIPAA = Health Insurance Portability and Accountability Act; GDPR = General Data Protection Regulation; NIST AI RMF = National Institute of Standards and Technology AI Risk Management Framework; EU AI Act = European Union Artificial Intelligence Act.
+
+
+%% =====================================================================
+\section{Unified Quality Taxonomy}
+\label{sec:appx_quality_taxonomy}
+%% =====================================================================
+
+Table~\ref{tab:unified_taxonomy_appx} presents the RGAIG unified quality taxonomy, comprising 525 modules across three tiers covering the full stack of biomedical AI quality assurance.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.8cm} p{2cm} C C X @{}}
+\caption{RGAIG Unified Quality Taxonomy}\label{tab:unified_taxonomy_appx} \\
+\toprule
+\thead{Tier} & \thead{Section} & \thead{Phases/ Pillars} & \thead{Modules} & \thead{Validation Focus} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:unified_taxonomy_appx} continued from previous page\,)}} \\
+\toprule
+\thead{Tier} & \thead{Section} & \thead{Phases/ Pillars} & \thead{Modules} & \thead{Validation Focus} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Tier 1: DL Pipeline & Ch.~\ref{chap:methodology} & 8 & 111 & Data integrity, model selection, performance, subject reliability, sensitivity, statistics, benchmarking, monitoring \\
+\addlinespace
+Tier 2: GenAI/RAG Pipeline & Ch.~\ref{chap:methodology} & 13 & 220 & Knowledge quality, retrieval fidelity, generation grounding, agent behaviour, A2A coordination, MCP enforcement, explainability, robustness \\
+\addlinespace
+Tier 3: Enterprise Governance & Ch.~\ref{chap:methodology} & 10 & 194 & Energy efficiency, hallucination prevention, hypothesis rigour, threat modelling, SWOT, governance, compliance, responsible AI, explainability, security \\
+\midrule
+\textbf{Total} & & \textbf{31} & \textbf{525} & \textbf{Full-stack biomedical AI quality assurance} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Execution across 500 validation queries achieved 98.1\% mean pass rate for Tier~2. Tier~1 and Tier~3 results are reported in Chapter~\ref{chap:analysis}.
+
+
+%% =====================================================================
+\section{Digital Transformation Guidelines}
+\label{sec:appx_digital_transformation}
+%% =====================================================================
+
+This section situates the RGAIG methodology within the broader digital transformation landscape of healthcare, connecting methodological design decisions to digital transformation use cases, measurable impact, and value creation.
+
+Table~\ref{tab:dt_guidelines_appx} maps ten digital transformation guidelines from methodological design decisions to measurable clinical value.
+
+\needspace{3\baselineskip}
+\tablefontsize
+\begin{xltabular}
+{\textwidth}{@{} p{1.8cm} L p{3cm} L L @{}}
+\caption{Digital Transformation Guidelines: From Methodology to Clinical Value} \label{tab:dt_guidelines_appx} \\
+\toprule
+\thead{Guideline} & \thead{Use Case} & \thead{Methodological Basis} & \thead{Impact} & \thead{Value Created} \\
+\midrule
+\endfirsthead
+\endhead
+
+\midrule
+\multicolumn{5}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+DT-1: ASD-focused diagnostic pipeline & Replace fragmented, domain-specific diagnostic tools with a single ASD-focused AI framework & Design science research; ASD-focused preprocessing; ASD-focused feature engineering & Eliminates tool sprawl; reduces vendor lock-in; standardises diagnostic quality across departments & 15--25\% reduction in per-diagnosis infrastructure cost; single governance framework for all AI tools \\
+\addlinespace
+
+DT-2: Automated feature extraction & Replace manual EEG annotation and imaging feature measurement with automated DL pipelines & Eight-step EEG pipeline; imaging radiomics pipeline; 7 feature categories & Reduces diagnostic preparation time by 60--70\%; eliminates inter-rater variability in feature extraction & Clinician time freed for patient interaction; consistent feature quality regardless of operator experience \\
+\addlinespace
+
+DT-3: Explainable AI integration & Provide clinicians with interpretable, literature-grounded diagnostic explanations alongside predictions & SHAP feature importance + RAG narrative generation; expert panel validation & Transforms AI from black box to decision support; increases clinician trust and regulatory compliance & Higher adoption rates; reduced liability risk; FDA/EU AI Act readiness \\
+\addlinespace
+
+DT-4: Multi-agent workflow automation & Automate the end-to-end diagnostic workflow from data ingestion to report generation & Automated pipeline orchestration; domain-specific expert agents; coordinator agent & 60\% reduction in manual workflow steps; automated quality checks at each pipeline stage & Faster time-to-diagnosis; reduced human error in data handling; scalable to multiple departments \\
+\addlinespace
+
+DT-5: Governance-by-design & Embed AI governance, accountability, and audit mechanisms into the framework architecture rather than retrofitting & RACI matrix; escalation protocols; RTAI framework; data governance model & Proactive regulatory compliance; continuous monitoring and accountability; audit-ready from deployment & Avoided regulatory penalties; faster time-to-approval; institutional trust in AI systems \\
+\addlinespace
+
+DT-6: ASD-focused knowledge transfer & Enable diagnostic models trained on one biomedical domain to inform and improve performance in related domains & Multi-scale channel attention (ASD ensemble); shared feature space; transfer learning architecture & Reduces per-ASD training data requirements by 20--30\%; accelerates deployment to new clinical areas & Faster expansion to new specialities; reduced data collection burden for rare conditions \\
+\addlinespace
+
+DT-7: Privacy-preserving data pipelines & Process sensitive patient data without exposing personally identifiable information & De-identification protocols; HIPAA/GDPR compliance; public dataset benchmarking & Full regulatory compliance; patient trust preservation; institutional risk mitigation & Zero privacy violations; compatible with federated learning (future deployment) \\
+\addlinespace
+
+DT-8: Evidence-based decision support & Ground every AI recommendation in quantifiable evidence with statistical confidence bounds & Bootstrap resampling (1,000$\times$); 95\% CI; effect sizes (Cohen's $d$); predefined thresholds & Clinicians receive confidence intervals, not point estimates; uncertainty is quantified and communicated & Better-informed clinical decisions; reduced over-reliance on single AI predictions \\
+\addlinespace
+
+DT-9: Scalable deployment architecture & Design the framework for institutional scale-up from pilot to enterprise-wide deployment & Modular pipeline design; containerisable components; standardised APIs; batch and real-time modes & Single framework scales from 1 department to hospital-wide deployment without architectural redesign & Reduced total cost of ownership; linear scaling of operational benefits \\
+\addlinespace
+
+DT-10: Continuous improvement loop & Enable the AI system to improve over time through structured feedback, retraining, and performance monitoring & Validation framework; predefined reliability thresholds; drift detection design & AI accuracy maintains or improves post-deployment; degradation is detected and corrected automatically & Long-term ROI; institutional learning; competitive advantage through AI maturity \\
+
+\end{xltabular}
+
+Table~\ref{tab:dt_impact_quantification_appx} quantifies the expected digital transformation impact across five measurable dimensions.
+\needspace{3\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.2cm} p{2cm} L p{2cm} p{2.5cm} @{}}
+\caption{Digital Transformation Impact Quantification}\label{tab:dt_impact_quantification_appx} \\
+\toprule
+\thead{Impact Dimension} & \thead{Baseline (No AI)} & \thead{With RGAIG} & \thead{Improvement} & \thead{Evidence Source} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_impact_quantification_appx} continued from previous page\,)}} \\
+\toprule
+\thead{Impact Dimension} & \thead{Baseline (No AI)} & \thead{With RGAIG} & \thead{Improvement} & \thead{Evidence Source} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Diagnostic accuracy & 78--82\% (manual clinician) & 97.67\% $\pm$ 2.6\% (ASD ensemble) & +8--12 pp & Ch.~\ref{chap:analysis}; AUC = 0.956 \\
+\addlinespace
+Diagnostic time per case & 25--35 minutes & 10--15 minutes (automated pipeline) & $-$55--65\% & 60\% manual effort reduction (H4) \\
+\addlinespace
+Workflow automation & 0\% automated (fully manual) & 60--70\% automated (automated agents) & +60--70 pp & H4 validation: coordinator + domain agents handle preprocessing, classification, explanation \\
+\addlinespace
+Explainability compliance & Ad hoc or absent & SHAP + RAG narrative per diagnosis & 0\% $\rightarrow$ 100\% coverage & H5 validation: expert panel mean $\geq$ 4.0/5.0; Krippendorff's $\alpha = 0.84$ \\
+\addlinespace
+Governance readiness & Fragmented or absent & RACI + escalation + KPI monitoring & 0\% $\rightarrow$ full coverage & RTAI framework: 46 modules, 5 pillars, 77\% maturity \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} pp = percentage points; ASD ensemble = multi-scale channel attention; AUC = area under the receiver operating characteristic curve. Baseline figures are drawn from published healthcare diagnostic literature.
+
+Table~\ref{tab:dt_value_framework_appx} maps the digital transformation value creation to four stakeholder perspectives, following a balanced scorecard structure.
+\needspace{3\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2cm} L L p{2.5cm} @{}}
+\caption{Digital Transformation Value Framework: Four Stakeholder Perspectives}\label{tab:dt_value_framework_appx} \\
+\toprule
+\thead{Perspective} & \thead{Value Created by RGAIG} & \thead{Key Metrics} & \thead{Supporting Guidelines} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:dt_value_framework_appx} continued from previous page\,)}} \\
+\toprule
+\thead{Perspective} & \thead{Value Created by RGAIG} & \thead{Key Metrics} & \thead{Supporting Guidelines} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Patient & Faster, more accurate diagnoses; reduced misdiagnosis risk; transparent AI explanations for informed consent & Diagnostic accuracy (+8--12 pp); false negative reduction ($-$50\%); time-to-diagnosis ($-$55\%) & DT-1, DT-3, DT-8 \\
+\addlinespace
+Clinician & Reduced cognitive workload; decision support with confidence intervals; automated routine tasks; professional development through AI collaboration & Cognitive workload ($-$0.8 points); cases per shift (+40--60\%); satisfaction (+0.8--1.2 points) & DT-2, DT-3, DT-4, DT-8 \\
+\addlinespace
+Administrator & Lower per-diagnosis cost; regulatory compliance; reduced liability; scalable infrastructure; competitive positioning & Cost per diagnosis ($-$15--25\%); governance coverage (0 $\rightarrow$ 100\%); vendor consolidation & DT-1, DT-5, DT-7, DT-9 \\
+\addlinespace
+IT / Informatics & Modular, maintainable architecture; standardised pipelines; automated monitoring; continuous improvement capability & Deployment time (weeks $\rightarrow$ days for new domains); monitoring coverage (100\%); drift detection & DT-6, DT-9, DT-10 \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} pp = percentage points. Metrics are drawn from the computational validation (Chapter~\ref{chap:analysis}), ROI analysis (Chapter~\ref{chap:discussion}), and Phase~2 pre/post performance impact assessment (planned). The balanced scorecard structure ensures digital transformation value is assessed from multiple stakeholder perspectives.
+
+These digital transformation guidelines argue that the methodological design of the RGAIG is not merely an academic exercise but a deliberate engineering strategy for clinical deployment. Each guideline (DT-1 through DT-10) traces a direct line from a methodological decision to a measurable operational impact and a stakeholder-specific value proposition.
+
+
+%% =====================================================================
+\section{Comprehensive Assessment Framework Summary}
+\label{sec:appx_assessment}
+%% =====================================================================
+
+The comprehensive assessment framework for Chapter~3---covering reliability and validity, methodological comparability with prior work, contribution claims (C1--C6), TAM methodology design, trust and algorithm aversion mitigation, qualitative--quantitative analysis balance, governance and accountability design, and contributions summary---confirms that the research methodology meets standards for internal validity (stratified 10-fold CV), reliability (bootstrap 1,000 resamples), statistical conclusion validity (power analysis, $n$=26, Bonferroni correction), and content validity (expert panel protocol, $n$=12).

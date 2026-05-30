@@ -1,0 +1,403 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% APPENDIX F: AI PERFORMANCE IMPACT ASSESSMENT
+%% Pre- and Post-Deployment Performance Comparison Survey
+%% Quantitative Phase 2 — Ready for future deployment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{AI Performance Impact Assessment: Pre- and Post-Deployment Survey}
+\label{app:performance_impact}
+
+This appendix presents a pre- and post-deployment performance assessment instrument designed to measure the quantitative impact of AI diagnostic tool adoption on clinical productivity, error rates, diagnostic time, and clinician satisfaction. The instrument uses a paired-sample design (same participants measured before and after AI deployment) to enable statistical comparison using paired $t$-tests, Wilcoxon signed-rank tests, and effect size estimates (Cohen's $d$). The instrument complements the adoption/trust survey (Appendix~\ref{app:survey_instrument}) and qualitative interview protocol (Appendix~\ref{app:interview_protocol}).
+
+%===============================================================================
+\subsection{Study Design Overview}
+%===============================================================================
+
+Table~\ref{tab:impact_study_design} summarises the pre/post performance impact study design.
+\needspace{3\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{Pre/Post AI Performance Impact Study Design}\label{tab:impact_study_design} \\
+\toprule
+\thead{Design Element} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:impact_study_design} continued from previous page\,)}} \\
+\toprule
+\thead{Design Element} & \thead{Specification} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Research design & Quasi-experimental pre-test/post-test single-group design \\
+Measurement points & $T_0$ (baseline, pre-deployment) and $T_1$ (3--6 months post-deployment) \\
+Target population & Clinicians, radiologists, and informaticists at AI-deploying institutions \\
+Minimum sample size & $n \geq 30$ matched pairs (power $= .80$, $\alpha = .05$, medium effect $d = .50$) \\
+Sampling strategy & Census of all staff in pilot deployment unit \\
+Administration mode & Online survey (Qualtrics/REDCap) + EHR-extracted performance logs \\
+Estimated completion time & 10--15 minutes per administration \\
+Primary analysis & Paired $t$-test (normal data) or Wilcoxon signed-rank test (non-normal) \\
+Secondary analysis & Effect size (Cohen's $d$), 95\% confidence intervals, percent change \\
+IRB requirement & Full IRB approval required (human subjects + EHR data access) \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} $T_0$ = baseline measurement before AI deployment; $T_1$ = follow-up measurement 3--6 months after deployment. Matched-pair design controls for individual differences by comparing each participant's pre and post scores.
+
+%===============================================================================
+\subsection{Conceptual and Operational Definitions}
+%===============================================================================
+
+Table~\ref{tab:impact_definitions} provides both conceptual (theoretical) and operational (measurable) definitions for each performance construct, ensuring construct validity.
+\needspace{3\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2cm} L L L @{}}
+\caption{Conceptual and Operational Definitions of Performance Constructs}\label{tab:impact_definitions} \\
+\toprule
+\thead{Construct} & \thead{Conceptual Definition} & \thead{Operational Definition} & \thead{Measurement Source} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:impact_definitions} continued from previous page\,)}} \\
+\toprule
+\thead{Construct} & \thead{Conceptual Definition} & \thead{Operational Definition} & \thead{Measurement Source} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Diagnostic Accuracy & Degree to which clinical diagnoses are correct relative to ground-truth or expert consensus & Percentage of correct diagnoses out of total diagnoses in the measurement period & EHR audit + expert panel review \\
+\addlinespace
+Diagnostic Time & Time elapsed from initial data presentation to final diagnostic decision & Minutes from case opening to diagnostic report submission, measured per case & EHR timestamp logs \\
+\addlinespace
+Clinical Productivity & Volume of diagnostic cases processed per unit time & Number of completed diagnostic cases per clinician per 8-hour shift & EHR case completion records \\
+\addlinespace
+Error Rate & Frequency of diagnostic errors, including false positives, false negatives, and missed findings & Number of diagnostic errors per 100 cases, categorised by error type (FP, FN, missed, delayed) & EHR audit + quality assurance review \\
+\addlinespace
+Clinician Satisfaction & Subjective assessment of workflow efficiency, tool usability, and professional fulfilment & Mean score on 5-item satisfaction scale (1--5 Likert) & Self-report survey \\
+\addlinespace
+Decision Confidence & Degree of certainty a clinician feels about their diagnostic decisions & Mean score on 4-item confidence scale (1--5 Likert) & Self-report survey \\
+\addlinespace
+Cognitive Workload & Mental effort required to complete diagnostic tasks & Mean score on 4-item workload scale (1--5 Likert), adapted from NASA-TLX & Self-report survey \\
+\addlinespace
+Patient Throughput & Overall patient processing efficiency of the clinical unit & Number of patients completing full diagnostic pathway per week & Unit-level EHR records \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} EHR = Electronic Health Record; FP = false positive; FN = false negative; NASA-TLX = NASA Task Load Index. Constructs are measured at both $T_0$ (pre-deployment) and $T_1$ (post-deployment) to enable paired comparison.
+
+%===============================================================================
+\subsection{Pre/Post Performance Metrics Matrix}
+%===============================================================================
+
+Table~\ref{tab:performance_matrix} presents the expected performance comparison matrix with pre-deployment baselines, post-deployment targets, statistical tests, and minimum meaningful difference thresholds.
+\needspace{3\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L p{1.5cm} p{1.5cm} p{1.8cm} p{1.5cm} p{1.5cm} p{2cm} @{}}
+\caption{Pre/Post AI Deployment Performance Metrics Matrix}\label{tab:performance_matrix} \\
+\toprule
+\thead{Metric} & \thead{Pre ($T_0$) Baseline} & \thead{Post ($T_1$) Target} & \thead{Expected $\Delta$} & \thead{Min.\ Meaningful $\Delta$} & \thead{Statistical Test} & \thead{Effect Size Target} \\
+\midrule
+\endfirsthead
+\multicolumn{7}{@{}l}{\textit{(\,Tab.~\ref{tab:performance_matrix} continued from previous page\,)}} \\
+\toprule
+\thead{Metric} & \thead{Pre ($T_0$) Baseline} & \thead{Post ($T_1$) Target} & \thead{Expected $\Delta$} & \thead{Min.\ Meaningful $\Delta$} & \thead{Statistical Test} & \thead{Effect Size Target} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Diagnostic accuracy (\%) & 78--82\% & 88--92\% & +8--12 pp & +5 pp & Paired $t$-test & $d \geq 0.50$ \\
+\addlinespace
+Mean diagnostic time (min) & 25--35 & 15--22 & $-$30--40\% & $-$15\% & Wilcoxon signed-rank & $r \geq 0.30$ \\
+\addlinespace
+Cases per shift & 8--12 & 14--18 & +40--60\% & +20\% & Paired $t$-test & $d \geq 0.50$ \\
+\addlinespace
+Error rate (per 100 cases) & 8--12 & 3--6 & $-$45--60\% & $-$25\% & McNemar test & OR $\geq 2.0$ \\
+\addlinespace
+False positive rate (\%) & 12--18\% & 5--9\% & $-$50--60\% & $-$25\% & McNemar test & OR $\geq 2.0$ \\
+\addlinespace
+False negative rate (\%) & 6--10\% & 2--5\% & $-$50--65\% & $-$25\% & McNemar test & OR $\geq 2.0$ \\
+\addlinespace
+Clinician satisfaction (1--5) & 2.8--3.2 & 3.8--4.3 & +0.8--1.2 & +0.5 & Paired $t$-test & $d \geq 0.50$ \\
+\addlinespace
+Decision confidence (1--5) & 3.0--3.4 & 3.8--4.4 & +0.6--1.0 & +0.5 & Paired $t$-test & $d \geq 0.50$ \\
+\addlinespace
+Cognitive workload (1--5) & 3.5--4.0 & 2.5--3.2 & $-$0.8--1.0 & $-$0.5 & Wilcoxon signed-rank & $r \geq 0.30$ \\
+\addlinespace
+Patient throughput (per week) & 40--55 & 60--80 & +30--50\% & +15\% & Paired $t$-test & $d \geq 0.50$ \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} pp = percentage points; $\Delta$ = change; OR = odds ratio; $d$ = Cohen's $d$ effect size; $r$ = rank-biserial correlation. Baseline ranges are estimated from published literature on manual clinical diagnosis. Targets are based on reported AI-assisted diagnostic improvements in the literature. All tests are two-tailed with $\alpha = .05$.
+
+%===============================================================================
+\subsection{Survey Instrument: Pre-Deployment ($T_0$)}
+%===============================================================================
+
+All self-report items use a 5-point scale: \fbox{1} = Strongly Disagree \quad \fbox{2} = Disagree \quad \fbox{3} = Neutral \quad \fbox{4} = Agree \quad \fbox{5} = Strongly Agree.
+
+\subsubsection{Section A: Demographics and Baseline Context}
+
+\begin{enumerate}[label=\textbf{D\arabic*.}]
+    \item Participant ID: \rule{3cm}{0.4pt} \quad (assigned by researcher; used for $T_0$/$T_1$ matching)
+    \item Role: \fbox{\phantom{x}} Clinician \quad \fbox{\phantom{x}} Radiologist \quad \fbox{\phantom{x}} Informaticist \quad \fbox{\phantom{x}} Administrator
+    \item Clinical speciality: \rule{4cm}{0.4pt}
+    \item Years of experience: \fbox{\phantom{x}} 0--5 \quad \fbox{\phantom{x}} 6--10 \quad \fbox{\phantom{x}} 11--20 \quad \fbox{\phantom{x}} 20+
+    \item Institution size: \fbox{\phantom{x}} $<$100 beds \quad \fbox{\phantom{x}} 100--499 \quad \fbox{\phantom{x}} 500--999 \quad \fbox{\phantom{x}} 1000+
+    \item Prior AI tool experience: \fbox{\phantom{x}} None \quad \fbox{\phantom{x}} Limited ($<$6 months) \quad \fbox{\phantom{x}} Moderate (6--24 months) \quad \fbox{\phantom{x}} Extensive ($>$24 months)
+\end{enumerate}
+
+\subsubsection{Section B: Current Diagnostic Performance (Self-Report)}
+\label{sec:pre_performance}
+
+\noindent\textit{Rate your agreement with each statement based on your CURRENT diagnostic practice (without AI tools).}
+
+\begin{enumerate}[label=\textbf{PP\arabic*.}]
+    \item I am confident in the accuracy of my diagnostic decisions. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I can complete diagnostic assessments within a reasonable time frame. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item The number of cases I process per shift is adequate. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I rarely make diagnostic errors in my clinical practice. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I feel mentally overloaded during peak diagnostic periods. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+\end{enumerate}
+
+\subsubsection{Section C}
+\label{sec:pre_time}
+
+\noindent\textit{Provide your best estimates for the following metrics based on your current practice.}
+
+\begin{enumerate}[label=\textbf{PT\arabic*.}]
+    \item Average time to complete a diagnostic assessment (minutes): \rule{2cm}{0.4pt}
+    \item Average number of diagnostic cases completed per 8-hour shift: \rule{2cm}{0.4pt}
+    \item Estimated percentage of cases where you feel uncertain about the diagnosis: \rule{2cm}{0.4pt}\%
+    \item Average number of cases per month requiring second opinion or referral: \rule{2cm}{0.4pt}
+    \item Average time spent on documentation per case (minutes): \rule{2cm}{0.4pt}
+\end{enumerate}
+
+\subsubsection{Section D: Clinician Satisfaction ($T_0$ Baseline)}
+\label{sec:pre_satisfaction}
+
+\begin{enumerate}[label=\textbf{PS\arabic*.}]
+    \item I am satisfied with the efficiency of my current diagnostic workflow. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I have adequate tools and technology to support my diagnostic work. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I am satisfied with the quality of diagnostic support available to me. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item My current workload is manageable and sustainable. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I feel professionally fulfilled in my diagnostic role. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+\end{enumerate}
+
+\subsubsection{Section E: Cognitive Workload ($T_0$ Baseline)}
+\label{sec:pre_workload}
+
+\noindent\textit{Adapted from the NASA Task Load Index (Hart \& Staveland, 1988).}
+
+\begin{enumerate}[label=\textbf{PW\arabic*.}]
+    \item Diagnostic work requires high mental effort and concentration. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I feel time pressure when making diagnostic decisions. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I feel frustrated when diagnostic cases are ambiguous or complex. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I have to exert significant effort to maintain diagnostic accuracy during long shifts. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+\end{enumerate}
+
+%===============================================================================
+\subsection{Survey Instrument: Post-Deployment ($T_1$)}
+%===============================================================================
+
+\noindent\textit{Administered 3--6 months after AI diagnostic tool deployment. Same participant ID for matching.}
+
+\subsubsection{Section F: Post-AI Diagnostic Performance}
+\label{sec:post_performance}
+
+\noindent\textit{Rate your agreement with each statement based on your diagnostic practice WITH AI tools.}
+
+\begin{enumerate}[label=\textbf{QP\arabic*.}]
+    \item I am confident in the accuracy of my diagnostic decisions when using AI-assisted tools. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item AI tools have reduced the time I need to complete diagnostic assessments. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I process more diagnostic cases per shift since AI tools were introduced. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item AI tools have helped me reduce diagnostic errors. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item My mental workload has decreased since using AI diagnostic tools. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+\end{enumerate}
+
+\subsubsection{Section G}
+\label{sec:post_time}
+
+\begin{enumerate}[label=\textbf{QT\arabic*.}]
+    \item Average time to complete a diagnostic assessment WITH AI tools (minutes): \rule{2cm}{0.4pt}
+    \item Average number of diagnostic cases completed per 8-hour shift WITH AI tools: \rule{2cm}{0.4pt}
+    \item Estimated percentage of cases where you feel uncertain about the diagnosis WITH AI tools: \rule{2cm}{0.4pt}\%
+    \item Average number of cases per month requiring second opinion or referral WITH AI tools: \rule{2cm}{0.4pt}
+    \item Average time spent on documentation per case WITH AI tools (minutes): \rule{2cm}{0.4pt}
+\end{enumerate}
+
+\subsubsection{Section H: Post-AI Clinician Satisfaction ($T_1$)}
+\label{sec:post_satisfaction}
+
+\begin{enumerate}[label=\textbf{QS\arabic*.}]
+    \item I am satisfied with the efficiency of my AI-assisted diagnostic workflow. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item The AI diagnostic tools are user-friendly and well-integrated into my workflow. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item The AI diagnostic explanations (SHAP, RAG narratives) are useful and understandable. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item My overall workload is more manageable since AI tools were introduced. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I feel more professionally fulfilled when using AI-assisted diagnostic tools. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+\end{enumerate}
+
+\subsubsection{Section I: Post-AI Cognitive Workload ($T_1$)}
+\label{sec:post_workload}
+
+\begin{enumerate}[label=\textbf{QW\arabic*.}]
+    \item Diagnostic work requires less mental effort with AI tools than without them. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I feel less time pressure when making diagnostic decisions with AI support. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item Ambiguous or complex diagnostic cases are less frustrating with AI support. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I can maintain diagnostic accuracy during long shifts more easily with AI tools. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+\end{enumerate}
+
+\subsubsection{Section J}
+\label{sec:ai_specific}
+
+\begin{enumerate}[label=\textbf{AI\arabic*.}]
+    \item The AI diagnostic system provides accurate recommendations for my clinical domain. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item The AI system's explanations help me understand why it reached a particular diagnosis. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I trust the AI system's diagnostic recommendations. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item The AI system has improved the quality of care I provide to patients. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+    \item I would recommend the AI diagnostic system to colleagues. \hfill \fbox{1} \fbox{2} \fbox{3} \fbox{4} \fbox{5}
+\end{enumerate}
+
+%===============================================================================
+\subsection{Statistical Comparison Framework}
+%===============================================================================
+
+Table~\ref{tab:statistical_comparison} presents the statistical analysis plan for comparing pre-deployment ($T_0$) and post-deployment ($T_1$) metrics.
+\needspace{3\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.2cm} p{2cm} L p{2cm} L @{}}
+\caption{Statistical Comparison Plan: Pre/Post AI Deployment}\label{tab:statistical_comparison} \\
+\toprule
+\thead{Metric Pair} & \thead{Pre ($T_0$) Items} & \thead{Post ($T_1$) Items} & \thead{Primary Test} & \thead{Interpretation} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:statistical_comparison} continued from previous page\,)}} \\
+\toprule
+\thead{Metric Pair} & \thead{Pre ($T_0$) Items} & \thead{Post ($T_1$) Items} & \thead{Primary Test} & \thead{Interpretation} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Diagnostic confidence & PP1 & QP1 & Paired $t$-test & $p < .05$ and $d \geq .50$ indicates meaningful improvement \\
+\addlinespace
+Diagnostic time & PT1 & QT1 & Wilcoxon signed-rank & Median reduction $\geq$15\% indicates meaningful improvement \\
+\addlinespace
+Cases per shift & PT2 & QT2 & Paired $t$-test & Mean increase $\geq$20\% indicates meaningful productivity gain \\
+\addlinespace
+Diagnostic uncertainty & PT3 & QT3 & Wilcoxon signed-rank & Reduction in uncertainty percentage indicates AI value \\
+\addlinespace
+Referral frequency & PT4 & QT4 & Paired $t$-test & Reduction indicates AI improves diagnostic self-sufficiency \\
+\addlinespace
+Documentation time & PT5 & QT5 & Wilcoxon signed-rank & Reduction indicates workflow efficiency gain \\
+\addlinespace
+Workflow satisfaction & PS1--PS5 (mean) & QS1--QS5 (mean) & Paired $t$-test & Composite score increase $\geq$0.5 points \\
+\addlinespace
+Cognitive workload & PW1--PW4 (mean) & QW1--QW4 (mean) & Wilcoxon signed-rank & Composite score decrease $\geq$0.5 points (note: reversed scale) \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} All tests are two-tailed with $\alpha = .05$. Effect sizes are reported alongside $p$-values: Cohen's $d$ for parametric tests, rank-biserial $r$ for non-parametric tests. Normality is assessed using Shapiro--Wilk test; non-normal distributions use Wilcoxon signed-rank instead of paired $t$-test.
+
+%===============================================================================
+\subsection{Productivity and Error Rate Comparison Table}
+%===============================================================================
+
+Table~\ref{tab:productivity_error} provides the template for reporting pre/post productivity and error rate results with statistical support.
+\needspace{3\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L p{1.5cm} p{1.5cm} p{1.5cm} p{1.2cm} p{1.2cm} p{1.5cm} p{1.8cm} @{}}
+\caption{Template: Productivity and Error Rate Comparison Results}\label{tab:productivity_error} \\
+\toprule
+\thead{Metric} & \thead{Pre Mean (SD)} & \thead{Post Mean (SD)} & \thead{Mean $\Delta$} & \thead{$\%\Delta$} & \thead{$t$ / $Z$} & \thead{$p$-value} & \thead{Effect Size} \\
+\midrule
+\endfirsthead
+\multicolumn{8}{@{}l}{\textit{(\,Tab.~\ref{tab:productivity_error} continued from previous page\,)}} \\
+\toprule
+\thead{Metric} & \thead{Pre Mean (SD)} & \thead{Post Mean (SD)} & \thead{Mean $\Delta$} & \thead{$\%\Delta$} & \thead{$t$ / $Z$} & \thead{$p$-value} & \thead{Effect Size} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Diagnostic accuracy (\%) & -- & -- & -- & -- & -- & -- & -- \\
+\addlinespace
+Mean diagnostic time (min) & -- & -- & -- & -- & -- & -- & -- \\
+\addlinespace
+Cases per shift & -- & -- & -- & -- & -- & -- & -- \\
+\addlinespace
+Error rate (per 100) & -- & -- & -- & -- & -- & -- & -- \\
+\addlinespace
+False positive rate (\%) & -- & -- & -- & -- & -- & -- & -- \\
+\addlinespace
+False negative rate (\%) & -- & -- & -- & -- & -- & -- & -- \\
+\addlinespace
+Satisfaction (1--5) & -- & -- & -- & -- & -- & -- & -- \\
+\addlinespace
+Confidence (1--5) & -- & -- & -- & -- & -- & -- & -- \\
+\addlinespace
+Cognitive workload (1--5) & -- & -- & -- & -- & -- & -- & -- \\
+\addlinespace
+Patient throughput (wk) & -- & -- & -- & -- & -- & -- & -- \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} SD = standard deviation; $\Delta$ = change (post $-$ pre); $\%\Delta$ = percentage change; $t$ = paired $t$-test statistic; $Z$ = Wilcoxon signed-rank statistic; $d$ = Cohen's $d$; $r$ = rank-biserial correlation. Dashes indicate fields to be populated after data collection. Bolded rows (in final report) indicate statistically significant results ($p < .05$).
+
+%===============================================================================
+\subsection{Conclusion Supported by Numbers}
+%===============================================================================
+
+Table~\ref{tab:expected_impact} presents the expected quantitative conclusions, supported by literature-based estimates and the computational validation evidence from Chapters~\ref{chap:analysis}--\ref{chap:discussion}.
+
+\tablefontsize
+
+\begin{xltabular}
+{\textwidth}{@{} p{2.5cm} L p{2cm} L @{}}
+\caption{Expected AI Impact Conclusions Supported by Quantitative Evidence}\label{tab:expected_impact} \\
+\toprule
+\thead{Impact Domain} & \thead{Expected Conclusion} & \thead{Supporting Evidence} & \thead{Quantitative Benchmark} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Diagnostic accuracy & AI-assisted diagnosis significantly improves accuracy over unassisted clinical diagnosis & RGAIG ASD: 97.67\% $\pm$ 2.1\%; AUC: 0.956; expert panel concordance: Krippendorff's $\alpha = 0.81$ & Pre: 78--82\% $\rightarrow$ Post: 88--92\% ($\Delta \geq$ +8 pp, $d \geq 0.50$) \\
+\addlinespace
+Diagnostic efficiency & AI reduces mean diagnostic time by 30--40\%, enabling higher patient throughput & SHAP + RAG explainability reduces interpretation time; automated feature extraction eliminates manual computation & Pre: 25--35 min $\rightarrow$ Post: 15--22 min ($\Delta \geq$ $-$30\%) \\
+\addlinespace
+Clinical productivity & AI increases cases per shift by 40--60\% without compromising accuracy & Automated pipeline processes multi-modal data (EEG + radiomics) simultaneously; batch processing capability & Pre: 8--12 cases $\rightarrow$ Post: 14--18 cases ($\Delta \geq$ +40\%) \\
+\addlinespace
+Error reduction & AI reduces diagnostic error rate by 45--60\%, with greatest reduction in false negatives & Multi-agent cross-validation, ensemble methods, and domain-specific expert agents reduce systematic errors & Pre: 8--12 per 100 $\rightarrow$ Post: 3--6 per 100 ($\Delta \geq$ $-$45\%) \\
+\addlinespace
+Cognitive workload & AI reduces clinician cognitive workload by 0.8--1.0 points on 5-point scale & AI handles data preprocessing, feature extraction, and initial screening; clinician focuses on decision and patient communication & Pre: 3.5--4.0 $\rightarrow$ Post: 2.5--3.2 ($\Delta \geq$ $-$0.5) \\
+\addlinespace
+Clinician satisfaction & AI adoption increases clinician satisfaction by 0.8--1.2 points on 5-point scale & Better tools, reduced workload, improved accuracy, and AI explanations increase professional fulfilment & Pre: 2.8--3.2 $\rightarrow$ Post: 3.8--4.3 ($\Delta \geq$ +0.5) \\
+\addlinespace
+Cost reduction & AI reduces per-diagnosis cost by 15--25\% through efficiency gains and error reduction & Reduced diagnostic time $\times$ clinician hourly cost + reduced rework from errors + higher throughput & Estimated savings: \$45--\$120 per diagnosis \\
+\end{xltabular}
+\vspace{0.5em}\noindent\textit{Note.} pp = percentage points; $d$ = Cohen's $d$ effect size. All expected conclusions are hypothesised and will be confirmed or disconfirmed by the pre/post study. Computational evidence (ASD ensemble, AUC) is from the DC-AIBF validation in Chapter~\ref{chap:analysis}. Cost estimates are derived from published healthcare diagnostic cost literature.
+
+%===============================================================================
+\subsection{Survey Administration Timeline}
+%===============================================================================
+
+Table~\ref{tab:survey_timeline} presents the timeline for administering the pre/post performance impact survey.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2cm} L L @{}}
+\caption{Pre/Post Survey Administration Timeline}\label{tab:survey_timeline} \\
+\toprule
+\thead{Phase} & \thead{Activities} & \thead{Duration} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:survey_timeline} continued from previous page\,)}} \\
+\toprule
+\thead{Phase} & \thead{Activities} & \thead{Duration} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Preparation & IRB approval; site agreements; instrument pilot testing ($n = 5$); Qualtrics/REDCap setup & 2--3 months \\
+\addlinespace
+$T_0$ Baseline & Administer pre-deployment survey to all participants; extract EHR baseline metrics; establish participant IDs & 2--4 weeks \\
+\addlinespace
+AI Deployment & Deploy AI diagnostic tools; conduct staff training; provide technical support & 2--4 weeks \\
+\addlinespace
+Adjustment & Allow clinicians to acclimate to AI tools; provide ongoing support; monitor usage & 1--2 months \\
+\addlinespace
+$T_1$ Follow-up & Administer post-deployment survey; extract EHR post-deployment metrics; match participant IDs & 2--4 weeks \\
+\addlinespace
+Analysis & Paired comparisons; effect sizes; subgroup analysis (role, experience, institution size) & 1--2 months \\
+\addlinespace
+Reporting & Write results chapter; create visualisations; integrate with qualitative findings & 1--2 months \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Total estimated timeline: 8--14 months from IRB approval to final report. The adjustment period (1--2 months) is critical to ensure post-deployment measurements reflect stable AI-assisted practice rather than initial learning effects.
+
+\noindent This pre/post performance impact assessment is designed to provide the quantitative evidence needed to demonstrate that the DC-AIBF framework not only achieves technical accuracy (validated in Chapters~\ref{chap:analysis}--\ref{chap:discussion}) but also translates into measurable clinical improvements in diagnostic accuracy, productivity, error reduction, and clinician satisfaction. Combined with the adoption/trust survey (Appendix~\ref{app:survey_instrument}) and qualitative interviews (Appendix~\ref{app:interview_protocol}), this instrument completes a three-phase mixed methods validation strategy.

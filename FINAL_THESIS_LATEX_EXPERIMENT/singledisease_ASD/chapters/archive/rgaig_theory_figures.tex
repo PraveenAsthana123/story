@@ -1,0 +1,621 @@
+%% ═══════════════════════════════════════════════════════════════════════════════
+%% RGAIG+ THEORETICAL RESEARCH MODEL — TikZ Figures
+%% SEM diagram, theoretical integration, one-page framework, workflows
+%% All text ≥ 8pt | No PNG | ggunavy accent only
+%% ═══════════════════════════════════════════════════════════════════════════════
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% FIGURE 1: SEM Structural Model — Governance → Trust → Adoption
+%% (Ch.3 → Phase 5 → Research Design)
+%% ───────────────────────────────────────────────────────────────────────────────
+\noindent\textbf{Structural Equation Model for the RGAIG+.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+  ivbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=3pt,
+    minimum width=2.8cm, minimum height=1.0cm, align=center, font=\small},
+  medbox/.style={rectangle, draw=ggunavy, fill=ggunavy!20, rounded corners=3pt,
+    minimum width=2.8cm, minimum height=1.0cm, align=center, font=\small\bfseries},
+  dvbox/.style={rectangle, draw=ggunavy, fill=ggunavy!35, rounded corners=3pt,
+    minimum width=2.8cm, minimum height=1.0cm, align=center, font=\small\bfseries},
+  hyparrow/.style={-{Stealth[length=4mm, width=3mm]}, very thick, ggunavy},
+  hyplabel/.style={font=\small, fill=white, inner sep=1pt},
+]
+% Independent Variables (left column)
+\node[ivbox] (GC) at (0, 4) {Governance\\Controls (GC)};
+\node[ivbox] (EX) at (0, 2) {AI Explainability\\(EX)};
+\node[ivbox] (SA) at (0, 0) {Safety\\Assurance (SA)};
+\node[ivbox] (DR) at (0, -2) {Device\\Reliability (DR)};
+\node[ivbox] (MT) at (0, -4) {Monitoring\\Transparency (MT)};
+
+% Mediator (center)
+\node[medbox] (TR) at (5.5, 0) {Trust in AI\\Diagnostics (TR)};
+
+% Second mediator
+\node[medbox] (PU) at (10, 1.5) {Perceived\\Usefulness (PU)};
+
+% Dependent Variable
+\node[dvbox] (AI) at (10, -1.5) {Adoption\\Intention (AI)};
+
+% Paths: IV → Trust
+\draw[hyparrow] (GC.east) -- (TR.north west) node[hyplabel, pos=0.5, above, sloped] {SH1: $\beta_1$};
+\draw[hyparrow] (EX.east) -- (TR.west) node[hyplabel, pos=0.45, above, sloped] {SH2: $\beta_2$};
+\draw[hyparrow] (SA.east) -- (TR.west) node[hyplabel, pos=0.5, below=1pt] {SH3: $\beta_3$};
+\draw[hyparrow] (DR.east) -- (TR.south west) node[hyplabel, pos=0.45, below, sloped] {SH4: $\beta_4$};
+\draw[hyparrow] (MT.east) -- (TR.south west) node[hyplabel, pos=0.5, below, sloped] {SH5: $\beta_5$};
+
+% Trust → PU → Adoption
+\draw[hyparrow] (TR.east) -- (PU.west) node[hyplabel, pos=0.5, above, sloped] {SH6: $\beta_6$};
+\draw[hyparrow] (PU.south) -- (AI.north) node[hyplabel, pos=0.5, right] {SH7: $\beta_7$};
+
+% Indirect effect arc
+\draw[hyparrow, dashed, ggunavy!60] (TR.south east) to[bend right=20] node[hyplabel, pos=0.5, below] {\small Indirect} (AI.west);
+
+% Labels
+\node[font=\small\itshape, ggunavy] at (0, 5.2) {Independent Variables};
+\node[font=\small\itshape, ggunavy] at (5.5, 1.5) {Mediator};
+\node[font=\small\itshape, ggunavy] at (10, 3.0) {Outcomes};
+
+% R-squared annotations
+\node[font=\small, ggunavy!70] at (5.5, -1.2) {$R^2 = 0.62$};
+\node[font=\small, ggunavy!70] at (11.5, 1.5) {$R^2 = 0.45$};
+\node[font=\small, ggunavy!70] at (11.5, -1.5) {$R^2 = 0.50$};
+\end{tikzpicture}%
+}%
+\caption[SEM Structural Model: Governance → Trust → Adoption]{Structural Equation Model for the RGAIG+ Governance--Trust--Adoption pathway. Five governance antecedents (GC, EX, SA, DR, MT) influence Trust (TR), which mediates the effect on Perceived Usefulness (PU) and Adoption Intention (AI). SH1--SH7 denote hypothesized paths tested via bootstrap SEM (1,000 resamples, 95\% CI). $R^2$ values are illustrative targets.}
+\label{fig:rgaig_sem_model_theory}
+\end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% FIGURE 2: Theoretical Integration Model
+%% (Ch.2 → Phase 3 → Theoretical Framework)
+%% DSR → Artifact → Sociotechnical → RBV → Trust → TAM flow
+%% ───────────────────────────────────────────────────────────────────────────────
+\noindent\textbf{Theoretical integration model showing how five.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+  theorybox/.style={rectangle, draw=ggunavy, fill=ggunavy!15, rounded corners=3pt,
+    minimum width=3.0cm, minimum height=1.4cm, align=center, font=\small},
+  arrowstyle/.style={-{Stealth[length=3mm]}, thick, ggunavy},
+  labelstyle/.style={font=\small, ggunavy!80, align=center},
+]
+% Row 1: Methodology
+\node[theorybox, fill=ggunavy!25] (DSR) at (0, 0) {\textbf{DSR}\\{\small Design Science}\\{\small Research}};
+
+% Row 2: Artifact
+\node[theorybox, fill=ggunavy!18] (ART) at (4.5, 0) {\textbf{RGAIG+}\\{\small Framework}\\{\small (Artifact)}};
+
+% Row 3: Theories branch
+\node[theorybox] (SOC) at (9, 2) {\textbf{Sociotechnical}\\{\small Joint optimization}\\{\small human--AI}};
+\node[theorybox] (RBV) at (9, -2) {\textbf{RBV}\\{\small Strategic resource}\\{\small VRIN criteria}};
+
+% Row 4: Trust
+\node[theorybox, fill=ggunavy!18] (TIA) at (13.5, 0) {\textbf{Trust in}\\{\small Automation}\\{\small (Lee \& See)}};
+
+% Row 5: TAM
+\node[theorybox, fill=ggunavy!25] (TAM) at (18, 0) {\textbf{TAM}\\{\small Adoption}\\{\small (Davis)}};
+
+% Arrows
+\draw[arrowstyle] (DSR.east) -- (ART.west) node[labelstyle, above, pos=0.5] {builds};
+\draw[arrowstyle] (ART.east) -- (SOC.west) node[labelstyle, above, pos=0.5, sloped] {frames};
+\draw[arrowstyle] (ART.east) -- (RBV.west) node[labelstyle, below, pos=0.5, sloped] {justifies};
+\draw[arrowstyle] (SOC.east) -- (TIA.north west) node[labelstyle, above, pos=0.5, sloped] {enables};
+\draw[arrowstyle] (RBV.east) -- (TIA.south west) node[labelstyle, below, pos=0.5, sloped] {sustains};
+\draw[arrowstyle] (TIA.east) -- (TAM.west) node[labelstyle, above, pos=0.5] {drives};
+
+% Phase labels below
+\node[font=\small\itshape, ggunavy!60] at (0, -1.4) {Methodology};
+\node[font=\small\itshape, ggunavy!60] at (4.5, -1.4) {Design};
+\node[font=\small\itshape, ggunavy!60] at (9, -3.8) {Evaluation};
+\node[font=\small\itshape, ggunavy!60] at (13.5, -1.4) {Mediation};
+\node[font=\small\itshape, ggunavy!60] at (18, -1.4) {Outcome};
+\end{tikzpicture}%
+}%
+\caption[Theoretical Integration: DSR → RGAIG+ → Trust → TAM]{Theoretical integration model showing how five theories jointly underpin the RGAIG+ framework. DSR provides the methodology; Sociotechnical Systems and RBV frame the artifact evaluation; Trust in Automation mediates governance effects; TAM explains adoption outcomes.}
+\label{fig:rgaig_theoretical_integration_theory}
+\end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% FIGURE 3: One-Page RGAIG+ Framework Architecture
+%% (Cross-cutting → Ch.3/5 → Complete framework overview)
+%% 9 layers + governance + standards + feedback
+%% ───────────────────────────────────────────────────────────────────────────────
+\noindent\textbf{Complete RGAIG+ framework architecture showing.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+  layerbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=2pt,
+    minimum height=0.9cm, align=center, font=\small},
+  govbar/.style={rectangle, draw=ggunavy, fill=ggunavy!15, rounded corners=2pt,
+    minimum width=0.8cm, align=center, font=\small, rotate=90},
+  stdbox/.style={rectangle, draw=ggunavy, fill=white, rounded corners=2pt,
+    minimum height=0.7cm, align=center, font=\small},
+  arrowup/.style={-{Stealth[length=4mm,width=3mm]}, thick, ggunavy},
+  arrowdown/.style={-{Stealth[length=4mm,width=3mm]}, thick, ggunavy!60, dashed},
+]
+% 9 Layers (bottom to top) — each spans full width
+\foreach \i/\lname/\ldesc/\ypos in {
+  1/L1: Device Layer/Consumer wearable EEG (4--16 ch)/0,
+  2/L2: Signal Processing/Artifact removal{,} feature extraction/1.2,
+  3/L3: Diagnostic AI/DL classification (ASD{,} PD{,} Epilepsy)/2.4,
+  4/L4: GenAI Engine/LLM explanation{,} confidence{,} hallucination check/3.6,
+  5/L5: Agentic Orchestration/Multi-agent coordination{,} escalation/4.8,
+  6/L6: Consumer Interface/Dashboard{,} alerts{,} plain-language reports/6.0,
+  7/L7: Clinical Oversight/Clinician review{,} override{,} referral/7.2,
+  8/L8: Monitoring/Drift detection{,} performance tracking{,} alerts/8.4,
+  9/L9: Governance/Policy enforcement{,} audit{,} compliance/9.6} {
+  \node[layerbox, minimum width=11cm] (L\i) at (5.5, \ypos) {\textbf{\lname}: \ldesc};
+}
+
+% Data flow arrows (up)
+\foreach \i [evaluate=\i as \j using int(\i+1)] in {1,...,8} {
+  \draw[arrowup] (L\i.north) -- (L\j.south);
+}
+
+% Governance bar (left side)
+\node[govbar, minimum width=9.0cm, fill=ggunavy!20] at (-1.2, 4.8) {\textbf{Responsible AI --- Cross-Cutting Governance}};
+
+% Standards bar (right side)
+\node[govbar, minimum width=9.0cm, fill=ggunavy!12] at (12.2, 4.8) {\textbf{Regulatory Standards (15 frameworks)}};
+
+% Feedback arrow (right side, down)
+\draw[arrowdown, thick] (11.5, 9.6) -- (11.5, 0) node[font=\small, ggunavy!60, pos=0.5, right, rotate=90, anchor=south] {Continuous Feedback Loop};
+
+% Title
+\node[font=\small\bfseries, ggunavy] at (5.5, 10.6) {RGAIG+ Framework: 9-Layer Architecture for Consumer Wearable EEG Diagnostics};
+
+% Bottom: Theoretical foundations
+\node[stdbox, minimum width=2.0cm] (t1) at (1.0, -1.0) {DSR};
+\node[stdbox, minimum width=2.2cm] (t2) at (3.5, -1.0) {Sociotechnical};
+\node[stdbox, minimum width=1.8cm] (t3) at (5.8, -1.0) {RBV};
+\node[stdbox, minimum width=2.5cm] (t4) at (8.2, -1.0) {Trust in Auto};
+\node[stdbox, minimum width=1.8cm] (t5) at (10.5, -1.0) {TAM};
+\node[font=\small\itshape, ggunavy!60] at (5.5, -1.7) {Theoretical Foundations};
+
+% Arrows from theories to bottom layer
+\foreach \t in {t1,t2,t3,t4,t5} {
+  \draw[ggunavy!40, -{Stealth[length=1.5mm]}] (\t.north) -- (L1.south -| \t.north);
+}
+\end{tikzpicture}%
+}%
+\caption[One-Page RGAIG+ Framework Architecture]{Complete RGAIG+ framework architecture showing the 9-layer stack from Device (L1) to Governance (L9), with cross-cutting Responsible AI governance, 15 regulatory standards, continuous feedback loop, and five theoretical foundations. Data flows upward through layers; governance policies flow downward.}
+\label{fig:rgaig_one_page_framework_theory}
+\end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% FIGURE 4: SEM Testing Process Workflow
+%% (Ch.3 → Phase 6 → Analysis Strategy)
+%% ───────────────────────────────────────────────────────────────────────────────
+\noindent\textbf{Six-stage SEM testing workflow for RGAIG+ model.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+  procbox/.style={rectangle, draw=ggunavy, fill=ggunavy!18, rounded corners=3pt,
+    minimum width=2.4cm, minimum height=1.2cm, align=center, font=\small},
+  resultbox/.style={rectangle, draw=ggunavy, fill=ggunavy!6, rounded corners=2pt,
+    minimum width=2.2cm, minimum height=0.7cm, align=center, font=\small},
+  arrowstyle/.style={-{Stealth[length=4mm,width=3mm]}, thick, ggunavy},
+]
+% Process boxes
+\node[procbox] (S1) at (0, 0) {\textbf{Survey}\\{\small $n \geq 200$}};
+\node[procbox] (S2) at (3.2, 0) {\textbf{Reliability}\\{\small $\alpha \geq 0.70$}};
+\node[procbox] (S3) at (6.4, 0) {\textbf{CFA}\\{\small Factor loadings}};
+\node[procbox] (S4) at (9.6, 0) {\textbf{SEM}\\{\small Path $\beta$, $p$}};
+\node[procbox] (S5) at (12.8, 0) {\textbf{Mediation}\\{\small Bootstrap CI}};
+\node[procbox] (S6) at (16, 0) {\textbf{Model}\\{\small Comparison}};
+
+% Arrows
+\draw[arrowstyle] (S1) -- (S2);
+\draw[arrowstyle] (S2) -- (S3);
+\draw[arrowstyle] (S3) -- (S4);
+\draw[arrowstyle] (S4) -- (S5);
+\draw[arrowstyle] (S5) -- (S6);
+
+% Result boxes below
+\node[resultbox] (R1) at (0, -1.6) {{\small Qualtrics,}\\{\small REDCap}};
+\node[resultbox] (R2) at (3.2, -1.6) {{\small Cronbach $\alpha$,}\\{\small CR, AVE}};
+\node[resultbox] (R3) at (6.4, -1.6) {{\small CFI $\geq$ 0.95,}\\{\small RMSEA $\leq$ 0.06}};
+\node[resultbox] (R4) at (9.6, -1.6) {{\small SH1--SH7,}\\{\small $R^2$ values}};
+\node[resultbox] (R5) at (12.8, -1.6) {{\small Indirect effects,}\\{\small Sobel test}};
+\node[resultbox] (R6) at (16, -1.6) {{\small $\Delta\chi^2$,}\\{\small AIC}};
+
+% Dashed lines to results
+\foreach \i in {1,...,6} {
+  \draw[ggunavy!40, dashed] (S\i.south) -- (R\i.north);
+}
+
+% Stage numbers
+\foreach \i in {1,...,6} {
+  \node[font=\small\bfseries, ggunavy, fill=ggunavy!15, circle, inner sep=1pt, minimum size=0.5cm] at ([yshift=0.9cm]S\i.north) {\i};
+}
+\end{tikzpicture}%
+}%
+\caption[SEM Testing Process: Six-Stage Workflow]{Six-stage SEM testing workflow for RGAIG+ model validation. Stage 1: survey administration ($n \geq 200$). Stage 2: reliability analysis (Cronbach's $\alpha$, CR). Stage 3: CFA measurement model. Stage 4: structural model path estimation. Stage 5: bootstrap mediation testing. Stage 6: model comparison ($\Delta\chi^2$).}
+\label{fig:rgaig_sem_workflow_theory}
+\end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% FIGURE 5: Gap → RQ → Hypothesis → Component Flow
+%% (Ch.1 → Phase 1 → Problem Statement)
+%% ───────────────────────────────────────────────────────────────────────────────
+\noindent\textbf{Research alignment flow showing how each.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+  colhead/.style={rectangle, draw=ggunavy, fill=ggunavy!25, rounded corners=2pt,
+    minimum width=3.0cm, minimum height=0.8cm, align=center, font=\small\bfseries},
+  cellbox/.style={rectangle, draw=ggunavy, fill=ggunavy!5, rounded corners=2pt,
+    minimum width=3.0cm, minimum height=0.7cm, align=center, font=\small},
+  arrowstyle/.style={-{Stealth[length=4mm,width=3mm]}, ggunavy, thick},
+]
+% Column headers
+\node[colhead] (H1) at (0, 0) {Research Gap};
+\node[colhead] (H2) at (4, 0) {Research Question};
+\node[colhead] (H3) at (8, 0) {Hypothesis};
+\node[colhead] (H4) at (12, 0) {RGAIG+ Component};
+
+% Row 1
+\node[cellbox] (G1) at (0, -1.2) {No unified\\governance};
+\node[cellbox] (R1) at (4, -1.2) {RQ1: How does\\governance → trust?};
+\node[cellbox] (Hy1) at (8, -1.2) {SH1: GC → TR (+)};
+\node[cellbox] (C1) at (12, -1.2) {Governance Layer\\(L9)};
+
+% Row 2
+\node[cellbox] (G2) at (0, -2.4) {Lack of XAI\\standards};
+\node[cellbox] (R2) at (4, -2.4) {RQ2: Role of\\explainability?};
+\node[cellbox] (Hy2) at (8, -2.4) {SH2: EX → TR (+)};
+\node[cellbox] (C2) at (12, -2.4) {GenAI Engine\\(L4)};
+
+% Row 3
+\node[cellbox] (G3) at (0, -3.6) {Insufficient\\safety assurance};
+\node[cellbox] (R3) at (4, -3.6) {RQ3: Safety →\\trust effect?};
+\node[cellbox] (Hy3) at (8, -3.6) {SH3: SA → TR (+)};
+\node[cellbox] (C3) at (12, -3.6) {Safety Module\\(L8)};
+
+% Row 4
+\node[cellbox] (G4) at (0, -4.8) {Device reliability\\not governed};
+\node[cellbox] (R4) at (4, -4.8) {RQ4: Device →\\trust path?};
+\node[cellbox] (Hy4) at (8, -4.8) {SH4: DR → TR (+)};
+\node[cellbox] (C4) at (12, -4.8) {Device Layer\\(L1)};
+
+% Row 5
+\node[cellbox] (G5) at (0, -6.0) {Opaque\\monitoring};
+\node[cellbox] (R5) at (4, -6.0) {RQ5: Monitoring →\\confidence?};
+\node[cellbox] (Hy5) at (8, -6.0) {SH5: MT → TR (+)};
+\node[cellbox] (C5) at (12, -6.0) {Monitoring\\(L8)};
+
+% Row 6
+\node[cellbox] (G6) at (0, -7.2) {Trust--adoption\\undefined};
+\node[cellbox] (R6) at (4, -7.2) {RQ6: Trust\\mediates?};
+\node[cellbox] (Hy6) at (8, -7.2) {SH6--SH7: TR →\\PU → AI};
+\node[cellbox] (C6) at (12, -7.2) {Consumer\\Interface (L6)};
+
+% Horizontal arrows
+\foreach \i in {1,...,6} {
+  \draw[arrowstyle] (G\i.east) -- (R\i.west);
+  \draw[arrowstyle] (R\i.east) -- (Hy\i.west);
+  \draw[arrowstyle] (Hy\i.east) -- (C\i.west);
+}
+\end{tikzpicture}%
+}%
+\caption[Research Alignment: Gap → RQ → Hypothesis → Component]{Research alignment flow showing how each identified gap (G1--G6) maps to a research question, structural hypothesis (SH1--SH7), and specific RGAIG+ framework component. This ensures complete traceability from problem identification through framework design.}
+\label{fig:rgaig_gap_rq_flow_theory}
+\end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% FIGURE 6: Variable Operationalization Infographic
+%% (Ch.3 → Phase 5 → Research Design)
+%% Visual representation of constructs, indicators, and relationships
+%% ───────────────────────────────────────────────────────────────────────────────
+\noindent\textbf{Variable operationalization infographic showing.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+  constructbox/.style={rectangle, draw=ggunavy, fill=ggunavy!12, rounded corners=3pt,
+    minimum width=2.6cm, minimum height=1.0cm, align=center, font=\small},
+  indicatorbox/.style={rectangle, draw=ggunavy, fill=white, rounded corners=2pt,
+    minimum width=1.8cm, minimum height=0.7cm, align=center, font=\small},
+  arrowstyle/.style={-{Stealth[length=4mm,width=3mm]}, ggunavy, thick},
+  dashedarrow/.style={-{Stealth[length=4mm,width=3mm]}, ggunavy!50, dashed},
+]
+% Governance constructs (left)
+\node[constructbox] (GC) at (0, 4) {\textbf{Governance}\\{\small Controls}};
+\node[constructbox] (EX) at (0, 2) {\textbf{Explainability}};
+\node[constructbox] (SA) at (0, 0) {\textbf{Safety}\\{\small Assurance}};
+\node[constructbox] (DR) at (0, -2) {\textbf{Device}\\{\small Reliability}};
+\node[constructbox] (MT) at (0, -4) {\textbf{Monitoring}\\{\small Transparency}};
+
+% Indicators (far left)
+\node[indicatorbox] at (-3.2, 4.3) {\small 5 items};
+\node[indicatorbox] at (-3.2, 2.3) {\small 4 items};
+\node[indicatorbox] at (-3.2, 0.3) {\small 4 items};
+\node[indicatorbox] at (-3.2, -1.7) {\small 4 items};
+\node[indicatorbox] at (-3.2, -3.7) {\small 4 items};
+\foreach \y in {4.3, 2.3, 0.3, -1.7, -3.7} {
+  \draw[dashedarrow] (-2.3, \y) -- (-1.3, \y);
+}
+
+% Trust mediator (center)
+\node[constructbox, fill=ggunavy!22, minimum width=3.0cm, minimum height=1.4cm] (TR) at (5, 0) {\textbf{Trust in AI}\\{\small Diagnostics}\\{\small (6 items)}};
+
+% TAM constructs (right)
+\node[constructbox, fill=ggunavy!18] (PU) at (10, 1.5) {\textbf{Perceived}\\{\small Usefulness}\\{\small (4 items)}};
+\node[constructbox, fill=ggunavy!18] (PE) at (10, -1.5) {\textbf{Perceived}\\{\small Ease of Use}\\{\small (4 items)}};
+
+% Outcome (far right)
+\node[constructbox, fill=ggunavy!15, minimum width=3.0cm] (AI) at (14.5, 0) {\textbf{Adoption}\\{\small Intention}\\{\small (3 items)}};
+
+% Paths
+\foreach \src in {GC, EX, SA, DR, MT} {
+  \draw[arrowstyle] (\src.east) -- (TR.west);
+}
+\draw[arrowstyle] (TR.east) -- (PU.west);
+\draw[arrowstyle] (TR.east) -- (PE.west);
+\draw[arrowstyle] (PU.east) -- (AI.north west);
+\draw[arrowstyle] (PE.east) -- (AI.south west);
+
+% Scale label
+\node[font=\small\itshape, ggunavy!60] at (0, -5.5) {7-point Likert scale};
+\node[font=\small\itshape, ggunavy!60] at (5, -5.5) {7-point Likert};
+\node[font=\small\itshape, ggunavy!60] at (10, -5.5) {7-point Likert};
+\node[font=\small\itshape, ggunavy!60] at (14.5, -5.5) {7-point Likert};
+
+% Total items
+\node[font=\small\bfseries, ggunavy, fill=ggunavy!15, rounded corners=2pt, inner sep=4pt] at (7, -5.5) {Total: 38 items};
+\end{tikzpicture}%
+}%
+\caption[Variable Operationalization: Constructs and Measurement]{Variable operationalization infographic showing all 9 constructs (5 governance antecedents, 1 trust mediator, 2 TAM mediators, 1 adoption outcome), their item counts, and structural relationships. All constructs measured on 7-point Likert scales; total instrument: 38 items.}
+\label{fig:rgaig_variable_infographic_theory}
+\end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% FIGURE 7: Theory–Layer Coverage Matrix (Visual Infographic)
+%% (Ch.2 → Phase 3 → Theoretical Framework)
+%% ───────────────────────────────────────────────────────────────────────────────
+\noindent\textbf{Visual matrix showing which theoretical.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+  headerbox/.style={rectangle, draw=ggunavy, fill=ggunavy!25, rounded corners=2pt,
+    minimum width=1.8cm, minimum height=0.7cm, align=center, font=\small\bfseries},
+  layerlabel/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=2pt,
+    minimum width=2.8cm, minimum height=0.7cm, align=center, font=\small},
+  filled/.style={circle, fill=ggunavy, minimum size=0.3cm},
+  empty/.style={circle, draw=ggunavy!30, minimum size=0.3cm},
+]
+% Theory column headers
+\node[headerbox] at (4.5, 0) {TAM};
+\node[headerbox] at (6.5, 0) {RBV};
+\node[headerbox] at (8.5, 0) {Sociotech};
+\node[headerbox] at (10.5, 0) {Trust};
+\node[headerbox] at (12.5, 0) {DSR};
+
+% Layer rows
+\foreach \i/\lname/\ypos in {
+  1/L1: Device/-1,
+  2/L2: Signal Proc./-2,
+  3/L3: Diagnostic AI/-3,
+  4/L4: GenAI Engine/-4,
+  5/L5: Agentic Orch./-5,
+  6/L6: Consumer UI/-6,
+  7/L7: Clinical/-7,
+  8/L8: Monitoring/-8,
+  9/L9: Governance/-9} {
+  \node[layerlabel] at (1.5, \ypos) {\lname};
+}
+
+% Fill matrix (TAM=4.5, RBV=6.5, Socio=8.5, Trust=10.5, DSR=12.5)
+% L1: RBV, Sociotech, DSR
+\node[empty] at (4.5, -1) {}; \node[filled] at (6.5, -1) {}; \node[filled] at (8.5, -1) {}; \node[empty] at (10.5, -1) {}; \node[filled] at (12.5, -1) {};
+% L2: RBV, DSR
+\node[empty] at (4.5, -2) {}; \node[filled] at (6.5, -2) {}; \node[empty] at (8.5, -2) {}; \node[empty] at (10.5, -2) {}; \node[filled] at (12.5, -2) {};
+% L3: RBV, Sociotech, DSR
+\node[empty] at (4.5, -3) {}; \node[filled] at (6.5, -3) {}; \node[filled] at (8.5, -3) {}; \node[empty] at (10.5, -3) {}; \node[filled] at (12.5, -3) {};
+% L4: RBV, Trust, DSR
+\node[empty] at (4.5, -4) {}; \node[filled] at (6.5, -4) {}; \node[empty] at (8.5, -4) {}; \node[filled] at (10.5, -4) {}; \node[filled] at (12.5, -4) {};
+% L5: Sociotech, Trust, DSR
+\node[empty] at (4.5, -5) {}; \node[empty] at (6.5, -5) {}; \node[filled] at (8.5, -5) {}; \node[filled] at (10.5, -5) {}; \node[filled] at (12.5, -5) {};
+% L6: TAM, Sociotech, Trust
+\node[filled] at (4.5, -6) {}; \node[empty] at (6.5, -6) {}; \node[filled] at (8.5, -6) {}; \node[filled] at (10.5, -6) {}; \node[empty] at (12.5, -6) {};
+% L7: TAM, Sociotech
+\node[filled] at (4.5, -7) {}; \node[empty] at (6.5, -7) {}; \node[filled] at (8.5, -7) {}; \node[empty] at (10.5, -7) {}; \node[empty] at (12.5, -7) {};
+% L8: Sociotech, Trust, DSR
+\node[empty] at (4.5, -8) {}; \node[empty] at (6.5, -8) {}; \node[filled] at (8.5, -8) {}; \node[filled] at (10.5, -8) {}; \node[filled] at (12.5, -8) {};
+% L9: RBV, Sociotech, Trust, DSR
+\node[empty] at (4.5, -9) {}; \node[filled] at (6.5, -9) {}; \node[filled] at (8.5, -9) {}; \node[filled] at (10.5, -9) {}; \node[filled] at (12.5, -9) {};
+
+% Column totals
+\node[font=\small\bfseries, ggunavy] at (4.5, -10.2) {2/9};
+\node[font=\small\bfseries, ggunavy] at (6.5, -10.2) {5/9};
+\node[font=\small\bfseries, ggunavy] at (8.5, -10.2) {7/9};
+\node[font=\small\bfseries, ggunavy] at (10.5, -10.2) {5/9};
+\node[font=\small\bfseries, ggunavy] at (12.5, -10.2) {7/9};
+\node[font=\small\itshape, ggunavy!60] at (1.5, -10.2) {Coverage:};
+
+% Legend
+\node[filled] at (4, -11) {}; \node[font=\small] at (5.5, -11) {= Theory informs layer};
+\node[empty] at (7.5, -11) {}; \node[font=\small] at (9, -11) {= Not applicable};
+\end{tikzpicture}%
+}%
+\caption[Theory--Layer Coverage Matrix]{Visual matrix showing which theoretical foundations (TAM, RBV, Sociotechnical, Trust in Automation, DSR) inform each RGAIG+ layer (L1--L9). Sociotechnical Systems and DSR provide the broadest coverage (7/9 layers each); TAM is focused on consumer-facing layers (L6--L7).}
+\label{fig:rgaig_theory_layer_matrix_alt}
+\end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% FIGURE 8: DSR Three-Cycle Research Process
+%% (Ch.3 → Phase 5 → Research Methodology)
+%% ───────────────────────────────────────────────────────────────────────────────
+\noindent\textbf{Design Science Research (DSR) three-cycle process.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+  cyclebox/.style={rectangle, draw=ggunavy, fill=ggunavy!12, rounded corners=4pt,
+    minimum width=3.5cm, minimum height=2.4cm, align=center, font=\small},
+  itembox/.style={rectangle, draw=ggunavy, fill=white, rounded corners=2pt,
+    minimum width=2.8cm, minimum height=0.7cm, align=center, font=\small},
+  arrowstyle/.style={-{Stealth[length=3mm]}, thick, ggunavy},
+  biarrow/.style={{Stealth[length=3mm]}-{Stealth[length=3mm]}, thick, ggunavy},
+]
+% Three cycles
+\node[cyclebox, fill=ggunavy!20] (REL) at (0, 0) {\textbf{Relevance Cycle}\\[3pt]{\small Application Domain}\\{\small (Consumer Healthcare)}};
+\node[cyclebox, fill=ggunavy!15] (DES) at (6.5, 0) {\textbf{Design Cycle}\\[3pt]{\small Build \& Evaluate}\\{\small (RGAIG+ Framework)}};
+\node[cyclebox, fill=ggunavy!20] (RIG) at (13, 0) {\textbf{Rigor Cycle}\\[3pt]{\small Knowledge Base}\\{\small (Theory \& Methods)}};
+
+% Bi-directional arrows
+\draw[biarrow] (REL.east) -- (DES.west) node[font=\small, above, pos=0.5] {Requirements} node[font=\small, below, pos=0.5] {Field Testing};
+\draw[biarrow] (DES.east) -- (RIG.west) node[font=\small, above, pos=0.5] {Grounding} node[font=\small, below, pos=0.5] {Contributions};
+
+% Sub-items for Relevance
+\node[itembox] at (0, -2.0) {\small Consumer wearable EEG};
+\node[itembox] at (0, -2.8) {\small AI diagnostic trust gaps};
+\node[itembox] at (0, -3.6) {\small Governance requirements};
+
+% Sub-items for Design
+\node[itembox] at (6.5, -2.0) {\small 9-layer architecture};
+\node[itembox] at (6.5, -2.8) {\small GenAI governance engine};
+\node[itembox] at (6.5, -3.6) {\small Validation experiments};
+
+% Sub-items for Rigor
+\node[itembox] at (13, -2.0) {\small TAM, RBV, Sociotech};
+\node[itembox] at (13, -2.8) {\small Trust in Automation};
+\node[itembox] at (13, -3.6) {\small SEM, bootstrap CI};
+
+% Connecting dashes
+\foreach \x in {0, 6.5, 13} {
+  \draw[ggunavy!30, dashed] (\x, -1.2) -- (\x, -1.7);
+}
+\end{tikzpicture}%
+}%
+\caption[DSR Three-Cycle Research Process]{Design Science Research (DSR) three-cycle process (Hevner, 2007) applied to RGAIG+ framework development. The Relevance Cycle draws requirements from consumer healthcare; the Design Cycle builds and evaluates the 9-layer framework; the Rigor Cycle grounds the work in theoretical foundations and contributes back to the knowledge base.}
+\label{fig:rgaig_dsr_cycles_theory}
+\end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% FIGURE 9: Hypothesis Testing Decision Tree
+%% (Ch.4 → Phase 9 → Results Interpretation)
+%% ───────────────────────────────────────────────────────────────────────────────
+\noindent\textbf{Decision tree for evaluating each structural.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+  testbox/.style={rectangle, draw=ggunavy, fill=ggunavy!15, rounded corners=3pt,
+    minimum width=2.2cm, minimum height=0.9cm, align=center, font=\small},
+  decisiondia/.style={diamond, draw=ggunavy, fill=ggunavy!15, aspect=2.0,
+    align=center, font=\small, inner sep=2pt},
+  supportedbox/.style={rectangle, draw=green!60!black, fill=green!10, rounded corners=3pt,
+    minimum width=2.0cm, minimum height=0.7cm, align=center, font=\small\bfseries},
+  rejectedbox/.style={rectangle, draw=red!60!black, fill=red!10, rounded corners=3pt,
+    minimum width=2.0cm, minimum height=0.7cm, align=center, font=\small\bfseries},
+  arrowstyle/.style={-{Stealth[length=4mm,width=3mm]}, thick, ggunavy},
+]
+% Start
+\node[testbox, fill=ggunavy!20] (START) at (0, 0) {\textbf{SEM Path}\\{\small Estimation}};
+
+% Decision 1: Significance
+\node[decisiondia] (D1) at (4, 0) {$p < 0.05$?};
+\draw[arrowstyle] (START) -- (D1);
+
+% No branch
+\node[rejectedbox] (REJ) at (4, -2.5) {Not Supported};
+\draw[arrowstyle] (D1) -- (REJ) node[font=\small, right, pos=0.5] {No};
+
+% Decision 2: Direction
+\node[decisiondia] (D2) at (8, 0) {$\beta > 0$?};
+\draw[arrowstyle] (D1) -- (D2) node[font=\small, above, pos=0.5] {Yes};
+
+% Wrong direction
+\node[rejectedbox] (WRONG) at (8, -2.5) {Not Supported};
+\draw[arrowstyle] (D2) -- (WRONG) node[font=\small, right, pos=0.5] {No};
+
+% Decision 3: CI
+\node[decisiondia] (D3) at (12, 0) {CI excl.\\zero?};
+\draw[arrowstyle] (D2) -- (D3) node[font=\small, above, pos=0.5] {Yes};
+
+% CI includes zero
+\node[rejectedbox] (CIREJ) at (12, -2.5) {Weak Support};
+\draw[arrowstyle] (D3) -- (CIREJ) node[font=\small, right, pos=0.5] {No};
+
+% Supported
+\node[supportedbox] (SUP) at (16, 0) {Supported};
+\draw[arrowstyle] (D3) -- (SUP) node[font=\small, above, pos=0.5] {Yes};
+
+% Effect size annotation
+\node[testbox, fill=white] (EFF) at (16, -2.0) {{\small Effect: Small $<$ 0.20}\\{\small Medium 0.20--0.50}\\{\small Large $>$ 0.50}};
+\draw[ggunavy!40, dashed] (SUP.south) -- (EFF.north);
+\end{tikzpicture}%
+}%
+\caption[Hypothesis Testing Decision Tree]{Decision tree for evaluating each structural hypothesis (SH1--SH7). A hypothesis is supported only when: (1) $p < 0.05$, (2) $\beta$ is in the predicted direction, and (3) the bootstrap 95\% CI excludes zero. Effect size thresholds follow Cohen's (1988) conventions.}
+\label{fig:rgaig_hypothesis_decision_tree_theory}
+\end{figure}
+
+%% ───────────────────────────────────────────────────────────────────────────────
+%% FIGURE 10: Research Contribution Flow — From Gaps to Framework to Validation
+%% (Ch.5 → Phase 12 → Discussion)
+%% ───────────────────────────────────────────────────────────────────────────────
+\noindent\textbf{End-to-end research contribution flow showing the.}
+
+\needspace{20\baselineskip}
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+  stagebox/.style={rectangle, draw=ggunavy, fill=ggunavy!15, rounded corners=3pt,
+    minimum width=2.4cm, minimum height=1.4cm, align=center, font=\small},
+  arrowstyle/.style={-{Stealth[length=3mm]}, thick, ggunavy},
+  countlabel/.style={font=\small\bfseries, ggunavy, fill=ggunavy!15, circle, inner sep=2pt},
+]
+% Five stages
+\node[stagebox] (S1) at (0, 0) {\textbf{6 Research}\\{\small Gaps (G1--G6)}};
+\node[stagebox] (S2) at (3.5, 0) {\textbf{6 Research}\\{\small Questions}};
+\node[stagebox] (S3) at (7, 0) {\textbf{7 Structural}\\{\small Hypotheses}};
+\node[stagebox, fill=ggunavy!20] (S4) at (10.5, 0) {\textbf{RGAIG+}\\{\small Framework}\\{\small (9 layers)}};
+\node[stagebox] (S5) at (14, 0) {\textbf{6 Validation}\\{\small Methods}};
+
+% Arrows
+\draw[arrowstyle] (S1) -- (S2);
+\draw[arrowstyle] (S2) -- (S3);
+\draw[arrowstyle] (S3) -- (S4);
+\draw[arrowstyle] (S4) -- (S5);
+
+% Bottom detail boxes
+\node[font=\small, align=center, ggunavy!70] at (0, -1.5) {Governance\\Explainability\\Safety\\Reliability\\Monitoring\\Adoption};
+\node[font=\small, align=center, ggunavy!70] at (3.5, -1.5) {RQ1--RQ8\\mapped 1:1\\to gaps};
+\node[font=\small, align=center, ggunavy!70] at (7, -1.5) {SH1--SH5: → Trust\\SH6: Trust → PU\\SH7: PU → Adopt};
+\node[font=\small, align=center, ggunavy!70] at (10.5, -1.5) {15 standards\\18 components\\525 modules};
+\node[font=\small, align=center, ggunavy!70] at (14, -1.5) {Computational\\Expert\\Case study\\Comparative\\Survey\\Simulation};
+
+% Feedback arc
+\draw[arrowstyle, ggunavy!40, dashed] (S5.south) to[bend right=20] (S1.south) node[font=\small, below, pos=0.5] {Iterative refinement (DSR)};
+\end{tikzpicture}%
+}%
+\caption[Research Contribution Flow: Gaps → Framework → Validation]{End-to-end research contribution flow showing the progression from 6 identified research gaps through research questions, 7 structural hypotheses, the RGAIG+ 9-layer framework (15 standards, 18 components, 525 modules), and 6 validation methods, with iterative DSR feedback.}
+\label{fig:rgaig_research_contribution_flow_theory}
+\end{figure}

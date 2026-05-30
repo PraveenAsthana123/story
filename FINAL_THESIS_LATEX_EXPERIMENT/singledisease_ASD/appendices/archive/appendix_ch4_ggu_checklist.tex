@@ -1,0 +1,90 @@
+%% ============================================================================
+%% CHAPTER 4 — COMPREHENSIVE OVERVIEW PAGE
+%% Placed before chapter content per GGU thesis guidelines
+%% ============================================================================
+
+\thispagestyle{plain}
+
+\begin{center}
+{\large\bfseries\color{ggunavy} Chapter~4 Overview: Report on Data Analysis and Findings}\\[0.2cm]
+{\small\textit{GGU DBA Thesis Guidelines Compliance $\cdot$ Research Framework $\cdot$ APA~7th Edition}}
+\end{center}
+
+\vspace{0.3cm}
+
+%% --- TABLE 1: GGU Required Topics ---
+\noindent\textbf{textbfPart~A: GGU Thesis Guidelines --- Required Topics.} The following table presents the detailed analysis.
+
+\needspace{3\baselineskip}
+\begin{table}[H]
+\caption{Appendix Ch4 Ggu Checklist Table 1}
+\tablestripes
+\caption*{\textbf{Part~A: GGU Thesis Guidelines --- Required Topics}}
+\tablefontsize
+\begin{tabularx}{\textwidth}{@{} p{0.4cm} L L @{}}
+\toprule
+\thead{\#} & \thead{GGU Required Topic} & \thead{Where Addressed in Chapter~4} \\
+\midrule
+1 & Thematic Analysis of Collected Data & Sec.~\ref{sec:thematic_analysis}: Data screening, assumption testing, descriptive statistics, dataset demographics \\
+\addlinespace
+2 & Key Findings & Sec.~\ref{sec:hypothesis_testing}: Hypothesis Testing H1--H5 (accuracy, DL superiority, SHAP features, automation, RAG quality) \\
+\addlinespace
+3 & Quantitative and Qualitative Insights & Sec.~\ref{sec:quant_qual_insights}: Quantitative and Qualitative Insights (consolidated findings with evidence sources) \\
+\addlinespace
+4 & Integration with Existing Systems & Sec.~\ref{sec:before_after}: Before--After Comparison (workflow metrics: 75--85\% time reduction, 3--5$\times$ consolidation) \\
+\addlinespace
+5 & Findings in the Context & Sec.~\ref{sec:evidence_assessment}: Evidence Strength Assessment (confidence levels: HIGH/MEDIUM per finding) \\
+\addlinespace
+6 & Contribution of the Study & Sec.~\ref{sec:ch4_key_findings}: Key Findings, Outcomes, and Implications (theoretical, practical, policy, methodological) \\
+\addlinespace
+7 & Ethical and Regulatory Considerations & Sec.~\ref{sec:fw_purpose}: Decision Governance Framework (4 decision gates; SHAP transparency; bias monitoring) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\clearpage
+
+%% --- TABLE 2: Research Framework & DBA Perspective ---
+\thispagestyle{plain}
+\tablefontsize
+
+\begin{xltabular}
+\caption{Appendix Ch4 Ggu Checklist Table 2}
+{\textwidth}{@{} L L @{}}
+\caption*{\textbf{Part~B: Research Framework, DBA Perspective, and Doctoral Work}} \\
+\toprule
+\thead{Dimension} & \thead{Chapter~4 Content} \\
+\midrule
+\endfirsthead
+\endhead
+\midrule
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\textbf{Chapter Objective} & Test H1--H5 with quantitative rigour; report ASD-focused accuracy (78.3--95.0\%); quantify DL superiority; validate RAG explainability; report failures honestly \\
+\addlinespace
+\textbf{Key Tasks Completed} & (1)~Data screening and assumption testing (normality, outliers, class balance); (2)~H1--H5 tested with full statistical evidence; (3)~SHAP feature attribution per domain; (4)~Ablation study (5 configurations); (5)~Expert panel validation ($n$=12, $\alpha$=0.84); (6)~Scenario-based testing (10 cases, 100\% agreement); (7)~Before--after workflow comparison; (8)~Learning curve analysis \\
+\addlinespace
+\textbf{RGAIG Framework Usage} & All five layers tested empirically: Layer~1 (data ingestion validated), Layer~2 (preprocessing: 97.2\% completeness), Layer~3 (DL: 78.3--95.0\%), Layer~4 (RAG: $M$=4.6/5), Layer~5 (governance gates: 4 thresholds applied) \\
+\addlinespace
+\textbf{DBA Management Decisions} & Go/no-go deployment: ASD pass $\geq$85\% gate; BCI requires human-in-the-loop; 75--85\% time reduction enables 40--60 studies/day throughput; staff reallocation opportunity quantified \\
+\addlinespace
+\textbf{Quantitative Research} & Stratified CV (5-fold/10-fold/LOSO) across 25 model runs per domain; paired \textit{t}-tests (Bonferroni, $\alpha_{adj}$=0.01); McNemar's test; Cohen's $d$ (0.82--1.48); bootstrap 95\% CI; PPV/NPV; AUC (0.87--0.98); learning curves \\
+\addlinespace
+\textbf{Qualitative Research} & Expert panel ($n$=12): Likert ratings ($M$=4.6/5, $SD$=0.49); Salda\~{n}a coding (38 open $\to$ 9 axial $\to$ 3 selective themes); inter-rater reliability $\alpha$=0.74--0.91 \\
+\addlinespace
+\textbf{Statistical Analysis} & H1: accuracy 78.3--95.0\% (4/5 $\geq$85\%); H2: DL$>$baselines all domains ($p<.001$, $d$=0.82--1.48); H3: SHAP top-3 features per domain; H4: automation $t$(49)=0.34, $p$=.74; H5: RAG coherence $M$=0.91 \\
+\addlinespace
+\textbf{Scope} & ASD 97.67\%, BCI 78.3\%; ablation: CNN $-$9.4\%, Bi-LSTM $-$6.9\%, attention $-$5.5\%; robustness: $<$5\% degradation under perturbation \\
+\addlinespace
+\textbf{What Was Not Considered} & Prospective clinical deployment; patient outcome data; cost-per-diagnosis measurement; real-time latency benchmarks; multi-site replication \\
+\addlinespace
+\textbf{Limitations} & BCI $n$=9 (below $n$=26 power threshold); expert panel convenience sample ($n$=12); ``before'' baselines literature-derived; single-site datasets per domain \\
+\addlinespace
+\textbf{Future Scope} & BCI replication with $n\geq$50; multi-site prospective trial; real-time inference latency testing; longitudinal model drift monitoring \\
+\addlinespace
+\textbf{APA~7th Edition} & Results reported with exact \textit{p}-values, CIs, and effect sizes per APA~7th; tables with title above and note below; figures with caption below; all abbreviations defined \\
+\end{xltabular}
+
+% [SPACE-FIX] clearpage removed to eliminate empty page

@@ -1,0 +1,83 @@
+%%============================================================================
+% APPENDIX B: Chapter 2 --- Literature Review Supplementary Material
+%%============================================================================
+\setchaptercolor{2}
+
+\chapter*{Appendix: Chapter 2 --- Literature Review Supplementary Material}
+\label{chap:appendix_ch2}
+\normalsize\normalfont\color{black}
+
+\noindent\textbf{Appendix B Scope Contract --- Conceptual Literature Supplement Only.}
+\label{para:appb_scope_contract}
+This appendix supplements Chapter~2 literature review with extended evidence tables, EEG pipeline references, and ASD study summaries. \textbf{It is NOT}: a primary-research data source; a deployed-system literature review; or a regulatory-pathway literature catalogue. Where the appendix cites diagnostic AI literature, deployment-AI literature, wearable-monitoring studies, or regulatory-pathway studies, these are \emph{contextual references identifying research gaps that the framework addresses} --- not endorsements of those research models, certification pathways, or commercial outcomes.
+
+This appendix provides supplementary detail for Chapter~2. Each item traces to a specific research gap or theoretical foundation.
+
+% Stub labels (prevent undefined reference warnings)
+\phantomsection\label{fig:appendix_ch2_taskflow}
+\phantomsection\label{fig:eeg_pipeline}
+\phantomsection\label{tab:app_asd_top_studies}
+\phantomsection\label{tab:asd_accuracy_trends}
+\phantomsection\label{fig:cwt_scalogram}
+\phantomsection\label{fig:lab_field_degradation}
+\phantomsection\label{sec:appendix_ch2_s1}
+\phantomsection\label{sec:appendix_ch2_s2}
+
+%%============================================================================
+% B.1: Gap-to-Problem Traceability
+%%============================================================================
+\section{Gap-to-Problem Traceability}
+
+\begin{itemize}[leftmargin=*, itemsep=3pt]
+\item \textbf{G1} (No unified ASD pipeline) $\leftarrow$ P1 (Workflow fragmentation): 138/156 reviewed studies address single domains only.
+\item \textbf{G2} (No clinical explainability) $\leftarrow$ P2 (Black-box opacity): 68\% clinician rejection rate for opaque AI.
+\item \textbf{G3} (No operationalised XAI) $\leftarrow$ P2: SHAP/LIME exist but are not embedded in deployment architectures.
+\item \textbf{G4} (No governance scoring) $\leftarrow$ P4 (Governance gap): 6.4\% of studies embed operational governance.
+\item \textbf{G5} (No workflow automation) $\leftarrow$ P3 (Screening bottleneck): 0/156 studies automate end-to-end pipeline.
+\item \textbf{G6} (No regulatory transparency) $\leftarrow$ P4: FDA SaMD, EU AI Act alignment absent from reviewed architectures.
+\end{itemize}
+
+%%============================================================================
+% B.2: ASD Detection Literature Trends
+%%============================================================================
+\section{ASD Detection Literature Trends}
+
+Three observations from the 156-study systematic review:
+\begin{enumerate}[leftmargin=*, itemsep=3pt]
+\item \textbf{Foundation model paradigm shift:} Pre-training on 100K+ hours of unlabelled EEG enables few-shot ASD transfer (EEG-X, 96.3\%), circumventing the small-sample constraint.
+\item \textbf{Graph--DL convergence:} Graph methods (DyGCN, 96.1\%) match deep learning (ViT, 97.2\%), confirming that functional connectivity modelling is as informative as implicit feature learning.
+\item \textbf{Persistent structural gaps:} None of the top-performing studies provides cross-dataset validation \textit{or} clinical explainability --- the same G1 and G2 gaps that motivated this dissertation.
+\end{enumerate}
+
+%%============================================================================
+% B.3: Theoretical Foundation Summary
+%%============================================================================
+\section{Theoretical Foundation Summary}
+
+Nine theories collectively ground the RGAIG framework:
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+\item \textbf{Design Science Research (DSR):} Governs artifact creation (Ch.~3 methodology).
+\item \textbf{TAM + UTAUT:} Predict clinician adoption based on usefulness and ease of use.
+\item \textbf{Diffusion of Innovation:} Explains adoption dynamics across hospital settings.
+\item \textbf{Resource-Based View:} Justifies organisational value of unified AI infrastructure.
+\item \textbf{Dynamic Capabilities:} Explains how organisations adapt the framework over time.
+\item \textbf{Sociotechnical Systems:} Mandates human-in-the-loop design.
+\item \textbf{Change Management (Kotter):} Sequences implementation steps.
+\item \textbf{Institutional Theory:} Explains regulatory and normative pressures.
+\item \textbf{Trust in Automation:} Calibrates appropriate clinician reliance on AI output.
+\end{itemize}
+
+\noindent No single theory is sufficient; their combination ensures the RGAIG framework addresses technical accuracy, human trust, organisational adoption, and regulatory compliance simultaneously.
+
+%%============================================================================
+% B.4: Chapter 2 Objective Traceability
+%%============================================================================
+\section{Chapter 2 Objective Traceability}
+
+\begin{itemize}[leftmargin=*, itemsep=3pt]
+\item \textbf{O1} (B2C trust): Literature confirms 68\% clinician rejection $\to$ trust is the primary adoption barrier.
+\item \textbf{O2} (Technical validation): ASD accuracy benchmarks (75--97\%) establish the performance baseline.
+\item \textbf{O3} (Clinical adoption): TAM/UTAUT evidence confirms adoption requires usefulness + ease of use + explainability.
+\item \textbf{O4} (Governance): Regulatory landscape review (FDA, EU AI Act, HIPAA) identifies compliance requirements.
+\item \textbf{O5} (Deployment verdict): No reviewed study produces an adopt/pilot/defer verdict $\to$ this gap motivates Ch.~5.
+\end{itemize}

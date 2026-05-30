@@ -1,0 +1,598 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CHAPTER 6: FRAMEWORK DEVELOPMENT
+%% Core DBA Contribution — Master Decision Governance Framework
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Framework Development: Master Decision Governance Architecture}
+\label{chap:framework}
+
+This chapter argues that the five-layer Master Decision Governance Framework constitutes the core DBA contribution of this dissertation---a management architecture that transforms high-accuracy AI predictions into governable, auditable, and organizationally embedded clinical decision-support processes. The preceding chapters demonstrated that a unified pipeline achieves 82--96\% accuracy across five biomedical domains (Chapter~\ref{chap:analysis}) and that deep learning, RAG explainability, and agentic automation collectively strengthen both performance and interpretability. However, accuracy alone is insufficient for clinical adoption. Healthcare organizations require structured decision rights, accountability mechanisms, and governance controls that specify how AI-generated predictions are produced, reviewed, approved, and acted upon within clinical workflows \citep{topol2019deep, kelly2019healthcare}. This framework provides those mechanisms---not as a technology blueprint but as a management architecture that begins with the business decision and works downward through process, data, technology, and governance layers, ensuring that AI serves organizational objectives rather than dictating them.
+
+\subsection{Chapter Objective}
+\label{sec:fw_objective}
+
+By the end of this chapter, the reader will be able to:
+\begin{enumerate}[label=\alph*)]
+    \item Describe the five-layer governance architecture and explain why each layer is necessary for clinical AI adoption.
+    \item Distinguish between strategic, tactical, and operational decision types and map appropriate AI roles to each.
+    \item Trace the seven-step operational workflow from decision trigger through outcome logging and closed-loop feedback.
+    \item Identify the governance controls, RACI assignments, and exception handling mechanisms that prevent AI failures from reaching patients.
+    \item Evaluate organizational readiness for framework adoption using the structured assessment criteria provided.
+\end{enumerate}
+
+\section{Framework Purpose}
+\label{sec:fw_purpose}
+
+The framework serves three interlocking purposes that reflect the DBA requirement to bridge theory and practice.
+
+\textbf{First, it institutionalizes decision quality.} In biomedical diagnosis, a classification model's output is the beginning of a decision, not the end. A clinician must interpret the prediction, weigh it against patient history, consider differential diagnoses, and document the rationale. The framework formalizes this sequence by defining decision types, authority levels, and review checkpoints---ensuring that no AI prediction bypasses human clinical judgment \citep{topol2019deep, wiens2019nofreelunch}.
+
+\textbf{Second, it embeds governance from inception.} The FDA AI/ML Action Plan \citep{fda2021aiml} and the EU AI Act \citep{eu2021aiact} require that AI-based medical devices demonstrate transparency, bias monitoring, and human oversight. Rather than retrofitting compliance onto a deployed system, the framework integrates governance controls---bias audits, confidence thresholds, decision logging---as structural components of every diagnostic workflow.
+
+\textbf{Third, it provides measurable value.} Healthcare executives must justify AI investments with quantifiable outcomes. The framework includes a KPI model (Section~\ref{sec:fw_kpi}) that tracks diagnostic accuracy, decision turnaround time, error rates, cost per diagnosis, and clinician satisfaction, enabling continuous value realization assessment.
+
+\section{Five-Layer Architecture}
+\label{sec:fw_architecture}
+
+The framework comprises five hierarchical layers, each answering a distinct organizational question. Table~\ref{tab:framework_layers} summarizes the layers, their primary questions, key roles, and deliverables.
+
+\begin{table}[H]
+\tablestripes
+\small
+\begin{tabularx}{\textwidth}{L L L L}
+\toprule
+\thead{Layer} & \thead{Question Answered} & \thead{Key Role} & \thead{Deliverable} \\
+\midrule
+Business Decision & What clinical decisions require AI support? & Executive sponsor; clinical lead & Decision catalog with priority ranking and risk classification \\
+\addlinespace
+Process \& Workflow & How are diagnostic decisions made, reviewed, and executed? & Clinical lead; process owner & Standardized 7-step workflow with governance checkpoints \\
+\addlinespace
+Data \& Intelligence & What data inputs are needed and how is quality assured? & Data steward & Data typology with trust controls and quality thresholds \\
+\addlinespace
+Technology \& AI & What AI capabilities enable accurate, explainable predictions? & AI/ML engineering team & Validated AI capability map with known limitations \\
+\addlinespace
+Governance, Risk \& Compliance & What controls prevent harm and ensure regulatory compliance? & Risk and legal counsel; ethics committee & Governance controls matrix with audit evidence \\
+\bottomrule
+\end{tabularx}
+\caption{Five-Layer Framework Architecture}
+\label{tab:framework_layers}
+\vspace{0.5em}\noindent\textit{Note.} Layers are listed from top (business) to bottom (governance). The framework is read top-down for strategic alignment and bottom-up for assurance and compliance. Each layer produces specific deliverables that feed into adjacent layers.
+\end{table}
+
+Figure~\ref{fig:master_framework} illustrates the five-layer architecture. The Business Decision Layer sits at the apex, reflecting the principle that organizational needs---not technological capabilities---drive the framework.
+
+\begin{figure}[H]
+    \begin{tikzpicture}[
+        every node/.style={font=\small, text=white, align=center, minimum height=1.2cm},
+        arrow label/.style={font=\small, text=black, rotate=90, anchor=south},
+        arrow label r/.style={font=\small, text=black, rotate=-90, anchor=south},
+    ]
+    \def\layerH{1.3}
+    \def\layerGap{0.15}
+
+    % Layer 1 (top) -- Business Decision
+    \fill[ggunavy] (-2.5, 4*\layerH+4*\layerGap) -- (2.5, 4*\layerH+4*\layerGap)
+        -- (3.0, 5*\layerH+4*\layerGap) -- (-3.0, 5*\layerH+4*\layerGap) -- cycle;
+    \node at (0, 4.5*\layerH+4*\layerGap) {\textbf{Business Decision Layer}\\What decisions need AI?};
+
+    % Layer 2 -- Process & Workflow
+    \fill[ggunavy!85] (-3.5, 3*\layerH+3*\layerGap) -- (3.5, 3*\layerH+3*\layerGap)
+        -- (4.0, 4*\layerH+3*\layerGap) -- (-4.0, 4*\layerH+3*\layerGap) -- cycle;
+    \node at (0, 3.5*\layerH+3*\layerGap) {\textbf{Process \& Workflow Layer}\\How are decisions made?};
+
+    % Layer 3 -- Data & Intelligence
+    \fill[ggunavy!70] (-4.5, 2*\layerH+2*\layerGap) -- (4.5, 2*\layerH+2*\layerGap)
+        -- (5.0, 3*\layerH+2*\layerGap) -- (-5.0, 3*\layerH+2*\layerGap) -- cycle;
+    \node at (0, 2.5*\layerH+2*\layerGap) {\textbf{Data \& Intelligence Layer}\\What data is needed?};
+
+    % Layer 4 -- Technology & AI
+    \fill[ggunavy!55] (-5.5, 1*\layerH+1*\layerGap) -- (5.5, 1*\layerH+1*\layerGap)
+        -- (6.0, 2*\layerH+1*\layerGap) -- (-6.0, 2*\layerH+1*\layerGap) -- cycle;
+    \node at (0, 1.5*\layerH+1*\layerGap) {\textbf{Technology \& AI Layer}\\What AI enables this?};
+
+    % Layer 5 (bottom) -- Governance
+    \fill[ggugold] (-6.5, 0) -- (6.5, 0)
+        -- (7.0, \layerH) -- (-7.0, \layerH) -- cycle;
+    \node[text=black] at (0, 0.5*\layerH) {\textbf{Governance, Risk \& Compliance}\\What controls prevent harm?};
+
+    % Left arrows -- Strategic Alignment
+    \draw[-{Stealth[length=4mm]}, line width=1.5pt, ggunavy]
+        (-6.8, 5*\layerH+4*\layerGap) -- (-6.8, 0);
+    \node[arrow label] at (-7.3, 2.5*\layerH+2*\layerGap) {\textbf{Strategic Alignment}};
+
+    % Right arrows -- Assurance & Compliance
+    \draw[-{Stealth[length=4mm]}, line width=1.5pt, ggugold]
+        (6.8, 0) -- (6.8, 5*\layerH+4*\layerGap);
+    \node[arrow label r] at (7.3, 2.5*\layerH+2*\layerGap) {\textbf{Assurance \& Compliance}};
+
+    \end{tikzpicture}
+    \caption{Master Decision Governance Framework Architecture}
+    \label{fig:master_framework}
+    \vspace{0.5em}\noindent\textit{Note.} Five-layer pyramid from business decision (top) through governance (foundation). Left arrow indicates top-down strategic alignment; right arrow indicates bottom-up assurance feedback.
+\end{figure}
+
+\section{Decision Classification}
+\label{sec:fw_decisions}
+
+Not all clinical decisions warrant the same level of AI involvement. The framework classifies decisions along three dimensions---frequency, risk, and reversibility---to determine the appropriate AI role. Table~\ref{tab:decision_classification} presents this classification.
+
+\begin{table}[H]
+\tablestripes
+\small
+\begin{tabularx}{\textwidth}{L L L L L}
+\toprule
+\thead{Decision Type} & \thead{Frequency} & \thead{Risk Level} & \thead{AI Role} & \thead{Human Role} \\
+\midrule
+Strategic & Low (quarterly) & High (irreversible) & Advisory: AI provides evidence summaries and trend analyses & Final authority rests with clinical leadership and board \\
+\addlinespace
+Tactical & Medium (daily) & Medium (partially reversible) & Recommendation: AI ranks differential diagnoses with confidence scores & Clinical lead reviews, modifies, or approves recommendation \\
+\addlinespace
+Operational & High (per-case) & Low (fully reversible) & Automation: AI executes routine screening, quality checks, and flagging & Clinician provides oversight and handles flagged exceptions \\
+\bottomrule
+\end{tabularx}
+\caption{Decision Classification Model}
+\label{tab:decision_classification}
+\vspace{0.5em}\noindent\textit{Note.} Strategic decisions include treatment protocol changes and resource allocation; tactical decisions include individual patient diagnoses; operational decisions include EEG artifact rejection and automated quality checks.
+\end{table}
+
+This classification operationalizes a core DBA principle: AI involvement must be proportional to decision risk. High-stakes strategic decisions receive AI advisory support only; routine operational decisions with low consequence may be automated. The classification prevents the common failure mode in which AI systems are granted de facto authority over high-stakes decisions simply because they are faster \citep{char2018ethics}.
+
+\section{Automation Appropriateness Analysis}
+\label{sec:fw_automation}
+
+Not all tasks within the diagnostic workflow should be automated, even when automation is technically feasible. Table~\ref{tab:automation_appropriateness} distinguishes tasks where AI automation adds value from those where human judgment must remain primary.
+
+\begin{table}[H]
+\tablestripes
+\begin{tabularx}{\textwidth}{L L L L}
+\toprule
+\thead{Task} & \thead{Automate?} & \thead{Rationale} & \thead{Human Role} \\
+\midrule
+EEG artifact rejection & Yes & Repetitive, rule-based; ICA separation well-validated & Spot-check 5\% of rejections \\
+\addlinespace
+Feature extraction & Yes & Computationally intensive; deterministic given parameters & Validate feature distributions \\
+\addlinespace
+Model inference & Yes & Consistent, fast, reproducible & Review all predictions \\
+\addlinespace
+Differential diagnosis & No & Requires patient history, comorbidity context, clinical intuition & Clinician decides; AI advises \\
+\addlinespace
+Treatment recommendation & No & High risk; irreversible consequences; informed consent required & Clinician has sole authority \\
+\addlinespace
+RAG explanation generation & Yes & Literature retrieval and synthesis; reduces clinician search time & Verify citation relevance \\
+\addlinespace
+Override decision & No & Ethical and legal accountability rests with licensed practitioner & Clinician documents rationale \\
+\bottomrule
+\end{tabularx}
+\caption{Automation Appropriateness Analysis}
+\label{tab:automation_appropriateness}
+\vspace{0.5em}\noindent\textit{Note.} ICA = independent component analysis; RAG = retrieval-augmented generation. Tasks with high repeatability and low consequence are automated; tasks with high consequence or requiring contextual judgment remain human-led.
+\end{table}
+
+\section{Operational Workflow}
+\label{sec:fw_workflow}
+
+The seven-step operational workflow governs how a diagnostic decision flows through the framework. Figure~\ref{fig:operational_flow} illustrates the workflow with three embedded governance checkpoints.
+
+\begin{figure}[H]
+    \begin{tikzpicture}[
+        stepbox/.style={rectangle, rounded corners=4pt, draw=ggunavy, fill=ggunavy!10,
+            text=black, font=\small, minimum width=3.2cm, minimum height=1.1cm, align=center, line width=0.8pt},
+        gov/.style={diamond, draw=ggugold, fill=ggugold!15, text=black, font=\small,
+            minimum width=1.6cm, minimum height=1.0cm, align=center, aspect=2, dashed, line width=0.8pt},
+        arr/.style={-{Stealth[length=3mm]}, line width=1pt, ggunavy},
+        garr/.style={-{Stealth[length=2.5mm]}, line width=0.8pt, ggugold, dashed},
+        node distance=0.8cm and 1.0cm,
+    ]
+    % Row 1: Steps 1-4
+    \node[stepbox] (s1) {\textbf{Step 1}\\Decision\\Trigger};
+    \node[stepbox, right=1.2cm of s1] (s2) {\textbf{Step 2}\\Data Acquisition\\\& Validation};
+    \node[stepbox, right=1.2cm of s2] (s3) {\textbf{Step 3}\\AI Analysis\\\& Prediction};
+    \node[stepbox, right=1.2cm of s3] (s4) {\textbf{Step 4}\\Confidence\\\& Bias Check};
+
+    % Governance checkpoint at Step 3
+    \node[gov, below=0.5cm of s3] (g3) {Governance\\Checkpoint};
+
+    % Arrows row 1
+    \draw[arr] (s1) -- (s2);
+    \draw[arr] (s2) -- (s3);
+    \draw[arr] (s3) -- (s4);
+    \draw[garr] (s3) -- (g3);
+
+    % Row 2: Steps 5-7
+    \node[stepbox, below=2.2cm of s4] (s5) {\textbf{Step 5}\\Clinician Review\\\& Decision};
+    \node[stepbox, left=1.2cm of s5] (s6) {\textbf{Step 6}\\Decision\\Execution};
+    \node[stepbox, left=1.2cm of s6] (s7) {\textbf{Step 7}\\Outcome Logging\\\& Feedback};
+
+    % Governance checkpoints at Steps 5 and 7
+    \node[gov, below=0.5cm of s5] (g5) {Governance\\Checkpoint};
+    \node[gov, below=0.5cm of s7] (g7) {Governance\\Checkpoint};
+
+    % Arrow from Step 4 down to Step 5
+    \draw[arr] (s4.south) -- ++(0,-0.6) -| (s5.north);
+
+    % Arrows row 2
+    \draw[arr] (s5) -- (s6);
+    \draw[arr] (s6) -- (s7);
+    \draw[garr] (s5) -- (g5);
+    \draw[garr] (s7) -- (g7);
+
+    % Feedback loop
+    \draw[arr, ggugold!80!black] (s7.west) -- ++(-0.6,0) |- ([yshift=0.5cm]s1.north west) -- (s1.north);
+    \node[font=\small, text=ggugold!80!black, anchor=south] at ([xshift=-1.0cm, yshift=0.3cm]s1.north west) {Closed-loop feedback};
+
+    \end{tikzpicture}
+    \caption{Seven-Step Operational Decision Flow}
+    \label{fig:operational_flow}
+    \vspace{0.5em}\noindent\textit{Note.} Dashed diamonds indicate governance checkpoints embedded at Steps 3, 5, and 7. The feedback loop from Step 7 to Step 1 enables continuous model improvement through outcome tracking.
+\end{figure}
+
+The seven steps operate as follows:
+
+\begin{enumerate}
+    \item \textbf{Decision Trigger.} A clinical event---patient referral, anomaly detection, or scheduled screening---initiates the workflow. The trigger is classified by type (strategic, tactical, operational) per Table~\ref{tab:decision_classification}.
+
+    \item \textbf{Data Acquisition and Validation.} The system ingests biomedical data (EEG recordings, medical images, clinical notes) and applies automated quality checks. Data failing quality thresholds is flagged for human review rather than silently excluded.
+
+    \item \textbf{AI Analysis and Prediction.} The agentic pipeline executes preprocessing, feature extraction, model inference, and explainability generation. Outputs include: (a)~classification prediction with confidence score, (b)~SHAP or Grad-CAM feature attributions, and (c)~RAG-generated evidence narrative grounding the prediction in published literature. \textit{Governance Checkpoint 1}: prediction confidence and bias indicators are evaluated before clinical presentation.
+
+    \item \textbf{Confidence and Bias Check.} Predictions below configurable confidence thresholds are flagged as ``low-confidence'' and routed to senior clinical review. Demographic subgroup performance disparities trigger bias alerts.
+
+    \item \textbf{Clinician Review and Decision.} The responsible clinician reviews the AI prediction, supporting evidence, and patient history. The clinician may accept, modify, or reject the recommendation. \textit{Governance Checkpoint 2}: every decision is logged with clinician identity, rationale, and any modifications.
+
+    \item \textbf{Decision Execution.} The approved recommendation is documented in the electronic health record with full provenance---model version, input data references, confidence score, clinician identity, and modifications.
+
+    \item \textbf{Outcome Logging and Feedback.} Clinical outcomes are tracked and fed back into model performance monitoring. Discrepancies between predictions and outcomes trigger automated alerts for retraining evaluation. \textit{Governance Checkpoint 3}: outcome data is audited for completeness and accuracy.
+\end{enumerate}
+
+\section{Exception and Escalation Handling}
+\label{sec:fw_exceptions}
+
+No operational system achieves 100\% reliability. Table~\ref{tab:exception_handling} defines six exception categories with triggers, escalation paths, and recovery actions.
+
+\begin{table}[H]
+\tablestripes
+\begin{tabularx}{\textwidth}{L L L L}
+\toprule
+\thead{Exception Type} & \thead{Trigger} & \thead{Escalation Path} & \thead{Recovery Action} \\
+\midrule
+Low-confidence prediction & Confidence $<$70\% threshold & Route to senior clinician for manual review & Independent diagnosis; case logged for retraining \\
+\addlinespace
+Data quality failure & SNR $<$10 dB; $>$20\% bad channels & Flag to data steward; halt automated processing & Re-acquisition ordered or case excluded with documented reason \\
+\addlinespace
+RAG retrieval failure & $<$3 relevant citations; relevance $<$0.5 & Flag as ``limited evidence''; notify AI/ML lead & Clinician proceeds with SHAP-only explanation; knowledge base updated \\
+\addlinespace
+Model drift detected & Accuracy drops $>$3\% from baseline in 30-day window & Alert AI/ML lead and clinical lead; suspend automation & Model retrained on updated data; A/B tested before re-deployment \\
+\addlinespace
+Clinician override & Clinician rejects AI recommendation & Log override with rationale; notify governance if pattern emerges & Override becomes training signal; systematic patterns trigger model review \\
+\addlinespace
+System outage & Pipeline unavailable $>$5 minutes & Failover to manual diagnostic workflow; notify IT operations & Standard clinical protocols apply; no AI decisions until restored \\
+\bottomrule
+\end{tabularx}
+\caption{Exception and Escalation Handling Matrix}
+\label{tab:exception_handling}
+\vspace{0.5em}\noindent\textit{Note.} SNR = signal-to-noise ratio; dB = decibels; RAG = retrieval-augmented generation. Exception thresholds are configurable per institutional policy. Every exception produces an auditable log entry.
+\end{table}
+
+The exception handling matrix ensures graceful degradation rather than silent failure. Each exception has a defined trigger, an escalation path with named accountability, and a recovery action that maintains patient safety even when the AI system is unavailable or unreliable.
+
+\section{Human-AI Interaction Model}
+\label{sec:fw_human_ai}
+
+A recurring concern in healthcare AI is ``automation bias,'' in which clinicians defer uncritically to AI recommendations \citep{rajkomar2019healthcare}. The framework addresses this through a structured interaction model that preserves meaningful human agency. Figure~\ref{fig:decision_sequence} illustrates the interaction sequence.
+
+\begin{figure}[H]
+    \begin{tikzpicture}[
+        actor/.style={rectangle, rounded corners=3pt, draw=#1, fill=#1!15, text=black,
+            font=\small\bfseries, minimum width=2.8cm, minimum height=0.8cm, align=center, line width=0.8pt},
+        msg/.style={-{Stealth[length=2.5mm]}, line width=0.8pt, #1},
+        msglabel/.style={font=\small, text=black, fill=white, inner sep=2pt, align=center},
+    ]
+    % Actor boxes
+    \node[actor=ggunavy] (clin) at (0, 0) {Clinician};
+    \node[actor=gray] (ai) at (5, 0) {AI System};
+    \node[actor=ggugold] (gov) at (10, 0) {Governance};
+
+    % Lifelines
+    \draw[dashed, gray, line width=0.6pt] (clin.south) -- ++(0, -8.5);
+    \draw[dashed, gray, line width=0.6pt] (ai.south) -- ++(0, -8.5);
+    \draw[dashed, gray, line width=0.6pt] (gov.south) -- ++(0, -8.5);
+
+    % Message 1: Diagnostic Request
+    \draw[msg=ggunavy] ([yshift=-1.2cm]clin.south) -- ([yshift=-1.2cm]ai.south)
+        node[msglabel, midway, above] {Diagnostic Request};
+
+    % Message 2: AI processes
+    \draw[msg=gray] ([xshift=0.3cm, yshift=-2.2cm]ai.south) -- ++(1.0, 0)
+        -- ++(0, -0.8) -- ++(-1.0, 0);
+    \node[msglabel, anchor=west] at ([xshift=1.5cm, yshift=-2.6cm]ai.south) {Process \& Analyze};
+
+    % Message 3: Prediction + Explanation
+    \draw[msg=gray] ([yshift=-3.8cm]ai.south) -- ([yshift=-3.8cm]clin.south)
+        node[msglabel, midway, above] {Prediction + Explanation};
+
+    % Message 4: Decision + Rationale
+    \draw[msg=ggunavy] ([yshift=-5.2cm]clin.south) -- ([yshift=-5.2cm]gov.south)
+        node[msglabel, midway, above] {Decision + Rationale};
+
+    % Message 5: Log & Monitor
+    \draw[msg=ggugold] ([yshift=-6.6cm]gov.south) -- ([yshift=-6.6cm]ai.south)
+        node[msglabel, midway, above] {Log \& Monitor};
+
+    % Activation boxes
+    \fill[ggunavy!20] ([xshift=-0.15cm, yshift=-0.9cm]clin.south) rectangle ([xshift=0.15cm, yshift=-5.6cm]clin.south);
+    \fill[gray!20] ([xshift=-0.15cm, yshift=-1.2cm]ai.south) rectangle ([xshift=0.15cm, yshift=-4.2cm]ai.south);
+    \fill[ggugold!20] ([xshift=-0.15cm, yshift=-5.0cm]gov.south) rectangle ([xshift=0.15cm, yshift=-7.2cm]gov.south);
+    \fill[gray!20] ([xshift=-0.15cm, yshift=-6.3cm]ai.south) rectangle ([xshift=0.15cm, yshift=-7.2cm]ai.south);
+
+    \end{tikzpicture}
+    \caption{Human-AI Decision Interaction Sequence}
+    \label{fig:decision_sequence}
+    \vspace{0.5em}\noindent\textit{Note.} Sequence diagram showing interactions between clinician (decision authority), AI system (recommendation engine), and governance (audit and compliance). The clinician retains final authority at every decision point.
+\end{figure}
+
+The interaction model operates on three principles:
+
+\textbf{Principle 1: AI recommends, humans decide.} For all tactical and strategic decisions, the AI system produces a recommendation, not a decision. The clinician retains full authority to accept, modify, or override. Even for operational decisions where automation is permitted, a human override mechanism is always available.
+
+\textbf{Principle 2: Explanations are mandatory.} Every AI prediction must be accompanied by feature-level explanations (SHAP or Grad-CAM) and a literature-grounded narrative (RAG). Clinicians should never be presented with a bare classification label. This requirement supports the regulatory expectation for transparency in the FDA AI/ML Action Plan \citep{fda2021aiml} and EU AI Act \citep{eu2021aiact}.
+
+\textbf{Principle 3: Disagreement is documented and learned from.} When a clinician overrides an AI recommendation, the system records the override reason and the clinician's alternative assessment. These disagreements become training signals for model improvement and audit evidence for governance review.
+
+\section{Governance Controls}
+\label{sec:fw_governance}
+
+Governance is not an afterthought; it is the foundational layer that constrains every other component. Table~\ref{tab:governance_controls} maps risk areas to specific controls, accountability owners, and evidence artifacts.
+
+\begin{table}[H]
+\tablestripes
+\begin{tabularx}{\textwidth}{L L L L}
+\toprule
+\thead{Risk Area} & \thead{Control} & \thead{Owner} & \thead{Evidence} \\
+\midrule
+Algorithmic bias & Quarterly bias review using demographic subgroup metrics & Ethics committee & Bias audit report with disparity indices \\
+\addlinespace
+AI hallucination & Confidence thresholds with mandatory low-confidence routing & AI/ML lead & Validation report with false positive/negative rates \\
+\addlinespace
+Decision accountability & Named clinician sign-off for every diagnostic recommendation & Clinical lead & Signed approval record in EHR with provenance \\
+\addlinespace
+Regulatory compliance & Policy enforcement aligned with FDA SaMD and EU AI Act & Risk and legal counsel & Compliance assessment logs \\
+\addlinespace
+Data quality & Multi-stage validation gates with automated checks and escalation & Data steward & Data quality reports with rejection rates \\
+\bottomrule
+\end{tabularx}
+\caption{Governance Controls Matrix}
+\label{tab:governance_controls}
+\vspace{0.5em}\noindent\textit{Note.} FDA = U.S. Food and Drug Administration; SaMD = Software as a Medical Device; EHR = electronic health record. Controls produce auditable evidence for regulatory review.
+\end{table}
+
+\section{RACI Matrix}
+\label{sec:fw_raci}
+
+Clear accountability prevents the diffusion of responsibility that undermines AI governance. Table~\ref{tab:raci} defines the RACI structure for AI-enabled diagnostic decisions.
+
+\begin{table}[H]
+\tablestripes
+\begin{tabularx}{\textwidth}{L L L}
+\toprule
+\thead{Role} & \thead{Responsibility} & \thead{Decision Authority} \\
+\midrule
+Executive sponsor & Strategic oversight; resource allocation; organizational risk acceptance & Final authority on program scope and investment \\
+\addlinespace
+Clinical lead & Domain-specific validation; clinical context integration; patient communication & Approval authority on individual diagnostic decisions \\
+\addlinespace
+AI/ML engineering & Model development, training, validation, and performance monitoring & Recommend model deployment and retirement decisions \\
+\addlinespace
+Data steward & Data acquisition QA; access control; de-identification compliance & Inform stakeholders of quality issues; escalate failures \\
+\addlinespace
+Risk and legal counsel & Regulatory compliance assessment; ethical review; liability analysis & Veto authority on deployments failing compliance checks \\
+\bottomrule
+\end{tabularx}
+\caption{RACI for AI-Enabled Diagnostic Decisions}
+\label{tab:raci}
+\vspace{0.5em}\noindent\textit{Note.} RACI = Responsible, Accountable, Consulted, Informed. Veto authority for risk and legal counsel ensures that compliance concerns cannot be overridden by operational pressure.
+\end{table}
+
+\section{KPI and Value Measurement Model}
+\label{sec:fw_kpi}
+
+The framework's value proposition is credible only if measurable. Table~\ref{tab:kpi_model} presents six KPIs spanning quality, productivity, risk, cost, compliance, and adoption dimensions.
+
+\begin{table}[H]
+\tablestripes
+\small
+\begin{tabularx}{\textwidth}{L L p{1cm} p{1cm} L}
+\toprule
+\thead{KPI} & \thead{Measurement} & \thead{Base-line} & \thead{Target} & \thead{Value Type} \\
+\midrule
+Diagnostic accuracy & Correct classifications (\%) & 85\% & 93\%+ & Quality: improves patient outcomes; reduces misdiagnosis \\
+\addlinespace
+Decision turnaround & Hours from trigger to decision & 72 hr & 12 hr & Productivity: faster diagnosis enables earlier treatment \\
+\addlinespace
+Diagnostic error rate & Incorrect/missed diagnoses (\%) & 8\% & 2\% & Risk: reduces clinical risk and malpractice exposure \\
+\addlinespace
+Cost per diagnosis & Fully loaded cost incl. AI infrastructure & \$500 & \$150 & Cost: AI screening reduces per-unit cost at scale \\
+\addlinespace
+Compliance audit findings & Non-conformities per audit cycle & 5 & 0 & Compliance: demonstrates regulatory readiness \\
+\addlinespace
+Clinician satisfaction & Likert-scale survey (1--5) & 3.2 & 4.5 & Adoption: clinician acceptance is prerequisite for sustained use \\
+\bottomrule
+\end{tabularx}
+\caption{KPI and Value Realization Model}
+\label{tab:kpi_model}
+\vspace{0.5em}\noindent\textit{Note.} Baselines estimated from current manual processes \citep{kelly2019healthcare}. Targets derived from empirical results (Ch.~\ref{chap:analysis}) and projected operational improvements. KPI = key performance indicator.
+\end{table}
+
+The model includes both \textit{leading indicators} (clinician satisfaction, compliance findings) that predict future adoption and \textit{lagging indicators} (accuracy, error rate, cost) that measure realized outcomes. This balance prevents short-term optimization at the expense of long-term sustainability.
+
+\section{Gap-to-Framework Mapping}
+\label{sec:fw_gaps}
+
+Table~\ref{tab:gap_framework_response} maps each research gap (Chapter~\ref{chap:literature}) to the specific framework component that addresses it, providing explicit traceability from problem identification to solution delivery.
+
+\begin{table}[H]
+\tablestripes
+\small
+\begin{tabularx}{\textwidth}{L L L L}
+\toprule
+\thead{Gap} & \thead{Limitation} & \thead{Framework Response} & \thead{Evidence} \\
+\midrule
+G1: Domain-specific silos & No unified pipeline & Unified analytical pipeline (Layer 3--4) & 82--96\% across 5 domains (Ch.~\ref{chap:analysis}) \\
+\addlinespace
+G2: Opaque predictions & Black-box models erode trust & RAG explainability + SHAP/Grad-CAM & Expert rating M = 4.4/5 (Ch.~\ref{chap:validation}) \\
+\addlinespace
+G3: No governance lens & Technology without decision rights & Five-layer governance framework & Controls matrix + RACI (Tables~\ref{tab:governance_controls}, \ref{tab:raci}) \\
+\addlinespace
+G4: Manual bottlenecks & Each step requires human orchestration & Agentic automation (Table~\ref{tab:automation_appropriateness}) & 75--85\% time reduction (Ch.~\ref{chap:validation}) \\
+\addlinespace
+G5: No ROI linkage & AI lacks measurable business justification & KPI model (Table~\ref{tab:kpi_model}) & 135--185\% ROI; 12--18 month payback (Ch.~\ref{chap:discussion}) \\
+\addlinespace
+G6: Static risk models & No lifecycle governance & Exception handling + continuous monitoring & Closed-loop feedback with drift detection \\
+\bottomrule
+\end{tabularx}
+\caption{Research Gaps and Framework Responses}
+\label{tab:gap_framework_response}
+\vspace{0.5em}\noindent\textit{Note.} RAG = retrieval-augmented generation; RACI = Responsible, Accountable, Consulted, Informed; ROI = return on investment. Each gap maps directly to a framework component with empirical evidence.
+\end{table}
+
+\section{Organizational Readiness Assessment}
+\label{sec:fw_readiness}
+
+Not every healthcare organization is immediately prepared to adopt the framework. Table~\ref{tab:organizational_readiness} provides a structured readiness assessment with minimum levels and remediation actions.
+
+\begin{table}[H]
+\tablestripes
+\small
+\begin{tabularx}{\textwidth}{L L L L}
+\toprule
+\thead{Dimension} & \thead{Assessment Criteria} & \thead{Min. Level} & \thead{If Not Met} \\
+\midrule
+Data infrastructure & EHR with HL7/FHIR APIs; PACS with DICOM export; encrypted storage & Moderate & Invest in integration middleware before deployment \\
+\addlinespace
+IT staffing & Clinical informatics team ($\geq$2 FTE); GPU-equipped infrastructure & Moderate & Hire or contract ML engineering support \\
+\addlinespace
+Clinical leadership & Designated clinical champion per domain; AI governance committee & High & Secure executive sponsorship before proceeding \\
+\addlinespace
+Governance maturity & Existing data governance policies; ethics review process; audit procedures & Moderate & Establish governance foundations during Phase 0 \\
+\addlinespace
+Change readiness & Clinician openness to AI; prior experience with clinical decision support & Low--Moderate & Conduct awareness workshops; begin with low-risk cases \\
+\addlinespace
+Regulatory posture & Familiarity with FDA SaMD framework; EU AI Act requirements & Low & Engage regulatory affairs consultant during planning \\
+\bottomrule
+\end{tabularx}
+\caption{Organizational Readiness Assessment}
+\label{tab:organizational_readiness}
+\vspace{0.5em}\noindent\textit{Note.} EHR = electronic health record; PACS = picture archiving and communication system; FTE = full-time equivalent; SaMD = Software as a Medical Device. High = must be fully in place; Moderate = must be in progress; Low = can develop during implementation.
+\end{table}
+
+Organizations scoring below minimum readiness on three or more dimensions should prioritize organizational development before technology deployment. This sequencing reflects a foundational DBA insight: technology adoption fails more often from organizational unreadiness than from technical inadequacy.
+
+\section{End-to-End Traceability}
+\label{sec:fw_traceability}
+
+Figure~\ref{fig:traceability_map} presents the end-to-end traceability map demonstrating the logical inevitability of the proposed framework.
+
+\begin{figure}[H]
+    \begin{tikzpicture}[
+        box/.style={rectangle, rounded corners=3pt, draw=ggunavy!70, fill=ggunavy!8,
+            text=black, font=\small, minimum width=2.2cm, minimum height=1.1cm, align=center, line width=0.8pt},
+        highlight/.style={rectangle, rounded corners=3pt, draw=ggunavy, fill=ggunavy,
+            text=white, font=\small\bfseries, minimum width=2.2cm, minimum height=1.1cm, align=center, line width=1.2pt},
+        arr/.style={-{Stealth[length=2.5mm]}, line width=0.8pt, ggunavy!70},
+    ]
+    % Row 1
+    \node[box] (b1) at (0, 0) {Problem\\(Ch.~1)};
+    \node[box] (b2) at (3, 0) {Literature\\(Ch.~2)};
+    \node[box] (b3) at (6, 0) {Gaps\\(Ch.~2)};
+    \node[box] (b4) at (9, 0) {Objectives\\(Ch.~1)};
+    \node[box] (b5) at (12, 0) {RQ\\(Ch.~1)};
+
+    \draw[arr] (b1) -- (b2);
+    \draw[arr] (b2) -- (b3);
+    \draw[arr] (b3) -- (b4);
+    \draw[arr] (b4) -- (b5);
+
+    % Row 2
+    \node[box] (b6) at (0, -2.2) {Method\\(Ch.~3)};
+    \node[box] (b7) at (3, -2.2) {Findings\\(Ch.~5)};
+    \node[highlight] (b8) at (6, -2.2) {Framework\\(Ch.~6)};
+    \node[box] (b9) at (9, -2.2) {Validation\\(Ch.~7)};
+    \node[box] (b10) at (12, -2.2) {Value\\(Ch.~8--9)};
+
+    \draw[arr] (b5.south) -- ++(0, -0.45) -| (b6.north);
+    \draw[arr] (b6) -- (b7);
+    \draw[arr] (b7) -- (b8);
+    \draw[arr] (b8) -- (b9);
+    \draw[arr] (b9) -- (b10);
+
+    \end{tikzpicture}
+    \caption{End-to-End Research Traceability Map}
+    \label{fig:traceability_map}
+    \vspace{0.5em}\noindent\textit{Note.} Highlighted box represents the core DBA contribution. Detailed traceability matrices (T1--T6) are provided in Appendix~\ref{app:traceability}.
+\end{figure}
+
+\section{Chapter Quality Assessment}
+\label{sec:ch6_quality}
+
+Table~\ref{tab:ch6_quality} provides a self-assessment against eight quality dimensions.
+
+\begin{table}[H]
+\tablestripes
+\small
+\begin{tabularx}{\textwidth}{L L L}
+\toprule
+\thead{Dimension} & \thead{Assessment} & \thead{Section} \\
+\midrule
+Business justification & Framework motivated by four documented organizational problems & Sec.~\ref{sec:fw_purpose} \\
+\addlinespace
+Architecture clarity & Five layers with distinct questions, roles, and deliverables & Sec.~\ref{sec:fw_architecture}, Table~\ref{tab:framework_layers} \\
+\addlinespace
+Decision rights & Types classified by frequency, risk, reversibility with AI role boundaries & Sec.~\ref{sec:fw_decisions}, Table~\ref{tab:decision_classification} \\
+\addlinespace
+Operational workflow & Seven-step process with three embedded governance checkpoints & Sec.~\ref{sec:fw_workflow}, Figure~\ref{fig:operational_flow} \\
+\addlinespace
+Governance controls & Risk areas mapped to controls, owners, and auditable evidence & Sec.~\ref{sec:fw_governance}, Table~\ref{tab:governance_controls} \\
+\addlinespace
+Accountability & RACI matrix with named roles and veto authority & Sec.~\ref{sec:fw_raci}, Table~\ref{tab:raci} \\
+\addlinespace
+Measurable value & Six KPIs with baselines, targets, and value types & Sec.~\ref{sec:fw_kpi}, Table~\ref{tab:kpi_model} \\
+\addlinespace
+Traceability & End-to-end map from problem to value with gap-contribution mapping & Sec.~\ref{sec:fw_traceability}, Figure~\ref{fig:traceability_map} \\
+\bottomrule
+\end{tabularx}
+\caption{Chapter 6 Quality Assessment Matrix}
+\label{tab:ch6_quality}
+\vspace{0.5em}\noindent\textit{Note.} Self-assessment against quality criteria for framework-contribution chapters. Each dimension maps to specific sections and tables for examiner verification.
+\end{table}
+
+\section{Forward Link to Validation}
+\label{sec:fw_forward}
+
+The framework presented in this chapter is a design artifact. Design Science Research methodology requires that artifacts be validated against their stated purpose through rigorous evaluation \citep{hevner2004design}. Chapter~\ref{chap:validation} presents the multi-method validation of this framework through four complementary approaches: (a)~statistical validation of the underlying AI models using k-fold cross-validation with bootstrap confidence intervals; (b)~expert panel assessment ($n$~=~12) evaluating framework components against clinical utility, governance completeness, and organizational feasibility criteria; (c)~scenario-based testing simulating five real-world diagnostic situations through the seven-step workflow; and (d)~failure mode analysis identifying critical vulnerabilities and their mitigation effectiveness. The validation chapter demonstrates that the framework is not merely conceptually coherent but operationally viable.
+
+\clearpage
+\section{Conclusion}
+\label{sec:fw_conclusion}
+
+This chapter presented the core artifact of this dissertation: a five-layer Master Decision Governance Framework for AI-driven biomedical diagnosis. The principal contributions are:
+
+\begin{itemize}
+    \item \textbf{Decision-centric architecture:} The framework begins with the business decision and works downward through five layers (Table~\ref{tab:framework_layers}), ensuring AI serves organizational objectives rather than dictating them.
+
+    \item \textbf{Structured decision rights:} The Decision Classification Model (Table~\ref{tab:decision_classification}) establishes clear boundaries for AI involvement based on decision frequency, risk, and reversibility.
+
+    \item \textbf{Automation boundaries:} The Automation Appropriateness Analysis (Table~\ref{tab:automation_appropriateness}) explicitly distinguishes what AI should automate from what requires human judgment.
+
+    \item \textbf{Operational workflow:} A seven-step process (Figure~\ref{fig:operational_flow}) with governance checkpoints at Steps 3, 5, and 7 transforms ad hoc AI use into a standardized, auditable workflow.
+
+    \item \textbf{Exception handling:} Six exception categories (Table~\ref{tab:exception_handling}) with triggers, escalation paths, and recovery actions ensure graceful degradation.
+
+    \item \textbf{Embedded governance:} The Governance Controls Matrix (Table~\ref{tab:governance_controls}) and RACI structure (Table~\ref{tab:raci}) make accountability operational with auditable evidence.
+
+    \item \textbf{Measurable value:} Six KPIs (Table~\ref{tab:kpi_model}) spanning quality, productivity, risk, cost, compliance, and adoption enable continuous value tracking.
+
+    \item \textbf{End-to-end traceability:} The gap-to-contribution mapping (Table~\ref{tab:gap_framework_response}) and traceability flow (Figure~\ref{fig:traceability_map}) demonstrate that every component is a systematic response to a documented gap.
+\end{itemize}
+
+\textbf{This thesis argues that the five-layer Decision Governance Framework constitutes a management-level contribution that closes the gap between AI technical capability and clinical operational readiness---providing structured decision rights, embedded governance controls, and measurable value indicators that transform high-accuracy predictions into trustworthy, accountable, and governable clinical decision support.}
+
+Chapter~\ref{chap:validation} presents the multi-method validation of this framework, including expert panel assessment, scenario-based evaluation, and failure mode analysis.

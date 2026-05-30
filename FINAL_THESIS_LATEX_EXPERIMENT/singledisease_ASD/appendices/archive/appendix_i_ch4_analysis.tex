@@ -1,0 +1,1806 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% APPENDIX I: SUPPORTING MATERIAL FOR CHAPTER 4 (ANALYSIS AND DISCUSSION)
+%% Merged from: Performance Metrics, Framework Development, Validation, Responsible AI
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Supplementary Material (merged into Chapter 4)
+\phantomsection\label{app:ch4_support_appx}
+
+\section{Supplementary Material: Performance Results and Responsible AI}
+
+This section provides detailed supplementary material for the data analysis and findings. It includes complete performance results across all Autism Spectrum Disorder (ASD), comprehensive testing checklists and statistical test selection guides, and the complete Responsible AI governance framework with fairness, privacy, safety, and accountability controls.
+
+%% ====================================================================
+%% PART: DETAILED PERFORMANCE RESULTS (from old Appendix)
+%% ====================================================================
+
+\label{app:metrics}
+
+\section{Complete Performance Results}
+
+\subsection{ASD Classification Results}
+
+Table~\ref{tab:asd_results} presents the complete classification results for Autism Spectrum Disorder across all six models, reporting accuracy, precision, recall, F1-score, and AUC.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L c c c c c @{}}
+\caption{ASD Classification - Complete Results}\label{tab:asd_results} \\
+\toprule
+\thead{Model} & \thead{Accuracy} & \thead{Precision} & \thead{Recall} & \thead{F1} & \thead{AUC} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{@{}l}{\textit{(\,Tab.~\ref{tab:asd_results} continued from previous page\,)}} \\
+\toprule
+\thead{Model} & \thead{Accuracy} & \thead{Precision} & \thead{Recall} & \thead{F1} & \thead{AUC} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+SVM (RBF) & 84.3\% & 0.84 & 0.84 & 0.84 & 0.88 \\
+Random Forest & 85.9\% & 0.86 & 0.86 & 0.86 & 0.90 \\
+XGBoost & 87.4\% & 0.87 & 0.87 & 0.87 & 0.91 \\
+1D-CNN & 88.7\% & 0.89 & 0.89 & 0.89 & 0.92 \\
+2D-CNN & 90.1\% & 0.90 & 0.90 & 0.90 & 0.93 \\
+CNN-LSTM & \textbf{91.5\%} & \textbf{0.91} & \textbf{0.91} & \textbf{0.91} & \textbf{0.94} \\
+\end{xltabular}}
+
+\subsection{Parkinson's Disease Classification Results}
+
+Table~\ref{tab:pd_results} reports the complete Parkinson's disease classification results, comparing six model architectures on accuracy, precision, recall, F1-score, and AUC.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L c c c c c @{}}
+\caption{Parkinson's Disease Classification - Complete Results}\label{tab:pd_results} \\
+\toprule
+\thead{Model} & \thead{Accuracy} & \thead{Precision} & \thead{Recall} & \thead{F1} & \thead{AUC} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{@{}l}{\textit{(\,Tab.~\ref{tab:pd_results} continued from previous page\,)}} \\
+\toprule
+\thead{Model} & \thead{Accuracy} & \thead{Precision} & \thead{Recall} & \thead{F1} & \thead{AUC} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+SVM (RBF) & 85.2\% & 0.85 & 0.85 & 0.85 & 0.89 \\
+Random Forest & 87.8\% & 0.88 & 0.88 & 0.88 & 0.91 \\
+XGBoost & 89.1\% & 0.89 & 0.89 & 0.89 & 0.93 \\
+1D-CNN & 90.6\% & 0.91 & 0.91 & 0.91 & 0.94 \\
+2D-CNN & \textbf{93.1\%} & \textbf{0.93} & \textbf{0.93} & \textbf{0.93} & \textbf{0.96} \\
+CNN-LSTM & 91.8\% & 0.92 & 0.92 & 0.92 & 0.95 \\
+\end{xltabular}}
+
+\subsection{Stress Detection Classification Results}
+
+Table~\ref{tab:stress_results} documents the stress detection classification results across all evaluated models, with CNN-LSTM achieving the highest performance.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L c c c c c @{}}
+\caption{Stress Detection Classification - Complete Results}\label{tab:stress_results} \\
+\toprule
+\thead{Model} & \thead{Accuracy} & \thead{Precision} & \thead{Recall} & \thead{F1} & \thead{AUC} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{@{}l}{\textit{(\,Tab.~\ref{tab:stress_results} continued from previous page\,)}} \\
+\toprule
+\thead{Model} & \thead{Accuracy} & \thead{Precision} & \thead{Recall} & \thead{F1} & \thead{AUC} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+SVM (RBF) & 78.4\% & 0.78 & 0.79 & 0.78 & 0.83 \\
+Random Forest & 81.2\% & 0.81 & 0.82 & 0.81 & 0.86 \\
+Gradient Boosting & 85.1\% & 0.85 & 0.85 & 0.85 & 0.89 \\
+1D-CNN & 86.3\% & 0.86 & 0.87 & 0.86 & 0.90 \\
+2D-CNN & 87.5\% & 0.88 & 0.88 & 0.88 & 0.91 \\
+CNN-LSTM & \textbf{89.0\%} & \textbf{0.89} & \textbf{0.89} & \textbf{0.89} & \textbf{0.92} \\
+\end{xltabular}}
+
+\subsection{BCI Motor Imagery Classification Results}
+
+Table~\ref{tab:bci_results} summarises the BCI motor imagery classification results, reporting accuracy, precision, recall, F1-score, and Cohen's kappa for six model architectures.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L c c c c c @{}}
+\caption{BCI Motor Imagery Classification - Complete Results}\label{tab:bci_results} \\
+\toprule
+\thead{Model} & \thead{Accuracy} & \thead{Precision} & \thead{Recall} & \thead{F1} & \thead{Kappa} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{@{}l}{\textit{(\,Tab.~\ref{tab:bci_results} continued from previous page\,)}} \\
+\toprule
+\thead{Model} & \thead{Accuracy} & \thead{Precision} & \thead{Recall} & \thead{F1} & \thead{Kappa} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+LDA + CSP & 65.4\% & 0.65 & 0.66 & 0.65 & 0.55 \\
+SVM + CSP & 72.1\% & 0.72 & 0.72 & 0.72 & 0.63 \\
+Random Forest & 68.7\% & 0.69 & 0.69 & 0.69 & 0.59 \\
+EEGNet & 74.2\% & 0.74 & 0.75 & 0.74 & 0.66 \\
+ShallowConvNet & 76.1\% & 0.76 & 0.76 & 0.76 & 0.68 \\
+DeepConvNet & \textbf{78.3\%} & \textbf{0.76} & \textbf{0.76} & \textbf{0.76} & \textbf{0.82} \\
+\end{xltabular}}
+
+\subsection{Cancer Radiomics Classification Results}
+
+Table~\ref{tab:cancer_results} presents the cancer radiomics classification results, where the hybrid 3D-CNN combined with XGBoost achieves the highest accuracy and AUC.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L c c c c c @{}}
+\caption{Cancer Radiomics Classification - Complete Results}\label{tab:cancer_results} \\
+\toprule
+\thead{Model} & \thead{Accuracy} & \thead{Precision} & \thead{Recall} & \thead{F1} & \thead{AUC} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{@{}l}{\textit{(\,Tab.~\ref{tab:cancer_results} continued from previous page\,)}} \\
+\toprule
+\thead{Model} & \thead{Accuracy} & \thead{Precision} & \thead{Recall} & \thead{F1} & \thead{AUC} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+SVM (RBF) & 85.2\% & 0.85 & 0.86 & 0.85 & 0.90 \\
+Random Forest & 87.8\% & 0.88 & 0.88 & 0.88 & 0.92 \\
+XGBoost+PyRadiomics & 89.2\% & 0.89 & 0.89 & 0.89 & 0.93 \\
+2D-CNN & 91.4\% & 0.91 & 0.92 & 0.91 & 0.95 \\
+3D-CNN & 93.2\% & 0.93 & 0.93 & 0.93 & 0.96 \\
+3D-CNN + XGBoost & \textbf{95.0\%} & \textbf{0.95} & \textbf{0.95} & \textbf{0.95} & \textbf{0.97} \\
+\end{xltabular}}
+
+\section{Cross-Validation Results}
+
+Table~\ref{tab:cv_results} reports the stratified 10-fold cross-validation results for the best-performing model in each domain, including mean accuracy, standard deviation, and 95\% confidence intervals.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L p{2.2cm} p{1.5cm} p{3cm} @{}}
+\caption{10-Fold Cross-Validation Results (Best Models)}\label{tab:cv_results} \\
+\toprule
+\thead{Domain} & \thead{Mean Accuracy} & \thead{Std Dev} & \thead{95\% CI} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:cv_results} continued from previous page\,)}} \\
+\toprule
+\thead{Domain} & \thead{Mean Accuracy} & \thead{Std Dev} & \thead{95\% CI} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+ASD (CNN-LSTM) & 91.5\% & 1.2\% & [89.2\%, 93.1\%] \\
+& 93.1\% & 1.0\% & [91.4\%, 95.2\%] \\
+Stress (CNN-LSTM) & 89.0\% & 1.5\% & [87.3\%, 91.4\%] \\
+BCI (DeepConvNet) & 78.3\% & 3.2\% & [74.1\%, 82.5\%] \\
+Cancer (3D-CNN+XGB) & 95.0\% & 0.8\% & [92.1\%, 96.3\%] \\
+\end{xltabular}}
+
+\section{Statistical Significance Tests}
+
+Table~\ref{tab:statistical} documents the paired \textit{t}-test results comparing each domain's best deep learning model against its strongest baseline, confirming statistical significance across all the ASD domain.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L p{1.8cm} p{1.8cm} L @{}}
+\caption{Paired t-test Results: DL vs Baseline}\label{tab:statistical} \\
+\toprule
+\thead{Domain} & \thead{t-statistic} & \thead{p-value} & \thead{Significant?} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:statistical} continued from previous page\,)}} \\
+\toprule
+\thead{Domain} & \thead{t-statistic} & \thead{p-value} & \thead{Significant?} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+ASD & 6.38 & < 0.001 & Yes (p < 0.001) \\
+Parkinson's & 7.42 & < 0.0001 & Yes (p < 0.001) \\
+Stress & 5.12 & 0.0003 & Yes (p < 0.001) \\
+BCI & 3.12 & 0.007 & Yes (p < 0.01) \\
+Cancer & 10.80 & < 0.0001 & Yes (p < 0.001) \\
+\end{xltabular}}
+
+\section{Comprehensive Testing Checklists}
+\label{sec:testing_checklists}
+
+The following checklists document the quality assurance protocols applied at each stage of the experimental pipeline. These checklists ensure reproducibility and completeness of the evaluation process.
+
+\subsection{Pre-Training Checklist}
+
+Table~\ref{tab:checklist_pretrain} enumerates the eight pre-training quality assurance verification items, confirming that data integrity, label consistency, and experimental configuration were validated before model training commenced.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{0.6cm} L L @{}}
+\caption{Pre-Training Quality Assurance Checklist}\label{tab:checklist_pretrain} \\
+\toprule
+\thead{\#} & \thead{Verification Item} & \thead{Status} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:checklist_pretrain} continued from previous page\,)}} \\
+\toprule
+\thead{\#} & \thead{Verification Item} & \thead{Status} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+1 & Data integrity verified (no corrupted files; checksums confirmed) & Complete \\
+2 & Labels verified and consistent across all datasets & Complete \\
+3 & Class distribution documented; imbalance ratios reported & Complete \\
+4 & Train/validation/test splits defined at subject level (no data leakage) & Complete \\
+5 & Preprocessing pipeline validated (bandpass, ICA, epoching, normalization) & Complete \\
+6 & Baseline models identified (SVM, RF, XGBoost, LDA) & Complete \\
+7 & Evaluation metrics selected (accuracy, precision, recall, F1, AUC, kappa) & Complete \\
+8 & Random seeds fixed (base seed = 42) for reproducibility & Complete \\
+\end{xltabular}}
+
+\subsection{During-Training Checklist}
+
+Table~\ref{tab:checklist_training} presents the seven during-training verification items that ensured learning curve stability, gradient health, and proper hyperparameter optimisation throughout the training process.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{0.6cm} L L @{}}
+\caption{During-Training Quality Assurance Checklist}\label{tab:checklist_training} \\
+\toprule
+\thead{\#} & \thead{Verification Item} & \thead{Status} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:checklist_training} continued from previous page\,)}} \\
+\toprule
+\thead{\#} & \thead{Verification Item} & \thead{Status} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+1 & Learning curves monitored (training and validation loss) & Complete \\
+2 & No overfitting detected (validation loss not increasing for $>$10 consecutive epochs) & Complete \\
+3 & Gradient flow verified (no vanishing or exploding gradients) & Complete \\
+4 & Multiple random seeds tested (10 seeds per domain) & Complete \\
+5 & Hyperparameter search completed (grid or Bayesian optimization) & Complete \\
+6 & Best model checkpoint saved with associated hyperparameters & Complete \\
+7 & Early stopping triggered appropriately (patience = 10--20 epochs) & Complete \\
+\end{xltabular}}
+
+\subsection{Post-Training Checklist}
+
+Table~\ref{tab:checklist_posttrain} documents the twelve post-training verification items covering cross-validation, statistical testing, bootstrap confidence intervals, robustness checks, and reproducibility confirmation.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{0.6cm} L L @{}}
+\caption{Post-Training Quality Assurance Checklist}\label{tab:checklist_posttrain} \\
+\toprule
+\thead{\#} & \thead{Verification Item} & \thead{Status} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:checklist_posttrain} continued from previous page\,)}} \\
+\toprule
+\thead{\#} & \thead{Verification Item} & \thead{Status} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+1 & Cross-validation completed (stratified 10-fold minimum) & Complete \\
+2 & LOSO validation performed for subject-dependent EEG data & Complete \\
+3 & Statistical significance tested (paired \textit{t}-tests, \textit{p} $<$ 0.05 with Bonferroni) & Complete \\
+4 & Effect size calculated (Cohen's \textit{d}) and reported for all comparisons & Complete \\
+5 & Bootstrap confidence intervals computed (95\%, 1,000 resamples) & Complete \\
+6 & Calibration assessed (ECE computed; temperature scaling applied) & Complete \\
+7 & Robustness tests passed (noise injection, channel dropout) & Complete \\
+8 & Demographic subgroup analysis completed where metadata available & Complete \\
+9 & Error pattern analysis documented (FP/FN patterns per domain) & Complete \\
+10 & RAG explainability quality assessed by expert panel & Complete \\
+11 & Computational efficiency benchmarked (inference time, GPU memory) & Complete \\
+12 & Results documented and reproducible (fixed seeds, public datasets) & Complete \\
+\end{xltabular}}
+
+\subsection{Statistical Test Selection Guide}
+
+Table~\ref{tab:stat_test_guide} maps each statistical comparison scenario to the appropriate test, specifying the conditions under which each test applies and its analytical purpose.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{3cm} L p{3cm} L @{}}
+\caption{Statistical Test Selection Guide}\label{tab:stat_test_guide} \\
+\toprule
+\thead{Comparison} & \thead{Condition} & \thead{Test Used} & \thead{Purpose} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:stat_test_guide} continued from previous page\,)}} \\
+\toprule
+\thead{Comparison} & \thead{Condition} & \thead{Test Used} & \thead{Purpose} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+2 models, same data & Normal differences & Paired \textit{t}-test & Compare DL vs.\ baseline per domain \\
+2 models, same data & Non-normal differences & Wilcoxon signed-rank & Non-parametric alternative \\
+2 classifiers, disagreements & Contingency table & McNemar's test & Systematic prediction differences \\
+3+ models, same data & Normal, equal variance & Repeated measures ANOVA & Multi-model comparison \\
+3+ models, same data & Non-parametric & Friedman test + Nemenyi post-hoc & Rank-based multi-model comparison \\
+Multiple comparisons & Any & Bonferroni correction & Control family-wise error rate \\
+Effect magnitude & Any & Cohen's \textit{d} & Practical significance \\
+Model calibration & Probability outputs & Expected Calibration Error & Confidence reliability \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} DL = deep learning; ANOVA = analysis of variance. All tests applied at $\alpha$ = 0.05 significance level unless otherwise noted.
+
+
+%% NOTE: Framework development details are now in Chapter 6 (chapter6_framework.tex).
+%% Validation and evaluation details are now in Chapter 7 (chapter7_validation.tex).
+%% Duplicate content removed to eliminate multiply-defined labels.
+
+%% ====================================================================
+%% PART: RESPONSIBLE AI GOVERNANCE FRAMEWORK (from old Appendix)
+%% ====================================================================
+
+\label{app:responsible_ai}
+
+This appendix presents the comprehensive Responsible AI (RAI) Framework developed and implemented in this research. The framework comprises 46 governance modules organized into five foundational pillars and nine implementation dimensions, ensuring that the unified biomedical AI system operates with appropriate safeguards for privacy, fairness, safety, transparency, and accountability---critical requirements for healthcare AI deployment. The framework is grounded in the following core principle:
+
+\begin{quote}
+\textit{User privacy is protected by design, system behavior is transparent, operations are robust and safe, and every AI action is fully accountable and auditable.}
+\end{quote}
+
+%===============================================================================
+\section{Responsible AI Experience Summary}
+\label{sec:rai_experience_summary}
+%===============================================================================
+
+Table~\ref{tab:rai_experience_overview} provides a consolidated overview of the 46 Responsible AI modules implemented in this study, organized by pillar, with implementation status, evidence artifacts, and regulatory alignment for each module. This summary enables rapid assessment of the framework's comprehensiveness and identifies the maturity level of each governance control.
+
+\tablefontsize
+
+\noindent Table~\ref{tab:rai_experience_overview} responsible ai experience summary: 46 modules across five pillars.
+
+\begin{xltabular}
+{\textwidth}{@{} p{1.5cm} p{2.5cm} L L p{2.5cm} @{}}
+\caption{Responsible AI Experience Summary: 46 Modules Across Five Pillars}\label{tab:rai_experience_overview} \\
+\toprule
+\thead{Pillar} & \thead{Module} & \thead{Implementation} & \thead{Evidence} & \thead{Status} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{5}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textbf{Pillar 1: User Privacy (8 modules)}} \\
+\addlinespace
+& Data minimization & Only task-relevant features extracted & Preprocessing pipeline docs & Implemented \\
+& Purpose limitation & Each AI call declares purpose and scope & Configuration files & Implemented \\
+& PII/PHI detection & Automatic detection and redaction & DLP test reports & Implemented \\
+& Encrypted storage & AES-256 local workstation, no cloud & Storage audit logs & Implemented \\
+& User rights (view/delete/opt-out) & Right-to-erasure protocol defined & Deletion certificates & Designed \\
+& No-training/no-retention mode & Model configured for inference only & Provider attestation & Implemented \\
+& Local/edge processing & Raw data never leaves secure workstation & Architecture documentation & Implemented \\
+& Data retention policy & TTL-based expiry with audit compliance & Retention audit reports & Implemented \\
+\addlinespace
+\multicolumn{5}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textbf{Pillar 2: Transparency (7 modules)}} \\
+\addlinespace
+& AI usage notification & System discloses when AI is used & UI/output documentation & Designed \\
+& Data category disclosure & Users informed of data types involved & Data classification table & Implemented \\
+& Model identification & Model version and type disclosed & Version registry & Implemented \\
+& Decision rationale & SHAP + RAG literature-grounded narratives & Expert rating \textit{M} = 4.6/5 & Demonstrated \\
+& AI activity audit view & Logged decision paths for each prediction & Audit trail records & Implemented \\
+& Plain-language explanations & Clinician-readable, biomarker-aligned & RAG narrative outputs & Demonstrated \\
+& Explainability artifacts & SHAP waterfall plots, feature rankings & Visualization library & Demonstrated \\
+\addlinespace
+\multicolumn{5}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textbf{Pillar 3: Robustness (7 modules)}} \\
+\addlinespace
+& Input validation & Schema enforcement, anomaly detection & Preprocessing logs & Implemented \\
+& Adversarial protection & Prompt injection and manipulation defences & Guardrail configurations & Designed \\
+& Graceful degradation & Fallback logic with ``I don't know'' response & Failure mode table & Implemented \\
+& Human-override mechanisms & Clinician can override any AI recommendation & RACI matrix & Implemented \\
+& Continuous monitoring & Drift, bias, and performance tracking & Dashboard specifications & Designed \\
+& Bootstrap stability testing & 1,000 resamples; seed sensitivity $\pm$0.8\% & 95\% CI tables & Demonstrated \\
+& Ablation stress testing & Component removal with impact measurement & Ablation results tables & Demonstrated \\
+\addlinespace
+\multicolumn{5}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textbf{Pillar 4: Safety (6 modules)}} \\
+\addlinespace
+& Clinical guardrails & Diagnosis and prescription blocked & Policy enforcement rules & Implemented \\
+& Content and action filtering & Unsafe outputs blocked pre-delivery & Output guardrail logs & Implemented \\
+& Role-based permissions & Access controlled by clinical role & RBAC configuration & Designed \\
+& Kill-switch/\allowbreak{}emergency stop & System halt capability for agentic components & Agent architecture docs & Designed \\
+& Human-in-the-loop for high-risk & Critical decisions require clinician approval & Escalation protocol & Implemented \\
+& Risk scoring and mitigation & Eight-risk matrix with likelihood--impact grid & Figure~\ref{fig:risk_matrix} & Demonstrated \\
+\addlinespace
+\multicolumn{5}{@{}p{\dimexpr\textwidth-2\tabcolsep}@{}}{\textbf{Pillar 5: Accountability (7 modules)}} \\
+\addlinespace
+& RACI ownership model & Named owner per system and decision type & RACI matrix table & Implemented \\
+& Immutable audit logs & Append-only prediction provenance chain & Hash validation protocol & Designed \\
+& Incident response workflow & 7-step detect-to-record protocol & Incident playbook & Designed \\
+& Governance escalation ladder & 4-level escalation (automated to board) & Escalation table & Implemented \\
+& KPI monitoring framework & 8 KPIs $\times$ 3 thresholds with trigger actions & KPI escalation table & Implemented \\
+& Exception handling matrix & Pre-defined responses for 12 exception types & Exception protocol table & Implemented \\
+& Regulatory compliance documentation & EU AI Act 95\%, FDA SaMD 94\%, HIPAA 94.2\% & Compliance score tables & Demonstrated \\
+\end{xltabular}
+\vspace{0.5em}\noindent\textit{Note.} Status levels: Demonstrated = empirically validated with quantitative evidence; Implemented = built into framework with verification protocol; Designed = architecture specified and documented but not yet deployed in clinical setting. PII = personally identifiable information; PHI = protected health information; DLP = data loss prevention; SHAP = SHapley Additive exPlanations; RAG = retrieval-augmented generation; RACI = Responsible, Accountable, Consulted, Informed; RBAC = role-based access control; KPI = key performance indicator.
+
+Table~\ref{tab:rai_nine_dimensions} summarizes the nine implementation dimensions that extend the five pillars into operational controls, mapping each dimension to its primary technique, measured outcome, and regulatory alignment.
+\needspace{3\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.8cm} L L p{2.5cm} @{}}
+\caption[Nine Implementation Dimensions]{Nine Implementation Dimensions: Techniques, Outcomes, and Regulatory Alignment}\label{tab:rai_nine_dimensions} \\
+\toprule
+\thead{Dimension} & \thead{Primary Technique} & \thead{Measured Outcome} & \thead{Regulatory Alignment} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:rai_nine_dimensions} continued from previous page\,)}} \\
+\toprule
+\thead{Dimension} & \thead{Primary Technique} & \thead{Measured Outcome} & \thead{Regulatory Alignment} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Trust calibration & Confidence signaling (high/medium/low) & Expert trust score \textit{M} = 4.4/5 & NIST AI RMF \\
+\addlinespace
+Responsible boundaries & Explicit task scope (allowed/not allowed) & No autonomous clinical decisions & EU AI Act Art.~14 \\
+\addlinespace
+Explainability & Dual-layer SHAP + RAG narratives & Expert quality \textit{M} = 4.6/5; 90\%+ citation accuracy & FDA SaMD Guidance \\
+\addlinespace
+Guardrail enforcement & Input/output policy-based filtering & Zero unsafe outputs in testing & ISO/IEC 42001 \\
+\addlinespace
+Accountability tracing & RACI matrix + audit trail & Every prediction traceable to source & HIPAA \S164.312 \\
+\addlinespace
+Robustness validation & Bootstrap CI + ablation + seed sensitivity & $\pm$0.8\% variance; all components significant & IEC 62304 \\
+\addlinespace
+Interpretability & Biomarker-aligned feature rankings & 100\% feature--biomarker alignment & WHO/ITU GMLP \\
+\addlinespace
+Portability & Modular architecture, ASD, 2 modalities & 78--95\% accuracy without reconfiguration & ISO/IEC 23894 \\
+\addlinespace
+Human-centered design & Human-in-the-loop, override capability & Clinician retains final authority & OECD AI Principles \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} SHAP = SHapley Additive exPlanations; RAG = retrieval-augmented generation; RACI = Responsible, Accountable, Consulted, Informed; NIST = National Institute of Standards and Technology; FDA = Food and Drug Administration; SaMD = Software as a Medical Device; EU = European Union; HIPAA = Health Insurance Portability and Accountability Act; WHO = World Health Organization; ITU = International Telecommunication Union; GMLP = Good Machine Learning Practice.
+
+Table~\ref{tab:rai_maturity_assessment} provides the overall maturity assessment for each pillar, quantifying the percentage of modules at each implementation status level.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L c c c c c @{}}
+\caption{Responsible AI Pillar Maturity Assessment}\label{tab:rai_maturity_assessment} \\
+\toprule
+\thead{Pillar} & \thead{Modules} & \thead{Demonstrated} & \thead{Implemented} & \thead{Designed} & \thead{Maturity (\%)} \\
+\midrule
+\endfirsthead
+\multicolumn{6}{@{}l}{\textit{(\,Tab.~\ref{tab:rai_maturity_assessment} continued from previous page\,)}} \\
+\toprule
+\thead{Pillar} & \thead{Modules} & \thead{Demonstrated} & \thead{Implemented} & \thead{Designed} & \thead{Maturity (\%)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+User Privacy & 8 & 0 & 7 & 1 & 88 \\
+Transparency & 7 & 3 & 3 & 1 & 86 \\
+Robustness & 7 & 2 & 3 & 2 & 71 \\
+Safety & 6 & 1 & 3 & 2 & 67 \\
+Accountability & 7 & 1 & 4 & 2 & 71 \\
+\addlinespace
+\midrule
+\textbf{Overall} & \textbf{35} & \textbf{7 (20\%)} & \textbf{20 (57\%)} & \textbf{8 (23\%)} & \textbf{77\%} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Maturity percentage calculated as: (Demonstrated $\times$ 1.0 + Implemented $\times$ 0.8 + Designed $\times$ 0.5) / Modules. Overall maturity of 77\% reflects the research-prototype nature of the study: privacy, transparency, and accountability controls are operational, while clinical deployment modules (adversarial protection, continuous monitoring, RBAC) require prospective validation.
+
+The maturity assessment reveals three important findings. First, User Privacy achieves the highest maturity (88\%) because the study's exclusive use of publicly available, pre-anonymized datasets inherently satisfies most privacy controls. Second, Transparency scores 86\% because the SHAP and RAG explainability pipeline has been empirically validated through expert panel assessment. Third, Safety scores lowest (67\%) because adversarial protection, role-based access control, and kill-switch capabilities are architectural specifications that require production infrastructure for deployment validation. These maturity differentials are consistent with the study's position as a research prototype: the framework provides the governance \textit{architecture} for all 46 modules while acknowledging that 23\% of modules require prospective clinical validation to advance from ``Designed'' to ``Implemented'' status.
+
+The remainder of this appendix provides detailed specifications for each pillar and dimension.
+
+%===============================================================================
+\section{Five Pillars of Responsible AI}
+%===============================================================================
+
+Table~\ref{tab:five_pillars} consolidates the five pillars with their goals, key controls, and evidence artefacts.
+\needspace{16\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.8cm} p{2.2cm} L L @{}}
+\caption{Five-Pillar Responsible AI Framework: Goals, Controls, and Evidence}\label{tab:five_pillars} \\
+\toprule
+\thead{Pillar} & \thead{Goal} & \thead{Key Controls} & \thead{Evidence Artefacts} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:five_pillars} continued from previous page\,)}} \\
+\toprule
+\thead{Pillar} & \thead{Goal} & \thead{Key Controls} & \thead{Evidence Artefacts} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\multirow{3}{=}{1. Privacy} & \multirow{3}{=}{Protect, minimise, never misuse data} & \textit{Principles:} Data minimisation; purpose limitation; no unauthorised sharing; privacy by design & \multirow{3}{=}{DLP logs, redaction reports, retention timers, access logs} \\
+& & \textit{Controls:} PII/PHI redaction pre-processing; no-training config; edge processing; encryption (CMK); retention policies & \\
+& & \textit{User rights:} View data used; request deletion/correction; opt-out of AI & \\
+\addlinespace
+\multirow{3}{=}{2. Transparency} & \multirow{3}{=}{Users understand what and why} & \textit{Disclosure:} When AI used; data categories; which model; why decision generated & \multirow{3}{=}{Notifications, explanation logs, model/version registry} \\
+& & \textit{User-facing:} Operation notifications; audit timeline; plain-language explanations; model disclosure & \\
+& & \textit{System:} Versioned models/policies; logged decision paths; explainability artefacts & \\
+\addlinespace
+\multirow{3}{=}{3. Robustness} & \multirow{3}{=}{Reliable, resilient, performs as expected} & \textit{Technical:} Input validation; adversarial protection; fallback logic; human override & \multirow{3}{=}{Test reports, monitoring dashboards, fallback logs} \\
+& & \textit{Operational:} Continuous monitoring (drift, bias); fail-safe defaults; redundancy & \\
+& & \textit{Testing:} Stress tests; edge-case simulations; failure injection & \\
+\addlinespace
+\multirow{3}{=}{4. Safety} & \multirow{3}{=}{Prevent harm to users, systems, society} & \textit{Dimensions:} Physical, psychological, cybersecurity, misuse prevention & \multirow{3}{=}{Safety policies, incident logs, mitigation records} \\
+& & \textit{Controls:} Policy guardrails; content filtering; role-based permissions; kill-switch; HITL for high-risk & \\
+& & \textit{Risk mgmt:} Hazard ID; risk scoring; incident response playbooks & \\
+\addlinespace
+\multirow{3}{=}{5. Accountability} & \multirow{3}{=}{Every action traceable, owned, reviewable} & \textit{Structure:} Clear ownership per system; RACI roles; separation of duties & \multirow{3}{=}{Audit trails, approval records, governance reports} \\
+& & \textit{Audit:} Immutable logs; actor ID; policy decision records; consent tracking & \\
+& & \textit{User:} Confirmations for sensitive actions; action history; dispute/escalation & \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} DLP = data loss prevention; PII = personally identifiable information; PHI = protected health information; CMK = customer-managed keys; HITL = human-in-the-loop; RACI = Responsible, Accountable, Consulted, Informed.
+
+%===============================================================================
+\section{Fairness and Bias Mitigation Framework}
+%===============================================================================
+
+\subsection{Fairness Metrics}
+
+Table~\ref{tab:fairness_metrics_lifecycle} consolidates fairness metrics across three lifecycle phases.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{3cm} p{3cm} L @{}}
+\caption{Fairness Metrics by AI Lifecycle Phase}\label{tab:fairness_metrics_lifecycle} \\
+\toprule
+\thead{Phase} & \thead{Metric} & \thead{Definition} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:fairness_metrics_lifecycle} continued from previous page\,)}} \\
+\toprule
+\thead{Phase} & \thead{Metric} & \thead{Definition} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\multirow{4}{=}{Data-level (pre-training)} & Representation parity & Distribution of key groups in data \\
+& Missingness parity & Missing data rates by group \\
+& Outlier parity & Anomaly rates by group \\
+& Label balance & Outcome distribution equality \\
+\addlinespace
+\multirow{5}{=}{Model-level (evaluation)} & Demographic parity difference & $|P(\hat{Y}=1|G=0) - P(\hat{Y}=1|G=1)|$ \\
+& Equal opportunity difference & TPR gap between groups \\
+& Equalised odds & TPR + FPR parity across groups \\
+& FP/FN rate parity & False positive/negative rates by group \\
+& Calibration within groups & Predicted probability $\approx$ observed rate per group \\
+\addlinespace
+\multirow{4}{=}{Outcome-level (post-deploy)} & Approval/rejection parity & Decision rates by group \\
+& Error impact analysis & Harm distribution by group \\
+& Complaint rates & User complaints by segment \\
+& Fairness metric drift & Change in fairness metrics over time \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} TPR = true positive rate; FPR = false positive rate; FP = false positive; FN = false negative. $G$ denotes protected group membership.
+
+%-------------------------------------------------------------------------------
+\subsection{Bias Detection Techniques}
+
+Table~\ref{tab:bias_detection} enumerates the bias detection techniques applied at each system layer---data, model, output, and runtime---together with the corresponding detection method and metric.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{1.5cm} L L p{2.5cm} @{}}
+\caption{Bias Detection Techniques by Layer}\label{tab:bias_detection} \\
+\toprule
+\thead{Layer} & \thead{Bias Check} & \thead{Method} & \thead{Metric} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:bias_detection} continued from previous page\,)}} \\
+\toprule
+\thead{Layer} & \thead{Bias Check} & \thead{Method} & \thead{Metric} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Data & Representation bias & Group distribution comparison & Representation ratio \\
+Data & Label bias & Outcome skew by group & Label parity index \\
+Data & Proxy bias & Correlation with sensitive traits & Mutual information \\
+Model & Prediction bias & Outcome rates by group & Demographic parity \\
+Model & Error bias & FPR/FNR by group & Error parity \\
+Model & Calibration bias & Confidence vs accuracy by group & Calibration gap \\
+Output & Language bias & Toxicity/stereotype scan & Bias score \\
+Runtime & Drift bias & Bias metrics over time & Drift delta \\
+\end{xltabular}}
+
+%-------------------------------------------------------------------------------
+\subsection{Bias Mitigation Techniques}
+
+\subsubsection{Data-Level Mitigation}
+
+Table~\ref{tab:data_mitigation} summarises the five data-level bias mitigation techniques, specifying the type of bias each technique addresses and the corresponding control applied.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{3cm} L p{3cm} @{}}
+\caption{Data-Level Bias Mitigation}\label{tab:data_mitigation} \\
+\toprule
+\thead{Technique} & \thead{What It Fixes} & \thead{Control Applied} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:data_mitigation} continued from previous page\,)}} \\
+\toprule
+\thead{Technique} & \thead{What It Fixes} & \thead{Control Applied} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Rebalancing & Under-representation & Stratified sampling \\
+Reweighting & Skewed importance & Group weights \\
+Data augmentation & Sparse groups & Synthetic data (controlled) \\
+Label audit & Annotation bias & Human relabeling \\
+Feature review & Proxy bias & Feature removal \\
+\end{xltabular}}
+
+\subsubsection{Model-Level Mitigation}
+
+Table~\ref{tab:model_mitigation} presents the four model-level bias mitigation techniques employed during training, including fairness constraints, adversarial debiasing, and ensemble comparison.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{3cm} L p{3cm} @{}}
+\caption{Model-Level Bias Mitigation}\label{tab:model_mitigation} \\
+\toprule
+\thead{Technique} & \thead{What It Fixes} & \thead{Control Applied} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:model_mitigation} continued from previous page\,)}} \\
+\toprule
+\thead{Technique} & \thead{What It Fixes} & \thead{Control Applied} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Fairness constraints & Outcome bias & Constrained optimization \\
+Adversarial debiasing & Latent bias & Bias-removal objective \\
+Regularization & Overfitting to groups & Penalty tuning \\
+Ensemble comparison & Model bias variance & Model selection gate \\
+\end{xltabular}}
+
+\subsubsection{Post-Processing Mitigation}
+
+Table~\ref{tab:post_mitigation} documents the three post-processing bias mitigation techniques---threshold adjustment, outcome smoothing, and human-in-the-loop review---applied after model inference.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{3cm} L p{3cm} @{}}
+\caption{Post-Processing Bias Mitigation}\label{tab:post_mitigation} \\
+\toprule
+\thead{Technique} & \thead{What It Fixes} & \thead{Control Applied} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:post_mitigation} continued from previous page\,)}} \\
+\toprule
+\thead{Technique} & \thead{What It Fixes} & \thead{Control Applied} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Threshold adjustment & Error parity & Group-aware thresholds \\
+Outcome smoothing & Sharp disparities & Controlled adjustment \\
+Human-in-loop & High-risk bias & Manual override \\
+\end{xltabular}}
+
+%===============================================================================
+\section{Hallucination Control Framework}
+%===============================================================================
+
+\subsection{Operational Definition}
+
+A hallucination occurs when the system:
+\begin{itemize}
+    \item Generates factually incorrect information
+    \item Produces unsupported claims not grounded in data
+    \item Fabricates sources, citations, events, or entities
+    \item Outputs overconfident answers with low evidence
+\end{itemize}
+
+%-------------------------------------------------------------------------------
+\subsection{Layered Hallucination Validation}
+
+\subsubsection{Layer 1: Input-Level Validation}
+Prevention before generation:
+
+Table~\ref{tab:input_validation} describes the four input-level hallucination prevention techniques, each mapped to its verification method, quality check, and governing framework.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L p{2cm} @{}}
+\caption{Input-Level Hallucination Prevention}\label{tab:input_validation} \\
+\toprule
+\thead{Technique} & \thead{Verification} & \thead{Quality Check} & \thead{Framework} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:input_validation} continued from previous page\,)}} \\
+\toprule
+\thead{Technique} & \thead{Verification} & \thead{Quality Check} & \thead{Framework} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Query intent classification & Ambiguous vs factual detection & Ambiguity score threshold & NIST AI RMF \\
+Scope enforcement & Out-of-scope query rejection & Policy match rate & ISO 42001 \\
+Context completeness check & Missing inputs flagged & Context sufficiency score & RAI by design \\
+Retrieval-only mode trigger & Force grounded answers & Retrieval dependency flag & RAG governance \\
+\end{xltabular}}
+
+\noindent\textbf{Fail Action:} Ask clarifying question / refuse to answer
+
+\subsubsection{Layer 2: Knowledge Grounding}
+
+Table~\ref{tab:knowledge_grounding} presents the four knowledge grounding controls that ensure model outputs remain anchored to retrieved evidence, including RAG citation coverage and source allowlisting.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L p{2cm} @{}}
+\caption{Knowledge Grounding Controls}\label{tab:knowledge_grounding} \\
+\toprule
+\thead{Technique} & \thead{Verification} & \thead{Quality Check} & \thead{Framework} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:knowledge_grounding} continued from previous page\,)}} \\
+\toprule
+\thead{Technique} & \thead{Verification} & \thead{Quality Check} & \thead{Framework} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+RAG & Output must cite retrieved chunks & Citation coverage $\geq$ threshold & NIST \\
+Source allowlisting & Only trusted sources allowed & Source trust score & ISO 23894 \\
+Evidence-token alignment & Output tokens mapped to evidence & Grounding ratio & RAG QA \\
+No-retrieval = no-answer & Block free-form speculation & Enforcement logs & Safety by design \\
+\end{xltabular}}
+
+\noindent\textbf{Fail Action:} ``Insufficient evidence'' response
+
+\subsubsection{Layer 3: Post-Generation Verification}
+
+Table~\ref{tab:fact_verification} reports the four automated post-generation fact verification techniques, covering claim extraction, fact checking, citation verification, and reference existence validation.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L p{2cm} @{}}
+\caption{Automated Fact Verification}\label{tab:fact_verification} \\
+\toprule
+\thead{Technique} & \thead{Verification} & \thead{Quality Check} & \thead{Framework} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:fact_verification} continued from previous page\,)}} \\
+\toprule
+\thead{Technique} & \thead{Verification} & \thead{Quality Check} & \thead{Framework} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Claim extraction & Atomic factual claims identified & Claim count & QA validation \\
+Fact checking & Claims validated against sources & Fact match score & FactCC \\
+Citation verification & Source actually supports claim & Citation precision & ISO 42001 \\
+Reference existence check & Fake citations blocked & Reference validity rate & Governance \\
+\end{xltabular}}
+
+%-------------------------------------------------------------------------------
+\subsection{Hallucination Quality Metrics}
+
+Table~\ref{tab:hallucination_quality_metrics} defines the four hallucination quality metrics used to evaluate generated output fidelity, each targeting a distinct failure mode of generative AI systems.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l L L @{}}
+\caption[Hallucination Quality Metrics]{Hallucination Quality Metrics --- Four Dimensions of Output Fidelity}\label{tab:hallucination_quality_metrics} \\
+\toprule
+\thead{Metric} & \thead{Definition} & \thead{Failure Mode Detected} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:hallucination_quality_metrics} continued from previous page\,)}} \\
+\toprule
+\thead{Metric} & \thead{Definition} & \thead{Failure Mode Detected} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\tablestripes
+Faithfulness score & Claim--source alignment & Fabricated or unsupported assertions \\
+Factual consistency & Contradictory facts detection & Internally inconsistent statements \\
+Answer relevance & Off-topic hallucination detection & Responses unrelated to query \\
+Overgeneration index & Unnecessary speculation detection & Unjustified elaboration beyond evidence \\
+\end{xltabular}}
+
+%-------------------------------------------------------------------------------
+\subsection{Runtime Quality Gates}
+
+Table~\ref{tab:quality_gates} maps the four runtime quality gates---grounding, confidence, safety, and policy---to their triggering rules and enforcement actions.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.5cm} L p{3cm} @{}}
+\caption{Hallucination Quality Gates}\label{tab:quality_gates} \\
+\toprule
+\thead{Gate} & \thead{Rule} & \thead{Action} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:quality_gates} continued from previous page\,)}} \\
+\toprule
+\thead{Gate} & \thead{Rule} & \thead{Action} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Grounding gate & Evidence coverage $<$ threshold & Block \\
+Confidence gate & Low confidence + high impact & Human-in-loop \\
+Safety gate & Risky domain detected & Restricted response \\
+Policy gate & Speculation detected & Refuse / clarify \\
+\end{xltabular}}
+
+%===============================================================================
+\section{Privacy and Data Protection Controls}
+%===============================================================================
+
+\subsection{Core Privacy Principle}
+
+\begin{quote}
+\textit{No raw patient or personally identifiable information (PII/PHI) is ever transmitted to an AI model.}
+\end{quote}
+
+This applies to: External APIs, Foundation models, Fine-tuning, Logging, Monitoring, Debugging.
+
+%-------------------------------------------------------------------------------
+\subsection{Privacy Architecture Pattern}
+
+The privacy architecture follows a four-layer sequential flow designed to ensure that no raw patient data reaches the AI model:
+
+\begin{enumerate}
+    \item \textbf{User Data (PII/PHI)} --- Raw clinical data enters the system from healthcare records, EEG recordings, or imaging studies.
+    \item \textbf{Privacy Gate} --- A Data Loss Prevention (DLP) engine combined with a policy engine scans all incoming data for personally identifiable information (PII) and protected health information (PHI), applying detection rules and redaction policies.
+    \item \textbf{Sanitized Representation} --- Only de-identified, abstracted, or tokenized representations proceed past the privacy gate, ensuring that no direct or indirect identifiers remain.
+    \item \textbf{AI Model} --- The model receives only sanitized feature vectors, embeddings, or abstracted summaries for inference processing.
+\end{enumerate}
+
+\noindent The model never sees raw patient data. This architecture enforces privacy-by-design at the infrastructure level rather than relying on policy compliance alone.
+
+%-------------------------------------------------------------------------------
+\subsection{Privacy Controls Implementation}
+
+Table~\ref{tab:privacy_controls_pipeline} consolidates the five-step privacy control pipeline applied before, during, and after every AI inference call. Each step specifies the control action, the techniques employed, and the enforcement mechanism.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} c l L L @{}}
+\caption[Privacy Controls Pipeline]{Five-Step Privacy Controls Pipeline --- Pre-Inference to Post-Inference Safeguards}\label{tab:privacy_controls_pipeline} \\
+\toprule
+\thead{Step} & \thead{Control} & \thead{Action} & \thead{Techniques / Enforcement} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:privacy_controls_pipeline} continued from previous page\,)}} \\
+\toprule
+\thead{Step} & \thead{Control} & \thead{Action} & \thead{Techniques / Enforcement} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\tablestripes
+1 & Data Classification & Automatic PII/PHI detection before any AI call; sensitive attributes identified (name, DOB, MRN, address, biometrics, EEG/ECG IDs) & DLP engine + regex scanner; if PII detected $\rightarrow$ block or sanitise \\
+\addlinespace
+2 & Redaction \& Tokenisation & Replace identifiers with tokens (e.g., ``Patient John Smith'' $\rightarrow$ ``Patient\_ID\_8734'') & Redaction, tokenisation, pseudonymisation, aggregation, feature extraction \\
+\addlinespace
+3 & Local/Edge Processing & Raw patient data processed locally; AI model receives only features, embeddings, summaries, risk scores & On-premises infrastructure; never raw clinical text or identifiers transmitted \\
+\addlinespace
+4 & Purpose Limitation & Each AI call declares purpose, allowed data fields, and retention policy & Configuration-level enforcement; purpose-bound API contracts \\
+\addlinespace
+5 & No Training / No Retention & Models configured for inference only: no prompt storage, no fine-tuning, no analytics reuse & Vendor contract + provider attestation; verified via SOC~2 audit \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} PII = personally identifiable information; PHI = protected health information; DLP = data loss prevention; DOB = date of birth; MRN = medical record number; SOC = System and Organisation Controls.
+
+%-------------------------------------------------------------------------------
+\subsection{Data Categories Used}
+
+Table~\ref{tab:data_classification} classifies the eight data categories by sub-type, indicating whether each is used in the system and whether it is transmitted to the AI model.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L p{1.5cm} p{2.5cm} @{}}
+\caption{Data Classification Summary}\label{tab:data_classification} \\
+\toprule
+\thead{Data Category} & \thead{Sub-Type} & \thead{Used?} & \thead{Sent to Model?} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:data_classification} continued from previous page\,)}} \\
+\toprule
+\thead{Data Category} & \thead{Sub-Type} & \thead{Used?} & \thead{Sent to Model?} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+PII & Direct identifiers & No & No \\
+PII & Indirect identifiers & Limited & No \\
+PHI & Raw clinical data & No & No \\
+PHI & Abstracted signals & Yes & Yes \\
+Derived data & Features / embeddings & Yes & Yes \\
+Knowledge data & Public references & Yes & Yes \\
+System metadata & Logs \& metrics & Yes & No \\
+User feedback & Aggregated & Optional & No \\
+\end{xltabular}}
+
+%-------------------------------------------------------------------------------
+\subsection{Data Retention Policy}
+
+Table~\ref{tab:data_retention} specifies the retention period and justification for each data type, ranging from session-only for user raw input to policy-defined periods for audit logs.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L p{3.5cm} p{3cm} @{}}
+\caption{Data Retention by Type}\label{tab:data_retention} \\
+\toprule
+\thead{Data Type} & \thead{Retention Period} & \thead{Reason} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:data_retention} continued from previous page\,)}} \\
+\toprule
+\thead{Data Type} & \thead{Retention Period} & \thead{Reason} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+User raw input & Session-only or short TTL & Task completion \\
+Anonymized / abstracted data & Short-term (hours--days) & Reliability \& QA \\
+Model inputs & Not stored & Inference only \\
+Model outputs & Session-only (unless user saves) & User experience \\
+System metadata & Limited (30--90 days) & Security \& audits \\
+Audit logs & Longer (policy-defined) & Compliance \\
+User feedback & Aggregated only & Quality improvement \\
+\end{xltabular}}
+
+%===============================================================================
+\section{Responsible AI Validation Techniques}
+%===============================================================================
+
+\subsection{Fairness Validation}
+
+Table~\ref{tab:fairness_validation} presents the seven fairness validation techniques applied across data, model, runtime, and user layers, with the governing framework and evidence artefact for each.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{1.4cm} L L p{2.8cm} p{2.2cm} @{}}
+\caption{Fairness Validation Techniques}\label{tab:fairness_validation} \\
+\toprule
+\thead{Layer} & \thead{Technique} & \thead{Verification} & \thead{Framework} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:fairness_validation} continued from previous page\,)}} \\
+\toprule
+\thead{Layer} & \thead{Technique} & \thead{Verification} & \thead{Framework} & \thead{Evidence} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Data & Representation analysis & Group distribution & IBM AI Fairness 360 & Bias audit report \\
+Data & Missingness parity test & Missing value \% by group & ISO 23894 & Data quality log \\
+Model & Demographic parity & Outcome rate comparison & NIST AI RMF & Metric report \\
+Model & Equal opportunity & TPR parity & AIF360 / Fairlearn & Evaluation sheet \\
+Model & Counterfactual testing & Same input, group changed & XAI fairness tests & Counterfactual log \\
+Runtime & Fairness drift detection & Time-series metrics & Deployment governance & Dashboard \\
+User & Complaint parity & Complaints per segment & Product governance & Feedback log \\
+\end{xltabular}}
+
+\noindent\textbf{Pass condition:} All fairness metrics within approved tolerance\\
+\textbf{Fail condition:} Model blocked or routed to human review
+
+%-------------------------------------------------------------------------------
+\subsection{Privacy Validation}
+
+Table~\ref{tab:privacy_validation} documents the six privacy validation techniques spanning input, storage, model, access, and user layers, each aligned to an established compliance framework.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{1.4cm} L L p{2.8cm} p{2.2cm} @{}}
+\caption{Privacy Validation Techniques}\label{tab:privacy_validation} \\
+\toprule
+\thead{Layer} & \thead{Technique} & \thead{Verification} & \thead{Framework} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:privacy_validation} continued from previous page\,)}} \\
+\toprule
+\thead{Layer} & \thead{Technique} & \thead{Verification} & \thead{Framework} & \thead{Evidence} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Input & PII detection test & Inject known PII \& verify block & GDPR / ISO 27701 & DLP test report \\
+Input & Redaction validation & Hash before/after prompts & Privacy-by-design & Redaction logs \\
+Storage & Retention enforcement & TTL expiry validation & ISO 27001 & Retention audit \\
+Model & No-training check & Vendor config + contract & SOC 2 & Provider attestation \\
+Access & RBAC validation & Unauthorized access attempts & Zero Trust & Access logs \\
+User & Data deletion test & Right-to-erasure request & GDPR & Deletion certificate \\
+\end{xltabular}}
+
+\noindent\textbf{Pass condition:} Zero raw sensitive data reaches model\\
+\textbf{Fail condition:} Immediate incident + halt
+
+%-------------------------------------------------------------------------------
+\subsection{Safety Validation}
+
+Table~\ref{tab:safety_validation} summarises the five safety validation techniques covering content filtering, permission gating, kill-switch testing, human-in-the-loop enforcement, and incident response drills.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{1.4cm} L L p{2.8cm} p{2.2cm} @{}}
+\caption{Safety Validation Techniques}\label{tab:safety_validation} \\
+\toprule
+\thead{Layer} & \thead{Technique} & \thead{Verification} & \thead{Framework} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:safety_validation} continued from previous page\,)}} \\
+\toprule
+\thead{Layer} & \thead{Technique} & \thead{Verification} & \thead{Framework} & \thead{Evidence} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Content & Policy violation tests & Unsafe prompts blocked & Safety policy & Violation logs \\
+Action & Permission gating & Role escalation required & RBAC & Access logs \\
+System & Kill-switch test & Emergency stop works & Functional safety & Test certificate \\
+User & HITL validation & Human approval enforced & ISO 26262-style & Approval records \\
+Incident & Response drill & Incident simulation & Risk management & Incident report \\
+\end{xltabular}}
+
+\noindent\textbf{Pass condition:} Harm prevented or mitigated\\
+\textbf{Fail condition:} System halted
+
+%-------------------------------------------------------------------------------
+\subsection{Accountability Validation}
+
+Table~\ref{tab:accountability_validation} enumerates the five accountability validation techniques---identity verification, audit immutability, RACI enforcement, user acknowledgement, and independent audit---with their corresponding evidence artefacts.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.2cm} L L p{2.2cm} p{2.5cm} @{}}
+\caption{Accountability Validation Techniques}\label{tab:accountability_validation} \\
+\toprule
+\thead{Layer} & \thead{Technique} & \thead{Verification} & \thead{Framework} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:accountability_validation} continued from previous page\,)}} \\
+\toprule
+\thead{Layer} & \thead{Technique} & \thead{Verification} & \thead{Framework} & \thead{Evidence} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Identity & Actor verification & Authenticated user/system & IAM & Identity logs \\
+Audit & Immutability check & Append-only audit store & ISO 27001 & Hash validation \\
+Governance & RACI enforcement & Named owner per system & ISO 42001 & Ownership registry \\
+User & Action acknowledgment & User confirmations & Legal compliance & Confirmation logs \\
+Review & Independent audit & Periodic audit reviews & External audit & Audit report \\
+\end{xltabular}}
+
+\noindent\textbf{Pass condition:} Every action is attributable\\
+\textbf{Fail condition:} Compliance breach
+
+%===============================================================================
+\section{Nine Pillars of AI Implementation}
+%===============================================================================
+
+The system implements nine comprehensive pillars for trustworthy AI. Table~\ref{tab:nine_pillars_consolidated} consolidates all nine pillars into a single reference, mapping each pillar to its governing principle and the key controls it enforces. This consolidated view replaces the per-pillar subsection format to provide a compact, cross-comparable summary.
+
+\phantomsection\label{tab:confidence_signaling}
+\phantomsection\label{tab:trust_boundaries}
+\phantomsection\label{tab:task_boundaries}
+\phantomsection\label{tab:risk_levels}
+\phantomsection\label{tab:explanation_audiences}
+\phantomsection\label{tab:input_guardrails}
+\phantomsection\label{tab:output_guardrails}
+\phantomsection\label{tab:raci_appendix}
+\phantomsection\label{tab:robustness_dimensions}
+\phantomsection\label{tab:failure_modes_appendix}
+\phantomsection\label{tab:portability}
+\phantomsection\label{tab:task_responsibility}
+
+\noindent\textbf{Nine Pillars of Trustworthy AI Implementation ---....} Table~\ref{tab:nine_pillars_consolidated} below presents the detailed analysis.
+
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} c l L L @{}}
+\caption[Nine Pillars of Trustworthy AI Implementation]{Nine Pillars of Trustworthy AI Implementation --- Principles, Key Controls, and Enforcement Mechanisms}\label{tab:nine_pillars_consolidated} \\
+\toprule
+\thead{\#} & \thead{Pillar} & \thead{Governing Principle} & \thead{Key Controls} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:nine_pillars_consolidated} continued from previous page\,)}} \\
+\toprule
+\thead{\#} & \thead{Pillar} & \thead{Governing Principle} & \thead{Key Controls} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\tablestripes
+1 & Trust AI & Users know what AI can do, when to rely on it, and how to challenge it & Confidence signalling (high/medium/low); trust boundary rules; decision-support-only policy \\
+\addlinespace
+2 & Responsible AI & Clear purpose, bounded autonomy, lifecycle governance & Explicit task boundaries (allowed vs.\ prohibited); four-level risk classification (low--critical) \\
+\addlinespace
+3 & Explainable AI & System explains why an output was produced, to the right audience & Audience-specific explanations (end user, clinician, auditor, engineer); faithfulness, consistency, completeness quality controls \\
+\addlinespace
+4 & Guardrail AI & Hard constraints preventing unsafe or non-compliant behaviour & Input guardrails (block diagnosis/prescription intent); output filters (downgrade tone, inject uncertainty, block unsupported claims) \\
+\addlinespace
+5 & Accountable AI & Every outcome has a clear owner and traceable decision path & RACI matrix (6 roles); 7-step incident response workflow; immutable audit logs \\
+\addlinespace
+6 & Robust AI & Reliable under normal conditions; degrades safely under stress & Six robustness dimensions (input, data, model, system, behavioural, operational); safe degradation modes (fallback, refuse, graceful error) \\
+\addlinespace
+7 & Interpretable AI & Humans understand system reasoning without special tools & Three-tier decision hierarchy: rules $\rightarrow$ simple models $\rightarrow$ complex models (only if needed, always paired with SHAP/attention) \\
+\addlinespace
+8 & Portable AI & System moves across models, vendors, and environments & Four-layer abstraction (application $\rightarrow$ AI abstraction $\rightarrow$ model adapter $\rightarrow$ pluggable provider); 6 portability layers \\
+\addlinespace
+9 & Human-Centered AI & AI supports people instead of replacing judgement & Over-reliance prevention; clear task responsibility mapping (8 stages); user retains final decision authority \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Each pillar is enforced through a combination of technical controls (runtime guardrails, policy engines) and organisational controls (RACI ownership, incident response). SHAP = SHapley Additive exPlanations; RACI = Responsible, Accountable, Consulted, Informed.
+
+\iffalse %% Suppressed: Original per-pillar subsections consolidated into Table~\ref{tab:nine_pillars_consolidated}
+
+\subsection{Pillar 1: Trust AI}
+
+\textbf{Principle:} Users know what the AI can do, when to rely on it, when NOT to rely on it, and how to challenge it.
+
+\subsubsection{Trust Calibration}
+
+Table~\ref{tab:confidence_signaling} maps the three confidence levels---high, medium, and low---to their corresponding user-facing messages that calibrate appropriate trust in AI outputs.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:confidence_signaling_old} summarises confidence signaling for appendix review.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{Confidence Signaling}\label{tab:confidence_signaling_old} \\
+\toprule
+\thead{Confidence Level} & \thead{User Message} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:confidence_signaling_old} continued from previous page\,)}} \\
+\toprule
+\thead{Confidence Level} & \thead{User Message} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+High & ``This information is well supported...'' \\
+Medium & ``This is a general explanation...'' \\
+Low & ``I may not have enough verified information...'' \\
+\end{xltabular}}
+
+\subsubsection{Trust Boundaries}
+
+Table~\ref{tab:trust_boundaries} presents the four trust boundary rules that constrain the AI system to a decision-support role, with their corresponding enforcement mechanisms.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:trust_boundaries_old} summarises trust boundary rules for appendix review.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{Trust Boundary Rules}\label{tab:trust_boundaries_old} \\
+\toprule
+\thead{Rule} & \thead{Enforcement} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:trust_boundaries_old} continued from previous page\,)}} \\
+\toprule
+\thead{Rule} & \thead{Enforcement} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+AI is decision-support only & Policy + UI \\
+No autonomous decisions & Runtime guardrails \\
+No hidden AI actions & Mandatory notification \\
+No silent failures & Explicit error states \\
+\end{xltabular}}
+
+\subsection{Pillar 2: Responsible AI}
+
+\textbf{Principle:} Clear purpose, bounded autonomy, lifecycle governance, and enforceable controls.
+
+\subsubsection{Task Boundaries}
+
+Table~\ref{tab:task_boundaries} delineates the explicit task boundaries, distinguishing allowed operations such as pattern analysis and decision support from prohibited actions including diagnosis and prescription.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:task_boundaries_old} summarises explicit task boundaries for appendix review.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{Explicit Task Boundaries}\label{tab:task_boundaries_old} \\
+\toprule
+\thead{Allowed} & \thead{Not Allowed} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:task_boundaries_old} continued from previous page\,)}} \\
+\toprule
+\thead{Allowed} & \thead{Not Allowed} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Informational explanation & Diagnosis \\
+Pattern analysis & Prescription \\
+Summarization & Autonomous decisions \\
+Decision support & Clinical authority \\
+\end{xltabular}}
+
+\subsubsection{Risk Classification}
+
+Table~\ref{tab:risk_levels} defines the four risk levels---low, medium, high, and critical---used to classify AI system tasks and determine the required safeguards for each.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:risk_levels_old} summarises risk level definitions for appendix review.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{Risk Level Definitions}\label{tab:risk_levels_old} \\
+\toprule
+\thead{Level} & \thead{Meaning} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:risk_levels_old} continued from previous page\,)}} \\
+\toprule
+\thead{Level} & \thead{Meaning} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Low & Informational only \\
+Medium & Influences understanding \\
+High & Influences decisions \\
+Critical & Direct harm possible (blocked) \\
+\end{xltabular}}
+
+\subsection{Pillar 3: Explainable AI (XAI)}
+
+\textbf{Principle:} The system can clearly explain why an output was produced, using evidence, to the right audience, at the right time.
+
+\subsubsection{Explanation Layers by Audience}
+
+Table~\ref{tab:explanation_audiences} maps the four target audiences---end user, clinician, auditor, and engineer---to their explanation style and depth level.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:explanation_audiences_old} summarises audience-specific explanations for appendix review.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{3cm} L p{1.5cm} @{}}
+\caption{Audience-Specific Explanations}\label{tab:explanation_audiences_old} \\
+\toprule
+\thead{Audience} & \thead{Explanation Style} & \thead{Depth} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:explanation_audiences_old} continued from previous page\,)}} \\
+\toprule
+\thead{Audience} & \thead{Explanation Style} & \thead{Depth} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+End user & Plain language & Low \\
+Professional (clinician) & Evidence + patterns & Medium \\
+Auditor / regulator & Trace + logs & High \\
+Engineer & Model + pipeline & Deep \\
+\end{xltabular}}
+
+\subsubsection{Explanation Quality Controls}
+\begin{itemize}
+    \item \textbf{Faithfulness} --- Explanation matches model behavior
+    \item \textbf{Consistency} --- Same input $\rightarrow$ same explanation
+    \item \textbf{Completeness} --- Covers key factors
+    \item \textbf{Non-deceptiveness} --- No false certainty
+    \item \textbf{Readability} --- User can understand
+\end{itemize}
+
+\subsection{Pillar 4: Guardrail AI}
+
+\textbf{Principle:} Hard constraints that prevent unsafe, out-of-scope, or non-compliant behavior---enforced technically, not just stated in policy.
+
+\subsubsection{Input Guardrails}
+
+Table~\ref{tab:input_guardrails} specifies the four input guardrail rules that block or redirect prohibited user intents such as diagnosis requests and out-of-scope tasks.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:input_guardrails_old} summarises input guardrail rules for appendix review.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{Input Guardrail Rules}\label{tab:input_guardrails_old} \\
+\toprule
+\thead{Check} & \thead{Action} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:input_guardrails_old} continued from previous page\,)}} \\
+\toprule
+\thead{Check} & \thead{Action} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Diagnosis intent detected & Block \\
+Prescription intent detected & Block \\
+High-risk advice request & Redirect \\
+Out-of-scope task & Refuse \\
+\end{xltabular}}
+
+\subsubsection{Output Guardrails}
+
+Table~\ref{tab:output_guardrails} documents the five output safety filters that mitigate risks including medical authority claims, overconfidence, unsupported assertions, and hallucination.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:output_guardrails_old} summarises output safety filters for appendix review.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{Output Safety Filters}\label{tab:output_guardrails_old} \\
+\toprule
+\thead{Risk} & \thead{Control} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:output_guardrails_old} continued from previous page\,)}} \\
+\toprule
+\thead{Risk} & \thead{Control} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Medical authority & Downgrade tone \\
+Overconfidence & Inject uncertainty \\
+Unsupported claims & Block \\
+Hallucination risk & ``I don't know'' \\
+Sensitive advice & Human review \\
+\end{xltabular}}
+
+\subsection{Pillar 5: Accountable AI}
+
+\textbf{Principle:} Every AI outcome has a clear owner, a traceable decision path, and an enforceable response when something goes wrong.
+
+\subsubsection{RACI Model}
+
+Table~\ref{tab:raci_appendix} presents the RACI responsibility matrix, assigning ownership and accountability for AI system outcomes across six organisational roles.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:raci_appendix_old} summarises raci responsibility matrix for appendix review.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{RACI Responsibility Matrix}\label{tab:raci_appendix_old} \\
+\toprule
+\thead{Role} & \thead{Responsibility} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:raci_appendix_old} continued from previous page\,)}} \\
+\toprule
+\thead{Role} & \thead{Responsibility} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+AI System Owner & Accountable for outcomes \\
+Product Owner & Business intent \& scope \\
+Data Protection Officer & Privacy \& compliance \\
+Engineering Lead & Technical correctness \\
+Safety / Governance Lead & Risk \& guardrails \\
+End User & Uses output, not accountable \\
+\end{xltabular}}
+
+\subsubsection{Incident Response Workflow}
+\begin{enumerate}
+    \item Detect (user/system)
+    \item Acknowledge responsibility
+    \item Contain similar outputs
+    \item Assess impact
+    \item Correct root cause
+    \item Notify affected users (if required)
+    \item Record incident permanently
+\end{enumerate}
+
+\subsection{Pillar 6: Robust AI}
+
+\textbf{Principle:} The system behaves reliably under normal conditions, degrades safely under stress, and recovers predictably from failures.
+
+\subsubsection{Robustness Dimensions}
+
+Table~\ref{tab:robustness_dimensions} defines the six robustness dimensions---input, data, model, system, behavioural, and operational---that the framework evaluates to ensure reliable performance under diverse conditions.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:robustness_dimensions_old} summarises robustness dimensions for appendix review.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{Robustness Dimensions}\label{tab:robustness_dimensions_old} \\
+\toprule
+\thead{Dimension} & \thead{What it means} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:robustness_dimensions_old} continued from previous page\,)}} \\
+\toprule
+\thead{Dimension} & \thead{What it means} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Input robustness & Handles noisy / malformed inputs \\
+Data robustness & Stable despite distribution shifts \\
+Model robustness & Resistant to adversarial prompts \\
+System robustness & Survives infrastructure failures \\
+Behavioral robustness & Consistent outputs over time \\
+Operational robustness & Recoverable \& observable \\
+\end{xltabular}}
+
+\subsubsection{Safe Degradation}
+
+Table~\ref{tab:failure_modes_appendix} maps the four primary failure modes---model timeout, low confidence, missing evidence, and system outage---to their corresponding safe degradation responses.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:failure_modes_appendix_old} summarises failure mode handling for appendix review.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{Failure Mode Handling}\label{tab:failure_modes_appendix_old} \\
+\toprule
+\thead{Failure} & \thead{Safe Response} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:failure_modes_appendix_old} continued from previous page\,)}} \\
+\toprule
+\thead{Failure} & \thead{Safe Response} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Model timeout & Fallback model \\
+Low confidence & ``I don't know'' \\
+Evidence missing & Refuse \\
+System outage & Graceful error \\
+\end{xltabular}}
+
+\subsection{Pillar 7: Interpretable AI}
+
+\textbf{Principle:} Humans can understand how the system reasons without needing special tools or deep technical knowledge.
+
+\subsubsection{Design Strategy}
+\begin{itemize}
+    \item Prefer simple before complex
+    \item If a simpler method achieves the goal, do NOT use a complex one
+    \item Complex models never operate alone
+\end{itemize}
+
+\subsubsection{Layered Decision Logic}
+
+The system employs a three-tier decision hierarchy that prioritizes interpretability:
+
+\begin{enumerate}
+    \item \textbf{Rules (hard constraints)} --- Deterministic business rules and clinical guardrails that cannot be overridden by any model output (e.g., blocking diagnostic claims, enforcing scope boundaries).
+    \item \textbf{Simple models (interpretable)} --- Transparent models such as logistic regression, decision trees, or rule-based classifiers that provide human-readable decision paths. These are preferred whenever accuracy requirements are met.
+    \item \textbf{Complex models (only if needed)} --- Deep learning or ensemble models are used only when simple models fail to meet accuracy thresholds. When complex models are deployed, they are always paired with explainability layers (SHAP, attention maps) and never operate autonomously.
+\end{enumerate}
+
+\subsection{Pillar 8: Portable AI}
+
+\textbf{Principle:} The system can move across models, vendors, environments, and regulations without breaking trust, compliance, or functionality.
+
+\subsubsection{Portability Architecture}
+
+The portability architecture follows a four-layer abstraction pattern that decouples application logic from specific AI model providers:
+
+\begin{enumerate}
+    \item \textbf{Application Logic} --- The business logic layer that defines diagnostic tasks, clinical workflows, and user interactions. This layer is model-agnostic and vendor-independent.
+    \item \textbf{AI Abstraction Layer} --- A standardized interface layer that translates application requests into model-agnostic API calls, ensuring that task definitions, prompts, and constraints remain portable across providers.
+    \item \textbf{Model Adapter (vendor-specific)} --- A thin adapter layer that maps the standardized interface to the specific API conventions, authentication methods, and response formats of each model vendor.
+    \item \textbf{Model Provider (pluggable)} --- The actual AI model endpoint, which can be swapped without modifying application logic, abstraction interfaces, or governance policies.
+\end{enumerate}
+
+\subsubsection{Portability Requirements}
+
+Table~\ref{tab:portability} enumerates the six portability layers---model, prompts, data, policies, logs, and infrastructure---that must remain transferable across vendors and deployment environments.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:portability_old} summarises portability scope for appendix review.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{Portability Scope}\label{tab:portability_old} \\
+\toprule
+\thead{Layer} & \thead{Must Be Portable} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:portability_old} continued from previous page\,)}} \\
+\toprule
+\thead{Layer} & \thead{Must Be Portable} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Model & LLM / DL model \\
+Prompts & Task logic \& constraints \\
+Data & Schemas \& formats \\
+Policies & Guardrails \& rules \\
+Logs & Audit \& evidence \\
+Infra & Cloud / on-prem / edge \\
+\end{xltabular}}
+
+\subsection{Pillar 9: Human-Centered AI}
+
+\textbf{Principle:} The system is designed around human abilities, limits, and responsibility---so AI supports people instead of replacing judgment.
+
+\subsubsection{Over-Reliance Prevention}
+\begin{itemize}
+    \item Humans remain in control
+    \item Cognitive overload and automation bias are reduced
+    \item AI outputs are usable, not overwhelming
+    \item Users understand their role vs AI's role
+\end{itemize}
+
+\subsubsection{Task Responsibility Framework}
+
+Table~\ref{tab:task_responsibility} maps each stage of the AI interaction lifecycle to its responsible party, ensuring clear delineation between user, system, and AI responsibilities.
+\needspace{8\baselineskip}
+\noindent Table~\ref{tab:task_responsibility_old} summarises task responsibility mapping for appendix review.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{Task Responsibility Mapping}\label{tab:task_responsibility_old} \\
+\toprule
+\thead{Stage} & \thead{Responsible Party} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:task_responsibility_old} continued from previous page\,)}} \\
+\toprule
+\thead{Stage} & \thead{Responsible Party} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Task definition & User \\
+Data provided & User \\
+Data protection & System owner \\
+Processing logic & AI system \\
+Output generation & AI system \\
+Interpretation & User \\
+Final decision & User / Professional \\
+Governance \& safety & System owner \\
+\end{xltabular}}
+
+\fi %% End suppressed Nine Pillars per-pillar subsections
+
+%===============================================================================
+\section{Model Evaluation Framework}
+%===============================================================================
+
+\subsection{Evaluation Frameworks Used}
+
+Table~\ref{tab:eval_frameworks_consolidated} maps the nine evaluation frameworks---five governance and four technical---to their scope and primary assessment focus, providing a consolidated reference for the standards that govern model evaluation.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l l L @{}}
+\caption[Evaluation Frameworks]{Evaluation Frameworks --- Governance and Technical Standards Applied}\label{tab:eval_frameworks_consolidated} \\
+\toprule
+\thead{Type} & \thead{Framework} & \thead{Assessment Focus} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:eval_frameworks_consolidated} continued from previous page\,)}} \\
+\toprule
+\thead{Type} & \thead{Framework} & \thead{Assessment Focus} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\tablestripes
+Governance & NIST AI RMF & Risk-based evaluation \\
+Governance & ISO/IEC 42001 & AI management system \\
+Governance & ISO/IEC 23894 & AI risk and impact management \\
+Governance & OECD AI Principles & Fairness, transparency, accountability \\
+Governance & Healthcare AI Safety Principles & Clinical decision-support norms \\
+\addlinespace
+Technical & Model Cards & Documentation and transparency \\
+Technical & Data Sheets for Datasets & Dataset provenance and quality \\
+Technical & RAG Evaluation Frameworks & Groundedness, faithfulness \\
+Technical & Deployment Evaluation Pipelines & Pre $\rightarrow$ post $\rightarrow$ runtime assessment \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} NIST = National Institute of Standards and Technology; AI RMF = AI Risk Management Framework; OECD = Organisation for Economic Co-operation and Development; RAG = retrieval-augmented generation.
+
+%-------------------------------------------------------------------------------
+\subsection{Evaluation Metrics}
+
+Table~\ref{tab:eval_metrics_consolidated} consolidates the 16 evaluation metrics used across four assessment categories---core performance, hallucination/faithfulness, fairness, and safety/robustness---providing a single reference for the complete model evaluation protocol.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} l l L @{}}
+\caption[Consolidated Evaluation Metrics]{Consolidated Evaluation Metrics --- 16 Metrics Across Four Assessment Categories}\label{tab:eval_metrics_consolidated} \\
+\toprule
+\thead{Category} & \thead{Metric} & \thead{Purpose} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:eval_metrics_consolidated} continued from previous page\,)}} \\
+\toprule
+\thead{Category} & \thead{Metric} & \thead{Purpose} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\tablestripes
+Core Performance & Accuracy & Overall correct classification rate \\
+Core Performance & Precision / Recall & Class-level correctness and completeness \\
+Core Performance & F1-Score & Harmonic mean of precision and recall \\
+Core Performance & Confidence calibration (ECE) & Predicted probability matches observed rate \\
+\addlinespace
+Hallucination & Groundedness score & Output anchored to retrieved evidence \\
+Hallucination & Faithfulness score & Claim--source alignment \\
+Hallucination & Citation precision & Source actually supports claim \\
+Hallucination & Contradiction rate & Internally inconsistent statements \\
+\addlinespace
+Fairness & Demographic parity & Outcome rate equality across groups \\
+Fairness & Equal opportunity & TPR parity across groups \\
+Fairness & Error parity (FPR / FNR) & False positive/negative rate balance \\
+Fairness & Calibration by group & Per-group confidence reliability \\
+\addlinespace
+Safety / Robustness & Refusal accuracy & Correctly refuses out-of-scope queries \\
+Safety / Robustness & Out-of-scope detection & Identifies non-covered task requests \\
+Safety / Robustness & Stress test pass rate & Performance under adversarial inputs \\
+Safety / Robustness & Drift detection & Distribution shift monitoring \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} ECE = Expected Calibration Error; TPR = true positive rate; FPR = false positive rate; FNR = false negative rate. All metrics are computed per domain and aggregated for ASD-focused comparison.
+
+%-------------------------------------------------------------------------------
+\subsection{Sample Evaluation Results}
+
+Table~\ref{tab:eval_results} reports the sample model evaluation results across six metrics---accuracy, faithfulness, hallucination rate, fairness parity gap, unsafe output rate, and confidence calibration---all of which meet acceptance criteria.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L p{2cm} p{2cm} @{}}
+\caption{Sample Model Evaluation Results}\label{tab:eval_results} \\
+\toprule
+\thead{Metric} & \thead{Result} & \thead{Acceptance} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:eval_results} continued from previous page\,)}} \\
+\toprule
+\thead{Metric} & \thead{Result} & \thead{Acceptance} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Accuracy & 92\% & Pass \\
+Faithfulness & 0.89 & Pass \\
+Hallucination rate & 2.10\% & Pass \\
+Fairness parity gap & $<$3\% & Pass \\
+Unsafe output rate & 0\% & Pass \\
+Confidence calibration & Good & Pass \\
+\end{xltabular}}
+
+%-------------------------------------------------------------------------------
+\subsection{Go / No-Go Decision Rules}
+
+Table~\ref{tab:deployment_rules} defines the five go/no-go deployment decision rules, specifying the conditions under which the model is approved, blocked, or routed for mitigation.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{Deployment Decision Rules}\label{tab:deployment_rules} \\
+\toprule
+\thead{Condition} & \thead{Action} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:deployment_rules} continued from previous page\,)}} \\
+\toprule
+\thead{Condition} & \thead{Action} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+All metrics within threshold & Deploy \\
+Hallucination above limit & Block \\
+Bias above tolerance & Re-train / Mitigate \\
+Critical risk task & Human-only \\
+Missing audit evidence & No-Go \\
+\end{xltabular}}
+
+%===============================================================================
+\section{Lifecycle Governance}
+%===============================================================================
+
+\subsection{Phase Controls}
+
+Table~\ref{tab:lifecycle_validation} summarises the six lifecycle phases---design through review---and the validation method applied at each stage to ensure responsible-by-design governance.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{Responsible-by-Design Lifecycle Validation}\label{tab:lifecycle_validation} \\
+\toprule
+\thead{Phase} & \thead{Validation Method} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:lifecycle_validation} continued from previous page\,)}} \\
+\toprule
+\thead{Phase} & \thead{Validation Method} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Design & Ethics \& risk review checklist \\
+Build & CI/CD fairness + safety gates \\
+Test & Bias, privacy, robustness testing \\
+Deploy & Go/no-go governance approval \\
+Run & Continuous monitoring \\
+Review & Periodic re-certification \\
+\end{xltabular}}
+
+%-------------------------------------------------------------------------------
+\subsection{Required Evidence Package}
+
+Table~\ref{tab:evidence_package} enumerates the six evidence artefacts that each release must produce before deployment approval, together with the governance domain each artefact serves.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} c L l @{}}
+\caption[Required Evidence Package]{Required Evidence Package --- Artefacts per Release}\label{tab:evidence_package} \\
+\toprule
+\thead{\#} & \thead{Evidence Artefact} & \thead{Governance Domain} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{@{}l}{\textit{(\,Tab.~\ref{tab:evidence_package} continued from previous page\,)}} \\
+\toprule
+\thead{\#} & \thead{Evidence Artefact} & \thead{Governance Domain} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\tablestripes
+1 & Bias assessment report (pre and post deployment) & Fairness \\
+2 & Metric dashboards (segmented by group) & Transparency \\
+3 & Mitigation decision log & Accountability \\
+4 & Trade-off analysis (fairness vs.\ accuracy) & Governance \\
+5 & Approval and ownership record & Accountability \\
+6 & Runtime monitoring snapshots & Robustness \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} All artefacts stored in immutable audit storage with append-only access controls.
+
+%===============================================================================
+\section{Policy Statements}
+%===============================================================================
+
+\subsection{User Data to Model Policy}
+
+\begin{quote}
+The system must not transmit raw user identifiers, credentials, or sensitive personal/health data to any external model endpoint. Only minimized + redacted inputs may be sent, limited to approved allowlist fields. Any exception requires explicit user consent, is logged, and is reviewable.
+\end{quote}
+
+\subsection{Notification Policy}
+
+\begin{quote}
+The system must provide a user-visible notification for each AI operation including data categories used, destination, purpose, and result.
+\end{quote}
+
+\subsection{Accountability Policy}
+
+\begin{quote}
+Every AI operation must be linked to an authenticated actor and produce an immutable audit event.
+\end{quote}
+
+\subsection{Hallucination Responsibility Statement}
+
+\begin{quote}
+If an AI system generates inaccurate or hallucinated output, responsibility rests with the organization deploying and governing the system, not the user or the model itself. The system is designed with safeguards to prevent, detect, and mitigate hallucinations, and any identified errors are acknowledged transparently to users, investigated, corrected, and recorded as part of our responsible AI governance process.
+\end{quote}
+
+\subsection{Comprehensive Framework Statement}
+
+\begin{quote}
+The AI system is evaluated using recognized governance and technical frameworks, with risk classified by impact and autonomy. Performance, fairness, safety, and hallucination metrics are assessed through controlled experiments. The model is used under a commercial inference-only license, does not train on user data, and is deployed only when evaluation results meet predefined acceptance criteria appropriate to the risk level.
+\end{quote}
+
+%===============================================================================
+\section{Implementation Checklist}
+%===============================================================================
+
+Table~\ref{tab:implementation_checklist} enumerates the 13 implementation items required for production deployment, grouped by governance domain, together with the responsible function for each item.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} c l L l @{}}
+\caption[Responsible AI Implementation Checklist]{Responsible AI Implementation Checklist --- 13 Required Items by Domain}\label{tab:implementation_checklist} \\
+\toprule
+\thead{\#} & \thead{Domain} & \thead{Implementation Item} & \thead{Owner} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:implementation_checklist} continued from previous page\,)}} \\
+\toprule
+\thead{\#} & \thead{Domain} & \thead{Implementation Item} & \thead{Owner} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+\tablestripes
+1 & Privacy & DLP classifier + regex + secret scanner in outbound gateway & Engineering \\
+2 & Privacy & Allowlist schema for prompt payloads & Engineering \\
+3 & Privacy & Consent UI for exceptions & Product \\
+4 & Accountability & Operation event model + append-only audit store & Engineering \\
+5 & Accountability & User-facing audit timeline + export & Product \\
+6 & Governance & Policy engine with versioning (OPA-style) & Governance \\
+7 & Privacy & Vendor contract/settings: no-training/no-retention & Legal \\
+8 & Safety & Red-team tests: seed PII $\rightarrow$ ensure blocked & Security \\
+9 & Fairness & Fairness metrics monitoring dashboard & Data Science \\
+10 & Safety & Hallucination detection pipeline & Engineering \\
+11 & Safety & Human-in-the-loop workflows for high-risk outputs & Product \\
+12 & Safety & Incident response playbooks & Governance \\
+13 & Governance & Periodic re-certification process & Governance \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} DLP = data loss prevention; PII = personally identifiable information; OPA = Open Policy Agent. All items stored in immutable audit storage upon completion.
+
+%===============================================================================
+\section{Summary}
+%===============================================================================
+
+This Responsible AI Framework ensures that the unified biomedical AI system operates with:
+
+\begin{itemize}
+    \item \textbf{Privacy:} User data protected by design, minimized, and never misused
+    \item \textbf{Transparency:} System behavior visible and explainable
+    \item \textbf{Robustness:} Reliable, resilient, and performs as expected
+    \item \textbf{Safety:} Harm prevention built into every layer
+    \item \textbf{Accountability:} Every action traceable, owned, and reviewable
+\end{itemize}
+
+\noindent The nine implementation pillars (Trust, Responsible, Explainable, Guardrail, Accountable, Robust, Interpretable, Portable, Human-Centered) provide comprehensive coverage for healthcare AI deployment, ensuring that AI supports clinical decision-making while maintaining appropriate boundaries and safeguards.
+
+\vspace{1cm}
+
+\noindent\textbf{One-Line Summary:}
+\begin{quote}
+\textit{User asks $\rightarrow$ AI analyzes $\rightarrow$ AI explains $\rightarrow$ User decides}
+\end{quote}
+
+

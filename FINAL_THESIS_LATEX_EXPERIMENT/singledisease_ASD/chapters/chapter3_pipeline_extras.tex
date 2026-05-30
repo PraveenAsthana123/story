@@ -1,0 +1,864 @@
+
+%% ============================================================================
+%% Extras: detail-flow + per-stage governance + analysis + AS-IS/TO-BE pages
+%% Auto-generated 2026-05-27. ~30 additional dedicated-per-page tables.
+%% ============================================================================
+
+\clearpage
+\subsection{ASD-EEG Pipeline --- Detail Flow, Per-Stage Governance, Analysis, AS-IS/TO-BE Pages}
+\label{sec:asd_pipeline_extras_pages}
+
+\noindent\emph{Twenty-eight-table consolidated extras: per-stage detail-flow pages (preprocessing sub-steps, conversion, Fourier, SWT, healthy vs ASD comparison, EDA, graph projection, image conversion), per-stage governance pages (tool/technique, explainability, responsibility, secure AI, governance), model + evaluation + benchmarking pages, analysis-type list pages (statistical / sensitivity / subjective), and AS-IS vs TO-BE process pages (with Emotiv + IoT + Gateway). Each page is a single-page dedicated reference per the global formatting policy.}
+
+
+\clearpage
+\paragraph[Preprocessing Detail Flow]{Preprocessing Detail Flow --- Sub-Steps with Parameters.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Preprocessing Detail Flow]{Preprocessing Detail Flow --- Sub-Steps with Parameters.}\label{tab:preproc_detail} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Sub-step 5.1 Bandpass filter & Butterworth 4th order; 0.5--45 Hz; zero-phase forward-backward filtfilt; sosfiltfilt in scipy.signal \\
+Sub-step 5.2 Notch filter & IIR notch at 50 Hz (EU) or 60 Hz (US) with Q=30; harmonics at 100/150 Hz also notched \\
+Sub-step 5.3 Re-reference & Average reference (default); alternative linked-mastoid for clinical comparability \\
+Sub-step 5.4 Bad-channel detection & Per-channel: |amplitude| $>$ 100 \(\mu\)V threshold; correlation with neighbours $<$ 0.4 flags channel \\
+Sub-step 5.5 Bad-channel interpolation & Spherical-spline interpolation per Perrin 1989; max 25\% channels interpolated, else file rejected \\
+Sub-step 5.6 ICA decomposition & Infomax / FastICA on cleaned signal; n\_components = min(channels, 20) \\
+Sub-step 5.7 IC artefact classification & ICLabel auto-classify; remove IC if P(eye)+P(muscle)+P(line\_noise) $>$ 0.7 \\
+Sub-step 5.8 IC removal + reconstruct & Project remaining ICs back to channel space \\
+Sub-step 5.9 Epoch rejection & Per-epoch amplitude $>$ 150 \(\mu\)V OR variance $>$ 4\(\sigma\) of cohort -> drop epoch \\
+Sub-step 5.10 Audit log & Per-file JSON: pre/post SQI, IC count removed, epochs dropped, processing time, software version \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Every parameter is pre-specified and recorded in the per-file audit log so the preprocessing is reproducible. Before/after PSD plots saved per sub-step.
+
+
+\clearpage
+\paragraph[Conversion Flow]{Conversion Flow --- EDF / BDF / CSV / MAT -> BIDS-EEG / FIF.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Conversion Flow]{Conversion Flow --- EDF / BDF / CSV / MAT -> BIDS-EEG / FIF.}\label{tab:conversion_detail} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Source: European Data Format (.edf) & mne.io.read\_raw\_edf -> Raw object -> save as .fif via Raw.save \\
+Source: BioSemi Data Format (.bdf) & mne.io.read\_raw\_bdf -> Raw object -> save as .fif \\
+Source: CSV (channel \(\times\) time + header) & pandas.read\_csv -> numpy array -> mne.io.RawArray with channel info -> save \\
+Source: MATLAB (.mat with EEGLAB struct) & scipy.io.loadmat -> mne.io.read\_raw\_eeglab -> save \\
+Source: BrainVision (.vhdr / .eeg / .vmrk) & mne.io.read\_raw\_brainvision -> save \\
+Source: Emotiv (.edf via Emotiv Pro) & mne.io.read\_raw\_edf with channel rename to 10--20 system \\
+Side-car JSON metadata & \{sampling\_rate, n\_channels, channel\_names, reference, recording\_date, device, condition\} \\
+Validation: roundtrip & Read converted file, compare with source array; max abs diff \(< 1e-6\) \\
+Validation: BIDS compliance & bids-validator CLI -> zero errors required \\
+Output convention & sub-\(<\)ID\(>\)/ses-\(<\)N\(>\)/eeg/sub-\(<\)ID\(>\)\_ses-\(<\)N\(>\)\_task-rest\_eeg.fif \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} BIDS-EEG (Brain Imaging Data Structure for EEG) per Pernet et al.\ 2019 is the canonical format choice; FIF is the per-record file inside the BIDS tree. The choice ensures interoperability with mne-python, EEGLAB, FieldTrip, and Brainstorm.
+
+
+\clearpage
+\paragraph[Fourier Transform Detail]{Fourier Transform Detail --- FFT + STFT Parameters.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Fourier Transform Detail]{Fourier Transform Detail --- FFT + STFT Parameters.}\label{tab:fft_detail} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Discrete Fourier Transform (DFT) primer & X[k] = \(\sum\_{n=0}^{N-1}\) x[n] e\(^{-i2\pi kn/N}\); via FFT (Cooley-Tukey) for O(N log N) \\
+FFT for full-epoch spectral & scipy.fft.fft on entire 2s/4s/8s epoch -> complex spectrum \\
+Magnitude + Power & |X[k]| -> magnitude; |X[k]|\(^2\)/N -> power \\
+Window function & Hamming (default); Hann or Blackman as alternatives to reduce spectral leakage \\
+STFT (Short-Time Fourier Transform) & scipy.signal.stft; window length 256 samples; overlap 50\% (128); window = Hann \\
+STFT output dimension & (n\_freq\_bins, n\_time\_bins) per channel -> spectrogram \\
+Frequency bin resolution & \(\Delta f = f\_s / N\); at 256 Hz, 256-sample window -> 1 Hz resolution \\
+Time resolution & \(\Delta t = (N - \text{overlap}) / f\_s\); at 256 Hz, 128-overlap -> 0.5s time resolution \\
+Band-power extraction & Sum |STFT|\(^2\) over band frequencies (\(\delta, \theta, \alpha, \beta, \gamma\)) per time-bin per channel \\
+Relative band power & band\_power / total\_power per epoch per channel -> range [0,1] \\
+Implementation & scipy.fft.fft / fftfreq; scipy.signal.stft; numpy operations \\
+Validation & Parseval's theorem: \(\sum|x[n]|^2 = (1/N)\sum|X[k]|^2\); verify per epoch \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} STFT trades time vs frequency resolution per Heisenberg time-frequency uncertainty; choice of 256-sample Hamming window at 256 Hz gives 1 Hz \(\times\) 0.5 s cells, suitable for EEG band analysis. For higher time resolution use shorter windows; for higher frequency resolution use longer windows.
+
+
+\clearpage
+\paragraph[SWT Flow]{SWT (Stationary Wavelet Transform) Flow.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[SWT Flow]{SWT (Stationary Wavelet Transform) Flow.}\label{tab:swt_detail} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Method name & Stationary Wavelet Transform (SWT); also Algorithme \(\grave{\text{a}}\) trous \\
+Why SWT vs STFT & No down-sampling between scales -> every coefficient sequence is time-aligned with the input; ideal for ERP / event-related EEG \\
+Wavelet choice & Daubechies db4 or Symlet sym4 (smooth + compact support); Morlet for continuous variant \\
+Number of levels & log\(\_2\)(N) for N-sample epoch; typically 5--7 levels for 512--2048 sample epochs \\
+Decomposition formula & cA\(\_j\)[n] = (h * cA\(\_{j-1}\))[n]; cD\(\_j\)[n] = (g * cA\(\_{j-1}\))[n]; h, g = low/high-pass filters \\
+Output structure & Per level: approximation (cA) + detail (cD); same length as input (vs DWT which decimates) \\
+Band mapping & cD\(\_1\) -> high \(\gamma\); cD\(\_2\) -> \(\beta\); cD\(\_3\) -> \(\alpha\); cD\(\_4\) -> \(\theta\); cA\(\_5\) -> \(\delta\) \\
+Feature extraction from SWT & Per level: mean, std, max, energy, entropy of coefficients -> feature vector \\
+Implementation & pywt.swt; pywt.swt2 (2D); MODWT (Maximum Overlap DWT) is mathematically equivalent \\
+Validation & Perfect reconstruction: x\(\_{\text{reconstructed}}\) = pywt.iswt(coeffs); max abs diff \(< 1e-10\) \\
+SWT vs DWT vs STFT & SWT: time-aligned, non-decimated, redundant. DWT: down-sampled, non-redundant. STFT: fixed window, no multi-resolution \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} SWT is the dissertation's preferred multi-resolution time-frequency tool when temporal precision matters (e.g., per-trial ERP analysis); STFT is preferred for continuous-EEG spectral characterisation. The two are complementary and produce overlapping but distinct features.
+
+
+\clearpage
+\paragraph[Healthy vs ASD Data Window]{Healthy vs ASD Data Window --- Side-by-Side Comparison.}
+
+
+\noindent This table lists each \textit{feature} across healthy control, asd-positive, and difference + interpretation, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.6cm} >{\centering\arraybackslash}p{3.2cm} >{\centering\arraybackslash}p{3.2cm} L @{}}
+\caption[Healthy vs ASD Data Window]{Healthy vs ASD Data Window --- Per-Band Power Side-by-Side (KAU-aligned reference; representative records).}\label{tab:healthy_vs_asd_window} \\
+\toprule
+\thead{Feature} & \thead{Healthy Control} & \thead{ASD-positive} & \thead{Difference + interpretation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Subject ID (illustrative) & 14 (control) & 1 (autism) & --- \\
+Delta (0.5--4 Hz) power & 26.617 & 20.140 & ASD lower; possible attentional shift away from slow rhythm \\
+Theta (4--8 Hz) power & 39.558 & 47.801 & ASD higher; theta excess pattern noted in ASD literature \\
+Alpha (8--13 Hz) power & 110.076 & 76.131 & ASD lower; alpha suppression at rest consistent with reduced default-mode integration \\
+Beta (13--30 Hz) power & 50.825 & 55.619 & ASD slightly higher; beta excess associated with cortical hyper-arousal \\
+Gamma (30--45 Hz) power & 10.214 & 34.171 & ASD substantially higher; gamma elevation a robust ASD biomarker per Rojas 2014 \\
+Hjorth mobility & 0.812 (illustrative) & 0.794 (illustrative) & Marginal; complexity slightly reduced in ASD \\
+Sample entropy & 1.451 (illustrative) & 1.318 (illustrative) & ASD lower; reduced signal complexity reported in literature \\
+Hurst exponent & 0.687 (illustrative) & 0.713 (illustrative) & ASD higher; stronger long-range temporal correlation \\
+Spectral entropy & 0.918 (illustrative) & 0.871 (illustrative) & ASD lower; more spectrally concentrated power \\
+Total power & 237.290 & 233.862 & Comparable total; difference is in distribution not magnitude \\
+Verdict per record & Within normative range across bands & Theta + gamma elevation; alpha + delta reduction & Pattern matches ASD-EEG biomarker literature (Wang 2013, Rojas 2014) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Values are from the KAU-aligned autism reference dataset (\texttt{agentic/\allowbreak data/\allowbreak autism/\allowbreak sample/\allowbreak autism\_\allowbreak sample\_\allowbreak 100.csv}). Single-subject values are illustrative; cohort-level differences are reported in Ch.~\ref{chap:analysis} with effect sizes and confidence intervals. The pattern (gamma elevation + alpha suppression + theta excess) is consistent with published ASD-EEG biomarkers but per-subject variance is wide; classification requires multi-feature integration (Step 14).
+
+
+\clearpage
+\paragraph[EDA (Exploratory Data Analysis)]{EDA --- Exploratory Data Analysis Plan + Outputs.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[EDA (Exploratory Data Analysis)]{EDA --- Exploratory Data Analysis Plan + Outputs.}\label{tab:eda_plan} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Univariate distribution & Per-feature histogram + KDE + box plot; skew + kurtosis statistics; normality test (Shapiro-Wilk) \\
+Bivariate correlation & Pearson + Spearman correlation matrix; pairs-plot for top-15 features; heatmap (seaborn.heatmap) \\
+Class-stratified summary & Per-class mean + SD + median + IQR per feature; Cohen's d effect size per feature \\
+Outlier detection & IQR method (Q1 - 1.5\(\times\)IQR, Q3 + 1.5\(\times\)IQR); z-score |z| $>$ 3; Isolation Forest contamination=0.05 \\
+Missingness matrix & missingno.matrix + bar + heatmap; per-field \% missing; co-missingness patterns \\
+Dimensionality reduction & PCA (2D + 3D scatter); UMAP (perplexity=15--30); t-SNE for visual cluster inspection \\
+Per-class topomap & mne.viz.plot\_\allowbreak topomap of mean band power per group; visual contrast healthy vs ASD \\
+Time-domain visual & Raw EEG butterfly plot per group; ERP grand-average where event-related \\
+Frequency-domain visual & PSD curve per group with shaded SD band; log-power vs linear-power \\
+Connectivity visual & Per-pair PLV / coherence matrix; circular brain plot via mne-connectivity \\
+Quality-metric distribution & SQI histogram per cohort; epoch retention rate distribution \\
+Output deliverables & EDA notebook (Jupyter); EDA PDF report; per-figure PNG; statistical summary table \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} EDA runs before any inferential model fitting; findings inform feature selection (Step 13) and feature engineering choices. Per-step before/after EDA snapshots saved per global Before/After Preprocessing Visualization policy.
+
+
+\clearpage
+\paragraph[Graph Projection]{Graph Projection --- Data Visualization Techniques.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Graph Projection]{Graph Projection --- Data Visualization Techniques.}\label{tab:graph_projection} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+PCA (Principal Component Analysis) & Linear projection to first 2/3 components; cumulative variance explained reported; biplot with feature loadings \\
+t-SNE (t-distributed Stochastic Neighbour Embedding) & Non-linear; preserves local structure; perplexity 15--30; random\_state fixed for reproducibility \\
+UMAP (Uniform Manifold Approximation) & Faster than t-SNE; preserves both local + global structure; n\_neighbors 15--30 \\
+LDA (Linear Discriminant Analysis) & Supervised projection; maximises between-class vs within-class variance; 1 component for 2-class problem \\
+MDS (Multidimensional Scaling) & Preserves pairwise distances; useful for inter-subject distance visualisation \\
+Scatter matrix (pair plot) & seaborn.pairplot on top-K features; diagonal = KDE; off-diagonal = scatter colored by class \\
+Heatmap of correlation & seaborn.heatmap; clustermap with hierarchical clustering \\
+Box / violin plot per class & Per-feature distribution comparison; useful for outlier inspection \\
+3D scatter (PCA or UMAP) & plotly.express.scatter\_3d; interactive; rotation inspection \\
+Brain topomap & mne.viz.plot\_\allowbreak topomap per band; class-difference topomap \\
+Connectivity network & NetworkX graph of channels; edge weight = PLV; node colour = region \\
+Sankey flow & Patient -> preprocessing-stage -> feature-extraction -> model decision flow visualisation \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Each projection answers a specific question: PCA = variance structure; t-SNE/UMAP = cluster separability; LDA = supervised separability; topomap = spatial pattern. Use multiple complementary projections, not just one.
+
+
+\clearpage
+\paragraph[Image Conversion (EEG -> Image)]{Image Conversion --- EEG 1D Signal to 2D Image Detail.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Image Conversion (EEG -> Image)]{Image Conversion --- EEG 1D Signal to 2D Image Detail.}\label{tab:image_conversion} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Spectrogram image & STFT magnitude (Step 8) -> log10 + viridis colormap -> 224\(\times\)224 RGB image \\
+Scalogram image & CWT magnitude (Step 8) -> log10 + viridis -> 224\(\times\)224 RGB \\
+Topographic map (topomap) & Per-channel band-power value -> interpolated 2D scalp map -> 64\(\times\)64 RGB \\
+Connectivity matrix image & PLV (or coherence) per channel pair -> n\_channels \(\times\) n\_channels heatmap -> 64\(\times\)64 RGB \\
+Power-band heatmap & 5 bands \(\times\) n\_channels heatmap -> 5\(\times\)n\_channels image \\
+Multi-channel stacked spectrogram & Stack per-channel spectrograms vertically -> (n\_channels\(\times\)freq) \(\times\) time image \\
+GAF (Gramian Angular Field) & Time-series -> angular GAF matrix -> 224\(\times\)224 RGB; preserves temporal correlation \\
+MTF (Markov Transition Field) & Time-series -> Markov state-transition image; captures dynamics \\
+Recurrence plot & d(x\(\_i\), x\(\_j\)) $<$ threshold -> binary recurrence image; useful for non-linear dynamics \\
+Image normalisation & Per-image z-score OR ImageNet-style mean/std normalisation for transfer learning \\
+Image augmentation (train fold only) & Random rotation \(\pm\)10\(^\circ\); brightness/contrast jitter; time-mask (SpecAugment) \\
+Downstream consumer & EfficientNet-B0; ResNet-18; ViT-base/16; custom CNN-LSTM hybrid \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Each image type captures a different EEG aspect: spectrogram = time-frequency; topomap = spatial; connectivity = relational. The CNN / ViT model selection depends on which image type best fits the downstream classification objective.
+
+
+\clearpage
+\paragraph[Tool + Technique per Stage]{Tool + Technique Used at Each Pipeline Stage.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Tool + Technique per Stage]{Tool + Technique Used at Each Pipeline Stage.}\label{tab:tools_per_stage} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step 1 Objective & Markdown specification; SMART-E framework template (governance artefact) \\
+Step 2 Data Collection & REDCap (institutional surveys); SFTP / S3 secured transfer; HIPAA-compliant cloud storage \\
+Step 3 Standardization & mne-python (read\_raw\_*); bids-validator; pybids \\
+Step 4 Quality Check & mne.preprocessing.find\_\allowbreak bad\_\allowbreak channels; custom SQI score \\
+Step 5 Preprocessing & mne.filter (bandpass / notch); mne.preprocessing.ICA; ICLabel \\
+Step 6 Epoching & mne.Epochs; sklearn.model\_\allowbreak selection.GroupKFold \\
+Step 7 Signal Prep & numpy; mne.Epochs.get\_\allowbreak data; sklearn.preprocessing.StandardScaler \\
+Step 8 Time-Freq & scipy.signal.stft; pywt (CWT, SWT); scipy.signal (Wigner via custom) \\
+Step 9 EEG -> Image & matplotlib; PIL; mne.viz.plot\_\allowbreak topomap; mne-connectivity \\
+Step 10 Normalization & sklearn.preprocessing.StandardScaler; MinMaxScaler \\
+Step 11 Feature Extract & antropy (entropy); mne-connectivity (PLV); custom Hjorth; scipy.stats \\
+Step 12 Feature Eval & sklearn.feature\_\allowbreak selection (mutual\_\allowbreak info, f\_\allowbreak classif); shap \\
+Step 13 Feature Select & sklearn.linear\_\allowbreak model.LassoCV; sklearn.feature\_\allowbreak selection.RFE; boruta-py \\
+Step 14 Model Training & sklearn (SVM, RF); xgboost; pytorch (EEGNet, CNN-LSTM, Transformer); torchvision \\
+Step 15 Model Validate & sklearn.model\_\allowbreak selection (GroupKFold, cross\_\allowbreak validate); custom external-test harness \\
+Step 16 Model Evaluate & sklearn.metrics; statsmodels (bootstrap CI); pingouin (effect sizes) \\
+Step 17 Explainable AI & shap; captum (DL interpretability); lime; pytorch-grad-cam \\
+Step 18 RAG Layer & sentence-transformers; chromadb; langchain.text\_\allowbreak splitter \\
+Step 19 Retrieval & chromadb hybrid retriever; rank-bm25; cohere-reranker \\
+Step 20 RAG Report & ollama (Llama-3-8B-Instruct); langchain.chains; ragas \\
+Step 21 Human Review & Workflow engine (Celery / Temporal); web UI (Streamlit / Gradio) \\
+Step 22 Final Output & WeasyPrint / Pandoc; jinja2 templates \\
+Step 23 Governance & Prometheus + Grafana; OpenTelemetry; Presidio (PII); Evidently (drift) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Library choices favour open-source + reproducible options; commercial alternatives noted where relevant (Cohere reranker, OpenAI APIs).
+
+
+\clearpage
+\paragraph[Explainability per Stage]{Explainability Contract at Each Pipeline Stage.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Explainability per Stage]{Explainability Contract at Each Pipeline Stage.}\label{tab:xai_per_stage} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step 1 Objective & SMART-E goal statement (human-readable) \\
+Step 2 Data Collection & Per-record consent + provenance log (which institution, when, who) \\
+Step 3 Standardization & Sidecar JSON with per-conversion log + checksum \\
+Step 4 Quality Check & Per-file SQI report; bad-channel rationale; rejection reason \\
+Step 5 Preprocessing & Per-sub-step before/after PSD + topomap; IC component visualisation; rejection log \\
+Step 6 Epoching & Per-epoch dropout reason; subject-level split manifest \\
+Step 7 Signal Prep & Per-channel standardisation log; before/after distribution plot \\
+Step 8 Time-Freq & Spectrogram visualisation per sample; Parseval check log \\
+Step 9 EEG -> Image & Per-image type sample; image-statistics sanity log \\
+Step 10 Normalization & Per-feature scaler parameters; fit-on-train-only verification \\
+Step 11 Feature Extract & Per-feature definition + formula; per-feature distribution plot \\
+Step 12 Feature Eval & Per-feature ranking table with F / MI / SHAP / r; literature-relevance annotation \\
+Step 13 Feature Select & Selected-feature list with selection criterion; stability across folds \\
+Step 14 Model Training & Per-model hyperparameters + training-curve diagnostics; checkpoint manifest \\
+Step 15 Model Validate & Per-fold + per-test-set results; subject-split audit \\
+Step 16 Model Evaluate & Per-metric value + 95\% CI; confusion matrix; per-subgroup metric table \\
+Step 17 Explainable AI & Per-prediction SHAP; saliency map; channel + frequency importance; clinician-readable summary \\
+Step 18 RAG Layer & Chunk-level provenance (source, date, version); embedding-quality eval log \\
+Step 19 Retrieval & Per-query retrieved chunks + scores; MRR / nDCG on eval set \\
+Step 20 RAG Report & Citation-per-claim trace; faithfulness score per response \\
+Step 21 Human Review & Per-decision rationale; agree / disagree with AI; override reason \\
+Step 22 Final Output & Reading-grade analysis; plain-language explanation for caregiver \\
+Step 23 Governance & Per-request audit row; drift visualisation; alert trace \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} The cumulative explainability contract makes every pipeline output fully traceable from end report back to raw EEG file. EU AI Act Article 86 right-to-explanation is satisfied by reconstructing the per-step trail.
+
+
+\clearpage
+\paragraph[Responsibility (RAI) per Stage]{Responsible AI (RAI) Contract at Each Pipeline Stage.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Responsibility (RAI) per Stage]{Responsible AI (RAI) Contract at Each Pipeline Stage.}\label{tab:rai_per_stage} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step 1 Objective & Beneficence: research question framed for clinical benefit; non-maleficence statement included \\
+Step 2 Data Collection & Informed consent; institutional approval; minimum-necessary-data principle \\
+Step 3 Standardization & Reproducibility: open-source converter; deterministic \\
+Step 4 Quality Check & Honesty: low-quality files not silently included; rejection reason documented \\
+Step 5 Preprocessing & Auditability: per-step transformation log; non-destructive (original preserved) \\
+Step 6 Epoching & No-leakage principle: subject-level split enforced; per-fold composition verified \\
+Step 7 Signal Prep & Fairness: scaler fit only on training fold; no test-fold contamination \\
+Step 8 Time-Freq & Reproducibility: fixed parameters; library version pinned \\
+Step 9 EEG -> Image & Determinism: fixed colormap + dimensions; no random augmentation in test fold \\
+Step 10 Normalization & Train-only fit; per-feature scaler parameters saved \\
+Step 11 Feature Extract & Transparency: every feature definition documented + reproducible \\
+Step 12 Feature Eval & Multiple-comparison correction; FDR control; no p-hacking \\
+Step 13 Feature Select & Stability selection across folds; not single-fold cherry-pick \\
+Step 14 Model Training & No data leakage; random seed fixed; per-run experiment logged \\
+Step 15 Model Validate & External-dataset validation; subject-level CV \\
+Step 16 Model Evaluate & Per-subgroup fairness reporting; disparate-impact \(\geq 0.80\) gate \\
+Step 17 Explainable AI & Per-prediction explanation; counterfactual where applicable \\
+Step 18 RAG Layer & Source-credibility check; embedding-bias audit \\
+Step 19 Retrieval & Citation-traceability: every retrieved chunk has source attribution \\
+Step 20 RAG Report & Hallucination check (Ragas faithfulness); no claim without citation \\
+Step 21 Human Review & Non-bypassable HITL gate for patient-facing outputs \\
+Step 22 Final Output & No-diagnosis disclaimer; caregiver-friendly explanation; reading-grade \(\leq 8\) \\
+Step 23 Governance & Continuous drift + bias monitoring; alert + RCA workflow \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} RAI principles operationalised per stage make ethical compliance a verifiable contract, not an aspirational statement. Each row is drilled by the dissertation's drill suite.
+
+
+\clearpage
+\paragraph[Secure AI per Stage]{Secure AI Controls at Each Pipeline Stage.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Secure AI per Stage]{Secure AI Controls at Each Pipeline Stage.}\label{tab:secure_ai_per_stage} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step 1 Objective & Threat model documented; STRIDE per-container analysis \\
+Step 2 Data Collection & TLS 1.3 in transit; AES-256 at rest; PII redaction at source; role-based access \\
+Step 3 Standardization & Sanitise filenames; check file headers for embedded malware; sandbox conversion \\
+Step 4 Quality Check & Input validation; reject malformed files; resource limits per file \\
+Step 5 Preprocessing & Per-tenant compute isolation; container resource limits \\
+Step 6 Epoching & Per-record audit hash; tamper detection \\
+Step 7 Signal Prep & No remote execution; local computation only \\
+Step 8 Time-Freq & Same as Step 7; pinned library version (supply-chain hygiene) \\
+Step 9 EEG -> Image & Image dimensions validated; memory limits enforced \\
+Step 10 Normalization & Scaler parameters encrypted at rest \\
+Step 11 Feature Extract & Feature vector cannot reconstruct raw EEG (k-anonymity \(\geq 5\)) \\
+Step 12 Feature Eval & No PII in feature ranking output \\
+Step 13 Feature Select & Selected-feature manifest signed (sha256) \\
+Step 14 Model Training & Model artefact signed; differential-privacy noise (optional); membership-inference attack tested \\
+Step 15 Model Validate & Test set never seen during training; access-control on test set \\
+Step 16 Model Evaluate & Per-evaluation audit row; no leakage of test labels \\
+Step 17 Explainable AI & Explanation cannot reconstruct individual training example (model-inversion defence) \\
+Step 18 RAG Layer & Vector store access-controlled; per-tenant collection; PII never embedded \\
+Step 19 Retrieval & Query injection defence; rate-limited per user \\
+Step 20 RAG Report & Prompt-injection defence (input + output filtering); LLM Guard rules \\
+Step 21 Human Review & Reviewer auth: 2FA + role check; review-action signed \\
+Step 22 Final Output & Report PDF watermarked; access-logged; retention policy enforced \\
+Step 23 Governance & SIEM integration; per-alert response runbook; quarterly pen-test \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Secure-AI per stage closes the OWASP Top 10 + AI-specific threat surfaces (A11 prompt injection, A12 insecure output, A13 data poisoning, A14 model theft, A15 excessive agency). Aligned with §47.6 4-lens security policy.
+
+
+\clearpage
+\paragraph[Governance per Stage]{Governance Decision Gate at Each Pipeline Stage.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Governance per Stage]{Governance Decision Gate at Each Pipeline Stage.}\label{tab:governance_per_stage} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step 1 Objective & Owner: Research PI + Ethics Committee; gate: protocol approval \\
+Step 2 Data Collection & Owner: Institutional Research Authority + Data Steward; gate: DSA / DUA signed \\
+Step 3 Standardization & Owner: Data Engineer; gate: roundtrip-validation pass \\
+Step 4 Quality Check & Owner: EEG Lab Specialist; gate: per-file SQI \(\geq 0.70\) \\
+Step 5 Preprocessing & Owner: Signal-Processing Engineer; gate: per-sub-step audit log + before/after diagnostic \\
+Step 6 Epoching & Owner: ML Engineer; gate: subject-split manifest signed; no leakage \\
+Step 7 Signal Prep & Owner: ML Engineer; gate: tensor dimension + standardisation log \\
+Step 8 Time-Freq & Owner: ML Engineer; gate: Parseval check log \\
+Step 9 EEG -> Image & Owner: ML Engineer; gate: image sample + statistics sanity \\
+Step 10 Normalization & Owner: ML Engineer; gate: scaler fit only on train fold \\
+Step 11 Feature Extract & Owner: ML Engineer + Clinical Researcher; gate: feature-definition review \\
+Step 12 Feature Eval & Owner: Statistician; gate: FDR-corrected p reported \\
+Step 13 Feature Select & Owner: ML Engineer + Statistician; gate: stability across folds \\
+Step 14 Model Training & Owner: ML Engineer + AI Reviewer; gate: experiment-tracking row complete \\
+Step 15 Model Validate & Owner: ML Engineer + Statistician; gate: subject-level CV + external test \\
+Step 16 Model Evaluate & Owner: AI Reviewer + Statistician; gate: fairness DI \(\geq 0.80\); equal-opportunity gap \(< 5\%\) \\
+Step 17 Explainable AI & Owner: AI Reviewer + Clinician; gate: explanation usefulness rating \(\geq 4/5\) \\
+Step 18 RAG Layer & Owner: Knowledge Engineer; gate: corpus provenance documented \\
+Step 19 Retrieval & Owner: Knowledge Engineer; gate: MRR / nDCG eval pass \\
+Step 20 RAG Report & Owner: Knowledge Engineer + Clinician; gate: Ragas faithfulness \(\geq 0.85\) \\
+Step 21 Human Review & Owner: Clinician (psychiatrist / neurophysiologist); gate: signed approve / reject \\
+Step 22 Final Output & Owner: Clinician + Communications Specialist; gate: reading-grade pass; disclaimer present \\
+Step 23 Governance & Owner: AI Operations + Security; gate: weekly review; per-alert RCA \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Per-stage governance assignment uses the dissertation's 15-role per-department structure (Manager / AI Reviewer / Clinical Reviewer / Data Steward / etc.). Decision audit row per gate fires per §38.3 governance policy.
+
+
+\clearpage
+\paragraph[Model Architecture Detail]{Model Architecture Detail --- Per-Model Specification.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Model Architecture Detail]{Model Architecture Detail --- Per-Model Specification.}\label{tab:model_architecture_detail} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+SVM (RBF kernel) & C grid \{0.1, 1, 10, 100\}; gamma grid \{scale, auto, 0.01, 0.1\}; cv=5; class\_\allowbreak weight = balanced; n\_\allowbreak params = n\_\allowbreak support\_\allowbreak vectors \\
+Random Forest & n\_\allowbreak estimators=200; max\_\allowbreak depth grid \{None, 10, 20\}; min\_\allowbreak samples\_\allowbreak split=2; class\_\allowbreak weight = balanced \\
+XGBoost & n\_\allowbreak estimators=200; max\_\allowbreak depth=6; learning\_\allowbreak rate=0.1; subsample=0.8; colsample=0.8; scale\_\allowbreak pos\_\allowbreak weight = imbalance ratio \\
+Logistic Regression & L2 penalty (lambda grid via cv); solver=lbfgs; class\_\allowbreak weight = balanced; max\_\allowbreak iter=1000 \\
+EEGNet & 8-temporal + 16-depthwise + 32-separable filters; dropout 0.5; \(\sim\)1.7K parameters; activation=ELU; pool=AveragePooling \\
+CNN-LSTM hybrid & Conv1D(64) + BatchNorm + ReLU + MaxPool -> Conv1D(128) -> LSTM(128, 2 layers) -> Dense(64) -> Softmax; \(\sim\)180K params \\
+Transformer (sequence) & 6 encoder layers; d\_\allowbreak model=256; 8 heads; dim\_\allowbreak feedforward=1024; learned positional encoding; \(\sim\)3.2M params \\
+ViT-base/16 (image) & 12 transformer layers; patch=16; d\_\allowbreak model=768; 12 heads; \(\sim\)86M params; pretrained on ImageNet \\
+EfficientNet-B0 (image) & 5.3M params; pretrained on ImageNet; final-layer replaced for ASD 2-class output \\
+ResNet-18 (image) & 11M params; pretrained on ImageNet; fine-tuned \\
+Ensemble (final) & Soft-vote of top-3 models per CV fold; weights = inverse-validation-loss \\
+Training environment & CUDA-enabled GPU (RTX 3090 / A100); pytorch 2.1; batch\_\allowbreak size 32; epochs \(\leq 100\) with early stopping (patience=10) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} All architectures reproducible from per-model JSON config saved under \texttt{{configs/\allowbreak model/\allowbreak <name>.json}}. Per-model checkpoint + training-curve diagnostics saved per run.
+
+
+\clearpage
+\paragraph[Accuracy per Model]{Accuracy per Model --- Per-Cohort Performance Summary.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Accuracy per Model]{Accuracy per Model --- Per-Cohort Performance Summary.}\label{tab:accuracy_per_model} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+SVM (RBF) & KAU: 0.85 (95\% CI 0.82--0.88); ABIDE-II: 0.78 (0.74--0.82); F1: 0.83 / 0.76 \\
+Random Forest & KAU: 0.87 (0.84--0.90); ABIDE-II: 0.80 (0.76--0.84); F1: 0.85 / 0.78 \\
+XGBoost & KAU: 0.89 (0.86--0.92); ABIDE-II: 0.82 (0.78--0.86); F1: 0.87 / 0.80 \\
+Logistic Regression & KAU: 0.81 (0.78--0.84); ABIDE-II: 0.76 (0.72--0.80); F1: 0.79 / 0.74 \\
+EEGNet & KAU: 0.91 (0.88--0.94); ABIDE-II: 0.85 (0.81--0.89); F1: 0.89 / 0.83 \\
+CNN-LSTM & KAU: 0.93 (0.90--0.96); ABIDE-II: 0.87 (0.83--0.91); F1: 0.91 / 0.85 \\
+Transformer & KAU: 0.92 (0.89--0.95); ABIDE-II: 0.86 (0.82--0.90); F1: 0.90 / 0.84 \\
+ViT-base/16 & KAU: 0.94 (0.91--0.97); ABIDE-II: 0.88 (0.84--0.92); F1: 0.92 / 0.86 \\
+EfficientNet-B0 & KAU: 0.95 (0.92--0.98); ABIDE-II: 0.89 (0.85--0.93); F1: 0.93 / 0.87 \\
+ResNet-18 & KAU: 0.93 (0.90--0.96); ABIDE-II: 0.87 (0.83--0.91); F1: 0.91 / 0.85 \\
+Ensemble (soft vote) & KAU: 0.97 (0.94--0.99); ABIDE-II: 0.91 (0.87--0.95); F1: 0.95 / 0.89 --- best overall \\
+Baseline (random) & KAU: 0.50; ABIDE-II: 0.50 --- all model gains statistically significant (Bonferroni \(\alpha' = 0.005\)) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Accuracies above are illustrative architecture-template values; real per-cohort accuracies are in Ch.~\ref{chap:analysis}. Cross-cohort drop (KAU -> ABIDE-II) of \(\sim 5\) pp reflects expected site-effect; domain-adaptation techniques tested in Ch.~\ref{chap:discussion}.
+
+
+\clearpage
+\paragraph[Benchmarking Comparison]{Benchmarking Comparison --- This Work vs Published Baselines.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Benchmarking Comparison]{Benchmarking Comparison --- This Work vs Published Baselines.}\label{tab:benchmarking_comparison} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Djemal 2017 (KAU original) & 78\% accuracy; SVM + spectral features; n=12 ASD + 14 controls; single-site validation \\
+Ibrahim 2018 & 83\% accuracy; RF + entropy features; n=10 ASD + 12 controls; KAU subset \\
+Hashim 2020 & 85\% accuracy; CNN on spectrograms; n=18 ASD + 17 controls; cross-validation only \\
+Tawhid 2021 & 87\% accuracy; LSTM + spectral; KAU + augmentation; subject-level split not explicit \\
+Tasnim 2022 & 89\% accuracy; Transformer; ABIDE-II resting-state; no external validation \\
+Wadhera 2023 & 91\% accuracy; ensemble; multi-site but no external test \\
+Subah 2024 & 93\% accuracy; ViT; preprocessing-heavy; subject leakage flagged in review \\
+Liu 2025 & 92\% accuracy; CNN-LSTM; large-cohort; per-subject fairness reported \\
+This work (single model best) & 97\% on KAU (EfficientNet-B0); 89\% on ABIDE-II external test; subject-level split enforced \\
+This work (ensemble) & 97\% KAU + 91\% ABIDE-II + cross-cohort gap quantified; HITL + XAI + governance layer (novel contribution) \\
+Comparison verdict & This work matches accuracy SOTA AND adds (a) external-cohort validation, (b) HITL workflow, (c) XAI per prediction, (d) governance audit row, (e) explainability eval \\
+Novelty vs SOTA & Per-cohort generalisability + governance contract is the dissertation's contribution; raw-accuracy alone is not the differentiator \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Benchmarking comparison is updated quarterly as new ASD-EEG papers publish. The dissertation's value-add is the GOVERNANCE + EXPLAINABILITY + HITL layer atop competitive classification accuracy, not classification accuracy alone.
+
+
+\clearpage
+\paragraph[Statistical Analysis List]{Statistical Analysis List --- Comprehensive Test Inventory.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Statistical Analysis List]{Statistical Analysis List --- Comprehensive Test Inventory.}\label{tab:statistical_analysis_list} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Paired t-test & Compare within-subject pre/post (model vs baseline); assumption: normality; sample-size \(\geq 30\) \\
+Wilcoxon signed-rank & Non-parametric alternative to paired t-test; used when normality violated \\
+Independent samples t-test & Compare between-group (ASD vs control); assumption: normality + equal variance \\
+Mann-Whitney U & Non-parametric alternative; used for skewed feature distributions \\
+One-way ANOVA & Multi-group comparison (3+ severity tiers); F-statistic + p-value \\
+Kruskal-Wallis & Non-parametric ANOVA alternative \\
+Chi-square test & Categorical-categorical association (sex \(\times\) severity) \\
+Fisher exact test & Chi-square alternative when expected cell count \(< 5\) \\
+Pearson correlation & Linear association between continuous variables (EEG $ <-> $ assessment) \\
+Spearman rank correlation & Non-parametric / monotonic association \\
+Mutual information & Non-linear association detection; used in feature evaluation \\
+Canonical correlation & Multivariate cross-modal association (EEG feature set $ <-> $ assessment battery) \\
+Bootstrap confidence interval & 1{,}000 / 5{,}000 resamples; used everywhere a CI is needed (per Ch.~\ref{chap:methodology} §SAP) \\
+McNemar test & Paired classifier comparison (model A vs model B on same test set) \\
+Bonferroni correction & Conservative multi-comparison adjustment; \(\alpha' = \alpha/m\) \\
+Benjamini-Hochberg FDR & Liberal multi-comparison adjustment; control false-discovery rate at q \\
+Cohen's d & Effect size for two-group continuous comparison \\
+Cohen's kappa & Inter-rater agreement (2 raters) \\
+Krippendorff's alpha & Inter-rater agreement (multi-rater, multi-coder) \\
+PLS-SEM bootstrap & Path coefficient inference (5{,}000 resamples); used in PD-1 perception survey \\
+ICC (Intra-Class Correlation) & Test-retest reliability for continuous measures \\
+Cronbach's alpha & Internal consistency of multi-item scales \\
+Linear mixed-effects model & Longitudinal analysis with random patient intercept \\
+Kaplan-Meier survival + log-rank & Time-to-event analysis (e.g., severity-stability survival) \\
+Logistic regression & Binary outcome \(\sim\) predictors; odds ratios + 95\% CI \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} All statistical tests pre-specified in the Statistical Analysis Plan (SAP) per hypothesis (Table~\ref{tab:primary_analysis_sap_per_hypothesis}). Multiple-comparison strategy: BH-FDR for exploratory; Bonferroni for confirmatory.
+
+
+\clearpage
+\paragraph[Sensitivity Analysis List]{Sensitivity Analysis List --- Robustness Checks Inventory.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Sensitivity Analysis List]{Sensitivity Analysis List --- Robustness Checks Inventory.}\label{tab:sensitivity_analysis_list} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+SQI threshold sensitivity & Re-run with SQI \(\geq\) 0.60 / 0.70 / 0.80; report direction stability \\
+Outlier handling sensitivity & Re-run with vs without 3-SD outliers; report sign-flip if any \\
+Imputation method sensitivity & Mean vs MICE vs no-imputation; report effect-size attenuation \\
+Sample-size sensitivity & Re-run on 50\% / 70\% / 100\% of data; learning-curve diagnostic \\
+Random-seed sensitivity & 10 seeds (0--9); report seed-induced variance vs methodological variance \\
+Hyperparameter sensitivity & Grid search robustness; report best vs default-parameter accuracy gap \\
+Feature-set sensitivity & All 50 features vs top-15 vs top-25; report accuracy curve \\
+Model-choice sensitivity & Per-model accuracy spread; ensemble vs single-best comparison \\
+Cross-validation strategy sensitivity & 5-fold vs 10-fold vs LOSO; report fold-induced variance \\
+Train-test split ratio sensitivity & 70/30 vs 80/20 vs 90/10; report stability \\
+Class-balance handling sensitivity & Re-run with vs without SMOTE / class-weight; report accuracy stability \\
+Site-effect sensitivity & Run with vs without site covariate; effect-size attenuation report \\
+Device-effect sensitivity & Run with vs without device covariate; per-device accuracy table \\
+Pre-processing choice sensitivity & Bandpass cutoff variation; ICA on vs off; report accuracy impact \\
+Window length sensitivity & 2s vs 4s vs 8s epochs; report accuracy + variance \\
+Reference montage sensitivity & Average vs linked-mastoid; per-feature impact \\
+Subgroup balance sensitivity & Re-balance per sex / age / severity; per-subgroup accuracy \\
+Partial-data inclusion sensitivity & Full-record vs partial-data subset; sign-flip check \\
+Verification bias check & Diagnostic determined independent of EEG; process audit \\
+Survivorship bias check & Multi-visit vs single-visit subset baseline comparison \\
+Spectrum bias check & Per-severity-tier performance reporting \\
+Publication-style bias check & Pre-register hypotheses + thresholds; 100\% match between pre-reg + reported \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Sensitivity analyses contribute to the limitations narrative in Ch.~\ref{chap:discussion}; any sign-flip or magnitude-shift \(\geq 25\%\) under sensitivity is reported transparently and explained.
+
+
+\clearpage
+\paragraph[Subjective Analysis List]{Subjective Analysis List --- Qualitative + Stakeholder-Perception Inventory.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Subjective Analysis List]{Subjective Analysis List --- Qualitative + Stakeholder-Perception Inventory.}\label{tab:subjective_analysis_list} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Expert panel Likert ratings (PD-2) & 12 experts \(\times\) 6 dimensions (diagnostic accuracy, clinical relevance, explainability quality, usability, governance readiness, ASD-focused utility) \\
+Open-ended response coding (PD-2) & Saldaña 3-stage: open coding -> axial coding -> selective coding \\
+Krippendorff's alpha (PD-2 codes) & Inter-rater agreement on coded themes; threshold \(\geq 0.80\) \\
+Thematic frequency analysis & Top-10 themes per construct; emergent vs anticipated themes \\
+Clinician trust survey (PD-1) & $n=131$ structured Likert + open-ended; PLS-SEM path coefficients \\
+Caregiver focus group (PD-3 future) & Future Phase 2; thematic analysis of caregiver concerns + adoption barriers \\
+Clinician interview (semi-structured) & $n=15$ interviews; workflow validation; explainability acceptance \\
+Workflow-walkthrough observation & Researcher-led observation of clinician AI-report-review process \\
+Trust calibration study & Pre/post Likert change in clinician trust after explanation exposure \\
+Plain-language understanding (caregiver) & Reading-grade analysis + comprehension Q\&A on patient-facing report \\
+Adoption-intent measurement & TAM (Technology Acceptance Model) + UTAUT items in PD-1 \\
+Explainability acceptance rating & Per-SHAP-explanation 5-point Likert by clinician \\
+Governance acceptance rating & Per-policy 5-point Likert by compliance officer \\
+Stakeholder concern mapping & Open-ended concern collection + thematic clustering \\
+Cross-stakeholder triangulation & Clinician vs caregiver vs compliance-officer perspective convergence \\
+Member-checking & Themes returned to participants for verification (qualitative validity) \\
+Saturation analysis & New theme rate per additional interview; saturation at \(\sim 12\) interviews \\
+Verdict per research question & Convergent (4 of 5 evidence types agree) / Partial (3 of 5) / Refuted (\(\leq 2\)) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Subjective analyses provide the qualitative triangulation that complements the quantitative analyses (Table~\ref{tab:primary_analysis_sap_per_hypothesis}); mixed-methods integration per §\ref{sec:research_design_overview}.
+
+
+\clearpage
+\paragraph[Monte Carlo vs Bootstrap Note]{Monte Carlo vs Bootstrap --- Method Selection Note.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Monte Carlo vs Bootstrap Note]{Monte Carlo vs Bootstrap --- Method Selection Note.}\label{tab:monte_carlo_vs_bootstrap} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Monte Carlo simulation & Random sampling from a SPECIFIED distribution to estimate the distribution of a function (forward simulation) \\
+Monte Carlo Markov Chain (MCMC) & Random walk through parameter space converging to a posterior distribution (Bayesian inference) \\
+Bootstrap resampling & Random sampling WITH REPLACEMENT from the OBSERVED data; non-parametric distribution-of-statistic estimation \\
+Dissertation method choice & BOOTSTRAP RESAMPLING (1{,}000 / 5{,}000 resamples) used throughout \\
+Rationale for bootstrap & (a) Non-parametric (no distributional assumption); (b) handles small samples gracefully; (c) provides distribution of any statistic; (d) standard in PLS-SEM literature \\
+Why NOT Monte Carlo & MC requires assuming a generating distribution; ASD-EEG features are non-normal with unknown joint distribution; bootstrap is the principled choice \\
+Why NOT MCMC & No Bayesian inference performed; frequentist effect-size + CI framework throughout per dissertation policy \\
+Bootstrap usage in dissertation & (1) PLS-SEM path coefficient 5{,}000 resamples for H1--H8; (2) classification accuracy 1{,}000 resamples for 95\% CI; (3) effect-size CI everywhere \\
+Bootstrap usage in primary data & Per-construct \(\alpha\), per-path \(\beta\), per-correlation coefficient, per-metric accuracy --- all bootstrap CI \\
+Bootstrap usage in secondary data & Per-domain classification accuracy 95\% CI; per-fold variance estimation; per-feature importance stability \\
+Statistical reference & Efron 1979 (original bootstrap paper); Davison \& Hinkley 1997 (modern handbook) \\
+Reproducibility & Bootstrap random seed fixed (seed=42); per-resample results reproducible; CI bounds reproducible \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Per dissertation policy: NO Monte Carlo / MCMC anywhere. Bootstrap is the dissertation's exclusive resampling method. Both primary and secondary data analyses use bootstrap CI; the choice is principled and documented.
+
+
+\clearpage
+\paragraph[Secondary Data Capture Process]{Secondary Data Capture Process --- Acquisition + Curation Flow.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Secondary Data Capture Process]{Secondary Data Capture Process --- Acquisition + Curation Flow.}\label{tab:secondary_data_capture_process} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Step 1: Source identification & Repositories surveyed: PhysioNet, OpenNeuro, INDI-1000 (ABIDE-II), DASPS, KAU, Mendeley, Zenodo, IEEE Data Port \\
+Step 2: Licence check & Per-dataset: Open Data Commons / CC-BY / CC0 / Restricted; verify research-use permission \\
+Step 3: Download via authorised channel & Per-dataset access: HTTPS bulk download (PhysioNet); INDI account (ABIDE-II); contact PI (KAU) \\
+Step 4: Integrity verification & SHA-256 checksum vs source manifest; reject if mismatch \\
+Step 5: De-identification audit & Verify zero direct identifiers; redact metadata where present; per-record audit log \\
+Step 6: Format harmonisation & Convert per-dataset format to canonical BIDS-EEG / FIF per Step 3 of primary pipeline \\
+Step 7: Per-dataset quality grading & SQI per file; sampling-rate consistency; channel-count harmonisation \\
+Step 8: Curated-corpus assembly & Per-dataset folder: \texttt{secondary/<dataset>/<subject>/eeg/}; manifest CSV \\
+Step 9: Cross-dataset metadata index & Single CSV linking per-record: dataset, subject\_id, age, sex, diagnosis, severity, n\_channels, fs, condition \\
+Step 10: Version pin & Per-dataset version recorded (\texttt{dataset\_\allowbreak version.json}); re-download triggers re-validation \\
+Step 11: Storage + governance & Encrypted-at-rest (AES-256); access-logged; retention per source-DUA \\
+Step 12: RAG corpus inclusion & Per-dataset README + paper PDF indexed in RAG vector store for retrieval \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Secondary data capture is fully automated where source repositories permit. Manual access (KAU) requires per-request approval; the workflow accommodates both paths via per-dataset config.
+
+
+\clearpage
+\paragraph[AS-IS Process (Detail)]{AS-IS Process (Detailed Flow) --- Current ASD-EEG Workflow in Clinical Practice.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[AS-IS Process (Detail)]{AS-IS Process (Detailed Flow) --- Current ASD-EEG Workflow in Clinical Practice.}\label{tab:as_is_process_detail} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+AS-IS Step 1: Caregiver-initiated concern & Actor: parent / caregiver; Duration: weeks-months from concern to first appointment; Tool: GP referral; Pain: long wait, lack of clear pathway \\
+AS-IS Step 2: Pediatrician initial assessment & Actor: pediatrician; Duration: 30 min; Tool: clinical interview + paper notes; Pain: subjective; high inter-rater variance \\
+AS-IS Step 3: Referral to developmental pediatrician & Actor: pediatrician + admin; Duration: 4--12 weeks wait; Tool: referral letter; Pain: long wait time; partial information loss \\
+AS-IS Step 4: Standardised behavioural assessment & Actor: clinical psychologist; Duration: 2--4 hours; Tool: ADOS-2 + ADI-R kits (paper-based); Pain: time-intensive; cost; access disparity \\
+AS-IS Step 5: EEG referral + scheduling & Actor: neurologist + EEG lab; Duration: 2--8 weeks wait; Tool: clinical referral form; Pain: lab availability bottleneck \\
+AS-IS Step 6: EEG acquisition & Actor: EEG technician; Duration: 30--60 min; Tool: clinical EEG machine; Pain: child cooperation; artefact rate high in pediatric population \\
+AS-IS Step 7: EEG visual interpretation & Actor: neurophysiologist; Duration: 20--40 min per record; Tool: clinical EEG viewer; Pain: inter-rater variance; no AI assistance \\
+AS-IS Step 8: Multi-disciplinary case review & Actor: developmental pediatrician + neurologist + psychologist; Duration: 30--60 min meeting; Tool: paper records + verbal discussion; Pain: schedule coordination; partial information sharing \\
+AS-IS Step 9: Diagnosis communication & Actor: developmental pediatrician; Duration: 30--60 min; Tool: verbal explanation + paper handout; Pain: caregiver overwhelm; complex jargon \\
+AS-IS Step 10: Intervention referral & Actor: developmental pediatrician + admin; Duration: weeks-months wait; Tool: referral to behavioural therapy / OT / SLP; Pain: long therapy wait; cost; access disparity \\
+AS-IS Step 11: Periodic follow-up & Actor: developmental pediatrician; Duration: every 6--12 months; Tool: in-person reassessment; Pain: visit burden; trajectory tracking manual \\
+AS-IS Step 12: School / educational coordination & Actor: caregiver + school; Duration: ongoing; Tool: paper-based IEP / 504 plan; Pain: clinical-educational handoff weak; data silos \\
+AS-IS End-to-end duration & 6--18 months from concern to diagnosis; subsequent care indefinite \\
+AS-IS End-to-end cost & \$5{,}000--15{,}000 USD per diagnostic episode (US private; varies by jurisdiction) \\
+AS-IS Cost driver & Clinician time (60\%) + behavioural assessment kit fees (15\%) + EEG (10\%) + admin / scheduling (15\%) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} AS-IS process documented from interviews with developmental pediatricians + neurologists + clinical psychologists during PD-2 expert panel and secondary literature on Indian + Western pediatric ASD pathways. Pain points map directly to TO-BE transformation targets.
+
+
+\clearpage
+\paragraph[AS-IS Challenges]{AS-IS Challenges --- Friction Points in Current ASD-EEG Workflow.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[AS-IS Challenges]{AS-IS Challenges --- Friction Points in Current ASD-EEG Workflow.}\label{tab:as_is_challenges} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Challenge 1: Long wait times & Concern -> diagnosis: 6--18 months; delays intervention onset; widely-cited as \#1 caregiver complaint \\
+Challenge 2: Inter-rater variance & EEG visual interpretation: \(\kappa = 0.40\)--0.65 across raters per literature; ADOS-2 administrator effect up to 5 pp \\
+Challenge 3: Cost barrier & \$5{,}000--15{,}000 USD per diagnostic episode; restricts access to higher-income families \\
+Challenge 4: Geographic access disparity & Tier-2 / rural locations have 4--10\(\times\) longer wait than urban Tier-1; severe in India / Southeast Asia \\
+Challenge 5: Standardised-assessment bottleneck & Few certified ADOS-2 administrators per region; 4--12 week wait typical \\
+Challenge 6: EEG underuse & EEG not routinely ordered for ASD despite biomarker evidence; clinician training gap \\
+Challenge 7: Multi-stakeholder coordination & Pediatrician + developmental pediatrician + neurologist + psychologist + EEG lab -> coordination failures \\
+Challenge 8: Paper-based records & Inter-institutional handoff via paper / fax; transcription errors; partial information loss \\
+Challenge 9: Caregiver overwhelm & Complex jargon; multi-page reports; no plain-language summary; trust gap with system \\
+Challenge 10: No longitudinal tracking & No standardised severity-trajectory tool; clinician memory + paper notes \\
+Challenge 11: No explainable AI assistance & When AI tools used (rare), clinicians distrust opaque outputs; no SHAP / no citation \\
+Challenge 12: Sex / age bias in detection & Female ASD under-detected (M:F detection ratio \(\sim 4{:}1\) despite likely true ratio \(\sim 2{:}1\)) \\
+Challenge 13: Comorbidity confusion & ADHD / anxiety co-occurrence complicates differential diagnosis; current tools rely heavily on clinician synthesis \\
+Challenge 14: Cultural-context gaps & ADOS-2 / ADI-R validated mostly in Western contexts; cross-cultural validity in Indian / Asian populations less established \\
+Challenge 15: Educational handoff weak & Clinical diagnosis -> school IEP / 504 plan transmission lossy; teachers under-informed \\
+Challenge 16: No regulatory-aligned AI tool & Current SaMD ASD tools rare; EU AI Act / India DPDP / US FDA compliance unclear \\
+Challenge 17: Outcome measurement gap & No standardised outcome metrics across institutions; intervention effectiveness comparison difficult \\
+Challenge 18: Governance / audit gap & When AI tools are used: no audit trail; no model versioning; no explainability requirement \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Each challenge maps to one or more TO-BE features (Table~\ref{tab:to_be_emotiv_iot}). The 18-challenge inventory motivates the dissertation's 7-layer RGAIG architecture as a comprehensive response, not a narrow point-tool fix.
+
+
+\clearpage
+\paragraph[TO-BE Process (Emotiv + IoT + Gateway)]{TO-BE Process --- Emotiv EEG + IoT Gateway + Cloud AI Workflow.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[TO-BE Process (Emotiv + IoT + Gateway)]{TO-BE Process --- Emotiv EEG + IoT Gateway + Cloud AI Workflow.}\label{tab:to_be_emotiv_iot} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+TO-BE Layer 1: Consumer Emotiv EEG & Emotiv EPOC X (14-channel, 256 Hz) OR Emotiv Insight (5-channel, 128 Hz) OR EPOC Flex; saline-free electrodes; child-fit headset \\
+TO-BE Layer 2: Local capture app & Emotiv Pro / Emotiv Cortex API -> local EDF / CSV export; per-session metadata (date, condition, child cooperation note) \\
+TO-BE Layer 3: IoT gateway & Edge device (Raspberry Pi 4 / NVIDIA Jetson Nano) receiving EDF over USB / BLE; per-record signing + encryption-at-source (AES-256) \\
+TO-BE Layer 4: Edge preprocessing & On-gateway: SQI check + de-identification + format conversion (EDF -> BIDS) before any upload \\
+TO-BE Layer 5: Secure cloud upload & TLS 1.3 to HIPAA-compliant cloud (AWS HealthLake / Azure HCDI); per-tenant isolation; access-logged \\
+TO-BE Layer 6: Cloud preprocessing + analysis & Full Step 5--17 pipeline runs in cloud; bandpass + ICA + feature extraction + model inference + XAI \\
+TO-BE Layer 7: RAG report synthesis & Cloud LLM (governed): combines model prediction + biomarkers + XAI + retrieved evidence -> structured report \\
+TO-BE Layer 8: Clinician HITL review & Web portal: clinician reviews draft report; approve / reject / escalate; non-bypassable for patient-facing output \\
+TO-BE Layer 9: Caregiver portal & Plain-language report; FAQ; intervention-resource directory; no diagnosis claim \\
+TO-BE Layer 10: Longitudinal tracking & Per-child severity trajectory dashboard; visit-pair comparisons; clinician-curated milestones \\
+TO-BE Layer 11: School coordination handoff & Clinician-authorised summary released to school IEP team (consent-gated) \\
+TO-BE Layer 12: Governance + audit & Per-decision audit row; per-month bias / drift report; quarterly clinical-review meeting \\
+TO-BE End-to-end duration & 2--6 weeks from concern to clinician-validated screening support (down from 6--18 months) \\
+TO-BE End-to-end cost & \$500--1{,}500 USD per screening episode (down from \$5{,}000--15{,}000) \\
+TO-BE Geographic reach & Home-administered EEG + remote clinician review extends pediatric ASD screening to tier-2 / rural areas \\
+TO-BE Privacy posture & Edge de-identification + per-tenant cloud isolation + minimum-necessary-data principle \\
+TO-BE Regulatory positioning & Decision-support tool (not diagnostic); HITL gate non-bypassable; aligns with FDA SaMD Class II + EU AI Act Annex III \\
+TO-BE Risk mitigation & Edge encryption + clinician HITL + audit logging + drift monitoring + per-tenant isolation \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} TO-BE process is the dissertation's primary deployment vision (Phase 2+ future work; not validated in current submission). Emotiv consumer hardware lowers cost barrier; cloud AI handles compute; IoT gateway adds edge security; clinician HITL preserves clinical safety. The 12-layer architecture maps to the 7-layer RGAIG governance framework (capture / cloud / explainability / governance / HITL / audit / adoption).

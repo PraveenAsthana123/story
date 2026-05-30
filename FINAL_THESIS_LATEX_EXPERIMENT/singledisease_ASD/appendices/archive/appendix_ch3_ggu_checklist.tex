@@ -1,0 +1,98 @@
+%% ============================================================================
+%% CHAPTER 3 — COMPREHENSIVE OVERVIEW PAGE
+%% Placed before chapter content per GGU thesis guidelines
+%% ============================================================================
+
+\thispagestyle{plain}
+
+\begin{center}
+{\large\bfseries\color{ggunavy} Chapter~3 Overview: Research Methods}\\[0.2cm]
+{\small\textit{GGU DBA Thesis Guidelines Compliance $\cdot$ Research Framework $\cdot$ APA~7th Edition}}
+\end{center}
+
+\vspace{0.3cm}
+
+%% --- TABLE 1: GGU Required Topics ---
+\noindent\textbf{textbfPart~A: GGU Thesis Guidelines --- Required Topics.} The following table presents the detailed analysis.
+
+\needspace{3\baselineskip}
+\begin{table}[!htbp]
+\caption{Appendix Ch3 Ggu Checklist Table 1}
+\tablestripes
+\caption*{\textbf{Part~A: GGU Thesis Guidelines --- Required Topics}}
+\tablefontsize
+\begin{tabularx}{\textwidth}{@{} p{0.4cm} L L @{}}
+\toprule
+\thead{\#} & \thead{GGU Required Topic} & \thead{Where Addressed in Chapter~3} \\
+\midrule
+1 & Research Strategy and Research Design & Sec.~\ref{sec:strategy}: Design Science Research (DSR); Sec.~\ref{sec:design_overview}: Research Design Overview \\
+\addlinespace
+2 & Research Approach (Qual., Quant., Mixed) & Sec.~\ref{sec:philosophy}: Research Philosophy and Paradigm; Sec.~\ref{sec:mixed_methods}: Mixed Methods Integration \\
+\addlinespace
+3 & Research Process & Sec.~\ref{sec:research_process}: Research Process (four-phase DSR cycle) \\
+\addlinespace
+4 & Data Sources (Primary and Secondary) & Sec.~\ref{sec:data_sources_brief}: Data Sources; Sec.~\ref{sec:primary_secondary}: Primary and Secondary Data Sources \\
+\addlinespace
+5 & Data Collection Strategies & Sec.~\ref{sec:dataset_descriptions}: Dataset Descriptions; Sec.~\ref{sec:data_access}: Access, Harmonization, Reproducibility \\
+\addlinespace
+6 & Sampling Strategies & Sec.~\ref{sec:sampling}: Population and Sampling; Sec.~\ref{sec:sampling_strategy}: Sampling Strategy \\
+\addlinespace
+7 & Data Analysis Techniques & Sec.~\ref{sec:analysis_plan}: Data Analysis Plan; Sec.~\ref{sec:analysis_techniques}: From Classical Baselines to Automated Pipeline \\
+\addlinespace
+8 & Limitations of Methodology & Sec.~\ref{sec:limitations_methodology}: Limitations of the Methodology (8 limitations documented) \\
+\addlinespace
+9 & Ethical and Regulatory Considerations & Sec.~\ref{sec:ethics_merged}: Ethical and Regulatory Considerations (de-identification, privacy, governance) \\
+\addlinespace
+10 & Evaluation Metrics & Sec.~\ref{sec:eval_metrics}: Evaluation Metrics (accuracy, F1, AUC, Cohen's $d$, bootstrap CI) \\
+\addlinespace
+11 & Conclusion & Sec.~\ref{sec:meth_conclusion}: Chapter Summary \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\clearpage
+
+%% --- TABLE 2: Research Framework & DBA Perspective ---
+\thispagestyle{plain}
+\tablefontsize
+
+\begin{xltabular}
+\caption{Appendix Ch3 Ggu Checklist Table 2}
+{\textwidth}{@{} L L @{}}
+\caption*{\textbf{Part~B: Research Framework, DBA Perspective, and Doctoral Work}} \\
+\toprule
+\thead{Dimension} & \thead{Chapter~3 Content} \\
+\midrule
+\endfirsthead
+\endhead
+\midrule
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+\textbf{Chapter Objective} & Justify pragmatist DSR paradigm; map each hypothesis to data source, method, and output; specify preprocessing, DL architectures, and validation protocols \\
+\addlinespace
+\textbf{Key Tasks Completed} & (1)~Pragmatist paradigm justified vs.\ positivism/interpretivism; (2)~DSR 6-activity process mapped; (3)~5 datasets documented with checksums; (4)~Dual-track preprocessing pipeline; (5)~6 DL + 5 classical baseline models configured (11 total); (6)~RAG explainability pipeline; (7)~Expert panel protocol; (8)~Evidence chain H$\to$data$\to$method$\to$contribution \\
+\addlinespace
+\textbf{RGAIG Framework Usage} & Five-layer architecture operationalised: Layer~1 (data ingestion), Layer~2 (preprocessing), Layer~3 (DL models), Layer~4 (RAG explainability), Layer~5 (governance); each layer independently testable \\
+\addlinespace
+\textbf{DBA Management Decisions} & DSR produces deployable artifact (not just theory); mixed methods provide both statistical rigour and clinical face validity; pre-registered thresholds enable go/no-go deployment decisions \\
+\addlinespace
+\textbf{Quantitative Research} & Stratified CV (5-fold for EEG; 10-fold for Cancer; LOSO for BCI) with subject-level splitting; bootstrap CI (1,000 resamples); paired \textit{t}-tests with Bonferroni ($\alpha'$=0.01); Cohen's \textit{d}; PPV/NPV; learning curves (20--100\%); ablation studies \\
+\addlinespace
+\textbf{Qualitative Research} & 12-member expert panel; Likert-scale + open-ended responses; Salda\~{n}a three-stage coding; Krippendorff's $\alpha \geq 0.80$ threshold \\
+\addlinespace
+\textbf{Statistical Analysis} & Pre-registered: accuracy $\geq$85\%, DL$>$baselines ($p<.05$), SHAP top-3 features, automation equivalence ($p>.05$, $d<0.20$), RAG quality $\geq$80\% \\
+\addlinespace
+\textbf{Scope} & 5 public datasets; SVM, RF, GB, XGBoost, CNN, CNN-LSTM, EEGNet; Python~3.11, TF~2.14, scikit-learn~1.3.2; NVIDIA RTX~4090 GPU \\
+\addlinespace
+\textbf{What Was Not Considered} & Proprietary hospital data; real-time streaming inference; federated learning; transformer architectures (GPT-based diagnostics) \\
+\addlinespace
+\textbf{Limitations} & Retrospective benchmarks only; no IRB-approved clinical trial; expert panel convenience sample; single-GPU reproducibility \\
+\addlinespace
+\textbf{Future Scope} & Prospective multi-site validation; real-time edge deployment; transformer integration; federated privacy-preserving training \\
+\addlinespace
+\textbf{APA~7th Edition} & Methods reported with sufficient detail for replication; tables follow APA format; statistical notation per APA (e.g., \textit{p}, \textit{d}, CI); all instruments described \\
+\end{xltabular}
+
+% [SPACE-FIX] clearpage removed to eliminate empty page

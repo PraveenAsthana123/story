@@ -1,0 +1,78 @@
+%% ============================================================================
+%% ISO 42001 + IEC 62304 + ISO 13485 audit-evidence collection runbook
+%% Auto-generated 2026-05-27. Single dedicated page for audit-evidence inventory.
+%% ============================================================================
+
+\clearpage
+\subsection{ISO 42001 + IEC 62304 + ISO 13485 --- Audit-Evidence Collection Runbook}
+\label{sec:iso_audit_runbook}
+
+\noindent\emph{Single dedicated reference: the audit-evidence collection runbook listing what evidence to collect for each ISO clause, who owns it, where it lives, and the inspection cadence. The runbook answers ``when the regulator (or internal auditor) asks for evidence on ISO 42001 / IEC 62304 / ISO 13485 compliance, where exactly do I get it?'' so the institutional audit is reproducible.}
+
+\paragraph{Audit-Evidence Collection Runbook.}
+
+
+\noindent This table lists each \textit{iso clause} across evidence required, artefact + location, owner, and 1 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} >{\raggedright\arraybackslash}p{3.9cm} p{2.5cm} >{\raggedright\arraybackslash}p{2.3cm} >{\centering\arraybackslash}p{2.0cm} @{}}
+\caption[ISO Audit-Evidence Runbook]{ISO 42001 + IEC 62304 + ISO 13485 + ISO 14971 + ISO 27001 Audit-Evidence Collection Runbook.}\label{tab:iso_audit_runbook} \\
+\toprule
+\thead{ISO clause} & \thead{Evidence required} & \thead{Artefact + location} & \thead{Owner} & \thead{Cadence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+ISO 42001 §4 Context of organisation & Organisational scope + stakeholder map + AI use-case inventory & \texttt{governance/\allowbreak ai\allowbreak\_\allowbreak context.md} & Research PI & Annual \\
+ISO 42001 §5 Leadership & AI policy signed; AI governance roles defined & \texttt{governance/\allowbreak ai\allowbreak\_\allowbreak policy.pdf}; org chart & Department head & Annual \\
+ISO 42001 §6.1.2 Risk assessment & Per-AI-system risk register; STRIDE per container & \texttt{governance/\allowbreak risk\allowbreak\_\allowbreak register.csv}; STRIDE matrices & Risk owner & Quarterly \\
+ISO 42001 §6.1.3 Risk treatment & Mitigations + residual risk acceptance & Per-risk treatment plan; sign-off & Risk owner + Dept head & Quarterly \\
+ISO 42001 §7.2 Competence & Training records for AI / ML / clinical-research staff & Appendix~\ref{app:governance_training_program} 35-module cert records & HR / training manager & Annual + per-hire \\
+ISO 42001 §7.4 Communication & Internal + external AI-decision communication procedures & \texttt{governance/\allowbreak communication\allowbreak\_\allowbreak plan.md} & Comm specialist & Annual \\
+ISO 42001 §7.5 Documented information & Document control + retention + versioning & \texttt{governance/\allowbreak doc\allowbreak\_\allowbreak control.csv} & Data steward & Annual \\
+ISO 42001 §8.2 AI system impact assessment & Per-AI-feature impact assessment (DPIA / AIIA) & Per-feature DPIA / AIIA PDF & Risk owner + AI reviewer & Pre-release \\
+ISO 42001 §8.3 Data management & Data lineage + provenance + quality + retention & Per-dataset \texttt{provenance.\allowbreak json}; data-quality dashboard & Data steward & Continuous \\
+ISO 42001 §8.4 Process management & Per-pipeline phase audit (per Table~\ref{tab:per_phase_iso_42001}) & Per-phase audit log + sign-off & ML engineer + AI reviewer & Per-release \\
+ISO 42001 §9.1 Performance evaluation & Per-model metric panel + 95\% CI + per-subgroup fairness & MLflow tracking server; per-release report & ML engineer + Statistician & Per-release + Monthly \\
+ISO 42001 §9.2 Internal audit & Annual internal audit report & \texttt{governance/\allowbreak audit\allowbreak\_\allowbreak 2026.pdf} & Internal auditor & Annual \\
+ISO 42001 §9.3 Management review & Quarterly management review meeting minutes & Meeting notes archive & Dept head & Quarterly \\
+ISO 42001 §10.1 Continual improvement & CAPA log + per-quarter improvement metric & \texttt{governance/\allowbreak capa\allowbreak\_\allowbreak log.csv} & AI operations + Risk owner & Quarterly \\
+ISO 42001 §10.2 Nonconformity + corrective action & Per-incident NCR + RCA + corrective action & \texttt{governance/\allowbreak ncr\allowbreak\_\allowbreak log.csv} & AI operations + Risk owner & Per-incident + Monthly \\
+IEC 62304 §5.1 Planning & Software development plan + SDLC artefacts & \texttt{governance/\allowbreak sdlc\allowbreak\_\allowbreak plan.md} & Lead engineer & Annual \\
+IEC 62304 §5.2 Requirements analysis & SRS (software requirements specification) with traceability & \texttt{requirements/\allowbreak srs.md}; traceability matrix & Lead engineer + Product owner & Per-release \\
+IEC 62304 §5.3 Architectural design & SAD (software architecture document) with C4 diagrams & \texttt{architecture/\allowbreak sad.md}; C4 PNG / SVG & Architect & Per-release \\
+IEC 62304 §5.5 Detailed design & SDD (software design document) per module & \texttt{design/\allowbreak sdd\allowbreak\_\allowbreak <module>.md} & Lead engineer & Per-release \\
+IEC 62304 §5.6 Integration testing & Integration test plan + results + coverage & \texttt{tests/\allowbreak integration/}; CI logs & QA engineer & Per-release \\
+IEC 62304 §5.7 System testing & System test plan + results + traceability to SRS & \texttt{tests/\allowbreak system/}; pytest reports & QA engineer & Per-release \\
+IEC 62304 §6 Maintenance & Maintenance plan + change-control procedures & \texttt{governance/\allowbreak maintenance\allowbreak\_\allowbreak plan.md} & DevOps lead & Annual \\
+IEC 62304 §7 Risk management & Software risk file + per-risk control & \texttt{risk/\allowbreak software\allowbreak\_\allowbreak risk\allowbreak\_\allowbreak file.md} & Risk owner & Quarterly \\
+IEC 62304 §8 Configuration management & Version control + release management; SBOM & Git repository; \texttt{sbom.json} & DevOps lead & Continuous \\
+IEC 62304 §9 Problem resolution & Issue tracker + bug-fix audit trail & GitHub Issues + ticket system & QA + Lead engineer & Continuous \\
+ISO 13485 §4.2 Documentation & QMS document + medical-device file & \texttt{qms/}; medical-device file & QA director & Annual \\
+ISO 13485 §7.3 Design + development & Design history file (DHF) + design review meetings & \texttt{dhf/}; review minutes & Lead engineer + QA & Per-release \\
+ISO 13485 §7.5 Production + service provision & Standard operating procedures (SOPs); per-procedure audit & \texttt{sops/}; per-SOP version + last review date & QA director & Annual + per-revision \\
+ISO 13485 §8.2 Monitoring + measurement & Post-market surveillance plan; complaint log & \texttt{pms/\allowbreak surveillance\allowbreak\_\allowbreak plan.md}; complaint database & QA director & Continuous + Annual \\
+ISO 14971 §5 Risk management process & Risk management plan + risk matrix per harm & \texttt{risk/\allowbreak risk\allowbreak\_\allowbreak management\allowbreak\_\allowbreak plan.md} & Risk owner & Annual \\
+ISO 14971 §6.4 Risk control & Per-hazard control measures + verification & Per-hazard control verification log & Risk owner + QA & Per-release \\
+ISO 14971 §10 Post-production review & Post-production data analysis + risk re-evaluation & \texttt{pms/\allowbreak ppr\allowbreak\_\allowbreak 2026.md} & Risk owner + QA & Annual \\
+ISO 27001 A.5 Policies & Information security policy & \texttt{infosec/\allowbreak policy.pdf} & CISO & Annual \\
+ISO 27001 A.6 Organisation & Information security roles + responsibilities & Org chart + role descriptions & CISO + HR & Annual \\
+ISO 27001 A.8 Asset management & Asset inventory + classification & \texttt{infosec/\allowbreak asset\allowbreak\_\allowbreak inventory.csv} & IT security & Quarterly \\
+ISO 27001 A.9 Access control & RBAC matrix + per-user audit log & Identity provider logs; access matrix & IT security & Continuous + Monthly review \\
+ISO 27001 A.10 Cryptography & Encryption-at-rest + in-transit policy + key management & \texttt{infosec/\allowbreak crypto\allowbreak\_\allowbreak policy.md}; key inventory & IT security & Annual \\
+ISO 27001 A.12 Operations security & Per-system logging + monitoring + incident response & SIEM (Splunk / Elastic); incident log & IT security + AI ops & Continuous \\
+ISO 27001 A.16 Incident management & Per-incident report + RCA + corrective action & \texttt{infosec/\allowbreak incidents/} & IT security + Risk owner & Per-incident \\
+ISO 27001 A.18 Compliance & Regulatory compliance attestation + audit findings & \texttt{compliance/\allowbreak attestation.pdf}; audit reports & Compliance officer & Annual + per-audit \\
+EU AI Act Art. 12 Logging & $\geq 6$ months audit-row retention; per-decision log & PostgreSQL audit DB; archived to cold storage & Data steward + AI ops & Continuous + 6mo retention min \\
+EU AI Act Art. 14 Human oversight & HITL gate documented + non-bypassable for patient-facing & Per-decision HITL audit row (see Step 21 page) & Clinician + AI reviewer & Continuous \\
+EU AI Act Art. 15 Robustness + cybersecurity & Pen-test report + drift monitoring + adversarial robustness eval & \texttt{security/\allowbreak pentest\allowbreak\_\allowbreak 2026.pdf}; drift dashboard & IT security + AI reviewer & Annual + Continuous \\
+EU AI Act Art. 50 Transparency & Disclosure-to-user that AI is in use & In-app disclosure + report disclaimer & Comm specialist + Legal & Per-release \\
+EU AI Act Art. 86 Right to explanation & Per-prediction explanation API + counterfactual & XAI artefact archive; \texttt{api/\allowbreak v1/\allowbreak explain} endpoint & AI reviewer + Engineer & Continuous \\
+NIST AI RMF Govern & AI governance framework + risk register + role definitions & \texttt{governance/\allowbreak ai\allowbreak\_\allowbreak rmf.md} & Risk owner + Dept head & Annual \\
+NIST AI RMF Manage & Per-AI-system management procedures + quarterly review & Per-system manage log; quarterly review meeting & AI operations + AI reviewer & Quarterly \\
+HIPAA Safe Harbor (US) & De-identification verification per record & Per-record de-id audit log (see Table~\ref{tab:primary_not_required_identifiers}) & Data steward + Compliance & Per-ingestion + Annual \\
+DPDP Act 2023 (India) & Data principal consent + processor obligations + breach notification & Consent records; processor agreement; breach plan & Data steward + Legal & Continuous + per-incident \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} ISO 42001 = AI Management System (2023); IEC 62304 = Medical Device Software --- Software Life Cycle Processes; ISO 13485 = Medical Devices --- Quality Management Systems; ISO 14971 = Medical Devices --- Risk Management; ISO/IEC 27001 = Information Security Management Systems; HIPAA = Health Insurance Portability and Accountability Act (US); DPDP Act 2023 = Digital Personal Data Protection Act (India); NIST AI RMF = National Institute of Standards and Technology AI Risk Management Framework. The runbook is the auditor-facing surface: each row points to the artefact and the owner so an audit can be completed within hours, not weeks. Per the dissertation's drill suite, every artefact location is verified before release.

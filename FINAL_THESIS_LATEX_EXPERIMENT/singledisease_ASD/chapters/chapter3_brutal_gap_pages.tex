@@ -1,0 +1,459 @@
+
+%% ============================================================================
+%% Brutal-feedback gap pages: items that an internal review identified as
+%% missing despite the comprehensive primary-data coverage already in place.
+%% Auto-generated 2026-05-27.
+%% ============================================================================
+
+\clearpage
+\subsection{Primary Data --- Brutal Feedback Gap Closure}
+\label{sec:primary_data_brutal_gap_closure}
+
+\noindent\emph{Dedicated pages closing the residual gaps identified in an internal brutal-feedback review: analysis flow, To-Do list, database design + schema, IV / DV / hypothesis matrix, preprocess deep-dive, EDA, feature engineering, normalisation, bias inventory, balanced / unbalanced data handling, semi-structured data, 1D / 2D conversion per phase. Each topic is a single-page dedicated reference per the global formatting policy.}
+
+
+\clearpage
+\paragraph[Primary Data Analysis Flow]{Primary Data Analysis Flow --- End-to-End Sequence.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Primary Data Analysis Flow]{Primary Data Analysis Flow --- End-to-End Sequence.}\label{tab:brutal_analysis_flow} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1. PD-1 questionnaire deployment & REDCap survey instrument; 26 items across sections A--K; clinician participants $n=131$ \\
+2. Response capture + audit & Per-response timestamp + IP-hash + completeness flag \\
+3. PD-1 data cleaning & Range check (1--5 Likert); straight-lining detection; attention-check item gate; per-respondent quality flag \\
+4. Construct aggregation & Per-respondent construct mean = mean of item scores; per-construct Cronbach $\alpha$ \\
+5. PLS-SEM model fit & SmartPLS / plspm; measurement model first (CFA), then structural model \\
+6. PLS-SEM bootstrap (5{,}000 resamples) & Path coefficients $\beta$, $t$-statistic, $p$, 95\% CI per H1--H8 \\
+7. Discriminant validity & HTMT $< 0.85$ verified per construct pair; Fornell-Larcker matrix \\
+8. Mediation + moderation analysis & Indirect effects via bootstrap; moderation via product-indicator approach \\
+9. PD-2 expert recruitment & Purposive sampling per inclusion criteria; $n=12$ \\
+10. PD-2 Delphi rounds (3 stages) & Round 1: divergent expert ratings; Round 2: feedback + revise; Round 3: convergence \\
+11. PD-2 thematic coding & Saldaña 3-stage: open $ -> $ axial $ -> $ selective \\
+12. PD-2 inter-rater reliability & Krippendorff $\alpha$ on coded themes; threshold $\geq 0.80$ \\
+13. Mixed-methods convergence & Joint display: quantitative path coefficients alongside qualitative themes per construct \\
+14. Triangulation verdict & Per-H1--H8 verdict: convergent / partial / divergent based on quan + qual + workflow + cross-cohort + 6-flavour \\
+15. Sensitivity analysis & With vs without partial-data records; alternative imputation; per-fold variance \\
+16. Pre-registered hypothesis test & Verify pre-registered threshold ($|\beta| \geq 0.20$, $p $<$ 0.05$) met per path \\
+17. Reporting (Ch.~\ref{chap:analysis}) & Per-hypothesis verdict table + bootstrap CI + qualitative theme illustration \\
+18. Cross-Ch. discussion & Ch.~\ref{chap:discussion}: implications, limitations, future research \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Per-step output saved with reproducible random seed; per-step audit row written per dissertation §38.3 governance policy.
+
+
+\clearpage
+\paragraph[Primary Data To-Do List]{Primary Data --- Active To-Do List for Phase 2.}
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Primary Data To-Do List]{Primary Data --- Active To-Do List for Phase 2.}\label{tab:brutal_todo_list} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1. PD-3 caregiver survey (n=50--150) & Instrument design + IEC approval + recruitment plan (Phase 2) \\
+2. PD-4 educator/therapist survey (n=20--50) & Instrument + sampling frame + recruitment plan (Phase 2) \\
+3. PD-5 compliance/IRB officer (n=5--15) & Semi-structured interview guide + recruitment (Phase 2) \\
+4. PD-6 ASD-adult self-report (optional) & Adult-friendly variant + accessibility review (Phase 2+) \\
+5. Prospective Indian-cohort acquisition & Per Appendix~\ref{sec:appendix_n_indian_cohort} 15-institution outreach pack \\
+6. Multi-site PD-1 replication & Replicate PD-1 with $n=300$ across 5 institutions for external validity \\
+7. Longitudinal PD-1 (12-month) & Visit 2 + Visit 3 administration to estimate ICC test-retest reliability \\
+8. Pre-registration of Phase 2 hypotheses & OSF pre-registration before Phase 2 data collection \\
+9. PD-2 panel expansion (n=24) & Double the expert panel for tighter Krippendorff $\alpha$ CI \\
+10. Per-instrument administrator certification & Track ADOS-2 certified examiner pool + per-administrator effect \\
+11. Caregiver focus group (qualitative) & Thematic analysis on B2C trust + adoption barriers \\
+12. Clinician walkthrough observation & Semi-structured observation of AI-report review process \\
+13. PD-1 cross-cultural validation & Replicate in Hindi / Tamil / Telugu / Bengali language variants \\
+14. Sex-balanced subsample analysis & Targeted recruitment to address female under-representation \\
+15. Real-EEG cohort linkage & Link PD-1 clinician sample to their actual EEG-interpretation records (consent-permitting) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Each To-Do item has an owner + target quarter assigned in the per-quarter project plan; status tracked monthly.
+
+
+\clearpage
+\paragraph[Primary Data Database Design]{Primary Data Database Design --- Core Entity Model.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Primary Data Database Design]{Primary Data Database Design --- Core Entity Model.}\label{tab:brutal_db_design} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Entity: Respondent & Table \texttt{pd1\_\allowbreak respondent}; PK respondent\_\allowbreak id (UUID); fields: role, experience years, specialty, language, recruitment\_\allowbreak source, consent\_\allowbreak timestamp \\
+Entity: Survey Response & Table \texttt{pd1\_\allowbreak response}; FK respondent\_\allowbreak id; per-row: item\_\allowbreak id, value (1--5), timestamp, time\_\allowbreak on\_\allowbreak item\_\allowbreak ms \\
+Entity: Survey Item Catalog & Table \texttt{pd1\_\allowbreak item\_\allowbreak catalog}; PK item\_\allowbreak id; fields: section (A--K), construct, item text, Likert anchors, reverse-scored flag \\
+Entity: Construct Score & View \texttt{pd1\_\allowbreak construct\_\allowbreak score}; per-respondent per-construct mean + SD + missing-item-flag \\
+Entity: Reliability Stats & Table \texttt{pd1\_\allowbreak reliability}; per-construct $\alpha$, AVE, CR, computed timestamp \\
+Entity: SEM Path & Table \texttt{pd1\_\allowbreak sem\_\allowbreak path}; per-path $\beta$, $t$, $p$, CI lower / upper, bootstrap-seed, model-version \\
+Entity: Expert Panel Member (PD-2) & Table \texttt{pd2\_\allowbreak expert}; PK expert\_\allowbreak id; fields: specialty, years, publications, consent\_\allowbreak timestamp \\
+Entity: Delphi Round Response (PD-2) & Table \texttt{pd2\_\allowbreak delphi\_\allowbreak response}; FK expert\_\allowbreak id; fields: round\_\allowbreak number, dimension, rating, open\_\allowbreak response \\
+Entity: Theme Code (PD-2) & Table \texttt{pd2\_\allowbreak theme}; PK theme\_\allowbreak id; fields: theme name, definition, parent\_\allowbreak id (for axial / selective hierarchy) \\
+Entity: Code Assignment (PD-2) & Table \texttt{pd2\_\allowbreak code\_\allowbreak assign}; per-quote: response\_\allowbreak id, theme\_\allowbreak id, coder\_\allowbreak id, timestamp \\
+Entity: Audit Log & Table \texttt{audit\_\allowbreak log}; per-event: request\_\allowbreak id, actor, action, target, before\_\allowbreak state, after\_\allowbreak state, timestamp \\
+Entity: Consent Record & Table \texttt{consent\_\allowbreak record}; per-participant: type (general / study-specific), scope, granted\_\allowbreak timestamp, revoked\_\allowbreak timestamp \\
+Encryption & Per-table column-level encryption for any PII; AES-256; key rotation quarterly \\
+Indexes & Per-FK index; per-timestamp index for audit-log queries; per-construct index for reliability lookups \\
+Retention policy & Per dissertation §\ref{sec:ethics_consent_anchor}: 7 years for research records; per-request deletion supported \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Database engine: PostgreSQL 16 (production); SQLite acceptable for local development. Schema versioned via Alembic migrations; per-migration audit row written.
+
+
+\clearpage
+\paragraph[Secondary Data DB Schema]{Secondary Data DB Schema --- Entity Model for Multi-Source EEG Corpus.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Secondary Data DB Schema]{Secondary Data DB Schema --- Entity Model for Multi-Source EEG Corpus.}\label{tab:brutal_secondary_db_schema} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Entity: Dataset & Table \texttt{sd\_\allowbreak dataset}; PK dataset\_\allowbreak id; fields: name, source, version, licence, download\_\allowbreak url, sha256, ingestion\_\allowbreak date \\
+Entity: Subject & Table \texttt{sd\_\allowbreak subject}; PK subject\_\allowbreak id; FK dataset\_\allowbreak id; fields: anonymised\_\allowbreak id, age, sex, diagnosis, severity, comorbidity \\
+Entity: EEG Recording & Table \texttt{sd\_\allowbreak eeg\_\allowbreak recording}; PK recording\_\allowbreak id; FK subject\_\allowbreak id; fields: file\_\allowbreak path, format, n\_\allowbreak channels, sampling\_\allowbreak rate, duration\_\allowbreak sec, condition, recording\_\allowbreak date \\
+Entity: Channel & Table \texttt{sd\_\allowbreak channel}; PK channel\_\allowbreak id; FK recording\_\allowbreak id; fields: position (10--20 label), reference, bad\_\allowbreak flag \\
+Entity: Quality Report & Table \texttt{sd\_\allowbreak quality}; PK quality\_\allowbreak id; FK recording\_\allowbreak id; fields: sqi, bad\_\allowbreak channel\_\allowbreak pct, epoch\_\allowbreak retention\_\allowbreak pct, computed\_\allowbreak timestamp \\
+Entity: Assessment Score & Table \texttt{sd\_\allowbreak assessment}; PK assessment\_\allowbreak id; FK subject\_\allowbreak id; fields: instrument, score, sub\_\allowbreak scores (JSON), assessment\_\allowbreak date \\
+Entity: Diagnosis & Table \texttt{sd\_\allowbreak diagnosis}; PK diagnosis\_\allowbreak id; FK subject\_\allowbreak id; fields: code (DSM-5 / ICD-10 / ICD-11), severity\_\allowbreak level, clinician\_\allowbreak validated\_\allowbreak flag \\
+Entity: Preprocessing Run & Table \texttt{sd\_\allowbreak preproc\_\allowbreak run}; PK preproc\_\allowbreak id; FK recording\_\allowbreak id; fields: pipeline\_\allowbreak version, parameters (JSON), output\_\allowbreak path, run\_\allowbreak timestamp \\
+Entity: Feature Matrix & Table \texttt{sd\_\allowbreak feature\_\allowbreak matrix}; PK feature\_\allowbreak matrix\_\allowbreak id; FK preproc\_\allowbreak id; fields: feature\_\allowbreak set\_\allowbreak version, n\_\allowbreak features, dimensions, file\_\allowbreak path \\
+Entity: Experiment & Table \texttt{sd\_\allowbreak experiment}; PK experiment\_\allowbreak id; fields: name, hypothesis, model\_\allowbreak version, cv\_\allowbreak strategy, random\_\allowbreak seed, started\_\allowbreak timestamp \\
+Entity: Experiment Result & Table \texttt{sd\_\allowbreak experiment\_\allowbreak result}; PK result\_\allowbreak id; FK experiment\_\allowbreak id; fields: per-metric value + 95\% CI, fold\_\allowbreak idx, completed\_\allowbreak timestamp \\
+Entity: Audit Log & Table \texttt{sd\_\allowbreak audit\_\allowbreak log}; per-event: actor, action, target, request\_\allowbreak id, timestamp \\
+Indexes + foreign keys & Per-FK index; per-timestamp index for time-series queries; per-feature index for ML lookup \\
+Provenance lineage & DAG: Dataset $ -> $ Subject $ -> $ Recording $ -> $ Quality + Preproc $ -> $ Feature Matrix $ -> $ Experiment Result; per-edge audit row \\
+Storage & Metadata in PostgreSQL; large binary (EEG files, feature matrices) in object store (MinIO / S3); per-file SHA-256 verified at read \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Engine: PostgreSQL 16 + MinIO / S3 for blob; alternative SQLite + local disk for development. Migrations via Alembic; per-migration drill verifies schema integrity.
+
+
+\clearpage
+\paragraph[IV DV Hypothesis Matrix]{IV / DV / Hypothesis Matrix --- Per H1--H8 Per Variable.}
+
+
+\noindent This table lists each \textit{h\#} across iv, dv, expected, and 1 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.2cm} L L L L @{}}
+\caption[IV DV Hypothesis Matrix]{IV / DV / Hypothesis Matrix --- Per H1--H8 Per Variable.}\label{tab:brutal_iv_dv_hypothesis_matrix} \\
+\toprule
+\thead{H\#} & \thead{IV} & \thead{DV} & \thead{Expected} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+H1 & RAI governance maturity (1--5) & Perceived explainability (1--5) & $\beta $>$ 0$ & PD-1 path coefficient + bootstrap CI \\
+H2 & Perceived explainability & Clinician trust & $\beta $>$ 0$ & PD-1 path coefficient + PD-2 thematic \\
+H3 & Clinician trust & Adoption intention & $\beta $>$ 0$ & PD-1 path coefficient + workflow validation \\
+H4 & RAI governance maturity & Trust (mediated by explainability) & Indirect $> 0$ & PD-1 mediation bootstrap + PD-2 themes \\
+H5 & Perceived explainability & Adoption (mediated by trust) & Indirect $> 0$ & PD-1 mediation bootstrap \\
+H6 & Perceived explainability & Trust (moderated by AI familiarity) & Interaction $> 0$ & PD-1 moderation product-indicator \\
+H7 & Longitudinal AI use (visits) & Severe-case monitoring score & $\beta $>$ 0$ & Mixed-effects growth-curve on Phase 2 data \\
+H8 & Cross-cohort accuracy & External-validation accuracy & $\leq 5$ pp gap & KAU vs ABIDE-II per-model accuracy \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Per-hypothesis IV / DV definition pre-registered before analysis. Effect-size threshold ($|\beta| \geq 0.20$ and $p $<$ 0.05$) per dissertation SAP.
+
+
+\clearpage
+\paragraph[Primary Data Preprocess Deep Dive]{Primary Data Preprocess Deep Dive --- PD-1 Survey Cleaning.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Primary Data Preprocess Deep Dive]{Primary Data Preprocess Deep Dive --- PD-1 Survey Cleaning.}\label{tab:brutal_primary_preprocess_deepdive} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+1. Field-validity check & Likert items: integer 1--5; reject if out-of-range; flag if blank \\
+2. Range-of-IP check & Per-respondent IP-hash to detect duplicate submissions; reject if duplicate \\
+3. Time-on-survey filter & Reject if total time $<$ 3 minutes (suspected straight-lining) \\
+4. Straight-lining detection & Per-construct variance $< 0.3$ across items $ -> $ flag as straight-liner; case-by-case review \\
+5. Attention-check item & Item like ``please select ``agree for this item must match expected; reject if fail \\
+6. Missing-value tally & Per-respondent missing-item count; if $> 20\%$ missing $ -> $ exclude record \\
+7. Per-item imputation (if $\leq 5\%$ missing) & Construct-mean imputation for missing items; flag imputed values \\
+8. Reverse-scored items & Recode (6 - value) for reverse-scored items per item-catalog flag \\
+9. Construct aggregation & Per-construct mean of constituent items; per-construct $\alpha$ computed \\
+10. Outlier construct score & Per-construct: |z-score| $> 3$ flagged; reviewed before model fitting \\
+11. Demographics validation & Cross-check: years of experience consistent with stated role; specialty matches institutional records (when available) \\
+12. Per-cleaning audit log & Per-respondent per-operation: input, output, flag, timestamp; full provenance trail \\
+13. Pre vs post comparison & Before-cleaning vs after-cleaning distribution per construct; document any sign-flip \\
+14. Reproducibility seed & Fixed seed for any random imputation; per-cleaning run reproducible \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Preprocessing pre-registered before data analysis; any deviation reported with rationale. Drill suite verifies pre/post invariants per cleaning operation.
+
+
+\clearpage
+\paragraph[Primary Data EDA]{Primary Data EDA --- Per-Construct Exploratory Analysis.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Primary Data EDA]{Primary Data EDA --- Per-Construct Exploratory Analysis.}\label{tab:brutal_primary_eda} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Per-construct distribution & Histogram + KDE per construct; report skew + kurtosis; Shapiro-Wilk normality test \\
+Per-construct boxplot by role & Boxplot of construct score stratified by clinician role (psychiatrist / neurophysiologist / dev pediatrician / etc.) \\
+Per-item endorsement rate & Per-item: \% selecting each Likert option 1--5; stacked bar chart \\
+Inter-item correlation matrix & Pearson r per item pair within construct; report $\geq 0.30$ as expected \\
+Inter-construct correlation matrix & Pearson r per construct pair; HTMT computation for discriminant validity preview \\
+PCA on item set & 2D PCA scatter coloured by primary construct; verify structural pattern \\
+Missingness pattern & missingno matrix + bar; per-construct missing\% + co-missingness \\
+Outlier detection & |z-score| $> 3$ per construct; IQR-based outlier flagging; case-by-case review \\
+Per-role mean construct profile & Spider / radar plot per role across all constructs \\
+Per-experience-level summary & Per-experience-bin construct mean; trend analysis \\
+Time-on-construct analysis & Per-construct response time; identify rushed sections \\
+Demographic-split summary & Sex / region / specialty per-construct mean comparison \\
+Output deliverables & EDA notebook + EDA PDF + per-figure PNG + statistical summary CSV \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} EDA findings inform construct-aggregation choices and any further cleaning before SEM model fitting. Per-figure before/after snapshot saved.
+
+
+\clearpage
+\paragraph[Primary Data Feature Engineering]{Primary Data Feature Engineering --- Derived Variable Inventory.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Primary Data Feature Engineering]{Primary Data Feature Engineering --- Derived Variable Inventory.}\label{tab:brutal_primary_feature_eng} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Raw Likert items & 26 items across sections A--K; integer 1--5; per-item Likert anchor \\
+Per-construct mean (composite) & Per-respondent mean of items within construct; range 1.00--5.00 continuous \\
+Per-construct standardised score & Z-score per construct vs cohort mean; range $\approx$ $-3$ to $+3$ \\
+Construct difference scores & Trust - Explainability; Adoption - Trust; etc.\ for mediation-effect intuition \\
+Demographics-derived & Experience years bin (0--5, 5--10, 10--20, 20+); specialty group \\
+Composite RAI maturity index & Weighted combination of RAI-related construct scores per a priori weights \\
+Composite trust-calibration index & Trust + cross-validation rating combined \\
+Composite explainability index & Explainability + interpretability + transparency combined \\
+Interaction features & AI-Familiarity $\times$ Explainability (for H6 moderation); standardised product \\
+Time-on-survey feature & Total response time; per-construct response time; flag rushed responders \\
+Per-item attention-residual & Per-item residual after accounting for construct mean; identifies idiosyncratic responders \\
+Per-respondent dispersion & SD of construct scores per respondent; identifies all-same vs varied responders \\
+Per-construct missingness flag & Binary flag per construct: was any item imputed? \\
+Validation checks & Range check post-engineering: all derived in expected ranges; sanity-bound enforcement \\
+Per-feature literature anchor & Per derived feature: cite source paper for the operationalisation \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} All derived features fully documented in \texttt{features/\allowbreak primary\_\allowbreak feature\_\allowbreak catalog.md}. Per-feature formula reproducible; per-feature drill verifies formula consistency.
+
+
+\clearpage
+\paragraph[Primary Data Normalization]{Primary Data Normalization --- Method Per Variable Type.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Primary Data Normalization]{Primary Data Normalization --- Method Per Variable Type.}\label{tab:brutal_primary_normalization} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Min-Max [0,1] & Used for visualisations + Likert items already on bounded scale; scaler fit on training fold only \\
+Z-score (Standard Scaler) & Used for SEM + regression; scaler fit on training fold; per-construct mean=0, SD=1 \\
+Robust Scaler (median + IQR) & Used when outliers present (per-feature |z| $> 3$); resists outlier influence \\
+Quantile transform & Used to map to normal distribution when downstream model assumes normality \\
+Log transform & Used for right-skewed counts (e.g., publications, years of experience) \\
+Box-Cox / Yeo-Johnson & Optimal-lambda power transform; applied to skewed continuous features \\
+Per-construct rescaling & Per-construct min-max OR z-score depending on downstream requirement \\
+Categorical encoding & One-hot encoding for nominal (role, specialty); ordinal encoding for ordered (severity tier) \\
+Train-fold-only fit & Critical: scaler.fit on training fold; scaler.transform on test fold; no leakage \\
+Per-scaler artefact & Per-scaler: parameters saved (\texttt{scaler\_\allowbreak <name>.json}); reloaded for inference \\
+Inverse-transform support & Per-scaler inverse-transform tested; supports prediction $ -> $ original-scale conversion \\
+Per-normalisation drill & Drill: scaler-fit on train fold; verify mean $\approx 0$, SD $\approx 1$ on train; verify no fit on test \\
+Documentation per choice & Per-feature: documented choice of normalisation + rationale \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Normalisation choices pre-registered before model fitting. Train-fold-only fit enforced via sklearn ColumnTransformer + Pipeline pattern.
+
+
+\clearpage
+\paragraph[Primary Data Bias Inventory]{Primary Data Bias Inventory --- Identified Biases + Mitigations.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Primary Data Bias Inventory]{Primary Data Bias Inventory --- Identified Biases + Mitigations.}\label{tab:brutal_primary_bias_inventory} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Selection bias & Voluntary survey response $ -> $ over-represents AI-friendly clinicians; mitigation: stratified recruitment \\
+Response bias (social desirability) & Respondents may rate ``correct answer; mitigation: anonymous submission + reverse-scored items \\
+Acquiescence bias & Tendency to agree regardless of content; mitigation: balanced positive + negative phrasing \\
+Order bias & Item-order may influence response; mitigation: randomised item presentation order \\
+Recency bias & Recent experience over-weighted in retrospective ratings; mitigation: explicit time-anchored question phrasing \\
+Confirmation bias (researcher) & Researcher may over-weight confirming evidence; mitigation: pre-registered hypothesis + thresholds \\
+Sampling bias (geography) & PD-1 over-represents specific institutional clusters; mitigation: multi-site Phase 2 replication \\
+Sampling bias (sex) & Clinician sample skewed M:F; mitigation: stratified Phase 2 recruitment; per-sex subgroup analysis \\
+Specialist bias & Over-representation of psychiatrists vs neurophysiologists; mitigation: per-specialty quota in Phase 2 \\
+Experience bias & Skewed toward early-career or late-career; mitigation: per-experience-bin quota \\
+Cultural bias (PD-1 in English) & Anglo-centric phrasing; mitigation: validated regional-language Phase 2 variants \\
+Expertise bias (PD-2 panel) & Per-expert specialty mix; mitigation: panel composition documented; per-specialty perspective elicited \\
+Coding bias (PD-2 thematic) & Single-coder over-influence; mitigation: 2+ coders + Krippendorff $\alpha$ check \\
+Reporting bias (positive findings) & Pre-registered SAP + per-hypothesis pre-specified threshold; null results reported transparently \\
+Publication bias (literature anchor) & Reviewed literature may skew toward positive findings; mitigation: systematic-review methodology per Ch.~\ref{chap:literature} \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Per-bias mitigation pre-registered before data collection. Sensitivity analysis tests each bias direction; results reported per Ch.~\ref{chap:discussion} limitations.
+
+
+\clearpage
+\paragraph[Balanced vs Unbalanced Data Handling]{Balanced vs Unbalanced Data Handling --- Strategy Per Imbalance Type.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Balanced vs Unbalanced Data Handling]{Balanced vs Unbalanced Data Handling --- Strategy Per Imbalance Type.}\label{tab:brutal_balance_handling} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Class imbalance (autism vs control) & KAU: 50/50 balanced; ABIDE-II: 55/45 mild; strategy: stratified sampling + class\_weight in model \\
+Severity imbalance (L1 / L2 / L3) & L1 most common (60\%), L3 rare (5\%); strategy: per-tier reporting + SMOTE in training fold only \\
+Sex imbalance (M:F $\sim 4{:}1$) & Reflects epidemiology; strategy: per-sex subgroup analysis + sex-stratified sampling for fairness eval \\
+Age-bin imbalance & 3--6 years over-represented; strategy: per-age-bin reporting + age covariate in model \\
+Site imbalance (KAU dominates) & KAU $\sim 60\%$; strategy: per-site reporting + site random-effects model \\
+Comorbidity imbalance & ADHD co-occurrence $\sim 50\%$; strategy: covariate; report performance with vs without \\
+Survey-role imbalance (PD-1) & Psychiatrists $\sim 35\%$; strategy: per-role subgroup analysis \\
+SMOTE (Synthetic Minority Over-sampling) & Used for class-rebalancing in training fold only; never on test fold; preserves test-set realism \\
+Random Over-Sampler & Alternative to SMOTE for categorical; sampler.fit on train; sampler.transform on train only \\
+Class-weight strategy & sklearn class\_\allowbreak weight=\textquotesingle balanced\textquotesingle; weight inversely proportional to class frequency \\
+Stratified k-fold CV & sklearn StratifiedGroupKFold preserves class balance per fold AND subject-level grouping \\
+Per-class metric reporting & Per-class precision + recall + F1 reported; macro-F1 vs weighted-F1 contrasted \\
+Per-class confusion matrix & Per-class confusion entries reported; per-class error analysis \\
+Sensitivity check & Re-run with vs without rebalancing; report sign-flip risk on primary hypothesis \\
+Pre-registration & Balance-handling strategy pre-registered before model fitting; deviations documented \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Imbalance handling per dissertation §\ref{sec:primary_data_analysis_plan_inventory} subgroup + fairness plan. SMOTE / class-weight applied only in training fold; never on test fold (no leakage).
+
+
+\clearpage
+\paragraph[Semi-Structured Data Handling]{Semi-Structured Data Handling --- PD-2 Open-Ended + Clinical Notes.}
+
+
+\noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Semi-Structured Data Handling]{Semi-Structured Data Handling --- PD-2 Open-Ended + Clinical Notes.}\label{tab:brutal_semistructured_handling} \\
+\toprule
+\thead{Aspect} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+Source: PD-2 open-ended Delphi responses & Per-expert per-round text response (1--3 paragraphs); 12 experts $\times$ 3 rounds = 36 responses \\
+Source: EEG clinical interpretation notes & Per-EEG record clinician note (1--5 sentences); free-text, de-identified \\
+Source: PD-1 free-text comments & Optional open-ended item at end of survey; not all respondents \\
+Storage & Plain UTF-8 text per response; per-response metadata (source, expert\_\allowbreak id, round, timestamp) \\
+Text cleaning & Lowercase; remove extra whitespace; preserve domain terms (ADOS-2, ICD-11) by allowlist \\
+Tokenization & spaCy en\_\allowbreak core\_\allowbreak sci\_\allowbreak sm (biomedical) tokenizer for clinical notes; standard en\_\allowbreak core\_\allowbreak web\_\allowbreak sm for survey \\
+Lemmatization & Per-token lemma; preserves clinical terminology \\
+Stop-word removal & Standard English stop-words; clinical-domain custom list (patient, EEG, etc.) excluded \\
+Open coding (PD-2) & Per-quote initial code; per-coder; multiple codes per quote allowed \\
+Axial coding (PD-2) & Cluster initial codes into categories; per-category definition; hierarchical organisation \\
+Selective coding (PD-2) & Identify core theme; relate categories to core; per-theme illustrative quotes \\
+Inter-rater reliability & Krippendorff $\alpha$ on coded themes; threshold $\geq 0.80$; reconcile differences via discussion \\
+Theme frequency analysis & Per-theme: count of quotes coded to it; theme by construct cross-tabulation \\
+Member-checking & Themes returned to PD-2 experts for verification; qualitative validity check \\
+Quote selection for reporting & Per-theme: 2--3 illustrative verbatim quotes; respondent identification via expert\_\allowbreak id only \\
+Per-source schema & \texttt{semi\_\allowbreak structured/\allowbreak <source>/\allowbreak <id>.json} with text + metadata + per-coder annotations \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Semi-structured data handled per Saldaña 3-stage qualitative coding methodology. Per-quote audit trail; per-theme provenance documented.
+
+
+\clearpage
+\paragraph[1D 2D Conversion Per Phase]{1D / 2D Conversion Detail Per Pipeline Phase.}
+
+
+\noindent This table lists each \textit{phase} across source dim, conversion method, target dim, and 1 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.2cm} L L L L @{}}
+\caption[1D 2D Conversion Per Phase]{1D / 2D Conversion Detail Per Pipeline Phase.}\label{tab:brutal_1d_2d_conversion_per_phase} \\
+\toprule
+\thead{Phase} & \thead{Source dim} & \thead{Conversion method} & \thead{Target dim} & \thead{Notes} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endfoot
+PD-1 raw item & 1D scalar (Likert 1--5) & No conversion; keep as integer & 1D scalar & Primary-data survey items \\
+PD-1 construct aggregation & 1D vector (item scores) & Mean across items per construct & 1D scalar per construct & Reduces 26 items $ -> $ ~6 constructs \\
+PD-1 SEM input matrix & Per-respondent construct vector & Concatenate constructs & 2D matrix (n\_resp $\times$ n\_constructs) & Input to PLS-SEM \\
+PD-2 text response & 1D string & Tokenize $ -> $ token sequence & 1D integer array & Pre-embedding \\
+PD-2 embedding & 1D token array & sentence-transformer & 1D vector (768-dim) & Per-response embedding for theme similarity \\
+SD-A raw EEG & 2D tensor (channels $\times$ time) & No conversion; native format & 2D tensor & Multi-channel time-series \\
+SD-A spectrogram (STFT) & 2D EEG tensor & scipy.signal.stft per channel & 3D tensor (channels $\times$ freq $\times$ time) & Time-frequency map \\
+SD-A scalogram (CWT) & 2D EEG tensor & pywt.cwt per channel & 3D tensor (channels $\times$ scale $\times$ time) & Multi-resolution \\
+SD-A topomap & 1D vector (band-power per channel) & mne.viz interpolation & 2D image (64$\times$64 RGB) & Spatial scalp map \\
+SD-A spectrogram image & 3D tensor & log10 + viridis colormap + resize & 2D RGB image (224$\times$224) & Input to CNN / ViT \\
+SD-A scalogram image & 3D tensor & log10 + viridis + resize & 2D RGB image (224$\times$224) & Input to CNN / ViT \\
+SD-A connectivity matrix & Per-pair PLV & Reshape to channel-pair matrix & 2D matrix (n\_ch $\times$ n\_ch) & Visualised as heatmap \\
+SD-A feature vector (50-feat) & Per-subject feature vector & Concatenation & 1D vector (50-dim) & Input to classical ML (SVM/RF) \\
+Classical ML training matrix & Per-subject feature vectors & Stack & 2D matrix (n\_subj $\times$ 50) & sklearn input shape \\
+DL training tensor (1D signal) & Per-epoch 2D tensor & Stack epochs & 3D tensor (B $\times$ C $\times$ T) & EEGNet / CNN-LSTM input \\
+DL training tensor (image) & Per-epoch 2D image & Stack epochs & 4D tensor (B $\times$ 3 $\times$ 224 $\times$ 224) & ResNet / EfficientNet input \\
+SD-B (assessments) & 1D vector (score per instrument) & Concatenate & 2D matrix (n\_subj $\times$ n\_instr) & Behavioural feature matrix \\
+SD-C (literature corpus) & 1D string per paper & Tokenize $ -> $ embed & 1D vector (768-dim) & RAG vector store entry \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Per-phase conversion explicit; per-conversion drill verifies dimension transformation correctness. Conversion choices align with downstream model input shape requirements.

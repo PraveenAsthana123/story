@@ -1,0 +1,384 @@
+%% Appendix I: Primary Data Collection Instruments
+%% Disease-specific clinical questionnaires for behavioral, psychological,
+%% and social assessment — with IV/DV mapping for mixed-methods research design
+
+\normalsize\normalfont\color{black}
+
+%===============================================================================
+\addcontentsline{toc}{section}{Overview} % [TOC-appendix-section-insertion]
+\section*{Overview}
+%===============================================================================
+
+\noindent\textbf{Appendix G Scope Contract --- Conceptual Primary-Data Instrument Specification Only.}
+\label{para:appg_scope_contract}
+This appendix specifies a \emph{conceptual primary-data instrument design} for the framework-evaluation study. \textbf{It is NOT}: a deployed clinical-questionnaire instrument; an autonomous-diagnosis tool; a regulatory-submission instrument; a SOS / escalation instrument; or a future-wearable continuous-monitoring instrument. All questionnaire items are positioned as \emph{stakeholder-evaluation items for the governance + explainability + adoption framework}, not diagnostic or treatment-recommendation items. Where the appendix references behavioural / psychological / social data capture, these are \emph{conceptual reference instruments supporting the convergent mixed-methods design} --- IRB approval and prospective consent processes would be required before any administration to patients or caregivers; this dissertation's primary-data evidence base uses the existing 12-expert qualitative panel and 131-clinician PLS-SEM cohort.
+
+This appendix presents the primary data collection instruments designed for
+the qualitative strand of the convergent mixed-methods research design.
+An ASD-focused questionnaire captures behavioral, psychological,
+and social data from patients and caregivers, while the IoT/Emotiv
+secondary data specification documents the quantitative EEG data attributes.
+
+\noindent Table~\ref{tab:instrument_overview} summarises the instruments,
+their target population, item count, and the research variables they operationalise.
+
+\paragraph{Primary Data Collection Instruments.}
+
+
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{0.4cm} P{2.0cm} P{1.4cm} p{0.9cm} P{1.6cm} L @{}}
+\caption[Primary Data Collection Instruments Overview]{Primary Data Collection Instruments Overview}\label{tab:instrument_overview} \\
+\toprule
+\thead{\#} & \thead{Instrument} & \thead{Target} & \thead{Items} & \thead{Data Type} & \thead{Variables Measured} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+I1 & ASD Clinical Questionnaire & Parent / Caregiver & 40 & Primary (Qual.) & Behavioral severity, psychological profile, social impact, diagnostic delay, AI acceptance \\
+\addlinespace
+I6 & IoT/Emotiv Secondary Data Spec. & N/A (metadata) & 120+ & Secondary (Quant.) & EEG spectral power, connectivity, time-domain, nonlinear, wavelet features \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} ASD = Autism Spectrum Disorder; EEG = Electroencephalography. See chapter prose for full context.
+
+%===============================================================================
+\addcontentsline{toc}{section}{Instrument Structure} % [TOC-appendix-section-insertion]
+\section*{Instrument Structure}
+%===============================================================================
+
+Each disease-specific questionnaire follows a standardised six-section structure:
+
+\begin{itemize}[nosep,leftmargin=1.5em]
+\item \textbf{Section A --- Demographics} (8 items): Age, gender, location, family history, prior diagnosis, medications
+\item \textbf{Section B --- Behavioral/Clinical Assessment} (10 items): Disease-specific observable behaviors and clinical signs (5-point Likert: Never--Always). Tagged as \textbf{Independent Variable: Behavioral Severity}.
+\item \textbf{Section C --- Psychological Assessment} (10 items): Mental health comorbidities, emotional regulation, coping mechanisms (5-point Likert: Strongly Disagree--Strongly Agree). Tagged as \textbf{Independent Variable: Psychological Profile}.
+\item \textbf{Section D --- Social Impact} (8 items): Employment, relationships, caregiver burden, financial impact, stigma (5-point Likert). Tagged as \textbf{Independent Variable: Social Functioning}.
+\item \textbf{Section E --- Diagnostic Experience} (7 items): Time to diagnosis, specialists consulted, satisfaction, cost (mixed: open-ended + Likert). Tagged as \textbf{Dependent Variable: Diagnostic Delay}.
+\item \textbf{Section F --- Technology Acceptance} (5 items): Willingness to use AI screening, trust in EEG monitoring, preference for AI-assisted reports (5-point Likert). Tagged as \textbf{Dependent Variable: Adoption Intent}.
+\end{itemize}
+
+\noindent Each instrument concludes with a \textbf{Variable Mapping Table} that links every section to its corresponding independent variable (IV), dependent variable (DV), mediating variable (MeV), or moderating variable (MoV), and maps each to the relevant hypothesis (H1--H5).
+
+%===============================================================================
+\addcontentsline{toc}{section}{Master Variable Mapping Across All Instruments} % [TOC-appendix-section-insertion]
+\section*{Master Variable Mapping Across All Instruments}
+%===============================================================================
+
+\noindent\textbf{Master IV/DV Mapping: Primary and Secondary Data.} Table~\ref{tab:master_iv_dv} below presents the detailed analysis.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:master_iv_dv} presents the master iv/dv mapping.
+
+
+\noindent Table~\ref{tab:master_iv_dv} below presents Master IV/DV Mapping, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Master Iv Dv.} % [starred-section fix]
+\noindent Table~\ref{tab:master_iv_dv} below presents Master IV/DV Mapping, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} P{0.7cm} P{0.5cm} P{2.5cm} L P{1.3cm} P{1.1cm} P{1.4cm} @{}}
+\caption[Master IV/DV Mapping]{Master IV/DV Mapping: Primary and Secondary Data}\label{tab:master_iv_dv} \\
+\toprule
+\thead{Type} & \thead{ID} & \thead{Variable} & \thead{Source} & \thead{Data} & \thead{Scale} & \thead{Hyp.} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+IV & S1 & EEG spectral power (5 bands) & Emotiv / Clinical EEG & Secondary & Ratio & H1, H3 \\
+\addlinespace
+IV & S2 & EEG connectivity (PLV) & Emotiv / Clinical EEG & Secondary & Ratio & H1, H3 \\
+\addlinespace
+IV & S3 & HRV + EDA (stress) & Empatica E4 & Secondary & Ratio & H1 \\
+\addlinespace
+IV & S4 & GLCM texture (cancer) & TCIA histopathology & Secondary & Ratio & H1, H3 \\
+\addlinespace
+IV & P1 & Behavioral severity score & Questionnaire Sec B & Primary & Ordinal & H1, H3 \\
+\addlinespace
+IV & P2 & Psychological profile score & Questionnaire Sec C & Primary & Ordinal & H2 \\
+\addlinespace
+IV & P3 & Social functioning score & Questionnaire Sec D & Primary & Ordinal & H4 \\
+\addlinespace
+IV & P4 & Diagnostic delay (months) & Questionnaire Sec E & Primary & Ratio & H4 \\
+\midrule
+DV & D1 & Classification accuracy (ASD ensemble) & ML pipeline output & Secondary & Ratio & H1 \\
+\addlinespace
+DV & D2 & Explainability quality & Expert survey + RAGAS & Mixed & Ordinal & H2 \\
+\addlinespace
+DV & D3 & SHAP biomarker match & SHAP analysis & Secondary & Nominal & H3 \\
+\addlinespace
+DV & D4 & Effort / time reduction & Process comparison & Mixed & Ratio & H4 \\
+\addlinespace
+DV & D5 & Adoption intent score & Questionnaire Sec F & Primary & Ordinal & H5 \\
+\addlinespace
+DV & D6 & Governance pass rate & 525-module testing & Secondary & Ratio & H5 \\
+\midrule
+MeV & M1 & Trust in AI & Questionnaire F2 & Primary & Ordinal & H2$\to$H5 \\
+\addlinespace
+MeV & M2 & Explainability & RAGAS + expert rating & Mixed & Ratio & H2$\to$H5 \\
+\midrule
+MoV & V1 & Disease domain & Dataset label & Secondary & Nominal & H1 \\
+\addlinespace
+MoV & V2 & Geographic location & Questionnaire A4 & Primary & Nominal & H4, H5 \\
+\addlinespace
+MoV & V3 & Device type & Recording metadata & Secondary & Nominal & H1 \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} SHAP = SHapley Additive exPlanations; ASD = Autism Spectrum Disorder; EEG = Electroencephalography. See chapter prose for full context.
+
+%===============================================================================
+\addcontentsline{toc}{section}{Research Design (ASD)} % [TOC-appendix-section-insertion]
+\section*{Research Design (ASD)}
+%===============================================================================
+
+\noindent\textbf{Mixed-Methods Research Design Per Disease.} Table~\ref{tab:mixed_methods_per_disease} below presents the detailed analysis.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:mixed_methods_per_disease} presents the mixed-methods research design per disease.
+
+
+\noindent Table~\ref{tab:mixed_methods_per_disease} below presents Mixed-Methods Research Design Per Disease, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Mixed Methods Per Disease.} % [starred-section fix]
+\noindent Table~\ref{tab:mixed_methods_per_disease} below presents Mixed-Methods Research Design Per Disease, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{1.5cm} L L L @{}}
+\caption[Mixed-Methods Research Design Per Disease]{Mixed-Methods Research Design Per Disease}\label{tab:mixed_methods_per_disease} \\
+\toprule
+\thead{Disease} & \thead{Quantitative (Secondary Data)} & \thead{Qualitative (Primary Data)} & \thead{Integration Finding} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+ASD & VotingClassifier on EEG; Bootstrap 95\% CI; Cohen's d=1.48; SHAP: theta/beta ratio \#1 & Parent questionnaire (n=10); Salda\~{n}a 3-stage coding; themes: diagnostic delay, caregiver burden & Convergent: AI screens in 5 min (97.67\%) confirming parent-reported 3-year delay \\
+\end{xltabular}}
+
+\vspace{1em}
+\noindent\textit{Note.} The individual questionnaire forms (Instruments I1--I5) and the IoT/Emotiv secondary data specification (Instrument I6) follow on the subsequent pages. Each instrument is self-contained with its own scoring rubric, variable mapping table, and consent section.
+
+%===============================================================================
+\addcontentsline{toc}{section}{Phase-2 Primary-Data Acquisition Protocol --- Specification} % [TOC-appendix-section-insertion]
+\section*{Phase-2 Primary-Data Acquisition Protocol --- Specification}
+\label{sec:appg_phase2_protocol}
+%===============================================================================
+
+\noindent\textbf{Scope of this section.} The subsections that follow specify the \emph{Phase-2 primary-data acquisition protocol} for the paediatric ASD-EEG cohort. The current submission is Phase-1 (design + governance + reference-codebase validation per the Appendix~G Scope Contract above); the protocol below documents what \emph{would} be administered when Phase-2 IRB approval and a named field site (Appendix~\ref{sec:appendix_n_indian_cohort}) are in place. The protocol is pre-registered in Appendix~\ref{app:pre_registration_template}.
+
+\subsection*{G.1 --- Hardware Specification}
+\label{subsec:appg_hardware}
+
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appg_hardware} below presents Paediatric EEG Hardware Specification, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Appg Hardware.} % [starred-section fix]
+\noindent Table~\ref{tab:appg_hardware} below presents Paediatric EEG Hardware Specification, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} L @{}}
+\caption[Paediatric EEG Hardware Specification]{Paediatric EEG Hardware Specification for the Phase-2 ASD Cohort. The Emotiv EPOC~X is the primary consumer-grade reference device; the clinical-grade alternative is documented for comparison. Specification is verified against the manufacturer datasheets and the agenticfinder reference codebase that the framework was developed against.}\label{tab:appg_hardware}\\
+\toprule
+\thead{Specification} & \thead{Value} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Primary device & Emotiv EPOC~X (14-channel consumer-grade wireless EEG) \\
+Clinical-grade alternative & 32-channel BioSemi ActiveTwo (for cross-validation subset) \\
+Electrode montage & 10-20 international placement; channels AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4 \\
+Reference electrodes & CMS/DRL (Emotiv default; M1/M2 for clinical-grade) \\
+Sampling rate & 256~Hz (Emotiv); 512~Hz (clinical) \\
+Bit resolution & 14-bit (Emotiv); 24-bit (clinical) \\
+Impedance threshold & $<5\,k\Omega$ per channel at session start; $<10\,k\Omega$ during recording \\
+Wireless protocol & Bluetooth Low Energy (BLE) 5.0; encrypted AES-128 link \\
+Battery & 9-hour continuous recording; LED indicator + 15-min low-battery warning \\
+Paediatric size variants & Small-headed cap (52--54\,cm) + standard (54--56\,cm); both required on site for tolerance variability \\
+Conductive gel & Saline-only (no chloride paste) for paediatric tactile-sensitivity tolerance \\
+Disposable components & Sponges and saline solution single-use per session for HIPAA + IPC compliance \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} BLE = Bluetooth Low Energy; AES = Advanced Encryption Standard; CMS/DRL = Common-Mode-Sense/Driven-Right-Leg; HIPAA = Health Insurance Portability and Accountability Act; IPC = Infection Prevention and Control. The KAU reference dataset uses a similar Emotiv montage with 14-channel coverage (Djemal et al., 2017); cross-cohort comparability is therefore design-supported.
+
+\subsection*{G.2 --- Sample Design \& Power Analysis}
+\label{subsec:appg_sample_design}
+
+\noindent\textbf{Target sample.} 100--300 paediatric participants aged 3--12 years (ASD-suspected or ASD-confirmed) plus 100--300 typically-developing matched controls, recruited from the named Indian field site (Appendix~\ref{sec:appendix_n_indian_cohort}). The lower bound ($n=200$ total) is the minimum for a 5-fold cross-validation with $\geq 40$ subjects per fold; the upper bound supports subgroup analyses across age strata, sex, ASD severity tier, and socio-economic stratum.
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appg_inclusion_exclusion} presents the inclusion / exclusion criteria --- phase-2 paediatric asd cohort.
+
+
+\noindent Table~\ref{tab:appg_inclusion_exclusion} below presents Inclusion / Exclusion Criteria --- Phase-2 Paediatric ASD Cohort, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Inclusion Exclusion Criteria Phase-2 Paediatric.} % [auto-heading inserted]
+\noindent Table~\ref{tab:appg_inclusion_exclusion} below presents Inclusion / Exclusion Criteria --- Phase-2 Paediatric ASD Cohort, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.4cm} L @{}}
+\caption[Inclusion / Exclusion Criteria --- Phase-2 Paediatric ASD Cohort]{Inclusion / Exclusion Criteria for the Phase-2 Paediatric ASD-EEG Cohort. Criteria are pre-registered (Appendix~\ref{app:pre_registration_template}) and locked before recruitment begins.}\label{tab:appg_inclusion_exclusion}\\
+\toprule
+\thead{Criterion} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+\textbf{Inclusion} & \emph{(criteria detailed below)} \\
+Age & 3--12 years inclusive at consent date \\
+ASD diagnosis (cases) & ADOS-2 or ADI-R confirmed; DSM-5 / ICD-11 criteria met; documented in medical record \\
+Controls & No ASD diagnosis; no first-degree relative with ASD; typical developmental milestones per parent report + paediatrician confirmation \\
+Caregiver consent & Parent or legal guardian completes informed consent in their preferred language (English or regional language; bilingual material provided) \\
+Child assent & Children $\geq 7$ years complete age-appropriate assent (separate from caregiver consent) per IRB protocol \\
+Cooperation & Child can tolerate cap-fitting for $\geq 10$ minutes (assessed in 5-minute pre-screen) \\
+\textbf{Exclusion} & \emph{(criteria detailed below)} \\
+Co-morbid epilepsy & Active seizure disorder or anti-epileptic medication within 30 days (EEG artefact + safety) \\
+Co-morbid CNS condition & Cerebral palsy, Down syndrome, Rett syndrome, fragile-X, traumatic brain injury (confounds ASD-specific EEG signature) \\
+Acute illness & Febrile illness within 48 hours; URI symptoms (alters EEG baseline) \\
+Sensory aversion (severe) & Cannot tolerate scalp contact at all per pre-screen (would force session abort with no usable data) \\
+Implanted device & Cochlear implant, deep-brain stimulator (RF interference + safety) \\
+Hair barrier & Hair extensions, dreadlocks, recent dye application (impedance prevention) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Inclusion + exclusion criteria are pre-registered (Appendix~P) and IRB-locked; deviations require protocol amendment + IRB approval before re-enrolment.
+
+\needspace{24\baselineskip}
+\noindent\textbf{Power analysis.} For the primary technical hypothesis (T1 in the Chapter~4 technical-validation universe: ASD classification accuracy $\geq 85\%$ with bootstrap 95\% CI excluding 85\%), G*Power 3.1.9.7 yields:
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Effect-size assumption:} Cohen's $d = 0.50$ (medium; conservative relative to the KAU benchmark $d = 1.48$).
+    \item \textbf{$\alpha = .05$} two-tailed; \textbf{$\beta = .20$} (power $= .80$).
+    \item \textbf{Sample size required:} $n = 128$ total ($n = 64$ per group) for two-sample $t$-test on per-subject classification scores.
+    \item \textbf{For PLS-SEM extension hypotheses} (caregiver trust pathway, n=131 design carried forward): $n = 100$ minimum per the 10:1 rule for path coefficients (10 parameters $\times$ 10 = 100 minimum); $n = 300$ recommended for reduced parameter-estimate variance.
+\end{itemize}
+The target $n = 200$--$600$ comfortably exceeds both thresholds and supports stratified subgroup analyses.
+
+\subsection*{G.3 --- Recording Protocol}
+\label{subsec:appg_recording_protocol}
+
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appg_recording_protocol} below presents EEG Recording Protocol --- Phase-2 Session Specification, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Eeg Recording Protocol Phase-2 Session.} % [auto-heading inserted]
+\noindent Table~\ref{tab:appg_recording_protocol} below presents EEG Recording Protocol --- Phase-2 Session Specification, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[EEG Recording Protocol --- Phase-2 Session Specification]{EEG Recording Protocol for the Phase-2 Session. Paradigm, session structure, and timing specified to maintain comparability with the KAU reference dataset while accommodating paediatric attention windows.}\label{tab:appg_recording_protocol}\\
+\toprule
+\thead{Element} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Paradigm & Resting-state (eyes-open + eyes-closed alternating blocks); no task paradigm in Phase~2 (task-evoked paradigm deferred to Phase~3) \\
+Session structure & Block~1: eyes-open 2~min; rest 1~min; Block~2: eyes-closed 2~min; rest 1~min; Block~3: eyes-open 2~min; Block~4: eyes-closed 2~min. Total: 10 minutes of recording in a 12-minute session window \\
+Number of sessions & 1 session at baseline; optional re-test session at 4--6 weeks for test-retest reliability subset ($n \approx 30$) \\
+Total session duration & 30 minutes door-to-door (5-min cap fit + 12-min recording + 5-min cap removal + 8-min buffer for paediatric pacing) \\
+Caregiver presence & Required for children $<10$ years; permitted for children 10--12 years if child requests \\
+Environment & Sound-attenuated room (ambient $<40$\,dB); fluorescent lighting off (LED-only); temperature 20--24\textdegree C; no electronic devices within 1\,m \\
+Instructions to child & Standardised script (English + regional language); demonstrated by research assistant; checked for comprehension via teach-back \\
+Behavioural observation log & Research assistant records: child's affect, restlessness episodes, requests to stop, observable distress indicators (per Section G.4 abort criteria) \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Recording protocol parameters are locked in the pre-registration (Appendix~P); any deviation triggers a protocol amendment and re-IRB review before the next session is run.
+
+\subsection*{G.4 --- Paediatric-Specific Considerations}
+\label{subsec:appg_paediatric_considerations}
+
+The protocol explicitly addresses six paediatric-specific risks that adult EEG protocols typically under-specify:
+
+\begin{itemize}[leftmargin=*, itemsep=4pt]
+    \item \textbf{Sensory tolerance.} Children with ASD frequently have tactile defensiveness; the saline-gel sponge montage (no chloride paste) is selected specifically to reduce tactile load. Pre-session tactile-tolerance screen (1-minute cap simulation with single dry electrode) gates participation; failure routes the child to a same-day reschedule under a desensitisation protocol or to study exclusion with full caregiver feedback.
+
+    \item \textbf{Cap-fitting protocol.} Two cap sizes available on site; child chooses which to try first (autonomy increases tolerance). Caregiver-present application allowed for children $<10$~years. Maximum fitting time: 10~minutes; if not seated by 10~min the session is rescheduled, not forced.
+
+    \item \textbf{Parent-present recording.} Caregivers may sit within visual range but outside the recording booth's 1\,m electronic-device exclusion zone. A two-way intercom permits real-time check-ins without electromagnetic interference. The caregiver may signal session-end at any time; their signal is acted on within 30 seconds without negotiation.
+
+    \item \textbf{Session breaks.} Mid-session breaks permitted between blocks at child's request; the research assistant proactively offers a break if observable distress indicators appear (rocking, vocalisations beyond baseline, repeated cap-touching). Total break time allowed: up to 8~minutes; total session window therefore capped at 20~minutes door-to-door.
+
+    \item \textbf{Behavioural distress thresholds.} Three-tier escalation: (T1) verbal cue + offer break $\to$ continue if resolved within 60~s; (T2) caregiver intercom call + take break $\to$ continue if resolved within 5~min; (T3) session abort with full debrief, regardless of data captured. Tier transitions are logged with timestamp by the research assistant.
+
+    \item \textbf{Abort criteria + data disposition.} Session abort triggered by: T3 distress threshold (above); equipment failure ($>2$ channels lost beyond redundant coverage); environmental interference (e.g., HVAC restart producing un-removable noise); caregiver withdrawal request. Aborted sessions: child is debriefed with a developmentally-appropriate explanation and a small participation token; partial data is destroyed unless the caregiver opts in to retaining it for a separate methodological-comparison sub-analysis (with explicit re-consent).
+\end{itemize}
+
+\subsection*{G.5 --- Data Quality Protocol}
+\label{subsec:appg_data_quality}
+
+
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:appg_data_quality} below presents Data Quality Protocol --- Paediatric EEG Phase-2, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-strict inserted]
+\paragraph{Appg Data Quality.} % [starred-section fix]
+\noindent Table~\ref{tab:appg_data_quality} below presents Data Quality Protocol --- Paediatric EEG Phase-2, laying out each row in structured form to help examiners trace the source, applicability, and downstream use at a glance. % [auto-intro-after-heading]
+
+
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
+\caption[Data Quality Protocol --- Paediatric EEG Phase-2]{Data Quality Protocol for the Paediatric EEG Phase-2 Cohort. Thresholds are pre-registered and locked before recruitment; deviations require IRB amendment and Appendix~\ref{app:pre_registration_template} deviation-log entry.}\label{tab:appg_data_quality}\\
+\toprule
+\thead{Quality dimension} & \thead{Protocol} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Channel-impedance check & Pre-recording impedance check; channels $> 10\,k\Omega$ flagged; if $\geq 3$ channels fail, re-prep before starting; if still failing, abort and reschedule \\
+Artefact handling pipeline & ICA decomposition (FastICA, 30 components); ICLabel auto-classification; manual review of ambiguous components by 2 raters with adjudication; rejection of eye-blink, EMG, line-noise, cardiac, channel-noise components \\
+Artefact-Subspace Reconstruction (ASR) & Burst correction at $k = 20$ standard deviations; window length 0.5\,s; correlation-based channel reconstruction for transient bad channels \\
+Channel rejection criteria & Channels rejected if: $> 20\%$ of epochs flagged as bad; mean correlation with other channels $< 0.4$; line-noise z-score $> 4$ on 50\,Hz \\
+Channel interpolation & Spherical-spline interpolation if $\leq 3$ channels rejected; subject excluded if $> 3$ channels lost \\
+Epoch rejection & 2-second non-overlapping epochs; rejected if peak-to-peak amplitude $> 100\,\mu V$ or kurtosis $> 5$ on any channel \\
+Minimum clean data quota & $\geq 60\%$ of recording duration usable post-cleaning (target: $\geq 6$~minutes of clean data per subject); subjects below threshold flagged for re-test invitation \\
+Drop-out criteria & Subject excluded from primary analysis if: (a) session aborted at T3 distress; (b) clean data $< 4$~minutes after pipeline; (c) impedance failure requiring 2+ re-preps; (d) post-hoc discovery of exclusion criterion (e.g., active illness) \\
+Replacement plan & Drop-out replacement to maintain target $n$ within stratum (age, sex, ASD severity); maximum 15\% replacement rate; replacements documented in CONSORT-style flow diagram \\
+Inter-rater reliability & ICA component classification: 2 independent raters with Cohen's $\kappa \geq 0.70$ adjudication threshold; below $\kappa = 0.70$ triggers protocol retraining and re-rating of all prior sessions \\
+Quality-control dashboard & Per-subject quality metrics logged to study dashboard with subject ID redacted; weekly review by PI; deviations from target documented in deviation log \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} ICA = Independent Component Analysis; ICLabel = automated IC classifier (Pion-Tonachini et al., 2019); ASR = Artefact Subspace Reconstruction (Kothe and Makeig, 2013); PI = Principal Investigator; CONSORT = Consolidated Standards of Reporting Trials. The pipeline matches the 8-step EEG preprocessing decomposition in Chapter~3 (§\ref{sec:part_c_combined}) Part~C and the agenticfinder reference-codebase implementation; cross-cohort comparability is therefore protocol-supported.
+
+\subsection*{G.6 --- Consent + Ethics Framework}
+\label{subsec:appg_consent_ethics}
+
+The Phase-2 consent framework operationalises four jurisdiction-specific requirements layered into a single consent process:
+
+\begin{itemize}[leftmargin=*, itemsep=3pt]
+    \item \textbf{Parental / guardian consent} (caregiver, $\geq 18$~years): bilingual (English + regional language); reading-level grade 8 maximum; explicit data-use, data-sharing, data-retention, withdrawal, and re-contact clauses; signature + date + witness.
+    \item \textbf{Child assent} ($\geq 7$~years per ICMR National Ethical Guidelines 2017 §5.4): age-appropriate written assent for $\geq 12$~years; pictorial assent for 7--11~years; verbal assent for $<7$~years where the child can express understanding (assessed by teach-back).
+    \item \textbf{DPDP Act 2023 (India) compliance:} explicit consent for processing children's personal data (DPDP Act §9: ``data fiduciary shall not undertake processing that is likely to cause any detrimental effect on the well-being of a child''); verifiable parental consent; no behavioural-tracking purposes; right to erasure honoured within 30 days of request.
+    \item \textbf{HIPAA / GDPR Art.~8 parallel safeguards} for any data transferred to non-Indian collaborators: minimum necessary data principle; pseudonymisation at source; access logs retained per audit-row schema (Appendix~\ref{chap:appendix_rgaig_architecture}).
+\end{itemize}
+
+\subsection*{G.7 --- Cross-References + Companion Specifications}
+\label{subsec:appg_cross_refs}
+
+\noindent The Phase-2 protocol specified in §G.1--G.6 above composes with the following companion specifications:
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Appendix~\ref{sec:appendix_n_indian_cohort}} --- Indian cohort field-site acquisition methodology (15-institution outreach, ICMR + IEC pathway, CTRI exemption documentation, Co-PI eligibility).
+    \item \textbf{Appendix~\ref{app:pre_registration_template}} --- Pre-registered hypotheses, analysis plan, stopping rules, deviation log (the locked statistical contract).
+    \item \textbf{Appendix~\ref{chap:appendix_rgaig_architecture}} --- Audit-row schema for per-prediction governance traceability during Phase-2 deployment.
+    \item \textbf{Chapter~\ref{chap:methodology} §\ref{sec:part_c_combined}} --- Part~C dual-modality preprocessing protocol that the G.5 data-quality thresholds align with.
+    \item \textbf{Chapter~\ref{chap:methodology} §\ref{para:prior_irb_approval_trail}} --- Prior IRB trail for the existing PD-1 ($n{=}131$) and PD-2 ($n{=}12$) secondary-data streams that the Phase-2 paediatric primary-data cohort will supplement.
+\end{itemize}
+
+%===============================================================================
+% INCLUDE INDIVIDUAL QUESTIONNAIRES
+%===============================================================================
+
+% The individual questionnaire PDFs are compiled separately and appended
+% to the thesis PDF during the final assembly process.
+% Source files: questionnaires/asd_questionnaire.tex, pd_questionnaire.tex,
+% epilepsy_questionnaire.tex, stress_questionnaire.tex, cancer_questionnaire.tex,
+% iot_emotiv_secondary_data.tex

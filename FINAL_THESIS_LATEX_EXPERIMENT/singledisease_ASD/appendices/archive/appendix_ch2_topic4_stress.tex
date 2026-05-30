@@ -1,0 +1,57 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CHAPTER 2 SECTION: DETAILED LITERATURE REVIEW: RAG-BASED STRESS DETECTION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Detailed Literature Review: RAG-Based Stress Detection}
+\label{app:ch2_stress}
+\label{sec:topic4_stress}
+
+This section provides the detailed literature review for adaptive RAG-based EEG stress detection systems supporting the thematic synthesis in Chapter~2. The review traces the progression through classical approaches, deep learning and adaptive systems, advanced decomposition and optimization, and RAG-inspired adaptive pipelines. All citations are referenced in the consolidated bibliography.
+
+The literature on EEG-based stress detection has progressed through classical approaches (2016--2019), deep learning and adaptive systems (2018--2022), advanced decomposition and optimization (2020--2024), and RAG-inspired adaptive pipelines (2024--2025).
+
+\subsection{Classical Approaches}
+
+Classical stress detection reveals a hardware--accuracy trade-off that later studies fail to resolve. Single-channel approaches (Secerbegovic et al.~\cite{secerbegovic2017workload}; Jun and Smitha~\cite{jun2016stress}) prove feasibility but sacrifice classification granularity. Subhani et al.~\cite{subhani2017stress} achieve competitive multi-class accuracy with SVM/KNN, though the subjective labelling protocol---self-reported stress levels---introduces ground-truth noise absent from physiological biomarker studies. Al-Shargie et al.~\cite{alshargie2018mental} demonstrate that EEG+fNIRS fusion outperforms EEG-only, but fNIRS requires additional hardware that commercial wearables do not support, limiting practical deployment. Arsalan et al.~\cite{arsalan2019commercial} present the most deployment-relevant study (commercial headband) but report the lowest accuracy, exposing the gap between laboratory and real-world performance.
+
+\subsection{Deep Learning and Adaptive Systems}
+
+DL-based stress detection introduces architectural diversity without convergence on a dominant approach. Jebelli et al.~\cite{jebelli2018eeg} address temporal drift through online multitask learning---a critical real-world requirement---but validate only in controlled construction-site monitoring. Fu et al.~\cite{fu2022symmetric} achieve the highest accuracy with an adversarial network, yet the adversarial training adds computational cost incompatible with edge deployment. Akella et al.~\cite{akella2021autoencoder} is the sole study testing cross-population generalisability, a methodological strength undermined by small subgroup samples. Saini et al.~\cite{saini2022dscnn} target lightweight portable deployment (DSCNN-CAU), while Ghosh et al.~\cite{ghosh2023artifact} address artefact removal separately without evaluating the end-to-end accuracy benefit.
+
+\subsection{Advanced Decomposition}
+
+Arpaia et al.~\cite{arpaia2020wearable} provided highly relevant behavioral stress markers via wearable EEG frontal asymmetry. Gonzalez-Vazquez et al.~\cite{gonzalezvazquez2024dl} achieved state-of-the-art accuracy for multi-level stress using serious games. Tseng et al.~\cite{tseng2024sbs} improved class imbalance handling through sequential backward selection with adaptive synthetic sampling. Dragomiretskiy and Zosso~\cite{dragomiretskiy2013vmd} introduced Variational Mode Decomposition for addressing mode mixing. Khare and Bajaj~\cite{khare2020evolutionary} demonstrated benefits of evolutionary optimization-guided decomposition.
+
+\subsection{RAG-Driven Innovation}
+
+The proposed GenAI-RAG-EEG framework integrates retrieval-augmented knowledge into VMD parameter optimization using differential evolution \cite{storn1997de} and Grey Wolf Optimizer \cite{mirjalili2014gwo}, with Laplacian Score channel selection \cite{he2005laplacian} and entropy-based feature extraction \cite{sabeti2009entropy}. The framework achieves 99.31\% accuracy on the EEGMAT dataset, 72.92\% on SAM-40, and 89.8\% expert concordance, maintaining a compact architecture of only 197,635 parameters.
+
+\subsection{Comparative Analysis}
+
+Table~\ref{tab:stress_comparison} compares existing stress detection frameworks against the proposed RAG-based system.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{3cm} p{3cm} p{2.5cm} L L @{}}
+\caption[EEG Stress Detection vs.\ Proposed RAG System]{Comparative Analysis of EEG Stress Detection Frameworks vs.\ Proposed RAG System}\label{tab:stress_comparison} \\
+\toprule
+\thead{Study} & \thead{Method} & \thead{Result} & \thead{Gap} & \thead{RAG System Advantage} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:stress_comparison} continued from previous page\,)}} \\
+\toprule
+\thead{Study} & \thead{Method} & \thead{Result} & \thead{Gap} & \thead{RAG System Advantage} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Fu et al.~\cite{fu2022symmetric} & Symmetric CNN + adversarial & High accuracy & No adaptive decomposition; fixed architecture & Adaptive VMD with retrieved knowledge \\
+\addlinespace
+Akella et al.~\cite{akella2021autoencoder} & Autoencoder-based multi-level & Strong multi-level accuracy & No adaptive channel selection & Laplacian Score + AI-driven decomposition \\
+\addlinespace
+Gonzalez-Vazquez et al.~\cite{gonzalezvazquez2024dl} & DL for multi-level stress & State-of-the-art accuracy & No adaptive parameter tuning & Retrieval-enhanced adaptive decomposition \\
+\addlinespace
+Tseng et al.~\cite{tseng2024sbs} & Sequential backward + ADASYN & High detection accuracy & Manual features; no decomposition & Automatic feature selection + adaptive VMD \\
+\addlinespace
+Ghosh et al.~\cite{ghosh2023artifact} & kNN + LSTM artifact removal & Improved EEG cleaning & No decomposition optimization & RAG-driven artifact knowledge + mode tuning \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} CNN = convolutional neural network; VMD = variational mode decomposition; RAG = retrieval-augmented generation; ADASYN = adaptive synthetic sampling; kNN = k-nearest neighbors; LSTM = long short-term memory.

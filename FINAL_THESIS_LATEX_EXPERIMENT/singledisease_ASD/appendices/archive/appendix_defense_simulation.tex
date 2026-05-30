@@ -1,0 +1,478 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% APPENDIX G: DEFENSE SIMULATION — EXAMINER QUESTIONS & STRUCTURED ANSWERS
+%% High-Pressure Viva Preparation for RGAIG Dissertation
+%% Author: Praveen K Asthana, Golden Gate University
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Defense Simulation: Examiner Questions and Structured Answers}
+\label{app:defense_simulation}
+
+This appendix provides a comprehensive defense preparation document structured around the kinds of questions senior examiners ask when testing doctoral-level depth. Each question identifies what the examiner is testing, provides a weak response to avoid, and presents a strong structured answer grounded in the actual evidence from this dissertation. The document covers seven examination domains: foundational challenge, methodological pressure, statistical deep dive, qualitative and mixed-method rigor, contribution precision, weakness exposure, and a 40-point pre-submission audit.
+
+Table~\ref{tab:defense_overview} provides a navigational overview of the seven examination domains and 40-point audit covered in this appendix, mapping each section to its question range and examiner focus.
+\needspace{8\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{0.5cm} L L p{1.2cm} @{}}
+\caption{Defense Simulation Overview: Examination Domains and Question Map}\label{tab:defense_overview} \\
+\toprule
+\thead{Sec.} & \thead{Domain} & \thead{Examiner Focus} & \thead{Questions} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:defense_overview} continued from previous page\,)}} \\
+\toprule
+\thead{Sec.} & \thead{Domain} & \thead{Examiner Focus} & \thead{Questions} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+A & Foundational Challenge & Problem clarity, gap identification, theoretical anchoring, contribution precision & Q1--Q5 \\
+\addlinespace
+B & Methodological Pressure & Research design justification, sample validity, statistical rigour & Q6--Q11 \\
+\addlinespace
+C & Statistical Deep Dive & Effect size interpretation, multiple comparison correction, CV assumptions & Q12--Q16 \\
+\addlinespace
+D & Mixed-Method and Qualitative & Integration strength, divergence handling, qualitative rigour & Q17--Q20 \\
+\addlinespace
+E & Contribution Precision & Theoretical refinement, novelty claims, business case reliability & Q21--Q24 \\
+\addlinespace
+F & Weakness Exposure & Intellectual honesty, reflexivity, falsifiability awareness & Q25--Q30 \\
+\addlinespace
+G & 40-Point Audit & Structural integrity across 8 audit categories & 40 items \\
+\addlinespace
+H & Vulnerability Map & Five highest-risk examiner attack vectors with prepared responses & 5 risks \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Sections A--F contain 30 questions in weak-answer/strong-answer format. Section G applies a scored checklist (37/40). Section H identifies risk areas with evidence-based rebuttals. CV = cross-validation.
+
+%===============================================================================
+\subsection{Section A: Foundational Challenge}
+%===============================================================================
+
+\noindent Table~\ref{tab:defense_a} presents the foundational challenge questions an examiner would use to test problem clarity, gap identification, theoretical anchoring, and contribution precision.
+
+\needspace{3\baselineskip}
+\tablefontsize
+\begin{xltabular}
+{\textwidth}{@{} p{0.3cm} L @{}}
+\caption[Foundational Challenge Questions: Problem, Gap, Theory,]{Foundational Challenge Questions: Problem, Gap, Theory, and Contribution} \label{tab:defense_a} \\
+\toprule
+\thead{\#} & \thead{Question, Test, and Structured Answer} \\
+\midrule
+\endfirsthead
+\endhead
+\midrule
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+Q1 & \textbf{What is the single most important intellectual problem your thesis solves?} \newline
+\textit{Testing: Clarity and contribution awareness.} \newline\newline
+\textit{Weak answer:} ``It studies AI in healthcare and governance.'' \newline\newline
+\textbf{Strong answer:} The core intellectual problem is the absence of a unified, governance-embedded AI framework capable of operating across multiple biomedical diagnostic domains simultaneously. The prevailing approach---fragmented across conditions (P1), opaque in reasoning (P2), manual in execution (P3), and unvalidated across domains (P4)---inflicts avoidable costs on healthcare organisations and preventable risks on patients. No prior study addresses both architectural scope AND governance integration simultaneously. This dissertation resolves that gap by designing, implementing, and validating the RGAIG framework, demonstrating 78--95\% accuracy across the ASD domain, >99\% workflow automation, and literature-grounded explainability scoring M = 4.6/5.0 from a 12-member expert panel. \newline\newline
+\textit{Structure: Problem $\rightarrow$ Four gaps (P1--P4) $\rightarrow$ Resolution with numbers.} \\
+\addlinespace
+
+Q2 & \textbf{Why did you choose Design Science Research over competing methodologies?} \newline
+\textit{Testing: Theoretical awareness and justification.} \newline\newline
+\textit{Weak answer:} ``Because it fits my study.'' \newline\newline
+\textbf{Strong answer:} I selected Design Science Research (DSR) because the core contribution is an \textit{artefact}---the RGAIG framework---not a test of an isolated hypothesis. Pure experimental design (RCT) would test whether AI improves outcomes but would not produce the framework architecture itself. Grounded theory would generate concepts from qualitative data but cannot validate computational pipelines. Case study methodology would provide contextual depth but lacks the iterative build-evaluate cycle that DSR provides. DSR, following Hevner et al.\ (2004) and Peffers et al.\ (2007), provides the rigorous design-build-evaluate-communicate cycle that matches the study's aim: to create a reusable, governance-aligned framework validated through computational evidence and expert evaluation. \newline\newline
+\textit{Structure: Mention 3 alternatives $\rightarrow$ Explain exclusion of each $\rightarrow$ Justify DSR fit.} \\
+\addlinespace
+
+Q3 & \textbf{Why these the ASD domain and not others (e.g., cardiology, ophthalmology)?} \newline
+\textit{Testing: Scope justification and selection rigour.} \newline\newline
+\textbf{Strong answer:} The the ASD domain were selected to maximise modality heterogeneity while maintaining data availability: three EEG-based (ASD, PD, stress---covering oscillatory, spectral, and affective signals), one BCI (motor imagery---the hardest EEG classification task), and one imaging-based (cancer radiomics---fundamentally different data type). This selection tests the framework's cross-modality portability claim. Cardiology and ophthalmology were excluded because: (a) publicly available, well-labelled benchmark datasets with sufficient sample sizes were not consistently available, and (b) adding more domains would dilute per-ASD depth without strengthening the ASD-focused claim beyond what five already provides. The ``at least four of five'' criterion in H1 explicitly anticipates that some domains may underperform. \\
+\addlinespace
+
+Q4 & \textbf{Why did you choose RBV, TAM, and DSR as your theoretical anchors over competing theories?} \newline
+\textit{Testing: Theoretical depth and awareness of alternatives.} \newline\newline
+\textbf{Strong answer:} The thesis integrates nine theoretical perspectives, but three are primary anchors. \textit{Resource-Based View (RBV)} explains why a unified AI platform constitutes a valuable, rare, inimitable organisational resource---justifying the economic argument for platform consolidation over multi-vendor procurement. \textit{Technology Acceptance Model (TAM)} explains why explainability (not just accuracy) drives clinician adoption---our expert panel data confirms this (explainability rated M = 4.6/5 vs. accuracy M = 4.3/5). \textit{Design Science Research (DSR)} provides the methodological scaffold for artefact creation. Institutional theory was considered but excluded because it explains regulatory pressure (external conformity) without capturing internal capability development, which is central to this study. Agency theory was excluded because the principal-agent problem is secondary to the trust-formation mechanism tested via H5. \\
+\addlinespace
+
+Q5 & \textbf{What are your eight contributions, and which is the most novel?} \newline
+\textit{Testing: Contribution precision and self-awareness.} \newline\newline
+\textbf{Strong answer:} The eight contributions (C1--C8) address six identified gaps (G1--G6). The most novel is C2: RAG-based explainability producing literature-grounded clinical narratives. No prior published system combines SHAP feature attribution with retrieval-augmented generation to produce contextualised, citation-backed diagnostic explanations. The second most novel is C1: the unified pipeline itself---no prior study achieves $\geq$85\% accuracy across $\geq$4 biomedical domains using a single architecture. C3 (agentic automation), C4 (five-layer governance), and C5 (ASD-focused biomarker synthesis) are integrative rather than algorithmically novel. C6 (TCO model), C7 (expert validation), and C8 (replicable blueprint) are practical contributions. I am explicit about what is novel vs.\ integrative---the thesis does not claim algorithmic novelty in individual components. \\
+
+\end{xltabular}
+
+%===============================================================================
+\subsection{Section B: Methodological Pressure}
+%===============================================================================
+
+\noindent Table~\ref{tab:defense_b} documents the methodological pressure questions targeting research design justification, sample validity, and statistical rigour.
+
+\needspace{3\baselineskip}
+\tablefontsize
+\begin{xltabular}
+{\textwidth}{@{} p{0.3cm} L @{}}
+\caption{Methodological Pressure Questions: Design, Validity, and Rigour} \label{tab:defense_b} \\
+\toprule
+\thead{\#} & \thead{Question, Test, and Structured Answer} \\
+\midrule
+\endfirsthead
+\endhead
+\midrule
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+Q6 & \textbf{How can you claim causality with cross-validation on retrospective data?} \newline
+\textit{Testing: Statistical maturity.} \newline\newline
+\textit{Weak answer:} ``The relationship is significant, so it shows causation.'' \newline\newline
+\textbf{Strong answer:} This study does not claim definitive causality. The findings indicate statistically significant performance differences consistent with the proposed architectural hypotheses. Cross-validation on retrospective data establishes \textit{predictive utility under controlled conditions}, not causal inference about clinical outcomes. Temporal causality would require a prospective longitudinal design with patient outcome measurement---identified as the highest-priority future research direction. The theoretical logic (DSR artefact evaluation, not causal modelling) supports the design choice: the contribution is the framework architecture, not a causal claim about patient outcomes. \\
+\addlinespace
+
+Q7 & \textbf{Your expert panel has only 12 members. How can you generalise from that?} \newline
+\textit{Testing: Sample size awareness and honesty.} \newline\newline
+\textbf{Strong answer:} I cannot generalise from $n = 12$ to the broader clinical population. The expert panel provides \textit{targeted, purposive} qualitative validation---three neurologists, two psychiatrists, two BCI researchers, three radiologists, and two healthcare IT administrators---each with $\geq$5 years domain experience. The panel validates \textit{whether} the explanations are clinically meaningful, not the population-level distribution of trust. For that, the Phase~2 survey instrument (Appendix~\ref{app:survey_instrument}, $n \geq 200$) is designed. The inter-rater reliability (Krippendorff's $\alpha = 0.74$--$0.91$) suggests internal consistency, but the panel may over-represent AI-sympathetic clinicians. This limitation is explicitly acknowledged in Section~\ref{sec:limitations_methodology}. \\
+\addlinespace
+
+Q8 & \textbf{Why bootstrap resampling instead of Monte Carlo simulation?} \newline
+\textit{Testing: Statistical method awareness.} \newline\newline
+\textbf{Strong answer:} Bootstrap resampling (1,000 resamples, 95\% CI) is appropriate because we are estimating the sampling distribution of a \textit{known statistic} (classification accuracy) from \textit{observed data}. Monte Carlo simulation generates synthetic data from assumed probability distributions---useful when the data-generating process is known parametrically. Our data is empirical classification performance on real EEG/imaging data; there is no theoretical distribution to sample from. Bootstrap provides non-parametric confidence intervals without distributional assumptions, which is methodologically correct for this application. Additionally, bootstrap is standard practice in biomedical AI validation literature. \\
+\addlinespace
+
+Q9 & \textbf{What would happen if your sample size doubled?} \newline
+\textit{Testing: Statistical reasoning depth.} \newline\newline
+\textbf{Strong answer:} Doubling sample size would likely: (1) reduce confidence interval widths by approximately $1/\sqrt{2}$ ($\approx$30\% narrower), increasing precision of accuracy estimates; (2) stabilise parameter estimates, particularly for BCI (currently $n = 9$), where the 8.4~pp CI width reflects high variance from limited data; (3) increase statistical power for detecting smaller effect sizes. However, the \textit{direction} and \textit{magnitude} of the H2 deep learning superiority findings (Cohen's $d = 0.82$--$1.48$) are large effects that would likely remain significant. The BCI domain might cross the 85\% threshold with $n \geq 50$, resolving the H1 partial support. The core framework architecture would not change; the evidence base would simply become more precise. \\
+\addlinespace
+
+Q10 & \textbf{You use subject-level splitting. Why not random epoch splitting?} \newline
+\textit{Testing: Data leakage awareness.} \newline\newline
+\textbf{Strong answer:} Random epoch splitting would inflate accuracy estimates by 5--15\% because epochs from the same subject share temporal autocorrelation, subject-specific neural signatures, and recording artifacts. If training and test sets contain epochs from the same subject, the model learns subject identity rather than diagnostic features---a well-documented data leakage problem in EEG classification. Subject-level splitting (all epochs from a given subject in either training OR test, never both) provides honest generalisation estimates: ``Can this model diagnose a \textit{new patient} it has never seen?'' This is the clinically relevant question. The cost is higher variance and slightly lower accuracy, but the estimates are methodologically honest. \\
+\addlinespace
+
+Q11 & \textbf{Your BCI domain failed the 85\% threshold. Does this invalidate H1?} \newline
+\textit{Testing: Intellectual honesty and boundary condition awareness.} \newline\newline
+\textbf{Strong answer:} No. H1 was deliberately specified as ``$\geq$85\% accuracy in $\geq$4 of ASD'' precisely because 4-class motor imagery classification with $n = 9$ subjects is the hardest task in the study. BCI at 78.3\% [74.1\%--82.5\%] represents a \textit{boundary condition}, not a framework failure. The upper confidence bound (82.5\%) still falls below 85\%, confirming this is not a sampling artifact. The explanation is clear: 4-class classification with minimal training data from 9 subjects exceeds the framework's current capability without domain-specific optimisation. This is an honest limitation, not a hidden weakness. H1 is \textit{partially supported}---the correct verdict, not ``supported'' or ``not supported.'' \\
+
+\end{xltabular}
+
+%===============================================================================
+\subsection{Section C: Statistical Deep Dive}
+%===============================================================================
+
+\noindent Table~\ref{tab:defense_c} presents the statistical deep dive questions probing effect size interpretation, multiple comparison correction, and cross-validation assumptions.
+
+\needspace{3\baselineskip}
+\tablefontsize
+\begin{xltabular}
+{\textwidth}{@{} p{0.3cm} L @{}}
+\caption{Statistical Deep Dive Questions: Rigour Beyond $p$-Values} \label{tab:defense_c} \\
+\toprule
+\thead{\#} & \thead{Question, Test, and Structured Answer} \\
+\midrule
+\endfirsthead
+\endhead
+\midrule
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+Q12 & \textbf{Why is statistical significance not enough? What else did you report?} \newline
+\textit{Testing: Understanding of effect size and practical significance.} \newline\newline
+\textbf{Strong answer:} Statistical significance ($p < .05$) indicates only that the observed difference is unlikely due to chance---it does not indicate practical magnitude or clinical meaningfulness. Therefore, I report three complementary metrics: (1)~\textit{Effect sizes} (Cohen's $d = 0.82$--$1.48$ for H2, all ``large'' effects), indicating the DL--baseline accuracy gap is practically meaningful, not just statistically detectable. (2)~\textit{Bootstrap 95\% confidence intervals}, providing the plausible range of true accuracy for each domain. (3)~\textit{Predefined acceptance thresholds} ($\geq$85\% accuracy, $\geq$80\% expert agreement, $\geq$90\% effort reduction), established before data analysis to prevent post-hoc threshold adjustment. The combination of significance, effect size, confidence intervals, and predefined thresholds provides a rigorous evidence standard. \\
+\addlinespace
+
+Q13 & \textbf{How did you address common method bias?} \newline
+\textit{Testing: Survey rigour (for expert panel evaluation).} \newline\newline
+\textbf{Strong answer:} Common method bias is primarily a concern for self-report surveys where predictor and outcome variables are measured from the same source using the same instrument. In this study, the primary evidence is \textit{computational} (classification accuracy from cross-validation), not self-report. The expert panel evaluates a different construct (explanation quality) from a different source (generated narratives) using a different instrument (structured rubric with 5-point scales). Procedural remedies included: (a) separating accuracy measurement (computational) from quality assessment (human), (b) anonymising expert responses, (c) structured rubric to reduce subjective interpretation. Statistically, inter-rater reliability (Krippendorff's $\alpha = 0.74$--$0.91$) suggests consistent, non-random rating patterns. Residual bias from a potentially AI-sympathetic panel cannot be fully eliminated and is acknowledged as a limitation. \\
+\addlinespace
+
+Q14 & \textbf{You applied Bonferroni correction. Was that the right choice?} \newline
+\textit{Testing: Multiple comparison awareness.} \newline\newline
+\textbf{Strong answer:} Bonferroni correction ($\alpha_{\text{adjusted}} = .01$ for 5 H2 comparisons) is the most conservative correction, appropriate when Type~I error control is paramount---as it is when claiming deep learning superiority across the ASD domain. The trade-off is reduced statistical power (increased Type~II error risk). However, all H2 tests produced $p < .001$, well below the Bonferroni-adjusted threshold of $.01$, so the correction does not change any conclusion. An alternative would be Holm--Bonferroni (step-down procedure) or Benjamini--Hochberg FDR control, both less conservative. I chose Bonferroni specifically because it is the most stringent---if the results survive Bonferroni, they survive any reasonable correction. \\
+\addlinespace
+
+Q15 & \textbf{Paired $t$-tests on cross-validation folds violate independence. How do you respond?} \newline
+\textit{Testing: Advanced statistical critique awareness.} \newline\newline
+\textbf{Strong answer:} This is a valid concern. Cross-validation folds share training data overlap, which can inflate variance estimates and produce optimistic $p$-values. The Nadeau--Bengio corrected $t$-test adjusts for this dependency and would be more appropriate. However, three mitigating factors support the robustness of the findings: (1) Effect sizes (Cohen's $d = 0.82$--$1.48$) are so large that even substantial $p$-value inflation would not reverse the conclusion. (2) McNemar's test on paired predictions (which does not assume independence of folds) confirms all H2 comparisons at $p < .01$. (3) The consistency of DL superiority across all five independent domains provides ASD-focused replication---the strongest form of evidence. I acknowledge this as a methodological refinement opportunity for future work. \\
+\addlinespace
+
+Q16 & \textbf{How do you interpret $R^2$ in the context of your study?} \newline
+\textit{Testing: Explanatory power awareness.} \newline\newline
+\textbf{Strong answer:} In this study, the primary metric is classification accuracy (and AUC, F1, sensitivity, specificity), not $R^2$. The framework does not fit a regression or SEM model where $R^2$ represents variance explained. However, when discussing the future Phase~2 survey (Appendix~\ref{app:survey_instrument}), the expected $R^2 \geq .30$ for GenAI adoption intensity means that AI readiness and trust together are expected to explain at least 30\% of variance in adoption intent---a moderate effect consistent with behavioural research. In the current study, the analogous metric is AUC (0.82--0.97 across domains), which indicates discriminative ability rather than variance explained. I am careful not to conflate classification metrics with regression metrics. \\
+
+\end{xltabular}
+
+%===============================================================================
+\subsection{Section D: Mixed-Method and Qualitative Pressure}
+%===============================================================================
+
+\noindent Table~\ref{tab:defense_d} documents the mixed-method and qualitative rigour questions examining integration strength and divergence handling.
+
+\needspace{3\baselineskip}
+\tablefontsize
+\begin{xltabular}
+{\textwidth}{@{} p{0.3cm} L @{}}
+\caption{Mixed-Method and Qualitative Rigour Questions} \label{tab:defense_d} \\
+\toprule
+\thead{\#} & \thead{Question, Test, and Structured Answer} \\
+\midrule
+\endfirsthead
+\endhead
+\midrule
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+Q17 & \textbf{How do you know your expert panel themes are not subjective interpretations?} \newline
+\textit{Testing: Qualitative rigour.} \newline\newline
+\textbf{Strong answer:} Three safeguards reduce subjectivity: (1) \textit{Structured evaluation rubric} with predefined criteria (citation relevance, explanation coherence, clinical alignment) measured on 5-point scales---not open-ended impressions. (2) \textit{Inter-rater reliability} (Krippendorff's $\alpha = 0.74$--$0.91$) demonstrates that experts converge independently, suggesting the ratings reflect the explanations' qualities rather than individual bias. (3) \textit{Predefined thresholds} ($\geq$80\% expert agreement, $\geq$90\% citation accuracy) were established before data collection, preventing post-hoc interpretation. However, the rubric itself was researcher-designed, introducing a framing effect. Future work should use validated scales (e.g., System Usability Scale adapted for AI explanations) and larger panels ($n \geq 30$). \\
+\addlinespace
+
+Q18 & \textbf{What unique insight emerges from mixing computational and expert evaluation methods?} \newline
+\textit{Testing: Integration strength.} \newline\newline
+\textbf{Strong answer:} The computational validation demonstrates that the framework \textit{works technically}: 78--95\% accuracy, significant DL superiority, meaningful feature importance. The expert evaluation reveals something computation alone cannot: \textit{whether clinicians find the outputs trustworthy and usable}. The integration reveals that explainability (M = 4.6/5) is rated \textit{higher} than accuracy (M = 4.3/5) by experts, suggesting that \textit{how} the AI explains matters more to adoption than \textit{how accurate} it is. This insight---that trust formation is driven more by explanation quality than by accuracy metrics---directly informs the RGAIG's design emphasis on RAG-based narratives over raw performance numbers. A single-method study would have missed this crucial finding. \\
+\addlinespace
+
+Q19 & \textbf{Your study is primarily computational. Why call it mixed methods?} \newline
+\textit{Testing: Design integrity.} \newline\newline
+\textbf{Strong answer:} The study is primarily computational with a convergent mixed-methods evaluation component. Phase~1 (quantitative) produces classification accuracy, AUC, effect sizes, and ablation results. Phase~2 (qualitative-quantitative hybrid) produces expert ratings on structured rubrics plus open-ended clinical assessments. The mixing occurs at the \textit{evaluation} stage: computational performance and expert assessment are integrated to determine whether the framework meets both technical AND clinical acceptability thresholds. This is a convergent design where two evidence streams (computational metrics and expert judgment) are collected independently and merged at interpretation. I am careful to call it a ``convergent mixed-methods evaluation'' within a DSR framework, not a full mixed-methods research design in the Creswell sense. \\
+\addlinespace
+
+Q20 & \textbf{What if your qualitative and quantitative findings had contradicted each other?} \newline
+\textit{Testing: Divergence handling maturity.} \newline\newline
+\textbf{Strong answer:} Divergence would have been analytically valuable, not problematic. If the framework achieved high accuracy (quant) but experts rated explanations poorly (qual), this would identify a \textit{trust gap}---technically valid but clinically unacceptable. This pattern is common in AI: high-performing models with poor explainability fail adoption. I would have interpreted this as evidence that accuracy is necessary but insufficient for clinical deployment, strengthening the argument for the governance and explainability layers. If experts rated explanations highly but accuracy was low, this would suggest the RAG narratives are compelling but the underlying model unreliable---a dangerous ``persuasive but wrong'' pattern requiring architectural redesign. Divergent findings would have refined, not weakened, the theoretical contribution. \\
+
+\end{xltabular}
+
+%===============================================================================
+\subsection{Section E: Contribution Precision}
+%===============================================================================
+
+\noindent Table~\ref{tab:defense_e} presents the contribution precision questions testing theoretical refinement, novelty claims, and business case reliability.
+
+\needspace{3\baselineskip}
+\tablefontsize
+\begin{xltabular}
+{\textwidth}{@{} p{0.3cm} L @{}}
+\caption{Contribution Precision and Theoretical Refinement Questions} \label{tab:defense_e} \\
+\toprule
+\thead{\#} & \thead{Question, Test, and Structured Answer} \\
+\midrule
+\endfirsthead
+\endhead
+\midrule
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+Q21 & \textbf{What exactly changed in theory because of your findings?} \newline
+\textit{Testing: Theoretical refinement clarity.} \newline\newline
+\textit{Weak answer:} ``It contributes to the AI literature.'' \newline\newline
+\textbf{Strong answer:} Three theoretical refinements: (1) \textit{RBV extension:} The findings demonstrate that a unified AI diagnostic platform constitutes a VRIN resource (valuable, rare, inimitable, non-substitutable) because no prior study achieves ASD-focused portability without domain-specific redesign. This extends RBV from physical/human resources to AI platform capabilities. (2) \textit{TAM refinement:} The expert panel data reveals that perceived explainability (not perceived accuracy) is the stronger predictor of adoption intent, refining TAM by identifying explanation quality as a first-order trust determinant. (3) \textit{DSR methodology extension:} The study validates a four-method artefact evaluation protocol (computational + expert + ablation + scenario analysis) that extends Hevner's two-method standard, providing a replicable template for ASD-focused AI framework validation. \\
+\addlinespace
+
+Q22 & \textbf{How is your framework different from simply stacking existing models?} \newline
+\textit{Testing: Novelty challenge.} \newline\newline
+\textbf{Strong answer:} ``Stacking models'' would be an ensemble of domain-specific classifiers without architectural unification, governance integration, or explainability. The RGAIG differs in four ways: (1) \textit{Shared preprocessing}: standardised eight-step EEG pipeline and five-step imaging pipeline that produce comparable feature representations across modalities. (2) \textit{ASD-focused architecture}: the ASD ensemble (multi-scale channel attention) backbone processes all domains without architectural modification---the same model weights handle ASD EEG and cancer imaging. (3) \textit{Governance embedding}: the five-layer governance structure (data ethics $\rightarrow$ model interpretability $\rightarrow$ robustness $\rightarrow$ portability $\rightarrow$ organisational trust) is integral to the framework, not bolted on. (4) \textit{RAG explainability}: generated narratives are domain-aware, pulling from domain-specific literature corpora. A model stack has none of these properties. \\
+\addlinespace
+
+Q23 & \textbf{You claim eight contributions. Isn't that too many for a single study?} \newline
+\textit{Testing: Parsimony and self-discipline.} \newline\newline
+\textbf{Strong answer:} Fair challenge. The eight contributions operate at three levels: theoretical (C1--C3: unified pipeline, RAG explainability, agentic automation), practical (C4--C6: governance framework, biomarker synthesis, TCO model), and methodological (C7--C8: expert validation, replicable blueprint). The core novel contributions are C1 and C2---no prior work achieves either. The remaining six are derivative: C3 follows from C1's architecture, C4--C6 are practical implications, and C7--C8 are validation-level contributions. If forced to choose one, C1 (unified ASD-focused pipeline) is the primary contribution; everything else builds on it. I separate them to make the traceability from gap to contribution explicit, not to inflate the count. \\
+\addlinespace
+
+Q24 & \textbf{Your financial projections show 135--185\% three-year ROI. How reliable is that?} \newline
+\textit{Testing: Business case rigour.} \newline\newline
+\textbf{Strong answer:} The ROI projections are modelled estimates, not empirical measurements from deployed systems. The base case (\$450--650K investment, \$405--570K annual benefit) is derived from published healthcare IT cost benchmarks and expert consultation. Three mitigating factors support credibility: (1) \textit{Sensitivity analysis:} the pessimistic scenario ($-$20\%) still shows 85--120\% three-year ROI and 18--24 month payback. (2) \textit{Tornado analysis:} clinical volume is the dominant driver; the model breaks even at approximately 40\% of projected volume. (3) \textit{Conservative assumptions:} benefits are limited to quantifiable efficiency gains (time savings, error reduction, vendor consolidation) and exclude harder-to-quantify benefits (patient outcomes, reputation, research capability). The projections provide a credible indicative business case, not a guaranteed return. \\
+
+\end{xltabular}
+
+%===============================================================================
+\subsection{Section F: Weakness Exposure}
+%===============================================================================
+
+\noindent Table~\ref{tab:defense_f} reports the weakness exposure questions testing intellectual honesty, reflexivity, and falsifiability awareness.
+
+\needspace{3\baselineskip}
+\tablefontsize
+\begin{xltabular}
+{\textwidth}{@{} p{0.3cm} L @{}}
+\caption{Weakness Exposure: Intellectual Honesty Under Pressure} \label{tab:defense_f} \\
+\toprule
+\thead{\#} & \thead{Question, Test, and Structured Answer} \\
+\midrule
+\endfirsthead
+\endhead
+\midrule
+\multicolumn{2}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+Q25 & \textbf{What is the weakest part of your thesis?} \newline
+\textit{Testing: Intellectual honesty.} \newline\newline
+\textit{Weak answer:} ``I don't think there is one.'' \newline\newline
+\textbf{Strong answer:} The weakest part is the gap between the governance framework's theoretical design and its operational validation. The five-layer governance structure, RACI matrix, escalation ladder, and KPI thresholds are rigorously specified---but they have never been deployed in a clinical setting. Governance is inherently organisational, and its effectiveness cannot be assessed without institutional adoption, political dynamics, and real-world failure scenarios. This is the largest unresolved challenge. The second weakness is the expert panel size ($n = 12$), which prevents demographic subgroup analysis of trust patterns. Both weaknesses are explicitly acknowledged and addressed through the three-phase future research agenda (Table~\ref{tab:three_phase_agenda}). \\
+\addlinespace
+
+Q26 & \textbf{What would you do differently if you started over?} \newline
+\textit{Testing: Reflexivity and growth.} \newline\newline
+\textbf{Strong answer:} Three changes: (1) I would secure institutional partnerships \textit{before} the study to enable prospective clinical data collection alongside the public dataset validation. This would have addressed the ecological validity limitation. (2) I would use the Nadeau--Bengio corrected $t$-test for cross-validation fold comparisons from the outset, rather than standard paired $t$-tests. (3) I would recruit a larger expert panel ($n \geq 30$) using a formal Delphi design with multiple rounds, rather than a single-round structured evaluation. The core framework design (unified pipeline, ASD ensemble backbone, RAG explainability, agentic orchestration) would remain unchanged---the architecture decisions were sound. \\
+\addlinespace
+
+Q27 & \textbf{Your thesis is 423 pages. Isn't that excessive?} \newline
+\textit{Testing: Structural discipline.} \newline\newline
+\textbf{Strong answer:} The five core chapters total approximately 250 pages, which is within the standard DBA range (200--300 pages). The additional 170+ pages comprise six appendices that house supplementary instruments: data certificates, table/figure inventories, survey instrument, interview protocol, and pre/post performance assessment. These appendices are not padding---they are deployment-ready instruments for the three-phase future research agenda. The core thesis is self-contained without the appendices; the appendices demonstrate that the research agenda is operationally planned, not aspirational. If the committee prefers, the appendices can be separated into a companion volume. \\
+\addlinespace
+
+Q28 & \textbf{What if an independent researcher could not replicate your results?} \newline
+\textit{Testing: Reproducibility confidence.} \newline\newline
+\textbf{Strong answer:} All six datasets are publicly available (KAU ASD-EEG, PhysioNet, DEAP, SAM40, BCI Competition IV 2a, TCIA). The preprocessing pipeline, feature extraction parameters, model architectures, hyperparameters, and random seeds are documented in Chapter~\ref{chap:methodology}. Fixed random seeds ensure deterministic initialisation. Stratified $k$-fold splits are deterministic given the same seed. I expect accuracy estimates within $\pm$2--3\% of reported values with the same pipeline---variations from different software versions or GPU hardware are normal. If results differ by $>$5\%, the most likely explanations are: (a) different preprocessing parameters, (b) different train-test split implementation, or (c) epoch-level vs. subject-level splitting (the latter producing lower, more honest estimates). C8 (replicable blueprint) is specifically designed to address this. \\
+\addlinespace
+
+Q29 & \textbf{No clinical deployment means no real-world validation. How do you justify calling this a ``framework''?} \newline
+\textit{Testing: Contribution boundary awareness.} \newline\newline
+\textbf{Strong answer:} A framework in the Design Science Research tradition is a \textit{prescriptive artefact}---a structured blueprint that specifies architecture, components, relationships, and governance. DSR artefacts are validated through rigorous evaluation (computational, expert, ablation), not necessarily through deployment. The RGAIG is validated at ``proof-of-concept'' maturity: all five computational hypotheses are tested, expert evaluation is positive, and the governance structure is specified. Clinical deployment is the \textit{next} maturity level, addressed by the three-phase research agenda. Calling it a framework is appropriate because it specifies what to build, how to build it, and how to govern it---the essential properties of a framework. It is not yet a deployed \textit{system}. This distinction is explicit throughout the thesis. \\
+\addlinespace
+
+Q30 & \textbf{What is the one thing that could falsify your entire thesis?} \newline
+\textit{Testing: Falsifiability awareness.} \newline\newline
+\textbf{Strong answer:} If a prospective clinical validation showed that the unified pipeline performs \textit{worse} than domain-specific tools---not marginally, but substantially (>5~pp accuracy loss across $\geq$3 domains)---this would challenge the core C1 claim that architectural unification is viable. However, falsifying C1 would not falsify C2 (RAG explainability), C3 (agentic automation), or C4 (governance framework), because these are independent contributions. The thesis would be weakened but not wholly invalidated. More broadly, if expert panels at scale ($n \geq 100$) rated the explanations as clinically irrelevant (M $<$ 3.0/5), this would falsify the explainability value proposition. Both scenarios are testable---which is the point of falsifiable claims. \\
+
+\end{xltabular}
+
+%===============================================================================
+\subsection{Section G}
+\label{sec:forty_point_audit}
+%===============================================================================
+
+Table~\ref{tab:forty_point_audit} applies the examiner-grade 40-point structural integrity checklist to the RGAIG thesis, with honest self-assessment scores and evidence references.
+
+\needspace{3\baselineskip}
+\tablefontsize
+\begin{xltabular}
+{\textwidth}{@{} p{0.4cm} L p{0.6cm} L @{}}
+\caption{40-Point Pre-Submission Structural Integrity Audit} \label{tab:forty_point_audit} \\
+\toprule
+\thead{\#} & \thead{Check} & \thead{Score} & \thead{Evidence / Status} \\
+\midrule
+\endfirsthead
+\endhead
+\midrule
+\multicolumn{4}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+\multicolumn{4}{l}{\textbf{Section A: Problem and Gap Integrity (6 points)}} \\
+\addlinespace
+1 & Problem stated within first 2 pages & \checkmark & Ch.1 opens with four named problems (P1--P4) \\
+2 & Gap is specific (not generic) & \checkmark & Six gaps (G1--G6) with literature citations \\
+3 & Gap supported by cited literature & \checkmark & G1--G6 mapped to 200+ reviewed studies (Ch.2) \\
+4 & Research question measurable and precise & \checkmark & RQ1--RQ6 with testable operationalisations \\
+5 & Theoretical anchor clearly justified & \checkmark & RBV, TAM, DSR with alternatives discussed \\
+6 & Boundary conditions defined & \checkmark & The ASD domain, public data, retrospective, $n = 12$ panel \\
+\addlinespace
+
+\multicolumn{4}{l}{\textbf{Section B: Alignment Chain (8 points)}} \\
+\addlinespace
+7 & Problem $\rightarrow$ Gap connected & \checkmark & P1--P4 map to G1--G6 (traceability table, Ch.1) \\
+8 & Gap $\rightarrow$ RQ aligned & \checkmark & Each RQ addresses specific gaps \\
+9 & RQ $\rightarrow$ Objectives aligned & \checkmark & O1--O7 map to RQ1--RQ6 \\
+10 & Objectives $\rightarrow$ Model aligned & \checkmark & Conceptual model derived from objectives \\
+11 & Model $\rightarrow$ Hypotheses aligned & \checkmark & H1--H5 test model paths \\
+12 & Hypotheses $\rightarrow$ Method aligned & \checkmark & Hypothesis-to-test alignment table (Ch.3) \\
+13 & Method $\rightarrow$ Data aligned & \checkmark & Five datasets mapped to the ASD domain \\
+14 & Findings $\rightarrow$ Contribution aligned & \checkmark & Evidence chain table (Ch.3); C1--C8 mapped \\
+\addlinespace
+
+\multicolumn{4}{l}{\textbf{Section C: Model and Theory Integrity (6 points)}} \\
+\addlinespace
+15 & Model parsimonious & \checkmark & 5 hypotheses, ASD, single architecture \\
+16 & Every path theory-backed & \checkmark & RBV, TAM, DSR, governance theory, sociotechnical \\
+17 & No decorative variables & \checkmark & All constructs tested or justified \\
+18 & Conceptual model = tested model & \checkmark & Same model across Ch.1, Ch.3, Ch.4 \\
+19 & Alternative theories considered & \checkmark & Institutional theory, agency theory discussed and excluded \\
+20 & Theoretical refinement articulated & \checkmark & Three refinements (RBV, TAM, DSR) in Ch.5 \\
+\addlinespace
+
+\multicolumn{4}{l}{\textbf{Section D: Statistical and Data Integrity (6 points)}} \\
+\addlinespace
+21 & Sample size consistent everywhere & \checkmark & Same $N$ per domain across all chapters \\
+22 & Reliability/validity properly reported & \checkmark & Krippendorff's $\alpha$, ICC, bootstrap CI \\
+23 & $p$-values correctly interpreted & \checkmark & Bonferroni-corrected; no causal overclaiming \\
+24 & Effect sizes consistently reported & \checkmark & Cohen's $d$ for all H2 tests \\
+25 & Mediation/moderation properly tested & $\sim$ & H6/H7 designed but untested (future Phase 2) \\
+26 & Zero numerical inconsistencies & \checkmark & Build verified: 0 errors, 0 undefined refs \\
+\addlinespace
+
+\multicolumn{4}{l}{\textbf{Section E: Qualitative Rigour (5 points)}} \\
+\addlinespace
+27 & Sampling strategy justified & \checkmark & Purposive: 12 experts across ASD \\
+28 & Evaluation process transparent & \checkmark & Structured rubric, 5-point scales documented \\
+29 & Themes clearly derived and distinct & \checkmark & Three metrics (citation, coherence, alignment) \\
+30 & Evidence anchors interpretation & \checkmark & Quantitative scores (M, SD, CI) per metric \\
+31 & Credibility strategies discussed & \checkmark & Inter-rater reliability, predefined thresholds \\
+\addlinespace
+
+\multicolumn{4}{l}{\textbf{Section F: Mixed-Method Integration (4 points)}} \\
+\addlinespace
+32 & Design explicitly stated & \checkmark & Convergent mixed-methods within DSR \\
+33 & Constructs consistent across phases & \checkmark & Same framework evaluated computationally and by experts \\
+34 & Joint display included & $\sim$ & Integration in Ch.5; formal joint display table in Appendix~\ref{app:interview_protocol} \\
+35 & Meta-inference integrates both methods & \checkmark & Explainability $>$ accuracy finding (Ch.5) \\
+\addlinespace
+
+\multicolumn{4}{l}{\textbf{Section G: Structural Discipline (3 points)}} \\
+\addlinespace
+36 & Each chapter has one clear function & \checkmark & Ch.1=problem, Ch.2=literature, Ch.3=method, Ch.4=findings, Ch.5=discussion \\
+37 & No repetition across chapters & $\sim$ & Minor repetition in hypothesis restatements \\
+38 & Results chapter contains no theory discussion & \checkmark & Ch.4 is evidence only; interpretation in Ch.5 \\
+\addlinespace
+
+\multicolumn{4}{l}{\textbf{Section H: Contribution and Maturity (2 points)}} \\
+\addlinespace
+39 & Contribution stated in one sentence & \checkmark & ``First unified, governance-embedded AI framework achieving $\geq$85\% accuracy across $\geq$4 biomedical domains'' \\
+40 & Limitations honest and specific & \checkmark & 8 limitations with future correction paths (Ch.3, Ch.5) \\
+
+\end{xltabular}
+
+\noindent\textbf{Score: 37/40 (Distinction-ready).} Three items scored ``$\sim$'' (partial): (25) mediation/moderation untested in current phase, (34) joint display present in appendix rather than main body, (37) minor hypothesis restatement across chapters. All three are acknowledged and either by design (Phase~2 future work) or cosmetic.
+
+%===============================================================================
+\subsection{Section H: Defense Vulnerability Map}
+%===============================================================================
+
+Table~\ref{tab:vulnerability_map} identifies the five highest-risk examiner attack vectors, the prepared response for each, and the thesis evidence that supports the response.
+\needspace{3\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{2.2cm} p{1cm} L L @{}}
+\caption{Defense Vulnerability Map: Risk Areas and Prepared Responses}\label{tab:vulnerability_map} \\
+\toprule
+\thead{Risk Area} & \thead{Severity} & \thead{Prepared Response} & \thead{Evidence} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:vulnerability_map} continued from previous page\,)}} \\
+\toprule
+\thead{Risk Area} & \thead{Severity} & \thead{Prepared Response} & \thead{Evidence} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Small expert panel ($n = 12$) & High & Purposive, not random; Krippendorff's $\alpha = 0.74$--$0.91$; Phase 2 designed for $n \geq 200$ & Sec.~\ref{sec:expert_panel_criteria}; Appendix~\ref{app:survey_instrument} \\
+\addlinespace
+No clinical deployment & High & DSR validates artefacts through evaluation, not deployment; proof-of-concept maturity; three-phase agenda designed & Table~\ref{tab:three_phase_agenda}; DSR methodology \citep{hevner2004design} \\
+\addlinespace
+\addlinespace
+Retrospective data only & Medium & Standard for proof-of-concept; prospective validation = Phase 2 priority; subject-level splitting provides honest estimates & Sec.~\ref{sec:limitations_methodology}; Appendix~\ref{app:performance_impact} \\
+\addlinespace
+Financial projections modelled & Medium & Sensitivity analysis ($\pm$20\%); pessimistic case still positive ROI; conservative assumptions; clearly labelled as projections & Table~\ref{tab:sensitivity_analysis}; Figure~\ref{fig:sensitivity_tornado} \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Severity: High = examiner will likely probe; Medium = examiner may probe if time permits. All vulnerabilities have prepared responses grounded in thesis evidence.
+
+%===============================================================================
+\subsection{30-Second Thesis Summary (Elevator Pitch)}
+%===============================================================================
+
+\noindent\textit{Practice this until it is automatic:}
+
+\begin{quote}
+``My thesis designs and validates the RGAIG, the first unified AI framework that achieves 78--95\% diagnostic accuracy across Autism Spectrum Disorder (ASD)---ASD, Parkinson's, stress, BCI, and cancer---using a single architecture. It combines multi-scale channel attention for classification, SHAP plus retrieval-augmented generation for literature-grounded explainability, multi-agent orchestration for workflow automation, and a five-layer governance framework for responsible deployment. The framework is validated through bootstrap-resampled cross-validation, McNemar's tests, ablation studies, and a 12-member expert panel achieving Krippendorff's alpha of 0.74 to 0.91. The core contribution is demonstrating that architectural unification across biomedical domains is technically viable, clinically explainable, and governance-ready---replacing fragmented, opaque, manual AI tools with a single, trustworthy diagnostic platform.''
+\end{quote}

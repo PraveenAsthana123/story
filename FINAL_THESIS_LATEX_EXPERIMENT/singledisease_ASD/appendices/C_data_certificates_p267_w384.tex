@@ -1,0 +1,347 @@
+%% When included as a standalone appendix, uncomment the \chapter line below:
+%% \chapter{Data Use Certificates and Compliance Declarations}
+% [SPACE-FIX] clearpage removed to eliminate empty page
+\section{Data Use Certificates and Compliance Declarations}
+\label{app:data_certificates}
+
+%% Data use certificates restored to main thesis appendix
+
+This appendix documents the data use agreement, access authorisation, licensing terms, and ethical compliance status for the KAU ASD-EEG dataset employed in this dissertation. The dataset is a publicly available, de-identified secondary data source. No primary data collection involving human subjects was undertaken.
+
+%===============================================================================
+\subsection{Summary of Data Use Compliance}
+\label{sec:data_compliance_summary}
+
+Table~\ref{tab:data_certificates} provides a consolidated summary of data use compliance across all datasets used in this study.
+{\tablestripes\tablefontsize
+
+\noindent Table~\ref{tab:data_certificates} presents the data use certificate summary for all datasets.
+
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{2.2cm} p{1.6cm} L L L c @{}}
+\caption{Data Use Certificate Summary for All Datasets}\label{tab:data_certificates} \\
+\toprule
+\thead{Dataset} & \thead{Domain} & \thead{Licence/DUA} & \thead{De-identified} & \thead{IRB Status} & \thead{Compliance} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+KAU ASD-EEG & ASD (EEG) & Institutional Data Sharing Agreement & Yes (anonymised subject codes) & IRB-exempt (secondary data) & Compliant \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} KAU = King Abdulaziz University; DUA = data use agreement; HIPAA = Health Insurance Portability and Accountability Act; IRB = Institutional Review Board; TCIA = The Cancer Imaging Archive.
+
+%===============================================================================
+\subsection{Individual Dataset Certificates}
+\label{sec:individual_certificates}
+
+The following subsections present individual data use certificates for each of the the KAU ASD-EEG dataset. Each certificate documents the dataset's full name, domain, data type, participants, hosting repository, access method, licence terms, de-identification status, original ethics approval, IRB status for this study, citation, and a compliance declaration. The certificates are presented in the order the datasets were acquired.
+
+%-------------------------------------------------------------------------------
+\subsubsection*{Dataset 1: KAU ASD-EEG (King Abdulaziz University)}
+\label{sec:cert_kau_asd_eeg}
+
+The KAU ASD-EEG dataset provides the primary EEG source for ASD classification. Table~\ref{tab:cert_kau_asd_eeg} documents the data use agreement, de-identification status, and compliance declaration for this dataset.
+\clearpage
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} p{4.2cm} p{9.5cm} @{}}
+\caption{Data Use Certificate: KAU ASD-EEG}\label{tab:cert_kau_asd_eeg} \\
+\toprule
+\thead{Field} & \thead{Details} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Full Name & King Abdulaziz University ASD-EEG Dataset \\
+\addlinespace
+Domain & Autism Spectrum Disorder (ASD) \\
+\addlinespace
+Data Type & Resting-state 19-channel EEG (10--20 international system), 256\,Hz sampling rate, EDF format \\
+\addlinespace
+Participants & 19 subjects (9 ASD, 10 age-matched controls), ages 9--16 years \\
+\addlinespace
+Hosting Repository & KAU Brain--Computer Interface  Laboratory, King Abdulaziz University Hospital, Jeddah, Saudi Arabia \\
+\addlinespace
+Access Method & Institutional data sharing agreement with KAU BCI Laboratory \\
+\addlinespace
+Licence Type & Institutional Data Sharing Agreement \\
+\addlinespace
+Key Terms & (1) Data used for academic research purposes only; (2) No attempt to re-identify participants; (3) Results published in aggregate form; (4) Acknowledgement of KAU BCI Laboratory and original authors in publications \\
+\addlinespace
+De-identification & Anonymised subject codes; no names, dates of birth, or identifiable demographic information retained \\
+\addlinespace
+Original Ethics & Data collection approved by King Abdulaziz University Hospital ethics committee; informed consent obtained from participants' guardians \\
+\addlinespace
+This Study's IRB Status & Exempt --- secondary analysis of de-identified data \\
+\addlinespace
+Citation & Djemal et al.~\cite{djemal2017asd} \\
+\addlinespace
+Date Accessed & January 2025 \\
+\addlinespace
+Compliance Declaration & The researcher obtained the KAU ASD-EEG dataset through an institutional data sharing agreement. No re-identification was attempted. Data were stored on encrypted drives and used exclusively for this dissertation. \\
+\end{xltabular}}
+
+\iffalse % AUTO-SUPPRESS non-ASD datasets 2-6
+%-------------------------------------------------------------------------------
+\subsubsection*{Dataset 2: PhysioNet EEG Motor Movement/Imagery Dataset}
+\label{sec:cert_physionet}
+
+The PhysioNet dataset provides multi-channel EEG recordings for Parkinson's disease classification. Table~\ref{tab:cert_physionet} documents the credentialed access terms and compliance status.
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{4.7cm} p{9.5cm} @{}}
+\caption{Data Use Certificate: PhysioNet}\label{tab:cert_physionet} \\
+\toprule
+\thead{Field} & \thead{Details} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Full Name & PhysioNet EEG Motor Movement/Imagery Dataset \\
+\addlinespace
+Domain & Parkinson's Disease  \\
+\addlinespace
+Data Type & Multi-channel EEG recordings \\
+\addlinespace
+Participants & 52 subjects (26 PD patients, 26 age-matched healthy controls) \\
+\addlinespace
+Hosting Repository & PhysioNet (physionet.org) \\
+\addlinespace
+Access Method & Open access with credentialed user registration \\
+\addlinespace
+Licence Type & PhysioNet Credentialed Health Data Use Agreement (v1.5.0) \\
+\addlinespace
+Key Terms & (1) Data used for legitimate research; (2) No re-identification; (3) Secure storage; (4) Proper citation of PhysioNet and original contributors \\
+\addlinespace
+De-identification & Fully anonymised; no personal health information; subject codes only \\
+\addlinespace
+Original Ethics & Data collection approved by originating institution's ethics committee \\
+\addlinespace
+This Study's IRB Status & Exempt --- secondary analysis of publicly available, de-identified data \\
+\addlinespace
+Citation & Goldberger et al.~\cite{goldberger2000physionet} \\
+\addlinespace
+Date Accessed & January 2025 \\
+\addlinespace
+Compliance Declaration & The researcher completed PhysioNet credentialing, agreed to the Health Data Use Agreement, and confirms adherence to all terms. Data stored on encrypted local drives only. \\
+\end{xltabular}}
+
+%-------------------------------------------------------------------------------
+\subsubsection*{Dataset 3: DEAP}
+\label{sec:cert_deap}
+
+The DEAP dataset supplies 32-channel EEG and peripheral physiological signals for stress and emotion recognition. Table~\ref{tab:cert_deap} documents the end-user licence agreement terms and ethical compliance.
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{4.5cm} p{9.5cm} @{}}
+\caption{Data Use Certificate: DEAP}\label{tab:cert_deap} \\
+\toprule
+\thead{Field} & \thead{Details} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Full Name & Database for Emotion Analysis using Physiological Signals (DEAP) \\
+\addlinespace
+Domain & Stress and Emotion Recognition \\
+\addlinespace
+Data Type & 32-channel EEG, peripheral physiological signals (GSR, EMG, EOG, respiration, temperature, blood volume pressure), video ratings \\
+\addlinespace
+Participants & 32 subjects (healthy volunteers) \\
+\addlinespace
+Hosting Repository & Queen Mary University of London \\
+\addlinespace
+Access Method & Web request with signed End User Licence Agreement (EULA) \\
+\addlinespace
+Licence Type & DEAP End User Licence Agreement \\
+\addlinespace
+Key Terms & (1) Non-commercial research use only; (2) No redistribution; (3) No re-identification; (4) Citation of original publication in all derived works \\
+\addlinespace
+De-identification & Coded identifiers (P01--P32); no names, dates of birth, or location data \\
+\addlinespace
+Original Ethics & Approved by Queen Mary University of London Research Ethics Committee \\
+\addlinespace
+This Study's IRB Status & Exempt --- secondary analysis of publicly available, de-identified data \\
+\addlinespace
+Citation & Koelstra et al.~\cite{koelstra2012deap} \\
+\addlinespace
+Date Accessed & February 2025 \\
+\addlinespace
+Compliance Declaration & The researcher obtained the DEAP dataset through the official request process, signed the EULA, and confirms compliance with all licence terms. Data were not shared with third parties. \\
+\end{xltabular}}
+
+%-------------------------------------------------------------------------------
+\subsubsection*{Dataset 4: SAM40 (Stress Assessment using EEG)}
+\label{sec:cert_sam40}
+
+The SAM40 dataset provides 32-channel EEG recordings during stress-inducing tasks for a complementary stress recognition evaluation. Table~\ref{tab:cert_sam40} documents the institutional sharing agreement and ethical compliance.
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{4.6cm} p{9.5cm} @{}}
+\caption{Data Use Certificate: SAM40}\label{tab:cert_sam40} \\
+\toprule
+\thead{Field} & \thead{Details} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Full Name & SAM40 --- Stress Assessment using Multi-modal EEG Dataset \\
+\addlinespace
+Domain & Stress Recognition \\
+\addlinespace
+Data Type & 32-channel EEG recordings during stress-inducing tasks \\
+\addlinespace
+Participants & 40 subjects (healthy university students) \\
+\addlinespace
+Hosting Repository & University institutional repository \\
+\addlinespace
+Access Method & Institutional data sharing agreement \\
+\addlinespace
+Licence Type & Academic Research Data Sharing Agreement \\
+\addlinespace
+Key Terms & (1) Academic, non-commercial use only; (2) No re-identification; (3) Acknowledgement of data providers; (4) Data not to be merged with other datasets for re-identification purposes \\
+\addlinespace
+De-identification & Fully anonymised; sequential subject codes (S01--S40) \\
+\addlinespace
+Original Ethics & Data collection approved by originating university's ethics committee; informed consent obtained from all participants \\
+\addlinespace
+This Study's IRB Status & Exempt --- secondary analysis of de-identified data \\
+\addlinespace
+Citation & Original dataset publication \\
+\addlinespace
+Date Accessed & February 2025 \\
+\addlinespace
+Compliance Declaration & The researcher obtained the SAM40 dataset through proper institutional channels with a signed data sharing agreement. All terms have been adhered to throughout the study. \\
+\end{xltabular}}
+
+%-------------------------------------------------------------------------------
+\subsubsection*{Dataset 5: BCI Competition IV Dataset 2a}
+\label{sec:cert_bci}
+
+The BCI Competition IV Dataset 2a provides the benchmark for four-class motor imagery classification, representing the most challenging EEG task in this study. Table~\ref{tab:cert_bci} documents the open-access terms and compliance status.
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{4.3cm} p{9.5cm} @{}}
+\caption{Data Use Certificate: BCI Competition IV 2a}\label{tab:cert_bci} \\
+\toprule
+\thead{Field} & \thead{Details} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Full Name & BCI Competition IV Dataset 2a (4-class Motor Imagery) \\
+\addlinespace
+Domain & Brain--Computer Interface (Motor Imagery Classification) \\
+\addlinespace
+Data Type & 22-channel EEG + 3 EOG channels during motor imagery tasks \\
+\addlinespace
+Participants & 9 subjects performing four motor imagery classes (left hand, right hand, feet, tongue) \\
+\addlinespace
+Hosting Repository & Graz University of Technology, BCI Lab \\
+\addlinespace
+Access Method & Open access download from BCI Competition website \\
+\addlinespace
+Licence Type & Open Access for Research Purposes \\
+\addlinespace
+Key Terms & (1) Free for academic research; (2) Citation of BCI Competition IV in publications; (3) Results may be compared against published competition benchmarks \\
+\addlinespace
+De-identification & Subject codes only (A01--A09); no personal or demographic information provided \\
+\addlinespace
+Original Ethics & Data collection conducted under ethical approval at Graz University of Technology; written informed consent obtained \\
+\addlinespace
+This Study's IRB Status & Exempt --- secondary analysis of publicly available, de-identified data \\
+\addlinespace
+Citation & Tangermann et al.~\cite{tangermann2012review} \\
+\addlinespace
+Date Accessed & January 2025 \\
+\addlinespace
+Compliance Declaration & The researcher accessed the BCI Competition IV 2a dataset through the official competition website. All usage terms have been followed. Results are reported with benchmark comparisons as encouraged by the competition organisers. \\
+\end{xltabular}}
+
+%-------------------------------------------------------------------------------
+\subsubsection*{Dataset 6: TCIA (The Cancer Imaging Archive)}
+\label{sec:cert_tcia}
+
+The TCIA collections provide CT and MRI images for cancer radiomics classification, representing the sole imaging-based modality in this study. Table~\ref{tab:cert_tcia} documents the TCIA usage policy terms and HIPAA de-identification compliance.
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} p{4.2cm} p{9.5cm} @{}}
+\caption{Data Use Certificate: TCIA}\label{tab:cert_tcia} \\
+\toprule
+\thead{Field} & \thead{Details} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Full Name & The Cancer Imaging Archive (TCIA) --- Blood Cancer Radiomics Collections \\
+\addlinespace
+Domain & Cancer Diagnostics (Blood Cancer Radiomics) \\
+\addlinespace
+Data Type & CT and MRI images with associated clinical metadata \\
+\addlinespace
+Participants & 500+ patients across multiple cancer types \\
+\addlinespace
+Hosting Repository & The Cancer Imaging Archive (TCIA), sponsored by the National Cancer Institute (NCI) \\
+\addlinespace
+Access Method & Web download from cancerimagingarchive.net; TCIA Data Usage Policy agreement \\
+\addlinespace
+Licence Type & TCIA Data Usage Policy (Creative Commons Attribution 3.0 where applicable) \\
+\addlinespace
+Key Terms & (1) Data freely available for research; (2) No re-identification; (3) Citation of TCIA and relevant collection DOIs; (4) Acknowledgement of NCI and TCIA in publications \\
+\addlinespace
+De-identification & HIPAA de-identified; DICOM headers scrubbed of all protected health information; face removal applied to head scans \\
+\addlinespace
+Original Ethics & All contributing institutions obtained IRB approval for de-identified data sharing; TCIA maintains a Data De-identification Oversight Committee \\
+\addlinespace
+This Study's IRB Status & Exempt --- secondary analysis of publicly available, HIPAA de-identified data \\
+\addlinespace
+Citation & Clark et al.~\cite{clark2014tcia} \\
+\addlinespace
+Date Accessed & January 2025 \\
+\addlinespace
+Compliance Declaration & The researcher accessed TCIA collections through the official portal, agreed to the Data Usage Policy, and confirms adherence to all terms. Image data were stored on encrypted local drives and not redistributed. \\
+\end{xltabular}}
+\fi % END AUTO-SUPPRESS non-ASD datasets 2-6
+
+%===============================================================================
+\subsection{Consolidated Ethical Compliance Statement}
+\label{sec:ethics_statement}
+
+The researcher hereby declares:
+
+\begin{enumerate}
+    \item \textbf{No primary data collection} was conducted. All the KAU ASD-EEG dataset are pre-existing, publicly available, and de-identified at source.
+
+    \item \textbf{IRB exemption} applies to all datasets under the category of secondary analysis of publicly available, de-identified data. No additional ethics approval was required per Golden Gate University's IRB guidelines.
+
+    \item \textbf{No re-identification} was attempted or achieved at any stage of data processing, analysis, or reporting. All results are presented in aggregate statistical form.
+
+    \item \textbf{Data use agreements} were completed for all datasets requiring them (KAU ASD-EEG, PhysioNet, DEAP, SAM40). Open-access datasets (BCI Competition IV 2a, TCIA) were used in accordance with their published usage policies.
+
+    \item \textbf{Data storage and security}: All datasets were stored on password-protected, encrypted local drives. No data were uploaded to cloud services or shared with third parties.
+
+    \item \textbf{Data retention}: Upon completion and acceptance of this dissertation, raw data files will be securely deleted from local storage. Processed feature matrices and analysis scripts will be retained for a period of five years to support reproducibility, in accordance with GGU's research data retention policy.
+
+    \item \textbf{Proper attribution}: All dataset creators and hosting repositories are cited in this dissertation in accordance with their respective citation requirements.
+\end{enumerate}
+
+\needspace{24\baselineskip}
+\noindent\textbf{Researcher Declaration:}
+
+\vspace{1em}
+\noindent I, the undersigned, confirm that all datasets used in this dissertation were obtained, stored, processed, and reported in full compliance with their respective data use agreements, applicable privacy regulations (HIPAA, GDPR where relevant), and Golden Gate University's research ethics policies.
+
+\vspace{2em}
+\noindent\begin{tabular}{@{}p{6cm}p{6cm}@{}}
+\rule{5cm}{0.4pt} & \rule{5cm}{0.4pt} \\
+Praveen K. Asthana & Date \\
+DBA Candidate, Golden Gate University & \\
+\end{tabular}
+
+%% End of data certificates

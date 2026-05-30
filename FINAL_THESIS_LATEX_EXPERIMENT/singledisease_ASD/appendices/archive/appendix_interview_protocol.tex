@@ -1,0 +1,334 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% APPENDIX E: QUALITATIVE INTERVIEW PROTOCOL
+%% Mixed Methods Phase 3 — Role-Based Semi-Structured Interviews
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Qualitative Interview Protocol for AI Adoption Study}
+\label{app:interview_protocol}
+
+This appendix presents the complete qualitative interview protocol designed for Phase~3 of the research agenda: a semi-structured interview study with healthcare professionals across four stakeholder roles. The protocol complements the quantitative survey instrument (Appendix~\ref{app:survey_instrument}) by providing rich, contextual data on trust formation, adoption barriers, governance concerns, and organizational culture factors that quantitative scales cannot capture. The protocol is ready for deployment pending IRB approval and site access.
+
+%===============================================================================
+\subsection{Study Design Overview}
+%===============================================================================
+
+Table~\ref{tab:interview_design} summarises the qualitative study design for Phase~3.
+\needspace{3\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L @{}}
+\caption{Proposed Qualitative Interview Study Design}\label{tab:interview_design} \\
+\toprule
+\thead{Design Element} & \thead{Specification} \\
+\midrule
+\endfirsthead
+\multicolumn{2}{@{}l}{\textit{(\,Tab.~\ref{tab:interview_design} continued from previous page\,)}} \\
+\toprule
+\thead{Design Element} & \thead{Specification} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Research design & Exploratory qualitative: semi-structured interviews \\
+Paradigm & Interpretivist (understanding lived experience of AI adoption) \\
+Target population & Healthcare professionals across four stakeholder roles \\
+Minimum sample size & $n = 20$--$30$ (5--8 per role; saturation-guided) \\
+Sampling strategy & Maximum variation purposive: 4 roles $\times$ 2 institution sizes $\times$ AI experience (yes/no) \\
+Interview duration & 45--60 minutes per interview \\
+Recording & Audio-recorded with participant consent; professionally transcribed \\
+Analysis method & Reflexive thematic analysis \citep{braun2006thematic}; NVivo 14 coding \\
+Trustworthiness & Member checking, peer debriefing, audit trail, thick description \\
+Expected output & 6--8 themes with sub-themes; thematic map; cross-role comparison matrix \\
+IRB requirement & Full IRB approval required (human subjects interview) \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} Saturation is assessed using the information power model (Malterud et al., 2016). Interviews continue until no new themes emerge across two consecutive interviews.
+
+%===============================================================================
+\subsection{Participant Roles and Recruitment Criteria}
+%===============================================================================
+
+Table~\ref{tab:interview_roles} defines the four stakeholder roles, their relevance to the RGAIG framework, and the minimum recruitment targets.
+\needspace{3\baselineskip}
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L p{1cm} L @{}}
+\caption{Participant Roles, Selection Criteria, and Recruitment Targets}\label{tab:interview_roles} \\
+\toprule
+\thead{Role} & \thead{Definition} & \thead{Selection Criteria} & \thead{Target $n$} & \thead{RGAIG Relevance} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{@{}l}{\textit{(\,Tab.~\ref{tab:interview_roles} continued from previous page\,)}} \\
+\toprule
+\thead{Role} & \thead{Definition} & \thead{Selection Criteria} & \thead{Target $n$} & \thead{RGAIG Relevance} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Clinician (Neurologist / Psychiatrist) & Physicians who directly interpret diagnostic results and make treatment decisions & Board-certified; $\geq$3 years clinical experience; familiarity with EEG/neuroimaging & 6--8 & End-user of AI diagnostic recommendations; trust and explainability primary concerns \\
+\addlinespace
+Radiologist & Imaging specialists who interpret medical images and integrate AI-assisted findings & Board-certified radiologist; experience with PACS/imaging AI tools & 5--7 & Direct consumer of radiomics pipeline output; accuracy and false-positive rates critical \\
+\addlinespace
+Hospital Administrator & Senior leaders responsible for technology procurement, budgeting, and strategic planning & Director-level or above; involvement in technology adoption decisions; $\geq$5 years in healthcare administration & 5--7 & ROI, governance, regulatory compliance, and organizational readiness decision-maker \\
+\addlinespace
+Clinical Informaticist & IT/data science professionals who implement, maintain, and monitor clinical AI systems & Degree in health informatics, biomedical engineering, or data science; experience deploying clinical decision support systems & 5--7 & Technical feasibility, integration, data pipeline, and system reliability assessor \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} PACS = Picture Archiving and Communication System. Target sample sizes are minimums; recruitment continues until thematic saturation is reached within each role.
+
+%===============================================================================
+\subsection{Interview Protocol: Role-Based Question Sets}
+%===============================================================================
+
+The following sections present the semi-structured interview questions organised by stakeholder role. Each role has a core question set (8--10 questions) plus follow-up probes. Questions are grouped into four thematic domains aligned with the RGAIG framework: (1)~Trust and Explainability, (2)~Adoption Barriers and Enablers, (3)~Governance and Accountability, and (4)~Organisational Culture.
+
+\subsubsection{Protocol A: Clinician Interview (Neurologist / Psychiatrist)}
+
+\begin{enumerate}[label=\textbf{CL\arabic*.}, leftmargin=2cm]
+    \item Describe your current diagnostic workflow for [ASD/Parkinson's]. At what point, if any, would AI-assisted diagnosis add value?
+    \item If an AI system reported a diagnostic recommendation with 91\% accuracy, how would that influence your clinical decision? What accuracy threshold would you require before trusting the recommendation?
+    \item When an AI system provides a diagnosis, what type of explanation would you need to trust it? \\
+    \textit{Probe: Would SHAP feature importance charts be sufficient, or would you need a narrative explanation grounded in clinical literature?}
+    \item Describe a scenario where you would override an AI diagnostic recommendation. What factors would drive that decision?
+    \item How important is it that a human clinician retains final decision authority when using AI diagnostic tools? \\
+    \textit{Probe: Under what circumstances, if any, would you accept fully autonomous AI diagnosis?}
+    \item What are the biggest barriers preventing you from adopting AI diagnostic tools in your practice today?
+    \item How do concerns about patient privacy and data protection affect your willingness to use AI diagnostic tools?
+    \item If your hospital implemented a unified AI framework covering multiple domains (neurology, oncology, mental health), how would that affect your trust compared to a single-domain tool?
+    \item What training or support would you need to feel confident using AI-assisted diagnostic tools?
+    \item Looking five years ahead, what role do you see AI playing in clinical diagnosis in your speciality?
+\end{enumerate}
+
+\subsubsection{Protocol B: Radiologist Interview}
+
+\begin{enumerate}[label=\textbf{RA\arabic*.}, leftmargin=2cm]
+    \item Walk me through how you currently interpret medical images for [brain MRI/PET scans]. Where do you see the greatest potential for AI assistance?
+    \item How do you evaluate the reliability of AI-generated radiomics features compared to your own visual assessment?
+    \item When an AI system highlights a region of interest in a scan, what additional information do you need before acting on that finding? \\
+    \textit{Probe: Feature importance maps, confidence intervals, comparison with similar cases?}
+    \item What is your experience with false positives from AI imaging tools? How do false positives affect your trust in the system over time?
+    \item How would you feel about an AI system that flags findings you might have missed? Does that enhance or undermine your professional confidence?
+    \item Describe the ideal integration of AI tools into your existing PACS workflow. What would make adoption seamless versus disruptive?
+    \item How important is it that AI imaging tools are validated across diverse patient populations (age, ethnicity, comorbidities)?
+    \item What governance or quality assurance processes should be in place before deploying AI imaging tools in your department?
+    \item How do you currently stay updated on AI developments in radiology? What resources do you trust?
+    \item If a unified AI framework could integrate imaging radiomics with EEG signal analysis for a more comprehensive diagnosis, would that increase or decrease your confidence in the system?
+\end{enumerate}
+
+\subsubsection{Protocol C: Hospital Administrator Interview}
+
+\begin{enumerate}[label=\textbf{AD\arabic*.}, leftmargin=2cm]
+    \item What factors does your organisation consider when evaluating new clinical AI technologies for procurement?
+    \item How do you assess the return on investment for AI diagnostic tools? What metrics matter most? \\
+    \textit{Probe: Cost savings, diagnostic accuracy improvement, throughput, clinician satisfaction, patient outcomes?}
+    \item Describe your organisation's current governance structure for AI. Who is accountable when an AI system produces an incorrect diagnosis?
+    \item What regulatory requirements (HIPAA, FDA, state regulations) create the biggest challenges for deploying clinical AI tools?
+    \item How does your organisation manage clinician resistance to new technology? What change management strategies have worked or failed?
+    \item If a unified AI framework could reduce diagnostic costs by 15--25\% while maintaining or improving accuracy, what would the adoption timeline look like at your institution?
+    \item How do you balance the pressure to innovate with the risk of deploying unproven AI technologies?
+    \item What role does organisational culture play in successful AI adoption? Can you give an example where culture helped or hindered technology adoption?
+    \item How would you structure an escalation protocol for AI system failures in a clinical setting? \\
+    \textit{Probe: Who gets notified? What triggers a system shutdown? How is the incident documented?}
+    \item What would a successful AI adoption look like at your institution three years from now?
+\end{enumerate}
+
+\subsubsection{Protocol D: Clinical Informaticist Interview}
+
+\begin{enumerate}[label=\textbf{CI\arabic*.}, leftmargin=2cm]
+    \item Describe your experience deploying clinical decision support systems. What were the biggest technical challenges?
+    \item How do you evaluate the technical readiness of an organisation to deploy AI diagnostic tools? \\
+    \textit{Probe: Infrastructure, data quality, interoperability, staff skills?}
+    \item What data pipeline requirements are most critical for a ASD-focused AI diagnostic framework? \\
+    \textit{Probe: Data preprocessing, feature engineering, real-time inference, batch processing?}
+    \item How do you ensure AI model performance does not degrade over time in production? What monitoring do you implement?
+    \item Describe the integration challenges between AI tools and existing EHR/PACS systems. What interoperability standards matter most?
+    \item How do you handle data quality issues (missing values, class imbalance, noisy signals) in clinical AI pipelines?
+    \item What is your approach to ensuring AI fairness and bias detection across patient demographics?
+    \item How do you manage version control, model retraining, and rollback procedures for clinical AI systems?
+    \item If a unified framework required integrating EEG signal analysis, medical imaging radiomics, and clinical text data into a single pipeline, what would be the three biggest technical hurdles?
+    \item What security and privacy measures do you consider essential for clinical AI data pipelines?
+\end{enumerate}
+
+%===============================================================================
+\subsection{Mixed Scenario Questions (All Roles)}
+%===============================================================================
+
+The following scenario-based questions are asked of all participants regardless of role, enabling cross-role comparison of responses to identical clinical AI situations.
+
+\needspace{4\baselineskip}
+\subsubsection{Scenario 1: Diagnostic Disagreement}
+
+\noindent\textit{``An AI diagnostic system recommends Diagnosis~A with 87\% confidence for a patient. You (or the clinician you work with) believe the correct diagnosis is Diagnosis~B based on clinical experience. The AI system provides a SHAP feature importance chart and a RAG-generated narrative explaining its reasoning, citing three peer-reviewed studies.''}
+
+\begin{enumerate}[label=\textbf{MS1.\arabic*.}, leftmargin=2.5cm]
+    \item What would you do in this situation? Walk me through your decision process.
+    \item What additional information would you need to resolve the disagreement?
+    \item How would this scenario affect your trust in the AI system going forward?
+    \item Who should be ultimately accountable for the diagnostic decision in this case?
+\end{enumerate}
+
+\subsubsection{Scenario 2: System Failure}
+
+\noindent\textit{``The AI diagnostic system experiences an unexpected failure during a routine diagnostic session. The system provides no output for 15~minutes, and there are three patients waiting for AI-assisted diagnoses. The IT team estimates a 2-hour recovery time.''}
+
+\begin{enumerate}[label=\textbf{MS2.\arabic*.}, leftmargin=2.5cm]
+    \item How would you handle the immediate patient care situation?
+    \item What fallback procedures should be in place for AI system failures?
+    \item How would this failure affect your long-term trust in the system?
+    \item What governance mechanisms should exist to prevent, detect, and recover from such failures?
+\end{enumerate}
+
+\subsubsection{Scenario 3: Bias Detection}
+
+\noindent\textit{``A post-deployment audit reveals that the AI diagnostic system performs significantly worse for patients aged 65+ compared to younger patients (accuracy drop of 12~percentage points). The system was trained on a dataset where only 18\% of samples were from patients aged 65+.''}
+
+\begin{enumerate}[label=\textbf{MS3.\arabic*.}, leftmargin=2.5cm]
+    \item How concerned would you be about this finding? On a scale of 1--10, how serious is this issue?
+    \item What immediate actions should the organisation take?
+    \item Should the system be taken offline until the bias is corrected? Why or why not?
+    \item How does this scenario affect your trust in AI systems more broadly?
+\end{enumerate}
+
+%===============================================================================
+\subsection{Role-Based Question Mapping with Assessment Criteria}
+%===============================================================================
+
+Table~\ref{tab:role_question_mapping} maps each stakeholder role to the primary research questions addressed, the current assessment status (based on the RGAIG framework validation in Chapters~\ref{chap:analysis}--\ref{chap:discussion}), quality indicators, and satisfactory answer criteria for thematic analysis.
+
+\needspace{3\baselineskip}
+\tablefontsize
+\noindent Table~\ref{tab:role_question_mapping} role-based question mapping: status, quality assessment,.
+
+\begin{xltabular}
+{\textwidth}{@{} p{1.8cm} L L L L L @{}}
+\caption[Role-Based Question Mapping: Status, Quality Assessment,]{Role-Based Question Mapping: Status, Quality Assessment, and Satisfactory Answer Criteria} \label{tab:role_question_mapping} \\
+\toprule
+\thead{Role} & \thead{Primary Question Domain} & \thead{Key Questions} & \thead{Current Status} & \thead{Quality Indicator} & \thead{Satisfactory Answer} \\
+\midrule
+\endfirsthead
+\endhead
+\midrule
+\multicolumn{6}{r}{\textit{Continued on next page}} \\
+\endfoot
+\bottomrule
+\endlastfoot
+
+% Clinician rows
+Clinician & Trust in AI diagnostic accuracy & CL1--CL3 & Partially addressed: accuracy validated at 97.67\% (ASD ensemble); trust measured only via expert panel (n=12) & Thematic saturation on trust formation; minimum 3 trust dimensions identified & Clinician articulates specific accuracy threshold, explanation type (SHAP/narrative), and conditions for overriding AI \\
+\addlinespace
+
+Clinician & Human-AI decision authority & CL4--CL5 & Addressed in RGAIG governance layer; not empirically validated with clinicians & Coherent decision framework emerges across $\geq$4 participants & Clinician describes clear decision hierarchy with specific override triggers and accountability assignment \\
+\addlinespace
+
+Clinician & Adoption barriers and privacy & CL6--CL7 & Partially addressed: privacy architecture designed (HIPAA/GDPR compliant); adoption barriers theorised, not empirically confirmed & $\geq$3 barrier categories identified with supporting examples & Clinician identifies barriers with concrete examples and proposes feasible mitigation strategies \\
+\addlinespace
+
+Clinician & ASD-focused trust and future vision & CL8--CL10 & Partially addressed: ASD-focused framework designed; expert panel positive but small sample & Cross-role convergence on ASD-focused value proposition & Clinician articulates whether unified framework increases or decreases trust, with reasoning \\
+\addlinespace
+
+% Radiologist rows
+Radiologist & Imaging AI reliability & RA1--RA3 & Partially addressed: radiomics pipeline validated; no radiologist user study & Specific explanation requirements articulated by $\geq$3 participants & Radiologist specifies required explanation format (heatmap, confidence interval, comparison case) \\
+\addlinespace
+
+Radiologist & False positive impact and professional identity & RA4--RA5 & Not addressed: no empirical data on false positive trust erosion & Trust trajectory described (initial, after false positive, recovery) & Radiologist describes false positive tolerance threshold and trust recovery conditions \\
+\addlinespace
+
+Radiologist & Workflow integration and governance & RA6--RA8 & Partially addressed: PACS integration designed in framework; governance structure defined & Integration requirements are specific and actionable & Radiologist describes ideal PACS integration workflow with specific governance checkpoints \\
+\addlinespace
+
+Radiologist & ASD-focused integration & RA9--RA10 & Partially addressed: multi-modal integration designed; not validated with radiologists & Clear position on ASD-focused value with supporting rationale & Radiologist provides reasoned assessment of ASD-focused integration benefit vs.\ complexity \\
+\addlinespace
+
+% Administrator rows
+Administrator & Procurement and ROI & AD1--AD2 & Partially addressed: ROI model in Ch.5 (15--25\% cost reduction); not validated with administrators & $\geq$3 ROI metrics prioritised with justification & Administrator identifies specific ROI metrics, acceptable payback period, and decision criteria \\
+\addlinespace
+
+Administrator & Governance and accountability & AD3--AD4 & Addressed: RGAIG governance layer with RACI, escalation protocols; not empirically validated & Governance gaps identified with proposed solutions & Administrator describes accountability chain for AI diagnostic errors and regulatory compliance strategy \\
+\addlinespace
+
+Administrator & Change management and culture & AD5, AD7--AD8 & Partially addressed: organisational culture moderator hypothesised (SH6); not empirically tested & $\geq$2 culture examples (positive and negative) & Administrator provides specific change management strategies with evidence of effectiveness \\
+\addlinespace
+
+Administrator & Adoption timeline and escalation & AD6, AD9--AD10 & Partially addressed: implementation roadmap in Ch.5; escalation designed but not field-tested & Realistic timeline with milestones & Administrator provides phased adoption plan with specific milestones, go/no-go criteria, and resource requirements \\
+\addlinespace
+
+% Informaticist rows
+Informaticist & Technical readiness and data pipeline & CI1--CI3 & Addressed: full pipeline validated (EEG + radiomics + multi-agent); technical requirements documented & Specific technical requirements with priority ranking & Informaticist identifies top 3 infrastructure requirements and data pipeline bottlenecks \\
+\addlinespace
+
+Informaticist & Model monitoring and drift & CI4, CI8 & Partially addressed: monitoring designed in framework; no production deployment data & Monitoring strategy with specific metrics and thresholds & Informaticist describes operations pipeline with drift detection, retraining triggers, and rollback procedures \\
+\addlinespace
+
+Informaticist & EHR integration and data quality & CI5--CI6 & Partially addressed: interoperability standards identified (HL7 FHIR); data quality handled in preprocessing & Integration challenges ranked by severity & Informaticist identifies specific EHR integration challenges and data quality mitigation strategies \\
+\addlinespace
+
+Informaticist & Fairness, security, and multi-modal integration & CI7, CI9--CI10 & Partially addressed: fairness auditing designed (DI, EO metrics); security architecture specified & Comprehensive fairness and security framework & Informaticist describes end-to-end fairness pipeline and security measures for multi-modal clinical data \\
+
+\end{xltabular}
+
+%===============================================================================
+\subsection{Mixed Methods Integration Matrix}
+%===============================================================================
+
+Table~\ref{tab:mixed_methods_matrix} shows how the qualitative interview findings will integrate with quantitative survey results (Appendix~\ref{app:survey_instrument}) and the computational validation (Chapters~\ref{chap:analysis}--\ref{chap:discussion}) to provide triangulated evidence.
+\needspace{3\baselineskip}
+\noindent Table~\ref{tab:mixed_methods_matrix} mixed methods integration matrix: quantitative,.
+
+{\tablestripes\tablefontsize
+\begin{xltabular}{\textwidth}{@{} L L L L @{}}
+\caption[Mixed Methods Integration Matrix: Quantitative,]{Mixed Methods Integration Matrix: Quantitative, Qualitative, and Computational Evidence Streams}\label{tab:mixed_methods_matrix} \\
+\toprule
+\thead{Research Question} & \thead{Quantitative Evidence (Survey)} & \thead{Qualitative Evidence (Interview)} & \thead{Computational Evidence (Ch.4--5)} \\
+\midrule
+\endfirsthead
+\multicolumn{4}{@{}l}{\textit{(\,Tab.~\ref{tab:mixed_methods_matrix} continued from previous page\,)}} \\
+\toprule
+\thead{Research Question} & \thead{Quantitative Evidence (Survey)} & \thead{Qualitative Evidence (Interview)} & \thead{Computational Evidence (Ch.4--5)} \\
+\midrule
+\endhead
+\bottomrule
+\endlastfoot
+Does AI readiness predict adoption? & SH1: Path coefficient $\beta_1$; $R^2$ for adoption & Themes on readiness factors; role-specific barriers & N/A (human factors) \\
+\addlinespace
+Does trust mediate readiness--adoption? & SH4: Indirect effect ($\beta_3 \times \beta_2$); Sobel test & Trust formation narratives; trust erosion triggers; explanation preferences & Expert panel trust ratings (Likert); Krippendorff's $\alpha$ \\
+\addlinespace
+Does governance moderate trust--adoption? & SH5: Interaction term significance & Governance gap narratives; accountability chain descriptions; escalation scenarios & RGAIG governance layer validation; RACI matrix coverage \\
+\addlinespace
+Does organisational culture moderate readiness--adoption? & SH6: Interaction term significance & Culture examples; change management strategies; leadership role & N/A (human factors) \\
+\addlinespace
+Is the AI framework technically accurate? & GAI3--GAI5: Perceived accuracy and ASD-focused value & Scenario responses (MS1--MS3); clinical workflow integration descriptions & ASD ensemble 97.67\% $\pm$ 2.1\%; AUC 0.956; bootstrap CI; ablation studies \\
+\addlinespace
+Is the explainability adequate? & TAI2: Explanation clarity score (Likert) & CL3, RA3: Explanation type preferences; sufficiency assessment & SHAP + RAG explainability pipeline; expert panel concordance \\
+\end{xltabular}}
+\vspace{0.5em}\noindent\textit{Note.} SH = survey hypothesis. Integration follows a convergent mixed methods design where quantitative and qualitative streams are collected in parallel and merged at the interpretation stage. Discrepant findings across streams are resolved through joint displays and meta-inference.
+
+%===============================================================================
+\subsection{Thematic Analysis Procedure}
+%===============================================================================
+
+The qualitative data analysis follows Braun and Clarke's (2006) six-phase reflexive thematic analysis:
+
+\begin{enumerate}
+    \item \textbf{Familiarisation:} Read and re-read all transcripts; record initial impressions in a reflexive journal.
+    \item \textbf{Initial coding:} Generate systematic codes across the entire dataset using NVivo~14. Apply both deductive codes (derived from RGAIG constructs: trust, governance, readiness, culture) and inductive codes (emergent from data).
+    \item \textbf{Theme generation:} Collate codes into candidate themes; construct initial thematic maps.
+    \item \textbf{Theme review:} Check themes against coded extracts and the full dataset; refine, split, or merge themes.
+    \item \textbf{Theme definition:} Define and name each theme; write analytic narratives; identify illustrative quotes.
+    \item \textbf{Report production:} Write the final thematic analysis report with cross-role comparisons, integration with quantitative findings, and implications for the RGAIG framework.
+\end{enumerate}
+
+\noindent \textbf{Inter-coder reliability:} A second coder independently codes 20\% of transcripts. Agreement is assessed using Cohen's $\kappa$ ($\geq .70$ acceptable) and discrepancies are resolved through discussion.
+
+\noindent \textbf{Member checking:} A summary of findings is sent to a subset of participants ($n = 5$--$8$) for verification and feedback.
+
+%===============================================================================
+\subsection{Expected Outcomes}
+%===============================================================================
+
+Based on the theoretical framework and prior literature on AI adoption in healthcare, the following qualitative outcomes are anticipated:
+
+\begin{itemize}
+    \item \textbf{Trust is conditional, not binary:} Clinicians and radiologists are expected to describe trust as a spectrum influenced by explanation quality, accuracy track record, and governance transparency---not as an all-or-nothing decision.
+    \item \textbf{Role-specific adoption barriers differ:} Clinicians will emphasise accuracy and explainability; administrators will emphasise ROI and regulatory compliance; informaticists will emphasise data quality and integration complexity.
+    \item \textbf{Governance readiness is a prerequisite:} Administrators and informaticists are expected to identify governance infrastructure as a necessary condition for adoption, not merely a moderator.
+    \item \textbf{ASD-focused frameworks evoke mixed reactions:} Some participants will view a unified framework as a strength (consistency, efficiency), while others will view it as a risk (complexity, single point of failure).
+    \item \textbf{Scenarios reveal tacit knowledge:} The mixed scenario questions (MS1--MS3) are expected to surface decision-making heuristics and trust boundaries that structured questions cannot access.
+\end{itemize}
+
+\noindent This qualitative interview protocol is designed to complement both the quantitative survey (Appendix~\ref{app:survey_instrument}) and the computational validation (Chapters~\ref{chap:analysis}--\ref{chap:discussion}). Together, the three evidence streams provide a comprehensive, triangulated understanding of whether the RGAIG framework is not only technically sound but also organisationally adoptable.
