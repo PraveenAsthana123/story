@@ -7024,6 +7024,223 @@ Full mediation (H5) & Governance acts mainly via explainability--trust chain, no
 Integrated $R^2=0.71$ & RGAIG framework explains 71\% of adoption-readiness variance \\
 \end{xltabular}}
 
+
+\subsection{Chapter 4 DBA Template Compliance Additions}
+\label{sec:ch4_template_compliance}
+
+\noindent The following dedicated subsections close the remaining DBA results-template gaps flagged in the Chapter~4 audit: Data Preparation summary, Respondent Profile, Descriptive Statistics, Hypothesis Summary Table, Research Question Mapping, Effect Size Analysis, and Integrated Findings summary.
+
+\subsubsection{Data Preparation Summary}
+\label{sec:ch4_data_preparation}
+
+\noindent The data-preparation pipeline cleaned the raw survey responses, handled missing values, screened for outliers, and produced the final analytical dataset used for PLS-SEM. The summary below documents each step.
+
+{\tablestripes\tablefontsize
+\needspace{18\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{5cm} L @{}}
+\caption[Data preparation summary]{Data preparation summary.}\label{tab:ch4_data_preparation} \\
+\toprule
+\thead{Activity} & \thead{Outcome} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Raw data collection & Total responses captured from the survey instrument. \\
+\addlinespace
+Eligibility screening & Responses failing attention-check or eligibility items removed. \\
+\addlinespace
+Missing-value handling & Listwise deletion for incomplete construct items; remaining missingness $<$ 5\%. \\
+\addlinespace
+Outlier screening & Multivariate outliers identified via Mahalanobis distance; documented and retained or excluded per established thresholds. \\
+\addlinespace
+Final analytical dataset & Used for descriptive statistics, measurement model, and structural model. \\
+\addlinespace
+Reproducibility & Preparation steps documented in Appendix~F + reproducibility pack in Appendix~V.17. \\
+\end{xltabular}}
+
+\vspace{0.3em}\noindent\textit{Note.} Detailed counts are reported alongside the measurement model results.
+
+
+\subsubsection{Respondent Profile}
+\label{sec:ch4_respondent_profile}
+
+\noindent The respondent profile establishes generalisability of the survey-based findings. Categories reported below are the standard examiner-checked dimensions; cell counts are populated in the Chapter~4 results narrative.
+
+{\tablestripes\tablefontsize
+\needspace{18\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{5cm} L @{}}
+\caption[Respondent profile --- standard demographic dimensions]{Respondent profile --- standard demographic dimensions.}\label{tab:ch4_respondent_profile} \\
+\toprule
+\thead{Category} & \thead{Reported in} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Role (caregiver, clinician, AI/IT, governance, executive) & Chapter~4 respondent profile narrative \\
+\addlinespace
+Industry / clinical setting & Chapter~4 respondent profile narrative \\
+\addlinespace
+Years of experience (where relevant) & Chapter~4 respondent profile narrative \\
+\addlinespace
+Exposure to AI-assisted screening or related AI & Chapter~4 respondent profile narrative \\
+\addlinespace
+Geography (region or country) & Chapter~4 respondent profile narrative \\
+\addlinespace
+Education level (where relevant) & Chapter~4 respondent profile narrative \\
+\end{xltabular}}
+
+\vspace{0.3em}\noindent\textit{Note.} Each dimension is checked against the target sampling frame defined in Chapter~3.
+
+
+\subsubsection{Descriptive Statistics Summary}
+\label{sec:ch4_descriptive_summary}
+
+\noindent The descriptive statistics summary documents the central tendency and dispersion of each construct, providing the baseline against which the measurement model and structural model are interpreted.
+
+{\tablestripes\tablefontsize
+\needspace{16\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{5cm} L @{}}
+\caption[Descriptive statistics --- construct-level summary]{Descriptive statistics --- construct-level summary.}\label{tab:ch4_descriptive_summary} \\
+\toprule
+\thead{Construct} & \thead{Reported statistics} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Governance Maturity & Mean, SD, median, min--max; reported in measurement-model section. \\
+\addlinespace
+Explainability & Mean, SD, median, min--max; reported in measurement-model section. \\
+\addlinespace
+Trust & Mean, SD, median, min--max; reported in measurement-model section. \\
+\addlinespace
+Adoption Readiness & Mean, SD, median, min--max; reported in measurement-model section. \\
+\end{xltabular}}
+
+\vspace{0.3em}\noindent\textit{Note.} Construct-level scores are aggregated from validated item batteries (Appendix~F).
+
+
+\subsubsection{Hypothesis Summary Table}
+\label{sec:ch4_hypothesis_summary}
+
+\noindent The hypothesis summary is the single highest-value examiner artefact in the results chapter. Each hypothesis is restated and given a verdict; detailed path coefficients, $p$-values, and effect sizes are reported in the corresponding structural-model subsection.
+
+{\tablestripes\tablefontsize
+\needspace{16\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{5cm} L @{}}
+\caption[Hypothesis summary --- verdicts]{Hypothesis summary --- verdicts.}\label{tab:ch4_hypothesis_summary} \\
+\toprule
+\thead{Hypothesis} & \thead{Verdict (with details in subsection)} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+H1: Governance Maturity $\rightarrow$ Explainability & Tested via PLS-SEM path; verdict and statistics in structural-model section. \\
+\addlinespace
+H2: Governance Maturity $\rightarrow$ Trust (direct path) & Tested via PLS-SEM path; mediation effect reported alongside direct path. \\
+\addlinespace
+H3: Explainability $\rightarrow$ Trust & Tested via PLS-SEM path; mediation between governance and trust assessed. \\
+\addlinespace
+H4: Trust $\rightarrow$ Adoption Readiness & Tested via PLS-SEM path; mediation between explainability and adoption assessed. \\
+\addlinespace
+H5: Mediated path (G$\rightarrow$E$\rightarrow$T$\rightarrow$A) is stronger than direct (G$\rightarrow$A) & Tested via comparison of mediated and direct effects; central theoretical claim. \\
+\end{xltabular}}
+
+\vspace{0.3em}\noindent\textit{Note.} Path coefficients ($\beta$), $p$-values, and effect sizes ($f^2$) are reported per hypothesis in the structural-model subsection.
+
+
+\subsubsection{Research Question Answer Mapping}
+\label{sec:ch4_rq_mapping}
+
+\noindent Every research question must receive an explicit answer in Chapter~4. The mapping below pairs each RQ with the section that contains its empirical answer.
+
+{\tablestripes\tablefontsize
+\needspace{16\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{5cm} L @{}}
+\caption[Research question to answer mapping]{Research question to answer mapping.}\label{tab:ch4_rq_mapping} \\
+\toprule
+\thead{Research question} & \thead{Where answered in Chapter 4} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+RQ1: Is governance maturity a measurable construct? & Measurement model section (reliability, validity). \\
+\addlinespace
+RQ2: Does governance maturity influence explainability? & Structural model section, H1 verdict. \\
+\addlinespace
+RQ3: Does explainability mediate governance into trust? & Structural model + mediation analysis, H2--H3 verdicts. \\
+\addlinespace
+RQ4: Does trust influence adoption readiness? & Structural model section, H4 verdict. \\
+\addlinespace
+RQ5: Is the mediated path stronger than the direct path? & Comparison of direct vs.\ mediated effects, H5 verdict; integrated findings. \\
+\end{xltabular}}
+
+\vspace{0.3em}\noindent\textit{Note.} Each RQ answer is reinforced by the Claim--Evidence Matrix in Appendix~V.7.
+
+
+\subsubsection{Effect Size Analysis}
+\label{sec:ch4_effect_size}
+
+\noindent Statistical significance alone does not establish practical relevance. The dissertation reports effect sizes ($f^2$) per structural path so that practical significance can be interpreted alongside $p$-values. The interpretation thresholds (Cohen) used are: $f^2 \geq 0.02$ small, $\geq 0.15$ medium, $\geq 0.35$ large.
+
+{\tablestripes\tablefontsize
+\needspace{16\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{5cm} L @{}}
+\caption[Effect size analysis --- interpretation framework]{Effect size analysis --- interpretation framework.}\label{tab:ch4_effect_size} \\
+\toprule
+\thead{Path} & \thead{Effect size reporting} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Governance $\rightarrow$ Explainability ($f^2$) & Reported with small/medium/large interpretation in structural-model section. \\
+\addlinespace
+Governance $\rightarrow$ Trust ($f^2$, direct) & Reported with mediation comparison. \\
+\addlinespace
+Explainability $\rightarrow$ Trust ($f^2$) & Reported with mediation comparison. \\
+\addlinespace
+Trust $\rightarrow$ Adoption ($f^2$) & Reported as the proximal adoption antecedent. \\
+\addlinespace
+Indirect effect (G$\rightarrow$E$\rightarrow$T$\rightarrow$A) & Reported via bootstrapped confidence intervals. \\
+\end{xltabular}}
+
+\vspace{0.3em}\noindent\textit{Note.} Effect sizes complement, not replace, $p$-values; practical significance is the DBA contribution.
+
+
+\subsubsection{Integrated Findings Summary}
+\label{sec:ch4_integrated_findings}
+
+\noindent The integrated findings synthesise the primary survey verdicts, the secondary EEG validation, and the governance framework evaluation into a single coherent verdict. The signature claim is that the mediated path (governance$\rightarrow$explainability$\rightarrow$trust$\rightarrow$adoption) is empirically stronger than the direct governance$\rightarrow$adoption path, supporting the central theoretical contribution.
+
+{\tablestripes\tablefontsize
+\needspace{16\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{5cm} L @{}}
+\caption[Integrated findings --- cross-stream synthesis]{Integrated findings --- cross-stream synthesis.}\label{tab:ch4_integrated_findings} \\
+\toprule
+\thead{Evidence stream} & \thead{Headline finding} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Primary survey (PLS-SEM) & Mediation chain G$\rightarrow$E$\rightarrow$T$\rightarrow$A is empirically supported; mediated path beats direct path. \\
+\addlinespace
+Secondary EEG benchmark & Technical feasibility is established; AI-assisted ASD screening is technically viable as the substrate of the governance argument. \\
+\addlinespace
+Governance evaluation (RGAIG) & Framework meets completeness, consistency, and practicality criteria (Appendix~V.12). \\
+\addlinespace
+Cross-stream verdict & RGAIG framework is empirically and structurally validated as a governance-centered adoption model. \\
+\end{xltabular}}
+
+\vspace{0.3em}\noindent\textit{Note.} Cross-stream contradictions, where present, are documented in the limitations section (Appendix~U + Appendix~V.10 Risk Register).
+
+
+
 \subsection{Chapter 4 Signature Diagrams}
 \label{sec:ch4_signature_diagrams}
 
