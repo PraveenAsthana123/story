@@ -1,0 +1,10 @@
+{
+  "generated": "2026-05-30T11:45:02.090957",
+  "n_pages": 0,
+  "warn_pages_count": 0,
+  "crit_pages_count": 0,
+  "total_flagged": 0,
+  "warn_threshold_y": 740.0,
+  "crit_threshold_y": 760.0,
+  "flagged_pages": []
+}
