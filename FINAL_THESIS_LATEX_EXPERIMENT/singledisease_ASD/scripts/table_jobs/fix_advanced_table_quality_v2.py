@@ -155,7 +155,8 @@ def fix_table_colspec(spec, col_widths, col_avgs, col_maxes, issues, n_cols):
 
     # Decide which cols need fixing
     fix_needed = (issues.get("right_side_empty") or issues.get("tall_column")
-                  or issues.get("width_imbalanced"))
+                  or issues.get("width_imbalanced") or issues.get("underused_column")
+                  or issues.get("squeezed_column"))
     if not fix_needed:
         return None
 
@@ -255,8 +256,9 @@ def main():
     tables = audit["tables"]
 
     actionable = [t for t in tables if t["env_type"] == "xltabular" and (
-        t["issues"]["right_side_empty"] or t["issues"]["tall_column"]
-        or t["issues"]["width_imbalanced"])]
+        t["issues"].get("right_side_empty") or t["issues"].get("tall_column")
+        or t["issues"].get("width_imbalanced") or t["issues"].get("underused_column")
+        or t["issues"].get("squeezed_column"))]
 
     if only_filter:
         actionable = [t for t in actionable if only_filter in t["file"]]

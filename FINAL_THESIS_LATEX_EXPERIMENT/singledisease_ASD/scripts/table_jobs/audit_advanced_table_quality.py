@@ -280,6 +280,21 @@ def analyse_table(file, line_no, env_type, width_arg, colspec, body):
     # Issue #5b VERY-MULTI-PAGE: > 50 rows (likely 3+ pages, should split)
     very_multi_page = len(rows) > 50
 
+    # Issue #9 UNDERUSED-COLUMN: column allocated > 4cm but avg < 25 chars
+    # → that width could be redistributed to squeezed columns
+    underused_column = False
+    for i, (w, a) in enumerate(zip([c["width_cm"] for c in cols], col_avg)):
+        if w is not None and w >= 4.0 and a < 25:
+            underused_column = True
+            break
+
+    # Issue #10 SQUEEZED-COLUMN: column with avg/width > 12 chars/cm forces excess wrap
+    squeezed_column = False
+    for i, (w, a) in enumerate(zip([c["width_cm"] for c in cols], col_avg)):
+        if w is not None and a > 25 and a / w > 12:
+            squeezed_column = True
+            break
+
     # Issue #8 TABLE-VS-TEXT-DENSITY-MISMATCH:
     # Table has many rows but each row has very little text → page is mostly empty
     # Suggests merging rows, converting to bullets, or reducing row count
@@ -324,6 +339,8 @@ def analyse_table(file, line_no, env_type, width_arg, colspec, body):
             "right_side_empty": right_side_empty,
             "tall_column": tall_column,
             "width_imbalanced": width_imbalanced,
+            "underused_column": underused_column,
+            "squeezed_column": squeezed_column,
             "multi_page": multi_page,
             "very_multi_page": very_multi_page,
             "sparse_table": sparse_table,
