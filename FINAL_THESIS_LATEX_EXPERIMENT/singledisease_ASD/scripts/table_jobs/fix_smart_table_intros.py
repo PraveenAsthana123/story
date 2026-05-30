@@ -82,6 +82,8 @@ def compose_intro(short_cap, headers, ref_label):
         return f"\\noindent Table~\\ref{{{ref_label}}} presents {cap.lower()}."
 
     n = len(headers)
+    # Escape unescaped # so LaTeX doesn't treat it as macro parameter
+    headers = [h.replace("\\#", "#").replace("#", "\\#") for h in headers]
     if n <= 4:
         cols_str = ", ".join(headers[:-1]) + " and " + headers[-1] if n > 1 else headers[0]
     else:
