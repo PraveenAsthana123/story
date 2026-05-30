@@ -5350,6 +5350,285 @@ Chapter~\ref{chap:literature} examines the theoretical and empirical foundations
 \textbf{This thesis argues that domain fragmentation in biomedical AI diagnostics is an unnecessary and costly design failure---not a technical inevitability---and that a unified, agentic, and explainable framework can replace it with a platform that is more accurate, more transparent, and less expensive than the fragmented status quo.}
 
 
+
+\subsection{Executive Table: Research Problem Summary}
+\label{sec:exec_research_problem}
+
+\noindent The following executive-level table summarizes the core research problems addressed by this dissertation, each mapped to its business impact for healthcare organizations.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{6cm} L @{}}
+\caption[Research Problem Summary]{Research Problem Summary.}\label{tab:exec_research_problem} \\
+\toprule
+\thead{Problem} & \thead{Business Impact} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Delayed ASD identification & Delayed intervention; reduced developmental outcomes \\
+\addlinespace
+Limited explainability of AI screening & Reduced clinician trust; integration friction \\
+\addlinespace
+Weak governance maturity & Reduced adoption; compliance + liability exposure \\
+\addlinespace
+Fragmented Responsible AI controls & Inconsistent oversight; weak accountability \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Each problem motivates a corresponding objective in Table~\ref{tab:exec_objectives} and a hypothesis in Chapter~4.
+
+
+\subsection{Executive Table: Research Gap (Known vs.\ Unknown)}
+\label{sec:exec_research_gap}
+
+\noindent The following executive-level table contrasts what prior literature has established with what remains unknown, motivating the present research.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{6cm} L @{}}
+\caption[Research Gap: Known vs.\ Unknown]{Research Gap: Known vs.\ Unknown.}\label{tab:exec_research_gap} \\
+\toprule
+\thead{What is known} & \thead{What remains unknown} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+AI improves ASD-EEG screening accuracy & Governance effect on adoption is unclear \\
+\addlinespace
+XAI improves transparency of AI outputs & Trust pathway from XAI to adoption is unclear \\
+\addlinespace
+Responsible AI frameworks exist (ISO, NIST, EU AI Act) & Empirical adoption impact of governance maturity is unmeasured \\
+\addlinespace
+Clinicians value explainability in principle & Magnitude of governance$\rightarrow$trust$\rightarrow$adoption effect is undocumented \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Detailed literature inventory is in Chapter~2 + Appendix~B.
+
+
+\subsection{Executive Table: Research Objectives}
+\label{sec:exec_objectives}
+
+\noindent The following executive-level table summarizes the five research objectives. Full operationalization is in Appendix~M.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{6cm} L @{}}
+\caption[Research Objectives (Executive Summary)]{Research Objectives (Executive Summary).}\label{tab:exec_objectives} \\
+\toprule
+\thead{Objective} & \thead{Purpose} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+O1 & Evaluate the influence of governance maturity on explainability \\
+\addlinespace
+O2 & Evaluate the influence of governance maturity on trust \\
+\addlinespace
+O3 & Evaluate the influence of explainability on trust \\
+\addlinespace
+O4 & Evaluate the influence of trust on adoption readiness \\
+\addlinespace
+O5 & Validate the integrated RGAIG governance-mediated adoption framework \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Detailed objective-to-question-to-hypothesis-to-method mapping is in Appendix~M.
+
+
+\subsection{Executive Table: Research Questions}
+\label{sec:exec_research_questions}
+
+\noindent The following executive-level table summarizes the five research questions. Answers are in Chapter~5 (Research Question Answer Matrix, Table~\ref{tab:distinction_rq_answer_matrix}).
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{6cm} L @{}}
+\caption[Research Questions (Executive Summary)]{Research Questions (Executive Summary).}\label{tab:exec_research_questions} \\
+\toprule
+\thead{Question} & \thead{Purpose} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+RQ1 & Does governance maturity influence explainability? \\
+\addlinespace
+RQ2 & Does governance maturity influence trust? \\
+\addlinespace
+RQ3 & Does explainability influence trust? \\
+\addlinespace
+RQ4 & Does trust influence adoption readiness? \\
+\addlinespace
+RQ5 & Does the integrated RGAIG framework predict adoption readiness? \\
+\end{xltabular}}
+
+
+\subsection{Executive Table: Contributions Summary}
+\label{sec:exec_contributions}
+
+\noindent The following executive-level table summarizes the four principal contributions of this dissertation, each classified by contribution type.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{6cm} L @{}}
+\caption[Contributions Summary]{Contributions Summary.}\label{tab:exec_contributions} \\
+\toprule
+\thead{Contribution} & \thead{Type} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+RGAIG Maturity Framework & Practical artifact \\
+\addlinespace
+Governance-mediated adoption pathway & Theoretical contribution \\
+\addlinespace
+Mixed-methods governance research design & Methodological contribution \\
+\addlinespace
+Healthcare AI adoption guidance + roadmap & Practitioner contribution \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Full contribution detail is in Chapter~5 + Appendix~T.
+
+
+\subsection{Executive Table: Scope of the Study (In vs.\ Out)}
+\label{sec:exec_scope}
+
+\noindent The following executive-level table clarifies the bounded scope of this research, separating what is in-scope from what is explicitly out-of-scope.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{6cm} L @{}}
+\caption[Scope: In-Scope vs.\ Out-of-Scope]{Scope: In-Scope vs.\ Out-of-Scope.}\label{tab:exec_scope} \\
+\toprule
+\thead{In Scope (DBA contribution)} & \thead{Out of Scope (CS engineering)} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Governance maturity as construct & Novel ML algorithm design \\
+\addlinespace
+Explainability as adoption mediator & Novel CNN architecture \\
+\addlinespace
+Trust as behavioral mechanism & Neural network hyperparameter tuning \\
+\addlinespace
+Adoption readiness in healthcare & GPU optimization / training infrastructure \\
+\addlinespace
+RGAIG governance framework & Production deployment engineering \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} See Chapter~3, Section~\ref{sec:separation_research_engineering} for the full separation of research vs.\ supporting engineering.
+
+
+\subsection{Executive Table: Why DBA (Not Computer Science PhD)}
+\label{sec:exec_why_dba}
+
+\noindent The following executive-level table contrasts the focus of this DBA dissertation with a Computer Science PhD on the same domain, clarifying the disciplinary positioning.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{6cm} L @{}}
+\caption[Why DBA Rather Than Computer Science PhD]{Why DBA Rather Than Computer Science PhD.}\label{tab:exec_why_dba} \\
+\toprule
+\thead{Computer Science PhD focus} & \thead{DBA focus (this dissertation)} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Novel algorithm performance & Organizational adoption mechanisms \\
+\addlinespace
+Model architecture innovation & Governance maturity influence \\
+\addlinespace
+Benchmark accuracy improvement & Trust + explainability + adoption pathway \\
+\addlinespace
+Technical novelty as primary contribution & Managerial framework + practitioner artifact as primary contribution \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} The dissertation does not seek algorithmic innovation; existing ML, XAI, and RAG technologies serve as supporting infrastructure (see Chapter~3, Section~\ref{sec:separation_research_engineering}).
+
+
+\subsection{Executive Table: Stakeholders + Interests}
+\label{sec:exec_stakeholders}
+
+\noindent The following executive-level table summarizes the four primary stakeholder groups and their interests in the proposed RGAIG framework.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{6cm} L @{}}
+\caption[Stakeholders and Primary Interests]{Stakeholders and Primary Interests.}\label{tab:exec_stakeholders} \\
+\toprule
+\thead{Stakeholder} & \thead{Primary Interest} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Caregiver / Patient & Trust + transparency in AI-assisted screening recommendations \\
+\addlinespace
+Clinician & Explainability + clinical accountability + workflow integration \\
+\addlinespace
+Healthcare organization & Governance maturity + compliance + adoption risk management \\
+\addlinespace
+Regulator & Responsible AI compliance + auditability + safety oversight \\
+\end{xltabular}}
+
+
+\subsection{Executive Table: Framework Component Positioning}
+\label{sec:exec_framework_positioning}
+
+\noindent The following executive-level table positions each framework component, distinguishing primary research artifacts from supporting technologies and methods.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{6cm} L @{}}
+\caption[Framework Component Positioning]{Framework Component Positioning.}\label{tab:exec_framework_positioning} \\
+\toprule
+\thead{Component} & \thead{Role in the dissertation} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+RGAIG framework & Principal governance artifact (primary contribution) \\
+\addlinespace
+SMART operational layer & Operational framework (per-phase governance application) \\
+\addlinespace
+EEG signal context & Empirical screening modality (technical context) \\
+\addlinespace
+SHAP attribution & Explainability operationalization tool \\
+\addlinespace
+RAG citation grounding & Narrative explanation support \\
+\addlinespace
+PLS-SEM analysis & Validation method for structural model \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} A more detailed component role map is in Chapter~3, Table~\ref{tab:component_role_map}.
+
+
+\subsection{Executive Table: Dissertation Structure}
+\label{sec:exec_dissertation_structure}
+
+\noindent The following executive-level table summarizes the role of each chapter in the dissertation.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{6cm} L @{}}
+\caption[Dissertation Structure (Executive Summary)]{Dissertation Structure (Executive Summary).}\label{tab:exec_dissertation_structure} \\
+\toprule
+\thead{Chapter} & \thead{Purpose} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Chapter 1 & Problem, gap, objectives, research questions, contributions, scope \\
+\addlinespace
+Chapter 2 & Theoretical foundations, literature synthesis, research gap \\
+\addlinespace
+Chapter 3 & Research methodology, measurement, validation design \\
+\addlinespace
+Chapter 4 & Empirical findings, hypothesis verdicts, integrated evidence \\
+\addlinespace
+Chapter 5 & Discussion, theoretical + practical contributions, limitations + future research \\
+\end{xltabular}}
+
 \subsection{Chapter 1 Examiner Summary}
 \label{sec:ch1_examiner_summary}
 
