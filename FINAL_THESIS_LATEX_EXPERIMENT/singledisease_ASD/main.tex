@@ -246,10 +246,15 @@
 \AtBeginEnvironment{tabularx}{\tabfixsetup}
 \AtBeginEnvironment{longtable}{\tabfixsetup}
 \AtBeginEnvironment{xltabular}{\tabfixsetup}
-% Align longtable/xltabular left edge with paragraph text (was outdented by parindent)
-% Use literal 0.5in to match \parindent set later in document settings
-\setlength{\LTleft}{0.5in}
-\setlength{\LTright}{0pt plus 1fill}
+% Tables are block elements: flush with body-text LEFT EDGE (the text-area
+% boundary, NOT the paragraph indent point). Paragraphs indent 0.5in for
+% the first line only; tables/figures/headings do NOT inherit that indent.
+% Both LTleft and LTright at 0pt makes longtable/xltabular span the full
+% \textwidth with both edges flush to the body-text margins. APA 7 standard.
+% (Previous setting LTleft=0.5in pushed all 800+ tables ~0.5in to the
+% right of the body text edge -- visually "more towards right side".)
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
 % Override p{} column default in tabularx to use raggedright (prevents justified-text overflow)
 \renewcommand{\tabularxcolumn}[1]{>{\raggedright\tolerance=9999\hyphenpenalty=0\emergencystretch=5em\hfuzz=100pt\arraybackslash}p{#1}}
 % New column type P{width} = raggedright p{width} with aggressive line-breaking
