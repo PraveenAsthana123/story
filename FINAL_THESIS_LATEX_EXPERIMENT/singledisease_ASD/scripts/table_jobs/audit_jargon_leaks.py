@@ -51,6 +51,11 @@ def main():
                 continue
             for tag, pat in JARGON_PATTERNS.items():
                 for m in re.finditer(pat, line):
+                    # Exempt §<num> when preceded by standards/laws (ISO/IEC/RFC/HIPAA/EU/Article)
+                    if tag == "policy_section_number":
+                        before = line[max(0, m.start() - 30):m.start()]
+                        if re.search(r"\b(?:ISO|IEC|RFC|HIPAA|GDPR|Article|Art\.|EU AI Act|ASTM|FDA|PMBOK)\s+\d*\s*$", before):
+                            continue
                     ctx_start = max(0, m.start() - 25)
                     ctx_end = min(len(line), m.end() + 35)
                     ctx = line[ctx_start:ctx_end].strip()
