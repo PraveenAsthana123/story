@@ -157,7 +157,7 @@ def extract_body_rows(body_text):
     body = re.sub(r"\\(endfirsthead|endhead|endfoot|endlastfoot)", "", body)
     body = re.sub(r"\\addlinespace(\[[^\]]+\])?", "", body)
     body = re.sub(r"\\multicolumn\{\d+\}\{[^}]+\}\{[^{}]*(\{[^{}]*\})?[^{}]*\}", "", body)
-    body = re.sub(r"%[^\n]*", "", body)  # strip comments
+    body = re.sub(r"(?<!\\)%[^\n]*", "", body)  # strip comments (NOT escaped \%)
     # Split on \\ followed by optional [skip] (but NOT \\* which is line in same row)
     raw_rows = re.split(r"\\\\(?:\[[^\]]+\])?\s*\n", body)
     rows = []
@@ -169,16 +169,27 @@ def extract_body_rows(body_text):
 
 
 def split_cells(row):
-    """Split a row on '&' respecting brace nesting."""
+    """Split a row on '&' respecting brace nesting AND backslash-escaped ampersands."""
     cells = []
     depth = 0
     buf = []
-    for c in row:
-        if c == "{": depth += 1
-        elif c == "}": depth -= 1
+    i = 0
+    while i < len(row):
+        c = row[i]
+        # Skip escaped chars (handles \&, \%, \$, \{, \}, \_, \#, \~, \^)
+        if c == "\\" and i + 1 < len(row):
+            buf.append(c)
+            buf.append(row[i + 1])
+            i += 2
+            continue
+        if c == "{":
+            depth += 1
+        elif c == "}":
+            depth -= 1
         elif c == "&" and depth == 0:
-            cells.append("".join(buf)); buf = []; continue
+            cells.append("".join(buf)); buf = []; i += 1; continue
         buf.append(c)
+        i += 1
     cells.append("".join(buf))
     return [c.strip() for c in cells]
 
