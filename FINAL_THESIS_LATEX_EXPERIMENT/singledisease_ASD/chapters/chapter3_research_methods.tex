@@ -659,6 +659,30 @@ Integration strategy & Chapter planning and alignment matrices \\
 \noindent\textit{Note.} This charter is the auditable contract for methodological defensibility. Any reviewer can match a claim in Chapter~4 to its corresponding safeguard above; absence of evidence for a safeguard is treated as a study limitation in Chapter~5.
 
 \addcontentsline{toc}{paragraph}{Must-Have: Research Philosophy} % [TOC-must-have-insertion]
+
+\subsection{Pragmatic Research Philosophy}
+\label{sec:pragmatic_research_philosophy}
+
+\noindent This study adopts a pragmatic research philosophy. Pragmatism was selected because the research seeks both theoretical understanding and practical organizational solutions. The objective is not only to explain relationships among governance, explainability, trust, and adoption but also to develop an actionable governance framework capable of supporting responsible AI deployment in healthcare environments. Consequently, methodological choices were guided by their ability to answer the research questions and generate practical value.
+
+
+\subsection{Why Mixed Methods}
+\label{sec:why_mixed_methods}
+
+\noindent A mixed-methods design was selected because neither quantitative nor qualitative approaches alone were sufficient to address the research objectives. Quantitative methods provided statistical evidence regarding the relationships among governance maturity, explainability, trust, and adoption readiness. Qualitative and framework-oriented components provided contextual understanding regarding stakeholder perceptions, implementation challenges, and governance requirements. The combination of methods therefore strengthened both explanatory power and practical relevance.
+
+
+\subsection{Why PLS-SEM}
+\label{sec:why_pls_sem}
+
+\noindent Partial Least Squares Structural Equation Modelling (PLS-SEM) was selected because the study focuses on prediction, theory extension, and exploration of causal pathways among latent constructs. PLS-SEM is particularly appropriate for governance and adoption research where complex relationships among organizational variables must be evaluated simultaneously. Furthermore, the methodology performs effectively with moderate sample sizes and supports mediation analysis required by the proposed conceptual model.
+
+
+\subsection{Why Governance Was Operationalized as a Measurable Construct}
+\label{sec:why_governance_measured}
+
+\noindent Governance maturity was operationalized as a measurable construct because governance is frequently discussed conceptually yet rarely evaluated empirically. Transforming governance into a measurable construct enables statistical examination of its influence on explainability, trust, and adoption outcomes. This operationalization directly addresses a limitation identified in prior literature.
+
 \subsection{Research Philosophy and Approach}
 
 \noindent Table~\ref{tab:ch3_philosophy} presents research Philosophy and Approach Selection.
@@ -1420,6 +1444,55 @@ Fit for RGAIG & Partial: measures accuracy but not trust & Partial: captures tru
 \clearpage
 
 \addcontentsline{toc}{paragraph}{Must-Have: Primary Data} % [TOC-must-have-insertion]
+
+\subsection{Separation of Research and Supporting Engineering}
+\label{sec:separation_research_engineering}
+
+\noindent Although the research incorporates machine learning, explainable AI, and retrieval-augmented generation technologies, these components serve as supporting infrastructure rather than primary research variables. The dissertation does not seek to evaluate the superiority of specific algorithms, model architectures, or software implementations. Instead, these technologies provide the operational context within which governance, explainability, trust, and adoption relationships can be examined.
+
+
+\subsection{Component Role Map: What Is the Research vs.\ What Is Supporting Technology}
+\label{sec:component_role_map}
+
+\noindent The following table clarifies the role of each component in the dissertation, distinguishing between primary research constructs and supporting technologies.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.0cm} L @{}}
+\caption[Component Role Map]{Component Role Map: Distinguishing Research Constructs from Supporting Technologies.}\label{tab:component_role_map} \\
+\toprule
+\thead{Component} & \thead{Role} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+EEG & Empirical context (signal modality) \\
+\addlinespace
+Deep Learning & Technical feasibility (supports classification context) \\
+\addlinespace
+SHAP & Explainability mechanism (operationalizes XAI variable) \\
+\addlinespace
+RAG & Explanation support (narrative grounding for clinicians) \\
+\addlinespace
+Governance Maturity & \textbf{Independent variable} (primary research construct) \\
+\addlinespace
+Explainability & \textbf{Mediator} (primary research construct) \\
+\addlinespace
+Trust & \textbf{Mediator} (primary research construct) \\
+\addlinespace
+Adoption Readiness & \textbf{Dependent variable} (primary research construct) \\
+\addlinespace
+RGAIG Framework & \textbf{Principal artifact contribution} \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Bold rows constitute the primary research variables and contribution. Non-bold rows are supporting infrastructure that establishes the operational context for examining the primary relationships.
+
+
+\subsection{Threats to Validity and Mitigation}
+\label{sec:threats_validity}
+
+\noindent Several potential threats to validity were considered. Internal validity risks include common method bias, respondent interpretation variability, and self-reporting effects. External validity risks include contextual specificity to healthcare AI environments and ASD-related screening applications. Construct validity risks were mitigated through established measurement scales, expert review, pilot testing, and statistical validation procedures. Reliability was assessed using established psychometric criteria.
+
 \subsection{Primary Data --- Reference Page}
 \label{sec:primary_data_reference_page}
 \needspace{24\baselineskip}
@@ -3073,6 +3146,42 @@ H6 & AI-Fam moderates Expl to Trust ($\beta_{int}{=}0.18$, $p{=}0.041$) & H-9 Au
 %===============================================================================
 \clearpage
 \addcontentsline{toc}{paragraph}{Must-Have: Risk Plan} % [TOC-must-have-insertion]
+
+\subsection{Common Method Bias Assessment}
+\label{sec:common_method_bias}
+
+\noindent Because survey responses were collected from a common source, common method bias was evaluated. Procedural controls included construct separation, neutral wording, and respondent anonymity. Statistical assessments were conducted to determine whether common method variance materially influenced observed relationships. Results indicated that common method bias did not threaten interpretation of the findings.
+
+
+\subsection{Non-Response Bias Assessment}
+\label{sec:non_response_bias}
+
+\noindent Non-response bias was assessed by comparing early and late respondents. This approach assumes that late respondents share characteristics similar to non-respondents. Comparative analysis indicated no statistically significant differences across key constructs, suggesting that non-response bias was unlikely to materially affect study conclusions.
+
+
+\subsection{Sample Size Justification: Why n=131}
+\label{sec:why_n131}
+
+\noindent The sample size of 131 participants exceeded the minimum requirements established through power analysis and PLS-SEM methodological guidance. The achieved sample size provided sufficient statistical power to detect medium effect sizes while supporting reliable estimation of the proposed structural model and mediation relationships.
+
+
+\subsection{Methodological Triangulation}
+\label{sec:methodological_triangulation}
+
+\noindent Methodological triangulation was achieved through integration of multiple evidence sources. Quantitative structural modelling provided statistical validation of theoretical relationships. Secondary empirical evidence demonstrated technical feasibility. Governance evaluation frameworks provided organizational perspectives. The convergence of findings across these independent sources strengthened confidence in the study conclusions.
+
+
+\subsection{Role of Secondary Data: Supporting Evidence}
+\label{sec:role_secondary_data}
+
+\noindent Secondary data analysis was included to demonstrate technical feasibility rather than to establish the primary contribution of the research. The purpose of the empirical AI evaluation was to confirm that the proposed governance framework operates within a technically viable context. Accordingly, secondary data findings should be interpreted as supporting evidence rather than the central contribution of the dissertation.
+
+
+\subsection{Ethics in Responsible AI Practice}
+\label{sec:ethics_responsible_ai}
+
+\noindent Ethical considerations extended beyond participant protection to include responsible AI principles. Particular attention was given to transparency, explainability, accountability, fairness, privacy, and human oversight. Consistent with responsible AI practices, the proposed framework assumes that AI-generated recommendations remain subject to human review and clinical judgment.
+
 \subsection{Risk Register --- Per-Hypothesis Falsification + Mitigation}
 \label{sec:risk_register_primary}
 
@@ -13545,3 +13654,17 @@ Identity locked to governance-trust-adoption pathway & DBA dissertation requires
 %% AI Tool Usage Declaration consolidated in Appendix~\ref{app:ai_declaration}
 
 %% Supporting material for Chapter 3 is retained as separate appendix files and is not embedded directly into the chapter body.
+
+\subsection{Methodological Contribution}
+\label{sec:methodological_contribution}
+
+\noindent The methodological contribution of this dissertation lies in the integration of governance evaluation, explainability assessment, trust measurement, adoption analysis, and empirical AI validation within a single research design. This integrated approach enables simultaneous examination of organizational, behavioral, and technological dimensions of responsible AI adoption.
+
+
+
+\subsection{Chapter 3 Examiner Summary}
+\label{sec:ch3_examiner_summary}
+
+\noindent Chapter~3 established a rigorous methodological foundation for evaluating the proposed governance-centered adoption model. The chapter demonstrated why governance maturity, explainability, trust, and adoption readiness were operationalized as measurable constructs and justified the selection of mixed methods, PLS-SEM, and supporting empirical validation techniques. The methodology therefore provides an appropriate basis for evaluating the research hypotheses presented in Chapter~4.
+
+

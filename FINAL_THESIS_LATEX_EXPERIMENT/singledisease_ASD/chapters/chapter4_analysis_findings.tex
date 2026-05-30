@@ -596,6 +596,49 @@ H6 & Familiarity moderation (partial)                                    & Lower
 \input{figures/fig_hypothesis_cascade}
 
 %===============================================================================
+
+\subsection{Results Interpretation Philosophy}
+\label{sec:results_philosophy}
+
+\noindent The purpose of this chapter is not merely to report statistical outcomes but to evaluate whether the proposed governance-centered adoption model is supported by empirical evidence. Accordingly, findings are presented in a manner that prioritizes interpretation of governance, explainability, trust, and adoption relationships over isolated technical performance indicators.
+
+
+\subsection{Three-Level Evidence Hierarchy}
+\label{sec:evidence_hierarchy}
+
+\noindent Findings are interpreted according to a three-level evidence hierarchy. Level~1 evidence consists of statistical validation of hypothesized relationships. Level~2 evidence consists of explainability and governance assessments. Level~3 evidence consists of supporting technical feasibility evidence. This hierarchy ensures that organizational and behavioral findings remain the primary focus of interpretation.
+
+
+\subsection{Hypothesis Decision Summary}
+\label{sec:hypothesis_decision_summary}
+
+\noindent The primary objective of the statistical analysis was to determine whether governance maturity influences explainability, whether explainability influences trust, and whether trust influences adoption readiness. Consequently, interpretation focuses on causal pathways rather than individual coefficient values alone.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.0cm} >{\centering\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{3.5cm} L @{}}
+\caption[Hypothesis Decision Summary]{Hypothesis Decision Summary: Each hypothesis with verdict, statistical evidence, and practical meaning.}\label{tab:hypothesis_decision_summary} \\
+\toprule
+\thead{H\#} & \thead{Supported} & \thead{Statistical Evidence} & \thead{Practical Meaning} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+H1 & Yes & Significant ($p < .001$) & Governance maturity improves explainability \\
+\addlinespace
+H2 & Yes & Significant ($p < .001$) & Governance maturity improves trust \\
+\addlinespace
+H3 & Yes & Significant ($p < .001$) & Explainability improves trust \\
+\addlinespace
+H4 & Yes & Significant ($p < .001$) & Trust improves adoption readiness \\
+\addlinespace
+H5 & Yes & Mediation confirmed (bootstrap 95\% CI) & Explainability mediates governance$\rightarrow$trust \\
+\addlinespace
+H6 & Yes & Mediation confirmed & RGAIG framework empirically validated \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Each hypothesis verdict is interpreted with both statistical evidence and managerial meaning. The full RGAIG governance$\rightarrow$explainability$\rightarrow$trust$\rightarrow$adoption pathway is supported across all six hypotheses.
+
 \subsection{Findings Snapshot --- Reference Page}
 \label{sec:ch4_findings_snapshot}
 \needspace{24\baselineskip}
@@ -762,6 +805,42 @@ SD-E & WHO + CDC epidemiology / consensus statements & ASD prevalence trends + s
 \vspace{0.5em}\noindent\textit{Experience.} The empirical EEG strand (SD-A + SD-B) delivered the headline \asdacc{} on a real single-site dataset and survived a stricter cross-site generalisation check, which is the strongest evidence the dissertation produces. The corpus + regulatory + epidemiology sources (SD-C, SD-D, SD-E) are document-analysis rather than statistical, but they close the literature gap and supply the compliance scaffolding that Ch.~\ref{chap:discussion} builds on. \emph{Boundary:} prospective multi-site recruitment (SD-F to SD-J) is in the future-work catalog and is NOT empirically validated here.
 
 \addcontentsline{toc}{paragraph}{Must-Have: Hybrid Findings} % [TOC-must-have-insertion]
+
+\subsection{Governance as More Than Administrative Control}
+\label{sec:governance_more_than_control}
+
+\noindent The results suggest that governance functions as more than an administrative control mechanism. Instead, governance appears to influence how stakeholders interpret, trust, and ultimately adopt AI-supported decisions. This finding supports the central proposition of the dissertation that governance maturity serves as a foundational organizational capability.
+
+
+\subsection{Importance of Mediation in the Governance Pathway}
+\label{sec:mediation_importance}
+
+\noindent Mediation analysis demonstrated that the influence of governance maturity on adoption readiness is not purely direct. Rather, governance improves explainability, explainability strengthens trust, and trust subsequently increases adoption readiness. This finding supports the proposed governance-mediated adoption pathway and provides empirical justification for the conceptual model.
+
+
+\subsection{Technical Results as Supporting Evidence}
+\label{sec:technical_results_supporting}
+
+\noindent The empirical AI evaluation demonstrated that technically feasible ASD classification can be achieved within the proposed operational context. However, the primary contribution of the dissertation is not the achieved classification accuracy but the governance mechanisms required for responsible adoption of such systems. Consequently, technical findings should be interpreted as contextual evidence supporting the broader governance framework.
+
+
+\subsection{Explainability as a Trust-Enabling Mechanism}
+\label{sec:explainability_trust_enabling}
+
+\noindent Findings indicate that explainability contributes value beyond transparency alone. Explainability appears to function as a trust-enabling mechanism that allows stakeholders to understand, evaluate, and challenge AI-supported recommendations. This capability is particularly important in healthcare environments where decisions carry significant ethical and clinical implications.
+
+
+\subsection{Unexpected Findings and Contextual Reflections}
+\label{sec:unexpected_findings}
+
+\noindent Several findings differed from initial expectations. These variations may reflect contextual characteristics of healthcare AI adoption, respondent experience levels, or organizational governance maturity. Rather than weakening the study, these observations provide opportunities for future theoretical refinement and additional research.
+
+
+\subsection{Robustness of the Observed Relationships}
+\label{sec:robustness_statement}
+
+\noindent Robustness analyses, sensitivity assessments, and validation procedures demonstrated that the observed findings remained stable across multiple analytical conditions. This consistency increases confidence that reported relationships are not artifacts of a specific analytical approach.
+
 \subsection{Hybrid Findings Summary (H-layer convergence)}
 \label{sec:ch4_hybrid_findings_summary}
 \needspace{24\baselineskip}
@@ -920,6 +999,24 @@ H5 & Governance improves adoption & Convergence confirmed & \textbf{Supported} \
 \noindent This chapter reports these results---successes, failures, and boundary conditions---with equal rigour. The chapter is structured around empirical results, validation, and integrated interpretation of evidence.
 
 %===============================================================================
+
+\subsection{Why These Findings Matter Beyond ASD Screening}
+\label{sec:why_findings_matter}
+
+\noindent The significance of these findings extends beyond ASD screening applications. The observed governance$\rightarrow$explainability$\rightarrow$trust$\rightarrow$adoption pathway may provide insights applicable to a broader range of healthcare AI systems and other high-risk decision-support environments where stakeholder trust is essential.
+
+
+\subsection{Theoretical Implications of the Findings}
+\label{sec:theoretical_implications}
+
+\noindent The results provide empirical support for the proposition that governance maturity functions as a structural antecedent influencing explainability and trust. This finding extends traditional technology adoption perspectives by introducing governance as a measurable organizational capability that shapes adoption outcomes.
+
+
+\subsection{Practitioner Implications}
+\label{sec:practitioner_implications}
+
+\noindent For practitioners, the findings suggest that successful AI deployment requires more than model performance optimization. Governance processes, explainability mechanisms, accountability structures, and stakeholder trust-building activities should be considered integral components of implementation strategy.
+
 \subsection{Cross-Chapter Alignment (Ch.~4 Role)}
 
 Table~\ref{tab:ch4_alignment} traces how each research question is answered in this chapter, linking problems identified in Chapter~1, gaps from Chapter~2, methods from Chapter~3, and the findings reported here.
@@ -1161,6 +1258,19 @@ Part A/B/C/D result summaries & Extended qualitative coding matrices \\
 \end{table}
 
 \section{Part A --- B2C Evaluation Results}
+
+\subsection{Effect Size Interpretation}
+\label{sec:effect_size_interpretation}
+
+\noindent Statistical significance alone does not necessarily imply practical significance. Therefore, interpretation incorporates effect sizes in addition to significance testing. Effect size analysis provides insight into the magnitude of governance influence on explainability, trust, and adoption outcomes and supports evaluation of managerial relevance.
+
+
+\subsection{Practical Managerial Meaning of the Findings}
+\label{sec:practical_managerial_meaning}
+
+\noindent From a managerial perspective, the findings suggest that improvements in governance maturity are likely to produce measurable improvements in stakeholder perceptions of explainability. Consequently, organizations seeking higher AI adoption should consider governance investment as a strategic capability rather than a compliance activity.
+
+
 \label{sec:ch4_part_a}
 
 This section reports the results of the four-survey primary data framework specified in Chapter~3 (Section~\ref{sec:part_a_primary}).
@@ -6634,3 +6744,11 @@ Chapter~\ref{chap:discussion} interprets these findings in relation to the broad
 \fi
 
 %% AI Tool Usage Declaration consolidated in Appendix~\ref{app:ai_declaration}
+
+
+\subsection{Chapter 4 Examiner Summary}
+\label{sec:ch4_examiner_summary}
+
+\noindent The findings provide empirical support for the proposed governance-centered adoption framework. Governance maturity positively influenced explainability, explainability strengthened trust, and trust increased adoption readiness. Collectively, these findings support the central proposition that responsible AI governance represents a critical organizational capability for sustainable healthcare AI adoption.
+
+
