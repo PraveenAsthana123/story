@@ -1946,6 +1946,9 @@ Across all ten preceding layers, governance dimensions---safety, fairness, trans
 
 
 
+\noindent This table lists each \textit{pain-area group} with its current state summary, so examiners can trace what was assessed and what evidence supports each row.
+
+
 \noindent Table~\ref{tab:asis_hospital} presents as-is patient assessment in hospital settings (b2b context), covering Pain-Area Group and Current State Summary.
 
 {\tablestripes\tablefontsize
@@ -2290,6 +2293,9 @@ TP & TP4 & No governance & No module QA; no GenAI test; no escalation; no drift 
 
 \noindent This table lists each \textit{assessment approach} with its application in eeg/ai context, so examiners can trace what was assessed and what evidence supports each row.
 
+
+
+\noindent This table lists each \textit{assessment approach} with its application in eeg/ai context, so examiners can trace what was assessed and what evidence supports each row.
 
 
 \noindent Table~\ref{tab:patient_assessment} presents patient assessment approaches in hospital (clinical + ai, covering Assessment Approach and Application in EEG/AI Context.
@@ -2730,7 +2736,7 @@ S15 & Feedback Loop & Patient rates report helpfulness; reports errors or concer
 \noindent Form-level entries name the validation rules, encryption requirements, and downstream consumers of each input field.
 {\tablestripes\tablefontsize
 
-\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{3.4cm} p{8.3cm} >{\raggedright\arraybackslash}p{1.5cm} @{}}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{3.1cm} p{7.6cm} >{\raggedright\arraybackslash}p{2.5cm} @{}}
 \caption[B2C User Fill-Up Forms]{B2C User Fill-Up Forms: Mobile Application Data Capture}\label{tab:b2c_user_forms} \\
 \toprule
 \thead{\#} & \thead{Form / Screen} & \thead{Fields Captured} & \thead{When} \\
@@ -2917,7 +2923,7 @@ The same data pipelines, storage layer, and governance controls operate identica
 
 {\tablestripes\tablefontsize
 \needspace{20\baselineskip}
-\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{3.4cm} p{8.3cm} >{\raggedright\arraybackslash}p{1.5cm} @{}}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{3.1cm} p{7.6cm} >{\raggedright\arraybackslash}p{2.4cm} @{}}
 \caption[RGAIG Report Types: Clinician (B2B) and Patient (B2C)]{RGAIG Report Types: Clinician (B2B) and Patient (B2C) Reports. The report taxonomy distinguishes clinical-grade outputs from patient-facing summaries, ensuring that each stakeholder receives information at the appropriate level of detail and health literacy.}\label{tab:report_types} \\
 \toprule
 \thead{\#} & \thead{Report Type} & \thead{Content and Purpose} & \thead{Delivery} \\
@@ -3065,7 +3071,7 @@ Table~\ref{tab:continuous_monitoring} traces the continuous monitoring flow from
 {\tablestripes\tablefontsize
 
 \needspace{20\baselineskip}
-\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{3.2cm} p{8.5cm} >{\raggedright\arraybackslash}p{1.5cm} @{}}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{2.9cm} p{7.9cm} >{\raggedright\arraybackslash}p{2.4cm} @{}}
 \caption[Continuous Monitoring Flow: Emotiv Device $$ Mobile $$]{Continuous Monitoring Flow: Emotiv Device $\to$ Mobile $\to$ Cloud $\to$ Alert. The four-stage pipeline specifies latency targets at each handoff, demonstrating that real-time anomaly detection and clinician alerting are achievable within the RGAIG architecture.}\label{tab:continuous_monitoring} \\
 \toprule
 \thead{\#} & \thead{Stage} & \thead{What Happens} & \thead{Latency} \\
@@ -3285,7 +3291,7 @@ A third knowledge pipeline (Table~\ref{tab:knowledge_pipeline}) feeds directly i
 {\tablestripes\tablefontsize
 
 \needspace{20\baselineskip}
-\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{2.9cm} p{7.9cm} >{\raggedright\arraybackslash}p{2.3cm} @{}}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{3.2cm} p{8.5cm} >{\raggedright\arraybackslash}p{1.5cm} @{}}
 \caption[Pipeline 3: Knowledge and Historical Data Sources for]{Pipeline 3: Knowledge and Historical Data Sources for RAG Model. This third pipeline catalogues the external knowledge bases---clinical guidelines, literature embeddings, and historical patient records---that feed the retrieval-augmented generation layer, enabling evidence-grounded explanations in the final diagnostic report.}\label{tab:knowledge_pipeline} \\
 \toprule
 \thead{\#} & \thead{Data Source} & \thead{Content and Purpose} & \thead{Storage} \\
@@ -3326,7 +3332,7 @@ The RGAIG platform maintains a set of backend database tables that continuously 
 
 {\tablestripes\tablefontsize
 \needspace{20\baselineskip}
-\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{1.0cm} p{9.5cm} >{\raggedright\arraybackslash}p{1.5cm} @{}}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{1.0cm} p{9.2cm} >{\raggedright\arraybackslash}p{2.9cm} @{}}
 \caption[Backend Database Schema: Continuous Patient Monitoring]{Backend Database Schema: Continuous Patient Monitoring. The schema defines the tables, key fields, and update frequencies required to support real-time longitudinal tracking, providing the data architecture blueprint for the implementation described in Chapter~3.}\label{tab:backend_db} \\
 \toprule
 \thead{\#} & \thead{Database Table} & \thead{Fields and Purpose} & \thead{Update} \\
@@ -3383,6 +3389,9 @@ The RGAIG framework stores diagnostic results, audit trails, and governance meta
 
 \noindent This table lists each \textit{row} across approach, data sources, analysis methods, and 1 more dimension, so examiners can trace what was assessed and what evidence supports each row.
 
+
+
+\noindent This table lists each \textit{\#} across approach, data sources, analysis methods, and 1 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
 
 
 \noindent Table~\ref{tab:research_approach} presents research methodology, covering \#, Approach, Data Sources, and 2 more.
@@ -3964,6 +3973,9 @@ Table~\ref{tab:doctoral_quality_chain} presents the four-pillar quality chain th
 
 \noindent This table lists each \textit{role} across variable, operationalisation, measurement, and 1 more dimension, so examiners can trace what was assessed and what evidence supports each row.
 
+
+
+\noindent This table lists each \textit{role} across variable, operationalisation, measurement, and 1 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
 
 
 \noindent Table~\ref{tab:variable_taxonomy} presents variable taxonomy for rgaig framework, covering Role, Variable, Operationalisation, and 2 more.
@@ -5122,7 +5134,7 @@ The following appendix provides supporting material for Chapter~1:
 
 {\tablestripes\tablefontsize
 \needspace{20\baselineskip}
-\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{5.4cm} p{7.5cm} >{\centering\arraybackslash}p{1.5cm} @{}}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{4.9cm} p{6.7cm} >{\centering\arraybackslash}p{2.8cm} @{}}
 \caption[Chapter 1 Scorecard]{Chapter 1 Scorecard: Promise vs Delivery}\label{tab:ch1_scorecard} \\
 \toprule
 \thead{Promised} & \thead{Delivered} & \thead{Obj.} \\
@@ -5252,11 +5264,14 @@ Healthcare AI has produced single-domain classifiers exceeding 95\% accuracy, ye
 
 
 
+\noindent This table lists each \textit{objective} across evidence in chapter~1, and status, so examiners can trace what was assessed and what evidence supports each row.
+
+
 \noindent Table~\ref{tab:ch1_kit_objectives} presents chapter 1 objective achievement, covering Objective, Evidence in Chapter~1 and Status.
 
 {\tablestripes\tablefontsize
 \needspace{20\baselineskip}
-\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{4.4cm} p{7.8cm} >{\raggedright\arraybackslash}p{2.2cm} @{}}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{4.7cm} p{8.2cm} >{\raggedright\arraybackslash}p{1.5cm} @{}}
 \caption[Chapter 1 objective achievement]{Chapter~1: Objective Achievement Matrix}\label{tab:ch1_kit_objectives} \\
 \toprule
 \thead{Objective} & \thead{Evidence in Chapter~1} & \thead{Status} \\
