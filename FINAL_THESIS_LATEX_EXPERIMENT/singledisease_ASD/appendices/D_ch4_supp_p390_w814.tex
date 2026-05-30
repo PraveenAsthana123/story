@@ -655,8 +655,6 @@ A8 & Contradiction detection & 97.4\% & 13 contradictions detected and removed \
 \noindent This table lists each \textit{id} across layer, pass rate, and issues identified, so examiners can trace what was assessed and what evidence supports each row.
 
 
-\noindent Table~\ref{tab:rag_component_quality_2} presents rag governance, covering ID, Layer, Pass Rate and Issues Identified.
-
 {\tablestripes\tablefontsize
 \needspace{20\baselineskip}
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.5cm} L >{\raggedright\arraybackslash}p{1.1cm} L @{}}
@@ -964,8 +962,6 @@ Figure~\ref{fig:eegrag_ablation_bars} visualises the accuracy impact of each abl
 \noindent This table lists each \textit{domain} across class 0, class 1, other, and 2 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
 
 
-\noindent Table~\ref{tab:class_distribution} presents class distribution summary across clinical domains, covering Domain, Class 0, Class 1, and 3 more.
-
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.1cm} >{\raggedright\arraybackslash}p{1.4cm} L >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{1.2cm} L @{}}
 \caption[Class Distribution Summary Across Clinical Domains]{Class Distribution Summary Across Clinical Domains}\label{tab:class_distribution} \\
@@ -999,8 +995,6 @@ BCI & Left hand, right hand & Both feet, tongue & --- & $\sim$1:1:1:1 & LOSO-CV 
 
 {\tablestripes\tablefontsize
 
-\noindent Table~\ref{tab:fold_level_performance_1} presents the fold-level classification accuracy (\%).
-
 \needspace{20\baselineskip}
 \begin{xltabular}{\textwidth}{@{} C C C C C L @{}}
 \caption[Fold-Level Classification Accuracy (\%)]{Fold-Level Classification Accuracy (\%): Folds 1--5}\label{tab:fold_level_performance_1} \\
@@ -1025,8 +1019,6 @@ BCI & Left hand, right hand & Both feet, tongue & --- & $\sim$1:1:1:1 & LOSO-CV 
 
 \noindent This table lists each \textit{statistic} across asd, pd, stress, and 2 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
 
-
-\noindent Table~\ref{tab:fold_level_performance_2} presents summary statistics for 5-fold classification accuracy (\%), covering Statistic, ASD, PD, and 3 more.
 
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} C C C C C L @{}}
@@ -1087,8 +1079,6 @@ RAG explainability & Coherence 0.91; relevance 0.87; alignment 0.84 & Section~\r
 \noindent This table lists each \textit{role} across theme, and key comment (excerpt), so examiners can trace what was assessed and what evidence supports each row.
 
 
-\noindent Table~\ref{tab:expert_comments} presents selected expert verbatim comments by specialty, covering Role, Theme and Key Comment (Excerpt).
-
 {\tablestripes\tablefontsize
 \needspace{20\baselineskip}
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.3cm} >{\raggedright\arraybackslash}p{2.7cm} p{8.4cm} @{}}
@@ -1122,8 +1112,6 @@ The following tables provide the detailed data screening statistics referenced i
 \needspace{24\baselineskip}
 \iffalse % AUTO-SUPPRESS non-ASD
 {\tablestripes\tablefontsize
-
-\noindent Table~\ref{tab:data_screening_summary} presents the data screening summary across all domains.
 
 \begin{xltabular}{\textwidth}{@{} L C C C C @{}}
 \caption[Data Screening Summary Across All Domains]{Data Screening Summary Across All Domains}\label{tab:data_screening_summary} \\
@@ -1225,8 +1213,6 @@ Table~\ref{tab:missing_data_assessment} provides the per-ASD missing data rates 
 \needspace{24\baselineskip}
 \noindent The breakdown below shows missingness pattern, imputation strategy, and sensitivity-analysis verdict per affected variable.
 {\tablestripes\tablefontsize
-
-\noindent Table~\ref{tab:missing_data_assessment} presents the missing data assessment.
 
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.8cm} C C >{\raggedright\arraybackslash}p{2cm} L @{}}
 \caption[Missing Data Assessment]{Missing Data Assessment per Domain: Rates, Patterns, and Imputation}\label{tab:missing_data_assessment} \\
@@ -1421,8 +1407,6 @@ BCI & 150 & Benchmark & 64 & 92\% & Good \\
 
 \noindent Each preprocessing step is paired with its parameters, validation check, and pass/fail verdict against the protocol threshold.
 
-\noindent Table~\ref{tab:eeg_preprocessing_summary} presents the eeg preprocessing and signal quality processing summary.
-
 \needspace{20\baselineskip}
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.4cm} L L >{\raggedright\arraybackslash}p{1.8cm} @{}}
 \caption[EEG Preprocessing and Signal Quality Processing Summary]{EEG Preprocessing and Signal Quality Processing Summary}\label{tab:eeg_preprocessing_summary} \\
@@ -1455,8 +1439,6 @@ Quality gate & Signal quality index & SQI $\geq$ 0.70 & Low-quality excluded \\
 
 \noindent Each transform step is paired with its parameters, validation check, and pass/fail verdict against the protocol threshold.
 
-\noindent Table~\ref{tab:freq_transform_summary} presents the frequency-domain and time-frequency transformation summary.
-
 \needspace{20\baselineskip}
 \begin{xltabular}{\textwidth}{@{} l L L L @{}}
 \caption[Frequency-Domain and Time-Frequency Transformation Summary]{Frequency-Domain and Time-Frequency Transformation Summary}\label{tab:freq_transform_summary} \\
@@ -1486,8 +1468,6 @@ Scalogram & CWT-based time-frequency map & 2D time-frequency representation & Vi
 {\tablestripes\tablefontsize
 
 \noindent Each feature family is paired with its extraction method, dimensionality, and pass/fail verdict against the quality threshold.
-
-\noindent Table~\ref{tab:eeg_feature_extraction_summary} presents the eeg feature extraction and representation summary.
 
 \needspace{20\baselineskip}
 \begin{xltabular}{\textwidth}{@{} l L l L @{}}
@@ -1520,8 +1500,6 @@ Deep features & CNN latent embeddings (where applicable) & 128--256 & Automatic 
 
 \noindent Each normalisation rule is paired with its scope, mathematical form, and pass/fail verdict against the distribution check.
 
-\noindent Table~\ref{tab:normalization_summary} presents the normalisation and model-input construction summary.
-
 \needspace{20\baselineskip}
 \begin{xltabular}{\textwidth}{@{} l L L @{}}
 \caption[Normalisation and Model-Input Construction Summary]{Normalisation and Model-Input Construction Summary}\label{tab:normalization_summary} \\
@@ -1551,8 +1529,6 @@ Channel ordering & Spatial arrangement by 10-20 montage & Preserve topographic i
 {\tablestripes\tablefontsize
 
 \noindent Each instrument block is paired with its item count, scale type, and the construct it operationalises.
-
-\noindent Table~\ref{tab:primary_instrument_structure} presents the primary-data instrument structure and variable summary.
 
 \needspace{20\baselineskip}
 \begin{xltabular}{\textwidth}{@{} L L c >{\raggedright\arraybackslash}p{1.5cm} L @{}}
@@ -1586,8 +1562,6 @@ Open-ended & Narrative concerns & 2--4 & Free text & coded\_themes \\
 \needspace{24\baselineskip}
 \noindent Each metric is paired with its accept threshold, observed value, and the hypothesis it supports.
 {\tablestripes\tablefontsize
-
-\noindent Table~\ref{tab:eeg_evaluation_metrics} presents the eeg evaluation metrics.
 
 \begin{xltabular}{\textwidth}{@{} l L L @{}}
 \caption[EEG Evaluation Metrics]{EEG Evaluation Metrics: Definitions and Clinical Importance}\label{tab:eeg_evaluation_metrics} \\
@@ -1680,8 +1654,6 @@ Reproducibility & Repeated stability & Supports reliability claim \\
 \noindent This table lists each \textit{hypothesis} across primary-data claim, verdict, and evidence, so examiners can trace what was assessed and what evidence supports each row.
 
 
-\noindent Table~\ref{tab:primary_hypothesis_verdict} presents hypothesis verdict summary, covering Hypothesis, Primary-Data Claim, Verdict and Evidence.
-
 {\tablestripes\tablefontsize
 
 \needspace{20\baselineskip}
@@ -1713,8 +1685,6 @@ Integration & Primary + secondary convergence improves decision usefulness & \te
 {\tablestripes\tablefontsize
 
 \noindent Each hypothesis row is paired with its decision rule, observed evidence, and accept/reject verdict.
-
-\noindent Table~\ref{tab:eeg_hypothesis_verdict} presents the hypothesis verdict summary.
 
 \needspace{20\baselineskip}
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{0.5cm} L >{\raggedright\arraybackslash}p{1.6cm} L @{}}
@@ -1802,8 +1772,6 @@ Behavioural $\leftrightarrow$ model output ($r$) & 1,000 & 0.31 & $\pm$0.18 & [0
 \noindent\textbf{Monte Carlo-Supported Decision Stability Summary.} Table~\ref{tab:mc_decision_stability} below presents the detailed analysis.
 
 {\tablestripes\tablefontsize
-
-\noindent Table~\ref{tab:mc_decision_stability} presents the monte carlo-supported decision stability summary.
 
 \needspace{20\baselineskip}
 \begin{xltabular}{\textwidth}{@{} L L >{\raggedright\arraybackslash}p{2.0cm} L @{}}
