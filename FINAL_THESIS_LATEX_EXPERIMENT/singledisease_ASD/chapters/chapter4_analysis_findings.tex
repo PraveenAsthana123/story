@@ -7024,6 +7024,159 @@ Full mediation (H5) & Governance acts mainly via explainability--trust chain, no
 Integrated $R^2=0.71$ & RGAIG framework explains 71\% of adoption-readiness variance \\
 \end{xltabular}}
 
+\subsection{Chapter 4 Signature Diagrams}
+\label{sec:ch4_signature_diagrams}
+
+\noindent This subsection consolidates the five highest-value signature diagrams for Chapter~4 --- the master findings story, the mediation chain, the governance impact lever, the evidence hierarchy, and the executive findings summary.
+
+
+\noindent The full findings story compressed into one image. The chain shows the headline empirical claim of the dissertation; every individual finding in Chapter~4 either supports or qualifies one of these links. Figure~\ref{fig:ch4_master_findings} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Chapter 4 master findings diagram};
+\node[fbox, below=0.85cm of title] (n0) {Governance Maturity (significant antecedent)};
+\node[fbox, below=of n0] (n1) {Explainability (significant mediator)};
+\node[fbox, below=of n1] (n2) {Trust (significant mediator)};
+\node[fboxgold, below=of n2] (n3) {Adoption Readiness (significant proximal outcome)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\end{tikzpicture}
+\caption[Chapter 4 master findings diagram]{Chapter 4 master findings diagram.}
+\label{fig:ch4_master_findings}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Each arrow is supported by a hypothesis verdict; verdict tables and effect sizes follow in subsequent sections.
+
+
+
+\noindent Governance influences adoption mainly through explainability and trust rather than directly. The mediation chain is the central theoretical claim and its empirical confirmation is what differentiates the dissertation from prior governance-only or trust-only studies. Figure~\ref{fig:ch4_mediation_chain} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Mediation chain with empirical path verdicts};
+\node[fbox, below=0.85cm of title] (n0) {Governance Maturity};
+\node[fbox, below=of n0] (n1) {Explainability (mediator $\beta$ significant)};
+\node[fbox, below=of n1] (n2) {Trust (mediator $\beta$ significant)};
+\node[fboxgold, below=of n2] (n3) {Adoption Readiness (R$^2$ explained)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\end{tikzpicture}
+\caption[Mediation chain with empirical path verdicts]{Mediation chain with empirical path verdicts.}
+\label{fig:ch4_mediation_chain}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Direct path Governance$\rightarrow$Adoption is weaker than the mediated path --- the central finding of H3--H4.
+
+
+
+\noindent Governance is the lever, not the destination. The figure makes the causal logic explicit so that practitioners can locate the actionable construct (governance maturity) and trace its downstream effects. Figure~\ref{fig:ch4_governance_impact} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Governance impact chain in the integrated evidence};
+\node[fbox, below=0.85cm of title] (n0) {Governance Maturity (the manageable lever)};
+\node[fbox, below=of n0] (n1) {Transparency (visible decision boundaries)};
+\node[fbox, below=of n1] (n2) {Explainability (interpretable rationale)};
+\node[fbox, below=of n2] (n3) {Trust (perceived reliability)};
+\node[fboxgold, below=of n3] (n4) {Adoption Readiness (operational outcome)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\end{tikzpicture}
+\caption[Governance impact chain in the integrated evidence]{Governance impact chain in the integrated evidence.}
+\label{fig:ch4_governance_impact}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Practitioners can manipulate governance maturity; they cannot directly manipulate trust. This is why governance is the policy lever.
+
+
+
+\noindent Not all evidence carries the same weight. The figure orders the three evidence types so that the examiner can immediately see which findings are primary (statistical) and which are supporting (technical or framework-level). Figure~\ref{fig:ch4_evidence_hierarchy} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Evidence hierarchy --- what claims rest on what};
+\node[fbox, below=0.85cm of title] (n0) {Level 1: Statistical Evidence (PLS-SEM hypothesis tests)};
+\node[fbox, below=of n0] (n1) {Level 2: Framework Evidence (RGAIG construct validation)};
+\node[fbox, below=of n1] (n2) {Level 3: Technical Evidence (EEG benchmark confirmation)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\end{tikzpicture}
+\caption[Evidence hierarchy --- what claims rest on what]{Evidence hierarchy --- what claims rest on what.}
+\label{fig:ch4_evidence_hierarchy}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Headline claims of the dissertation rest on Level~1; Levels~2--3 are supporting evidence that triangulates the primary verdict.
+
+
+
+\noindent A board-level reduction of the findings chapter. The figure compresses the empirical chapter into a single image that an executive reviewer can absorb in seconds. Figure~\ref{fig:ch4_executive_findings} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Chapter 4 executive findings summary};
+\node[fbox, below=0.85cm of title] (n0) {Governance Maturity (validated antecedent)};
+\node[fbox, below=of n0] (n1) {Explainability (validated mediator)};
+\node[fbox, below=of n1] (n2) {Trust (validated mediator)};
+\node[fbox, below=of n2] (n3) {Adoption Readiness (validated outcome)};
+\node[fboxgold, below=of n3] (n4) {RGAIG Framework Validated};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\end{tikzpicture}
+\caption[Chapter 4 executive findings summary]{Chapter 4 executive findings summary.}
+\label{fig:ch4_executive_findings}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Detailed effect sizes, R$^2$ values, and significance levels appear in Chapter~4's hypothesis verdict tables.
+
+
+
 \subsection{Chapter 4 Examiner Summary}
 \label{sec:ch4_examiner_summary}
 

@@ -5629,6 +5629,175 @@ Chapter 4 & Empirical findings, hypothesis verdicts, integrated evidence \\
 Chapter 5 & Discussion, theoretical + practical contributions, limitations + future research \\
 \end{xltabular}}
 
+\subsection{Chapter 1 Signature Diagrams}
+\label{sec:ch1_signature_diagrams}
+
+\noindent This subsection consolidates the five highest-value signature diagrams for Chapter~1. Each diagram answers a single examiner question: why a DBA programme, what the contribution chain looks like, what the canonical dissertation argument is in one image, how the five chapters connect, and where the boundary of the research lies.
+
+
+\noindent The dissertation answers a managerial question, not a purely technical one. The sequence below clarifies why a Doctor of Business Administration programme is the appropriate vehicle for governance-centered adoption research. Figure~\ref{fig:ch1_why_dba} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Why a DBA programme rather than a PhD};
+\node[fbox, below=0.85cm of title] (n0) {Technical Feasibility (AI accuracy is already established)};
+\node[fbox, below=of n0] (n1) {Governance Challenge (responsibility, accountability, oversight)};
+\node[fbox, below=of n1] (n2) {Organizational Trust (clinicians, caregivers, regulators)};
+\node[fbox, below=of n2] (n3) {Adoption Readiness (organizational maturity to deploy safely)};
+\node[fboxgold, below=of n3] (n4) {Business Transformation (responsible AI-assisted care pathways)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\end{tikzpicture}
+\caption[Why a DBA programme rather than a PhD]{Why a DBA programme rather than a PhD.}
+\label{fig:ch1_why_dba}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} A PhD asks whether AI can do this; a DBA asks under what governance conditions an organization can responsibly deploy it.
+
+
+
+\noindent The contribution of this dissertation is not a new model but a governance-centered explanation of how adoption emerges. The chain below shows how each construct enables the next. Figure~\ref{fig:ch1_research_contribution_flow} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Research contribution chain};
+\node[fbox, below=0.85cm of title] (n0) {Literature Gap (no integrated governance model for AI adoption)};
+\node[fbox, below=of n0] (n1) {Governance Construct (operationalised as maturity)};
+\node[fbox, below=of n1] (n2) {Explainability (mediates governance into perception)};
+\node[fbox, below=of n2] (n3) {Trust (mediates explainability into intent)};
+\node[fbox, below=of n3] (n4) {Adoption (proximal outcome)};
+\node[fboxgold, below=of n4] (n5) {RGAIG Framework (the integrated contribution)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\draw[farr] (n4) -- (n5);
+\end{tikzpicture}
+\caption[Research contribution chain]{Research contribution chain.}
+\label{fig:ch1_research_contribution_flow}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Each arrow corresponds to a hypothesis tested in Chapter~4.
+
+
+
+\noindent A single image carries the dissertation argument. This signature diagram recurs in every chapter as the anchor visual; if an examiner remembers one figure, this should be it. Figure~\ref{fig:ch1_dissertation_signature} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Dissertation signature diagram};
+\node[fbox, below=0.85cm of title] (n0) {Healthcare AI (B2C-primary, clinician-supported screening)};
+\node[fbox, below=of n0] (n1) {Governance Maturity (the antecedent)};
+\node[fbox, below=of n1] (n2) {Explainability (the mediator)};
+\node[fbox, below=of n2] (n3) {Trust (the mediator)};
+\node[fbox, below=of n3] (n4) {Adoption Readiness (the proximal outcome)};
+\node[fboxgold, below=of n4] (n5) {Clinical Value (the ultimate outcome)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\draw[farr] (n4) -- (n5);
+\end{tikzpicture}
+\caption[Dissertation signature diagram]{Dissertation signature diagram.}
+\label{fig:ch1_dissertation_signature}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} The same figure recurs as Figures~\ref{fig:ch1_dissertation_signature}, equivalent versions appear in Chapters~2--5.
+
+
+
+\noindent Each chapter advances the argument. The roadmap below makes the chapter sequence explicit so that the examiner can locate any claim against its supporting chapter. Figure~\ref{fig:ch1_dissertation_roadmap} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Dissertation roadmap across five chapters};
+\node[fbox, below=0.85cm of title] (n0) {Chapter 1 --- Problem, gap, scope, contribution preview};
+\node[fbox, below=of n0] (n1) {Chapter 2 --- Theoretical foundation and research gap};
+\node[fbox, below=of n1] (n2) {Chapter 3 --- Methodology and measurement design};
+\node[fbox, below=of n2] (n3) {Chapter 4 --- Empirical evidence and hypothesis verdicts};
+\node[fbox, below=of n3] (n4) {Chapter 5 --- Discussion, contribution, future research};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\end{tikzpicture}
+\caption[Dissertation roadmap across five chapters]{Dissertation roadmap across five chapters.}
+\label{fig:ch1_dissertation_roadmap}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Chapters 1--2 establish the question; Chapter~3 designs the answer; Chapters~4--5 produce and position it.
+
+
+
+\noindent Boundary clarity is the single most common request from examiners. The figure separates governance-centered contributions (in scope) from algorithmic novelty (out of scope, addressed by prior work). Figure~\ref{fig:ch1_scope_inout} delineates the boundary.
+
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.5cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!10, rounded corners=4pt, very thick,
+    minimum width=5cm, minimum height=0.75cm, align=center, font=\fignodefont},
+  fboxout/.style={rectangle, draw=ggunavy!60, fill=gray!8, rounded corners=4pt, thick, dashed,
+    minimum width=5cm, minimum height=0.75cm, align=center, font=\fignodefont\itshape, text=gray!50!black},
+  ftitle/.style={font=\figtitlefont\bfseries, ggunavy}
+]
+\node[ftitle] (intitle) at (-3.5,0) {IN SCOPE};
+\node[ftitle] (outtitle) at (3.5,0) {OUT OF SCOPE};
+\node[fbox, below=0.5cm of intitle] (in0) {Governance Maturity};
+\node[fbox, below=0.5cm of in0] (in1) {Explainability (perception)};
+\node[fbox, below=0.5cm of in1] (in2) {Trust (perception)};
+\node[fbox, below=0.5cm of in2] (in3) {Adoption Readiness};
+\node[fbox, below=0.5cm of in3] (in4) {RGAIG Framework Validation};
+\node[fboxout, below=0.5cm of outtitle] (out0) {New EEG algorithms};
+\node[fboxout, below=0.5cm of out0] (out1) {New deep-learning models};
+\node[fboxout, below=0.5cm of out1] (out2) {New neural architectures};
+\node[fboxout, below=0.5cm of out2] (out3) {New signal-processing methods};
+\node[fboxout, below=0.5cm of out3] (out4) {Real-time clinical diagnosis};
+\end{tikzpicture}
+\caption[Research scope --- in-scope versus out-of-scope]{Research scope --- in-scope versus out-of-scope.}
+\label{fig:ch1_scope_inout}
+\end{figure}
+
+
+\vspace{0.3em}\noindent\textit{Note.} The dissertation evaluates organizational conditions for adoption, not algorithmic accuracy gains; the latter is treated as established by Chapter~2's literature.
+
+
+
 \subsection{Chapter 1 Examiner Summary}
 \label{sec:ch1_examiner_summary}
 

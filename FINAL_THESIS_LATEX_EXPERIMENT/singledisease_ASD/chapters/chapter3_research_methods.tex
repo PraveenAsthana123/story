@@ -13946,6 +13946,192 @@ Human oversight & All AI-assisted analysis subject to researcher review \\
 Informed consent & Survey + expert-panel consent obtained pre-participation \\
 \end{xltabular}}
 
+\subsection{Chapter 3 Signature Diagrams}
+\label{sec:ch3_signature_diagrams}
+
+\noindent This subsection consolidates the six highest-value signature diagrams for Chapter~3 --- the master methodology map, the mixed-methods justification, the hybrid validation chain, the construct-to-item measurement model, the three-stream triangulation logic, and the five-layer ethics framework.
+
+
+\noindent The full methodological architecture in one figure. Every subsequent methods discussion is a zoom into one of these seven stages, so the figure functions as the navigational map for Chapter~3. Figure~\ref{fig:ch3_master_methodology} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Chapter 3 master methodology diagram};
+\node[fbox, below=0.85cm of title] (n0) {Research Questions (RQ1--RQ5)};
+\node[fbox, below=of n0] (n1) {Mixed Methods Design (quantitative + qualitative)};
+\node[fbox, below=of n1] (n2) {Primary Data (B2C caregiver survey)};
+\node[fbox, below=of n2] (n3) {Secondary Data (EEG benchmark datasets)};
+\node[fbox, below=of n3] (n4) {Triangulation (convergent evidence)};
+\node[fbox, below=of n4] (n5) {Integrated Findings (cross-source synthesis)};
+\node[fboxgold, below=of n5] (n6) {RGAIG Evaluation (framework validation)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\draw[farr] (n4) -- (n5);
+\draw[farr] (n5) -- (n6);
+\end{tikzpicture}
+\caption[Chapter 3 master methodology diagram]{Chapter 3 master methodology diagram.}
+\label{fig:ch3_master_methodology}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Each stage maps to a section in Chapter~3; the final stage closes into Chapter~4's results.
+
+
+
+\noindent Quantitative methods provide statistical validation; qualitative methods provide contextual understanding. The figure justifies the mixed-methods design by showing the unique contribution of each strand and the integrated insight produced only by their combination. Figure~\ref{fig:ch3_mixed_methods_justification} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Mixed-methods justification --- why both strands};
+\node[fbox, below=0.85cm of title] (n0) {Quantitative Strand (statistical validation, generalisability)};
+\node[fbox, below=of n0] (n1) {Qualitative Strand (contextual understanding, theory enrichment)};
+\node[fboxgold, below=of n1] (n2) {Integrated Insight (validated and contextualised governance model)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\end{tikzpicture}
+\caption[Mixed-methods justification --- why both strands]{Mixed-methods justification --- why both strands.}
+\label{fig:ch3_mixed_methods_justification}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Quantitative-only designs miss context; qualitative-only designs miss generalisability; the integration is the design rationale.
+
+
+
+\noindent Validation in this dissertation is hybrid: primary perception data establishes the social model, secondary EEG data establishes the technical baseline, and triangulation produces an integrated evidence claim. Neither source alone could close the research gap. Figure~\ref{fig:ch3_hybrid_validation} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Hybrid validation across primary and secondary evidence};
+\node[fbox, below=0.85cm of title] (n0) {Primary Findings (caregiver perceptions, PLS-SEM)};
+\node[fbox, below=of n0] (n1) {Secondary Findings (EEG dataset validation)};
+\node[fbox, below=of n1] (n2) {Triangulation (cross-source convergence checks)};
+\node[fboxgold, below=of n2] (n3) {Integrated Evidence (RGAIG framework verdict)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\end{tikzpicture}
+\caption[Hybrid validation across primary and secondary evidence]{Hybrid validation across primary and secondary evidence.}
+\label{fig:ch3_hybrid_validation}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} The integrated evidence is the basis of the Chapter~4 hypothesis verdicts and Chapter~5 contribution claims.
+
+
+
+\noindent Each construct in the RGAIG framework is operationalised as a set of survey items. The figure shows the construct-to-indicator path that is then validated through reliability, convergent, and discriminant tests. Figure~\ref{fig:ch3_measurement_model} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Measurement model --- constructs to survey items};
+\node[fbox, below=0.85cm of title] (n0) {Governance Maturity $\rightarrow$ Survey Items (GOV1--GOV6)};
+\node[fbox, below=of n0] (n1) {Explainability $\rightarrow$ Survey Items (EXP1--EXP5)};
+\node[fbox, below=of n1] (n2) {Trust $\rightarrow$ Survey Items (TRU1--TRU5)};
+\node[fbox, below=of n2] (n3) {Adoption Readiness $\rightarrow$ Survey Items (ADO1--ADO5)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\end{tikzpicture}
+\caption[Measurement model --- constructs to survey items]{Measurement model --- constructs to survey items.}
+\label{fig:ch3_measurement_model}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Item counts illustrative; exact item lists are in Appendix~F.
+
+
+
+\noindent Triangulation strengthens internal validity. Three independent evidence streams converge on the RGAIG verdict, making the conclusion robust to any single-source weakness. Figure~\ref{fig:ch3_triangulation} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Triangulation across three evidence streams};
+\node[fbox, below=0.85cm of title] (n0) {Survey Evidence (B2C caregivers)};
+\node[fbox, below=of n0] (n1) {EEG Evidence (technical baseline)};
+\node[fbox, below=of n1] (n2) {Governance Evidence (control catalogue evaluation)};
+\node[fboxgold, below=of n2] (n3) {Convergent Findings (RGAIG verdict)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\end{tikzpicture}
+\caption[Triangulation across three evidence streams]{Triangulation across three evidence streams.}
+\label{fig:ch3_triangulation}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} If any one stream contradicts the others, the convergent claim is downgraded; Chapter~4 records the convergence outcomes.
+
+
+
+\noindent Ethical research is multi-layered, not a single approval document. The figure makes the five protective layers explicit so that the examiner can audit each layer independently. Figure~\ref{fig:ch3_ethics_framework} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Ethics framework --- five protective layers};
+\node[fbox, below=0.85cm of title] (n0) {Privacy (data minimisation, de-identification)};
+\node[fbox, below=of n0] (n1) {Transparency (informed consent, full disclosure)};
+\node[fbox, below=of n1] (n2) {Explainability (lay-readable model explanations for caregivers)};
+\node[fbox, below=of n2] (n3) {Human Oversight (clinician-in-the-loop)};
+\node[fboxgold, below=of n3] (n4) {Responsible AI (continuous monitoring)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\end{tikzpicture}
+\caption[Ethics framework --- five protective layers]{Ethics framework --- five protective layers.}
+\label{fig:ch3_ethics_framework}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Each layer maps to a clause in the consent forms and protocol (Appendix~F + Data Use Certificates).
+
+
+
 \subsection{Chapter 3 Examiner Summary}
 \label{sec:ch3_examiner_summary}
 

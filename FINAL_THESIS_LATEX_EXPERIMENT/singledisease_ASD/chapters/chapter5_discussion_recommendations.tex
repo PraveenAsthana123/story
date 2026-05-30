@@ -7572,6 +7572,204 @@ H5 Explainability mediates Gov$\rightarrow$Trust & Full mediation confirmed \\
 H6 Trust mediates Explainability$\rightarrow$Adoption & Partial mediation confirmed \\
 \end{xltabular}}
 
+\subsection{Chapter 5 Signature Diagrams}
+\label{sec:ch5_signature_diagrams}
+
+\noindent This subsection consolidates the six highest-value signature diagrams for Chapter~5 --- the dissertation contribution chain, the theory extension from TAM to a governance-enabled TAM, the five-layer contribution hierarchy, the healthcare impact chain, the dissertation-wide signature diagram (the single image of the argument), and the executive decision framework for deployment.
+
+
+\noindent The contribution flows from a gap in the literature to an integrated framework. The chain compresses the doctoral contribution claim into a single examiner-readable image. Figure~\ref{fig:ch5_contribution_chain} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Dissertation contribution chain};
+\node[fbox, below=0.85cm of title] (n0) {Research Gap (no integrated governance$\rightarrow$adoption model)};
+\node[fbox, below=of n0] (n1) {Governance Construct (operationalised as maturity)};
+\node[fbox, below=of n1] (n2) {Explainability (the mediating mechanism)};
+\node[fbox, below=of n2] (n3) {Trust (the mediating perception)};
+\node[fbox, below=of n3] (n4) {Adoption (the proximal outcome)};
+\node[fboxgold, below=of n4] (n5) {RGAIG Framework (the integrated contribution)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\draw[farr] (n4) -- (n5);
+\end{tikzpicture}
+\caption[Dissertation contribution chain]{Dissertation contribution chain.}
+\label{fig:ch5_contribution_chain}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} The RGAIG framework is the synthesis the chain produces; it is not assumed at the start.
+
+
+
+\noindent TAM, trust theory, and responsible AI are pre-existing traditions. The dissertation extends them by adding governance maturity as an antecedent that operates through explainability and trust. The extension is the theoretical contribution. Figure~\ref{fig:ch5_theory_extension} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Theory extension --- from TAM to governance-enabled TAM};
+\node[fbox, below=0.85cm of title] (n0) {Traditional TAM (perceived usefulness $\rightarrow$ adoption)};
+\node[fbox, below=of n0] (n1) {Trust Theory (perceived reliability $\rightarrow$ adoption)};
+\node[fbox, below=of n1] (n2) {Responsible AI (principles $\rightarrow$ practice)};
+\node[fbox, below=of n2] (n3) {Governance Maturity (the new antecedent)};
+\node[fboxgold, below=of n3] (n4) {Extended TAM (governance-enabled adoption model)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\end{tikzpicture}
+\caption[Theory extension --- from TAM to governance-enabled TAM]{Theory extension --- from TAM to governance-enabled TAM.}
+\label{fig:ch5_theory_extension}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} The extended TAM is the publishable theoretical contribution; it is testable, falsifiable, and recurrent across constructs.
+
+
+
+\noindent Doctoral contribution is not a single artefact but a five-layer hierarchy. The figure makes each layer explicit so the examiner can rate the dissertation's contribution at each level independently. Figure~\ref{fig:ch5_contribution_hierarchy} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Contribution hierarchy --- five layers};
+\node[fbox, below=0.85cm of title] (n0) {Layer 1: Theory (extended TAM with governance antecedent)};
+\node[fbox, below=of n0] (n1) {Layer 2: Method (mixed-methods governance measurement)};
+\node[fbox, below=of n1] (n2) {Layer 3: Framework (RGAIG --- integrated artefact)};
+\node[fbox, below=of n2] (n3) {Layer 4: Practice (governance-centered adoption playbook)};
+\node[fboxgold, below=of n3] (n4) {Layer 5: Societal Impact (responsible AI in healthcare)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\end{tikzpicture}
+\caption[Contribution hierarchy --- five layers]{Contribution hierarchy --- five layers.}
+\label{fig:ch5_contribution_hierarchy}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Layers 1--3 are the academic contribution; Layers 4--5 are the DBA practical contribution.
+
+
+
+\noindent Responsible AI is the entry point; clinical value is the destination. The figure traces the practitioner-relevant chain from governance enablement to clinical outcomes, showing why the dissertation matters to clinical leaders. Figure~\ref{fig:ch5_healthcare_impact} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Healthcare impact chain};
+\node[fbox, below=0.85cm of title] (n0) {Responsible AI (governance and oversight)};
+\node[fbox, below=of n0] (n1) {Earlier ASD Screening (B2C-primary, clinician-supported)};
+\node[fbox, below=of n1] (n2) {Improved Trust (caregiver and clinician)};
+\node[fbox, below=of n2] (n3) {Better Adoption (operational uptake)};
+\node[fboxgold, below=of n3] (n4) {Healthcare Value (earlier intervention, better outcomes)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\end{tikzpicture}
+\caption[Healthcare impact chain]{Healthcare impact chain.}
+\label{fig:ch5_healthcare_impact}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} The chain is the practitioner narrative; the academic chain is in Figure~\ref{fig:ch5_contribution_chain}.
+
+
+
+\noindent If an examiner remembers one figure from the entire dissertation, this should be it. The same canonical visual appears in every chapter as the anchor; here it functions as the closing reminder of the dissertation's central claim. Figure~\ref{fig:ch5_dissertation_signature} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Dissertation signature diagram --- single image of the entire argument};
+\node[fbox, below=0.85cm of title] (n0) {Healthcare AI Challenge};
+\node[fbox, below=of n0] (n1) {Governance Gap};
+\node[fbox, below=of n1] (n2) {RGAIG Framework};
+\node[fbox, below=of n2] (n3) {Explainability};
+\node[fbox, below=of n3] (n4) {Trust};
+\node[fbox, below=of n4] (n5) {Adoption};
+\node[fbox, below=of n5] (n6) {Clinical Value};
+\node[fboxgold, below=of n6] (n7) {Responsible AI Outcomes};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\draw[farr] (n4) -- (n5);
+\draw[farr] (n5) -- (n6);
+\draw[farr] (n6) -- (n7);
+\end{tikzpicture}
+\caption[Dissertation signature diagram --- single image of the entire argument]{Dissertation signature diagram --- single image of the entire argument.}
+\label{fig:ch5_dissertation_signature}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} The signature diagram is the brand mark of the dissertation; it recurs in Chapters~1, 2, 3, 4, and 5.
+
+
+
+\noindent Executives need a decision tool, not a literature review. The figure compresses the dissertation findings into a deployment-decision sequence that a Chief Medical Information Officer can apply directly. Figure~\ref{fig:ch5_executive_decision} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Executive decision framework for AI deployment};
+\node[fbox, below=0.85cm of title] (n0) {Governance Assessment (maturity audit against RGAIG)};
+\node[fbox, below=of n0] (n1) {Explainability Review (lay-readability of model outputs)};
+\node[fbox, below=of n1] (n2) {Trust Evaluation (caregiver and clinician acceptance)};
+\node[fboxgold, below=of n2] (n3) {Deployment Decision (proceed, pilot, defer, or reject)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\end{tikzpicture}
+\caption[Executive decision framework for AI deployment]{Executive decision framework for AI deployment.}
+\label{fig:ch5_executive_decision}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Each box maps to an evaluation checklist in Appendix~K (B2B Governance Repository).
+
+
+
 \subsection{Final Conclusion}
 \label{sec:final_conclusion}
 

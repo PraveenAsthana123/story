@@ -3073,6 +3073,163 @@ G4: Adoption pathway unclear & H5+H6: Mediation \\
 G5: Integrated framework absent & RGAIG validation (joint H1--H6) \\
 \end{xltabular}}
 
+\subsection{Chapter 2 Signature Diagrams}
+\label{sec:ch2_signature_diagrams}
+
+\noindent This subsection consolidates the five highest-value signature diagrams for Chapter~2. They capture the evolution of AI research from accuracy to governance, the trust formation chain, the governance literature trajectory, the theoretical lineage of the RGAIG framework, and the path from literature to the testable conceptual model.
+
+
+\noindent AI research has migrated through four eras. Each era solved one problem but exposed the next. Recognising this trajectory makes the current focus on governance-centered AI not an arbitrary choice but the inevitable next layer of maturity. Figure~\ref{fig:ch2_ai_research_evolution} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Evolution of AI research --- accuracy to governance};
+\node[fbox, below=0.85cm of title] (n0) {Era 1: AI Performance (accuracy benchmarks)};
+\node[fbox, below=of n0] (n1) {Era 2: Explainable AI (what the model sees)};
+\node[fbox, below=of n1] (n2) {Era 3: Responsible AI (principles and ethics)};
+\node[fboxgold, below=of n2] (n3) {Era 4: Governance-Centered AI (operational accountability)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\end{tikzpicture}
+\caption[Evolution of AI research --- accuracy to governance]{Evolution of AI research --- accuracy to governance.}
+\label{fig:ch2_ai_research_evolution}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} The dissertation positions itself in Era~4 --- moving principles into measurable organizational practice.
+
+
+
+\noindent Trust is not granted; it is constructed. The literature converges on a sequence in which governance enables transparency, which enables explainability, which becomes trust, which licenses adoption. Figure~\ref{fig:ch2_trust_formation} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Trust formation chain in AI-assisted healthcare};
+\node[fbox, below=0.85cm of title] (n0) {Governance (the structural foundation)};
+\node[fbox, below=of n0] (n1) {Transparency (visible decision boundaries)};
+\node[fbox, below=of n1] (n2) {Explainability (interpretable rationale)};
+\node[fbox, below=of n2] (n3) {Trust (perceived reliability)};
+\node[fboxgold, below=of n3] (n4) {Adoption (intent to use)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\end{tikzpicture}
+\caption[Trust formation chain in AI-assisted healthcare]{Trust formation chain in AI-assisted healthcare.}
+\label{fig:ch2_trust_formation}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Each arrow is supported by at least three independent studies in Chapter~2's literature.
+
+
+
+\noindent Governance scholarship has matured from compliance checklists to multi-dimensional maturity models. The dissertation builds on the most recent layer, in which governance is measured rather than merely declared. Figure~\ref{fig:ch2_governance_evolution} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Evolution of AI governance literature};
+\node[fbox, below=0.85cm of title] (n0) {Compliance (regulatory minima)};
+\node[fbox, below=of n0] (n1) {Risk Management (mitigation portfolios)};
+\node[fbox, below=of n1] (n2) {Responsible AI (principled deployment)};
+\node[fboxgold, below=of n2] (n3) {Governance Maturity (measurable capability)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\end{tikzpicture}
+\caption[Evolution of AI governance literature]{Evolution of AI governance literature.}
+\label{fig:ch2_governance_evolution}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} The RGAIG framework operationalises the right-most layer in the methodology of Chapter~3.
+
+
+
+\noindent RGAIG is not a standalone construction; it is the integration of four established theoretical traditions into a single governance-centered adoption model. Figure~\ref{fig:ch2_theory_integration} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Theoretical lineage of the RGAIG framework};
+\node[fbox, below=0.85cm of title] (n0) {Technology Acceptance Model (TAM)};
+\node[fbox, below=of n0] (n1) {Trust Theory (interpersonal $\rightarrow$ technological)};
+\node[fbox, below=of n1] (n2) {Socio-Technical Systems (joint optimisation)};
+\node[fbox, below=of n2] (n3) {Responsible AI (operational principles)};
+\node[fboxgold, below=of n3] (n4) {RGAIG Framework (synthesis)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\end{tikzpicture}
+\caption[Theoretical lineage of the RGAIG framework]{Theoretical lineage of the RGAIG framework.}
+\label{fig:ch2_theory_integration}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} The framework's novelty is the synthesis, not any single component.
+
+
+
+\noindent The path from literature review to a testable conceptual model has five stages. The figure makes each stage and its output visible so an examiner can trace any model claim back to its source. Figure~\ref{fig:ch2_lit_to_model} captures this flow.
+
+\begin{figure}[!htbp]
+\centering
+\begin{tikzpicture}[
+  node distance=0.55cm,
+  fbox/.style={rectangle, draw=ggunavy, fill=ggunavy!8, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.85cm, align=center, font=\fignodefont},
+  fboxgold/.style={rectangle, draw=ggunavy, fill=ggugold!25, rounded corners=4pt, very thick,
+    minimum width=7.5cm, minimum height=0.95cm, align=center, font=\fignodefont\bfseries},
+  farr/.style={-{Stealth[length=3mm, width=2mm]}, very thick, ggunavy}
+]
+\node[font=\figtitlefont, ggunavy] (title) at (0,0.7) {Literature-to-model pathway};
+\node[fbox, below=0.85cm of title] (n0) {Literature Review (evidence base)};
+\node[fbox, below=of n0] (n1) {Gap Identification (what is missing)};
+\node[fbox, below=of n1] (n2) {Theory Synthesis (integrating traditions)};
+\node[fbox, below=of n2] (n3) {Conceptual Framework (RGAIG)};
+\node[fbox, below=of n3] (n4) {Hypotheses (H1--H5)};
+\draw[farr] (n0) -- (n1);
+\draw[farr] (n1) -- (n2);
+\draw[farr] (n2) -- (n3);
+\draw[farr] (n3) -- (n4);
+\end{tikzpicture}
+\caption[Literature-to-model pathway]{Literature-to-model pathway.}
+\label{fig:ch2_lit_to_model}
+\end{figure}
+
+\vspace{0.3em}\noindent\textit{Note.} Hypotheses H1--H5 are introduced in Chapter~3 and tested in Chapter~4.
+
+
+
 \subsection{Chapter 2 Examiner Summary}
 \label{sec:ch2_examiner_summary}
 
