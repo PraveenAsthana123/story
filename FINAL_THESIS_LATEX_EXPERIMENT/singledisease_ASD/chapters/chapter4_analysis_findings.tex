@@ -340,7 +340,7 @@ Figure~\ref{fig:ch4_roadmap} illustrates the six-stage analysis pipeline that st
 
 \noindent\textbf{Chapter 4 Boundary Statement (examiner-facing).}
 \label{para:ch4_boundary_statement}
-This chapter presents findings as evidence for a bounded governance, explainability, and adoption framework --- \textbf{not as clinical-effectiveness evidence, diagnostic-safety claim, or medical-device readiness}. Technical performance metrics (H1, H2) are interpreted as \emph{retrospective analytical plausibility}, NOT clinical validity. Stakeholder findings (H3, H4, H5) are interpreted as \emph{governance, explainability, and adoption-readiness evidence}, NOT randomised clinical trial outcomes. Subgroup-fairness analysis is bounded by the limitations stated in §Demographic Subgroup Fairness Analysis. Hallucination governance evidence is interpreted as a 3-layer-guard demonstration, NOT future-operational-validation-grade governance. Where this chapter references RAG explainability scores, accuracy benchmarks, or HITL governance metrics, these are \emph{governance and adoption-readiness evidence for the framework}, not claims that the system is ready for clinical deployment, regulatory certification, or autonomous operation. \textbf{Prior IRB approval references} for the $n{=}131$ PLS-SEM and $n{=}12$ expert-panel data streams are consolidated in Chapter~\ref{chap:methodology} Section~\ref{para:prior_irb_approval_trail} (Prior IRB Approval Trail) --- the dissertation's current submission is exempt-category secondary-data research; no new participant recruitment occurs.
+This chapter presents findings as evidence for a bounded governance, explainability, and adoption framework --- \textbf{not as clinical-effectiveness evidence, diagnostic-safety claim, or medical-device readiness}. Technical performance metrics (H1, H2) are interpreted as \emph{retrospective analytical plausibility}, NOT clinical validity. Stakeholder findings (H3, H4, H5) are interpreted as \emph{governance, explainability, and adoption-readiness evidence}, NOT randomised clinical trial outcomes. Subgroup-fairness analysis is bounded by the limitations stated in Demographic Subgroup Fairness Analysis. Hallucination governance evidence is interpreted as a 3-layer-guard demonstration, NOT future-operational-validation-grade governance. Where this chapter references RAG explainability scores, accuracy benchmarks, or HITL governance metrics, these are \emph{governance and adoption-readiness evidence for the framework}, not claims that the system is ready for clinical deployment, regulatory certification, or autonomous operation. \textbf{Prior IRB approval references} for the $n{=}131$ PLS-SEM and $n{=}12$ expert-panel data streams are consolidated in Chapter~\ref{chap:methodology} Section~\ref{para:prior_irb_approval_trail} (Prior IRB Approval Trail) --- the dissertation's current submission is exempt-category secondary-data research; no new participant recruitment occurs.
 
 \noindent This pack consolidates the DBA-grade evidence summary for Chapter~4 in one place. It answers eight examiner questions directly:
 \begin{enumerate}[leftmargin=*, itemsep=1pt, label=(\arabic*)]
@@ -678,18 +678,18 @@ CNN-LSTM (DL) & 0.94 & 0.93 & 0.97 & 8.3~ms & $\checkmark$ & Temporal pattern \\
 \endhead
 \bottomrule
 \endlastfoot
-Q1 & How was \asdacc{} accuracy validated? & §H1 + Bootstrap CI [95.2, 99.4] \\
-Q2 & Was deep learning genuinely superior or noise? & §H2 Cohen's $d=1.48$ \\
-Q3 & Which features drove the prediction? & §H3 SHAP top-5 \\
-Q4 & Did clinicians actually save time? & §H4 94.6\% workflow effort reduction \\
-Q5 & Did clinicians find RAG explanations useful? & §H5 expert rating $M = \expertM{}$ \\
+Q1 & How was \asdacc{} accuracy validated? & H1 + Bootstrap CI [95.2, 99.4] \\
+Q2 & Was deep learning genuinely superior or noise? & H2 Cohen's $d=1.48$ \\
+Q3 & Which features drove the prediction? & H3 SHAP top-5 \\
+Q4 & Did clinicians actually save time? & H4 94.6\% workflow effort reduction \\
+Q5 & Did clinicians find RAG explanations useful? & H5 expert rating $M = \expertM{}$ \\
 Q6 & How was Cronbach $\alpha$ checked? & §\ref{subsec:ch4_synthesis} $\alpha=0.84$ on $n{=}131$ \\
-Q7 & What were the boundary conditions? & §Boundary Conditions: BCI $n=9$, 5 failure modes \\
+Q7 & What were the boundary conditions? & Boundary Conditions: BCI $n=9$, 5 failure modes \\
 Q8 & How was the $n{=}20$ illustrative sample distinguished from real PD-1? & §\ref{subsec:ch4_illustrative_hypothesis_flow} scope-disclaimer \\
-Q9 & Were sub-group fairness gates checked? & §Boundary Conditions + Future Work \\
+Q9 & Were sub-group fairness gates checked? & Boundary Conditions + Future Work \\
 Q10 & What is the bridge to enterprise extension (Ch.~5)? & §\ref{subsec:ch4_synthesis} Bridge table \\
-Q11 & What is NOT validated empirically? & §\ref{subsec:ch4_illustrative_secondary} scope-disclaimer + Ch.~5 §Framework Boundaries \\
-Q12 & What would change with prospective data? & §Future Work + Ch.~5 §Future Research (7 directions) \\
+Q11 & What is NOT validated empirically? & §\ref{subsec:ch4_illustrative_secondary} scope-disclaimer + Ch.~5 Framework Boundaries \\
+Q12 & What would change with prospective data? & Future Work + Ch.~5 Future Research (7 directions) \\
 \end{xltabular}}
 \vspace{0.3em}\noindent\textit{Note.} PD-1 = Primary Data 1 (n=131 clinician survey); SHAP = SHapley Additive exPlanations; RAG = Retrieval-Augmented Generation. See chapter prose for full context.
 
@@ -1818,7 +1818,7 @@ This section reports the quantitative results of the secondary EEG data pipeline
 \subsection{Findings Lens Map (Ch.4) --- Reading the Empirical Evidence Through the Five Thematic Lenses}
 \label{sec:ch4_findings_lens_map}
 
-This subsection mirrors the §Findings Lens Map in Chapter~\ref{chap:discussion} (Section~\ref{sec:findings_lens_map}) and provides examiners with a directive-aligned navigation overlay over the H1--H5 empirical evidence that follows. The five lenses (Governance / Explainability / Trust \& Adoption / Human Oversight / Responsible AI) re-organise the same evidence base for DBA-governance reading; the per-hypothesis subsections that follow contain the detailed statistical results.
+This subsection mirrors the Findings Lens Map in Chapter~\ref{chap:discussion} (Section~\ref{sec:findings_lens_map}) and provides examiners with a directive-aligned navigation overlay over the H1--H5 empirical evidence that follows. The five lenses (Governance / Explainability / Trust \& Adoption / Human Oversight / Responsible AI) re-organise the same evidence base for DBA-governance reading; the per-hypothesis subsections that follow contain the detailed statistical results.
 
 \addcontentsline{toc}{paragraph}{Must-Have: Governance Scores} % [TOC-must-have-insertion]
 \paragraph{Lens 1 --- Governance Findings (Ch.4 evidence).}
@@ -6157,13 +6157,13 @@ Governance (Trust)    & SHAP-explanation rate        & 100\%    & RGAIG 525-modu
 Governance (Trust)    & HITL override rate           & In-range & Part~C clinician study      & PASS (no flag) \\
 Governance (Fairness) & Disparate-impact ratio       & $\ge$0.8 & Part~D governance taxonomy   & PASS \\
 Governance (Fairness) & Equal-opportunity gap        & $<$5\%    & Part~D governance taxonomy   & PASS \\
-Governance (Privacy)  & Encryption-coverage rate     & 100\%    & DMP audit (Ch.~3 §3.9)       & PASS \\
+Governance (Privacy)  & Encryption-coverage rate     & 100\%    & DMP audit (Ch.~3)       & PASS \\
 Governance (Audit)    & Audit-row write rate         & 100\%    & RGAIG pipeline instrumentation & PASS \\
 Governance (Drift)    & PSI (weekly window)          & Monitored & Appendix~M monitoring spec  & N/A (Phase-2 deployment) \\
 Effort                & Clinician effort reduction (vs ADOS) & 94.6\% & H4 verdict + Part~C    & PASS ($\ge$80\% reduction) \\
 ROI                   & Time-saved per screening     & 4--6\,h $\to$ 0.5\,h & Part~C clinician timings & PASS ($\ge$80\% reduction) \\
 ROI                   & Cost per screening (USD-eq)  & Est. $<$25\% of ADOS-based & Part~D cost model    & PROVISIONAL (Phase-2 to confirm) \\
-ROI                   & Hospital 3-yr NPV            & --- (deferred)  & Ch.~5 §5.4.2 NPV table & DEFERRED to Phase-2 \\
+ROI                   & Hospital 3-yr NPV            & --- (deferred)  & Ch.~5.2 NPV table & DEFERRED to Phase-2 \\
 Value realisation     & Caregiver-trust uplift (Likert) & $\ge$+1.0 point & Part~A four-survey instrument & PASS ($\ge$+1 threshold met) \\
 Value realisation     & Clinician time freed (complex cases) & $\ge$30\% & Part~C clinician study & PASS ($\ge$30\% threshold met) \\
 Value realisation     & Time-to-result (referral$\to$report) & $\le$72\,h target & Part~D workflow model & DESIGN-PASS (operational pending) \\

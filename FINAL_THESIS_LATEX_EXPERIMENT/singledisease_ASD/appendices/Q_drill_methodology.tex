@@ -7,7 +7,7 @@
 \addcontentsline{toc}{chapter}{Appendix Q --- Drill Methodology for Pipeline Verification}
 \label{app:drill_methodology}
 
-\noindent This appendix documents the drill-testing methodology used to verify the 23-step ASD-EEG pipeline. A drill is a standalone script that exercises the REAL running stack (live databases, real EEG files, actual HTTP endpoints) end-to-end and reports per-step pass / fail with deterministic exit codes. The methodology aligns with the global drill-testing pattern (research-software-engineering §43) and provides the verification substrate for every dedicated-page architecture table in this dissertation.
+\noindent This appendix documents the drill-testing methodology used to verify the 23-step ASD-EEG pipeline. A drill is a standalone script that exercises the REAL running stack (live databases, real EEG files, actual HTTP endpoints) end-to-end and reports per-step pass / fail with deterministic exit codes. The methodology aligns with the global drill-testing pattern (research-software-engineering) and provides the verification substrate for every dedicated-page architecture table in this dissertation.
 
 \addcontentsline{toc}{section}{Q.1 What a Drill Is + What It Is Not} % [TOC-appendix-section-insertion]
 \section*{Q.1 What a Drill Is + What It Is Not}
@@ -163,6 +163,6 @@ Drill must run in CI on every PR & github actions / argo workflows job; PR canno
 Drill must include audit-row assertion & Per-decision audit row presence + content checked \\
 Drill must include rollback assertion & For deployment-related drills: roll-back path tested \\
 Drill suite is the regression catalog & Catalog grows monotonically; old drills are never deleted, only updated \\
-Drill failure triggers RCA & Per dissertation §38.3 governance: per-failure root-cause analysis required \\
+Drill failure triggers RCA & Per dissertation governance: per-failure root-cause analysis required \\
 \end{xltabular}}
 \vspace{0.3em}\noindent\textit{Note.} The drill-discipline rules elevate the drill suite from ``tests'' to ``regression catalog'' --- a permanent record of behaviours the system MUST preserve. The catalog grows monotonically; deletion is forbidden; updates only refine the assertion.

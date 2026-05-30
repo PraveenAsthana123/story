@@ -43,7 +43,7 @@ Dependencies & Python 3.11+; mne-python 1.5+; sklearn 1.4+; pytorch 2.1+; senten
 Random seed & Per-phase fixed at 42 (reproducibility); per-bootstrap pinned \\
 Per-phase function signature & \texttt{def phase\_\allowbreak NN(input: PhaseInput, config: Config, audit: Audit) $\to$ PhaseOutput} \\
 Validation hook & Per-phase \texttt{validate\_\allowbreak output(output, threshold)} call before downstream consumer \\
-Error handling & Per-phase \texttt{try/except} with graceful degradation + audit-log of error + escalation per §38.3 \\
+Error handling & Per-phase \texttt{try/except} with graceful degradation + audit-log of error + escalation per \\
 Test stack & pytest unit tests in \texttt{tests/\allowbreak unit/}; drills in \texttt{tests/\allowbreak drills/} (per Appendix~\ref{app:drill_methodology}) \\
 \end{xltabular}}
 \vspace{0.3em}\noindent\textit{Note.} The skeleton is the dissertation's reference architecture; production implementation is institutional-deployment-specific and outside dissertation scope. The skeleton demonstrates implementability, not provides a turnkey product.
@@ -180,7 +180,7 @@ Step 5: Preprocess & \texttt{cleaned = phase\_\allowbreak 05.preprocess(quality,
 Step 21: HITL review & \texttt{review = phase\_\allowbreak 21.hitl\_\allowbreak review(report, config.phase\_\allowbreak 21, audit)} \\
 Step 22: Deliver & \texttt{pdfs = phase\_\allowbreak 22.deliver\_\allowbreak final(review, config.phase\_\allowbreak 22, audit)} \\
 Step 23: Governance monitor & \texttt{phase\_\allowbreak 23.governance\_\allowbreak monitor(audit.events, config.phase\_\allowbreak 23)} (async background task) \\
-Error handling & Per-phase \texttt{try/except} captures exception, writes audit row, escalates per §38.3 \\
+Error handling & Per-phase \texttt{try/except} captures exception, writes audit row, escalates per \\
 Per-phase validation & \texttt{validate\_\allowbreak output(output, phase\_\allowbreak threshold)} called between phases \\
 Audit & Final \texttt{audit.flush()} ensures all rows persisted to PostgreSQL \\
 Return & \texttt{PipelineOutput(pdfs, audit.events, performance\_\allowbreak metrics)} \\
