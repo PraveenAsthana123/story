@@ -1,0 +1,78 @@
+%% Audit Log Timeline Mockup
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+    every node/.style={font=\fignodefont},
+    rid/.style={font=\figtitlefont, color=ggunavy, anchor=west},
+    event/.style={rectangle, draw=ggunavy, fill=ggunavy!10, rounded corners=2pt,
+                  minimum width=2.0cm, minimum height=0.9cm, align=center, inner sep=2pt, text width=1.9cm, font=\fignodefont\scriptsize},
+    capbox/.style={event, fill=ggunavy!15},
+    proc/.style={event, fill=ggunavy!10},
+    model/.style={event, fill=orange!15, draw=orange!60!black},
+    rag/.style={event, fill=ggunavy!20},
+    hitl/.style={event, fill=ggugold!20, draw=ggugold!60!black},
+    deliver/.style={event, fill=green!10, draw=green!40!black},
+    ts/.style={font=\figannotfont, color=ggunavy, anchor=north},
+    arr/.style={->, >=stealth, thick, color=ggunavy},
+    axis/.style={very thick, color=ggunavy},
+]
+%% Timeline axis
+\draw[axis] (0, 0) -- (20, 0);
+\foreach \x in {0,2.5,...,20} { \draw[axis] (\x, -0.1) -- (\x, 0.1); }
+
+%% Request ID header
+\node[rid] at (0, 4.5) {request\_id: \texttt{ab91-2026-...-c47f}};
+\node[rid, font=\figannotfont] at (0, 4.0) {patient: \texttt{UUID-2026-...AB91} | session 2026-05-26 10:15--10:30 UTC};
+
+%% Events
+\node[capbox] at (1.25, 3.0) (e1) {Phase 1\\Capture\\EDF write};
+\node[ts] at (1.25, -0.3) {10:15:23};
+
+\node[proc] at (3.75, 3.0) (e2) {Phase 4\\QC\\SQI 0.84};
+\node[ts] at (3.75, -0.3) {10:30:48};
+
+\node[proc] at (6.25, 3.0) (e3) {Phase 5\\Preprocess\\ICA done};
+\node[ts] at (6.25, -0.3) {10:32:11};
+
+\node[model] at (8.75, 3.0) (e4) {Phase 14\\Inference\\conf 0.83};
+\node[ts] at (8.75, -0.3) {10:33:02};
+
+\node[model] at (11.25, 3.0) (e5) {Phase 17\\XAI\\SHAP done};
+\node[ts] at (11.25, -0.3) {10:33:18};
+
+\node[rag] at (13.75, 3.0) (e6) {Phase 20\\RAG report\\faith 0.89};
+\node[ts] at (13.75, -0.3) {10:33:42};
+
+\node[hitl] at (16.25, 3.0) (e7) {Phase 21\\HITL queue\\route review};
+\node[ts] at (16.25, -0.3) {10:33:51};
+
+\node[hitl] at (18.75, 3.0) (e8) {Phase 21\\HITL approved\\Dr.~Sharma};
+\node[ts] at (18.75, -0.3) {11:08:24};
+
+%% Below axis - delivery + governance
+\node[deliver] at (2, -2.0) (e9) {Phase 22\\Doctor PDF\\delivered};
+\node[ts, anchor=south] at (2, -2.85) {11:09:02};
+
+\node[deliver] at (7, -2.0) (e10) {Phase 22\\Patient PDF\\via mobile};
+\node[ts, anchor=south] at (7, -2.85) {11:09:14};
+
+\node[event, fill=ggugold!20, draw=ggugold!60!black] at (12, -2.0) (e11) {Phase 23\\Audit row\\persisted};
+\node[ts, anchor=south] at (12, -2.85) {11:09:15};
+
+\node[event, fill=ggunavy!15] at (17, -2.0) (e12) {Phase 23\\Drift sample\\added to monitor};
+\node[ts, anchor=south] at (17, -2.85) {11:09:17};
+
+%% Connect to axis
+\foreach \i in {1.25, 3.75, 6.25, 8.75, 11.25, 13.75, 16.25, 18.75} {
+  \draw[arr, thin] (\i, 2.55) -- (\i, 0.1);
+}
+\foreach \i in {2, 7, 12, 17} {
+  \draw[arr, thin] (\i, -0.1) -- (\i, -1.55);
+}
+
+\end{tikzpicture}%
+}
+\caption[Audit-Log Timeline Mockup]{Audit-Log Timeline Mockup --- per-request\_id event trail for forensic reconstruction. Single request (\texttt{ab91-...-c47f}) traced end-to-end from EEG capture (10:15 UTC) through QC (10:30) + preprocess (10:32) + inference (10:33, conf 0.83) + XAI (SHAP) + RAG report (faithfulness 0.89) + HITL queue (10:33) + clinician approval (11:08 Dr.~Sharma) + doctor PDF delivered (11:09) + patient PDF via mobile + audit row persisted + drift sample added to monitor. Total elapsed: 53 minutes (within $\leq 30$-min HITL SLA exceeded due to peak-time inbox queue; flagged per Fig.~\ref{fig:incident_response_flow}). Aligned with EU AI Act Article 12 logging requirement.}
+\label{fig:audit_log_timeline_mockup}
+\end{figure}
