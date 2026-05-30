@@ -7112,6 +7112,99 @@ Responsible AI Deployment Roadmap & Managerial \\
 
 
 
+
+\subsection{Distinction Table: Theoretical Contributions}
+\label{sec:distinction_theory_contribution}
+
+\noindent The following distinction-level table summarizes the dissertation's contributions to theory, distinguishing between extensions to existing theories and novel theoretical propositions.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.8cm} >{\raggedright\arraybackslash}p{2.0cm} L L @{}}
+\caption[Theoretical Contributions Table]{Theoretical Contributions: type of contribution $\rightarrow$ source theory $\rightarrow$ extension.}\label{tab:distinction_theory_contribution} \\
+\toprule
+\thead{Contribution} & \thead{Type} & \thead{Source Theory} & \thead{Specific Extension} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Governance-Mediated Adoption Pathway & Novel proposition & TAM + Trust Theory + Responsible AI & Governance maturity introduced as upstream antecedent shaping explainability and trust formation in AI-assisted decision support \\
+\addlinespace
+TAM Extension for AI Era & Theory extension & Davis (1989) TAM & TAM's perceived usefulness + ease-of-use augmented with governance maturity as antecedent to explainability \\
+\addlinespace
+Trust-in-Automation Refinement & Theory refinement & Lee \& See (2004) Trust-in-Automation & Trust antecedents extended to include governance maturity alongside system characteristics \\
+\addlinespace
+Governance as Measurable Construct & Methodological contribution & Responsible AI literature & First operationalization of governance maturity as a multi-item Likert construct with established psychometric properties \\
+\addlinespace
+Socio-Technical Integration & Theory integration & Cherns (1976) Socio-Technical Systems & Demonstrates governance as the social subsystem mechanism through which AI (technical subsystem) achieves organizational fit \\
+\addlinespace
+TAM--TOE--RBV Synthesis & Theoretical integration & TAM + TOE + RBV & Joint use as TAM (individual adoption), TOE (organizational context), RBV (governance as capability) provides comprehensive adoption framework \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} Six theoretical contributions span novel propositions, theory extensions, and integrative synthesis. The governance-mediated adoption pathway constitutes the principal novel proposition. The TAM extension constitutes the principal theory extension.
+
+
+\subsection{Distinction Table: Framework Contributions (RGAIG Components)}
+\label{sec:distinction_framework_contribution}
+
+\noindent The following distinction-level table summarizes the components of the RGAIG Maturity Framework that constitute the principal artifact contribution of the dissertation.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.5cm} >{\raggedright\arraybackslash}p{3.0cm} L L @{}}
+\caption[Framework Contributions Table]{RGAIG Framework Components: layer $\rightarrow$ component $\rightarrow$ description $\rightarrow$ measurable maturity indicator.}\label{tab:distinction_framework_contribution} \\
+\toprule
+\thead{Layer} & \thead{Component} & \thead{Description} & \thead{Maturity Indicator} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+L1 & Transparency \& Explainability & SHAP attributions + RAG citations per AI output & Coverage \%, faithfulness, citation accuracy \\
+\addlinespace
+L2 & Accountability \& Audit & Per-decision audit row, request\_id propagation, immutable log & Audit-row completeness \%, log retention compliance \\
+\addlinespace
+L3 & Bias \& Fairness Monitoring & Disparate impact analysis, group-fairness gates, drift detection & DI ratio $\geq 0.8$, EO-gap $< 5\%$, drift PSI $< 0.2$ \\
+\addlinespace
+L4 & Human-in-the-Loop (HITL) & Confidence-gated routing; clinician confirmation required & HITL escalation \% on low-confidence outputs \\
+\addlinespace
+L5 & Continuous Monitoring \& Rollback & Live drift monitor + prompt/model registry rollback path & Time-to-detect drift; rollback tested in staging \\
+\addlinespace
+L6 & Risk \& Compliance Governance & ISO/IEC 42001 + NIST AI RMF + EU AI Act mapping & Compliance gate pass rate per audit \\
+\addlinespace
+L7 & Decision Authority \& Escalation & Clear ownership matrix; escalation paths for ambiguous decisions & Mean time to escalation resolution \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} The seven-layer RGAIG framework operationalizes Responsible AI governance into measurable maturity indicators. Each layer is independently evaluable and supports incremental maturity progression. Practical training materials for each layer are provided in Appendix~\ref{app:governance_training_program}.
+
+
+\subsection{Distinction Table: Research Question Answer Matrix}
+\label{sec:distinction_rq_answer_matrix}
+
+\noindent The following distinction-level table provides a single-page reference mapping each research question to its corresponding hypothesis, primary evidence, and one-sentence answer. This table is intended as an examiner quick-reference for the viva.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{0.8cm} >{\raggedright\arraybackslash}p{4.0cm} >{\centering\arraybackslash}p{1.2cm} L @{}}
+\caption[Research Question Answer Matrix]{Research Question Answer Matrix: RQ $\rightarrow$ hypothesis $\rightarrow$ evidence $\rightarrow$ one-sentence answer.}\label{tab:distinction_rq_answer_matrix} \\
+\toprule
+\thead{RQ\#} & \thead{Research Question (Abbreviated)} & \thead{Hypothesis} & \thead{Evidence-Backed Answer} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+RQ1 & Does governance maturity influence explainability in AI-assisted ASD screening? & H1 & Yes; $\beta=0.68$, $p<.001$, Cohen's $d=1.36$ (large effect) — governance maturity is a strong driver of perceived explainability \\
+\addlinespace
+RQ2 & Does explainability influence clinician trust? & H3 & Yes; $\beta=0.71$, $p<.001$, $d=1.48$ (strongest path in model) — explainability is the dominant trust antecedent \\
+\addlinespace
+RQ3 & Does trust influence adoption readiness? & H4 & Yes; $\beta=0.71$, $p<.001$, $d=1.42$ — trust translates directly to adoption intention \\
+\addlinespace
+RQ4 & Does explainability mediate governance$\rightarrow$trust? & H5 & Full mediation confirmed; indirect effect $0.48$ (95\% BCa CI [0.40, 0.56]); direct path attenuated when explainability included \\
+\addlinespace
+RQ5 & Does the integrated RGAIG framework predict adoption readiness? & H1--H6 jointly & Yes; full structural model explains $R^2=0.71$ of adoption variance; all hypotheses supported with large effect sizes \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} All five research questions have been empirically answered with supported hypotheses. RQ5 (the integrative question) is supported through the joint validation of H1--H6, providing converging evidence for the proposed governance-mediated adoption framework. The complete RGAIG framework predicts adoption readiness with $R^2=0.71$, indicating strong explanatory power consistent with established adoption research benchmarks.
+
 \subsection{Final Conclusion}
 \label{sec:final_conclusion}
 

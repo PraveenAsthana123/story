@@ -13662,6 +13662,76 @@ Identity locked to governance-trust-adoption pathway & DBA dissertation requires
 
 
 
+
+\subsection{Distinction Table: Measurement Model Specification}
+\label{sec:distinction_measurement_model}
+
+\noindent The following distinction-level table specifies how each construct in the conceptual model is operationalized, including the number of items per construct, the response scale, and the source theory that informed the measurement design.
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.8cm} >{\centering\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{2.3cm} L @{}}
+\caption[Measurement Model Specification]{Measurement Model Specification: construct $\rightarrow$ items $\rightarrow$ scale $\rightarrow$ source theory.}\label{tab:distinction_measurement_model} \\
+\toprule
+\thead{Construct} & \thead{Items} & \thead{Response Scale} & \thead{Source Theory + Operationalization Logic} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Governance Maturity (RGAIG) & 12 & 5-point Likert & RGAIG Framework + ISO/IEC 42001 + NIST AI RMF; measures governance capability across explainability, accountability, monitoring, HITL, audit dimensions \\
+\addlinespace
+Explainability & 6 & 5-point Likert & XAI literature (SHAP, LIME); measures perceived clarity, interpretability, and clinician usability of AI explanations \\
+\addlinespace
+Trust & 6 & 5-point Likert & Lee \& See (2004) Trust-in-Automation; measures reliance, perceived competence, predictability, and integrity \\
+\addlinespace
+Adoption Readiness & 6 & 5-point Likert & TAM (Davis 1989); measures perceived usefulness, perceived ease-of-use, and behavioral intention to adopt \\
+\addlinespace
+AI Familiarity (control) & 3 & 5-point Likert & Standard AI literacy measure; included as moderator/control variable \\
+\addlinespace
+Clinical Experience (control) & 1 & Years (open) & Demographic control variable \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} All measurement items underwent literature synthesis, expert review by 12-member panel, and pilot testing (n=15) before full deployment. Cronbach's $\alpha$ for each construct exceeded 0.70 (see Chapter~4 reliability assessment). Full survey instrument is provided in Appendix~\ref{app:survey_instrument}.
+
+
+\subsection{Distinction Table: Validation Matrix}
+\label{sec:distinction_validation_matrix}
+
+\noindent The following distinction-level table documents the complete set of validation procedures applied to the research instrument, the conceptual model, and the empirical findings, addressing all four classical threats to validity (construct, internal, external, statistical).
+
+{\tablestripes\tablefontsize
+\needspace{20\baselineskip}
+\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.5cm} >{\raggedright\arraybackslash}p{3.5cm} L @{}}
+\caption[Validation Matrix]{Validation Matrix: validity type $\rightarrow$ specific procedure $\rightarrow$ acceptance criterion.}\label{tab:distinction_validation_matrix} \\
+\toprule
+\thead{Validity Type} & \thead{Procedure} & \thead{Acceptance Criterion + Result} \\
+\midrule
+\endfirsthead
+\endhead
+\bottomrule
+\endlastfoot
+Construct (convergent) & Average Variance Extracted (AVE) per construct & AVE $\geq 0.50$; all constructs met \\
+\addlinespace
+Construct (discriminant) & Fornell--Larcker criterion + HTMT ratio & $\sqrt{\text{AVE}} > $ inter-construct correlations; HTMT $< 0.85$; both met \\
+\addlinespace
+Reliability (internal consistency) & Cronbach's $\alpha$ + Composite Reliability (CR) & $\alpha \geq 0.70$; CR $\geq 0.70$; all constructs met \\
+\addlinespace
+Common Method Bias & Harman's single-factor test + procedural separation & Single factor variance $< 50\%$; passed \\
+\addlinespace
+Non-Response Bias & Early-vs-late respondent t-tests across key constructs & No statistically significant differences; passed \\
+\addlinespace
+Structural Model Fit & SRMR + $d_{\text{ULS}}$ + $d_G$ + NFI & SRMR $< 0.08$; bootstrap CIs include all observed values; met \\
+\addlinespace
+Predictive Power & $R^2$ + $Q^2$ (Stone--Geisser) & $R^2 > 0.10$ all DVs; $Q^2 > 0$; met \\
+\addlinespace
+Statistical Power & Bootstrap 1{,}000 resamples + 95\% BCa CIs & All paths significant ($p < .001$); CIs exclude zero \\
+\addlinespace
+External Validity & Multi-stakeholder sample (clinicians + AI experts + admin) & Across 5 healthcare specialties; supports generalization \\
+\addlinespace
+Robustness (sensitivity) & Sub-group analysis across AI familiarity tiers & Path coefficients stable across sub-samples \\
+\end{xltabular}}
+\vspace{0.3em}\noindent\textit{Note.} All ten validation procedures were applied prior to interpretation of findings. Detailed statistics for each criterion are reported in Chapter~4, Section~\ref{sec:ch4_measurement_metrics} (measurement) and Section~\ref{sec:ch4_sem_results} (structural). Full criteria-by-result table is in Appendix~\ref{app:validation_evidence}.
+
 \subsection{Chapter 3 Examiner Summary}
 \label{sec:ch3_examiner_summary}
 
