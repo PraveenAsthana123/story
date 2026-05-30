@@ -25,6 +25,8 @@
 
 \noindent This table lists each \textit{pipeline} across trigger, latency target, slo, and 1 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
 
+
+
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} L L L L @{}}
 \caption[Pipeline Types]{Pipeline Types --- Training / Inference / Fallback / Vector DB / Output Eval.}\label{tab:pipeline_types} \\
@@ -63,6 +65,8 @@ Report generation pipeline & HITL-approved decision & $<$ 30 s per report & Per-
 
 
 \noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+
 
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
@@ -104,6 +108,8 @@ PII handling & No PII embedded in vectors; per-payload PII scan before insertion
 
 
 \noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+
 
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
@@ -149,6 +155,8 @@ Backup & Daily Neo4j-admin dump to S3 / MinIO \\
 
 \noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
 
+
+
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
 \caption[Cron LLM Cache]{Cron Jobs + LLM Model Registry + Cache DB.}\label{tab:cron_llm_cache} \\
@@ -189,6 +197,8 @@ Per-cache monitor & Per-cache hit-rate / miss-rate / eviction-rate logged hourly
 
 
 \noindent This table lists each \textit{technique} across purpose, implementation, and validation, so examiners can trace what was assessed and what evidence supports each row.
+
+
 
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} L L L @{}}
@@ -231,6 +241,8 @@ Post-retrieval (relevance filter) & Drop chunks below relevance threshold & Scor
 
 \noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
 
+
+
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
 \caption[Output Evaluation Ragas]{Output Evaluation --- Ragas Metrics + Custom Checks.}\label{tab:output_eval_ragas} \\
@@ -272,6 +284,8 @@ Eval-set composition & 100 held-out clinical questions per quarter; per-question
 
 
 \noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+
 
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
@@ -317,6 +331,8 @@ Novelty differentiator & Governance + explainability + cross-cohort + B2C-primar
 
 
 \noindent This table lists each \textit{phase} across l1 capture, l2 cloud, l3 xai, and 4 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+
 
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} L L L L L L L @{}}
@@ -365,6 +381,8 @@ Novelty differentiator & Governance + explainability + cross-cohort + B2C-primar
 
 \noindent This table lists each \textit{phase} across specific, measurable, achievable, and 2 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
 
+
+
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{2.0cm} L L L L L @{}}
 \caption[SMART Per Phase]{SMART(-E) Framework Per Pipeline Phase.}\label{tab:smart_per_phase} \\
@@ -411,6 +429,8 @@ Novelty differentiator & Governance + explainability + cross-cohort + B2C-primar
 
 
 \noindent This table lists each \textit{phase} across input, process, output, and 2 more dimensions, so examiners can trace what was assessed and what evidence supports each row.
+
+
 
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{1.6cm} >{\raggedright\arraybackslash}p{2.0cm} L @{}}
@@ -475,6 +495,8 @@ Reference data & \texttt{instrument\_\allowbreak ranges}, \texttt{normative\_\al
 
 \noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
 
+
+
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
 \caption[Survey + Report Save Schema]{Survey + Report Save Schema --- Per-Survey + Per-Report Persistence.}\label{tab:survey_report_save_schema} \\
@@ -516,6 +538,8 @@ Backup & Daily PostgreSQL pg\_\allowbreak dump $ -> $ S3 / MinIO; per-backup int
 
 
 \noindent This table lists each \textit{aspect} with its specification, so examiners can trace what was assessed and what evidence supports each row.
+
+
 
 {\tablestripes\tablefontsize
 \begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{3.2cm} L @{}}
