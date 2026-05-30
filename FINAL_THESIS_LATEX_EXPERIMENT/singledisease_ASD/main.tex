@@ -247,7 +247,8 @@
 \AtBeginEnvironment{longtable}{\tabfixsetup}
 \AtBeginEnvironment{xltabular}{\tabfixsetup}
 % Align longtable/xltabular left edge with paragraph text (was outdented by parindent)
-\setlength{\LTleft}{\parindent}
+% Use literal 0.5in to match \parindent set later in document settings
+\setlength{\LTleft}{0.5in}
 \setlength{\LTright}{0pt plus 1fill}
 % Override p{} column default in tabularx to use raggedright (prevents justified-text overflow)
 \renewcommand{\tabularxcolumn}[1]{>{\raggedright\tolerance=9999\hyphenpenalty=0\emergencystretch=5em\hfuzz=100pt\arraybackslash}p{#1}}
