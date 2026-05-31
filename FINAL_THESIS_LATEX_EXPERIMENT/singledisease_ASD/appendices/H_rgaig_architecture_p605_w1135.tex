@@ -252,7 +252,7 @@
 \node[bx]    (tr)  at (0,-6.8) {\textbf{Trust Evaluation}\\\scriptsize Calibrated trust forms};
 \node[bx]    (adop) at (0,-8.5) {\textbf{Adoption Readiness}\\\scriptsize Workflow integration};
 \foreach \a/\b in {c1/eeg, eeg/gov, gov/rev, rev/tr, tr/adop} { \draw[arr] (\a) -- (\b); }
-\draw[arr, dashed, bend left=60] (adop.east) to node[right, font=\scriptsize] {feedback} (c1.east);
+\draw[arr, dashed, bend left=60] (adop.east) to node[right, font=\fignodefont] {feedback} (c1.east);
 \end{tikzpicture}
 \caption[Human-Centered Workflow]{Human-Centered Workflow. The clinician initiates and concludes every screening event; AI is a decision-support layer mediated by governance and explainability. The dashed feedback loop closes the trust-calibration cycle by feeding clinician overrides back into governance monitoring. This figure is the DBA-grade architectural reduction of the dissertation's central pathway.}
 \label{fig:appo_human_workflow}
