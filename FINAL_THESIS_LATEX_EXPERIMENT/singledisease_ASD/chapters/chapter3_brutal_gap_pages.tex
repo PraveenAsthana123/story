@@ -12,7 +12,7 @@
 \noindent\emph{Dedicated pages closing the residual gaps identified in an internal brutal-feedback review: analysis flow, To-Do list, database design + schema, IV / DV / hypothesis matrix, preprocess deep-dive, EDA, feature engineering, normalisation, bias inventory, balanced / unbalanced data handling, semi-structured data, 1D / 2D conversion per phase. Each topic is a single-page dedicated reference per formatting policy.}
 
 
-\clearpage
+\par\bigskip
 \paragraph[Primary Data Analysis Flow]{Primary Data Analysis Flow ---.}
 
 
@@ -59,7 +59,7 @@
 \vspace{0.3em}\noindent\textit{Note.} Per-step output saved with reproducible random seed; per-step audit row written per dissertation governance policy.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Primary Data To-Do List]{Primary Data --- Active To-Do.}
 
 {\tablestripes\tablefontsize
@@ -91,7 +91,7 @@
 \vspace{0.3em}\noindent\textit{Note.} Each To-Do item has an owner + target quarter assigned in the per-quarter project plan; status tracked monthly.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Primary Data Database Design]{Primary Data Database Design ---.}
 
 
@@ -135,7 +135,7 @@ Retention policy & Per dissertation §\ref{sec:ethics_consent_anchor}: 7 years f
 \vspace{0.3em}\noindent\textit{Note.} Database engine: PostgreSQL 16 (production); SQLite acceptable for local development. Schema versioned via Alembic migrations; per-migration audit row written.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Secondary Data DB Schema]{Secondary Data DB Schema ---.}
 
 
@@ -179,7 +179,7 @@ Storage & Metadata in PostgreSQL; large binary (EEG files, feature matrices) in 
 \vspace{0.3em}\noindent\textit{Note.} Engine: PostgreSQL 16 + MinIO / S3 for blob; alternative SQLite + local disk for development. Migrations via Alembic; per-migration test verifies schema integrity.
 
 
-\clearpage
+\par\bigskip
 \paragraph[IV DV Hypothesis Matrix]{IV / DV / Hypothesis.}
 
 
@@ -216,7 +216,7 @@ H8 & Cross-cohort accuracy & External-validation accuracy & $\leq 5$ pp gap & KA
 \vspace{0.3em}\noindent\textit{Note.} Per-hypothesis IV / DV definition pre-registered before analysis. Effect-size threshold ($|\beta| \geq 0.20$ and $p $<$ 0.05$) per dissertation SAP.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Primary Data Preprocess Deep Dive]{Primary Data Preprocess Deep Dive.}
 
 
@@ -259,7 +259,7 @@ H8 & Cross-cohort accuracy & External-validation accuracy & $\leq 5$ pp gap & KA
 \vspace{0.3em}\noindent\textit{Note.} Preprocessing pre-registered before data analysis; any deviation reported with rationale. Drill suite verifies pre/post invariants per cleaning operation.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Primary Data EDA]{Primary Data EDA --- Per-Construct.}
 
 
@@ -301,7 +301,7 @@ Output deliverables & EDA notebook + EDA PDF + per-figure PNG + statistical summ
 \vspace{0.3em}\noindent\textit{Note.} EDA findings inform construct-aggregation choices and any further cleaning before SEM model fitting. Per-figure before/after snapshot saved.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Primary Data Feature Engineering]{Primary Data Feature Engineering ---.}
 
 
@@ -345,7 +345,7 @@ Per-feature literature anchor & Per derived feature: cite source paper for the o
 \vspace{0.3em}\noindent\textit{Note.} All derived features fully documented in \texttt{features/\allowbreak primary\_\allowbreak feature\_\allowbreak catalog.md}. Per-feature formula reproducible; per-feature test verifies formula consistency.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Primary Data Normalization]{Primary Data Normalization --- Method.}
 
 
@@ -387,7 +387,7 @@ Documentation per choice & Per-feature: documented choice of normalisation + rat
 \vspace{0.3em}\noindent\textit{Note.} Normalisation choices pre-registered before model fitting. Train-fold-only fit enforced via sklearn ColumnTransformer + Pipeline pattern.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Primary Data Bias Inventory]{Primary Data Bias Inventory ---.}
 
 
@@ -431,7 +431,7 @@ Publication bias (literature anchor) & Reviewed literature may skew toward posit
 \vspace{0.3em}\noindent\textit{Note.} Per-bias mitigation pre-registered before data collection. Sensitivity analysis tests each bias direction; results reported per Ch.~\ref{chap:discussion} limitations.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Balanced vs Unbalanced Data Handling]{Balanced vs Unbalanced Data Handling.}
 
 
@@ -475,7 +475,7 @@ Pre-registration & Balance-handling strategy pre-registered before model fitting
 \vspace{0.3em}\noindent\textit{Note.} Imbalance handling per dissertation §\ref{sec:primary_data_analysis_plan_inventory} subgroup + fairness plan. SMOTE / class-weight applied only in training fold; never on test fold (no leakage).
 
 
-\clearpage
+\par\bigskip
 \paragraph[Semi-Structured Data Handling]{Semi-Structured Data Handling --- PD-2.}
 
 
@@ -520,7 +520,7 @@ Per-source schema & \texttt{semi\_\allowbreak structured/\allowbreak <source>/\a
 \vspace{0.3em}\noindent\textit{Note.} Semi-structured data handled per Saldaña 3-stage qualitative coding methodology. Per-quote audit trail; per-theme provenance documented.
 
 
-\clearpage
+\par\bigskip
 \paragraph[1D 2D Conversion Per Phase]{1D / 2D Conversion Detail.}
 
 

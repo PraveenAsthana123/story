@@ -12,7 +12,7 @@
 \noindent\emph{Comprehensive advanced-architecture reference: pipeline types (training / inference / fallback), Qdrant vector DB + graph DB design, cron scheduling + LLM model registry, chunking + embedding + token + pre/post-retrieval, output evaluation (Ragas), accuracy + benchmarking + business value, RGAIG + SMART per phase, monitoring + governance + threshold + HITL summary, per-phase input/process/output/quality, DB master schema (master/transaction/org/condition/service/product/usage/consumption).}
 
 
-\clearpage
+\par\bigskip
 \paragraph[Pipeline Types]{Pipeline Types --- Training /.}
 
 
@@ -53,7 +53,7 @@ Report generation pipeline & HITL-approved decision & $<$ 30 s per report & Per-
 \vspace{0.3em}\noindent\textit{Note.} Per-pipeline SLO monitored continuously; per-SLO miss triggers RCA + corrective-action per governance policy.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Vector DB Qdrant]{Vector DB (Qdrant) --- Configuration.}
 
 
@@ -96,7 +96,7 @@ PII handling & No PII embedded in vectors; per-payload PII scan before insertion
 \vspace{0.3em}\noindent\textit{Note.} Qdrant chosen for production scale (Rust performance + persistent index); ChromaDB for local development. Per-collection test verifies recall$@5$ on held-out QA set before promotion.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Graph DB]{Graph DB Design --- Neo4j.}
 
 
@@ -142,7 +142,7 @@ Backup & Daily Neo4j-admin dump to S3 / MinIO \\
 \vspace{0.3em}\noindent\textit{Note.} Graph DB complements vector DB for relational queries (citation networks, method lineage, concept hierarchy). Per-quarter graph-quality eval: completeness vs ground-truth manual citations.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Cron LLM Cache]{Cron Jobs + LLM Model.}
 
 
@@ -185,7 +185,7 @@ Per-cache monitor & Per-cache hit-rate / miss-rate / eviction-rate logged hourly
 \vspace{0.3em}\noindent\textit{Note.} Cron-job schedules managed via Argo Workflows / Airflow; per-job alert on failure. LLM model selection logged per request (which model used + why).
 
 
-\clearpage
+\par\bigskip
 \paragraph[PII Index Retrieval Chunking]{PII + Index + Pre-Retrieval.}
 
 
@@ -228,7 +228,7 @@ Post-retrieval (relevance filter) & Drop chunks below relevance threshold & Scor
 \vspace{0.3em}\noindent\textit{Note.} Per-technique test verifies implementation invariant; chunking strategy + embedding model + reranker pinned in MLflow registry for reproducibility.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Output Evaluation Ragas]{Output Evaluation --- Ragas Metrics.}
 
 
@@ -272,7 +272,7 @@ Eval-set composition & 100 held-out clinical questions per quarter; per-question
 \vspace{0.3em}\noindent\textit{Note.} Ragas + custom checks form the output-quality contract; per-response eval row written to PostgreSQL; per-week aggregate dashboard.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Accuracy Benchmarking Business Value]{Accuracy + Benchmarking + Business.}
 
 
@@ -319,7 +319,7 @@ Novelty differentiator & Governance + explainability + cross-cohort + B2C-primar
 \vspace{0.3em}\noindent\textit{Note.} Benchmark numbers above are illustrative architecture-template values; real per-cohort results in Ch.~\ref{chap:analysis}. Business-value estimates from PD-2 expert-panel responses; not validated as hard ROI in current submission.
 
 
-\clearpage
+\par\bigskip
 \paragraph[RGAIG Per Phase]{RGAIG Framework Mapping.}
 
 
@@ -368,7 +368,7 @@ Novelty differentiator & Governance + explainability + cross-cohort + B2C-primar
 \vspace{0.3em}\noindent\textit{Note.} Per-phase RGAIG layer engagement documented; cross-phase L6 audit covers everything; L7 adoption tracked post-deployment.
 
 
-\clearpage
+\par\bigskip
 \paragraph[SMART Per Phase]{SMART(-E) Framework Per.}
 
 
@@ -417,7 +417,7 @@ Novelty differentiator & Governance + explainability + cross-cohort + B2C-primar
 \vspace{0.3em}\noindent\textit{Note.} Per-phase SMART-E pillar fulfilment scored 0--5; per-pillar target $\geq 4$. Aggregate per-quarter dashboard.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Per-Phase Quality Summary]{Per-Phase Quality Summary --- Input.}
 
 
@@ -454,7 +454,7 @@ Novelty differentiator & Governance + explainability + cross-cohort + B2C-primar
 \vspace{0.3em}\noindent\textit{Note.} Compact per-phase quality summary covering 8 phases (representative); full 20-phase detail in Tables~\ref{tab:sec_data_per_phase_deepdive} and~\ref{tab:sec_data_ai_dimensions_per_phase}.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Master DB Schema]{Master DB Schema --- Master.}
 
 {\tablestripes\tablefontsize
@@ -482,7 +482,7 @@ Reference data & \texttt{instrument\_\allowbreak ranges}, \texttt{normative\_\al
 \vspace{0.3em}\noindent\textit{Note.} Master schema follows star-schema pattern: fact tables (transaction / usage / consumption) reference dimension tables (master / org / condition / service / product / reference). Per-category audit trail. Engine: PostgreSQL 16; large transaction tables partitioned by date.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Survey + Report Save Schema]{Survey + Report Save Schema.}
 
 
@@ -526,7 +526,7 @@ Backup & Daily PostgreSQL pg\_\allowbreak dump $ -> $ S3 / MinIO; per-backup int
 \vspace{0.3em}\noindent\textit{Note.} Per-survey + per-report save policy enforced via DB trigger; per-write audit row written. Daily backup verified; quarterly restore test.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Data Flow + Reporting Flow]{Data Flow + Reporting Flow.}
 
 
