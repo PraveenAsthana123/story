@@ -293,7 +293,7 @@
 
 {\tablestripes\tablefontsize
 \needspace{20\baselineskip}
-\begin{xltabular}{\textwidth}{@{} >{\centering\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{3.3cm} p{9.5cm} @{}}
+\begin{xltabular}{\textwidth}{@{\extracolsep{\fill}} >{\centering\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{3.3cm} p{9.5cm} @{}}
 \caption[Governance Maturity-to-Architecture Mapping]{Governance Maturity-to-Architecture Mapping. Each RGAIG Maturity level (Chapter~1 Section~\ref{sec:rgaig_maturity_artifact}) corresponds to an architectural characteristic. Healthcare organizations advance levels by adding architectural capability, not by accumulating frameworks.}\label{tab:appo_maturity_arch} \\
 \toprule
 \thead{Lvl} & \thead{Maturity stage} & \thead{Architectural characteristic at this level} \\
@@ -881,7 +881,7 @@ The capability matrix consolidates the 24-feature Master Agent Capability Matrix
 
 {\tablestripes\tablefontsize
 \needspace{20\baselineskip}
-\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{2.5cm} p{3.5cm} p{3.9cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.0cm} @{}}
+\begin{xltabular}{\textwidth}{@{\extracolsep{\fill}} >{\raggedright\arraybackslash}p{1.0cm} >{\raggedright\arraybackslash}p{2.5cm} p{3.5cm} p{3.9cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{1.0cm} @{}}
 \caption[Tool Set 3: Extended Assurance Capabilities]{Tool Set 3: Extended Assurance Capabilities. These six tools are the regulatory evidence base: memory governance, provenance, simulation, and chaos engineering are the four legs of EU AI Act / NIST AI RMF / ISO 42001 conformance.}\label{tab:appo_toolset3} \\
 \toprule
 \thead{\#} & \thead{Tool} & \thead{Process} & \thead{Output / Monitoring} & \thead{Owner} & \thead{Pri} \\
@@ -952,7 +952,7 @@ Every clinical-decision invocation persists exactly one immutable audit row. The
 
 {\tablestripes\tablefontsize
 \needspace{20\baselineskip}
-\begin{xltabular}{\textwidth}{@{} >{\raggedright\arraybackslash}p{1.0cm} p{9.5cm} @{}}
+\begin{xltabular}{\textwidth}{@{\extracolsep{\fill}} >{\raggedright\arraybackslash}p{1.0cm} p{9.5cm} @{}}
 \caption[Decision Audit Row Schema]{Decision Audit Row Schema. Every field has a defined source, type, and retention rule; the schema is implemented in PostgreSQL (hot, 90 days) with cold archival to S3 (7-year retention for regulated decisions per HIPAA / GDPR / EU AI Act).}\label{tab:appo_audit_fields} \\
 \toprule
 \thead{Field} & \thead{Description} \\
