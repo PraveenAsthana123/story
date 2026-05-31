@@ -11,7 +11,7 @@
 \noindent\emph{Twenty-eight-table consolidated extras: per-stage detail-flow pages (preprocessing sub-steps, conversion, Fourier, SWT, healthy vs ASD comparison, EDA, graph projection, image conversion), per-stage governance pages (tool/technique, explainability, responsibility, secure AI, governance), model + evaluation + benchmarking pages, analysis-type list pages (statistical / sensitivity / subjective), and AS-IS vs TO-BE process pages (with Emotiv + IoT + Gateway). Each page is a single-page dedicated reference per formatting policy.}
 
 
-\clearpage
+\par\bigskip
 \paragraph[Preprocessing Detail Flow]{Preprocessing Detail Flow --- Sub-Steps.}
 
 
@@ -50,7 +50,7 @@ Sub-step 5.10 Audit log & Per-file JSON: pre/post SQI, IC count removed, epochs 
 \vspace{0.3em}\noindent\textit{Note.} Every parameter is pre-specified and recorded in the per-file audit log so the preprocessing is reproducible. Before/after PSD plots saved per sub-step.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Conversion Flow]{Conversion Flow --- EDF /.}
 
 
@@ -89,7 +89,7 @@ Output convention & sub-\(<\)ID\(>\)/ses-\(<\)N\(>\)/eeg/sub-\(<\)ID\(>\)\_ses-\
 \vspace{0.3em}\noindent\textit{Note.} BIDS-EEG (Brain Imaging Data Structure for EEG) per Pernet et al.\ 2019 is the canonical format choice; FIF is the per-record file inside the BIDS tree. The choice ensures interoperability with mne-python, EEGLAB, FieldTrip, and Brainstorm.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Fourier Transform Detail]{Fourier Transform Detail --- FFT.}
 
 
@@ -130,7 +130,7 @@ Validation & Parseval's theorem: \(\sum|x[n]|^2 = (1/N)\sum|X[k]|^2\); verify pe
 \vspace{0.3em}\noindent\textit{Note.} STFT trades time vs frequency resolution per Heisenberg time-frequency uncertainty; choice of 256-sample Hamming window at 256 Hz gives 1 Hz \(\times\) 0.5 s cells, suitable for EEG band analysis. For higher time resolution use shorter windows; for higher frequency resolution use longer windows.
 
 
-\clearpage
+\par\bigskip
 \paragraph[SWT Flow]{SWT (Stationary Wavelet.}
 
 
@@ -170,7 +170,7 @@ SWT vs DWT vs STFT & SWT: time-aligned, non-decimated, redundant. DWT: down-samp
 \vspace{0.3em}\noindent\textit{Note.} SWT is the dissertation's preferred multi-resolution time-frequency tool when temporal precision matters (e.g., per-trial ERP analysis); STFT is preferred for continuous-EEG spectral characterisation. The two are complementary and produce overlapping but distinct features.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Healthy vs ASD Data Window]{Healthy vs ASD Data Window --- Side-by-Side Comparison.}
 
 
@@ -211,7 +211,7 @@ Verdict per record & Within normative range across bands & Theta + gamma elevati
 \vspace{0.3em}\noindent\textit{Note.} Values are from the KAU-aligned autism reference dataset (\texttt{agentic/\allowbreak data/\allowbreak autism/\allowbreak sample/\allowbreak autism\_\allowbreak sample\_\allowbreak 100.csv}). Single-subject values are illustrative; cohort-level differences are reported in Ch.~\ref{chap:analysis} with effect sizes and confidence intervals. The pattern (gamma elevation + alpha suppression + theta excess) is consistent with published ASD-EEG biomarkers but per-subject variance is wide; classification requires multi-feature integration (Step 14).
 
 
-\clearpage
+\par\bigskip
 \paragraph[EDA (Exploratory Data Analysis)]{EDA --- Exploratory Data Analysis.}
 
 
@@ -252,7 +252,7 @@ Output deliverables & EDA notebook (Jupyter); EDA PDF report; per-figure PNG; st
 \vspace{0.3em}\noindent\textit{Note.} EDA runs before any inferential model fitting; findings inform feature selection (Step 13) and feature engineering choices. Per-step before/after EDA snapshots saved per Before/After Preprocessing Visualization policy.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Graph Projection]{Graph Projection ---.}
 
 
@@ -293,7 +293,7 @@ Sankey flow & Patient -> preprocessing-stage -> feature-extraction -> model deci
 \vspace{0.3em}\noindent\textit{Note.} Each projection answers a specific question: PCA = variance structure; t-SNE/UMAP = cluster separability; LDA = supervised separability; topomap = spatial pattern. Use multiple complementary projections, not just one.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Image Conversion (EEG -> Image)]{Image Conversion --- EEG 1D.}
 
 
@@ -334,7 +334,7 @@ Downstream consumer & EfficientNet-B0; ResNet-18; ViT-base/16; custom CNN-LSTM h
 \vspace{0.3em}\noindent\textit{Note.} Each image type captures a different EEG aspect: spectrogram = time-frequency; topomap = spatial; connectivity = relational. The CNN / ViT model selection depends on which image type best fits the downstream classification objective.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Tool + Technique per Stage]{Tool + Technique Used at.}
 
 
@@ -386,7 +386,7 @@ Step 23 Governance & Prometheus + Grafana; OpenTelemetry; Presidio (PII); Eviden
 \vspace{0.3em}\noindent\textit{Note.} Library choices favour open-source + reproducible options; commercial alternatives noted where relevant (Cohere reranker, OpenAI APIs).
 
 
-\clearpage
+\par\bigskip
 \paragraph[Explainability per Stage]{Explainability Contract at.}
 
 
@@ -438,7 +438,7 @@ Step 23 Governance & Per-request audit row; drift visualisation; alert trace \\
 \vspace{0.3em}\noindent\textit{Note.} The cumulative explainability contract makes every pipeline output fully traceable from end report back to raw EEG file. EU AI Act Article 86 right-to-explanation is satisfied by reconstructing the per-step trail.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Responsibility (RAI) per Stage]{Responsible AI (RAI) Contract at.}
 
 
@@ -490,7 +490,7 @@ Step 23 Governance & Continuous drift + bias monitoring; alert + RCA workflow \\
 \vspace{0.3em}\noindent\textit{Note.} RAI principles operationalised per stage make ethical compliance a verifiable contract, not an aspirational statement. Each row is drilled by the dissertation's drill suite.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Secure AI per Stage]{Secure AI Controls at Each.}
 
 
@@ -542,7 +542,7 @@ Step 23 Governance & SIEM integration; per-alert response runbook; quarterly pen
 \vspace{0.3em}\noindent\textit{Note.} Secure-AI per stage closes the OWASP Top 10 + AI-specific threat surfaces (A11 prompt injection, A12 insecure output, A13 data poisoning, A14 model theft, A15 excessive agency). 4-lens security policy.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Governance per Stage]{Governance Decision Gate at Each.}
 
 
@@ -594,7 +594,7 @@ Step 23 Governance & Owner: AI Operations + Security; gate: weekly review; per-a
 \vspace{0.3em}\noindent\textit{Note.} Per-stage governance assignment uses the dissertation's 15-role per-department structure (Manager / AI Reviewer / Clinical Reviewer / Data Steward / etc.). Decision audit row per gate fires per governance policy.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Model Architecture Detail]{Model Architecture Detail.}
 
 
@@ -635,7 +635,7 @@ Training environment & CUDA-enabled GPU (RTX 3090 / A100); pytorch 2.1; batch\_\
 \vspace{0.3em}\noindent\textit{Note.} All architectures reproducible from per-model JSON config saved under \texttt{{configs/\allowbreak model/\allowbreak <name>.json}}. Per-model checkpoint + training-curve diagnostics saved per run.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Accuracy per Model]{Accuracy per Model --- Per-Cohort.}
 
 
@@ -676,7 +676,7 @@ Baseline (random) & KAU: 0.50; ABIDE-II: 0.50 --- all model gains statistically 
 \vspace{0.3em}\noindent\textit{Note.} Accuracies above are illustrative architecture-template values; real per-cohort accuracies are in Ch.~\ref{chap:analysis}. Cross-cohort drop (KAU -> ABIDE-II) of \(\sim 5\) pp reflects expected site-effect; domain-adaptation techniques tested in Ch.~\ref{chap:discussion}.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Benchmarking Comparison]{Benchmarking Comparison --- This Work.}
 
 
@@ -717,7 +717,7 @@ Novelty vs SOTA & Per-cohort generalisability + governance contract is the disse
 \vspace{0.3em}\noindent\textit{Note.} Benchmarking comparison is updated quarterly as new ASD-EEG papers publish. The dissertation's value-add is the GOVERNANCE + EXPLAINABILITY + HITL layer atop competitive classification accuracy, not classification accuracy alone.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Statistical Analysis List]{Statistical Analysis List --- Comprehensive.}
 
 
@@ -771,7 +771,7 @@ Logistic regression & Binary outcome \(\sim\) predictors; odds ratios + 95\% CI 
 \vspace{0.3em}\noindent\textit{Note.} All statistical tests pre-specified in the Statistical Analysis Plan (SAP) per hypothesis (Table~\ref{tab:primary_analysis_sap_per_hypothesis}). Multiple-comparison strategy: BH-FDR for exploratory; Bonferroni for confirmatory.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Sensitivity Analysis List]{Sensitivity Analysis List --- Robustness.}
 
 {\tablestripes\tablefontsize
@@ -810,7 +810,7 @@ Publication-style bias check & Pre-register hypotheses + thresholds; 100\% match
 \vspace{0.3em}\noindent\textit{Note.} Sensitivity analyses contribute to the limitations narrative in Ch.~\ref{chap:discussion}; any sign-flip or magnitude-shift \(\geq 25\%\) under sensitivity is reported transparently and explained.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Subjective Analysis List]{Subjective Analysis List --- Qualitative.}
 
 
@@ -857,7 +857,7 @@ Verdict per research question & Convergent (4 of 5 evidence types agree) / Parti
 \vspace{0.3em}\noindent\textit{Note.} Subjective analyses provide the qualitative triangulation that complements the quantitative analyses (Table~\ref{tab:primary_analysis_sap_per_hypothesis}); mixed-methods integration per §\ref{sec:research_design_overview}.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Monte Carlo vs Bootstrap Note]{Monte Carlo vs Bootstrap ---.}
 
 {\tablestripes\tablefontsize
@@ -886,7 +886,7 @@ Reproducibility & Bootstrap random seed fixed (seed=42); per-resample results re
 \vspace{0.3em}\noindent\textit{Note.} Per dissertation policy: NO Monte Carlo / MCMC anywhere. Bootstrap is the dissertation's exclusive resampling method. Both primary and secondary data analyses use bootstrap CI; the choice is principled and documented.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Secondary Data Capture Process]{Secondary Data Capture Process ---.}
 
 
@@ -927,7 +927,7 @@ Step 12: RAG corpus inclusion & Per-dataset README + paper PDF indexed in RAG ve
 \vspace{0.3em}\noindent\textit{Note.} Secondary data capture is fully automated where source repositories permit. Manual access (KAU) requires per-request approval; the workflow accommodates both paths via per-dataset config.
 
 
-\clearpage
+\par\bigskip
 \paragraph[AS-IS Process (Detail)]{AS-IS Process (Detailed Flow) ---.}
 
 
@@ -971,7 +971,7 @@ AS-IS Cost driver & Clinician time (60\%) + behavioural assessment kit fees (15\
 \vspace{0.3em}\noindent\textit{Note.} AS-IS process documented from interviews with developmental pediatricians + neurologists + clinical psychologists during PD-2 expert panel and secondary literature on Indian + Western pediatric ASD pathways. Pain points map directly to TO-BE transformation targets.
 
 
-\clearpage
+\par\bigskip
 \paragraph[AS-IS Challenges]{AS-IS Challenges --- Friction Points.}
 
 
@@ -1018,7 +1018,7 @@ Challenge 18: Governance / audit gap & When AI tools are used: no audit trail; n
 \vspace{0.3em}\noindent\textit{Note.} Each challenge maps to one or more TO-BE features (Table~\ref{tab:to_be_emotiv_iot}). The 18-challenge inventory motivates the dissertation's 7-layer RGAIG architecture as a comprehensive response, not a narrow point-tool fix.
 
 
-\clearpage
+\par\bigskip
 \paragraph[TO-BE Process (Emotiv + IoT + Gateway)]{TO-BE Process --- Emotiv EEG.}
 
 {\tablestripes\tablefontsize

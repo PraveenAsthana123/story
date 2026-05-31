@@ -1,0 +1,106 @@
+%% Per-Instrument Score Distributions
+\begin{figure}[!htbp]
+\centering
+\resizebox{0.95\textwidth}{!}{%
+\begin{tikzpicture}[
+    every node/.style={font=\fignodefont},
+    bar/.style={rectangle, draw=ggunavy, fill=ggunavy!50, anchor=south, minimum width=0.35cm},
+    asd/.style={bar, fill=red!50!orange, draw=red!60!black},
+    ctrl/.style={bar, fill=blue!40, draw=blue!60!black},
+    axis/.style={->, >=stealth, thick, color=ggunavy},
+    label/.style={font=\figannotfont, color=ggunavy, anchor=north},
+    title/.style={font=\figtitlefont, color=ggunavy, anchor=south},
+]
+%% ADOS-2 (top-left)
+\begin{scope}[shift={(0,0)}]
+  \draw[axis] (0,0) -- (5,0) node[right, font=\figannotfont] {score};
+  \draw[axis] (0,0) -- (0,3) node[above, font=\figannotfont] {freq};
+  \node[asd, minimum height=0.5cm] at (0.5, 0) {};
+  \node[asd, minimum height=1.2cm] at (1.0, 0) {};
+  \node[asd, minimum height=2.0cm] at (1.5, 0) {};
+  \node[asd, minimum height=2.5cm] at (2.0, 0) {};
+  \node[asd, minimum height=1.8cm] at (2.5, 0) {};
+  \node[ctrl, minimum height=1.5cm] at (3.0, 0) {};
+  \node[ctrl, minimum height=2.0cm] at (3.5, 0) {};
+  \node[ctrl, minimum height=1.0cm] at (4.0, 0) {};
+  \node[label] at (2.5, -0.2) {0--24 total};
+  \node[title] at (2.5, 3.2) {ADOS-2};
+\end{scope}
+
+%% ADI-R (top-center)
+\begin{scope}[shift={(6,0)}]
+  \draw[axis] (0,0) -- (5,0) node[right, font=\figannotfont] {score};
+  \draw[axis] (0,0) -- (0,3) node[above, font=\figannotfont] {freq};
+  \node[asd, minimum height=0.8cm] at (0.5, 0) {};
+  \node[asd, minimum height=1.5cm] at (1.0, 0) {};
+  \node[asd, minimum height=2.2cm] at (1.5, 0) {};
+  \node[asd, minimum height=2.4cm] at (2.0, 0) {};
+  \node[asd, minimum height=1.6cm] at (2.5, 0) {};
+  \node[ctrl, minimum height=1.2cm] at (3.0, 0) {};
+  \node[ctrl, minimum height=1.7cm] at (3.5, 0) {};
+  \node[ctrl, minimum height=0.8cm] at (4.0, 0) {};
+  \node[label] at (2.5, -0.2) {social + comm + RRB};
+  \node[title] at (2.5, 3.2) {ADI-R};
+\end{scope}
+
+%% CARS-2 (top-right)
+\begin{scope}[shift={(12,0)}]
+  \draw[axis] (0,0) -- (5,0) node[right, font=\figannotfont] {score};
+  \draw[axis] (0,0) -- (0,3) node[above, font=\figannotfont] {freq};
+  \node[asd, minimum height=1.0cm] at (0.5, 0) {};
+  \node[asd, minimum height=1.6cm] at (1.0, 0) {};
+  \node[asd, minimum height=2.3cm] at (1.5, 0) {};
+  \node[asd, minimum height=2.1cm] at (2.0, 0) {};
+  \node[asd, minimum height=1.4cm] at (2.5, 0) {};
+  \node[ctrl, minimum height=1.3cm] at (3.0, 0) {};
+  \node[ctrl, minimum height=1.8cm] at (3.5, 0) {};
+  \node[ctrl, minimum height=0.9cm] at (4.0, 0) {};
+  \node[label] at (2.5, -0.2) {15--60 total};
+  \node[title] at (2.5, 3.2) {CARS-2};
+\end{scope}
+
+%% SRS-2 (bottom-left)
+\begin{scope}[shift={(0,-6)}]
+  \draw[axis] (0,0) -- (5,0) node[right, font=\figannotfont] {T-score};
+  \draw[axis] (0,0) -- (0,3) node[above, font=\figannotfont] {freq};
+  \node[asd, minimum height=0.6cm] at (0.5, 0) {};
+  \node[asd, minimum height=1.4cm] at (1.0, 0) {};
+  \node[asd, minimum height=2.2cm] at (1.5, 0) {};
+  \node[asd, minimum height=2.7cm] at (2.0, 0) {};
+  \node[asd, minimum height=2.0cm] at (2.5, 0) {};
+  \node[ctrl, minimum height=1.4cm] at (3.0, 0) {};
+  \node[ctrl, minimum height=1.9cm] at (3.5, 0) {};
+  \node[ctrl, minimum height=1.0cm] at (4.0, 0) {};
+  \node[label] at (2.5, -0.2) {social responsiveness};
+  \node[title] at (2.5, 3.2) {SRS-2};
+\end{scope}
+
+%% Vineland-3 (bottom-center)
+\begin{scope}[shift={(6,-6)}]
+  \draw[axis] (0,0) -- (5,0) node[right, font=\figannotfont] {std score};
+  \draw[axis] (0,0) -- (0,3) node[above, font=\figannotfont] {freq};
+  \node[ctrl, minimum height=0.5cm] at (0.5, 0) {};
+  \node[ctrl, minimum height=1.2cm] at (1.0, 0) {};
+  \node[ctrl, minimum height=1.8cm] at (1.5, 0) {};
+  \node[ctrl, minimum height=2.4cm] at (2.0, 0) {};
+  \node[ctrl, minimum height=2.0cm] at (2.5, 0) {};
+  \node[asd, minimum height=2.5cm] at (3.0, 0) {};
+  \node[asd, minimum height=1.9cm] at (3.5, 0) {};
+  \node[asd, minimum height=1.0cm] at (4.0, 0) {};
+  \node[label] at (2.5, -0.2) {adaptive behaviour};
+  \node[title] at (2.5, 3.2) {Vineland-3};
+\end{scope}
+
+%% Legend (bottom-right)
+\begin{scope}[shift={(12,-6)}]
+  \node[asd, minimum height=0.4cm] at (0.5, 0.5) {};
+  \node[anchor=west, font=\figannotfont, color=ggunavy] at (0.8, 0.65) {ASD-positive};
+  \node[ctrl, minimum height=0.4cm] at (0.5, 1.5) {};
+  \node[anchor=west, font=\figannotfont, color=ggunavy] at (0.8, 1.65) {Control};
+  \node[title] at (1.5, 3.2) {Legend};
+\end{scope}
+\end{tikzpicture}%
+}
+\caption[Per-Instrument Score Distributions]{Per-Instrument Score Distributions (illustrative) --- per-instrument histograms across ASD-positive (red) vs control (blue) cohorts for the 5 mandatory + preferred behavioural assessments: ADOS-2 (total 0--24), ADI-R (social + communication + RRB sub-scales), CARS-2 (15--60 total), SRS-2 (social responsiveness T-score), Vineland-3 (adaptive behaviour standard score). Expected pattern: ASD-positive scores skew higher on severity instruments (ADOS-2 / CARS-2 / SRS-2), lower on adaptive function (Vineland-3). Illustrative; actual KAU + Phase 2 distributions in Ch.~\ref{chap:analysis}.}
+\label{fig:instrument_score_distributions}
+\end{figure}

@@ -536,18 +536,23 @@ Output & #4 \\
 %   Captions:       \normalsize = 12pt  regular    (matches body)
 %   Notes:          \normalsize = 12pt  regular    (matches body)
 %-------------------------------------------------------------------------------
+% 2026-05-30: Lowered needspace 24->16 for section/subsection and 24->12 for
+% subsubsection. 24 baselines (~7.2in) was forcing premature page breaks when
+% only 6in remained free, leaving large empty bottoms (audit found 1,214 of
+% 2,214 pages with low-content extent). 16 baselines (~4.8in) still protects
+% against orphaned headings while reclaiming roughly 2in per affected page.
 \titleformat{\section}
-  {\needspace{24\baselineskip}\normalfont\normalsize\bfseries\color{sectioncolor}\raggedright}
+  {\needspace{16\baselineskip}\normalfont\normalsize\bfseries\color{sectioncolor}\raggedright}
   {}
   {0pt}
   {}
 \titleformat{\subsection}
-  {\needspace{24\baselineskip}\normalfont\normalsize\bfseries\color{ggunavy}\raggedright}
+  {\needspace{16\baselineskip}\normalfont\normalsize\bfseries\color{ggunavy}\raggedright}
   {}
   {0pt}
   {}
 \titleformat{\subsubsection}
-  {\needspace{24\baselineskip}\normalfont\normalsize\bfseries\itshape\color{ggunavy}\raggedright}
+  {\needspace{12\baselineskip}\normalfont\normalsize\bfseries\itshape\color{ggunavy}\raggedright}
   {}
   {0pt}
   {}

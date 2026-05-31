@@ -14,7 +14,7 @@
 \noindent\emph{Twenty-four-table single-page-per-step architecture reference: one dedicated page for sample data, twenty-three for pipeline steps, six for cross-cutting techniques. Each page consolidates purpose, technique, input, output, model parameters, and validation criterion for the step. Anchored to the KAU-style autism reference dataset ($n=100$ subjects, 50 engineered features per subject) so every step page can refer to concrete sample data shown in Table~\ref{tab:pipeline_sample_data}.}
 
 
-\clearpage
+\par\bigskip
 \paragraph{Sample Data View.}
 
 {\tablestripes\tablefontsize
@@ -41,7 +41,7 @@
 \vspace{0.3em}\noindent\textit{Note.} $\delta, \theta, \alpha, \beta, \gamma$ = standard EEG frequency bands (delta 0.5--4 Hz, theta 4--8 Hz, alpha 8--13 Hz, beta 13--30 Hz, gamma 30--45 Hz). Hjorth mobility, Sample entropy, and Hurst exponent are temporal-nonlinear complexity measures. Full feature inventory is 50 columns per record (statistical 15 + spectral 18 + temporal 9 + nonlinear 8). Source: \texttt{agentic/\allowbreak data/\allowbreak autism/\allowbreak sample/\allowbreak autism\_\allowbreak sample\_\allowbreak 100.csv} (n=100, 5 autism + 5 control extracted here for display).
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 1 --- Research Objective]{Step 1 ---.}
 
 
@@ -79,7 +79,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 1 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 1 and the downstream consumer is Step 2. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 2 --- Data Collection]{Step 2 --- Data Collection.}
 
 {\tablestripes\tablefontsize
@@ -105,7 +105,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 2 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 1 and the downstream consumer is Step 3. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 3 --- Data Standardization]{Step 3 --- Data Standardization.}
 
 {\tablestripes\tablefontsize
@@ -131,7 +131,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 3 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 2 and the downstream consumer is Step 4. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 4 --- Raw EEG Quality Check]{Step 4 --- Raw EEG Quality Check.}
 
 {\tablestripes\tablefontsize
@@ -157,7 +157,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 4 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 3 and the downstream consumer is Step 5. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 5 --- Preprocessing]{Step 5 --- Preprocessing.}
 
 {\tablestripes\tablefontsize
@@ -183,7 +183,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 5 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 4 and the downstream consumer is Step 6. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 6 --- Epoching]{Step 6 --- Epoching.}
 
 {\tablestripes\tablefontsize
@@ -209,7 +209,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 6 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 5 and the downstream consumer is Step 7. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 7 --- 1D Signal Preparation]{Step 7 --- 1D Signal Preparation.}
 
 {\tablestripes\tablefontsize
@@ -235,7 +235,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 7 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 6 and the downstream consumer is Step 8. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 8 --- Time-Frequency Transform]{Step 8 --- Time-Frequency Transform.}
 
 {\tablestripes\tablefontsize
@@ -261,7 +261,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 8 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 7 and the downstream consumer is Step 9. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 9 --- 1D to 2D Conversion]{Step 9 --- 1D to 2D Conversion.}
 
 {\tablestripes\tablefontsize
@@ -287,7 +287,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 9 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 8 and the downstream consumer is Step 10. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 10 --- Normalization]{Step 10 --- Normalization.}
 
 {\tablestripes\tablefontsize
@@ -313,7 +313,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 10 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 9 and the downstream consumer is Step 11. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 11 --- Feature Extraction]{Step 11 --- Feature Extraction.}
 
 {\tablestripes\tablefontsize
@@ -339,7 +339,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 11 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 10 and the downstream consumer is Step 12. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 12 --- Feature Evaluation]{Step 12 --- Feature Evaluation.}
 
 {\tablestripes\tablefontsize
@@ -365,7 +365,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 12 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 11 and the downstream consumer is Step 13. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 13 --- Feature Selection]{Step 13 --- Feature Selection.}
 
 {\tablestripes\tablefontsize
@@ -391,7 +391,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 13 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 12 and the downstream consumer is Step 14. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 14 --- Model Training]{Step 14 --- Model Training.}
 
 {\tablestripes\tablefontsize
@@ -417,7 +417,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 14 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 13 and the downstream consumer is Step 15. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 15 --- Model Validation]{Step 15 --- Model Validation.}
 
 {\tablestripes\tablefontsize
@@ -443,7 +443,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 15 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 14 and the downstream consumer is Step 16. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 16 --- Model Evaluation]{Step 16 --- Model Evaluation.}
 
 {\tablestripes\tablefontsize
@@ -469,7 +469,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 16 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 15 and the downstream consumer is Step 17. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 17 --- Explainable AI]{Step 17 --- Explainable AI.}
 
 {\tablestripes\tablefontsize
@@ -495,7 +495,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 17 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 16 and the downstream consumer is Step 18. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 18 --- RAG Knowledge Layer]{Step 18 --- RAG Knowledge Layer.}
 
 {\tablestripes\tablefontsize
@@ -521,7 +521,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 18 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 17 and the downstream consumer is Step 19. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 19 --- Retrieval]{Step 19 --- Retrieval.}
 
 {\tablestripes\tablefontsize
@@ -547,7 +547,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 19 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 18 and the downstream consumer is Step 20. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 20 --- RAG Report Generation]{Step 20 --- RAG Report Generation.}
 
 {\tablestripes\tablefontsize
@@ -573,7 +573,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 20 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 19 and the downstream consumer is Step 21. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 21 --- Human Review (HITL)]{Step 21 --- Human Review (HITL).}
 
 {\tablestripes\tablefontsize
@@ -599,7 +599,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 21 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 20 and the downstream consumer is Step 22. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 22 --- Final Output]{Step 22 --- Final Output.}
 
 {\tablestripes\tablefontsize
@@ -625,7 +625,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 22 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 21 and the downstream consumer is Step 23. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Step 23 --- Governance + Monitoring]{Step 23 --- Governance + Monitoring.}
 
 {\tablestripes\tablefontsize
@@ -651,7 +651,7 @@ Sample-data anchor & See Table~\ref{tab:pipeline_sample_data} for KAU-style refe
 \vspace{0.3em}\noindent\textit{Note.} This dedicated page documents Step 23 of the 23-step ASD-EEG pipeline; the upstream input comes from Step 22 and the downstream consumer is Step 23. The full pipeline expanded reference is in Table~\ref{tab:asd_23step_expanded}. The dissertation's drill suite verifies each step's output against its validation criterion before downstream steps consume it.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Technique: Chunking Strategy]{Technique.}
 
 {\tablestripes\tablefontsize
@@ -676,7 +676,7 @@ Validation criterion & Retrieval recall@5 on held-out QA set; chunk-size sweep. 
 \vspace{0.3em}\noindent\textit{Note.} This technique page is a sub-detail of the dissertation's 23-step pipeline (Table~\ref{tab:asd_23step_expanded}); the parent step's page provides upstream + downstream context. The drill suite verifies the technique's implementation matches its specification before pipeline integration.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Technique: Tokenization]{Technique.}
 
 {\tablestripes\tablefontsize
@@ -701,7 +701,7 @@ Validation criterion & Round-trip decode = original text; token count within mod
 \vspace{0.3em}\noindent\textit{Note.} This technique page is a sub-detail of the dissertation's 23-step pipeline (Table~\ref{tab:asd_23step_expanded}); the parent step's page provides upstream + downstream context. The drill suite verifies the technique's implementation matches its specification before pipeline integration.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Technique: Embedding]{Technique.}
 
 {\tablestripes\tablefontsize
@@ -726,7 +726,7 @@ Validation criterion & Embedding-quality eval: STS-B (text); ASD-vs-control line
 \vspace{0.3em}\noindent\textit{Note.} This technique page is a sub-detail of the dissertation's 23-step pipeline (Table~\ref{tab:asd_23step_expanded}); the parent step's page provides upstream + downstream context. The drill suite verifies the technique's implementation matches its specification before pipeline integration.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Technique: MCP Tool Invocation]{Technique.}
 
 {\tablestripes\tablefontsize
@@ -751,7 +751,7 @@ Validation criterion & Per-tool latency p95; scope-rejection drill; audit-row co
 \vspace{0.3em}\noindent\textit{Note.} This technique page is a sub-detail of the dissertation's 23-step pipeline (Table~\ref{tab:asd_23step_expanded}); the parent step's page provides upstream + downstream context. The drill suite verifies the technique's implementation matches its specification before pipeline integration.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Technique: Computer Vision]{Technique.}
 
 {\tablestripes\tablefontsize
@@ -776,7 +776,7 @@ Validation criterion & Per-class accuracy; learning-curve diagnostics; Grad-CAM 
 \vspace{0.3em}\noindent\textit{Note.} This technique page is a sub-detail of the dissertation's 23-step pipeline (Table~\ref{tab:asd_23step_expanded}); the parent step's page provides upstream + downstream context. The drill suite verifies the technique's implementation matches its specification before pipeline integration.
 
 
-\clearpage
+\par\bigskip
 \paragraph[Technique: Time-Series Modeling]{Technique.}
 
 {\tablestripes\tablefontsize
