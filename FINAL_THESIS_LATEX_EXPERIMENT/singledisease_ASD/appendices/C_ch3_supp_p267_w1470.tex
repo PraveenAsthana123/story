@@ -1045,7 +1045,13 @@ Table~\ref{tab:8phase_overview} summarises the eight-phase deep learning analysi
 \node[govbx] (g4)  at (0,-10.5) {\textbf{Gov Step:}\ Override rationale capture};
 \node[eegbx] (s5)  at (0,-12.0) {\textbf{5.\ Decision Support Output}\\\scriptsize EHR-integrated; clinician decision recorded};
 \foreach \a/\b in {s1/g1, g1/s2, s2/g2, g2/s3, s3/g3, g3/s4, s4/g4, g4/s5} { \draw[arr] (\a) -- (\b); }
-\draw[arr, dashed, bend left=70] (s5.east) to node[right, font=\scriptsize] {feedback to governance} (s2.east);
+% 2026-05-30 fix: previous bend left=70 placed the 'feedback to governance'
+% label directly on top of the 'Audit log + traceability' (g3) box. Route the
+% dashed arrow far to the right via out=0/in=0/looseness=3, and place the
+% label outside the box column with align=left + two-line break.
+\draw[arr, dashed] (s5.east) to[out=0, in=0, looseness=3]
+    node[right=8pt, midway, font=\scriptsize, align=left] {feedback\\to governance}
+    (s2.east);
 \end{tikzpicture}
 \caption[Human-Centered EEG Workflow]{Human-Centered EEG Workflow with Embedded Governance. The clinician remains the decision-maker at Stage~4 (HITL); governance steps (orange italic boxes) are not separate from the workflow but are embedded between every EEG processing stage. This figure replaces the engineering-centric pipeline view in this appendix's deeper sections; the technical phases appear here only as supporting context.}
 \label{fig:eeg_human_workflow}
